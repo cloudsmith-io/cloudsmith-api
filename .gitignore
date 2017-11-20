@@ -1,0 +1,5 @@
+# Unencrypted deploy key
+.travis/deploy
+
+# Virtualenv
+.venv

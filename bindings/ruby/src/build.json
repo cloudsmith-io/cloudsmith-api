@@ -1,0 +1,15 @@
+{
+    "allowUnicodeIdentifiers": true,
+    "ensureUniqueParams": true,
+    "gemAuthor": "Cloudsmith Ltd",
+    "gemAuthorEmail": "support@cloudsmith.io",
+    "gemLicense": "Apache-2.0",
+    "gemHomepage": "https://api.cloudsmith.io/",
+    "gemName": "cloudsmith-api",
+    "gemRequiredRubyVersion": ">= 1.9",
+    "gemSummary": "Cloudsmith API",
+    "gemVersion": "0.21.4",
+    "hideGenerationTimestamp": true,
+    "moduleName": "CloudsmithApi",
+    "sortParamsByRequiredFlag": true
+}

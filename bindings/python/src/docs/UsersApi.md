@@ -1,0 +1,69 @@
+# cloudsmith_api.UsersApi
+
+All URIs are relative to *https://api-prd.cloudsmith.io/v1*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**users_profile_read**](UsersApi.md#users_profile_read) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
+
+
+# **users_profile_read**
+> UserProfile users_profile_read(slug)
+
+Provide a brief for the specified user (if any).
+
+Provide a brief for the specified user (if any).
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.UsersApi()
+slug = 'slug_example' # str | 
+
+try: 
+    # Provide a brief for the specified user (if any).
+    api_response = api_instance.users_profile_read(slug)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->users_profile_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **slug** | **str**|  | 
+
+### Return type
+
+[**UserProfile**](UserProfile.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

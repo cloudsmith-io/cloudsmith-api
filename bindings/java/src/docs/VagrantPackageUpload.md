@@ -1,0 +1,62 @@
+
+# VagrantPackageUpload
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**status** | **String** | The synchronisation status of the package. |  [optional]
+**stageUpdatedAt** | **String** | The datetime the package stage was updated at. |  [optional]
+**checksumSha512** | **String** |  |  [optional]
+**isSyncFailed** | **Boolean** |  |  [optional]
+**syncFinishedAt** | **String** | The datetime the package sync was finished at. |  [optional]
+**checksumSha256** | **String** |  |  [optional]
+**repositoryUrl** | **String** |  |  [optional]
+**isSyncInProgress** | **Boolean** |  |  [optional]
+**size** | **Integer** | The calculated size of the package. |  [optional]
+**statusStr** | **String** |  |  [optional]
+**isSyncAwaiting** | **Boolean** |  |  [optional]
+**numFiles** | **Integer** |  |  [optional]
+**statusUrl** | **String** |  |  [optional]
+**statusUpdatedAt** | **String** | The datetime the package status was updated at. |  [optional]
+**namespace** | **String** |  |  [optional]
+**distroVersion** | **Object** |  |  [optional]
+**filename** | **String** |  |  [optional]
+**syncProgress** | **Integer** | Synchronisation progress (from 0-100) |  [optional]
+**epoch** | **Integer** | The epoch of the package version (if any). |  [optional]
+**version** | **String** | The version of this package. | 
+**isSyncInFlight** | **Boolean** |  |  [optional]
+**namespaceUrl** | **String** |  |  [optional]
+**slugPerm** | **String** |  |  [optional]
+**uploaderUrl** | **String** |  |  [optional]
+**checksumSha1** | **String** |  |  [optional]
+**distro** | **Object** |  |  [optional]
+**files** | [**List&lt;RpmPackageUploadFiles&gt;**](RpmPackageUploadFiles.md) |  |  [optional]
+**cdnUrl** | **String** |  |  [optional]
+**description** | **String** | A textual description of this package. |  [optional]
+**repository** | **String** |  |  [optional]
+**format** | **String** |  |  [optional]
+**isSyncCompleted** | **Boolean** |  |  [optional]
+**downloads** | **String** |  |  [optional]
+**provider** | **String** | The virtual machine provider for the box. | 
+**versionOrig** | **String** |  |  [optional]
+**architectures** | [**List&lt;RpmPackageUploadArchitectures&gt;**](RpmPackageUploadArchitectures.md) |  |  [optional]
+**uploader** | **String** |  |  [optional]
+**selfHtmlUrl** | **String** |  |  [optional]
+**stage** | **String** | The synchronisation (in progress) stage of the package. |  [optional]
+**selfUrl** | **String** |  |  [optional]
+**slug** | **String** |  |  [optional]
+**uploadedAt** | **String** | The date this package was uploaded. |  [optional]
+**name** | **String** | The name of this package. |  [optional]
+**license** | **String** | The license of this package. |  [optional]
+**stageStr** | **String** |  |  [optional]
+**packageType** | **String** | The type of package contents. |  [optional]
+**summary** | **String** | A one-liner synopsis of this package. |  [optional]
+**subtype** | **String** |  |  [optional]
+**checksumMd5** | **String** |  |  [optional]
+**extension** | **String** |  |  [optional]
+**release** | **String** | The release of the package version (if any). |  [optional]
+**typeDisplay** | **String** |  |  [optional]
+**formatUrl** | **String** |  |  [optional]
+
+
+
