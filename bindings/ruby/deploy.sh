@@ -10,12 +10,30 @@ build_distribution() {
   echo "Building distribution ..."
   rm -f *.gem
   bundle install --path vendor/bundle --clean
-  bundle exec gem build ${project_dash}.gemspec
+  gem build ${project_dash}.gemspec
+}
+
+check_rubygems_not_pushed() {
+  local curdir=$(pwd)
+  local tmpdir=$(mktemp -d)
+  cd $tmpdir
+
+  gem fetch cloudsmith-api -v ${api_version} | grep ERROR &>/dev/null
+  local does_not_exist=$?
+  rm -rf *.gem
+  cd $curdir
+
+  return $does_not_exist
 }
 
 upload_to_rubygems() {
-  echo "Uploading to Rubygems (skipped) ..."
-  gem_args="\
+  echo "Uploading to Rubygems ..."
+
+  check_rubygems_not_pushed || {
+    return 0
+  }
+
+  local gem_args="\
     ${project_dash}-${api_version}.gem"
 
   test "$TRAVIS" == "true" && {
@@ -24,11 +42,11 @@ upload_to_rubygems() {
 ---
 :rubygems_api_key: $RUBYGEMS_API_KEY
 EOH
-    bundle exec gem push \
+    gem push \
       $gem_args \
       -k rubygems
   } || {
-    bundle exec gem push \
+    gem push \
       $gem_args
   }
 }
