@@ -44,6 +44,5 @@ upload_to_cloudsmith() {
 set -e
 cd $src_dir
 build_distribution
-exit 0
 upload_to_rubygems
 upload_to_cloudsmith
