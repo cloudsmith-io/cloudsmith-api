@@ -7,5 +7,6 @@ root_dir=$(readlink -f "$self_dir/../..")
 src_dir="$self_dir/src"
 
 cd $src_dir
-bundle install --path vendor/bundle
+rm -f *.gem
+bundle install --path vendor/bundle --clean
 bundle exec rake spec

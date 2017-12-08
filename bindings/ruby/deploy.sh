@@ -8,8 +8,8 @@ src_dir="$self_dir/src"
 
 build_distribution() {
   echo "Building distribution ..."
-  rm -rf ${project_dash}-${api_version}.gem
-  bundle install --path vendor/bundle
+  rm -f *.gem
+  bundle install --path vendor/bundle --clean
   bundle exec gem build ${project_dash}.gemspec
 }
 
@@ -44,5 +44,6 @@ upload_to_cloudsmith() {
 set -e
 cd $src_dir
 build_distribution
+exit 0
 upload_to_rubygems
 upload_to_cloudsmith
