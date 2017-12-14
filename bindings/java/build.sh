@@ -13,7 +13,7 @@ mkdir -p $src_dir
 cat > $build_json <<EOC
 {
     "allowUnicodeIdentifiers": $allow_unicode_identifiers,
-    "apiPackage": "io.cloudsmith.apis",
+    "apiPackage": "io.cloudsmith.api.apis",
     "artifactId": "$project_dash",
     "artifactUrl": "$api_url",
     "artifactVersion": "$api_version",
@@ -29,9 +29,9 @@ cat > $build_json <<EOC
     "library": "okhttp-gson",
     "licenseName": "$license",
     "licenseUrl": "$license_url",
-    "invokerPackage": "io.cloudsmith",
-    "groupId": "io.cloudsmith",
-    "modelPackage": "io.cloudsmith.models",
+    "invokerPackage": "io.cloudsmith.api",
+    "groupId": "io.cloudsmith.api",
+    "modelPackage": "io.cloudsmith.api.models",
     "parcelableModel": false,
     "performBeanValidation": true,
     "serializableModel": true,
