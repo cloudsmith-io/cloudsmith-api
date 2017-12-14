@@ -19,11 +19,11 @@ Get a list of all namespaces the user belongs to.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.NamespacesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.NamespacesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -87,11 +87,11 @@ Views for working with namespaces.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.NamespacesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.NamespacesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

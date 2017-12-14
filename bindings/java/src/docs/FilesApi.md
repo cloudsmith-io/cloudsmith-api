@@ -19,11 +19,11 @@ Request URL(s) to POST new package file upload(s) to.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.FilesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.FilesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -89,11 +89,11 @@ Validate parameters used for create.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.FilesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.FilesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

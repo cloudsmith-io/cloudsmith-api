@@ -19,11 +19,11 @@ Get a list of all repositories within a namespace.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.ReposApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -89,11 +89,11 @@ Views for working with repositories.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.ReposApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

@@ -35,11 +35,11 @@ Delete a specific package in a repository.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -104,11 +104,11 @@ Views for working with repository packages.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -176,11 +176,11 @@ Get a specific package in a repository.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -246,11 +246,11 @@ Get the synchronisation status for a package.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -316,11 +316,11 @@ Create a new Debian package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -386,11 +386,11 @@ Create a new Maven package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -456,11 +456,11 @@ Create a new Python package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -526,11 +526,11 @@ Create a new Raw package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -596,11 +596,11 @@ Create a new RedHat package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -666,11 +666,11 @@ Create a new Ruby package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -736,11 +736,11 @@ Create a new Vagrant package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -806,11 +806,11 @@ Validate parameters for create Debian package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -875,11 +875,11 @@ Validate parameters for create Maven package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -944,11 +944,11 @@ Validate parameters for create Python package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -1013,11 +1013,11 @@ Validate parameters for create Raw package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -1082,11 +1082,11 @@ Validate parameters for create RedHat package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -1151,11 +1151,11 @@ Validate parameters for create Ruby package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -1220,11 +1220,11 @@ Validate parameters for create Vagrant package
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.PackagesApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

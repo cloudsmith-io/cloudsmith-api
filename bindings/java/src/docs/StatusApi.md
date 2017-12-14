@@ -18,8 +18,8 @@ Endpoint to check basic API connectivity.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.apis.StatusApi;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.apis.StatusApi;
 
 
 StatusApi apiInstance = new StatusApi();

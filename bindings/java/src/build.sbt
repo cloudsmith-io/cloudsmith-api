@@ -1,6 +1,6 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "io.cloudsmith",
+    organization := "io.cloudsmith.api",
     name := "cloudsmith-api",
     version := "0.21.4",
     scalaVersion := "2.11.4",

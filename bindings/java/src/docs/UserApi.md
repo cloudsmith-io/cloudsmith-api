@@ -19,11 +19,11 @@ Provide a brief for the current user (if any).
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.UserApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.UserApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -81,11 +81,11 @@ Retrieve the API key/token for the authenticated user.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.ApiClient;
-//import io.cloudsmith.ApiException;
-//import io.cloudsmith.Configuration;
-//import io.cloudsmith.auth.*;
-//import io.cloudsmith.apis.UserApi;
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.UserApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

@@ -26,7 +26,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-    <groupId>io.cloudsmith</groupId>
+    <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
     <version>0.21.4</version>
     <scope>compile</scope>
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith:cloudsmith-api:0.21.4"
+compile "io.cloudsmith.api:cloudsmith-api:0.21.4"
 ```
 
 ### Others
@@ -58,10 +58,10 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import io.cloudsmith.*;
-import io.cloudsmith.auth.*;
-import io.cloudsmith.models.*;
-import io.cloudsmith.apis.DistrosApi;
+import io.cloudsmith.api.*;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.DistrosApi;
 
 import java.io.File;
 import java.util.*;
