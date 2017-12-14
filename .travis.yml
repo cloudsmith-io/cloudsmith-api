@@ -63,10 +63,7 @@ script:
   - ./scripts/push.sh $BINDING
 
 before_deploy:
-  - pyenv versions
-  - pyenv install --skip-existing
-  - pyenv rehash
-  - pyenv global 2.7.13
+  - pyenv global 2.7
   - pip install --upgrade pip
   - pip install --upgrade setuptools
   - pip install --upgrade wheel
