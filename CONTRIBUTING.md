@@ -8,7 +8,7 @@ By making any contributions to Cloudsmith Ltd projects you agree to be bound by 
 
 ## Coding Conventions
 
-TODO - We're not sure what the tooling will be yet. :-)
+Follow existing structure and style of the build and release scripts. Languages bindings are generated automatically.
 
 ## Need Help?
 
