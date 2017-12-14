@@ -63,12 +63,14 @@ script:
   - ./scripts/push.sh $BINDING
 
 before_deploy:
+  - pyenv versions
+  - pyenv install --skip-existing
+  - pyenv rehash
   - pyenv global 2.7.13
   - pip install --upgrade pip
   - pip install --upgrade setuptools
   - pip install --upgrade wheel
-  - pip install cloudsmith-cli
-  - pip install twine
+  - pip install cloudsmith-cli twine
 
 deploy:
   provider: script
@@ -76,14 +78,6 @@ deploy:
   script: ./scripts/deploy.sh $BINDING
   on:
     branch: master
-
-# deploy:
-#   - provider: github
-#     on:
-#       branch: master
-#   - provider: script
-#     on:
-#       branch: master
 
 notifications:
   email:
