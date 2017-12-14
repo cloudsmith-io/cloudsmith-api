@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+self=$(readlink -f $BASH_SOURCE)
+self_dir=$(dirname $self)
+java -jar $self_dir/swagger-codegen-cli.jar $@

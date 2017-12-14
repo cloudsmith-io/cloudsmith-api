@@ -21,7 +21,7 @@ cat > $build_json <<EOC
 }
 EOC
 
-java -jar $root_dir/bin/swagger-codegen-cli.jar generate \
+$root_dir/bin/swagger-codegen-cli generate \
     -c $build_json \
     -i $api_url \
     -l python \
