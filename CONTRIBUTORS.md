@@ -2,7 +2,7 @@
 
 The following maintainers manage the project and are reponsible for reviewing/merging code:
 
-Lee Skillen ([https://github.com/lskillen](@lskillen)) - [Cloudsmith Ltd](https://cloudsmith.io)
+Lee Skillen ([@lskillen](https://github.com/lskillen)) - [Cloudsmith Ltd](https://cloudsmith.io)
 
 
 # Contributors
