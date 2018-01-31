@@ -42,11 +42,11 @@ public class Distribution implements Serializable {
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("format")
-  private String format = null;
-
   @SerializedName("versions")
   private List<DistributionVersions> versions = null;
+
+  @SerializedName("format")
+  private String format = null;
 
   @SerializedName("format_url")
   private String formatUrl = null;
@@ -94,24 +94,6 @@ public class Distribution implements Serializable {
     this.name = name;
   }
 
-  public Distribution format(String format) {
-    this.format = format;
-    return this;
-  }
-
-   /**
-   * 
-   * @return format
-  **/
-  @ApiModelProperty(value = "")
-  public String getFormat() {
-    return format;
-  }
-
-  public void setFormat(String format) {
-    this.format = format;
-  }
-
   public Distribution versions(List<DistributionVersions> versions) {
     this.versions = versions;
     return this;
@@ -137,6 +119,24 @@ public class Distribution implements Serializable {
 
   public void setVersions(List<DistributionVersions> versions) {
     this.versions = versions;
+  }
+
+  public Distribution format(String format) {
+    this.format = format;
+    return this;
+  }
+
+   /**
+   * 
+   * @return format
+  **/
+  @ApiModelProperty(value = "")
+  public String getFormat() {
+    return format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
   }
 
   public Distribution formatUrl(String formatUrl) {
@@ -205,8 +205,8 @@ public class Distribution implements Serializable {
     Distribution distribution = (Distribution) o;
     return Objects.equals(this.selfUrl, distribution.selfUrl) &&
         Objects.equals(this.name, distribution.name) &&
-        Objects.equals(this.format, distribution.format) &&
         Objects.equals(this.versions, distribution.versions) &&
+        Objects.equals(this.format, distribution.format) &&
         Objects.equals(this.formatUrl, distribution.formatUrl) &&
         Objects.equals(this.variants, distribution.variants) &&
         Objects.equals(this.slug, distribution.slug);
@@ -214,7 +214,7 @@ public class Distribution implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(selfUrl, name, format, versions, formatUrl, variants, slug);
+    return Objects.hash(selfUrl, name, versions, format, formatUrl, variants, slug);
   }
 
 
@@ -225,8 +225,8 @@ public class Distribution implements Serializable {
     
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
     sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");

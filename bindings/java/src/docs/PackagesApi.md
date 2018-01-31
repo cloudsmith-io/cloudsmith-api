@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadMaven"></a>
 # **packagesUploadMaven**
-> MavenPackageUpload packagesUploadMaven(repo, owner, data)
+> MavenPackageUpload packagesUploadMaven(owner, repo, data)
 
 Create a new Maven package
 
@@ -412,11 +412,11 @@ csrf_token.setApiKey("YOUR API KEY");
 //csrf_token.setApiKeyPrefix("Token");
 
 PackagesApi apiInstance = new PackagesApi();
-String repo = "repo_example"; // String | 
 String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
 PackagesUploadMaven data = new PackagesUploadMaven(); // PackagesUploadMaven | 
 try {
-    MavenPackageUpload result = apiInstance.packagesUploadMaven(repo, owner, data);
+    MavenPackageUpload result = apiInstance.packagesUploadMaven(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadMaven");
@@ -428,8 +428,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo** | **String**|  |
  **owner** | **String**|  |
+ **repo** | **String**|  |
  **data** | [**PackagesUploadMaven**](PackagesUploadMaven.md)|  | [optional]
 
 ### Return type
@@ -866,7 +866,7 @@ null (empty response body)
 
 <a name="packagesValidateUploadMaven"></a>
 # **packagesValidateUploadMaven**
-> packagesValidateUploadMaven(repo, owner, data)
+> packagesValidateUploadMaven(owner, repo, data)
 
 Validate parameters for create Maven package
 
@@ -901,11 +901,11 @@ csrf_token.setApiKey("YOUR API KEY");
 //csrf_token.setApiKeyPrefix("Token");
 
 PackagesApi apiInstance = new PackagesApi();
-String repo = "repo_example"; // String | 
 String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
 PackagesValidateuploadMaven data = new PackagesValidateuploadMaven(); // PackagesValidateuploadMaven | 
 try {
-    apiInstance.packagesValidateUploadMaven(repo, owner, data);
+    apiInstance.packagesValidateUploadMaven(owner, repo, data);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesValidateUploadMaven");
     e.printStackTrace();
@@ -916,8 +916,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo** | **String**|  |
  **owner** | **String**|  |
+ **repo** | **String**|  |
  **data** | [**PackagesValidateuploadMaven**](PackagesValidateuploadMaven.md)|  | [optional]
 
 ### Return type

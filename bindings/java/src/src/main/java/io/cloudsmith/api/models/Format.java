@@ -42,8 +42,8 @@ public class Format implements Serializable {
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("supports")
-  private Object supports = null;
+  @SerializedName("distributions")
+  private List<FormatDistributions> distributions = null;
 
   @SerializedName("premium_plan_id")
   private String premiumPlanId = null;
@@ -54,8 +54,8 @@ public class Format implements Serializable {
   @SerializedName("extensions")
   private List<String> extensions = new ArrayList<String>();
 
-  @SerializedName("distributions")
-  private List<FormatDistributions> distributions = null;
+  @SerializedName("supports")
+  private Object supports = null;
 
   @SerializedName("slug")
   private String slug = null;
@@ -101,23 +101,31 @@ public class Format implements Serializable {
     this.description = description;
   }
 
-  public Format supports(Object supports) {
-    this.supports = supports;
+  public Format distributions(List<FormatDistributions> distributions) {
+    this.distributions = distributions;
+    return this;
+  }
+
+  public Format addDistributionsItem(FormatDistributions distributionsItem) {
+    if (this.distributions == null) {
+      this.distributions = new ArrayList<FormatDistributions>();
+    }
+    this.distributions.add(distributionsItem);
     return this;
   }
 
    /**
-   * A set of what the package format supports
-   * @return supports
+   * The distributions supported by this package format
+   * @return distributions
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "A set of what the package format supports")
-  public Object getSupports() {
-    return supports;
+  @Valid
+  @ApiModelProperty(value = "The distributions supported by this package format")
+  public List<FormatDistributions> getDistributions() {
+    return distributions;
   }
 
-  public void setSupports(Object supports) {
-    this.supports = supports;
+  public void setDistributions(List<FormatDistributions> distributions) {
+    this.distributions = distributions;
   }
 
   public Format premiumPlanId(String premiumPlanId) {
@@ -180,31 +188,23 @@ public class Format implements Serializable {
     this.extensions = extensions;
   }
 
-  public Format distributions(List<FormatDistributions> distributions) {
-    this.distributions = distributions;
-    return this;
-  }
-
-  public Format addDistributionsItem(FormatDistributions distributionsItem) {
-    if (this.distributions == null) {
-      this.distributions = new ArrayList<FormatDistributions>();
-    }
-    this.distributions.add(distributionsItem);
+  public Format supports(Object supports) {
+    this.supports = supports;
     return this;
   }
 
    /**
-   * The distributions supported by this package format
-   * @return distributions
+   * A set of what the package format supports
+   * @return supports
   **/
-  @Valid
-  @ApiModelProperty(value = "The distributions supported by this package format")
-  public List<FormatDistributions> getDistributions() {
-    return distributions;
+  @NotNull
+  @ApiModelProperty(required = true, value = "A set of what the package format supports")
+  public Object getSupports() {
+    return supports;
   }
 
-  public void setDistributions(List<FormatDistributions> distributions) {
-    this.distributions = distributions;
+  public void setSupports(Object supports) {
+    this.supports = supports;
   }
 
   public Format slug(String slug) {
@@ -257,18 +257,18 @@ public class Format implements Serializable {
     Format format = (Format) o;
     return Objects.equals(this.premium, format.premium) &&
         Objects.equals(this.description, format.description) &&
-        Objects.equals(this.supports, format.supports) &&
+        Objects.equals(this.distributions, format.distributions) &&
         Objects.equals(this.premiumPlanId, format.premiumPlanId) &&
         Objects.equals(this.premiumPlanName, format.premiumPlanName) &&
         Objects.equals(this.extensions, format.extensions) &&
-        Objects.equals(this.distributions, format.distributions) &&
+        Objects.equals(this.supports, format.supports) &&
         Objects.equals(this.slug, format.slug) &&
         Objects.equals(this.name, format.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(premium, description, supports, premiumPlanId, premiumPlanName, extensions, distributions, slug, name);
+    return Objects.hash(premium, description, distributions, premiumPlanId, premiumPlanName, extensions, supports, slug, name);
   }
 
 
@@ -279,11 +279,11 @@ public class Format implements Serializable {
     
     sb.append("    premium: ").append(toIndentedString(premium)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    supports: ").append(toIndentedString(supports)).append("\n");
+    sb.append("    distributions: ").append(toIndentedString(distributions)).append("\n");
     sb.append("    premiumPlanId: ").append(toIndentedString(premiumPlanId)).append("\n");
     sb.append("    premiumPlanName: ").append(toIndentedString(premiumPlanName)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
-    sb.append("    distributions: ").append(toIndentedString(distributions)).append("\n");
+    sb.append("    supports: ").append(toIndentedString(supports)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");

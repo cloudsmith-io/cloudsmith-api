@@ -151,10 +151,10 @@ public class PackagesApiTest {
      */
     @Test
     public void packagesUploadMavenTest() throws ApiException {
-        String repo = null;
         String owner = null;
+        String repo = null;
         PackagesUploadMaven data = null;
-        MavenPackageUpload response = api.packagesUploadMaven(repo, owner, data);
+        MavenPackageUpload response = api.packagesUploadMaven(owner, repo, data);
 
         // TODO: test validations
     }
@@ -277,10 +277,10 @@ public class PackagesApiTest {
      */
     @Test
     public void packagesValidateUploadMavenTest() throws ApiException {
-        String repo = null;
         String owner = null;
+        String repo = null;
         PackagesValidateuploadMaven data = null;
-        api.packagesValidateUploadMaven(repo, owner, data);
+        api.packagesValidateUploadMaven(owner, repo, data);
 
         // TODO: test validations
     }

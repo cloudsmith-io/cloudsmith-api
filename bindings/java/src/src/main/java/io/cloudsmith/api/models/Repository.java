@@ -48,9 +48,6 @@ public class Repository implements Serializable {
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("name")
-  private String name = null;
-
   @SerializedName("index_files")
   private Boolean indexFiles = null;
 
@@ -63,17 +60,20 @@ public class Repository implements Serializable {
   @SerializedName("namespace")
   private String namespace = null;
 
-  @SerializedName("self_html_url")
-  private String selfHtmlUrl = null;
+  @SerializedName("slug")
+  private String slug = null;
 
-  @SerializedName("slug_perm")
-  private String slugPerm = null;
+  @SerializedName("size")
+  private Integer size = null;
 
   @SerializedName("namespace_url")
   private String namespaceUrl = null;
 
   @SerializedName("gpg_keys")
   private List<ReposownerGpgKeys> gpgKeys = null;
+
+  @SerializedName("slug_perm")
+  private String slugPerm = null;
 
   @SerializedName("is_public")
   private Boolean isPublic = null;
@@ -84,14 +84,14 @@ public class Repository implements Serializable {
   @SerializedName("repository_type")
   private String repositoryType = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+  @SerializedName("self_html_url")
+  private String selfHtmlUrl = null;
 
   @SerializedName("is_private")
   private Boolean isPrivate = null;
 
-  @SerializedName("size")
-  private Integer size = null;
+  @SerializedName("name")
+  private String name = null;
 
   public Repository cdnUrl(String cdnUrl) {
     this.cdnUrl = cdnUrl;
@@ -164,24 +164,6 @@ public class Repository implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public Repository name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * A descriptive name for the repository.
-   * @return name
-  **/
-  @ApiModelProperty(value = "A descriptive name for the repository.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public Repository indexFiles(Boolean indexFiles) {
@@ -258,40 +240,40 @@ public class Repository implements Serializable {
     this.namespace = namespace;
   }
 
-  public Repository selfHtmlUrl(String selfHtmlUrl) {
-    this.selfHtmlUrl = selfHtmlUrl;
+  public Repository slug(String slug) {
+    this.slug = slug;
     return this;
   }
 
    /**
-   * 
-   * @return selfHtmlUrl
+   * The slug identifies the repository in URIs.
+   * @return slug
   **/
-  @ApiModelProperty(value = "")
-  public String getSelfHtmlUrl() {
-    return selfHtmlUrl;
+  @ApiModelProperty(value = "The slug identifies the repository in URIs.")
+  public String getSlug() {
+    return slug;
   }
 
-  public void setSelfHtmlUrl(String selfHtmlUrl) {
-    this.selfHtmlUrl = selfHtmlUrl;
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 
-  public Repository slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public Repository size(Integer size) {
+    this.size = size;
     return this;
   }
 
    /**
-   * 
-   * @return slugPerm
+   * The calculated size of the repository.
+   * @return size
   **/
-  @ApiModelProperty(value = "")
-  public String getSlugPerm() {
-    return slugPerm;
+  @ApiModelProperty(value = "The calculated size of the repository.")
+  public Integer getSize() {
+    return size;
   }
 
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public void setSize(Integer size) {
+    this.size = size;
   }
 
   public Repository namespaceUrl(String namespaceUrl) {
@@ -337,6 +319,24 @@ public class Repository implements Serializable {
 
   public void setGpgKeys(List<ReposownerGpgKeys> gpgKeys) {
     this.gpgKeys = gpgKeys;
+  }
+
+  public Repository slugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+    return this;
+  }
+
+   /**
+   * 
+   * @return slugPerm
+  **/
+  @ApiModelProperty(value = "")
+  public String getSlugPerm() {
+    return slugPerm;
+  }
+
+  public void setSlugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
   }
 
   public Repository isPublic(Boolean isPublic) {
@@ -394,22 +394,22 @@ public class Repository implements Serializable {
     this.repositoryType = repositoryType;
   }
 
-  public Repository slug(String slug) {
-    this.slug = slug;
+  public Repository selfHtmlUrl(String selfHtmlUrl) {
+    this.selfHtmlUrl = selfHtmlUrl;
     return this;
   }
 
    /**
-   * The slug identifies the repository in URIs.
-   * @return slug
+   * 
+   * @return selfHtmlUrl
   **/
-  @ApiModelProperty(value = "The slug identifies the repository in URIs.")
-  public String getSlug() {
-    return slug;
+  @ApiModelProperty(value = "")
+  public String getSelfHtmlUrl() {
+    return selfHtmlUrl;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
+  public void setSelfHtmlUrl(String selfHtmlUrl) {
+    this.selfHtmlUrl = selfHtmlUrl;
   }
 
   public Repository isPrivate(Boolean isPrivate) {
@@ -431,22 +431,22 @@ public class Repository implements Serializable {
     this.isPrivate = isPrivate;
   }
 
-  public Repository size(Integer size) {
-    this.size = size;
+  public Repository name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The calculated size of the repository.
-   * @return size
+   * A descriptive name for the repository.
+   * @return name
   **/
-  @ApiModelProperty(value = "The calculated size of the repository.")
-  public Integer getSize() {
-    return size;
+  @ApiModelProperty(value = "A descriptive name for the repository.")
+  public String getName() {
+    return name;
   }
 
-  public void setSize(Integer size) {
-    this.size = size;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -463,26 +463,26 @@ public class Repository implements Serializable {
         Objects.equals(this.selfUrl, repository.selfUrl) &&
         Objects.equals(this.repositoryTypeStr, repository.repositoryTypeStr) &&
         Objects.equals(this.description, repository.description) &&
-        Objects.equals(this.name, repository.name) &&
         Objects.equals(this.indexFiles, repository.indexFiles) &&
         Objects.equals(this.createdAt, repository.createdAt) &&
         Objects.equals(this.isOpenSource, repository.isOpenSource) &&
         Objects.equals(this.namespace, repository.namespace) &&
-        Objects.equals(this.selfHtmlUrl, repository.selfHtmlUrl) &&
-        Objects.equals(this.slugPerm, repository.slugPerm) &&
+        Objects.equals(this.slug, repository.slug) &&
+        Objects.equals(this.size, repository.size) &&
         Objects.equals(this.namespaceUrl, repository.namespaceUrl) &&
         Objects.equals(this.gpgKeys, repository.gpgKeys) &&
+        Objects.equals(this.slugPerm, repository.slugPerm) &&
         Objects.equals(this.isPublic, repository.isPublic) &&
         Objects.equals(this.deletedAt, repository.deletedAt) &&
         Objects.equals(this.repositoryType, repository.repositoryType) &&
-        Objects.equals(this.slug, repository.slug) &&
+        Objects.equals(this.selfHtmlUrl, repository.selfHtmlUrl) &&
         Objects.equals(this.isPrivate, repository.isPrivate) &&
-        Objects.equals(this.size, repository.size);
+        Objects.equals(this.name, repository.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnUrl, selfUrl, repositoryTypeStr, description, name, indexFiles, createdAt, isOpenSource, namespace, selfHtmlUrl, slugPerm, namespaceUrl, gpgKeys, isPublic, deletedAt, repositoryType, slug, isPrivate, size);
+    return Objects.hash(cdnUrl, selfUrl, repositoryTypeStr, description, indexFiles, createdAt, isOpenSource, namespace, slug, size, namespaceUrl, gpgKeys, slugPerm, isPublic, deletedAt, repositoryType, selfHtmlUrl, isPrivate, name);
   }
 
 
@@ -495,21 +495,21 @@ public class Repository implements Serializable {
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    repositoryTypeStr: ").append(toIndentedString(repositoryTypeStr)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    isOpenSource: ").append(toIndentedString(isOpenSource)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
-    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
     sb.append("    gpgKeys: ").append(toIndentedString(gpgKeys)).append("\n");
+    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
     sb.append("    repositoryType: ").append(toIndentedString(repositoryType)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

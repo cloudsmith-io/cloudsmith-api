@@ -37,23 +37,20 @@ import javax.validation.Valid;
 public class MavenPackageUpload implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("status")
-  private String status = null;
-
-  @SerializedName("package_type")
-  private String packageType = null;
+  @SerializedName("files")
+  private List<RpmPackageUploadFiles> files = null;
 
   @SerializedName("stage_updated_at")
   private String stageUpdatedAt = null;
 
-  @SerializedName("checksum_sha512")
-  private String checksumSha512 = null;
+  @SerializedName("artifact_id")
+  private String artifactId = null;
 
   @SerializedName("is_sync_failed")
   private Boolean isSyncFailed = null;
 
-  @SerializedName("sync_finished_at")
-  private String syncFinishedAt = null;
+  @SerializedName("distro_version")
+  private Object distroVersion = null;
 
   @SerializedName("checksum_sha256")
   private String checksumSha256 = null;
@@ -73,8 +70,11 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("is_sync_awaiting")
   private Boolean isSyncAwaiting = null;
 
-  @SerializedName("num_files")
-  private Integer numFiles = null;
+  @SerializedName("repository")
+  private String repository = null;
+
+  @SerializedName("subtype")
+  private String subtype = null;
 
   @SerializedName("status_url")
   private String statusUrl = null;
@@ -85,14 +85,17 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("namespace")
   private String namespace = null;
 
-  @SerializedName("distro_version")
-  private Object distroVersion = null;
+  @SerializedName("sync_finished_at")
+  private String syncFinishedAt = null;
 
   @SerializedName("filename")
   private String filename = null;
 
   @SerializedName("sync_progress")
   private Integer syncProgress = null;
+
+  @SerializedName("group_id")
+  private String groupId = null;
 
   @SerializedName("epoch")
   private Integer epoch = null;
@@ -112,23 +115,26 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("uploader_url")
   private String uploaderUrl = null;
 
+  @SerializedName("cdn_url")
+  private String cdnUrl = null;
+
   @SerializedName("checksum_sha1")
   private String checksumSha1 = null;
 
   @SerializedName("distro")
   private Object distro = null;
 
-  @SerializedName("files")
-  private List<RpmPackageUploadFiles> files = null;
+  @SerializedName("status")
+  private String status = null;
 
-  @SerializedName("cdn_url")
-  private String cdnUrl = null;
+  @SerializedName("checksum_sha512")
+  private String checksumSha512 = null;
 
-  @SerializedName("artifact_id")
-  private String artifactId = null;
+  @SerializedName("description")
+  private String description = null;
 
-  @SerializedName("repository")
-  private String repository = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("format")
   private String format = null;
@@ -148,9 +154,6 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("uploader")
   private String uploader = null;
 
-  @SerializedName("type_display")
-  private String typeDisplay = null;
-
   @SerializedName("self_html_url")
   private String selfHtmlUrl = null;
 
@@ -169,73 +172,61 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("uploaded_at")
   private String uploadedAt = null;
 
-  @SerializedName("name")
-  private String name = null;
-
   @SerializedName("license")
   private String license = null;
-
-  @SerializedName("stage_str")
-  private String stageStr = null;
-
-  @SerializedName("description")
-  private String description = null;
-
-  @SerializedName("summary")
-  private String summary = null;
-
-  @SerializedName("subtype")
-  private String subtype = null;
-
-  @SerializedName("checksum_md5")
-  private String checksumMd5 = null;
 
   @SerializedName("extension")
   private String extension = null;
 
+  @SerializedName("stage_str")
+  private String stageStr = null;
+
+  @SerializedName("package_type")
+  private String packageType = null;
+
+  @SerializedName("summary")
+  private String summary = null;
+
+  @SerializedName("num_files")
+  private Integer numFiles = null;
+
+  @SerializedName("checksum_md5")
+  private String checksumMd5 = null;
+
   @SerializedName("release")
   private String release = null;
 
-  @SerializedName("group_id")
-  private String groupId = null;
+  @SerializedName("type_display")
+  private String typeDisplay = null;
 
   @SerializedName("format_url")
   private String formatUrl = null;
 
-  public MavenPackageUpload status(String status) {
-    this.status = status;
+  public MavenPackageUpload files(List<RpmPackageUploadFiles> files) {
+    this.files = files;
+    return this;
+  }
+
+  public MavenPackageUpload addFilesItem(RpmPackageUploadFiles filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<RpmPackageUploadFiles>();
+    }
+    this.files.add(filesItem);
     return this;
   }
 
    /**
-   * The synchronisation status of the package.
-   * @return status
+   * 
+   * @return files
   **/
-  @ApiModelProperty(value = "The synchronisation status of the package.")
-  public String getStatus() {
-    return status;
+  @Valid
+  @ApiModelProperty(value = "")
+  public List<RpmPackageUploadFiles> getFiles() {
+    return files;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public MavenPackageUpload packageType(String packageType) {
-    this.packageType = packageType;
-    return this;
-  }
-
-   /**
-   * The type of package contents.
-   * @return packageType
-  **/
-  @ApiModelProperty(value = "The type of package contents.")
-  public String getPackageType() {
-    return packageType;
-  }
-
-  public void setPackageType(String packageType) {
-    this.packageType = packageType;
+  public void setFiles(List<RpmPackageUploadFiles> files) {
+    this.files = files;
   }
 
   public MavenPackageUpload stageUpdatedAt(String stageUpdatedAt) {
@@ -256,22 +247,22 @@ public class MavenPackageUpload implements Serializable {
     this.stageUpdatedAt = stageUpdatedAt;
   }
 
-  public MavenPackageUpload checksumSha512(String checksumSha512) {
-    this.checksumSha512 = checksumSha512;
+  public MavenPackageUpload artifactId(String artifactId) {
+    this.artifactId = artifactId;
     return this;
   }
 
    /**
-   * 
-   * @return checksumSha512
+   * The ID of the artifact.
+   * @return artifactId
   **/
-  @ApiModelProperty(value = "")
-  public String getChecksumSha512() {
-    return checksumSha512;
+  @ApiModelProperty(value = "The ID of the artifact.")
+  public String getArtifactId() {
+    return artifactId;
   }
 
-  public void setChecksumSha512(String checksumSha512) {
-    this.checksumSha512 = checksumSha512;
+  public void setArtifactId(String artifactId) {
+    this.artifactId = artifactId;
   }
 
   public MavenPackageUpload isSyncFailed(Boolean isSyncFailed) {
@@ -292,22 +283,22 @@ public class MavenPackageUpload implements Serializable {
     this.isSyncFailed = isSyncFailed;
   }
 
-  public MavenPackageUpload syncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
+  public MavenPackageUpload distroVersion(Object distroVersion) {
+    this.distroVersion = distroVersion;
     return this;
   }
 
    /**
-   * The datetime the package sync was finished at.
-   * @return syncFinishedAt
+   * 
+   * @return distroVersion
   **/
-  @ApiModelProperty(value = "The datetime the package sync was finished at.")
-  public String getSyncFinishedAt() {
-    return syncFinishedAt;
+  @ApiModelProperty(value = "")
+  public Object getDistroVersion() {
+    return distroVersion;
   }
 
-  public void setSyncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
+  public void setDistroVersion(Object distroVersion) {
+    this.distroVersion = distroVersion;
   }
 
   public MavenPackageUpload checksumSha256(String checksumSha256) {
@@ -418,22 +409,40 @@ public class MavenPackageUpload implements Serializable {
     this.isSyncAwaiting = isSyncAwaiting;
   }
 
-  public MavenPackageUpload numFiles(Integer numFiles) {
-    this.numFiles = numFiles;
+  public MavenPackageUpload repository(String repository) {
+    this.repository = repository;
     return this;
   }
 
    /**
    * 
-   * @return numFiles
+   * @return repository
   **/
   @ApiModelProperty(value = "")
-  public Integer getNumFiles() {
-    return numFiles;
+  public String getRepository() {
+    return repository;
   }
 
-  public void setNumFiles(Integer numFiles) {
-    this.numFiles = numFiles;
+  public void setRepository(String repository) {
+    this.repository = repository;
+  }
+
+  public MavenPackageUpload subtype(String subtype) {
+    this.subtype = subtype;
+    return this;
+  }
+
+   /**
+   * 
+   * @return subtype
+  **/
+  @ApiModelProperty(value = "")
+  public String getSubtype() {
+    return subtype;
+  }
+
+  public void setSubtype(String subtype) {
+    this.subtype = subtype;
   }
 
   public MavenPackageUpload statusUrl(String statusUrl) {
@@ -490,22 +499,22 @@ public class MavenPackageUpload implements Serializable {
     this.namespace = namespace;
   }
 
-  public MavenPackageUpload distroVersion(Object distroVersion) {
-    this.distroVersion = distroVersion;
+  public MavenPackageUpload syncFinishedAt(String syncFinishedAt) {
+    this.syncFinishedAt = syncFinishedAt;
     return this;
   }
 
    /**
-   * 
-   * @return distroVersion
+   * The datetime the package sync was finished at.
+   * @return syncFinishedAt
   **/
-  @ApiModelProperty(value = "")
-  public Object getDistroVersion() {
-    return distroVersion;
+  @ApiModelProperty(value = "The datetime the package sync was finished at.")
+  public String getSyncFinishedAt() {
+    return syncFinishedAt;
   }
 
-  public void setDistroVersion(Object distroVersion) {
-    this.distroVersion = distroVersion;
+  public void setSyncFinishedAt(String syncFinishedAt) {
+    this.syncFinishedAt = syncFinishedAt;
   }
 
   public MavenPackageUpload filename(String filename) {
@@ -542,6 +551,24 @@ public class MavenPackageUpload implements Serializable {
 
   public void setSyncProgress(Integer syncProgress) {
     this.syncProgress = syncProgress;
+  }
+
+  public MavenPackageUpload groupId(String groupId) {
+    this.groupId = groupId;
+    return this;
+  }
+
+   /**
+   * Artifact&#39;s group ID.
+   * @return groupId
+  **/
+  @ApiModelProperty(value = "Artifact's group ID.")
+  public String getGroupId() {
+    return groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
   }
 
   public MavenPackageUpload epoch(Integer epoch) {
@@ -652,6 +679,24 @@ public class MavenPackageUpload implements Serializable {
     this.uploaderUrl = uploaderUrl;
   }
 
+  public MavenPackageUpload cdnUrl(String cdnUrl) {
+    this.cdnUrl = cdnUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return cdnUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getCdnUrl() {
+    return cdnUrl;
+  }
+
+  public void setCdnUrl(String cdnUrl) {
+    this.cdnUrl = cdnUrl;
+  }
+
   public MavenPackageUpload checksumSha1(String checksumSha1) {
     this.checksumSha1 = checksumSha1;
     return this;
@@ -688,85 +733,76 @@ public class MavenPackageUpload implements Serializable {
     this.distro = distro;
   }
 
-  public MavenPackageUpload files(List<RpmPackageUploadFiles> files) {
-    this.files = files;
+  public MavenPackageUpload status(String status) {
+    this.status = status;
     return this;
   }
 
-  public MavenPackageUpload addFilesItem(RpmPackageUploadFiles filesItem) {
-    if (this.files == null) {
-      this.files = new ArrayList<RpmPackageUploadFiles>();
-    }
-    this.files.add(filesItem);
+   /**
+   * The synchronisation status of the package.
+   * @return status
+  **/
+  @ApiModelProperty(value = "The synchronisation status of the package.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public MavenPackageUpload checksumSha512(String checksumSha512) {
+    this.checksumSha512 = checksumSha512;
     return this;
   }
 
    /**
    * 
-   * @return files
+   * @return checksumSha512
   **/
-  @Valid
   @ApiModelProperty(value = "")
-  public List<RpmPackageUploadFiles> getFiles() {
-    return files;
+  public String getChecksumSha512() {
+    return checksumSha512;
   }
 
-  public void setFiles(List<RpmPackageUploadFiles> files) {
-    this.files = files;
+  public void setChecksumSha512(String checksumSha512) {
+    this.checksumSha512 = checksumSha512;
   }
 
-  public MavenPackageUpload cdnUrl(String cdnUrl) {
-    this.cdnUrl = cdnUrl;
+  public MavenPackageUpload description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * 
-   * @return cdnUrl
+   * A textual description of this package.
+   * @return description
   **/
-  @ApiModelProperty(value = "")
-  public String getCdnUrl() {
-    return cdnUrl;
+  @ApiModelProperty(value = "A textual description of this package.")
+  public String getDescription() {
+    return description;
   }
 
-  public void setCdnUrl(String cdnUrl) {
-    this.cdnUrl = cdnUrl;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public MavenPackageUpload artifactId(String artifactId) {
-    this.artifactId = artifactId;
+  public MavenPackageUpload name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The ID of the artifact.
-   * @return artifactId
+   * The name of this package.
+   * @return name
   **/
-  @ApiModelProperty(value = "The ID of the artifact.")
-  public String getArtifactId() {
-    return artifactId;
+  @ApiModelProperty(value = "The name of this package.")
+  public String getName() {
+    return name;
   }
 
-  public void setArtifactId(String artifactId) {
-    this.artifactId = artifactId;
-  }
-
-  public MavenPackageUpload repository(String repository) {
-    this.repository = repository;
-    return this;
-  }
-
-   /**
-   * 
-   * @return repository
-  **/
-  @ApiModelProperty(value = "")
-  public String getRepository() {
-    return repository;
-  }
-
-  public void setRepository(String repository) {
-    this.repository = repository;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public MavenPackageUpload format(String format) {
@@ -886,24 +922,6 @@ public class MavenPackageUpload implements Serializable {
     this.uploader = uploader;
   }
 
-  public MavenPackageUpload typeDisplay(String typeDisplay) {
-    this.typeDisplay = typeDisplay;
-    return this;
-  }
-
-   /**
-   * 
-   * @return typeDisplay
-  **/
-  @ApiModelProperty(value = "")
-  public String getTypeDisplay() {
-    return typeDisplay;
-  }
-
-  public void setTypeDisplay(String typeDisplay) {
-    this.typeDisplay = typeDisplay;
-  }
-
   public MavenPackageUpload selfHtmlUrl(String selfHtmlUrl) {
     this.selfHtmlUrl = selfHtmlUrl;
     return this;
@@ -1012,24 +1030,6 @@ public class MavenPackageUpload implements Serializable {
     this.uploadedAt = uploadedAt;
   }
 
-  public MavenPackageUpload name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The name of this package.
-   * @return name
-  **/
-  @ApiModelProperty(value = "The name of this package.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public MavenPackageUpload license(String license) {
     this.license = license;
     return this;
@@ -1046,96 +1046,6 @@ public class MavenPackageUpload implements Serializable {
 
   public void setLicense(String license) {
     this.license = license;
-  }
-
-  public MavenPackageUpload stageStr(String stageStr) {
-    this.stageStr = stageStr;
-    return this;
-  }
-
-   /**
-   * 
-   * @return stageStr
-  **/
-  @ApiModelProperty(value = "")
-  public String getStageStr() {
-    return stageStr;
-  }
-
-  public void setStageStr(String stageStr) {
-    this.stageStr = stageStr;
-  }
-
-  public MavenPackageUpload description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * A textual description of this package.
-   * @return description
-  **/
-  @ApiModelProperty(value = "A textual description of this package.")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public MavenPackageUpload summary(String summary) {
-    this.summary = summary;
-    return this;
-  }
-
-   /**
-   * A one-liner synopsis of this package.
-   * @return summary
-  **/
-  @ApiModelProperty(value = "A one-liner synopsis of this package.")
-  public String getSummary() {
-    return summary;
-  }
-
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
-
-  public MavenPackageUpload subtype(String subtype) {
-    this.subtype = subtype;
-    return this;
-  }
-
-   /**
-   * 
-   * @return subtype
-  **/
-  @ApiModelProperty(value = "")
-  public String getSubtype() {
-    return subtype;
-  }
-
-  public void setSubtype(String subtype) {
-    this.subtype = subtype;
-  }
-
-  public MavenPackageUpload checksumMd5(String checksumMd5) {
-    this.checksumMd5 = checksumMd5;
-    return this;
-  }
-
-   /**
-   * 
-   * @return checksumMd5
-  **/
-  @ApiModelProperty(value = "")
-  public String getChecksumMd5() {
-    return checksumMd5;
-  }
-
-  public void setChecksumMd5(String checksumMd5) {
-    this.checksumMd5 = checksumMd5;
   }
 
   public MavenPackageUpload extension(String extension) {
@@ -1156,6 +1066,96 @@ public class MavenPackageUpload implements Serializable {
     this.extension = extension;
   }
 
+  public MavenPackageUpload stageStr(String stageStr) {
+    this.stageStr = stageStr;
+    return this;
+  }
+
+   /**
+   * 
+   * @return stageStr
+  **/
+  @ApiModelProperty(value = "")
+  public String getStageStr() {
+    return stageStr;
+  }
+
+  public void setStageStr(String stageStr) {
+    this.stageStr = stageStr;
+  }
+
+  public MavenPackageUpload packageType(String packageType) {
+    this.packageType = packageType;
+    return this;
+  }
+
+   /**
+   * The type of package contents.
+   * @return packageType
+  **/
+  @ApiModelProperty(value = "The type of package contents.")
+  public String getPackageType() {
+    return packageType;
+  }
+
+  public void setPackageType(String packageType) {
+    this.packageType = packageType;
+  }
+
+  public MavenPackageUpload summary(String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+   /**
+   * A one-liner synopsis of this package.
+   * @return summary
+  **/
+  @ApiModelProperty(value = "A one-liner synopsis of this package.")
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public MavenPackageUpload numFiles(Integer numFiles) {
+    this.numFiles = numFiles;
+    return this;
+  }
+
+   /**
+   * 
+   * @return numFiles
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getNumFiles() {
+    return numFiles;
+  }
+
+  public void setNumFiles(Integer numFiles) {
+    this.numFiles = numFiles;
+  }
+
+  public MavenPackageUpload checksumMd5(String checksumMd5) {
+    this.checksumMd5 = checksumMd5;
+    return this;
+  }
+
+   /**
+   * 
+   * @return checksumMd5
+  **/
+  @ApiModelProperty(value = "")
+  public String getChecksumMd5() {
+    return checksumMd5;
+  }
+
+  public void setChecksumMd5(String checksumMd5) {
+    this.checksumMd5 = checksumMd5;
+  }
+
   public MavenPackageUpload release(String release) {
     this.release = release;
     return this;
@@ -1174,22 +1174,22 @@ public class MavenPackageUpload implements Serializable {
     this.release = release;
   }
 
-  public MavenPackageUpload groupId(String groupId) {
-    this.groupId = groupId;
+  public MavenPackageUpload typeDisplay(String typeDisplay) {
+    this.typeDisplay = typeDisplay;
     return this;
   }
 
    /**
-   * Artifact&#39;s group ID.
-   * @return groupId
+   * 
+   * @return typeDisplay
   **/
-  @ApiModelProperty(value = "Artifact's group ID.")
-  public String getGroupId() {
-    return groupId;
+  @ApiModelProperty(value = "")
+  public String getTypeDisplay() {
+    return typeDisplay;
   }
 
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
+  public void setTypeDisplay(String typeDisplay) {
+    this.typeDisplay = typeDisplay;
   }
 
   public MavenPackageUpload formatUrl(String formatUrl) {
@@ -1220,66 +1220,66 @@ public class MavenPackageUpload implements Serializable {
       return false;
     }
     MavenPackageUpload mavenPackageUpload = (MavenPackageUpload) o;
-    return Objects.equals(this.status, mavenPackageUpload.status) &&
-        Objects.equals(this.packageType, mavenPackageUpload.packageType) &&
+    return Objects.equals(this.files, mavenPackageUpload.files) &&
         Objects.equals(this.stageUpdatedAt, mavenPackageUpload.stageUpdatedAt) &&
-        Objects.equals(this.checksumSha512, mavenPackageUpload.checksumSha512) &&
+        Objects.equals(this.artifactId, mavenPackageUpload.artifactId) &&
         Objects.equals(this.isSyncFailed, mavenPackageUpload.isSyncFailed) &&
-        Objects.equals(this.syncFinishedAt, mavenPackageUpload.syncFinishedAt) &&
+        Objects.equals(this.distroVersion, mavenPackageUpload.distroVersion) &&
         Objects.equals(this.checksumSha256, mavenPackageUpload.checksumSha256) &&
         Objects.equals(this.repositoryUrl, mavenPackageUpload.repositoryUrl) &&
         Objects.equals(this.isSyncInProgress, mavenPackageUpload.isSyncInProgress) &&
         Objects.equals(this.size, mavenPackageUpload.size) &&
         Objects.equals(this.statusStr, mavenPackageUpload.statusStr) &&
         Objects.equals(this.isSyncAwaiting, mavenPackageUpload.isSyncAwaiting) &&
-        Objects.equals(this.numFiles, mavenPackageUpload.numFiles) &&
+        Objects.equals(this.repository, mavenPackageUpload.repository) &&
+        Objects.equals(this.subtype, mavenPackageUpload.subtype) &&
         Objects.equals(this.statusUrl, mavenPackageUpload.statusUrl) &&
         Objects.equals(this.statusUpdatedAt, mavenPackageUpload.statusUpdatedAt) &&
         Objects.equals(this.namespace, mavenPackageUpload.namespace) &&
-        Objects.equals(this.distroVersion, mavenPackageUpload.distroVersion) &&
+        Objects.equals(this.syncFinishedAt, mavenPackageUpload.syncFinishedAt) &&
         Objects.equals(this.filename, mavenPackageUpload.filename) &&
         Objects.equals(this.syncProgress, mavenPackageUpload.syncProgress) &&
+        Objects.equals(this.groupId, mavenPackageUpload.groupId) &&
         Objects.equals(this.epoch, mavenPackageUpload.epoch) &&
         Objects.equals(this.version, mavenPackageUpload.version) &&
         Objects.equals(this.isSyncInFlight, mavenPackageUpload.isSyncInFlight) &&
         Objects.equals(this.namespaceUrl, mavenPackageUpload.namespaceUrl) &&
         Objects.equals(this.slugPerm, mavenPackageUpload.slugPerm) &&
         Objects.equals(this.uploaderUrl, mavenPackageUpload.uploaderUrl) &&
+        Objects.equals(this.cdnUrl, mavenPackageUpload.cdnUrl) &&
         Objects.equals(this.checksumSha1, mavenPackageUpload.checksumSha1) &&
         Objects.equals(this.distro, mavenPackageUpload.distro) &&
-        Objects.equals(this.files, mavenPackageUpload.files) &&
-        Objects.equals(this.cdnUrl, mavenPackageUpload.cdnUrl) &&
-        Objects.equals(this.artifactId, mavenPackageUpload.artifactId) &&
-        Objects.equals(this.repository, mavenPackageUpload.repository) &&
+        Objects.equals(this.status, mavenPackageUpload.status) &&
+        Objects.equals(this.checksumSha512, mavenPackageUpload.checksumSha512) &&
+        Objects.equals(this.description, mavenPackageUpload.description) &&
+        Objects.equals(this.name, mavenPackageUpload.name) &&
         Objects.equals(this.format, mavenPackageUpload.format) &&
         Objects.equals(this.isSyncCompleted, mavenPackageUpload.isSyncCompleted) &&
         Objects.equals(this.downloads, mavenPackageUpload.downloads) &&
         Objects.equals(this.versionOrig, mavenPackageUpload.versionOrig) &&
         Objects.equals(this.architectures, mavenPackageUpload.architectures) &&
         Objects.equals(this.uploader, mavenPackageUpload.uploader) &&
-        Objects.equals(this.typeDisplay, mavenPackageUpload.typeDisplay) &&
         Objects.equals(this.selfHtmlUrl, mavenPackageUpload.selfHtmlUrl) &&
         Objects.equals(this.stage, mavenPackageUpload.stage) &&
         Objects.equals(this.selfUrl, mavenPackageUpload.selfUrl) &&
         Objects.equals(this.packaging, mavenPackageUpload.packaging) &&
         Objects.equals(this.slug, mavenPackageUpload.slug) &&
         Objects.equals(this.uploadedAt, mavenPackageUpload.uploadedAt) &&
-        Objects.equals(this.name, mavenPackageUpload.name) &&
         Objects.equals(this.license, mavenPackageUpload.license) &&
-        Objects.equals(this.stageStr, mavenPackageUpload.stageStr) &&
-        Objects.equals(this.description, mavenPackageUpload.description) &&
-        Objects.equals(this.summary, mavenPackageUpload.summary) &&
-        Objects.equals(this.subtype, mavenPackageUpload.subtype) &&
-        Objects.equals(this.checksumMd5, mavenPackageUpload.checksumMd5) &&
         Objects.equals(this.extension, mavenPackageUpload.extension) &&
+        Objects.equals(this.stageStr, mavenPackageUpload.stageStr) &&
+        Objects.equals(this.packageType, mavenPackageUpload.packageType) &&
+        Objects.equals(this.summary, mavenPackageUpload.summary) &&
+        Objects.equals(this.numFiles, mavenPackageUpload.numFiles) &&
+        Objects.equals(this.checksumMd5, mavenPackageUpload.checksumMd5) &&
         Objects.equals(this.release, mavenPackageUpload.release) &&
-        Objects.equals(this.groupId, mavenPackageUpload.groupId) &&
+        Objects.equals(this.typeDisplay, mavenPackageUpload.typeDisplay) &&
         Objects.equals(this.formatUrl, mavenPackageUpload.formatUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, packageType, stageUpdatedAt, checksumSha512, isSyncFailed, syncFinishedAt, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, numFiles, statusUrl, statusUpdatedAt, namespace, distroVersion, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, uploaderUrl, checksumSha1, distro, files, cdnUrl, artifactId, repository, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, typeDisplay, selfHtmlUrl, stage, selfUrl, packaging, slug, uploadedAt, name, license, stageStr, description, summary, subtype, checksumMd5, extension, release, groupId, formatUrl);
+    return Objects.hash(files, stageUpdatedAt, artifactId, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, groupId, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, packaging, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
   }
 
 
@@ -1288,60 +1288,60 @@ public class MavenPackageUpload implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class MavenPackageUpload {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    stageUpdatedAt: ").append(toIndentedString(stageUpdatedAt)).append("\n");
-    sb.append("    checksumSha512: ").append(toIndentedString(checksumSha512)).append("\n");
+    sb.append("    artifactId: ").append(toIndentedString(artifactId)).append("\n");
     sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");
-    sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
+    sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    checksumSha256: ").append(toIndentedString(checksumSha256)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
     sb.append("    isSyncInProgress: ").append(toIndentedString(isSyncInProgress)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    statusStr: ").append(toIndentedString(statusStr)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
-    sb.append("    numFiles: ").append(toIndentedString(numFiles)).append("\n");
+    sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    statusUrl: ").append(toIndentedString(statusUrl)).append("\n");
     sb.append("    statusUpdatedAt: ").append(toIndentedString(statusUpdatedAt)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
+    sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    epoch: ").append(toIndentedString(epoch)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
+    sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
-    sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
-    sb.append("    artifactId: ").append(toIndentedString(artifactId)).append("\n");
-    sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    checksumSha512: ").append(toIndentedString(checksumSha512)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
     sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
-    sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    license: ").append(toIndentedString(license)).append("\n");
-    sb.append("    stageStr: ").append(toIndentedString(stageStr)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
-    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
-    sb.append("    checksumMd5: ").append(toIndentedString(checksumMd5)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
+    sb.append("    stageStr: ").append(toIndentedString(stageStr)).append("\n");
+    sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    numFiles: ").append(toIndentedString(numFiles)).append("\n");
+    sb.append("    checksumMd5: ").append(toIndentedString(checksumMd5)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
-    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
     sb.append("}");
     return sb.toString();
