@@ -23,3 +23,8 @@ sort_params="true"
 summary="Cloudsmith API"
 
 common_codegen_options="--git-user-id $git_user_id --git-repo-id $git_repo_id"
+
+function die {
+  echo "$@"
+  exit 1
+}
