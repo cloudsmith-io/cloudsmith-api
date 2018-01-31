@@ -12,8 +12,8 @@ package cloudsmith_api
 
 type PackagesValidateuploadMaven struct {
 
-	// The ID of the artifact.
-	ArtifactId string `json:"artifact_id,omitempty"`
+	// The primary file for the package.
+	PackageFile string `json:"package_file"`
 
 	// Adds bundled Java source code to the Maven package.
 	SourcesFile string `json:"sources_file,omitempty"`
@@ -33,6 +33,6 @@ type PackagesValidateuploadMaven struct {
 	// Artifact's group ID.
 	GroupId string `json:"group_id,omitempty"`
 
-	// The primary file for the package.
-	PackageFile string `json:"package_file"`
+	// The ID of the artifact.
+	ArtifactId string `json:"artifact_id,omitempty"`
 }

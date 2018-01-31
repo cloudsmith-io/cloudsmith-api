@@ -24,14 +24,11 @@ type Repository struct {
 	// 
 	Description string `json:"description"`
 
-	// The identifier used by GPG for this key.
-	GpgFingerprint string `json:"gpg_fingerprint,omitempty"`
+	// A descriptive name for the repository.
+	Name string `json:"name,omitempty"`
 
 	// If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
 	IndexFiles bool `json:"index_files,omitempty"`
-
-	// A descriptive name for the repository.
-	Name string `json:"name,omitempty"`
 
 	// 
 	CreatedAt string `json:"created_at,omitempty"`
@@ -45,14 +42,14 @@ type Repository struct {
 	// 
 	SelfHtmlUrl string `json:"self_html_url,omitempty"`
 
-	// The public key given to repo users.
-	GpgPublicKey string `json:"gpg_public_key,omitempty"`
+	// 
+	SlugPerm string `json:"slug_perm,omitempty"`
 
 	// 
 	NamespaceUrl string `json:"namespace_url,omitempty"`
 
 	// 
-	SlugPerm string `json:"slug_perm,omitempty"`
+	GpgKeys []ReposownerGpgKeys `json:"gpg_keys,omitempty"`
 
 	// 
 	IsPublic bool `json:"is_public"`
