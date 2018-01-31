@@ -31,22 +31,22 @@ class RpmPackageUpload(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'status': 'str',
+        'files': 'list[RpmPackageUploadFiles]',
         'stage_updated_at': 'str',
-        'checksum_sha512': 'str',
         'is_sync_failed': 'bool',
-        'sync_finished_at': 'str',
+        'distro_version': 'object',
         'checksum_sha256': 'str',
         'repository_url': 'str',
         'is_sync_in_progress': 'bool',
         'size': 'int',
         'status_str': 'str',
         'is_sync_awaiting': 'bool',
-        'num_files': 'int',
+        'repository': 'str',
+        'subtype': 'str',
         'status_url': 'str',
         'status_updated_at': 'str',
         'namespace': 'str',
-        'distro_version': 'object',
+        'sync_finished_at': 'str',
         'filename': 'str',
         'sync_progress': 'int',
         'epoch': 'int',
@@ -55,12 +55,13 @@ class RpmPackageUpload(object):
         'namespace_url': 'str',
         'slug_perm': 'str',
         'uploader_url': 'str',
+        'cdn_url': 'str',
         'checksum_sha1': 'str',
         'distro': 'object',
-        'files': 'list[RpmPackageUploadFiles]',
-        'cdn_url': 'str',
+        'status': 'str',
+        'checksum_sha512': 'str',
         'description': 'str',
-        'repository': 'str',
+        'name': 'str',
         'format': 'str',
         'is_sync_completed': 'bool',
         'downloads': 'str',
@@ -72,36 +73,35 @@ class RpmPackageUpload(object):
         'self_url': 'str',
         'slug': 'str',
         'uploaded_at': 'str',
-        'name': 'str',
         'license': 'str',
+        'extension': 'str',
         'stage_str': 'str',
         'package_type': 'str',
         'summary': 'str',
-        'subtype': 'str',
+        'num_files': 'int',
         'checksum_md5': 'str',
-        'extension': 'str',
         'release': 'str',
         'type_display': 'str',
         'format_url': 'str'
     }
 
     attribute_map = {
-        'status': 'status',
+        'files': 'files',
         'stage_updated_at': 'stage_updated_at',
-        'checksum_sha512': 'checksum_sha512',
         'is_sync_failed': 'is_sync_failed',
-        'sync_finished_at': 'sync_finished_at',
+        'distro_version': 'distro_version',
         'checksum_sha256': 'checksum_sha256',
         'repository_url': 'repository_url',
         'is_sync_in_progress': 'is_sync_in_progress',
         'size': 'size',
         'status_str': 'status_str',
         'is_sync_awaiting': 'is_sync_awaiting',
-        'num_files': 'num_files',
+        'repository': 'repository',
+        'subtype': 'subtype',
         'status_url': 'status_url',
         'status_updated_at': 'status_updated_at',
         'namespace': 'namespace',
-        'distro_version': 'distro_version',
+        'sync_finished_at': 'sync_finished_at',
         'filename': 'filename',
         'sync_progress': 'sync_progress',
         'epoch': 'epoch',
@@ -110,12 +110,13 @@ class RpmPackageUpload(object):
         'namespace_url': 'namespace_url',
         'slug_perm': 'slug_perm',
         'uploader_url': 'uploader_url',
+        'cdn_url': 'cdn_url',
         'checksum_sha1': 'checksum_sha1',
         'distro': 'distro',
-        'files': 'files',
-        'cdn_url': 'cdn_url',
+        'status': 'status',
+        'checksum_sha512': 'checksum_sha512',
         'description': 'description',
-        'repository': 'repository',
+        'name': 'name',
         'format': 'format',
         'is_sync_completed': 'is_sync_completed',
         'downloads': 'downloads',
@@ -127,40 +128,39 @@ class RpmPackageUpload(object):
         'self_url': 'self_url',
         'slug': 'slug',
         'uploaded_at': 'uploaded_at',
-        'name': 'name',
         'license': 'license',
+        'extension': 'extension',
         'stage_str': 'stage_str',
         'package_type': 'package_type',
         'summary': 'summary',
-        'subtype': 'subtype',
+        'num_files': 'num_files',
         'checksum_md5': 'checksum_md5',
-        'extension': 'extension',
         'release': 'release',
         'type_display': 'type_display',
         'format_url': 'format_url'
     }
 
-    def __init__(self, status=None, stage_updated_at=None, checksum_sha512=None, is_sync_failed=None, sync_finished_at=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, num_files=None, status_url=None, status_updated_at=None, namespace=None, distro_version=None, filename=None, sync_progress=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, uploader_url=None, checksum_sha1=None, distro=None, files=None, cdn_url=None, description=None, repository=None, format=None, is_sync_completed=None, downloads=None, version_orig=None, architectures=None, uploader=None, self_html_url=None, stage=None, self_url=None, slug=None, uploaded_at=None, name=None, license=None, stage_str=None, package_type=None, summary=None, subtype=None, checksum_md5=None, extension=None, release=None, type_display=None, format_url=None):
+    def __init__(self, files=None, stage_updated_at=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, version_orig=None, architectures=None, uploader=None, self_html_url=None, stage=None, self_url=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
         """
         RpmPackageUpload - a model defined in Swagger
         """
 
-        self._status = None
+        self._files = None
         self._stage_updated_at = None
-        self._checksum_sha512 = None
         self._is_sync_failed = None
-        self._sync_finished_at = None
+        self._distro_version = None
         self._checksum_sha256 = None
         self._repository_url = None
         self._is_sync_in_progress = None
         self._size = None
         self._status_str = None
         self._is_sync_awaiting = None
-        self._num_files = None
+        self._repository = None
+        self._subtype = None
         self._status_url = None
         self._status_updated_at = None
         self._namespace = None
-        self._distro_version = None
+        self._sync_finished_at = None
         self._filename = None
         self._sync_progress = None
         self._epoch = None
@@ -169,12 +169,13 @@ class RpmPackageUpload(object):
         self._namespace_url = None
         self._slug_perm = None
         self._uploader_url = None
+        self._cdn_url = None
         self._checksum_sha1 = None
         self._distro = None
-        self._files = None
-        self._cdn_url = None
+        self._status = None
+        self._checksum_sha512 = None
         self._description = None
-        self._repository = None
+        self._name = None
         self._format = None
         self._is_sync_completed = None
         self._downloads = None
@@ -186,28 +187,25 @@ class RpmPackageUpload(object):
         self._self_url = None
         self._slug = None
         self._uploaded_at = None
-        self._name = None
         self._license = None
+        self._extension = None
         self._stage_str = None
         self._package_type = None
         self._summary = None
-        self._subtype = None
+        self._num_files = None
         self._checksum_md5 = None
-        self._extension = None
         self._release = None
         self._type_display = None
         self._format_url = None
 
-        if status is not None:
-          self.status = status
+        if files is not None:
+          self.files = files
         if stage_updated_at is not None:
           self.stage_updated_at = stage_updated_at
-        if checksum_sha512 is not None:
-          self.checksum_sha512 = checksum_sha512
         if is_sync_failed is not None:
           self.is_sync_failed = is_sync_failed
-        if sync_finished_at is not None:
-          self.sync_finished_at = sync_finished_at
+        if distro_version is not None:
+          self.distro_version = distro_version
         if checksum_sha256 is not None:
           self.checksum_sha256 = checksum_sha256
         if repository_url is not None:
@@ -220,16 +218,18 @@ class RpmPackageUpload(object):
           self.status_str = status_str
         if is_sync_awaiting is not None:
           self.is_sync_awaiting = is_sync_awaiting
-        if num_files is not None:
-          self.num_files = num_files
+        if repository is not None:
+          self.repository = repository
+        if subtype is not None:
+          self.subtype = subtype
         if status_url is not None:
           self.status_url = status_url
         if status_updated_at is not None:
           self.status_updated_at = status_updated_at
         if namespace is not None:
           self.namespace = namespace
-        if distro_version is not None:
-          self.distro_version = distro_version
+        if sync_finished_at is not None:
+          self.sync_finished_at = sync_finished_at
         if filename is not None:
           self.filename = filename
         if sync_progress is not None:
@@ -246,18 +246,20 @@ class RpmPackageUpload(object):
           self.slug_perm = slug_perm
         if uploader_url is not None:
           self.uploader_url = uploader_url
+        if cdn_url is not None:
+          self.cdn_url = cdn_url
         if checksum_sha1 is not None:
           self.checksum_sha1 = checksum_sha1
         if distro is not None:
           self.distro = distro
-        if files is not None:
-          self.files = files
-        if cdn_url is not None:
-          self.cdn_url = cdn_url
+        if status is not None:
+          self.status = status
+        if checksum_sha512 is not None:
+          self.checksum_sha512 = checksum_sha512
         if description is not None:
           self.description = description
-        if repository is not None:
-          self.repository = repository
+        if name is not None:
+          self.name = name
         if format is not None:
           self.format = format
         if is_sync_completed is not None:
@@ -280,22 +282,20 @@ class RpmPackageUpload(object):
           self.slug = slug
         if uploaded_at is not None:
           self.uploaded_at = uploaded_at
-        if name is not None:
-          self.name = name
         if license is not None:
           self.license = license
+        if extension is not None:
+          self.extension = extension
         if stage_str is not None:
           self.stage_str = stage_str
         if package_type is not None:
           self.package_type = package_type
         if summary is not None:
           self.summary = summary
-        if subtype is not None:
-          self.subtype = subtype
+        if num_files is not None:
+          self.num_files = num_files
         if checksum_md5 is not None:
           self.checksum_md5 = checksum_md5
-        if extension is not None:
-          self.extension = extension
         if release is not None:
           self.release = release
         if type_display is not None:
@@ -304,27 +304,27 @@ class RpmPackageUpload(object):
           self.format_url = format_url
 
     @property
-    def status(self):
+    def files(self):
         """
-        Gets the status of this RpmPackageUpload.
-        The synchronisation status of the package.
+        Gets the files of this RpmPackageUpload.
+        
 
-        :return: The status of this RpmPackageUpload.
-        :rtype: str
+        :return: The files of this RpmPackageUpload.
+        :rtype: list[RpmPackageUploadFiles]
         """
-        return self._status
+        return self._files
 
-    @status.setter
-    def status(self, status):
+    @files.setter
+    def files(self, files):
         """
-        Sets the status of this RpmPackageUpload.
-        The synchronisation status of the package.
+        Sets the files of this RpmPackageUpload.
+        
 
-        :param status: The status of this RpmPackageUpload.
-        :type: str
+        :param files: The files of this RpmPackageUpload.
+        :type: list[RpmPackageUploadFiles]
         """
 
-        self._status = status
+        self._files = files
 
     @property
     def stage_updated_at(self):
@@ -350,29 +350,6 @@ class RpmPackageUpload(object):
         self._stage_updated_at = stage_updated_at
 
     @property
-    def checksum_sha512(self):
-        """
-        Gets the checksum_sha512 of this RpmPackageUpload.
-        
-
-        :return: The checksum_sha512 of this RpmPackageUpload.
-        :rtype: str
-        """
-        return self._checksum_sha512
-
-    @checksum_sha512.setter
-    def checksum_sha512(self, checksum_sha512):
-        """
-        Sets the checksum_sha512 of this RpmPackageUpload.
-        
-
-        :param checksum_sha512: The checksum_sha512 of this RpmPackageUpload.
-        :type: str
-        """
-
-        self._checksum_sha512 = checksum_sha512
-
-    @property
     def is_sync_failed(self):
         """
         Gets the is_sync_failed of this RpmPackageUpload.
@@ -396,27 +373,27 @@ class RpmPackageUpload(object):
         self._is_sync_failed = is_sync_failed
 
     @property
-    def sync_finished_at(self):
+    def distro_version(self):
         """
-        Gets the sync_finished_at of this RpmPackageUpload.
-        The datetime the package sync was finished at.
+        Gets the distro_version of this RpmPackageUpload.
+        
 
-        :return: The sync_finished_at of this RpmPackageUpload.
-        :rtype: str
+        :return: The distro_version of this RpmPackageUpload.
+        :rtype: object
         """
-        return self._sync_finished_at
+        return self._distro_version
 
-    @sync_finished_at.setter
-    def sync_finished_at(self, sync_finished_at):
+    @distro_version.setter
+    def distro_version(self, distro_version):
         """
-        Sets the sync_finished_at of this RpmPackageUpload.
-        The datetime the package sync was finished at.
+        Sets the distro_version of this RpmPackageUpload.
+        
 
-        :param sync_finished_at: The sync_finished_at of this RpmPackageUpload.
-        :type: str
+        :param distro_version: The distro_version of this RpmPackageUpload.
+        :type: object
         """
 
-        self._sync_finished_at = sync_finished_at
+        self._distro_version = distro_version
 
     @property
     def checksum_sha256(self):
@@ -557,27 +534,50 @@ class RpmPackageUpload(object):
         self._is_sync_awaiting = is_sync_awaiting
 
     @property
-    def num_files(self):
+    def repository(self):
         """
-        Gets the num_files of this RpmPackageUpload.
+        Gets the repository of this RpmPackageUpload.
         
 
-        :return: The num_files of this RpmPackageUpload.
-        :rtype: int
+        :return: The repository of this RpmPackageUpload.
+        :rtype: str
         """
-        return self._num_files
+        return self._repository
 
-    @num_files.setter
-    def num_files(self, num_files):
+    @repository.setter
+    def repository(self, repository):
         """
-        Sets the num_files of this RpmPackageUpload.
+        Sets the repository of this RpmPackageUpload.
         
 
-        :param num_files: The num_files of this RpmPackageUpload.
-        :type: int
+        :param repository: The repository of this RpmPackageUpload.
+        :type: str
         """
 
-        self._num_files = num_files
+        self._repository = repository
+
+    @property
+    def subtype(self):
+        """
+        Gets the subtype of this RpmPackageUpload.
+        
+
+        :return: The subtype of this RpmPackageUpload.
+        :rtype: str
+        """
+        return self._subtype
+
+    @subtype.setter
+    def subtype(self, subtype):
+        """
+        Sets the subtype of this RpmPackageUpload.
+        
+
+        :param subtype: The subtype of this RpmPackageUpload.
+        :type: str
+        """
+
+        self._subtype = subtype
 
     @property
     def status_url(self):
@@ -649,27 +649,27 @@ class RpmPackageUpload(object):
         self._namespace = namespace
 
     @property
-    def distro_version(self):
+    def sync_finished_at(self):
         """
-        Gets the distro_version of this RpmPackageUpload.
-        
+        Gets the sync_finished_at of this RpmPackageUpload.
+        The datetime the package sync was finished at.
 
-        :return: The distro_version of this RpmPackageUpload.
-        :rtype: object
+        :return: The sync_finished_at of this RpmPackageUpload.
+        :rtype: str
         """
-        return self._distro_version
+        return self._sync_finished_at
 
-    @distro_version.setter
-    def distro_version(self, distro_version):
+    @sync_finished_at.setter
+    def sync_finished_at(self, sync_finished_at):
         """
-        Sets the distro_version of this RpmPackageUpload.
-        
+        Sets the sync_finished_at of this RpmPackageUpload.
+        The datetime the package sync was finished at.
 
-        :param distro_version: The distro_version of this RpmPackageUpload.
-        :type: object
+        :param sync_finished_at: The sync_finished_at of this RpmPackageUpload.
+        :type: str
         """
 
-        self._distro_version = distro_version
+        self._sync_finished_at = sync_finished_at
 
     @property
     def filename(self):
@@ -856,6 +856,29 @@ class RpmPackageUpload(object):
         self._uploader_url = uploader_url
 
     @property
+    def cdn_url(self):
+        """
+        Gets the cdn_url of this RpmPackageUpload.
+        
+
+        :return: The cdn_url of this RpmPackageUpload.
+        :rtype: str
+        """
+        return self._cdn_url
+
+    @cdn_url.setter
+    def cdn_url(self, cdn_url):
+        """
+        Sets the cdn_url of this RpmPackageUpload.
+        
+
+        :param cdn_url: The cdn_url of this RpmPackageUpload.
+        :type: str
+        """
+
+        self._cdn_url = cdn_url
+
+    @property
     def checksum_sha1(self):
         """
         Gets the checksum_sha1 of this RpmPackageUpload.
@@ -902,50 +925,50 @@ class RpmPackageUpload(object):
         self._distro = distro
 
     @property
-    def files(self):
+    def status(self):
         """
-        Gets the files of this RpmPackageUpload.
-        
+        Gets the status of this RpmPackageUpload.
+        The synchronisation status of the package.
 
-        :return: The files of this RpmPackageUpload.
-        :rtype: list[RpmPackageUploadFiles]
-        """
-        return self._files
-
-    @files.setter
-    def files(self, files):
-        """
-        Sets the files of this RpmPackageUpload.
-        
-
-        :param files: The files of this RpmPackageUpload.
-        :type: list[RpmPackageUploadFiles]
-        """
-
-        self._files = files
-
-    @property
-    def cdn_url(self):
-        """
-        Gets the cdn_url of this RpmPackageUpload.
-        
-
-        :return: The cdn_url of this RpmPackageUpload.
+        :return: The status of this RpmPackageUpload.
         :rtype: str
         """
-        return self._cdn_url
+        return self._status
 
-    @cdn_url.setter
-    def cdn_url(self, cdn_url):
+    @status.setter
+    def status(self, status):
         """
-        Sets the cdn_url of this RpmPackageUpload.
-        
+        Sets the status of this RpmPackageUpload.
+        The synchronisation status of the package.
 
-        :param cdn_url: The cdn_url of this RpmPackageUpload.
+        :param status: The status of this RpmPackageUpload.
         :type: str
         """
 
-        self._cdn_url = cdn_url
+        self._status = status
+
+    @property
+    def checksum_sha512(self):
+        """
+        Gets the checksum_sha512 of this RpmPackageUpload.
+        
+
+        :return: The checksum_sha512 of this RpmPackageUpload.
+        :rtype: str
+        """
+        return self._checksum_sha512
+
+    @checksum_sha512.setter
+    def checksum_sha512(self, checksum_sha512):
+        """
+        Sets the checksum_sha512 of this RpmPackageUpload.
+        
+
+        :param checksum_sha512: The checksum_sha512 of this RpmPackageUpload.
+        :type: str
+        """
+
+        self._checksum_sha512 = checksum_sha512
 
     @property
     def description(self):
@@ -971,27 +994,27 @@ class RpmPackageUpload(object):
         self._description = description
 
     @property
-    def repository(self):
+    def name(self):
         """
-        Gets the repository of this RpmPackageUpload.
-        
+        Gets the name of this RpmPackageUpload.
+        The name of this package.
 
-        :return: The repository of this RpmPackageUpload.
+        :return: The name of this RpmPackageUpload.
         :rtype: str
         """
-        return self._repository
+        return self._name
 
-    @repository.setter
-    def repository(self, repository):
+    @name.setter
+    def name(self, name):
         """
-        Sets the repository of this RpmPackageUpload.
-        
+        Sets the name of this RpmPackageUpload.
+        The name of this package.
 
-        :param repository: The repository of this RpmPackageUpload.
+        :param name: The name of this RpmPackageUpload.
         :type: str
         """
 
-        self._repository = repository
+        self._name = name
 
     @property
     def format(self):
@@ -1247,29 +1270,6 @@ class RpmPackageUpload(object):
         self._uploaded_at = uploaded_at
 
     @property
-    def name(self):
-        """
-        Gets the name of this RpmPackageUpload.
-        The name of this package.
-
-        :return: The name of this RpmPackageUpload.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this RpmPackageUpload.
-        The name of this package.
-
-        :param name: The name of this RpmPackageUpload.
-        :type: str
-        """
-
-        self._name = name
-
-    @property
     def license(self):
         """
         Gets the license of this RpmPackageUpload.
@@ -1291,6 +1291,29 @@ class RpmPackageUpload(object):
         """
 
         self._license = license
+
+    @property
+    def extension(self):
+        """
+        Gets the extension of this RpmPackageUpload.
+        
+
+        :return: The extension of this RpmPackageUpload.
+        :rtype: str
+        """
+        return self._extension
+
+    @extension.setter
+    def extension(self, extension):
+        """
+        Sets the extension of this RpmPackageUpload.
+        
+
+        :param extension: The extension of this RpmPackageUpload.
+        :type: str
+        """
+
+        self._extension = extension
 
     @property
     def stage_str(self):
@@ -1362,27 +1385,27 @@ class RpmPackageUpload(object):
         self._summary = summary
 
     @property
-    def subtype(self):
+    def num_files(self):
         """
-        Gets the subtype of this RpmPackageUpload.
+        Gets the num_files of this RpmPackageUpload.
         
 
-        :return: The subtype of this RpmPackageUpload.
-        :rtype: str
+        :return: The num_files of this RpmPackageUpload.
+        :rtype: int
         """
-        return self._subtype
+        return self._num_files
 
-    @subtype.setter
-    def subtype(self, subtype):
+    @num_files.setter
+    def num_files(self, num_files):
         """
-        Sets the subtype of this RpmPackageUpload.
+        Sets the num_files of this RpmPackageUpload.
         
 
-        :param subtype: The subtype of this RpmPackageUpload.
-        :type: str
+        :param num_files: The num_files of this RpmPackageUpload.
+        :type: int
         """
 
-        self._subtype = subtype
+        self._num_files = num_files
 
     @property
     def checksum_md5(self):
@@ -1406,29 +1429,6 @@ class RpmPackageUpload(object):
         """
 
         self._checksum_md5 = checksum_md5
-
-    @property
-    def extension(self):
-        """
-        Gets the extension of this RpmPackageUpload.
-        
-
-        :return: The extension of this RpmPackageUpload.
-        :rtype: str
-        """
-        return self._extension
-
-    @extension.setter
-    def extension(self, extension):
-        """
-        Sets the extension of this RpmPackageUpload.
-        
-
-        :param extension: The extension of this RpmPackageUpload.
-        :type: str
-        """
-
-        self._extension = extension
 
     @property
     def release(self):

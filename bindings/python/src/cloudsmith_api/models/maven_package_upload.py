@@ -31,194 +31,192 @@ class MavenPackageUpload(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'status': 'str',
-        'package_type': 'str',
+        'files': 'list[RpmPackageUploadFiles]',
         'stage_updated_at': 'str',
-        'checksum_sha512': 'str',
+        'artifact_id': 'str',
         'is_sync_failed': 'bool',
-        'sync_finished_at': 'str',
+        'distro_version': 'object',
         'checksum_sha256': 'str',
         'repository_url': 'str',
         'is_sync_in_progress': 'bool',
         'size': 'int',
         'status_str': 'str',
         'is_sync_awaiting': 'bool',
-        'num_files': 'int',
+        'repository': 'str',
+        'subtype': 'str',
         'status_url': 'str',
         'status_updated_at': 'str',
         'namespace': 'str',
-        'distro_version': 'object',
+        'sync_finished_at': 'str',
         'filename': 'str',
         'sync_progress': 'int',
+        'group_id': 'str',
         'epoch': 'int',
         'version': 'str',
         'is_sync_in_flight': 'bool',
         'namespace_url': 'str',
         'slug_perm': 'str',
         'uploader_url': 'str',
+        'cdn_url': 'str',
         'checksum_sha1': 'str',
         'distro': 'object',
-        'files': 'list[RpmPackageUploadFiles]',
-        'cdn_url': 'str',
-        'artifact_id': 'str',
-        'repository': 'str',
+        'status': 'str',
+        'checksum_sha512': 'str',
+        'description': 'str',
+        'name': 'str',
         'format': 'str',
         'is_sync_completed': 'bool',
         'downloads': 'str',
         'version_orig': 'str',
         'architectures': 'list[RpmPackageUploadArchitectures]',
         'uploader': 'str',
-        'type_display': 'str',
         'self_html_url': 'str',
         'stage': 'str',
         'self_url': 'str',
         'packaging': 'str',
         'slug': 'str',
         'uploaded_at': 'str',
-        'name': 'str',
         'license': 'str',
-        'stage_str': 'str',
-        'description': 'str',
-        'summary': 'str',
-        'subtype': 'str',
-        'checksum_md5': 'str',
         'extension': 'str',
+        'stage_str': 'str',
+        'package_type': 'str',
+        'summary': 'str',
+        'num_files': 'int',
+        'checksum_md5': 'str',
         'release': 'str',
-        'group_id': 'str',
+        'type_display': 'str',
         'format_url': 'str'
     }
 
     attribute_map = {
-        'status': 'status',
-        'package_type': 'package_type',
+        'files': 'files',
         'stage_updated_at': 'stage_updated_at',
-        'checksum_sha512': 'checksum_sha512',
+        'artifact_id': 'artifact_id',
         'is_sync_failed': 'is_sync_failed',
-        'sync_finished_at': 'sync_finished_at',
+        'distro_version': 'distro_version',
         'checksum_sha256': 'checksum_sha256',
         'repository_url': 'repository_url',
         'is_sync_in_progress': 'is_sync_in_progress',
         'size': 'size',
         'status_str': 'status_str',
         'is_sync_awaiting': 'is_sync_awaiting',
-        'num_files': 'num_files',
+        'repository': 'repository',
+        'subtype': 'subtype',
         'status_url': 'status_url',
         'status_updated_at': 'status_updated_at',
         'namespace': 'namespace',
-        'distro_version': 'distro_version',
+        'sync_finished_at': 'sync_finished_at',
         'filename': 'filename',
         'sync_progress': 'sync_progress',
+        'group_id': 'group_id',
         'epoch': 'epoch',
         'version': 'version',
         'is_sync_in_flight': 'is_sync_in_flight',
         'namespace_url': 'namespace_url',
         'slug_perm': 'slug_perm',
         'uploader_url': 'uploader_url',
+        'cdn_url': 'cdn_url',
         'checksum_sha1': 'checksum_sha1',
         'distro': 'distro',
-        'files': 'files',
-        'cdn_url': 'cdn_url',
-        'artifact_id': 'artifact_id',
-        'repository': 'repository',
+        'status': 'status',
+        'checksum_sha512': 'checksum_sha512',
+        'description': 'description',
+        'name': 'name',
         'format': 'format',
         'is_sync_completed': 'is_sync_completed',
         'downloads': 'downloads',
         'version_orig': 'version_orig',
         'architectures': 'architectures',
         'uploader': 'uploader',
-        'type_display': 'type_display',
         'self_html_url': 'self_html_url',
         'stage': 'stage',
         'self_url': 'self_url',
         'packaging': 'packaging',
         'slug': 'slug',
         'uploaded_at': 'uploaded_at',
-        'name': 'name',
         'license': 'license',
-        'stage_str': 'stage_str',
-        'description': 'description',
-        'summary': 'summary',
-        'subtype': 'subtype',
-        'checksum_md5': 'checksum_md5',
         'extension': 'extension',
+        'stage_str': 'stage_str',
+        'package_type': 'package_type',
+        'summary': 'summary',
+        'num_files': 'num_files',
+        'checksum_md5': 'checksum_md5',
         'release': 'release',
-        'group_id': 'group_id',
+        'type_display': 'type_display',
         'format_url': 'format_url'
     }
 
-    def __init__(self, status=None, package_type=None, stage_updated_at=None, checksum_sha512=None, is_sync_failed=None, sync_finished_at=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, num_files=None, status_url=None, status_updated_at=None, namespace=None, distro_version=None, filename=None, sync_progress=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, uploader_url=None, checksum_sha1=None, distro=None, files=None, cdn_url=None, artifact_id=None, repository=None, format=None, is_sync_completed=None, downloads=None, version_orig=None, architectures=None, uploader=None, type_display=None, self_html_url=None, stage=None, self_url=None, packaging=None, slug=None, uploaded_at=None, name=None, license=None, stage_str=None, description=None, summary=None, subtype=None, checksum_md5=None, extension=None, release=None, group_id=None, format_url=None):
+    def __init__(self, files=None, stage_updated_at=None, artifact_id=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, group_id=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, version_orig=None, architectures=None, uploader=None, self_html_url=None, stage=None, self_url=None, packaging=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
         """
         MavenPackageUpload - a model defined in Swagger
         """
 
-        self._status = None
-        self._package_type = None
+        self._files = None
         self._stage_updated_at = None
-        self._checksum_sha512 = None
+        self._artifact_id = None
         self._is_sync_failed = None
-        self._sync_finished_at = None
+        self._distro_version = None
         self._checksum_sha256 = None
         self._repository_url = None
         self._is_sync_in_progress = None
         self._size = None
         self._status_str = None
         self._is_sync_awaiting = None
-        self._num_files = None
+        self._repository = None
+        self._subtype = None
         self._status_url = None
         self._status_updated_at = None
         self._namespace = None
-        self._distro_version = None
+        self._sync_finished_at = None
         self._filename = None
         self._sync_progress = None
+        self._group_id = None
         self._epoch = None
         self._version = None
         self._is_sync_in_flight = None
         self._namespace_url = None
         self._slug_perm = None
         self._uploader_url = None
+        self._cdn_url = None
         self._checksum_sha1 = None
         self._distro = None
-        self._files = None
-        self._cdn_url = None
-        self._artifact_id = None
-        self._repository = None
+        self._status = None
+        self._checksum_sha512 = None
+        self._description = None
+        self._name = None
         self._format = None
         self._is_sync_completed = None
         self._downloads = None
         self._version_orig = None
         self._architectures = None
         self._uploader = None
-        self._type_display = None
         self._self_html_url = None
         self._stage = None
         self._self_url = None
         self._packaging = None
         self._slug = None
         self._uploaded_at = None
-        self._name = None
         self._license = None
-        self._stage_str = None
-        self._description = None
-        self._summary = None
-        self._subtype = None
-        self._checksum_md5 = None
         self._extension = None
+        self._stage_str = None
+        self._package_type = None
+        self._summary = None
+        self._num_files = None
+        self._checksum_md5 = None
         self._release = None
-        self._group_id = None
+        self._type_display = None
         self._format_url = None
 
-        if status is not None:
-          self.status = status
-        if package_type is not None:
-          self.package_type = package_type
+        if files is not None:
+          self.files = files
         if stage_updated_at is not None:
           self.stage_updated_at = stage_updated_at
-        if checksum_sha512 is not None:
-          self.checksum_sha512 = checksum_sha512
+        if artifact_id is not None:
+          self.artifact_id = artifact_id
         if is_sync_failed is not None:
           self.is_sync_failed = is_sync_failed
-        if sync_finished_at is not None:
-          self.sync_finished_at = sync_finished_at
+        if distro_version is not None:
+          self.distro_version = distro_version
         if checksum_sha256 is not None:
           self.checksum_sha256 = checksum_sha256
         if repository_url is not None:
@@ -231,20 +229,24 @@ class MavenPackageUpload(object):
           self.status_str = status_str
         if is_sync_awaiting is not None:
           self.is_sync_awaiting = is_sync_awaiting
-        if num_files is not None:
-          self.num_files = num_files
+        if repository is not None:
+          self.repository = repository
+        if subtype is not None:
+          self.subtype = subtype
         if status_url is not None:
           self.status_url = status_url
         if status_updated_at is not None:
           self.status_updated_at = status_updated_at
         if namespace is not None:
           self.namespace = namespace
-        if distro_version is not None:
-          self.distro_version = distro_version
+        if sync_finished_at is not None:
+          self.sync_finished_at = sync_finished_at
         if filename is not None:
           self.filename = filename
         if sync_progress is not None:
           self.sync_progress = sync_progress
+        if group_id is not None:
+          self.group_id = group_id
         if epoch is not None:
           self.epoch = epoch
         if version is not None:
@@ -257,18 +259,20 @@ class MavenPackageUpload(object):
           self.slug_perm = slug_perm
         if uploader_url is not None:
           self.uploader_url = uploader_url
+        if cdn_url is not None:
+          self.cdn_url = cdn_url
         if checksum_sha1 is not None:
           self.checksum_sha1 = checksum_sha1
         if distro is not None:
           self.distro = distro
-        if files is not None:
-          self.files = files
-        if cdn_url is not None:
-          self.cdn_url = cdn_url
-        if artifact_id is not None:
-          self.artifact_id = artifact_id
-        if repository is not None:
-          self.repository = repository
+        if status is not None:
+          self.status = status
+        if checksum_sha512 is not None:
+          self.checksum_sha512 = checksum_sha512
+        if description is not None:
+          self.description = description
+        if name is not None:
+          self.name = name
         if format is not None:
           self.format = format
         if is_sync_completed is not None:
@@ -281,8 +285,6 @@ class MavenPackageUpload(object):
           self.architectures = architectures
         if uploader is not None:
           self.uploader = uploader
-        if type_display is not None:
-          self.type_display = type_display
         if self_html_url is not None:
           self.self_html_url = self_html_url
         if stage is not None:
@@ -295,74 +297,49 @@ class MavenPackageUpload(object):
           self.slug = slug
         if uploaded_at is not None:
           self.uploaded_at = uploaded_at
-        if name is not None:
-          self.name = name
         if license is not None:
           self.license = license
-        if stage_str is not None:
-          self.stage_str = stage_str
-        if description is not None:
-          self.description = description
-        if summary is not None:
-          self.summary = summary
-        if subtype is not None:
-          self.subtype = subtype
-        if checksum_md5 is not None:
-          self.checksum_md5 = checksum_md5
         if extension is not None:
           self.extension = extension
+        if stage_str is not None:
+          self.stage_str = stage_str
+        if package_type is not None:
+          self.package_type = package_type
+        if summary is not None:
+          self.summary = summary
+        if num_files is not None:
+          self.num_files = num_files
+        if checksum_md5 is not None:
+          self.checksum_md5 = checksum_md5
         if release is not None:
           self.release = release
-        if group_id is not None:
-          self.group_id = group_id
+        if type_display is not None:
+          self.type_display = type_display
         if format_url is not None:
           self.format_url = format_url
 
     @property
-    def status(self):
+    def files(self):
         """
-        Gets the status of this MavenPackageUpload.
-        The synchronisation status of the package.
+        Gets the files of this MavenPackageUpload.
+        
 
-        :return: The status of this MavenPackageUpload.
-        :rtype: str
+        :return: The files of this MavenPackageUpload.
+        :rtype: list[RpmPackageUploadFiles]
         """
-        return self._status
+        return self._files
 
-    @status.setter
-    def status(self, status):
+    @files.setter
+    def files(self, files):
         """
-        Sets the status of this MavenPackageUpload.
-        The synchronisation status of the package.
+        Sets the files of this MavenPackageUpload.
+        
 
-        :param status: The status of this MavenPackageUpload.
-        :type: str
-        """
-
-        self._status = status
-
-    @property
-    def package_type(self):
-        """
-        Gets the package_type of this MavenPackageUpload.
-        The type of package contents.
-
-        :return: The package_type of this MavenPackageUpload.
-        :rtype: str
-        """
-        return self._package_type
-
-    @package_type.setter
-    def package_type(self, package_type):
-        """
-        Sets the package_type of this MavenPackageUpload.
-        The type of package contents.
-
-        :param package_type: The package_type of this MavenPackageUpload.
-        :type: str
+        :param files: The files of this MavenPackageUpload.
+        :type: list[RpmPackageUploadFiles]
         """
 
-        self._package_type = package_type
+        self._files = files
 
     @property
     def stage_updated_at(self):
@@ -388,27 +365,27 @@ class MavenPackageUpload(object):
         self._stage_updated_at = stage_updated_at
 
     @property
-    def checksum_sha512(self):
+    def artifact_id(self):
         """
-        Gets the checksum_sha512 of this MavenPackageUpload.
-        
+        Gets the artifact_id of this MavenPackageUpload.
+        The ID of the artifact.
 
-        :return: The checksum_sha512 of this MavenPackageUpload.
+        :return: The artifact_id of this MavenPackageUpload.
         :rtype: str
         """
-        return self._checksum_sha512
+        return self._artifact_id
 
-    @checksum_sha512.setter
-    def checksum_sha512(self, checksum_sha512):
+    @artifact_id.setter
+    def artifact_id(self, artifact_id):
         """
-        Sets the checksum_sha512 of this MavenPackageUpload.
-        
+        Sets the artifact_id of this MavenPackageUpload.
+        The ID of the artifact.
 
-        :param checksum_sha512: The checksum_sha512 of this MavenPackageUpload.
+        :param artifact_id: The artifact_id of this MavenPackageUpload.
         :type: str
         """
 
-        self._checksum_sha512 = checksum_sha512
+        self._artifact_id = artifact_id
 
     @property
     def is_sync_failed(self):
@@ -434,27 +411,27 @@ class MavenPackageUpload(object):
         self._is_sync_failed = is_sync_failed
 
     @property
-    def sync_finished_at(self):
+    def distro_version(self):
         """
-        Gets the sync_finished_at of this MavenPackageUpload.
-        The datetime the package sync was finished at.
+        Gets the distro_version of this MavenPackageUpload.
+        
 
-        :return: The sync_finished_at of this MavenPackageUpload.
-        :rtype: str
+        :return: The distro_version of this MavenPackageUpload.
+        :rtype: object
         """
-        return self._sync_finished_at
+        return self._distro_version
 
-    @sync_finished_at.setter
-    def sync_finished_at(self, sync_finished_at):
+    @distro_version.setter
+    def distro_version(self, distro_version):
         """
-        Sets the sync_finished_at of this MavenPackageUpload.
-        The datetime the package sync was finished at.
+        Sets the distro_version of this MavenPackageUpload.
+        
 
-        :param sync_finished_at: The sync_finished_at of this MavenPackageUpload.
-        :type: str
+        :param distro_version: The distro_version of this MavenPackageUpload.
+        :type: object
         """
 
-        self._sync_finished_at = sync_finished_at
+        self._distro_version = distro_version
 
     @property
     def checksum_sha256(self):
@@ -595,27 +572,50 @@ class MavenPackageUpload(object):
         self._is_sync_awaiting = is_sync_awaiting
 
     @property
-    def num_files(self):
+    def repository(self):
         """
-        Gets the num_files of this MavenPackageUpload.
+        Gets the repository of this MavenPackageUpload.
         
 
-        :return: The num_files of this MavenPackageUpload.
-        :rtype: int
+        :return: The repository of this MavenPackageUpload.
+        :rtype: str
         """
-        return self._num_files
+        return self._repository
 
-    @num_files.setter
-    def num_files(self, num_files):
+    @repository.setter
+    def repository(self, repository):
         """
-        Sets the num_files of this MavenPackageUpload.
+        Sets the repository of this MavenPackageUpload.
         
 
-        :param num_files: The num_files of this MavenPackageUpload.
-        :type: int
+        :param repository: The repository of this MavenPackageUpload.
+        :type: str
         """
 
-        self._num_files = num_files
+        self._repository = repository
+
+    @property
+    def subtype(self):
+        """
+        Gets the subtype of this MavenPackageUpload.
+        
+
+        :return: The subtype of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._subtype
+
+    @subtype.setter
+    def subtype(self, subtype):
+        """
+        Sets the subtype of this MavenPackageUpload.
+        
+
+        :param subtype: The subtype of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._subtype = subtype
 
     @property
     def status_url(self):
@@ -687,27 +687,27 @@ class MavenPackageUpload(object):
         self._namespace = namespace
 
     @property
-    def distro_version(self):
+    def sync_finished_at(self):
         """
-        Gets the distro_version of this MavenPackageUpload.
-        
+        Gets the sync_finished_at of this MavenPackageUpload.
+        The datetime the package sync was finished at.
 
-        :return: The distro_version of this MavenPackageUpload.
-        :rtype: object
+        :return: The sync_finished_at of this MavenPackageUpload.
+        :rtype: str
         """
-        return self._distro_version
+        return self._sync_finished_at
 
-    @distro_version.setter
-    def distro_version(self, distro_version):
+    @sync_finished_at.setter
+    def sync_finished_at(self, sync_finished_at):
         """
-        Sets the distro_version of this MavenPackageUpload.
-        
+        Sets the sync_finished_at of this MavenPackageUpload.
+        The datetime the package sync was finished at.
 
-        :param distro_version: The distro_version of this MavenPackageUpload.
-        :type: object
+        :param sync_finished_at: The sync_finished_at of this MavenPackageUpload.
+        :type: str
         """
 
-        self._distro_version = distro_version
+        self._sync_finished_at = sync_finished_at
 
     @property
     def filename(self):
@@ -754,6 +754,29 @@ class MavenPackageUpload(object):
         """
 
         self._sync_progress = sync_progress
+
+    @property
+    def group_id(self):
+        """
+        Gets the group_id of this MavenPackageUpload.
+        Artifact's group ID.
+
+        :return: The group_id of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._group_id
+
+    @group_id.setter
+    def group_id(self, group_id):
+        """
+        Sets the group_id of this MavenPackageUpload.
+        Artifact's group ID.
+
+        :param group_id: The group_id of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._group_id = group_id
 
     @property
     def epoch(self):
@@ -894,6 +917,29 @@ class MavenPackageUpload(object):
         self._uploader_url = uploader_url
 
     @property
+    def cdn_url(self):
+        """
+        Gets the cdn_url of this MavenPackageUpload.
+        
+
+        :return: The cdn_url of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._cdn_url
+
+    @cdn_url.setter
+    def cdn_url(self, cdn_url):
+        """
+        Sets the cdn_url of this MavenPackageUpload.
+        
+
+        :param cdn_url: The cdn_url of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._cdn_url = cdn_url
+
+    @property
     def checksum_sha1(self):
         """
         Gets the checksum_sha1 of this MavenPackageUpload.
@@ -940,96 +986,96 @@ class MavenPackageUpload(object):
         self._distro = distro
 
     @property
-    def files(self):
+    def status(self):
         """
-        Gets the files of this MavenPackageUpload.
-        
+        Gets the status of this MavenPackageUpload.
+        The synchronisation status of the package.
 
-        :return: The files of this MavenPackageUpload.
-        :rtype: list[RpmPackageUploadFiles]
-        """
-        return self._files
-
-    @files.setter
-    def files(self, files):
-        """
-        Sets the files of this MavenPackageUpload.
-        
-
-        :param files: The files of this MavenPackageUpload.
-        :type: list[RpmPackageUploadFiles]
-        """
-
-        self._files = files
-
-    @property
-    def cdn_url(self):
-        """
-        Gets the cdn_url of this MavenPackageUpload.
-        
-
-        :return: The cdn_url of this MavenPackageUpload.
+        :return: The status of this MavenPackageUpload.
         :rtype: str
         """
-        return self._cdn_url
+        return self._status
 
-    @cdn_url.setter
-    def cdn_url(self, cdn_url):
+    @status.setter
+    def status(self, status):
         """
-        Sets the cdn_url of this MavenPackageUpload.
-        
+        Sets the status of this MavenPackageUpload.
+        The synchronisation status of the package.
 
-        :param cdn_url: The cdn_url of this MavenPackageUpload.
+        :param status: The status of this MavenPackageUpload.
         :type: str
         """
 
-        self._cdn_url = cdn_url
+        self._status = status
 
     @property
-    def artifact_id(self):
+    def checksum_sha512(self):
         """
-        Gets the artifact_id of this MavenPackageUpload.
-        The ID of the artifact.
+        Gets the checksum_sha512 of this MavenPackageUpload.
+        
 
-        :return: The artifact_id of this MavenPackageUpload.
+        :return: The checksum_sha512 of this MavenPackageUpload.
         :rtype: str
         """
-        return self._artifact_id
+        return self._checksum_sha512
 
-    @artifact_id.setter
-    def artifact_id(self, artifact_id):
+    @checksum_sha512.setter
+    def checksum_sha512(self, checksum_sha512):
         """
-        Sets the artifact_id of this MavenPackageUpload.
-        The ID of the artifact.
+        Sets the checksum_sha512 of this MavenPackageUpload.
+        
 
-        :param artifact_id: The artifact_id of this MavenPackageUpload.
+        :param checksum_sha512: The checksum_sha512 of this MavenPackageUpload.
         :type: str
         """
 
-        self._artifact_id = artifact_id
+        self._checksum_sha512 = checksum_sha512
 
     @property
-    def repository(self):
+    def description(self):
         """
-        Gets the repository of this MavenPackageUpload.
-        
+        Gets the description of this MavenPackageUpload.
+        A textual description of this package.
 
-        :return: The repository of this MavenPackageUpload.
+        :return: The description of this MavenPackageUpload.
         :rtype: str
         """
-        return self._repository
+        return self._description
 
-    @repository.setter
-    def repository(self, repository):
+    @description.setter
+    def description(self, description):
         """
-        Sets the repository of this MavenPackageUpload.
-        
+        Sets the description of this MavenPackageUpload.
+        A textual description of this package.
 
-        :param repository: The repository of this MavenPackageUpload.
+        :param description: The description of this MavenPackageUpload.
         :type: str
         """
 
-        self._repository = repository
+        self._description = description
+
+    @property
+    def name(self):
+        """
+        Gets the name of this MavenPackageUpload.
+        The name of this package.
+
+        :return: The name of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this MavenPackageUpload.
+        The name of this package.
+
+        :param name: The name of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def format(self):
@@ -1170,29 +1216,6 @@ class MavenPackageUpload(object):
         self._uploader = uploader
 
     @property
-    def type_display(self):
-        """
-        Gets the type_display of this MavenPackageUpload.
-        
-
-        :return: The type_display of this MavenPackageUpload.
-        :rtype: str
-        """
-        return self._type_display
-
-    @type_display.setter
-    def type_display(self, type_display):
-        """
-        Sets the type_display of this MavenPackageUpload.
-        
-
-        :param type_display: The type_display of this MavenPackageUpload.
-        :type: str
-        """
-
-        self._type_display = type_display
-
-    @property
     def self_html_url(self):
         """
         Gets the self_html_url of this MavenPackageUpload.
@@ -1331,29 +1354,6 @@ class MavenPackageUpload(object):
         self._uploaded_at = uploaded_at
 
     @property
-    def name(self):
-        """
-        Gets the name of this MavenPackageUpload.
-        The name of this package.
-
-        :return: The name of this MavenPackageUpload.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this MavenPackageUpload.
-        The name of this package.
-
-        :param name: The name of this MavenPackageUpload.
-        :type: str
-        """
-
-        self._name = name
-
-    @property
     def license(self):
         """
         Gets the license of this MavenPackageUpload.
@@ -1375,121 +1375,6 @@ class MavenPackageUpload(object):
         """
 
         self._license = license
-
-    @property
-    def stage_str(self):
-        """
-        Gets the stage_str of this MavenPackageUpload.
-        
-
-        :return: The stage_str of this MavenPackageUpload.
-        :rtype: str
-        """
-        return self._stage_str
-
-    @stage_str.setter
-    def stage_str(self, stage_str):
-        """
-        Sets the stage_str of this MavenPackageUpload.
-        
-
-        :param stage_str: The stage_str of this MavenPackageUpload.
-        :type: str
-        """
-
-        self._stage_str = stage_str
-
-    @property
-    def description(self):
-        """
-        Gets the description of this MavenPackageUpload.
-        A textual description of this package.
-
-        :return: The description of this MavenPackageUpload.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this MavenPackageUpload.
-        A textual description of this package.
-
-        :param description: The description of this MavenPackageUpload.
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def summary(self):
-        """
-        Gets the summary of this MavenPackageUpload.
-        A one-liner synopsis of this package.
-
-        :return: The summary of this MavenPackageUpload.
-        :rtype: str
-        """
-        return self._summary
-
-    @summary.setter
-    def summary(self, summary):
-        """
-        Sets the summary of this MavenPackageUpload.
-        A one-liner synopsis of this package.
-
-        :param summary: The summary of this MavenPackageUpload.
-        :type: str
-        """
-
-        self._summary = summary
-
-    @property
-    def subtype(self):
-        """
-        Gets the subtype of this MavenPackageUpload.
-        
-
-        :return: The subtype of this MavenPackageUpload.
-        :rtype: str
-        """
-        return self._subtype
-
-    @subtype.setter
-    def subtype(self, subtype):
-        """
-        Sets the subtype of this MavenPackageUpload.
-        
-
-        :param subtype: The subtype of this MavenPackageUpload.
-        :type: str
-        """
-
-        self._subtype = subtype
-
-    @property
-    def checksum_md5(self):
-        """
-        Gets the checksum_md5 of this MavenPackageUpload.
-        
-
-        :return: The checksum_md5 of this MavenPackageUpload.
-        :rtype: str
-        """
-        return self._checksum_md5
-
-    @checksum_md5.setter
-    def checksum_md5(self, checksum_md5):
-        """
-        Sets the checksum_md5 of this MavenPackageUpload.
-        
-
-        :param checksum_md5: The checksum_md5 of this MavenPackageUpload.
-        :type: str
-        """
-
-        self._checksum_md5 = checksum_md5
 
     @property
     def extension(self):
@@ -1515,6 +1400,121 @@ class MavenPackageUpload(object):
         self._extension = extension
 
     @property
+    def stage_str(self):
+        """
+        Gets the stage_str of this MavenPackageUpload.
+        
+
+        :return: The stage_str of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._stage_str
+
+    @stage_str.setter
+    def stage_str(self, stage_str):
+        """
+        Sets the stage_str of this MavenPackageUpload.
+        
+
+        :param stage_str: The stage_str of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._stage_str = stage_str
+
+    @property
+    def package_type(self):
+        """
+        Gets the package_type of this MavenPackageUpload.
+        The type of package contents.
+
+        :return: The package_type of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._package_type
+
+    @package_type.setter
+    def package_type(self, package_type):
+        """
+        Sets the package_type of this MavenPackageUpload.
+        The type of package contents.
+
+        :param package_type: The package_type of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._package_type = package_type
+
+    @property
+    def summary(self):
+        """
+        Gets the summary of this MavenPackageUpload.
+        A one-liner synopsis of this package.
+
+        :return: The summary of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._summary
+
+    @summary.setter
+    def summary(self, summary):
+        """
+        Sets the summary of this MavenPackageUpload.
+        A one-liner synopsis of this package.
+
+        :param summary: The summary of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._summary = summary
+
+    @property
+    def num_files(self):
+        """
+        Gets the num_files of this MavenPackageUpload.
+        
+
+        :return: The num_files of this MavenPackageUpload.
+        :rtype: int
+        """
+        return self._num_files
+
+    @num_files.setter
+    def num_files(self, num_files):
+        """
+        Sets the num_files of this MavenPackageUpload.
+        
+
+        :param num_files: The num_files of this MavenPackageUpload.
+        :type: int
+        """
+
+        self._num_files = num_files
+
+    @property
+    def checksum_md5(self):
+        """
+        Gets the checksum_md5 of this MavenPackageUpload.
+        
+
+        :return: The checksum_md5 of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._checksum_md5
+
+    @checksum_md5.setter
+    def checksum_md5(self, checksum_md5):
+        """
+        Sets the checksum_md5 of this MavenPackageUpload.
+        
+
+        :param checksum_md5: The checksum_md5 of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._checksum_md5 = checksum_md5
+
+    @property
     def release(self):
         """
         Gets the release of this MavenPackageUpload.
@@ -1538,27 +1538,27 @@ class MavenPackageUpload(object):
         self._release = release
 
     @property
-    def group_id(self):
+    def type_display(self):
         """
-        Gets the group_id of this MavenPackageUpload.
-        Artifact's group ID.
+        Gets the type_display of this MavenPackageUpload.
+        
 
-        :return: The group_id of this MavenPackageUpload.
+        :return: The type_display of this MavenPackageUpload.
         :rtype: str
         """
-        return self._group_id
+        return self._type_display
 
-    @group_id.setter
-    def group_id(self, group_id):
+    @type_display.setter
+    def type_display(self, type_display):
         """
-        Sets the group_id of this MavenPackageUpload.
-        Artifact's group ID.
+        Sets the type_display of this MavenPackageUpload.
+        
 
-        :param group_id: The group_id of this MavenPackageUpload.
+        :param type_display: The type_display of this MavenPackageUpload.
         :type: str
         """
 
-        self._group_id = group_id
+        self._type_display = type_display
 
     @property
     def format_url(self):

@@ -31,42 +31,43 @@ class PackagesValidateuploadMaven(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'package_file': 'str',
+        'artifact_id': 'str',
         'sources_file': 'str',
         'packaging': 'str',
         'pom_file': 'str',
         'javadoc_file': 'str',
         'version': 'str',
         'group_id': 'str',
-        'artifact_id': 'str'
+        'package_file': 'str'
     }
 
     attribute_map = {
-        'package_file': 'package_file',
+        'artifact_id': 'artifact_id',
         'sources_file': 'sources_file',
         'packaging': 'packaging',
         'pom_file': 'pom_file',
         'javadoc_file': 'javadoc_file',
         'version': 'version',
         'group_id': 'group_id',
-        'artifact_id': 'artifact_id'
+        'package_file': 'package_file'
     }
 
-    def __init__(self, package_file=None, sources_file=None, packaging=None, pom_file=None, javadoc_file=None, version=None, group_id=None, artifact_id=None):
+    def __init__(self, artifact_id=None, sources_file=None, packaging=None, pom_file=None, javadoc_file=None, version=None, group_id=None, package_file=None):
         """
         PackagesValidateuploadMaven - a model defined in Swagger
         """
 
-        self._package_file = None
+        self._artifact_id = None
         self._sources_file = None
         self._packaging = None
         self._pom_file = None
         self._javadoc_file = None
         self._version = None
         self._group_id = None
-        self._artifact_id = None
+        self._package_file = None
 
-        self.package_file = package_file
+        if artifact_id is not None:
+          self.artifact_id = artifact_id
         if sources_file is not None:
           self.sources_file = sources_file
         if packaging is not None:
@@ -79,33 +80,30 @@ class PackagesValidateuploadMaven(object):
           self.version = version
         if group_id is not None:
           self.group_id = group_id
-        if artifact_id is not None:
-          self.artifact_id = artifact_id
+        self.package_file = package_file
 
     @property
-    def package_file(self):
+    def artifact_id(self):
         """
-        Gets the package_file of this PackagesValidateuploadMaven.
-        The primary file for the package.
+        Gets the artifact_id of this PackagesValidateuploadMaven.
+        The ID of the artifact.
 
-        :return: The package_file of this PackagesValidateuploadMaven.
+        :return: The artifact_id of this PackagesValidateuploadMaven.
         :rtype: str
         """
-        return self._package_file
+        return self._artifact_id
 
-    @package_file.setter
-    def package_file(self, package_file):
+    @artifact_id.setter
+    def artifact_id(self, artifact_id):
         """
-        Sets the package_file of this PackagesValidateuploadMaven.
-        The primary file for the package.
+        Sets the artifact_id of this PackagesValidateuploadMaven.
+        The ID of the artifact.
 
-        :param package_file: The package_file of this PackagesValidateuploadMaven.
+        :param artifact_id: The artifact_id of this PackagesValidateuploadMaven.
         :type: str
         """
-        if package_file is None:
-            raise ValueError("Invalid value for `package_file`, must not be `None`")
 
-        self._package_file = package_file
+        self._artifact_id = artifact_id
 
     @property
     def sources_file(self):
@@ -246,27 +244,29 @@ class PackagesValidateuploadMaven(object):
         self._group_id = group_id
 
     @property
-    def artifact_id(self):
+    def package_file(self):
         """
-        Gets the artifact_id of this PackagesValidateuploadMaven.
-        The ID of the artifact.
+        Gets the package_file of this PackagesValidateuploadMaven.
+        The primary file for the package.
 
-        :return: The artifact_id of this PackagesValidateuploadMaven.
+        :return: The package_file of this PackagesValidateuploadMaven.
         :rtype: str
         """
-        return self._artifact_id
+        return self._package_file
 
-    @artifact_id.setter
-    def artifact_id(self, artifact_id):
+    @package_file.setter
+    def package_file(self, package_file):
         """
-        Sets the artifact_id of this PackagesValidateuploadMaven.
-        The ID of the artifact.
+        Sets the package_file of this PackagesValidateuploadMaven.
+        The primary file for the package.
 
-        :param artifact_id: The artifact_id of this PackagesValidateuploadMaven.
+        :param package_file: The package_file of this PackagesValidateuploadMaven.
         :type: str
         """
+        if package_file is None:
+            raise ValueError("Invalid value for `package_file`, must not be `None`")
 
-        self._artifact_id = artifact_id
+        self._package_file = package_file
 
     def to_dict(self):
         """

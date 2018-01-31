@@ -33,11 +33,11 @@ class Format(object):
     swagger_types = {
         'premium': 'bool',
         'description': 'str',
-        'supports': 'object',
+        'distributions': 'list[FormatDistributions]',
         'premium_plan_id': 'str',
         'premium_plan_name': 'str',
         'extensions': 'list[str]',
-        'distributions': 'list[FormatDistributions]',
+        'supports': 'object',
         'slug': 'str',
         'name': 'str'
     }
@@ -45,40 +45,40 @@ class Format(object):
     attribute_map = {
         'premium': 'premium',
         'description': 'description',
-        'supports': 'supports',
+        'distributions': 'distributions',
         'premium_plan_id': 'premium_plan_id',
         'premium_plan_name': 'premium_plan_name',
         'extensions': 'extensions',
-        'distributions': 'distributions',
+        'supports': 'supports',
         'slug': 'slug',
         'name': 'name'
     }
 
-    def __init__(self, premium=None, description=None, supports=None, premium_plan_id=None, premium_plan_name=None, extensions=None, distributions=None, slug=None, name=None):
+    def __init__(self, premium=None, description=None, distributions=None, premium_plan_id=None, premium_plan_name=None, extensions=None, supports=None, slug=None, name=None):
         """
         Format - a model defined in Swagger
         """
 
         self._premium = None
         self._description = None
-        self._supports = None
+        self._distributions = None
         self._premium_plan_id = None
         self._premium_plan_name = None
         self._extensions = None
-        self._distributions = None
+        self._supports = None
         self._slug = None
         self._name = None
 
         self.premium = premium
         self.description = description
-        self.supports = supports
+        if distributions is not None:
+          self.distributions = distributions
         if premium_plan_id is not None:
           self.premium_plan_id = premium_plan_id
         if premium_plan_name is not None:
           self.premium_plan_name = premium_plan_name
         self.extensions = extensions
-        if distributions is not None:
-          self.distributions = distributions
+        self.supports = supports
         self.slug = slug
         self.name = name
 
@@ -133,29 +133,27 @@ class Format(object):
         self._description = description
 
     @property
-    def supports(self):
+    def distributions(self):
         """
-        Gets the supports of this Format.
-        A set of what the package format supports
+        Gets the distributions of this Format.
+        The distributions supported by this package format
 
-        :return: The supports of this Format.
-        :rtype: object
+        :return: The distributions of this Format.
+        :rtype: list[FormatDistributions]
         """
-        return self._supports
+        return self._distributions
 
-    @supports.setter
-    def supports(self, supports):
+    @distributions.setter
+    def distributions(self, distributions):
         """
-        Sets the supports of this Format.
-        A set of what the package format supports
+        Sets the distributions of this Format.
+        The distributions supported by this package format
 
-        :param supports: The supports of this Format.
-        :type: object
+        :param distributions: The distributions of this Format.
+        :type: list[FormatDistributions]
         """
-        if supports is None:
-            raise ValueError("Invalid value for `supports`, must not be `None`")
 
-        self._supports = supports
+        self._distributions = distributions
 
     @property
     def premium_plan_id(self):
@@ -229,27 +227,29 @@ class Format(object):
         self._extensions = extensions
 
     @property
-    def distributions(self):
+    def supports(self):
         """
-        Gets the distributions of this Format.
-        The distributions supported by this package format
+        Gets the supports of this Format.
+        A set of what the package format supports
 
-        :return: The distributions of this Format.
-        :rtype: list[FormatDistributions]
+        :return: The supports of this Format.
+        :rtype: object
         """
-        return self._distributions
+        return self._supports
 
-    @distributions.setter
-    def distributions(self, distributions):
+    @supports.setter
+    def supports(self, supports):
         """
-        Sets the distributions of this Format.
-        The distributions supported by this package format
+        Sets the supports of this Format.
+        A set of what the package format supports
 
-        :param distributions: The distributions of this Format.
-        :type: list[FormatDistributions]
+        :param supports: The supports of this Format.
+        :type: object
         """
+        if supports is None:
+            raise ValueError("Invalid value for `supports`, must not be `None`")
 
-        self._distributions = distributions
+        self._supports = supports
 
     @property
     def slug(self):

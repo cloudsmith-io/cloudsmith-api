@@ -33,8 +33,8 @@ class Distribution(object):
     swagger_types = {
         'self_url': 'str',
         'name': 'str',
-        'format': 'str',
         'versions': 'list[DistributionVersions]',
+        'format': 'str',
         'format_url': 'str',
         'variants': 'str',
         'slug': 'str'
@@ -43,22 +43,22 @@ class Distribution(object):
     attribute_map = {
         'self_url': 'self_url',
         'name': 'name',
-        'format': 'format',
         'versions': 'versions',
+        'format': 'format',
         'format_url': 'format_url',
         'variants': 'variants',
         'slug': 'slug'
     }
 
-    def __init__(self, self_url=None, name=None, format=None, versions=None, format_url=None, variants=None, slug=None):
+    def __init__(self, self_url=None, name=None, versions=None, format=None, format_url=None, variants=None, slug=None):
         """
         Distribution - a model defined in Swagger
         """
 
         self._self_url = None
         self._name = None
-        self._format = None
         self._versions = None
+        self._format = None
         self._format_url = None
         self._variants = None
         self._slug = None
@@ -66,10 +66,10 @@ class Distribution(object):
         if self_url is not None:
           self.self_url = self_url
         self.name = name
-        if format is not None:
-          self.format = format
         if versions is not None:
           self.versions = versions
+        if format is not None:
+          self.format = format
         if format_url is not None:
           self.format_url = format_url
         if variants is not None:
@@ -126,29 +126,6 @@ class Distribution(object):
         self._name = name
 
     @property
-    def format(self):
-        """
-        Gets the format of this Distribution.
-        
-
-        :return: The format of this Distribution.
-        :rtype: str
-        """
-        return self._format
-
-    @format.setter
-    def format(self, format):
-        """
-        Sets the format of this Distribution.
-        
-
-        :param format: The format of this Distribution.
-        :type: str
-        """
-
-        self._format = format
-
-    @property
     def versions(self):
         """
         Gets the versions of this Distribution.
@@ -170,6 +147,29 @@ class Distribution(object):
         """
 
         self._versions = versions
+
+    @property
+    def format(self):
+        """
+        Gets the format of this Distribution.
+        
+
+        :return: The format of this Distribution.
+        :rtype: str
+        """
+        return self._format
+
+    @format.setter
+    def format(self, format):
+        """
+        Sets the format of this Distribution.
+        
+
+        :param format: The format of this Distribution.
+        :type: str
+        """
+
+        self._format = format
 
     @property
     def format_url(self):

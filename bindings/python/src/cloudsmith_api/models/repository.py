@@ -35,21 +35,21 @@ class Repository(object):
         'self_url': 'str',
         'repository_type_str': 'str',
         'description': 'str',
-        'name': 'str',
         'index_files': 'bool',
         'created_at': 'str',
         'is_open_source': 'bool',
         'namespace': 'str',
-        'self_html_url': 'str',
-        'slug_perm': 'str',
+        'slug': 'str',
+        'size': 'int',
         'namespace_url': 'str',
         'gpg_keys': 'list[ReposownerGpgKeys]',
+        'slug_perm': 'str',
         'is_public': 'bool',
         'deleted_at': 'str',
         'repository_type': 'str',
-        'slug': 'str',
+        'self_html_url': 'str',
         'is_private': 'bool',
-        'size': 'int'
+        'name': 'str'
     }
 
     attribute_map = {
@@ -57,24 +57,24 @@ class Repository(object):
         'self_url': 'self_url',
         'repository_type_str': 'repository_type_str',
         'description': 'description',
-        'name': 'name',
         'index_files': 'index_files',
         'created_at': 'created_at',
         'is_open_source': 'is_open_source',
         'namespace': 'namespace',
-        'self_html_url': 'self_html_url',
-        'slug_perm': 'slug_perm',
+        'slug': 'slug',
+        'size': 'size',
         'namespace_url': 'namespace_url',
         'gpg_keys': 'gpg_keys',
+        'slug_perm': 'slug_perm',
         'is_public': 'is_public',
         'deleted_at': 'deleted_at',
         'repository_type': 'repository_type',
-        'slug': 'slug',
+        'self_html_url': 'self_html_url',
         'is_private': 'is_private',
-        'size': 'size'
+        'name': 'name'
     }
 
-    def __init__(self, cdn_url=None, self_url=None, repository_type_str=None, description=None, name=None, index_files=None, created_at=None, is_open_source=None, namespace=None, self_html_url=None, slug_perm=None, namespace_url=None, gpg_keys=None, is_public=None, deleted_at=None, repository_type=None, slug=None, is_private=None, size=None):
+    def __init__(self, cdn_url=None, self_url=None, repository_type_str=None, description=None, index_files=None, created_at=None, is_open_source=None, namespace=None, slug=None, size=None, namespace_url=None, gpg_keys=None, slug_perm=None, is_public=None, deleted_at=None, repository_type=None, self_html_url=None, is_private=None, name=None):
         """
         Repository - a model defined in Swagger
         """
@@ -83,21 +83,21 @@ class Repository(object):
         self._self_url = None
         self._repository_type_str = None
         self._description = None
-        self._name = None
         self._index_files = None
         self._created_at = None
         self._is_open_source = None
         self._namespace = None
-        self._self_html_url = None
-        self._slug_perm = None
+        self._slug = None
+        self._size = None
         self._namespace_url = None
         self._gpg_keys = None
+        self._slug_perm = None
         self._is_public = None
         self._deleted_at = None
         self._repository_type = None
-        self._slug = None
+        self._self_html_url = None
         self._is_private = None
-        self._size = None
+        self._name = None
 
         if cdn_url is not None:
           self.cdn_url = cdn_url
@@ -106,32 +106,32 @@ class Repository(object):
         if repository_type_str is not None:
           self.repository_type_str = repository_type_str
         self.description = description
-        if name is not None:
-          self.name = name
         if index_files is not None:
           self.index_files = index_files
         if created_at is not None:
           self.created_at = created_at
         self.is_open_source = is_open_source
         self.namespace = namespace
-        if self_html_url is not None:
-          self.self_html_url = self_html_url
-        if slug_perm is not None:
-          self.slug_perm = slug_perm
+        if slug is not None:
+          self.slug = slug
+        if size is not None:
+          self.size = size
         if namespace_url is not None:
           self.namespace_url = namespace_url
         if gpg_keys is not None:
           self.gpg_keys = gpg_keys
+        if slug_perm is not None:
+          self.slug_perm = slug_perm
         self.is_public = is_public
         if deleted_at is not None:
           self.deleted_at = deleted_at
         if repository_type is not None:
           self.repository_type = repository_type
-        if slug is not None:
-          self.slug = slug
+        if self_html_url is not None:
+          self.self_html_url = self_html_url
         self.is_private = is_private
-        if size is not None:
-          self.size = size
+        if name is not None:
+          self.name = name
 
     @property
     def cdn_url(self):
@@ -226,29 +226,6 @@ class Repository(object):
             raise ValueError("Invalid value for `description`, must not be `None`")
 
         self._description = description
-
-    @property
-    def name(self):
-        """
-        Gets the name of this Repository.
-        A descriptive name for the repository.
-
-        :return: The name of this Repository.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this Repository.
-        A descriptive name for the repository.
-
-        :param name: The name of this Repository.
-        :type: str
-        """
-
-        self._name = name
 
     @property
     def index_files(self):
@@ -347,50 +324,50 @@ class Repository(object):
         self._namespace = namespace
 
     @property
-    def self_html_url(self):
+    def slug(self):
         """
-        Gets the self_html_url of this Repository.
-        
+        Gets the slug of this Repository.
+        The slug identifies the repository in URIs.
 
-        :return: The self_html_url of this Repository.
+        :return: The slug of this Repository.
         :rtype: str
         """
-        return self._self_html_url
+        return self._slug
 
-    @self_html_url.setter
-    def self_html_url(self, self_html_url):
+    @slug.setter
+    def slug(self, slug):
         """
-        Sets the self_html_url of this Repository.
-        
+        Sets the slug of this Repository.
+        The slug identifies the repository in URIs.
 
-        :param self_html_url: The self_html_url of this Repository.
+        :param slug: The slug of this Repository.
         :type: str
         """
 
-        self._self_html_url = self_html_url
+        self._slug = slug
 
     @property
-    def slug_perm(self):
+    def size(self):
         """
-        Gets the slug_perm of this Repository.
-        
+        Gets the size of this Repository.
+        The calculated size of the repository.
 
-        :return: The slug_perm of this Repository.
-        :rtype: str
+        :return: The size of this Repository.
+        :rtype: int
         """
-        return self._slug_perm
+        return self._size
 
-    @slug_perm.setter
-    def slug_perm(self, slug_perm):
+    @size.setter
+    def size(self, size):
         """
-        Sets the slug_perm of this Repository.
-        
+        Sets the size of this Repository.
+        The calculated size of the repository.
 
-        :param slug_perm: The slug_perm of this Repository.
-        :type: str
+        :param size: The size of this Repository.
+        :type: int
         """
 
-        self._slug_perm = slug_perm
+        self._size = size
 
     @property
     def namespace_url(self):
@@ -437,6 +414,29 @@ class Repository(object):
         """
 
         self._gpg_keys = gpg_keys
+
+    @property
+    def slug_perm(self):
+        """
+        Gets the slug_perm of this Repository.
+        
+
+        :return: The slug_perm of this Repository.
+        :rtype: str
+        """
+        return self._slug_perm
+
+    @slug_perm.setter
+    def slug_perm(self, slug_perm):
+        """
+        Sets the slug_perm of this Repository.
+        
+
+        :param slug_perm: The slug_perm of this Repository.
+        :type: str
+        """
+
+        self._slug_perm = slug_perm
 
     @property
     def is_public(self):
@@ -510,27 +510,27 @@ class Repository(object):
         self._repository_type = repository_type
 
     @property
-    def slug(self):
+    def self_html_url(self):
         """
-        Gets the slug of this Repository.
-        The slug identifies the repository in URIs.
+        Gets the self_html_url of this Repository.
+        
 
-        :return: The slug of this Repository.
+        :return: The self_html_url of this Repository.
         :rtype: str
         """
-        return self._slug
+        return self._self_html_url
 
-    @slug.setter
-    def slug(self, slug):
+    @self_html_url.setter
+    def self_html_url(self, self_html_url):
         """
-        Sets the slug of this Repository.
-        The slug identifies the repository in URIs.
+        Sets the self_html_url of this Repository.
+        
 
-        :param slug: The slug of this Repository.
+        :param self_html_url: The self_html_url of this Repository.
         :type: str
         """
 
-        self._slug = slug
+        self._self_html_url = self_html_url
 
     @property
     def is_private(self):
@@ -558,27 +558,27 @@ class Repository(object):
         self._is_private = is_private
 
     @property
-    def size(self):
+    def name(self):
         """
-        Gets the size of this Repository.
-        The calculated size of the repository.
+        Gets the name of this Repository.
+        A descriptive name for the repository.
 
-        :return: The size of this Repository.
-        :rtype: int
+        :return: The name of this Repository.
+        :rtype: str
         """
-        return self._size
+        return self._name
 
-    @size.setter
-    def size(self, size):
+    @name.setter
+    def name(self, name):
         """
-        Sets the size of this Repository.
-        The calculated size of the repository.
+        Sets the name of this Repository.
+        A descriptive name for the repository.
 
-        :param size: The size of this Repository.
-        :type: int
+        :param name: The name of this Repository.
+        :type: str
         """
 
-        self._size = size
+        self._name = name
 
     def to_dict(self):
         """
