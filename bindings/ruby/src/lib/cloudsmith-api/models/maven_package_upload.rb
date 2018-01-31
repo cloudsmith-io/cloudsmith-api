@@ -15,23 +15,20 @@ require 'date'
 module CloudsmithApi
 
   class MavenPackageUpload
-    # The synchronisation status of the package.
-    attr_accessor :status
-
-    # The type of package contents.
-    attr_accessor :package_type
+    # 
+    attr_accessor :files
 
     # The datetime the package stage was updated at.
     attr_accessor :stage_updated_at
 
-    # 
-    attr_accessor :checksum_sha512
+    # The ID of the artifact.
+    attr_accessor :artifact_id
 
     # 
     attr_accessor :is_sync_failed
 
-    # The datetime the package sync was finished at.
-    attr_accessor :sync_finished_at
+    # 
+    attr_accessor :distro_version
 
     # 
     attr_accessor :checksum_sha256
@@ -52,7 +49,10 @@ module CloudsmithApi
     attr_accessor :is_sync_awaiting
 
     # 
-    attr_accessor :num_files
+    attr_accessor :repository
+
+    # 
+    attr_accessor :subtype
 
     # 
     attr_accessor :status_url
@@ -63,14 +63,17 @@ module CloudsmithApi
     # 
     attr_accessor :namespace
 
-    # 
-    attr_accessor :distro_version
+    # The datetime the package sync was finished at.
+    attr_accessor :sync_finished_at
 
     # 
     attr_accessor :filename
 
     # Synchronisation progress (from 0-100)
     attr_accessor :sync_progress
+
+    # Artifact's group ID.
+    attr_accessor :group_id
 
     # The epoch of the package version (if any).
     attr_accessor :epoch
@@ -91,22 +94,25 @@ module CloudsmithApi
     attr_accessor :uploader_url
 
     # 
+    attr_accessor :cdn_url
+
+    # 
     attr_accessor :checksum_sha1
 
     # 
     attr_accessor :distro
 
-    # 
-    attr_accessor :files
+    # The synchronisation status of the package.
+    attr_accessor :status
 
     # 
-    attr_accessor :cdn_url
+    attr_accessor :checksum_sha512
 
-    # The ID of the artifact.
-    attr_accessor :artifact_id
+    # A textual description of this package.
+    attr_accessor :description
 
-    # 
-    attr_accessor :repository
+    # The name of this package.
+    attr_accessor :name
 
     # 
     attr_accessor :format
@@ -127,9 +133,6 @@ module CloudsmithApi
     attr_accessor :uploader
 
     # 
-    attr_accessor :type_display
-
-    # 
     attr_accessor :self_html_url
 
     # The synchronisation (in progress) stage of the package.
@@ -147,35 +150,32 @@ module CloudsmithApi
     # The date this package was uploaded.
     attr_accessor :uploaded_at
 
-    # The name of this package.
-    attr_accessor :name
-
     # The license of this package.
     attr_accessor :license
 
     # 
+    attr_accessor :extension
+
+    # 
     attr_accessor :stage_str
 
-    # A textual description of this package.
-    attr_accessor :description
+    # The type of package contents.
+    attr_accessor :package_type
 
     # A one-liner synopsis of this package.
     attr_accessor :summary
 
     # 
-    attr_accessor :subtype
+    attr_accessor :num_files
 
     # 
     attr_accessor :checksum_md5
 
-    # 
-    attr_accessor :extension
-
     # The release of the package version (if any).
     attr_accessor :release
 
-    # Artifact's group ID.
-    attr_accessor :group_id
+    # 
+    attr_accessor :type_display
 
     # 
     attr_accessor :format_url
@@ -184,60 +184,60 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'status' => :'status',
-        :'package_type' => :'package_type',
+        :'files' => :'files',
         :'stage_updated_at' => :'stage_updated_at',
-        :'checksum_sha512' => :'checksum_sha512',
+        :'artifact_id' => :'artifact_id',
         :'is_sync_failed' => :'is_sync_failed',
-        :'sync_finished_at' => :'sync_finished_at',
+        :'distro_version' => :'distro_version',
         :'checksum_sha256' => :'checksum_sha256',
         :'repository_url' => :'repository_url',
         :'is_sync_in_progress' => :'is_sync_in_progress',
         :'size' => :'size',
         :'status_str' => :'status_str',
         :'is_sync_awaiting' => :'is_sync_awaiting',
-        :'num_files' => :'num_files',
+        :'repository' => :'repository',
+        :'subtype' => :'subtype',
         :'status_url' => :'status_url',
         :'status_updated_at' => :'status_updated_at',
         :'namespace' => :'namespace',
-        :'distro_version' => :'distro_version',
+        :'sync_finished_at' => :'sync_finished_at',
         :'filename' => :'filename',
         :'sync_progress' => :'sync_progress',
+        :'group_id' => :'group_id',
         :'epoch' => :'epoch',
         :'version' => :'version',
         :'is_sync_in_flight' => :'is_sync_in_flight',
         :'namespace_url' => :'namespace_url',
         :'slug_perm' => :'slug_perm',
         :'uploader_url' => :'uploader_url',
+        :'cdn_url' => :'cdn_url',
         :'checksum_sha1' => :'checksum_sha1',
         :'distro' => :'distro',
-        :'files' => :'files',
-        :'cdn_url' => :'cdn_url',
-        :'artifact_id' => :'artifact_id',
-        :'repository' => :'repository',
+        :'status' => :'status',
+        :'checksum_sha512' => :'checksum_sha512',
+        :'description' => :'description',
+        :'name' => :'name',
         :'format' => :'format',
         :'is_sync_completed' => :'is_sync_completed',
         :'downloads' => :'downloads',
         :'version_orig' => :'version_orig',
         :'architectures' => :'architectures',
         :'uploader' => :'uploader',
-        :'type_display' => :'type_display',
         :'self_html_url' => :'self_html_url',
         :'stage' => :'stage',
         :'self_url' => :'self_url',
         :'packaging' => :'packaging',
         :'slug' => :'slug',
         :'uploaded_at' => :'uploaded_at',
-        :'name' => :'name',
         :'license' => :'license',
-        :'stage_str' => :'stage_str',
-        :'description' => :'description',
-        :'summary' => :'summary',
-        :'subtype' => :'subtype',
-        :'checksum_md5' => :'checksum_md5',
         :'extension' => :'extension',
+        :'stage_str' => :'stage_str',
+        :'package_type' => :'package_type',
+        :'summary' => :'summary',
+        :'num_files' => :'num_files',
+        :'checksum_md5' => :'checksum_md5',
         :'release' => :'release',
-        :'group_id' => :'group_id',
+        :'type_display' => :'type_display',
         :'format_url' => :'format_url'
       }
     end
@@ -245,60 +245,60 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'status' => :'String',
-        :'package_type' => :'String',
+        :'files' => :'Array<RpmPackageUploadFiles>',
         :'stage_updated_at' => :'String',
-        :'checksum_sha512' => :'String',
+        :'artifact_id' => :'String',
         :'is_sync_failed' => :'BOOLEAN',
-        :'sync_finished_at' => :'String',
+        :'distro_version' => :'Object',
         :'checksum_sha256' => :'String',
         :'repository_url' => :'String',
         :'is_sync_in_progress' => :'BOOLEAN',
         :'size' => :'Integer',
         :'status_str' => :'String',
         :'is_sync_awaiting' => :'BOOLEAN',
-        :'num_files' => :'Integer',
+        :'repository' => :'String',
+        :'subtype' => :'String',
         :'status_url' => :'String',
         :'status_updated_at' => :'String',
         :'namespace' => :'String',
-        :'distro_version' => :'Object',
+        :'sync_finished_at' => :'String',
         :'filename' => :'String',
         :'sync_progress' => :'Integer',
+        :'group_id' => :'String',
         :'epoch' => :'Integer',
         :'version' => :'String',
         :'is_sync_in_flight' => :'BOOLEAN',
         :'namespace_url' => :'String',
         :'slug_perm' => :'String',
         :'uploader_url' => :'String',
+        :'cdn_url' => :'String',
         :'checksum_sha1' => :'String',
         :'distro' => :'Object',
-        :'files' => :'Array<RpmPackageUploadFiles>',
-        :'cdn_url' => :'String',
-        :'artifact_id' => :'String',
-        :'repository' => :'String',
+        :'status' => :'String',
+        :'checksum_sha512' => :'String',
+        :'description' => :'String',
+        :'name' => :'String',
         :'format' => :'String',
         :'is_sync_completed' => :'BOOLEAN',
         :'downloads' => :'String',
         :'version_orig' => :'String',
         :'architectures' => :'Array<RpmPackageUploadArchitectures>',
         :'uploader' => :'String',
-        :'type_display' => :'String',
         :'self_html_url' => :'String',
         :'stage' => :'String',
         :'self_url' => :'String',
         :'packaging' => :'String',
         :'slug' => :'String',
         :'uploaded_at' => :'String',
-        :'name' => :'String',
         :'license' => :'String',
-        :'stage_str' => :'String',
-        :'description' => :'String',
-        :'summary' => :'String',
-        :'subtype' => :'String',
-        :'checksum_md5' => :'String',
         :'extension' => :'String',
+        :'stage_str' => :'String',
+        :'package_type' => :'String',
+        :'summary' => :'String',
+        :'num_files' => :'Integer',
+        :'checksum_md5' => :'String',
         :'release' => :'String',
-        :'group_id' => :'String',
+        :'type_display' => :'String',
         :'format_url' => :'String'
       }
     end
@@ -311,28 +311,26 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.has_key?(:'package_type')
-        self.package_type = attributes[:'package_type']
+      if attributes.has_key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
+        end
       end
 
       if attributes.has_key?(:'stage_updated_at')
         self.stage_updated_at = attributes[:'stage_updated_at']
       end
 
-      if attributes.has_key?(:'checksum_sha512')
-        self.checksum_sha512 = attributes[:'checksum_sha512']
+      if attributes.has_key?(:'artifact_id')
+        self.artifact_id = attributes[:'artifact_id']
       end
 
       if attributes.has_key?(:'is_sync_failed')
         self.is_sync_failed = attributes[:'is_sync_failed']
       end
 
-      if attributes.has_key?(:'sync_finished_at')
-        self.sync_finished_at = attributes[:'sync_finished_at']
+      if attributes.has_key?(:'distro_version')
+        self.distro_version = attributes[:'distro_version']
       end
 
       if attributes.has_key?(:'checksum_sha256')
@@ -359,8 +357,12 @@ module CloudsmithApi
         self.is_sync_awaiting = attributes[:'is_sync_awaiting']
       end
 
-      if attributes.has_key?(:'num_files')
-        self.num_files = attributes[:'num_files']
+      if attributes.has_key?(:'repository')
+        self.repository = attributes[:'repository']
+      end
+
+      if attributes.has_key?(:'subtype')
+        self.subtype = attributes[:'subtype']
       end
 
       if attributes.has_key?(:'status_url')
@@ -375,8 +377,8 @@ module CloudsmithApi
         self.namespace = attributes[:'namespace']
       end
 
-      if attributes.has_key?(:'distro_version')
-        self.distro_version = attributes[:'distro_version']
+      if attributes.has_key?(:'sync_finished_at')
+        self.sync_finished_at = attributes[:'sync_finished_at']
       end
 
       if attributes.has_key?(:'filename')
@@ -385,6 +387,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'sync_progress')
         self.sync_progress = attributes[:'sync_progress']
+      end
+
+      if attributes.has_key?(:'group_id')
+        self.group_id = attributes[:'group_id']
       end
 
       if attributes.has_key?(:'epoch')
@@ -411,6 +417,10 @@ module CloudsmithApi
         self.uploader_url = attributes[:'uploader_url']
       end
 
+      if attributes.has_key?(:'cdn_url')
+        self.cdn_url = attributes[:'cdn_url']
+      end
+
       if attributes.has_key?(:'checksum_sha1')
         self.checksum_sha1 = attributes[:'checksum_sha1']
       end
@@ -419,22 +429,20 @@ module CloudsmithApi
         self.distro = attributes[:'distro']
       end
 
-      if attributes.has_key?(:'files')
-        if (value = attributes[:'files']).is_a?(Array)
-          self.files = value
-        end
+      if attributes.has_key?(:'status')
+        self.status = attributes[:'status']
       end
 
-      if attributes.has_key?(:'cdn_url')
-        self.cdn_url = attributes[:'cdn_url']
+      if attributes.has_key?(:'checksum_sha512')
+        self.checksum_sha512 = attributes[:'checksum_sha512']
       end
 
-      if attributes.has_key?(:'artifact_id')
-        self.artifact_id = attributes[:'artifact_id']
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
       end
 
-      if attributes.has_key?(:'repository')
-        self.repository = attributes[:'repository']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'format')
@@ -463,10 +471,6 @@ module CloudsmithApi
         self.uploader = attributes[:'uploader']
       end
 
-      if attributes.has_key?(:'type_display')
-        self.type_display = attributes[:'type_display']
-      end
-
       if attributes.has_key?(:'self_html_url')
         self.self_html_url = attributes[:'self_html_url']
       end
@@ -491,44 +495,40 @@ module CloudsmithApi
         self.uploaded_at = attributes[:'uploaded_at']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.has_key?(:'license')
         self.license = attributes[:'license']
-      end
-
-      if attributes.has_key?(:'stage_str')
-        self.stage_str = attributes[:'stage_str']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'summary')
-        self.summary = attributes[:'summary']
-      end
-
-      if attributes.has_key?(:'subtype')
-        self.subtype = attributes[:'subtype']
-      end
-
-      if attributes.has_key?(:'checksum_md5')
-        self.checksum_md5 = attributes[:'checksum_md5']
       end
 
       if attributes.has_key?(:'extension')
         self.extension = attributes[:'extension']
       end
 
+      if attributes.has_key?(:'stage_str')
+        self.stage_str = attributes[:'stage_str']
+      end
+
+      if attributes.has_key?(:'package_type')
+        self.package_type = attributes[:'package_type']
+      end
+
+      if attributes.has_key?(:'summary')
+        self.summary = attributes[:'summary']
+      end
+
+      if attributes.has_key?(:'num_files')
+        self.num_files = attributes[:'num_files']
+      end
+
+      if attributes.has_key?(:'checksum_md5')
+        self.checksum_md5 = attributes[:'checksum_md5']
+      end
+
       if attributes.has_key?(:'release')
         self.release = attributes[:'release']
       end
 
-      if attributes.has_key?(:'group_id')
-        self.group_id = attributes[:'group_id']
+      if attributes.has_key?(:'type_display')
+        self.type_display = attributes[:'type_display']
       end
 
       if attributes.has_key?(:'format_url')
@@ -555,60 +555,60 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          status == o.status &&
-          package_type == o.package_type &&
+          files == o.files &&
           stage_updated_at == o.stage_updated_at &&
-          checksum_sha512 == o.checksum_sha512 &&
+          artifact_id == o.artifact_id &&
           is_sync_failed == o.is_sync_failed &&
-          sync_finished_at == o.sync_finished_at &&
+          distro_version == o.distro_version &&
           checksum_sha256 == o.checksum_sha256 &&
           repository_url == o.repository_url &&
           is_sync_in_progress == o.is_sync_in_progress &&
           size == o.size &&
           status_str == o.status_str &&
           is_sync_awaiting == o.is_sync_awaiting &&
-          num_files == o.num_files &&
+          repository == o.repository &&
+          subtype == o.subtype &&
           status_url == o.status_url &&
           status_updated_at == o.status_updated_at &&
           namespace == o.namespace &&
-          distro_version == o.distro_version &&
+          sync_finished_at == o.sync_finished_at &&
           filename == o.filename &&
           sync_progress == o.sync_progress &&
+          group_id == o.group_id &&
           epoch == o.epoch &&
           version == o.version &&
           is_sync_in_flight == o.is_sync_in_flight &&
           namespace_url == o.namespace_url &&
           slug_perm == o.slug_perm &&
           uploader_url == o.uploader_url &&
+          cdn_url == o.cdn_url &&
           checksum_sha1 == o.checksum_sha1 &&
           distro == o.distro &&
-          files == o.files &&
-          cdn_url == o.cdn_url &&
-          artifact_id == o.artifact_id &&
-          repository == o.repository &&
+          status == o.status &&
+          checksum_sha512 == o.checksum_sha512 &&
+          description == o.description &&
+          name == o.name &&
           format == o.format &&
           is_sync_completed == o.is_sync_completed &&
           downloads == o.downloads &&
           version_orig == o.version_orig &&
           architectures == o.architectures &&
           uploader == o.uploader &&
-          type_display == o.type_display &&
           self_html_url == o.self_html_url &&
           stage == o.stage &&
           self_url == o.self_url &&
           packaging == o.packaging &&
           slug == o.slug &&
           uploaded_at == o.uploaded_at &&
-          name == o.name &&
           license == o.license &&
-          stage_str == o.stage_str &&
-          description == o.description &&
-          summary == o.summary &&
-          subtype == o.subtype &&
-          checksum_md5 == o.checksum_md5 &&
           extension == o.extension &&
+          stage_str == o.stage_str &&
+          package_type == o.package_type &&
+          summary == o.summary &&
+          num_files == o.num_files &&
+          checksum_md5 == o.checksum_md5 &&
           release == o.release &&
-          group_id == o.group_id &&
+          type_display == o.type_display &&
           format_url == o.format_url
     end
 
@@ -621,7 +621,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [status, package_type, stage_updated_at, checksum_sha512, is_sync_failed, sync_finished_at, checksum_sha256, repository_url, is_sync_in_progress, size, status_str, is_sync_awaiting, num_files, status_url, status_updated_at, namespace, distro_version, filename, sync_progress, epoch, version, is_sync_in_flight, namespace_url, slug_perm, uploader_url, checksum_sha1, distro, files, cdn_url, artifact_id, repository, format, is_sync_completed, downloads, version_orig, architectures, uploader, type_display, self_html_url, stage, self_url, packaging, slug, uploaded_at, name, license, stage_str, description, summary, subtype, checksum_md5, extension, release, group_id, format_url].hash
+      [files, stage_updated_at, artifact_id, is_sync_failed, distro_version, checksum_sha256, repository_url, is_sync_in_progress, size, status_str, is_sync_awaiting, repository, subtype, status_url, status_updated_at, namespace, sync_finished_at, filename, sync_progress, group_id, epoch, version, is_sync_in_flight, namespace_url, slug_perm, uploader_url, cdn_url, checksum_sha1, distro, status, checksum_sha512, description, name, format, is_sync_completed, downloads, version_orig, architectures, uploader, self_html_url, stage, self_url, packaging, slug, uploaded_at, license, extension, stage_str, package_type, summary, num_files, checksum_md5, release, type_display, format_url].hash
     end
 
     # Builds the object from hash

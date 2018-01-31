@@ -21,11 +21,11 @@ module CloudsmithApi
     # 
     attr_accessor :name
 
-    # 
-    attr_accessor :format
-
     # A list of the versions for this distribution
     attr_accessor :versions
+
+    # 
+    attr_accessor :format
 
     # 
     attr_accessor :format_url
@@ -42,8 +42,8 @@ module CloudsmithApi
       {
         :'self_url' => :'self_url',
         :'name' => :'name',
-        :'format' => :'format',
         :'versions' => :'versions',
+        :'format' => :'format',
         :'format_url' => :'format_url',
         :'variants' => :'variants',
         :'slug' => :'slug'
@@ -55,8 +55,8 @@ module CloudsmithApi
       {
         :'self_url' => :'String',
         :'name' => :'String',
-        :'format' => :'String',
         :'versions' => :'Array<DistributionVersions>',
+        :'format' => :'String',
         :'format_url' => :'String',
         :'variants' => :'String',
         :'slug' => :'String'
@@ -79,14 +79,14 @@ module CloudsmithApi
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'format')
-        self.format = attributes[:'format']
-      end
-
       if attributes.has_key?(:'versions')
         if (value = attributes[:'versions']).is_a?(Array)
           self.versions = value
         end
+      end
+
+      if attributes.has_key?(:'format')
+        self.format = attributes[:'format']
       end
 
       if attributes.has_key?(:'format_url')
@@ -128,8 +128,8 @@ module CloudsmithApi
       self.class == o.class &&
           self_url == o.self_url &&
           name == o.name &&
-          format == o.format &&
           versions == o.versions &&
+          format == o.format &&
           format_url == o.format_url &&
           variants == o.variants &&
           slug == o.slug
@@ -144,7 +144,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [self_url, name, format, versions, format_url, variants, slug].hash
+      [self_url, name, versions, format, format_url, variants, slug].hash
     end
 
     # Builds the object from hash

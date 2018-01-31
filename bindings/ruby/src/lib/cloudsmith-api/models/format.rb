@@ -21,8 +21,8 @@ module CloudsmithApi
     # Description of the package format
     attr_accessor :description
 
-    # A set of what the package format supports
-    attr_accessor :supports
+    # The distributions supported by this package format
+    attr_accessor :distributions
 
     # The minimum plan id required for this package format
     attr_accessor :premium_plan_id
@@ -33,8 +33,8 @@ module CloudsmithApi
     # A non-exhaustive list of extensions supported
     attr_accessor :extensions
 
-    # The distributions supported by this package format
-    attr_accessor :distributions
+    # A set of what the package format supports
+    attr_accessor :supports
 
     # Slug for the package format
     attr_accessor :slug
@@ -48,11 +48,11 @@ module CloudsmithApi
       {
         :'premium' => :'premium',
         :'description' => :'description',
-        :'supports' => :'supports',
+        :'distributions' => :'distributions',
         :'premium_plan_id' => :'premium_plan_id',
         :'premium_plan_name' => :'premium_plan_name',
         :'extensions' => :'extensions',
-        :'distributions' => :'distributions',
+        :'supports' => :'supports',
         :'slug' => :'slug',
         :'name' => :'name'
       }
@@ -63,11 +63,11 @@ module CloudsmithApi
       {
         :'premium' => :'BOOLEAN',
         :'description' => :'String',
-        :'supports' => :'Object',
+        :'distributions' => :'Array<FormatDistributions>',
         :'premium_plan_id' => :'String',
         :'premium_plan_name' => :'String',
         :'extensions' => :'Array<String>',
-        :'distributions' => :'Array<FormatDistributions>',
+        :'supports' => :'Object',
         :'slug' => :'String',
         :'name' => :'String'
       }
@@ -89,8 +89,10 @@ module CloudsmithApi
         self.description = attributes[:'description']
       end
 
-      if attributes.has_key?(:'supports')
-        self.supports = attributes[:'supports']
+      if attributes.has_key?(:'distributions')
+        if (value = attributes[:'distributions']).is_a?(Array)
+          self.distributions = value
+        end
       end
 
       if attributes.has_key?(:'premium_plan_id')
@@ -107,10 +109,8 @@ module CloudsmithApi
         end
       end
 
-      if attributes.has_key?(:'distributions')
-        if (value = attributes[:'distributions']).is_a?(Array)
-          self.distributions = value
-        end
+      if attributes.has_key?(:'supports')
+        self.supports = attributes[:'supports']
       end
 
       if attributes.has_key?(:'slug')
@@ -135,12 +135,12 @@ module CloudsmithApi
         invalid_properties.push("invalid value for 'description', description cannot be nil.")
       end
 
-      if @supports.nil?
-        invalid_properties.push("invalid value for 'supports', supports cannot be nil.")
-      end
-
       if @extensions.nil?
         invalid_properties.push("invalid value for 'extensions', extensions cannot be nil.")
+      end
+
+      if @supports.nil?
+        invalid_properties.push("invalid value for 'supports', supports cannot be nil.")
       end
 
       if @slug.nil?
@@ -159,8 +159,8 @@ module CloudsmithApi
     def valid?
       return false if @premium.nil?
       return false if @description.nil?
-      return false if @supports.nil?
       return false if @extensions.nil?
+      return false if @supports.nil?
       return false if @slug.nil?
       return false if @name.nil?
       return true
@@ -173,11 +173,11 @@ module CloudsmithApi
       self.class == o.class &&
           premium == o.premium &&
           description == o.description &&
-          supports == o.supports &&
+          distributions == o.distributions &&
           premium_plan_id == o.premium_plan_id &&
           premium_plan_name == o.premium_plan_name &&
           extensions == o.extensions &&
-          distributions == o.distributions &&
+          supports == o.supports &&
           slug == o.slug &&
           name == o.name
     end
@@ -191,7 +191,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [premium, description, supports, premium_plan_id, premium_plan_name, extensions, distributions, slug, name].hash
+      [premium, description, distributions, premium_plan_id, premium_plan_name, extensions, supports, slug, name].hash
     end
 
     # Builds the object from hash

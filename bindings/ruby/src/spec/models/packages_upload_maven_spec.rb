@@ -32,7 +32,7 @@ describe 'PackagesUploadMaven' do
       expect(@instance).to be_instance_of(CloudsmithApi::PackagesUploadMaven)
     end
   end
-  describe 'test attribute "package_file"' do
+  describe 'test attribute "artifact_id"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -74,7 +74,7 @@ describe 'PackagesUploadMaven' do
     end
   end
 
-  describe 'test attribute "artifact_id"' do
+  describe 'test attribute "package_file"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

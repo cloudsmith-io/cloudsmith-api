@@ -56,12 +56,6 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "name"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "index_files"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -86,13 +80,13 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "self_html_url"' do
+  describe 'test attribute "slug"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "slug_perm"' do
+  describe 'test attribute "size"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -105,6 +99,12 @@ describe 'Repository' do
   end
 
   describe 'test attribute "gpg_keys"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "slug_perm"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -128,7 +128,7 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "slug"' do
+  describe 'test attribute "self_html_url"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -140,7 +140,7 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "size"' do
+  describe 'test attribute "name"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

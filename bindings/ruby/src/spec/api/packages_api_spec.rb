@@ -106,8 +106,8 @@ describe 'PackagesApi' do
   # unit tests for packages_upload_maven
   # Create a new Maven package
   # Create a new Maven package
-  # @param repo 
   # @param owner 
+  # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadMaven] :data 
   # @return [MavenPackageUpload]
@@ -204,8 +204,8 @@ describe 'PackagesApi' do
   # unit tests for packages_validate_upload_maven
   # Validate parameters for create Maven package
   # Validate parameters for create Maven package
-  # @param repo 
   # @param owner 
+  # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesValidateuploadMaven] :data 
   # @return [nil]

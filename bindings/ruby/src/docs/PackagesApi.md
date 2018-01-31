@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_maven**
-> MavenPackageUpload packages_upload_maven(repo, owner, opts)
+> MavenPackageUpload packages_upload_maven(owner, repo, opts)
 
 Create a new Maven package
 
@@ -402,9 +402,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-repo = "repo_example" # String | 
-
 owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadMaven.new # PackagesUploadMaven | 
@@ -412,7 +412,7 @@ opts = {
 
 begin
   #Create a new Maven package
-  result = api_instance.packages_upload_maven(repo, owner, opts)
+  result = api_instance.packages_upload_maven(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_upload_maven: #{e}"
@@ -423,8 +423,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo** | **String**|  | 
  **owner** | **String**|  | 
+ **repo** | **String**|  | 
  **data** | [**PackagesUploadMaven**](PackagesUploadMaven.md)|  | [optional] 
 
 ### Return type
@@ -862,7 +862,7 @@ nil (empty response body)
 
 
 # **packages_validate_upload_maven**
-> packages_validate_upload_maven(repo, owner, opts)
+> packages_validate_upload_maven(owner, repo, opts)
 
 Validate parameters for create Maven package
 
@@ -891,9 +891,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-repo = "repo_example" # String | 
-
 owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadMaven.new # PackagesValidateuploadMaven | 
@@ -901,7 +901,7 @@ opts = {
 
 begin
   #Validate parameters for create Maven package
-  api_instance.packages_validate_upload_maven(repo, owner, opts)
+  api_instance.packages_validate_upload_maven(owner, repo, opts)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_validate_upload_maven: #{e}"
 end
@@ -911,8 +911,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo** | **String**|  | 
  **owner** | **String**|  | 
+ **repo** | **String**|  | 
  **data** | [**PackagesValidateuploadMaven**](PackagesValidateuploadMaven.md)|  | [optional] 
 
 ### Return type

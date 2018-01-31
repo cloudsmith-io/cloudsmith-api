@@ -44,7 +44,7 @@ describe 'Format' do
     end
   end
 
-  describe 'test attribute "supports"' do
+  describe 'test attribute "distributions"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -68,7 +68,7 @@ describe 'Format' do
     end
   end
 
-  describe 'test attribute "distributions"' do
+  describe 'test attribute "supports"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

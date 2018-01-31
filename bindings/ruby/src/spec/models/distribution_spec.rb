@@ -44,13 +44,13 @@ describe 'Distribution' do
     end
   end
 
-  describe 'test attribute "format"' do
+  describe 'test attribute "versions"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "versions"' do
+  describe 'test attribute "format"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
