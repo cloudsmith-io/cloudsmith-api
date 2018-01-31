@@ -12,23 +12,20 @@ package cloudsmith_api
 
 type MavenPackageUpload struct {
 
-	// The synchronisation status of the package.
-	Status string `json:"status,omitempty"`
-
-	// The type of package contents.
-	PackageType string `json:"package_type,omitempty"`
+	// 
+	Files []RpmPackageUploadFiles `json:"files,omitempty"`
 
 	// The datetime the package stage was updated at.
 	StageUpdatedAt string `json:"stage_updated_at,omitempty"`
 
-	// 
-	ChecksumSha512 string `json:"checksum_sha512,omitempty"`
+	// The ID of the artifact.
+	ArtifactId string `json:"artifact_id,omitempty"`
 
 	// 
 	IsSyncFailed bool `json:"is_sync_failed,omitempty"`
 
-	// The datetime the package sync was finished at.
-	SyncFinishedAt string `json:"sync_finished_at,omitempty"`
+	// 
+	DistroVersion interface{} `json:"distro_version,omitempty"`
 
 	// 
 	ChecksumSha256 string `json:"checksum_sha256,omitempty"`
@@ -49,7 +46,10 @@ type MavenPackageUpload struct {
 	IsSyncAwaiting bool `json:"is_sync_awaiting,omitempty"`
 
 	// 
-	NumFiles int32 `json:"num_files,omitempty"`
+	Repository string `json:"repository,omitempty"`
+
+	// 
+	Subtype string `json:"subtype,omitempty"`
 
 	// 
 	StatusUrl string `json:"status_url,omitempty"`
@@ -60,14 +60,17 @@ type MavenPackageUpload struct {
 	// 
 	Namespace string `json:"namespace,omitempty"`
 
-	// 
-	DistroVersion interface{} `json:"distro_version,omitempty"`
+	// The datetime the package sync was finished at.
+	SyncFinishedAt string `json:"sync_finished_at,omitempty"`
 
 	// 
 	Filename string `json:"filename,omitempty"`
 
 	// Synchronisation progress (from 0-100)
 	SyncProgress int32 `json:"sync_progress,omitempty"`
+
+	// Artifact's group ID.
+	GroupId string `json:"group_id,omitempty"`
 
 	// The epoch of the package version (if any).
 	Epoch int32 `json:"epoch,omitempty"`
@@ -88,22 +91,25 @@ type MavenPackageUpload struct {
 	UploaderUrl string `json:"uploader_url,omitempty"`
 
 	// 
+	CdnUrl string `json:"cdn_url,omitempty"`
+
+	// 
 	ChecksumSha1 string `json:"checksum_sha1,omitempty"`
 
 	// 
 	Distro interface{} `json:"distro,omitempty"`
 
-	// 
-	Files []RpmPackageUploadFiles `json:"files,omitempty"`
+	// The synchronisation status of the package.
+	Status string `json:"status,omitempty"`
 
 	// 
-	CdnUrl string `json:"cdn_url,omitempty"`
+	ChecksumSha512 string `json:"checksum_sha512,omitempty"`
 
-	// The ID of the artifact.
-	ArtifactId string `json:"artifact_id,omitempty"`
+	// A textual description of this package.
+	Description string `json:"description,omitempty"`
 
-	// 
-	Repository string `json:"repository,omitempty"`
+	// The name of this package.
+	Name string `json:"name,omitempty"`
 
 	// 
 	Format string `json:"format,omitempty"`
@@ -124,9 +130,6 @@ type MavenPackageUpload struct {
 	Uploader string `json:"uploader,omitempty"`
 
 	// 
-	TypeDisplay string `json:"type_display,omitempty"`
-
-	// 
 	SelfHtmlUrl string `json:"self_html_url,omitempty"`
 
 	// The synchronisation (in progress) stage of the package.
@@ -144,35 +147,32 @@ type MavenPackageUpload struct {
 	// The date this package was uploaded.
 	UploadedAt string `json:"uploaded_at,omitempty"`
 
-	// The name of this package.
-	Name string `json:"name,omitempty"`
-
 	// The license of this package.
 	License string `json:"license,omitempty"`
 
 	// 
+	Extension string `json:"extension,omitempty"`
+
+	// 
 	StageStr string `json:"stage_str,omitempty"`
 
-	// A textual description of this package.
-	Description string `json:"description,omitempty"`
+	// The type of package contents.
+	PackageType string `json:"package_type,omitempty"`
 
 	// A one-liner synopsis of this package.
 	Summary string `json:"summary,omitempty"`
 
 	// 
-	Subtype string `json:"subtype,omitempty"`
+	NumFiles int32 `json:"num_files,omitempty"`
 
 	// 
 	ChecksumMd5 string `json:"checksum_md5,omitempty"`
 
-	// 
-	Extension string `json:"extension,omitempty"`
-
 	// The release of the package version (if any).
 	Release string `json:"release,omitempty"`
 
-	// Artifact's group ID.
-	GroupId string `json:"group_id,omitempty"`
+	// 
+	TypeDisplay string `json:"type_display,omitempty"`
 
 	// 
 	FormatUrl string `json:"format_url,omitempty"`

@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadMaven**
-> MavenPackageUpload PackagesUploadMaven($repo, $owner, $data)
+> MavenPackageUpload PackagesUploadMaven($owner, $repo, $data)
 
 Create a new Maven package
 
@@ -192,8 +192,8 @@ Create a new Maven package
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo** | **string**|  | 
  **owner** | **string**|  | 
+ **repo** | **string**|  | 
  **data** | [**PackagesUploadMaven**](PackagesUploadMaven.md)|  | [optional] 
 
 ### Return type
@@ -398,7 +398,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesValidateUploadMaven**
-> PackagesValidateUploadMaven($repo, $owner, $data)
+> PackagesValidateUploadMaven($owner, $repo, $data)
 
 Validate parameters for create Maven package
 
@@ -409,8 +409,8 @@ Validate parameters for create Maven package
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo** | **string**|  | 
  **owner** | **string**|  | 
+ **repo** | **string**|  | 
  **data** | [**PackagesValidateuploadMaven**](PackagesValidateuploadMaven.md)|  | [optional] 
 
 ### Return type

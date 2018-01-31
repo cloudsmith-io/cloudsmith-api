@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SelfUrl** | **string** |  | [optional] [default to null]
 **Name** | **string** |  | [default to null]
-**Format** | **string** |  | [optional] [default to null]
 **Versions** | [**[]DistributionVersions**](Distribution_versions.md) | A list of the versions for this distribution | [optional] [default to null]
+**Format** | **string** |  | [optional] [default to null]
 **FormatUrl** | **string** |  | [optional] [default to null]
 **Variants** | **string** |  | [optional] [default to null]
 **Slug** | **string** | The slug identifier for this distribution | [optional] [default to null]

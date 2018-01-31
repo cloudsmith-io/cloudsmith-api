@@ -24,9 +24,6 @@ type Repository struct {
 	// 
 	Description string `json:"description"`
 
-	// A descriptive name for the repository.
-	Name string `json:"name,omitempty"`
-
 	// If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
 	IndexFiles bool `json:"index_files,omitempty"`
 
@@ -39,17 +36,20 @@ type Repository struct {
 	// 
 	Namespace string `json:"namespace"`
 
-	// 
-	SelfHtmlUrl string `json:"self_html_url,omitempty"`
+	// The slug identifies the repository in URIs.
+	Slug string `json:"slug,omitempty"`
 
-	// 
-	SlugPerm string `json:"slug_perm,omitempty"`
+	// The calculated size of the repository.
+	Size int32 `json:"size,omitempty"`
 
 	// 
 	NamespaceUrl string `json:"namespace_url,omitempty"`
 
 	// 
 	GpgKeys []ReposownerGpgKeys `json:"gpg_keys,omitempty"`
+
+	// 
+	SlugPerm string `json:"slug_perm,omitempty"`
 
 	// 
 	IsPublic bool `json:"is_public"`
@@ -60,12 +60,12 @@ type Repository struct {
 	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
 	RepositoryType string `json:"repository_type,omitempty"`
 
-	// The slug identifies the repository in URIs.
-	Slug string `json:"slug,omitempty"`
+	// 
+	SelfHtmlUrl string `json:"self_html_url,omitempty"`
 
 	// 
 	IsPrivate bool `json:"is_private"`
 
-	// The calculated size of the repository.
-	Size int32 `json:"size,omitempty"`
+	// A descriptive name for the repository.
+	Name string `json:"name,omitempty"`
 }

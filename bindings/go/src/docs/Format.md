@@ -5,11 +5,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Premium** | **bool** | If true the package format is a premium-only feature | [default to null]
 **Description** | **string** | Description of the package format | [default to null]
-**Supports** | [**interface{}**](interface{}.md) | A set of what the package format supports | [default to null]
+**Distributions** | [**[]FormatDistributions**](Format_distributions.md) | The distributions supported by this package format | [optional] [default to null]
 **PremiumPlanId** | **string** | The minimum plan id required for this package format | [optional] [default to null]
 **PremiumPlanName** | **string** | The minimum plan name required for this package format | [optional] [default to null]
 **Extensions** | **[]string** | A non-exhaustive list of extensions supported | [default to null]
-**Distributions** | [**[]FormatDistributions**](Format_distributions.md) | The distributions supported by this package format | [optional] [default to null]
+**Supports** | [**interface{}**](interface{}.md) | A set of what the package format supports | [default to null]
 **Slug** | **string** | Slug for the package format | [default to null]
 **Name** | **string** | Name for the package format | [default to null]
 

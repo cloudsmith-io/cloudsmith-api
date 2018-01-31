@@ -417,18 +417,18 @@ func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesU
  * Create a new Maven package
  * Create a new Maven package
  *
- * @param repo 
  * @param owner 
+ * @param repo 
  * @param data 
  * @return *MavenPackageUpload
  */
-func (a PackagesApi) PackagesUploadMaven(repo string, owner string, data PackagesUploadMaven) (*MavenPackageUpload, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadMaven(owner string, repo string, data PackagesUploadMaven) (*MavenPackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
 	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/upload/maven/"
-	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -947,18 +947,18 @@ func (a PackagesApi) PackagesValidateUploadDeb(owner string, repo string, data P
  * Validate parameters for create Maven package
  * Validate parameters for create Maven package
  *
- * @param repo 
  * @param owner 
+ * @param repo 
  * @param data 
  * @return void
  */
-func (a PackagesApi) PackagesValidateUploadMaven(repo string, owner string, data PackagesValidateuploadMaven) (*APIResponse, error) {
+func (a PackagesApi) PackagesValidateUploadMaven(owner string, repo string, data PackagesValidateuploadMaven) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
 	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/validate-upload/maven/"
-	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

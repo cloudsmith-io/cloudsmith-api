@@ -13,14 +13,14 @@ package cloudsmith_api
 type Namespace struct {
 
 	// 
-	Slug string `json:"slug,omitempty"`
+	TypeName string `json:"type_name,omitempty"`
 
 	// 
-	TypeName string `json:"type_name,omitempty"`
+	SlugPerm string `json:"slug_perm,omitempty"`
 
 	// 
 	Name string `json:"name,omitempty"`
 
 	// 
-	SlugPerm string `json:"slug_perm,omitempty"`
+	Slug string `json:"slug,omitempty"`
 }

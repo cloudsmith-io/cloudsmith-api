@@ -18,8 +18,8 @@ type Format struct {
 	// Description of the package format
 	Description string `json:"description"`
 
-	// A set of what the package format supports
-	Supports interface{} `json:"supports"`
+	// The distributions supported by this package format
+	Distributions []FormatDistributions `json:"distributions,omitempty"`
 
 	// The minimum plan id required for this package format
 	PremiumPlanId string `json:"premium_plan_id,omitempty"`
@@ -30,8 +30,8 @@ type Format struct {
 	// A non-exhaustive list of extensions supported
 	Extensions []string `json:"extensions"`
 
-	// The distributions supported by this package format
-	Distributions []FormatDistributions `json:"distributions,omitempty"`
+	// A set of what the package format supports
+	Supports interface{} `json:"supports"`
 
 	// Slug for the package format
 	Slug string `json:"slug"`

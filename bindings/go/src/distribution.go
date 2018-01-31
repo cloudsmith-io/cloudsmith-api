@@ -18,11 +18,11 @@ type Distribution struct {
 	// 
 	Name string `json:"name"`
 
-	// 
-	Format string `json:"format,omitempty"`
-
 	// A list of the versions for this distribution
 	Versions []DistributionVersions `json:"versions,omitempty"`
+
+	// 
+	Format string `json:"format,omitempty"`
 
 	// 
 	FormatUrl string `json:"format_url,omitempty"`
