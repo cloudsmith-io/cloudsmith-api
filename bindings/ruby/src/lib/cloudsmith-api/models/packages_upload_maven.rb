@@ -15,8 +15,8 @@ require 'date'
 module CloudsmithApi
 
   class PackagesUploadMaven
-    # The ID of the artifact.
-    attr_accessor :artifact_id
+    # The primary file for the package.
+    attr_accessor :package_file
 
     # Adds bundled Java source code to the Maven package.
     attr_accessor :sources_file
@@ -36,35 +36,35 @@ module CloudsmithApi
     # Artifact's group ID.
     attr_accessor :group_id
 
-    # The primary file for the package.
-    attr_accessor :package_file
+    # The ID of the artifact.
+    attr_accessor :artifact_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'artifact_id' => :'artifact_id',
+        :'package_file' => :'package_file',
         :'sources_file' => :'sources_file',
         :'packaging' => :'packaging',
         :'pom_file' => :'pom_file',
         :'javadoc_file' => :'javadoc_file',
         :'version' => :'version',
         :'group_id' => :'group_id',
-        :'package_file' => :'package_file'
+        :'artifact_id' => :'artifact_id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'artifact_id' => :'String',
+        :'package_file' => :'String',
         :'sources_file' => :'String',
         :'packaging' => :'String',
         :'pom_file' => :'String',
         :'javadoc_file' => :'String',
         :'version' => :'String',
         :'group_id' => :'String',
-        :'package_file' => :'String'
+        :'artifact_id' => :'String'
       }
     end
 
@@ -76,8 +76,8 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'artifact_id')
-        self.artifact_id = attributes[:'artifact_id']
+      if attributes.has_key?(:'package_file')
+        self.package_file = attributes[:'package_file']
       end
 
       if attributes.has_key?(:'sources_file')
@@ -104,8 +104,8 @@ module CloudsmithApi
         self.group_id = attributes[:'group_id']
       end
 
-      if attributes.has_key?(:'package_file')
-        self.package_file = attributes[:'package_file']
+      if attributes.has_key?(:'artifact_id')
+        self.artifact_id = attributes[:'artifact_id']
       end
 
     end
@@ -133,14 +133,14 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          artifact_id == o.artifact_id &&
+          package_file == o.package_file &&
           sources_file == o.sources_file &&
           packaging == o.packaging &&
           pom_file == o.pom_file &&
           javadoc_file == o.javadoc_file &&
           version == o.version &&
           group_id == o.group_id &&
-          package_file == o.package_file
+          artifact_id == o.artifact_id
     end
 
     # @see the `==` method
@@ -152,7 +152,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [artifact_id, sources_file, packaging, pom_file, javadoc_file, version, group_id, package_file].hash
+      [package_file, sources_file, packaging, pom_file, javadoc_file, version, group_id, artifact_id].hash
     end
 
     # Builds the object from hash

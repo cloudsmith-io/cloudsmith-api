@@ -334,37 +334,37 @@ module CloudsmithApi
 
     # Create a new Maven package
     # Create a new Maven package
-    # @param owner 
     # @param repo 
+    # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadMaven] :data 
     # @return [MavenPackageUpload]
-    def packages_upload_maven(owner, repo, opts = {})
-      data, _status_code, _headers = packages_upload_maven_with_http_info(owner, repo, opts)
+    def packages_upload_maven(repo, owner, opts = {})
+      data, _status_code, _headers = packages_upload_maven_with_http_info(repo, owner, opts)
       return data
     end
 
     # Create a new Maven package
     # Create a new Maven package
-    # @param owner 
     # @param repo 
+    # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadMaven] :data 
     # @return [Array<(MavenPackageUpload, Fixnum, Hash)>] MavenPackageUpload data, response status code and response headers
-    def packages_upload_maven_with_http_info(owner, repo, opts = {})
+    def packages_upload_maven_with_http_info(repo, owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_maven ..."
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_maven"
       end
       # verify the required parameter 'repo' is set
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_maven"
       end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_maven"
+      end
       # resource path
-      local_var_path = "/packages/{owner}/{repo}/upload/maven/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+      local_var_path = "/packages/{owner}/{repo}/upload/maven/".sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'owner' + '}', owner.to_s)
 
       # query parameters
       query_params = {}
@@ -760,37 +760,37 @@ module CloudsmithApi
 
     # Validate parameters for create Maven package
     # Validate parameters for create Maven package
-    # @param owner 
     # @param repo 
+    # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesValidateuploadMaven] :data 
     # @return [nil]
-    def packages_validate_upload_maven(owner, repo, opts = {})
-      packages_validate_upload_maven_with_http_info(owner, repo, opts)
+    def packages_validate_upload_maven(repo, owner, opts = {})
+      packages_validate_upload_maven_with_http_info(repo, owner, opts)
       return nil
     end
 
     # Validate parameters for create Maven package
     # Validate parameters for create Maven package
-    # @param owner 
     # @param repo 
+    # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesValidateuploadMaven] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def packages_validate_upload_maven_with_http_info(owner, repo, opts = {})
+    def packages_validate_upload_maven_with_http_info(repo, owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_maven ..."
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_maven"
       end
       # verify the required parameter 'repo' is set
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_maven"
       end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_maven"
+      end
       # resource path
-      local_var_path = "/packages/{owner}/{repo}/validate-upload/maven/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/maven/".sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'owner' + '}', owner.to_s)
 
       # query parameters
       query_params = {}

@@ -27,14 +27,11 @@ module CloudsmithApi
     # 
     attr_accessor :description
 
-    # The identifier used by GPG for this key.
-    attr_accessor :gpg_fingerprint
+    # A descriptive name for the repository.
+    attr_accessor :name
 
     # If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
     attr_accessor :index_files
-
-    # A descriptive name for the repository.
-    attr_accessor :name
 
     # 
     attr_accessor :created_at
@@ -48,14 +45,14 @@ module CloudsmithApi
     # 
     attr_accessor :self_html_url
 
-    # The public key given to repo users.
-    attr_accessor :gpg_public_key
+    # 
+    attr_accessor :slug_perm
 
     # 
     attr_accessor :namespace_url
 
     # 
-    attr_accessor :slug_perm
+    attr_accessor :gpg_keys
 
     # 
     attr_accessor :is_public
@@ -83,16 +80,15 @@ module CloudsmithApi
         :'self_url' => :'self_url',
         :'repository_type_str' => :'repository_type_str',
         :'description' => :'description',
-        :'gpg_fingerprint' => :'gpg_fingerprint',
-        :'index_files' => :'index_files',
         :'name' => :'name',
+        :'index_files' => :'index_files',
         :'created_at' => :'created_at',
         :'is_open_source' => :'is_open_source',
         :'namespace' => :'namespace',
         :'self_html_url' => :'self_html_url',
-        :'gpg_public_key' => :'gpg_public_key',
-        :'namespace_url' => :'namespace_url',
         :'slug_perm' => :'slug_perm',
+        :'namespace_url' => :'namespace_url',
+        :'gpg_keys' => :'gpg_keys',
         :'is_public' => :'is_public',
         :'deleted_at' => :'deleted_at',
         :'repository_type' => :'repository_type',
@@ -109,16 +105,15 @@ module CloudsmithApi
         :'self_url' => :'String',
         :'repository_type_str' => :'String',
         :'description' => :'String',
-        :'gpg_fingerprint' => :'String',
-        :'index_files' => :'BOOLEAN',
         :'name' => :'String',
+        :'index_files' => :'BOOLEAN',
         :'created_at' => :'String',
         :'is_open_source' => :'BOOLEAN',
         :'namespace' => :'String',
         :'self_html_url' => :'String',
-        :'gpg_public_key' => :'String',
-        :'namespace_url' => :'String',
         :'slug_perm' => :'String',
+        :'namespace_url' => :'String',
+        :'gpg_keys' => :'Array<ReposownerGpgKeys>',
         :'is_public' => :'BOOLEAN',
         :'deleted_at' => :'String',
         :'repository_type' => :'String',
@@ -152,16 +147,12 @@ module CloudsmithApi
         self.description = attributes[:'description']
       end
 
-      if attributes.has_key?(:'gpg_fingerprint')
-        self.gpg_fingerprint = attributes[:'gpg_fingerprint']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'index_files')
         self.index_files = attributes[:'index_files']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'created_at')
@@ -180,16 +171,18 @@ module CloudsmithApi
         self.self_html_url = attributes[:'self_html_url']
       end
 
-      if attributes.has_key?(:'gpg_public_key')
-        self.gpg_public_key = attributes[:'gpg_public_key']
+      if attributes.has_key?(:'slug_perm')
+        self.slug_perm = attributes[:'slug_perm']
       end
 
       if attributes.has_key?(:'namespace_url')
         self.namespace_url = attributes[:'namespace_url']
       end
 
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
+      if attributes.has_key?(:'gpg_keys')
+        if (value = attributes[:'gpg_keys']).is_a?(Array)
+          self.gpg_keys = value
+        end
       end
 
       if attributes.has_key?(:'is_public')
@@ -265,16 +258,15 @@ module CloudsmithApi
           self_url == o.self_url &&
           repository_type_str == o.repository_type_str &&
           description == o.description &&
-          gpg_fingerprint == o.gpg_fingerprint &&
-          index_files == o.index_files &&
           name == o.name &&
+          index_files == o.index_files &&
           created_at == o.created_at &&
           is_open_source == o.is_open_source &&
           namespace == o.namespace &&
           self_html_url == o.self_html_url &&
-          gpg_public_key == o.gpg_public_key &&
-          namespace_url == o.namespace_url &&
           slug_perm == o.slug_perm &&
+          namespace_url == o.namespace_url &&
+          gpg_keys == o.gpg_keys &&
           is_public == o.is_public &&
           deleted_at == o.deleted_at &&
           repository_type == o.repository_type &&
@@ -292,7 +284,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [cdn_url, self_url, repository_type_str, description, gpg_fingerprint, index_files, name, created_at, is_open_source, namespace, self_html_url, gpg_public_key, namespace_url, slug_perm, is_public, deleted_at, repository_type, slug, is_private, size].hash
+      [cdn_url, self_url, repository_type_str, description, name, index_files, created_at, is_open_source, namespace, self_html_url, slug_perm, namespace_url, gpg_keys, is_public, deleted_at, repository_type, slug, is_private, size].hash
     end
 
     # Builds the object from hash

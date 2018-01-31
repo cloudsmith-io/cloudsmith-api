@@ -56,19 +56,13 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "gpg_fingerprint"' do
+  describe 'test attribute "name"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
   describe 'test attribute "index_files"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "name"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -98,7 +92,7 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "gpg_public_key"' do
+  describe 'test attribute "slug_perm"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -110,7 +104,7 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "slug_perm"' do
+  describe 'test attribute "gpg_keys"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
