@@ -40,6 +40,7 @@ from .models.packages_validateupload_rpm import PackagesValidateuploadRpm
 from .models.packages_validateupload_ruby import PackagesValidateuploadRuby
 from .models.packages_validateupload_vagrant import PackagesValidateuploadVagrant
 from .models.repository import Repository
+from .models.reposowner_gpg_keys import ReposownerGpgKeys
 from .models.rpm_package_upload import RpmPackageUpload
 from .models.rpm_package_upload_architectures import RpmPackageUploadArchitectures
 from .models.rpm_package_upload_files import RpmPackageUploadFiles

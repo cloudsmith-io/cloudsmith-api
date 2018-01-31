@@ -35,16 +35,15 @@ class Repository(object):
         'self_url': 'str',
         'repository_type_str': 'str',
         'description': 'str',
-        'gpg_fingerprint': 'str',
-        'index_files': 'bool',
         'name': 'str',
+        'index_files': 'bool',
         'created_at': 'str',
         'is_open_source': 'bool',
         'namespace': 'str',
         'self_html_url': 'str',
-        'gpg_public_key': 'str',
-        'namespace_url': 'str',
         'slug_perm': 'str',
+        'namespace_url': 'str',
+        'gpg_keys': 'list[ReposownerGpgKeys]',
         'is_public': 'bool',
         'deleted_at': 'str',
         'repository_type': 'str',
@@ -58,16 +57,15 @@ class Repository(object):
         'self_url': 'self_url',
         'repository_type_str': 'repository_type_str',
         'description': 'description',
-        'gpg_fingerprint': 'gpg_fingerprint',
-        'index_files': 'index_files',
         'name': 'name',
+        'index_files': 'index_files',
         'created_at': 'created_at',
         'is_open_source': 'is_open_source',
         'namespace': 'namespace',
         'self_html_url': 'self_html_url',
-        'gpg_public_key': 'gpg_public_key',
-        'namespace_url': 'namespace_url',
         'slug_perm': 'slug_perm',
+        'namespace_url': 'namespace_url',
+        'gpg_keys': 'gpg_keys',
         'is_public': 'is_public',
         'deleted_at': 'deleted_at',
         'repository_type': 'repository_type',
@@ -76,7 +74,7 @@ class Repository(object):
         'size': 'size'
     }
 
-    def __init__(self, cdn_url=None, self_url=None, repository_type_str=None, description=None, gpg_fingerprint=None, index_files=None, name=None, created_at=None, is_open_source=None, namespace=None, self_html_url=None, gpg_public_key=None, namespace_url=None, slug_perm=None, is_public=None, deleted_at=None, repository_type=None, slug=None, is_private=None, size=None):
+    def __init__(self, cdn_url=None, self_url=None, repository_type_str=None, description=None, name=None, index_files=None, created_at=None, is_open_source=None, namespace=None, self_html_url=None, slug_perm=None, namespace_url=None, gpg_keys=None, is_public=None, deleted_at=None, repository_type=None, slug=None, is_private=None, size=None):
         """
         Repository - a model defined in Swagger
         """
@@ -85,16 +83,15 @@ class Repository(object):
         self._self_url = None
         self._repository_type_str = None
         self._description = None
-        self._gpg_fingerprint = None
-        self._index_files = None
         self._name = None
+        self._index_files = None
         self._created_at = None
         self._is_open_source = None
         self._namespace = None
         self._self_html_url = None
-        self._gpg_public_key = None
-        self._namespace_url = None
         self._slug_perm = None
+        self._namespace_url = None
+        self._gpg_keys = None
         self._is_public = None
         self._deleted_at = None
         self._repository_type = None
@@ -109,24 +106,22 @@ class Repository(object):
         if repository_type_str is not None:
           self.repository_type_str = repository_type_str
         self.description = description
-        if gpg_fingerprint is not None:
-          self.gpg_fingerprint = gpg_fingerprint
-        if index_files is not None:
-          self.index_files = index_files
         if name is not None:
           self.name = name
+        if index_files is not None:
+          self.index_files = index_files
         if created_at is not None:
           self.created_at = created_at
         self.is_open_source = is_open_source
         self.namespace = namespace
         if self_html_url is not None:
           self.self_html_url = self_html_url
-        if gpg_public_key is not None:
-          self.gpg_public_key = gpg_public_key
-        if namespace_url is not None:
-          self.namespace_url = namespace_url
         if slug_perm is not None:
           self.slug_perm = slug_perm
+        if namespace_url is not None:
+          self.namespace_url = namespace_url
+        if gpg_keys is not None:
+          self.gpg_keys = gpg_keys
         self.is_public = is_public
         if deleted_at is not None:
           self.deleted_at = deleted_at
@@ -233,27 +228,27 @@ class Repository(object):
         self._description = description
 
     @property
-    def gpg_fingerprint(self):
+    def name(self):
         """
-        Gets the gpg_fingerprint of this Repository.
-        The identifier used by GPG for this key.
+        Gets the name of this Repository.
+        A descriptive name for the repository.
 
-        :return: The gpg_fingerprint of this Repository.
+        :return: The name of this Repository.
         :rtype: str
         """
-        return self._gpg_fingerprint
+        return self._name
 
-    @gpg_fingerprint.setter
-    def gpg_fingerprint(self, gpg_fingerprint):
+    @name.setter
+    def name(self, name):
         """
-        Sets the gpg_fingerprint of this Repository.
-        The identifier used by GPG for this key.
+        Sets the name of this Repository.
+        A descriptive name for the repository.
 
-        :param gpg_fingerprint: The gpg_fingerprint of this Repository.
+        :param name: The name of this Repository.
         :type: str
         """
 
-        self._gpg_fingerprint = gpg_fingerprint
+        self._name = name
 
     @property
     def index_files(self):
@@ -277,29 +272,6 @@ class Repository(object):
         """
 
         self._index_files = index_files
-
-    @property
-    def name(self):
-        """
-        Gets the name of this Repository.
-        A descriptive name for the repository.
-
-        :return: The name of this Repository.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this Repository.
-        A descriptive name for the repository.
-
-        :param name: The name of this Repository.
-        :type: str
-        """
-
-        self._name = name
 
     @property
     def created_at(self):
@@ -398,27 +370,27 @@ class Repository(object):
         self._self_html_url = self_html_url
 
     @property
-    def gpg_public_key(self):
+    def slug_perm(self):
         """
-        Gets the gpg_public_key of this Repository.
-        The public key given to repo users.
+        Gets the slug_perm of this Repository.
+        
 
-        :return: The gpg_public_key of this Repository.
+        :return: The slug_perm of this Repository.
         :rtype: str
         """
-        return self._gpg_public_key
+        return self._slug_perm
 
-    @gpg_public_key.setter
-    def gpg_public_key(self, gpg_public_key):
+    @slug_perm.setter
+    def slug_perm(self, slug_perm):
         """
-        Sets the gpg_public_key of this Repository.
-        The public key given to repo users.
+        Sets the slug_perm of this Repository.
+        
 
-        :param gpg_public_key: The gpg_public_key of this Repository.
+        :param slug_perm: The slug_perm of this Repository.
         :type: str
         """
 
-        self._gpg_public_key = gpg_public_key
+        self._slug_perm = slug_perm
 
     @property
     def namespace_url(self):
@@ -444,27 +416,27 @@ class Repository(object):
         self._namespace_url = namespace_url
 
     @property
-    def slug_perm(self):
+    def gpg_keys(self):
         """
-        Gets the slug_perm of this Repository.
+        Gets the gpg_keys of this Repository.
         
 
-        :return: The slug_perm of this Repository.
-        :rtype: str
+        :return: The gpg_keys of this Repository.
+        :rtype: list[ReposownerGpgKeys]
         """
-        return self._slug_perm
+        return self._gpg_keys
 
-    @slug_perm.setter
-    def slug_perm(self, slug_perm):
+    @gpg_keys.setter
+    def gpg_keys(self, gpg_keys):
         """
-        Sets the slug_perm of this Repository.
+        Sets the gpg_keys of this Repository.
         
 
-        :param slug_perm: The slug_perm of this Repository.
-        :type: str
+        :param gpg_keys: The gpg_keys of this Repository.
+        :type: list[ReposownerGpgKeys]
         """
 
-        self._slug_perm = slug_perm
+        self._gpg_keys = gpg_keys
 
     @property
     def is_public(self):

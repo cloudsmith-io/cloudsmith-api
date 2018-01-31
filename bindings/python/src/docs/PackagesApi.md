@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_maven**
-> MavenPackageUpload packages_upload_maven(owner, repo, data=data)
+> MavenPackageUpload packages_upload_maven(repo, owner, data=data)
 
 Create a new Maven package
 
@@ -374,13 +374,13 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.PackagesApi()
-owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
+owner = 'owner_example' # str | 
 data = cloudsmith_api.PackagesUploadMaven() # PackagesUploadMaven |  (optional)
 
 try: 
     # Create a new Maven package
-    api_response = api_instance.packages_upload_maven(owner, repo, data=data)
+    api_response = api_instance.packages_upload_maven(repo, owner, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_upload_maven: %s\n" % e)
@@ -390,8 +390,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
  **repo** | **str**|  | 
+ **owner** | **str**|  | 
  **data** | [**PackagesUploadMaven**](PackagesUploadMaven.md)|  | [optional] 
 
 ### Return type
@@ -793,7 +793,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_maven**
-> packages_validate_upload_maven(owner, repo, data=data)
+> packages_validate_upload_maven(repo, owner, data=data)
 
 Validate parameters for create Maven package
 
@@ -821,13 +821,13 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.PackagesApi()
-owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
+owner = 'owner_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadMaven() # PackagesValidateuploadMaven |  (optional)
 
 try: 
     # Validate parameters for create Maven package
-    api_instance.packages_validate_upload_maven(owner, repo, data=data)
+    api_instance.packages_validate_upload_maven(repo, owner, data=data)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_validate_upload_maven: %s\n" % e)
 ```
@@ -836,8 +836,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
  **repo** | **str**|  | 
+ **owner** | **str**|  | 
  **data** | [**PackagesValidateuploadMaven**](PackagesValidateuploadMaven.md)|  | [optional] 
 
 ### Return type

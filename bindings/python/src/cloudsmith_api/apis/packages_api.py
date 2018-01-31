@@ -602,7 +602,7 @@ class PackagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def packages_upload_maven(self, owner, repo, **kwargs):
+    def packages_upload_maven(self, repo, owner, **kwargs):
         """
         Create a new Maven package
         Create a new Maven package
@@ -612,12 +612,12 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_upload_maven(owner, repo, callback=callback_function)
+        >>> thread = api.packages_upload_maven(repo, owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str owner:  (required)
         :param str repo:  (required)
+        :param str owner:  (required)
         :param PackagesUploadMaven data:
         :return: MavenPackageUpload
                  If the method is called asynchronously,
@@ -625,12 +625,12 @@ class PackagesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.packages_upload_maven_with_http_info(owner, repo, **kwargs)
+            return self.packages_upload_maven_with_http_info(repo, owner, **kwargs)
         else:
-            (data) = self.packages_upload_maven_with_http_info(owner, repo, **kwargs)
+            (data) = self.packages_upload_maven_with_http_info(repo, owner, **kwargs)
             return data
 
-    def packages_upload_maven_with_http_info(self, owner, repo, **kwargs):
+    def packages_upload_maven_with_http_info(self, repo, owner, **kwargs):
         """
         Create a new Maven package
         Create a new Maven package
@@ -640,19 +640,19 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_upload_maven_with_http_info(owner, repo, callback=callback_function)
+        >>> thread = api.packages_upload_maven_with_http_info(repo, owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str owner:  (required)
         :param str repo:  (required)
+        :param str owner:  (required)
         :param PackagesUploadMaven data:
         :return: MavenPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'data']
+        all_params = ['repo', 'owner', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -667,21 +667,21 @@ class PackagesApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `packages_upload_maven`")
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `packages_upload_maven`")
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_upload_maven`")
 
 
         collection_formats = {}
 
         path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
 
         query_params = []
 
@@ -1393,7 +1393,7 @@ class PackagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def packages_validate_upload_maven(self, owner, repo, **kwargs):
+    def packages_validate_upload_maven(self, repo, owner, **kwargs):
         """
         Validate parameters for create Maven package
         Validate parameters for create Maven package
@@ -1403,12 +1403,12 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_validate_upload_maven(owner, repo, callback=callback_function)
+        >>> thread = api.packages_validate_upload_maven(repo, owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str owner:  (required)
         :param str repo:  (required)
+        :param str owner:  (required)
         :param PackagesValidateuploadMaven data:
         :return: None
                  If the method is called asynchronously,
@@ -1416,12 +1416,12 @@ class PackagesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.packages_validate_upload_maven_with_http_info(owner, repo, **kwargs)
+            return self.packages_validate_upload_maven_with_http_info(repo, owner, **kwargs)
         else:
-            (data) = self.packages_validate_upload_maven_with_http_info(owner, repo, **kwargs)
+            (data) = self.packages_validate_upload_maven_with_http_info(repo, owner, **kwargs)
             return data
 
-    def packages_validate_upload_maven_with_http_info(self, owner, repo, **kwargs):
+    def packages_validate_upload_maven_with_http_info(self, repo, owner, **kwargs):
         """
         Validate parameters for create Maven package
         Validate parameters for create Maven package
@@ -1431,19 +1431,19 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_validate_upload_maven_with_http_info(owner, repo, callback=callback_function)
+        >>> thread = api.packages_validate_upload_maven_with_http_info(repo, owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str owner:  (required)
         :param str repo:  (required)
+        :param str owner:  (required)
         :param PackagesValidateuploadMaven data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'data']
+        all_params = ['repo', 'owner', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1458,21 +1458,21 @@ class PackagesApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `packages_validate_upload_maven`")
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `packages_validate_upload_maven`")
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_validate_upload_maven`")
 
 
         collection_formats = {}
 
         path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
 
         query_params = []
 
