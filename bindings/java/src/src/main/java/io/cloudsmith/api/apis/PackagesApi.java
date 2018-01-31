@@ -835,21 +835,21 @@ public class PackagesApi {
     }
     /**
      * Build call for packagesUploadMaven
-     * @param owner  (required)
      * @param repo  (required)
+     * @param owner  (required)
      * @param data  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadMavenCall(String owner, String repo, PackagesUploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadMavenCall(String repo, String owner, PackagesUploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
         
         // create path and map variables
         String localVarPath = "/packages/{owner}/{repo}/upload/maven/"
-            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -886,18 +886,18 @@ public class PackagesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadMavenValidateBeforeCall(String owner, String repo, PackagesUploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadMavenValidateBeforeCall(String repo, String owner, PackagesUploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, data };
+            Object[] parameterValues = { repo, owner, data };
             Method method = this.getClass().getMethod("packagesUploadMavenWithHttpInfo", String.class, String.class, PackagesUploadMaven.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = packagesUploadMavenCall(owner, repo, data, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = packagesUploadMavenCall(repo, owner, data, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -920,28 +920,28 @@ public class PackagesApi {
     /**
      * Create a new Maven package
      * Create a new Maven package
-     * @param owner  (required)
      * @param repo  (required)
+     * @param owner  (required)
      * @param data  (optional)
      * @return MavenPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public MavenPackageUpload packagesUploadMaven(String owner, String repo, PackagesUploadMaven data) throws ApiException {
-        ApiResponse<MavenPackageUpload> resp = packagesUploadMavenWithHttpInfo(owner, repo, data);
+    public MavenPackageUpload packagesUploadMaven(String repo, String owner, PackagesUploadMaven data) throws ApiException {
+        ApiResponse<MavenPackageUpload> resp = packagesUploadMavenWithHttpInfo(repo, owner, data);
         return resp.getData();
     }
 
     /**
      * Create a new Maven package
      * Create a new Maven package
-     * @param owner  (required)
      * @param repo  (required)
+     * @param owner  (required)
      * @param data  (optional)
      * @return ApiResponse&lt;MavenPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<MavenPackageUpload> packagesUploadMavenWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadMaven data) throws ApiException {
-        com.squareup.okhttp.Call call = packagesUploadMavenValidateBeforeCall(owner, repo, data, null, null);
+    public ApiResponse<MavenPackageUpload> packagesUploadMavenWithHttpInfo( @NotNull String repo,  @NotNull String owner,  PackagesUploadMaven data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesUploadMavenValidateBeforeCall(repo, owner, data, null, null);
         Type localVarReturnType = new TypeToken<MavenPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -949,14 +949,14 @@ public class PackagesApi {
     /**
      * Create a new Maven package (asynchronously)
      * Create a new Maven package
-     * @param owner  (required)
      * @param repo  (required)
+     * @param owner  (required)
      * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadMavenAsync(String owner, String repo, PackagesUploadMaven data, final ApiCallback<MavenPackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadMavenAsync(String repo, String owner, PackagesUploadMaven data, final ApiCallback<MavenPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -977,7 +977,7 @@ public class PackagesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = packagesUploadMavenValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = packagesUploadMavenValidateBeforeCall(repo, owner, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<MavenPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1874,21 +1874,21 @@ public class PackagesApi {
     }
     /**
      * Build call for packagesValidateUploadMaven
-     * @param owner  (required)
      * @param repo  (required)
+     * @param owner  (required)
      * @param data  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadMavenCall(String owner, String repo, PackagesValidateuploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadMavenCall(String repo, String owner, PackagesValidateuploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
         
         // create path and map variables
         String localVarPath = "/packages/{owner}/{repo}/validate-upload/maven/"
-            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1925,18 +1925,18 @@ public class PackagesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadMavenValidateBeforeCall(String owner, String repo, PackagesValidateuploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadMavenValidateBeforeCall(String repo, String owner, PackagesValidateuploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, data };
+            Object[] parameterValues = { repo, owner, data };
             Method method = this.getClass().getMethod("packagesValidateUploadMavenWithHttpInfo", String.class, String.class, PackagesValidateuploadMaven.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = packagesValidateUploadMavenCall(owner, repo, data, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = packagesValidateUploadMavenCall(repo, owner, data, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -1959,40 +1959,40 @@ public class PackagesApi {
     /**
      * Validate parameters for create Maven package
      * Validate parameters for create Maven package
-     * @param owner  (required)
      * @param repo  (required)
+     * @param owner  (required)
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadMaven(String owner, String repo, PackagesValidateuploadMaven data) throws ApiException {
-        packagesValidateUploadMavenWithHttpInfo(owner, repo, data);
+    public void packagesValidateUploadMaven(String repo, String owner, PackagesValidateuploadMaven data) throws ApiException {
+        packagesValidateUploadMavenWithHttpInfo(repo, owner, data);
     }
 
     /**
      * Validate parameters for create Maven package
      * Validate parameters for create Maven package
-     * @param owner  (required)
      * @param repo  (required)
+     * @param owner  (required)
      * @param data  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadMavenWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadMaven data) throws ApiException {
-        com.squareup.okhttp.Call call = packagesValidateUploadMavenValidateBeforeCall(owner, repo, data, null, null);
+    public ApiResponse<Void> packagesValidateUploadMavenWithHttpInfo( @NotNull String repo,  @NotNull String owner,  PackagesValidateuploadMaven data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesValidateUploadMavenValidateBeforeCall(repo, owner, data, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Validate parameters for create Maven package (asynchronously)
      * Validate parameters for create Maven package
-     * @param owner  (required)
      * @param repo  (required)
+     * @param owner  (required)
      * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadMavenAsync(String owner, String repo, PackagesValidateuploadMaven data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadMavenAsync(String repo, String owner, PackagesValidateuploadMaven data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2013,7 +2013,7 @@ public class PackagesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = packagesValidateUploadMavenValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = packagesValidateUploadMavenValidateBeforeCall(repo, owner, data, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

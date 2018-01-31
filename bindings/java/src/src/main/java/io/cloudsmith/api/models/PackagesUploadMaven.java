@@ -33,8 +33,8 @@ import javax.validation.Valid;
 public class PackagesUploadMaven implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("artifact_id")
-  private String artifactId = null;
+  @SerializedName("package_file")
+  private String packageFile = null;
 
   @SerializedName("sources_file")
   private String sourcesFile = null;
@@ -54,25 +54,26 @@ public class PackagesUploadMaven implements Serializable {
   @SerializedName("group_id")
   private String groupId = null;
 
-  @SerializedName("package_file")
-  private String packageFile = null;
+  @SerializedName("artifact_id")
+  private String artifactId = null;
 
-  public PackagesUploadMaven artifactId(String artifactId) {
-    this.artifactId = artifactId;
+  public PackagesUploadMaven packageFile(String packageFile) {
+    this.packageFile = packageFile;
     return this;
   }
 
    /**
-   * The ID of the artifact.
-   * @return artifactId
+   * The primary file for the package.
+   * @return packageFile
   **/
-  @ApiModelProperty(value = "The ID of the artifact.")
-  public String getArtifactId() {
-    return artifactId;
+  @NotNull
+  @ApiModelProperty(required = true, value = "The primary file for the package.")
+  public String getPackageFile() {
+    return packageFile;
   }
 
-  public void setArtifactId(String artifactId) {
-    this.artifactId = artifactId;
+  public void setPackageFile(String packageFile) {
+    this.packageFile = packageFile;
   }
 
   public PackagesUploadMaven sourcesFile(String sourcesFile) {
@@ -183,23 +184,22 @@ public class PackagesUploadMaven implements Serializable {
     this.groupId = groupId;
   }
 
-  public PackagesUploadMaven packageFile(String packageFile) {
-    this.packageFile = packageFile;
+  public PackagesUploadMaven artifactId(String artifactId) {
+    this.artifactId = artifactId;
     return this;
   }
 
    /**
-   * The primary file for the package.
-   * @return packageFile
+   * The ID of the artifact.
+   * @return artifactId
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "The primary file for the package.")
-  public String getPackageFile() {
-    return packageFile;
+  @ApiModelProperty(value = "The ID of the artifact.")
+  public String getArtifactId() {
+    return artifactId;
   }
 
-  public void setPackageFile(String packageFile) {
-    this.packageFile = packageFile;
+  public void setArtifactId(String artifactId) {
+    this.artifactId = artifactId;
   }
 
 
@@ -212,19 +212,19 @@ public class PackagesUploadMaven implements Serializable {
       return false;
     }
     PackagesUploadMaven packagesUploadMaven = (PackagesUploadMaven) o;
-    return Objects.equals(this.artifactId, packagesUploadMaven.artifactId) &&
+    return Objects.equals(this.packageFile, packagesUploadMaven.packageFile) &&
         Objects.equals(this.sourcesFile, packagesUploadMaven.sourcesFile) &&
         Objects.equals(this.packaging, packagesUploadMaven.packaging) &&
         Objects.equals(this.pomFile, packagesUploadMaven.pomFile) &&
         Objects.equals(this.javadocFile, packagesUploadMaven.javadocFile) &&
         Objects.equals(this.version, packagesUploadMaven.version) &&
         Objects.equals(this.groupId, packagesUploadMaven.groupId) &&
-        Objects.equals(this.packageFile, packagesUploadMaven.packageFile);
+        Objects.equals(this.artifactId, packagesUploadMaven.artifactId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, sourcesFile, packaging, pomFile, javadocFile, version, groupId, packageFile);
+    return Objects.hash(packageFile, sourcesFile, packaging, pomFile, javadocFile, version, groupId, artifactId);
   }
 
 
@@ -233,14 +233,14 @@ public class PackagesUploadMaven implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagesUploadMaven {\n");
     
-    sb.append("    artifactId: ").append(toIndentedString(artifactId)).append("\n");
+    sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
     sb.append("    pomFile: ").append(toIndentedString(pomFile)).append("\n");
     sb.append("    javadocFile: ").append(toIndentedString(javadocFile)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
-    sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    artifactId: ").append(toIndentedString(artifactId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

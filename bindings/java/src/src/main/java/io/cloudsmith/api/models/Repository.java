@@ -19,9 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.ReposownerGpgKeys;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -45,14 +48,11 @@ public class Repository implements Serializable {
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("gpg_fingerprint")
-  private String gpgFingerprint = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("index_files")
   private Boolean indexFiles = null;
-
-  @SerializedName("name")
-  private String name = null;
 
   @SerializedName("created_at")
   private String createdAt = null;
@@ -66,14 +66,14 @@ public class Repository implements Serializable {
   @SerializedName("self_html_url")
   private String selfHtmlUrl = null;
 
-  @SerializedName("gpg_public_key")
-  private String gpgPublicKey = null;
+  @SerializedName("slug_perm")
+  private String slugPerm = null;
 
   @SerializedName("namespace_url")
   private String namespaceUrl = null;
 
-  @SerializedName("slug_perm")
-  private String slugPerm = null;
+  @SerializedName("gpg_keys")
+  private List<ReposownerGpgKeys> gpgKeys = null;
 
   @SerializedName("is_public")
   private Boolean isPublic = null;
@@ -166,22 +166,22 @@ public class Repository implements Serializable {
     this.description = description;
   }
 
-  public Repository gpgFingerprint(String gpgFingerprint) {
-    this.gpgFingerprint = gpgFingerprint;
+  public Repository name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The identifier used by GPG for this key.
-   * @return gpgFingerprint
+   * A descriptive name for the repository.
+   * @return name
   **/
-  @ApiModelProperty(value = "The identifier used by GPG for this key.")
-  public String getGpgFingerprint() {
-    return gpgFingerprint;
+  @ApiModelProperty(value = "A descriptive name for the repository.")
+  public String getName() {
+    return name;
   }
 
-  public void setGpgFingerprint(String gpgFingerprint) {
-    this.gpgFingerprint = gpgFingerprint;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public Repository indexFiles(Boolean indexFiles) {
@@ -200,24 +200,6 @@ public class Repository implements Serializable {
 
   public void setIndexFiles(Boolean indexFiles) {
     this.indexFiles = indexFiles;
-  }
-
-  public Repository name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * A descriptive name for the repository.
-   * @return name
-  **/
-  @ApiModelProperty(value = "A descriptive name for the repository.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public Repository createdAt(String createdAt) {
@@ -294,22 +276,22 @@ public class Repository implements Serializable {
     this.selfHtmlUrl = selfHtmlUrl;
   }
 
-  public Repository gpgPublicKey(String gpgPublicKey) {
-    this.gpgPublicKey = gpgPublicKey;
+  public Repository slugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
     return this;
   }
 
    /**
-   * The public key given to repo users.
-   * @return gpgPublicKey
+   * 
+   * @return slugPerm
   **/
-  @ApiModelProperty(value = "The public key given to repo users.")
-  public String getGpgPublicKey() {
-    return gpgPublicKey;
+  @ApiModelProperty(value = "")
+  public String getSlugPerm() {
+    return slugPerm;
   }
 
-  public void setGpgPublicKey(String gpgPublicKey) {
-    this.gpgPublicKey = gpgPublicKey;
+  public void setSlugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
   }
 
   public Repository namespaceUrl(String namespaceUrl) {
@@ -330,22 +312,31 @@ public class Repository implements Serializable {
     this.namespaceUrl = namespaceUrl;
   }
 
-  public Repository slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public Repository gpgKeys(List<ReposownerGpgKeys> gpgKeys) {
+    this.gpgKeys = gpgKeys;
+    return this;
+  }
+
+  public Repository addGpgKeysItem(ReposownerGpgKeys gpgKeysItem) {
+    if (this.gpgKeys == null) {
+      this.gpgKeys = new ArrayList<ReposownerGpgKeys>();
+    }
+    this.gpgKeys.add(gpgKeysItem);
     return this;
   }
 
    /**
    * 
-   * @return slugPerm
+   * @return gpgKeys
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getSlugPerm() {
-    return slugPerm;
+  public List<ReposownerGpgKeys> getGpgKeys() {
+    return gpgKeys;
   }
 
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public void setGpgKeys(List<ReposownerGpgKeys> gpgKeys) {
+    this.gpgKeys = gpgKeys;
   }
 
   public Repository isPublic(Boolean isPublic) {
@@ -472,16 +463,15 @@ public class Repository implements Serializable {
         Objects.equals(this.selfUrl, repository.selfUrl) &&
         Objects.equals(this.repositoryTypeStr, repository.repositoryTypeStr) &&
         Objects.equals(this.description, repository.description) &&
-        Objects.equals(this.gpgFingerprint, repository.gpgFingerprint) &&
-        Objects.equals(this.indexFiles, repository.indexFiles) &&
         Objects.equals(this.name, repository.name) &&
+        Objects.equals(this.indexFiles, repository.indexFiles) &&
         Objects.equals(this.createdAt, repository.createdAt) &&
         Objects.equals(this.isOpenSource, repository.isOpenSource) &&
         Objects.equals(this.namespace, repository.namespace) &&
         Objects.equals(this.selfHtmlUrl, repository.selfHtmlUrl) &&
-        Objects.equals(this.gpgPublicKey, repository.gpgPublicKey) &&
-        Objects.equals(this.namespaceUrl, repository.namespaceUrl) &&
         Objects.equals(this.slugPerm, repository.slugPerm) &&
+        Objects.equals(this.namespaceUrl, repository.namespaceUrl) &&
+        Objects.equals(this.gpgKeys, repository.gpgKeys) &&
         Objects.equals(this.isPublic, repository.isPublic) &&
         Objects.equals(this.deletedAt, repository.deletedAt) &&
         Objects.equals(this.repositoryType, repository.repositoryType) &&
@@ -492,7 +482,7 @@ public class Repository implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnUrl, selfUrl, repositoryTypeStr, description, gpgFingerprint, indexFiles, name, createdAt, isOpenSource, namespace, selfHtmlUrl, gpgPublicKey, namespaceUrl, slugPerm, isPublic, deletedAt, repositoryType, slug, isPrivate, size);
+    return Objects.hash(cdnUrl, selfUrl, repositoryTypeStr, description, name, indexFiles, createdAt, isOpenSource, namespace, selfHtmlUrl, slugPerm, namespaceUrl, gpgKeys, isPublic, deletedAt, repositoryType, slug, isPrivate, size);
   }
 
 
@@ -505,16 +495,15 @@ public class Repository implements Serializable {
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    repositoryTypeStr: ").append(toIndentedString(repositoryTypeStr)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    gpgFingerprint: ").append(toIndentedString(gpgFingerprint)).append("\n");
-    sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    isOpenSource: ").append(toIndentedString(isOpenSource)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
-    sb.append("    gpgPublicKey: ").append(toIndentedString(gpgPublicKey)).append("\n");
-    sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
+    sb.append("    gpgKeys: ").append(toIndentedString(gpgKeys)).append("\n");
     sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
     sb.append("    repositoryType: ").append(toIndentedString(repositoryType)).append("\n");

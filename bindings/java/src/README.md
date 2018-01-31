@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.21.4</version>
+    <version>0.23.8</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.21.4"
+compile "io.cloudsmith.api:cloudsmith-api:0.23.8"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.21.4.jar
+* target/cloudsmith-api-0.23.8.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -171,6 +171,7 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadRuby](docs/PackagesValidateuploadRuby.md)
  - [PackagesValidateuploadVagrant](docs/PackagesValidateuploadVagrant.md)
  - [Repository](docs/Repository.md)
+ - [ReposownerGpgKeys](docs/ReposownerGpgKeys.md)
  - [RpmPackageUpload](docs/RpmPackageUpload.md)
  - [RpmPackageUploadArchitectures](docs/RpmPackageUploadArchitectures.md)
  - [RpmPackageUploadFiles](docs/RpmPackageUploadFiles.md)
