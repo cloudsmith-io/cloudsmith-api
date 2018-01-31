@@ -14,7 +14,7 @@ deploy_language() {
 
 test -z "$language" && {
   for I in $root_dir/bindings/*; do
-    deploy_language $I
+    deploy_language $(basename $I)
   done
 } || {
   deploy_language $language

@@ -57,7 +57,7 @@ setup_git_user
 
 test -z "$language" && {
   for I in $root_dir/bindings/*; do
-    push_language $I
+    push_language $(basename $I)
   done
 } || {
   push_language $language

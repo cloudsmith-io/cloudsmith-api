@@ -14,7 +14,7 @@ build_language() {
 
 test -z "$language" && {
   for I in $root_dir/bindings/*; do
-    build_language $I
+    build_language $(basename $I)
   done
 } || {
   build_language $language
