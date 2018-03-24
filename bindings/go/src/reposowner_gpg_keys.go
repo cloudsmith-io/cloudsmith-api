@@ -18,7 +18,7 @@ type ReposownerGpgKeys struct {
 	// The public key given to repository users.
 	PublicKey string `json:"public_key,omitempty"`
 
-	// The short identifier used by GPG for this key.
+	// 
 	FingerprintShort string `json:"fingerprint_short,omitempty"`
 
 	// If selected this is the default key for this repository.
@@ -28,7 +28,7 @@ type ReposownerGpgKeys struct {
 	CreatedAt string `json:"created_at,omitempty"`
 
 	// The long identifier used by GPG for this key.
-	FingerprintLong string `json:"fingerprint_long,omitempty"`
+	Fingerprint string `json:"fingerprint,omitempty"`
 
 	// If selected this is the active key for this repository.
 	Active bool `json:"active,omitempty"`

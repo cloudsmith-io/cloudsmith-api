@@ -24,7 +24,7 @@ type UserProfile struct {
 	// 
 	Url string `json:"url,omitempty"`
 
-	// 
+	// Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
 	Tagline string `json:"tagline,omitempty"`
 
 	// 

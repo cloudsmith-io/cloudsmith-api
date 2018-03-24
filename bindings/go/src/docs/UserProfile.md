@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **LastName** | **string** |  | [default to null]
 **Name** | **string** |  | [optional] [default to null]
 **Url** | **string** |  | [optional] [default to null]
-**Tagline** | **string** |  | [optional] [default to null]
+**Tagline** | **string** | Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it&#39;s public and it represents who you are. | [optional] [default to null]
 **Company** | **string** |  | [optional] [default to null]
 **JoinedAt** | **string** |  | [optional] [default to null]
 **SlugPerm** | **string** |  | [optional] [default to null]
