@@ -21,7 +21,7 @@ module CloudsmithApi
     # The public key given to repository users.
     attr_accessor :public_key
 
-    # The short identifier used by GPG for this key.
+    # 
     attr_accessor :fingerprint_short
 
     # If selected this is the default key for this repository.
@@ -31,7 +31,7 @@ module CloudsmithApi
     attr_accessor :created_at
 
     # The long identifier used by GPG for this key.
-    attr_accessor :fingerprint_long
+    attr_accessor :fingerprint
 
     # If selected this is the active key for this repository.
     attr_accessor :active
@@ -45,7 +45,7 @@ module CloudsmithApi
         :'fingerprint_short' => :'fingerprint_short',
         :'default' => :'default',
         :'created_at' => :'created_at',
-        :'fingerprint_long' => :'fingerprint_long',
+        :'fingerprint' => :'fingerprint',
         :'active' => :'active'
       }
     end
@@ -58,7 +58,7 @@ module CloudsmithApi
         :'fingerprint_short' => :'String',
         :'default' => :'BOOLEAN',
         :'created_at' => :'String',
-        :'fingerprint_long' => :'String',
+        :'fingerprint' => :'String',
         :'active' => :'BOOLEAN'
       }
     end
@@ -91,8 +91,8 @@ module CloudsmithApi
         self.created_at = attributes[:'created_at']
       end
 
-      if attributes.has_key?(:'fingerprint_long')
-        self.fingerprint_long = attributes[:'fingerprint_long']
+      if attributes.has_key?(:'fingerprint')
+        self.fingerprint = attributes[:'fingerprint']
       end
 
       if attributes.has_key?(:'active')
@@ -124,7 +124,7 @@ module CloudsmithApi
           fingerprint_short == o.fingerprint_short &&
           default == o.default &&
           created_at == o.created_at &&
-          fingerprint_long == o.fingerprint_long &&
+          fingerprint == o.fingerprint &&
           active == o.active
     end
 
@@ -137,7 +137,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [comment, public_key, fingerprint_short, default, created_at, fingerprint_long, active].hash
+      [comment, public_key, fingerprint_short, default, created_at, fingerprint, active].hash
     end
 
     # Builds the object from hash

@@ -27,7 +27,7 @@ module CloudsmithApi
     # 
     attr_accessor :url
 
-    # 
+    # Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
     attr_accessor :tagline
 
     # 
