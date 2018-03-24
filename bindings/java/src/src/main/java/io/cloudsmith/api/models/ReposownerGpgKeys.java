@@ -48,8 +48,8 @@ public class ReposownerGpgKeys implements Serializable {
   @SerializedName("created_at")
   private String createdAt = null;
 
-  @SerializedName("fingerprint_long")
-  private String fingerprintLong = null;
+  @SerializedName("fingerprint")
+  private String fingerprint = null;
 
   @SerializedName("active")
   private Boolean active = null;
@@ -96,10 +96,10 @@ public class ReposownerGpgKeys implements Serializable {
   }
 
    /**
-   * The short identifier used by GPG for this key.
+   * 
    * @return fingerprintShort
   **/
-  @ApiModelProperty(value = "The short identifier used by GPG for this key.")
+  @ApiModelProperty(value = "")
   public String getFingerprintShort() {
     return fingerprintShort;
   }
@@ -144,22 +144,22 @@ public class ReposownerGpgKeys implements Serializable {
     this.createdAt = createdAt;
   }
 
-  public ReposownerGpgKeys fingerprintLong(String fingerprintLong) {
-    this.fingerprintLong = fingerprintLong;
+  public ReposownerGpgKeys fingerprint(String fingerprint) {
+    this.fingerprint = fingerprint;
     return this;
   }
 
    /**
    * The long identifier used by GPG for this key.
-   * @return fingerprintLong
+   * @return fingerprint
   **/
   @ApiModelProperty(value = "The long identifier used by GPG for this key.")
-  public String getFingerprintLong() {
-    return fingerprintLong;
+  public String getFingerprint() {
+    return fingerprint;
   }
 
-  public void setFingerprintLong(String fingerprintLong) {
-    this.fingerprintLong = fingerprintLong;
+  public void setFingerprint(String fingerprint) {
+    this.fingerprint = fingerprint;
   }
 
   public ReposownerGpgKeys active(Boolean active) {
@@ -195,13 +195,13 @@ public class ReposownerGpgKeys implements Serializable {
         Objects.equals(this.fingerprintShort, reposownerGpgKeys.fingerprintShort) &&
         Objects.equals(this._default, reposownerGpgKeys._default) &&
         Objects.equals(this.createdAt, reposownerGpgKeys.createdAt) &&
-        Objects.equals(this.fingerprintLong, reposownerGpgKeys.fingerprintLong) &&
+        Objects.equals(this.fingerprint, reposownerGpgKeys.fingerprint) &&
         Objects.equals(this.active, reposownerGpgKeys.active);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, publicKey, fingerprintShort, _default, createdAt, fingerprintLong, active);
+    return Objects.hash(comment, publicKey, fingerprintShort, _default, createdAt, fingerprint, active);
   }
 
 
@@ -215,7 +215,7 @@ public class ReposownerGpgKeys implements Serializable {
     sb.append("    fingerprintShort: ").append(toIndentedString(fingerprintShort)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    fingerprintLong: ").append(toIndentedString(fingerprintLong)).append("\n");
+    sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("}");
     return sb.toString();
