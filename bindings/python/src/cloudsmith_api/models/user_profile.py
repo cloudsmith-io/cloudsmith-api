@@ -191,7 +191,7 @@ class UserProfile(object):
     def tagline(self):
         """
         Gets the tagline of this UserProfile.
-        
+        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
 
         :return: The tagline of this UserProfile.
         :rtype: str
@@ -202,7 +202,7 @@ class UserProfile(object):
     def tagline(self, tagline):
         """
         Sets the tagline of this UserProfile.
-        
+        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
 
         :param tagline: The tagline of this UserProfile.
         :type: str

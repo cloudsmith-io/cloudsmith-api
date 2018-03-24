@@ -36,7 +36,7 @@ class ReposownerGpgKeys(object):
         'fingerprint_short': 'str',
         'default': 'bool',
         'created_at': 'str',
-        'fingerprint_long': 'str',
+        'fingerprint': 'str',
         'active': 'bool'
     }
 
@@ -46,11 +46,11 @@ class ReposownerGpgKeys(object):
         'fingerprint_short': 'fingerprint_short',
         'default': 'default',
         'created_at': 'created_at',
-        'fingerprint_long': 'fingerprint_long',
+        'fingerprint': 'fingerprint',
         'active': 'active'
     }
 
-    def __init__(self, comment=None, public_key=None, fingerprint_short=None, default=None, created_at=None, fingerprint_long=None, active=None):
+    def __init__(self, comment=None, public_key=None, fingerprint_short=None, default=None, created_at=None, fingerprint=None, active=None):
         """
         ReposownerGpgKeys - a model defined in Swagger
         """
@@ -60,7 +60,7 @@ class ReposownerGpgKeys(object):
         self._fingerprint_short = None
         self._default = None
         self._created_at = None
-        self._fingerprint_long = None
+        self._fingerprint = None
         self._active = None
 
         if comment is not None:
@@ -73,8 +73,8 @@ class ReposownerGpgKeys(object):
           self.default = default
         if created_at is not None:
           self.created_at = created_at
-        if fingerprint_long is not None:
-          self.fingerprint_long = fingerprint_long
+        if fingerprint is not None:
+          self.fingerprint = fingerprint
         if active is not None:
           self.active = active
 
@@ -128,7 +128,7 @@ class ReposownerGpgKeys(object):
     def fingerprint_short(self):
         """
         Gets the fingerprint_short of this ReposownerGpgKeys.
-        The short identifier used by GPG for this key.
+        
 
         :return: The fingerprint_short of this ReposownerGpgKeys.
         :rtype: str
@@ -139,7 +139,7 @@ class ReposownerGpgKeys(object):
     def fingerprint_short(self, fingerprint_short):
         """
         Sets the fingerprint_short of this ReposownerGpgKeys.
-        The short identifier used by GPG for this key.
+        
 
         :param fingerprint_short: The fingerprint_short of this ReposownerGpgKeys.
         :type: str
@@ -194,27 +194,27 @@ class ReposownerGpgKeys(object):
         self._created_at = created_at
 
     @property
-    def fingerprint_long(self):
+    def fingerprint(self):
         """
-        Gets the fingerprint_long of this ReposownerGpgKeys.
+        Gets the fingerprint of this ReposownerGpgKeys.
         The long identifier used by GPG for this key.
 
-        :return: The fingerprint_long of this ReposownerGpgKeys.
+        :return: The fingerprint of this ReposownerGpgKeys.
         :rtype: str
         """
-        return self._fingerprint_long
+        return self._fingerprint
 
-    @fingerprint_long.setter
-    def fingerprint_long(self, fingerprint_long):
+    @fingerprint.setter
+    def fingerprint(self, fingerprint):
         """
-        Sets the fingerprint_long of this ReposownerGpgKeys.
+        Sets the fingerprint of this ReposownerGpgKeys.
         The long identifier used by GPG for this key.
 
-        :param fingerprint_long: The fingerprint_long of this ReposownerGpgKeys.
+        :param fingerprint: The fingerprint of this ReposownerGpgKeys.
         :type: str
         """
 
-        self._fingerprint_long = fingerprint_long
+        self._fingerprint = fingerprint
 
     @property
     def active(self):
