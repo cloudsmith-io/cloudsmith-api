@@ -3,8 +3,6 @@ self=$(readlink -f $BASH_SOURCE)
 self_dir=$(dirname $self)
 root_dir=$(readlink -f "$self_dir/..")
 travis_dir=${root_dir}/.travis
-language=$1
-api_url=$2
 . $root_dir/scripts/common.sh
 
 setup_git_user() {
