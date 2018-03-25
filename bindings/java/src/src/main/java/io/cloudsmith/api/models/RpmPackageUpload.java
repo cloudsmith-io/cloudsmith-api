@@ -106,6 +106,9 @@ public class RpmPackageUpload implements Serializable {
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
+  @SerializedName("indexed")
+  private Boolean indexed = null;
+
   @SerializedName("uploader_url")
   private String uploaderUrl = null;
 
@@ -614,6 +617,24 @@ public class RpmPackageUpload implements Serializable {
 
   public void setSlugPerm(String slugPerm) {
     this.slugPerm = slugPerm;
+  }
+
+  public RpmPackageUpload indexed(Boolean indexed) {
+    this.indexed = indexed;
+    return this;
+  }
+
+   /**
+   * 
+   * @return indexed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getIndexed() {
+    return indexed;
+  }
+
+  public void setIndexed(Boolean indexed) {
+    this.indexed = indexed;
   }
 
   public RpmPackageUpload uploaderUrl(String uploaderUrl) {
@@ -1180,6 +1201,7 @@ public class RpmPackageUpload implements Serializable {
         Objects.equals(this.isSyncInFlight, rpmPackageUpload.isSyncInFlight) &&
         Objects.equals(this.namespaceUrl, rpmPackageUpload.namespaceUrl) &&
         Objects.equals(this.slugPerm, rpmPackageUpload.slugPerm) &&
+        Objects.equals(this.indexed, rpmPackageUpload.indexed) &&
         Objects.equals(this.uploaderUrl, rpmPackageUpload.uploaderUrl) &&
         Objects.equals(this.cdnUrl, rpmPackageUpload.cdnUrl) &&
         Objects.equals(this.checksumSha1, rpmPackageUpload.checksumSha1) &&
@@ -1213,7 +1235,7 @@ public class RpmPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
+    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
   }
 
 
@@ -1245,6 +1267,7 @@ public class RpmPackageUpload implements Serializable {
     sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");

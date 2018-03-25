@@ -81,7 +81,7 @@ public class UserBrief implements Serializable {
    * If true then you&#39;re logged in as a user.
    * @return authenticated
   **/
-  @ApiModelProperty(value = "If true then you're logged in as a user.")
+  @ApiModelProperty(example = "true", value = "If true then you're logged in as a user.")
   public Boolean getAuthenticated() {
     return authenticated;
   }
@@ -99,7 +99,7 @@ public class UserBrief implements Serializable {
    * The full name of the user (if any).
    * @return name
   **/
-  @ApiModelProperty(value = "The full name of the user (if any).")
+  @ApiModelProperty(example = "Example User", value = "The full name of the user (if any).")
   public String getName() {
     return name;
   }
@@ -117,7 +117,7 @@ public class UserBrief implements Serializable {
    * Your email address that we use to contact you. This is only visible to you.
    * @return email
   **/
-  @ApiModelProperty(value = "Your email address that we use to contact you. This is only visible to you.")
+  @ApiModelProperty(example = "user@example.com", value = "Your email address that we use to contact you. This is only visible to you.")
   public String getEmail() {
     return email;
   }
@@ -135,7 +135,7 @@ public class UserBrief implements Serializable {
    * 
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "x1y2z3z4y", value = "")
   public String getSlugPerm() {
     return slugPerm;
   }
@@ -153,7 +153,7 @@ public class UserBrief implements Serializable {
    * 
    * @return slug
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "example-user", value = "")
   public String getSlug() {
     return slug;
   }

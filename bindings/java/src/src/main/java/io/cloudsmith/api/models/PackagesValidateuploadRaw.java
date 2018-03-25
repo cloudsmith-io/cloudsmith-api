@@ -33,11 +33,53 @@ import javax.validation.Valid;
 public class PackagesValidateuploadRaw implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("summary")
+  private String summary = null;
+
+  @SerializedName("description")
+  private String description = null;
+
   @SerializedName("version")
   private String version = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
+
+  public PackagesValidateuploadRaw summary(String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+   /**
+   * A one-liner synopsis of this package.
+   * @return summary
+  **/
+  @ApiModelProperty(example = "My Package File", value = "A one-liner synopsis of this package.")
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public PackagesValidateuploadRaw description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * A textual description of this package.
+   * @return description
+  **/
+  @ApiModelProperty(example = "Everything about packaging files.", value = "A textual description of this package.")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public PackagesValidateuploadRaw version(String version) {
     this.version = version;
@@ -48,7 +90,7 @@ public class PackagesValidateuploadRaw implements Serializable {
    * The version of this package.
    * @return version
   **/
-  @ApiModelProperty(value = "The version of this package.")
+  @ApiModelProperty(example = "1.0", value = "The version of this package.")
   public String getVersion() {
     return version;
   }
@@ -67,7 +109,7 @@ public class PackagesValidateuploadRaw implements Serializable {
    * @return packageFile
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "The primary file for the package.")
+  @ApiModelProperty(example = "y123456789", required = true, value = "The primary file for the package.")
   public String getPackageFile() {
     return packageFile;
   }
@@ -86,13 +128,15 @@ public class PackagesValidateuploadRaw implements Serializable {
       return false;
     }
     PackagesValidateuploadRaw packagesValidateuploadRaw = (PackagesValidateuploadRaw) o;
-    return Objects.equals(this.version, packagesValidateuploadRaw.version) &&
+    return Objects.equals(this.summary, packagesValidateuploadRaw.summary) &&
+        Objects.equals(this.description, packagesValidateuploadRaw.description) &&
+        Objects.equals(this.version, packagesValidateuploadRaw.version) &&
         Objects.equals(this.packageFile, packagesValidateuploadRaw.packageFile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, packageFile);
+    return Objects.hash(summary, description, version, packageFile);
   }
 
 
@@ -101,6 +145,8 @@ public class PackagesValidateuploadRaw implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagesValidateuploadRaw {\n");
     
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("}");

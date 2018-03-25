@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **isSyncInFlight** | **Boolean** |  |  [optional]
 **namespaceUrl** | **String** |  |  [optional]
 **slugPerm** | **String** |  |  [optional]
+**indexed** | **Boolean** |  |  [optional]
 **uploaderUrl** | **String** |  |  [optional]
 **cdnUrl** | **String** |  |  [optional]
 **checksumSha1** | **String** |  |  [optional]

@@ -106,6 +106,9 @@ public class VagrantPackageUpload implements Serializable {
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
+  @SerializedName("indexed")
+  private Boolean indexed = null;
+
   @SerializedName("uploader_url")
   private String uploaderUrl = null;
 
@@ -557,7 +560,7 @@ public class VagrantPackageUpload implements Serializable {
    * @return version
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "The version of this package.")
+  @ApiModelProperty(example = "1.0", required = true, value = "The version of this package.")
   public String getVersion() {
     return version;
   }
@@ -618,6 +621,24 @@ public class VagrantPackageUpload implements Serializable {
 
   public void setSlugPerm(String slugPerm) {
     this.slugPerm = slugPerm;
+  }
+
+  public VagrantPackageUpload indexed(Boolean indexed) {
+    this.indexed = indexed;
+    return this;
+  }
+
+   /**
+   * 
+   * @return indexed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getIndexed() {
+    return indexed;
+  }
+
+  public void setIndexed(Boolean indexed) {
+    this.indexed = indexed;
   }
 
   public VagrantPackageUpload uploaderUrl(String uploaderUrl) {
@@ -755,7 +776,8 @@ public class VagrantPackageUpload implements Serializable {
    * The name of this package.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of this package.")
+  @NotNull
+  @ApiModelProperty(example = "tcl", required = true, value = "The name of this package.")
   public String getName() {
     return name;
   }
@@ -828,7 +850,7 @@ public class VagrantPackageUpload implements Serializable {
    * @return provider
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "The virtual machine provider for the box.")
+  @ApiModelProperty(example = "virtualbox", required = true, value = "The virtual machine provider for the box.")
   public String getProvider() {
     return provider;
   }
@@ -1203,6 +1225,7 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.isSyncInFlight, vagrantPackageUpload.isSyncInFlight) &&
         Objects.equals(this.namespaceUrl, vagrantPackageUpload.namespaceUrl) &&
         Objects.equals(this.slugPerm, vagrantPackageUpload.slugPerm) &&
+        Objects.equals(this.indexed, vagrantPackageUpload.indexed) &&
         Objects.equals(this.uploaderUrl, vagrantPackageUpload.uploaderUrl) &&
         Objects.equals(this.cdnUrl, vagrantPackageUpload.cdnUrl) &&
         Objects.equals(this.checksumSha1, vagrantPackageUpload.checksumSha1) &&
@@ -1237,7 +1260,7 @@ public class VagrantPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, provider, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
+    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, provider, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
   }
 
 
@@ -1269,6 +1292,7 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");

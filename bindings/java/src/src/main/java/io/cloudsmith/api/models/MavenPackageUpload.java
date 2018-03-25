@@ -112,6 +112,9 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
+  @SerializedName("indexed")
+  private Boolean indexed = null;
+
   @SerializedName("uploader_url")
   private String uploaderUrl = null;
 
@@ -256,7 +259,7 @@ public class MavenPackageUpload implements Serializable {
    * The ID of the artifact.
    * @return artifactId
   **/
-  @ApiModelProperty(value = "The ID of the artifact.")
+  @ApiModelProperty(example = "cloudsmith-example", value = "The ID of the artifact.")
   public String getArtifactId() {
     return artifactId;
   }
@@ -562,7 +565,7 @@ public class MavenPackageUpload implements Serializable {
    * Artifact&#39;s group ID.
    * @return groupId
   **/
-  @ApiModelProperty(value = "Artifact's group ID.")
+  @ApiModelProperty(example = "io.cloudsmith.example", value = "Artifact's group ID.")
   public String getGroupId() {
     return groupId;
   }
@@ -659,6 +662,24 @@ public class MavenPackageUpload implements Serializable {
 
   public void setSlugPerm(String slugPerm) {
     this.slugPerm = slugPerm;
+  }
+
+  public MavenPackageUpload indexed(Boolean indexed) {
+    this.indexed = indexed;
+    return this;
+  }
+
+   /**
+   * 
+   * @return indexed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getIndexed() {
+    return indexed;
+  }
+
+  public void setIndexed(Boolean indexed) {
+    this.indexed = indexed;
   }
 
   public MavenPackageUpload uploaderUrl(String uploaderUrl) {
@@ -1245,6 +1266,7 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.isSyncInFlight, mavenPackageUpload.isSyncInFlight) &&
         Objects.equals(this.namespaceUrl, mavenPackageUpload.namespaceUrl) &&
         Objects.equals(this.slugPerm, mavenPackageUpload.slugPerm) &&
+        Objects.equals(this.indexed, mavenPackageUpload.indexed) &&
         Objects.equals(this.uploaderUrl, mavenPackageUpload.uploaderUrl) &&
         Objects.equals(this.cdnUrl, mavenPackageUpload.cdnUrl) &&
         Objects.equals(this.checksumSha1, mavenPackageUpload.checksumSha1) &&
@@ -1279,7 +1301,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, stageUpdatedAt, artifactId, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, groupId, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, packaging, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
+    return Objects.hash(files, stageUpdatedAt, artifactId, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, groupId, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, packaging, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
   }
 
 
@@ -1313,6 +1335,7 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");

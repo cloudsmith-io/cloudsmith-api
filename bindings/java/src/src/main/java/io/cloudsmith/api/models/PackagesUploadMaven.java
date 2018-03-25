@@ -66,7 +66,7 @@ public class PackagesUploadMaven implements Serializable {
    * The ID of the artifact.
    * @return artifactId
   **/
-  @ApiModelProperty(value = "The ID of the artifact.")
+  @ApiModelProperty(example = "cloudsmith-example", value = "The ID of the artifact.")
   public String getArtifactId() {
     return artifactId;
   }
@@ -84,7 +84,7 @@ public class PackagesUploadMaven implements Serializable {
    * Adds bundled Java source code to the Maven package.
    * @return sourcesFile
   **/
-  @ApiModelProperty(value = "Adds bundled Java source code to the Maven package.")
+  @ApiModelProperty(example = "y1234456789d", value = "Adds bundled Java source code to the Maven package.")
   public String getSourcesFile() {
     return sourcesFile;
   }
@@ -120,7 +120,7 @@ public class PackagesUploadMaven implements Serializable {
    * The POM file is an XML file containing the Maven coordinates.
    * @return pomFile
   **/
-  @ApiModelProperty(value = "The POM file is an XML file containing the Maven coordinates.")
+  @ApiModelProperty(example = "y1234456789b", value = "The POM file is an XML file containing the Maven coordinates.")
   public String getPomFile() {
     return pomFile;
   }
@@ -138,7 +138,7 @@ public class PackagesUploadMaven implements Serializable {
    * Adds bundled Java documentation to the Maven package
    * @return javadocFile
   **/
-  @ApiModelProperty(value = "Adds bundled Java documentation to the Maven package")
+  @ApiModelProperty(example = "y1234456789c", value = "Adds bundled Java documentation to the Maven package")
   public String getJavadocFile() {
     return javadocFile;
   }
@@ -174,7 +174,7 @@ public class PackagesUploadMaven implements Serializable {
    * Artifact&#39;s group ID.
    * @return groupId
   **/
-  @ApiModelProperty(value = "Artifact's group ID.")
+  @ApiModelProperty(example = "io.cloudsmith.example", value = "Artifact's group ID.")
   public String getGroupId() {
     return groupId;
   }
@@ -193,7 +193,7 @@ public class PackagesUploadMaven implements Serializable {
    * @return packageFile
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "The primary file for the package.")
+  @ApiModelProperty(example = "y1234456789a", required = true, value = "The primary file for the package.")
   public String getPackageFile() {
     return packageFile;
   }

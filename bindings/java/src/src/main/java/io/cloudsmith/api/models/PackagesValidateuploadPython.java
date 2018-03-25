@@ -46,7 +46,7 @@ public class PackagesValidateuploadPython implements Serializable {
    * @return packageFile
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "The primary file for the package.")
+  @ApiModelProperty(example = "y123456789", required = true, value = "The primary file for the package.")
   public String getPackageFile() {
     return packageFile;
   }

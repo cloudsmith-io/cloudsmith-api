@@ -45,7 +45,7 @@ public class UserAuthToken implements Serializable {
    * API token for the authenticated user
    * @return token
   **/
-  @ApiModelProperty(value = "API token for the authenticated user")
+  @ApiModelProperty(example = "y4682jh19cqf0b2ty4682jh19cqf0b2t", value = "API token for the authenticated user")
   public String getToken() {
     return token;
   }

@@ -49,7 +49,7 @@ public class PackagesValidateuploadRpm implements Serializable {
    * @return distribution
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "The distribution to store the package for.")
+  @ApiModelProperty(example = "el/7", required = true, value = "The distribution to store the package for.")
   public String getDistribution() {
     return distribution;
   }
@@ -68,7 +68,7 @@ public class PackagesValidateuploadRpm implements Serializable {
    * @return packageFile
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "The primary file for the package.")
+  @ApiModelProperty(example = "y123456789", required = true, value = "The primary file for the package.")
   public String getPackageFile() {
     return packageFile;
   }

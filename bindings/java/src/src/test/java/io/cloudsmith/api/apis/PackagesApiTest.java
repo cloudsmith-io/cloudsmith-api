@@ -15,7 +15,11 @@ package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.MavenPackageUpload;
+import io.cloudsmith.api.models.PackageCopy;
+import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
+import io.cloudsmith.api.models.PackagesCopy;
+import io.cloudsmith.api.models.PackagesMove;
 import io.cloudsmith.api.models.PackagesUploadDeb;
 import io.cloudsmith.api.models.PackagesUploadMaven;
 import io.cloudsmith.api.models.PackagesUploadPython;
@@ -30,6 +34,7 @@ import io.cloudsmith.api.models.PackagesValidateuploadRaw;
 import io.cloudsmith.api.models.PackagesValidateuploadRpm;
 import io.cloudsmith.api.models.PackagesValidateuploadRuby;
 import io.cloudsmith.api.models.PackagesValidateuploadVagrant;
+import io.cloudsmith.api.models.RawPackageUpload;
 import io.cloudsmith.api.models.RpmPackageUpload;
 import io.cloudsmith.api.models.Status;
 import io.cloudsmith.api.models.VagrantPackageUpload;
@@ -49,6 +54,25 @@ public class PackagesApiTest {
 
     private final PackagesApi api = new PackagesApi();
 
+    
+    /**
+     * Copy a package to another repository.
+     *
+     * Copy a package to another repository.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesCopyTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String slug = null;
+        PackagesCopy data = null;
+        PackageCopy response = api.packagesCopy(owner, repo, slug, data);
+
+        // TODO: test validations
+    }
     
     /**
      * Delete a specific package in a repository.
@@ -82,7 +106,27 @@ public class PackagesApiTest {
         String repo = null;
         Integer page = null;
         Integer pageSize = null;
-        List<RpmPackageUpload> response = api.packagesList(owner, repo, page, pageSize);
+        String query = null;
+        List<RpmPackageUpload> response = api.packagesList(owner, repo, page, pageSize, query);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Move a package to another repository.
+     *
+     * Move a package to another repository.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesMoveTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String slug = null;
+        PackagesMove data = null;
+        PackageMove response = api.packagesMove(owner, repo, slug, data);
 
         // TODO: test validations
     }
@@ -101,6 +145,24 @@ public class PackagesApiTest {
         String repo = null;
         String slug = null;
         RpmPackageUpload response = api.packagesRead(owner, repo, slug);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Schedule a package for resynchronisation.
+     *
+     * Schedule a package for resynchronisation.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesResyncTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String slug = null;
+        RpmPackageUpload response = api.packagesResync(owner, repo, slug);
 
         // TODO: test validations
     }
@@ -190,7 +252,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadRaw data = null;
-        RpmPackageUpload response = api.packagesUploadRaw(owner, repo, data);
+        RawPackageUpload response = api.packagesUploadRaw(owner, repo, data);
 
         // TODO: test validations
     }
