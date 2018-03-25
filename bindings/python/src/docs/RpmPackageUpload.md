@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **is_sync_in_flight** | **bool** |  | [optional] 
 **namespace_url** | **str** |  | [optional] 
 **slug_perm** | **str** |  | [optional] 
+**indexed** | **bool** |  | [optional] 
 **uploader_url** | **str** |  | [optional] 
 **cdn_url** | **str** |  | [optional] 
 **checksum_sha1** | **str** |  | [optional] 

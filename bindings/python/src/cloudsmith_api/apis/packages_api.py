@@ -40,6 +40,126 @@ class PackagesApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
+    def packages_copy(self, owner, repo, slug, **kwargs):
+        """
+        Copy a package to another repository.
+        Copy a package to another repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_copy(owner, repo, slug, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str slug:  (required)
+        :param PackagesCopy data:
+        :return: PackageCopy
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.packages_copy_with_http_info(owner, repo, slug, **kwargs)
+        else:
+            (data) = self.packages_copy_with_http_info(owner, repo, slug, **kwargs)
+            return data
+
+    def packages_copy_with_http_info(self, owner, repo, slug, **kwargs):
+        """
+        Copy a package to another repository.
+        Copy a package to another repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_copy_with_http_info(owner, repo, slug, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str slug:  (required)
+        :param PackagesCopy data:
+        :return: PackageCopy
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'slug', 'data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_copy" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_copy`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `packages_copy`")
+        # verify the required parameter 'slug' is set
+        if ('slug' not in params) or (params['slug'] is None):
+            raise ValueError("Missing the required parameter `slug` when calling `packages_copy`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'slug' in params:
+            path_params['slug'] = params['slug']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/copy/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PackageCopy',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def packages_delete(self, owner, repo, slug, **kwargs):
         """
         Delete a specific package in a repository.
@@ -170,6 +290,7 @@ class PackagesApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param str query: A search term for querying names, filenames, versions, distributions or architectures of packages.
         :return: list[RpmPackageUpload]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -199,12 +320,13 @@ class PackagesApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param str query: A search term for querying names, filenames, versions, distributions or architectures of packages.
         :return: list[RpmPackageUpload]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'page', 'page_size']
+        all_params = ['owner', 'repo', 'page', 'page_size', 'query']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -240,6 +362,8 @@ class PackagesApi(object):
             query_params.append(('page', params['page']))
         if 'page_size' in params:
             query_params.append(('page_size', params['page_size']))
+        if 'query' in params:
+            query_params.append(('query', params['query']))
 
         header_params = {}
 
@@ -258,6 +382,126 @@ class PackagesApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='list[RpmPackageUpload]',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def packages_move(self, owner, repo, slug, **kwargs):
+        """
+        Move a package to another repository.
+        Move a package to another repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_move(owner, repo, slug, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str slug:  (required)
+        :param PackagesMove data:
+        :return: PackageMove
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.packages_move_with_http_info(owner, repo, slug, **kwargs)
+        else:
+            (data) = self.packages_move_with_http_info(owner, repo, slug, **kwargs)
+            return data
+
+    def packages_move_with_http_info(self, owner, repo, slug, **kwargs):
+        """
+        Move a package to another repository.
+        Move a package to another repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_move_with_http_info(owner, repo, slug, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str slug:  (required)
+        :param PackagesMove data:
+        :return: PackageMove
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'slug', 'data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_move" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_move`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `packages_move`")
+        # verify the required parameter 'slug' is set
+        if ('slug' not in params) or (params['slug'] is None):
+            raise ValueError("Missing the required parameter `slug` when calling `packages_move`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'slug' in params:
+            path_params['slug'] = params['slug']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/move/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PackageMove',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -363,6 +607,118 @@ class PackagesApi(object):
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='RpmPackageUpload',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def packages_resync(self, owner, repo, slug, **kwargs):
+        """
+        Schedule a package for resynchronisation.
+        Schedule a package for resynchronisation.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_resync(owner, repo, slug, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str slug:  (required)
+        :return: RpmPackageUpload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.packages_resync_with_http_info(owner, repo, slug, **kwargs)
+        else:
+            (data) = self.packages_resync_with_http_info(owner, repo, slug, **kwargs)
+            return data
+
+    def packages_resync_with_http_info(self, owner, repo, slug, **kwargs):
+        """
+        Schedule a package for resynchronisation.
+        Schedule a package for resynchronisation.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_resync_with_http_info(owner, repo, slug, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str slug:  (required)
+        :return: RpmPackageUpload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'slug']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_resync" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_resync`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `packages_resync`")
+        # verify the required parameter 'slug' is set
+        if ('slug' not in params) or (params['slug'] is None):
+            raise ValueError("Missing the required parameter `slug` when calling `packages_resync`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'slug' in params:
+            path_params['slug'] = params['slug']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/resync/', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -845,7 +1201,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadRaw data:
-        :return: RpmPackageUpload
+        :return: RawPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -873,7 +1229,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadRaw data:
-        :return: RpmPackageUpload
+        :return: RawPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -933,7 +1289,7 @@ class PackagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RpmPackageUpload',
+                                        response_type='RawPackageUpload',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

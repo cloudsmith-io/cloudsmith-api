@@ -31,6 +31,14 @@ class TestPackagesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_packages_copy(self):
+        """
+        Test case for packages_copy
+
+        Copy a package to another repository.
+        """
+        pass
+
     def test_packages_delete(self):
         """
         Test case for packages_delete
@@ -47,11 +55,27 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_move(self):
+        """
+        Test case for packages_move
+
+        Move a package to another repository.
+        """
+        pass
+
     def test_packages_read(self):
         """
         Test case for packages_read
 
         Get a specific package in a repository.
+        """
+        pass
+
+    def test_packages_resync(self):
+        """
+        Test case for packages_resync
+
+        Schedule a package for resynchronisation.
         """
         pass
 

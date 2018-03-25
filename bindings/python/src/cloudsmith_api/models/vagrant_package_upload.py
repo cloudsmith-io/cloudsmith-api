@@ -54,6 +54,7 @@ class VagrantPackageUpload(object):
         'is_sync_in_flight': 'bool',
         'namespace_url': 'str',
         'slug_perm': 'str',
+        'indexed': 'bool',
         'uploader_url': 'str',
         'cdn_url': 'str',
         'checksum_sha1': 'str',
@@ -110,6 +111,7 @@ class VagrantPackageUpload(object):
         'is_sync_in_flight': 'is_sync_in_flight',
         'namespace_url': 'namespace_url',
         'slug_perm': 'slug_perm',
+        'indexed': 'indexed',
         'uploader_url': 'uploader_url',
         'cdn_url': 'cdn_url',
         'checksum_sha1': 'checksum_sha1',
@@ -142,7 +144,7 @@ class VagrantPackageUpload(object):
         'format_url': 'format_url'
     }
 
-    def __init__(self, files=None, stage_updated_at=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, provider=None, version_orig=None, architectures=None, uploader=None, self_html_url=None, stage=None, self_url=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
+    def __init__(self, files=None, stage_updated_at=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, indexed=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, provider=None, version_orig=None, architectures=None, uploader=None, self_html_url=None, stage=None, self_url=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
         """
         VagrantPackageUpload - a model defined in Swagger
         """
@@ -170,6 +172,7 @@ class VagrantPackageUpload(object):
         self._is_sync_in_flight = None
         self._namespace_url = None
         self._slug_perm = None
+        self._indexed = None
         self._uploader_url = None
         self._cdn_url = None
         self._checksum_sha1 = None
@@ -246,6 +249,8 @@ class VagrantPackageUpload(object):
           self.namespace_url = namespace_url
         if slug_perm is not None:
           self.slug_perm = slug_perm
+        if indexed is not None:
+          self.indexed = indexed
         if uploader_url is not None:
           self.uploader_url = uploader_url
         if cdn_url is not None:
@@ -260,8 +265,7 @@ class VagrantPackageUpload(object):
           self.checksum_sha512 = checksum_sha512
         if description is not None:
           self.description = description
-        if name is not None:
-          self.name = name
+        self.name = name
         if format is not None:
           self.format = format
         if is_sync_completed is not None:
@@ -838,6 +842,29 @@ class VagrantPackageUpload(object):
         self._slug_perm = slug_perm
 
     @property
+    def indexed(self):
+        """
+        Gets the indexed of this VagrantPackageUpload.
+        
+
+        :return: The indexed of this VagrantPackageUpload.
+        :rtype: bool
+        """
+        return self._indexed
+
+    @indexed.setter
+    def indexed(self, indexed):
+        """
+        Sets the indexed of this VagrantPackageUpload.
+        
+
+        :param indexed: The indexed of this VagrantPackageUpload.
+        :type: bool
+        """
+
+        self._indexed = indexed
+
+    @property
     def uploader_url(self):
         """
         Gets the uploader_url of this VagrantPackageUpload.
@@ -1018,6 +1045,8 @@ class VagrantPackageUpload(object):
         :param name: The name of this VagrantPackageUpload.
         :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")
 
         self._name = name
 

@@ -1,12 +1,15 @@
 # cloudsmith_api.PackagesApi
 
-All URIs are relative to *https://api-prd.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**packages_copy**](PackagesApi.md#packages_copy) | **POST** /packages/{owner}/{repo}/{slug}/copy/ | Copy a package to another repository.
 [**packages_delete**](PackagesApi.md#packages_delete) | **DELETE** /packages/{owner}/{repo}/{slug}/ | Delete a specific package in a repository.
 [**packages_list**](PackagesApi.md#packages_list) | **GET** /packages/{owner}/{repo}/ | Views for working with repository packages.
+[**packages_move**](PackagesApi.md#packages_move) | **POST** /packages/{owner}/{repo}/{slug}/move/ | Move a package to another repository.
 [**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{slug}/ | Get a specific package in a repository.
+[**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{slug}/resync/ | Schedule a package for resynchronisation.
 [**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{slug}/status/ | Get the synchronisation status for a package.
 [**packages_upload_deb**](PackagesApi.md#packages_upload_deb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
@@ -23,6 +26,72 @@ Method | HTTP request | Description
 [**packages_validate_upload_ruby**](PackagesApi.md#packages_validate_upload_ruby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
 [**packages_validate_upload_vagrant**](PackagesApi.md#packages_validate_upload_vagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
 
+
+# **packages_copy**
+> PackageCopy packages_copy(owner, repo, slug, data=data)
+
+Copy a package to another repository.
+
+Copy a package to another repository.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi()
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+slug = 'slug_example' # str | 
+data = cloudsmith_api.PackagesCopy() # PackagesCopy |  (optional)
+
+try: 
+    # Copy a package to another repository.
+    api_response = api_instance.packages_copy(owner, repo, slug, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_copy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **slug** | **str**|  | 
+ **data** | [**PackagesCopy**](PackagesCopy.md)|  | [optional] 
+
+### Return type
+
+[**PackageCopy**](PackageCopy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_delete**
 > packages_delete(owner, repo, slug)
@@ -88,7 +157,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_list**
-> list[RpmPackageUpload] packages_list(owner, repo, page=page, page_size=page_size)
+> list[RpmPackageUpload] packages_list(owner, repo, page=page, page_size=page_size, query=query)
 
 Views for working with repository packages.
 
@@ -120,10 +189,11 @@ owner = 'owner_example' # str |
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+query = 'query_example' # str | A search term for querying names, filenames, versions, distributions or architectures of packages. (optional)
 
 try: 
     # Views for working with repository packages.
-    api_response = api_instance.packages_list(owner, repo, page=page, page_size=page_size)
+    api_response = api_instance.packages_list(owner, repo, page=page, page_size=page_size, query=query)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_list: %s\n" % e)
@@ -137,6 +207,7 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **query** | **str**| A search term for querying names, filenames, versions, distributions or architectures of packages. | [optional] 
 
 ### Return type
 
@@ -149,6 +220,72 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_move**
+> PackageMove packages_move(owner, repo, slug, data=data)
+
+Move a package to another repository.
+
+Move a package to another repository.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi()
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+slug = 'slug_example' # str | 
+data = cloudsmith_api.PackagesMove() # PackagesMove |  (optional)
+
+try: 
+    # Move a package to another repository.
+    api_response = api_instance.packages_move(owner, repo, slug, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_move: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **slug** | **str**|  | 
+ **data** | [**PackagesMove**](PackagesMove.md)|  | [optional] 
+
+### Return type
+
+[**PackageMove**](PackageMove.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -192,6 +329,70 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **slug** | **str**|  | 
+
+### Return type
+
+[**RpmPackageUpload**](RpmPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_resync**
+> RpmPackageUpload packages_resync(owner, repo, slug)
+
+Schedule a package for resynchronisation.
+
+Schedule a package for resynchronisation.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi()
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+slug = 'slug_example' # str | 
+
+try: 
+    # Schedule a package for resynchronisation.
+    api_response = api_instance.packages_resync(owner, repo, slug)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_resync: %s\n" % e)
 ```
 
 ### Parameters
@@ -474,7 +675,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_raw**
-> RpmPackageUpload packages_upload_raw(owner, repo, data=data)
+> RawPackageUpload packages_upload_raw(owner, repo, data=data)
 
 Create a new Raw package
 
@@ -524,7 +725,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**RawPackageUpload**](RawPackageUpload.md)
 
 ### Authorization
 

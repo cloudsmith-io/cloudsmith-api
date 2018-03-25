@@ -16,6 +16,10 @@ from __future__ import absolute_import
 # import models into model package
 from .distribution import Distribution
 from .distribution_versions import DistributionVersions
+from .entitlements_create import EntitlementsCreate
+from .entitlements_partial_update import EntitlementsPartialUpdate
+from .entitlements_refresh import EntitlementsRefresh
+from .entitlements_sync import EntitlementsSync
 from .files_create import FilesCreate
 from .files_validate import FilesValidate
 from .format import Format
@@ -23,8 +27,12 @@ from .format_distributions import FormatDistributions
 from .maven_package_upload import MavenPackageUpload
 from .namespace import Namespace
 from .organization import Organization
+from .package_copy import PackageCopy
 from .package_file_upload import PackageFileUpload
+from .package_move import PackageMove
 from .package_status import PackageStatus
+from .packages_copy import PackagesCopy
+from .packages_move import PackagesMove
 from .packages_upload_deb import PackagesUploadDeb
 from .packages_upload_maven import PackagesUploadMaven
 from .packages_upload_python import PackagesUploadPython
@@ -39,8 +47,13 @@ from .packages_validateupload_raw import PackagesValidateuploadRaw
 from .packages_validateupload_rpm import PackagesValidateuploadRpm
 from .packages_validateupload_ruby import PackagesValidateuploadRuby
 from .packages_validateupload_vagrant import PackagesValidateuploadVagrant
+from .raw_package_upload import RawPackageUpload
 from .repository import Repository
+from .repository_token import RepositoryToken
+from .repository_token_refresh import RepositoryTokenRefresh
+from .repository_token_sync import RepositoryTokenSync
 from .reposowner_gpg_keys import ReposownerGpgKeys
+from .resources_rate_check import ResourcesRateCheck
 from .rpm_package_upload import RpmPackageUpload
 from .rpm_package_upload_architectures import RpmPackageUploadArchitectures
 from .rpm_package_upload_files import RpmPackageUploadFiles

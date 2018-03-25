@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **is_sync_in_flight** | **bool** |  | [optional] 
 **namespace_url** | **str** |  | [optional] 
 **slug_perm** | **str** |  | [optional] 
+**indexed** | **bool** |  | [optional] 
 **uploader_url** | **str** |  | [optional] 
 **cdn_url** | **str** |  | [optional] 
 **checksum_sha1** | **str** |  | [optional] 
@@ -33,7 +34,7 @@ Name | Type | Description | Notes
 **status** | **str** | The synchronisation status of the package. | [optional] 
 **checksum_sha512** | **str** |  | [optional] 
 **description** | **str** | A textual description of this package. | [optional] 
-**name** | **str** | The name of this package. | [optional] 
+**name** | **str** | The name of this package. | 
 **format** | **str** |  | [optional] 
 **is_sync_completed** | **bool** |  | [optional] 
 **downloads** | **str** |  | [optional] 

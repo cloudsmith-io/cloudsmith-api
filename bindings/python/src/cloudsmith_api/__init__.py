@@ -16,6 +16,10 @@ from __future__ import absolute_import
 # import models into sdk package
 from .models.distribution import Distribution
 from .models.distribution_versions import DistributionVersions
+from .models.entitlements_create import EntitlementsCreate
+from .models.entitlements_partial_update import EntitlementsPartialUpdate
+from .models.entitlements_refresh import EntitlementsRefresh
+from .models.entitlements_sync import EntitlementsSync
 from .models.files_create import FilesCreate
 from .models.files_validate import FilesValidate
 from .models.format import Format
@@ -23,8 +27,12 @@ from .models.format_distributions import FormatDistributions
 from .models.maven_package_upload import MavenPackageUpload
 from .models.namespace import Namespace
 from .models.organization import Organization
+from .models.package_copy import PackageCopy
 from .models.package_file_upload import PackageFileUpload
+from .models.package_move import PackageMove
 from .models.package_status import PackageStatus
+from .models.packages_copy import PackagesCopy
+from .models.packages_move import PackagesMove
 from .models.packages_upload_deb import PackagesUploadDeb
 from .models.packages_upload_maven import PackagesUploadMaven
 from .models.packages_upload_python import PackagesUploadPython
@@ -39,8 +47,13 @@ from .models.packages_validateupload_raw import PackagesValidateuploadRaw
 from .models.packages_validateupload_rpm import PackagesValidateuploadRpm
 from .models.packages_validateupload_ruby import PackagesValidateuploadRuby
 from .models.packages_validateupload_vagrant import PackagesValidateuploadVagrant
+from .models.raw_package_upload import RawPackageUpload
 from .models.repository import Repository
+from .models.repository_token import RepositoryToken
+from .models.repository_token_refresh import RepositoryTokenRefresh
+from .models.repository_token_sync import RepositoryTokenSync
 from .models.reposowner_gpg_keys import ReposownerGpgKeys
+from .models.resources_rate_check import ResourcesRateCheck
 from .models.rpm_package_upload import RpmPackageUpload
 from .models.rpm_package_upload_architectures import RpmPackageUploadArchitectures
 from .models.rpm_package_upload_files import RpmPackageUploadFiles
@@ -54,11 +67,13 @@ from .models.vagrant_package_upload import VagrantPackageUpload
 
 # import apis into sdk package
 from .apis.distros_api import DistrosApi
+from .apis.entitlements_api import EntitlementsApi
 from .apis.files_api import FilesApi
 from .apis.formats_api import FormatsApi
 from .apis.namespaces_api import NamespacesApi
 from .apis.orgs_api import OrgsApi
 from .apis.packages_api import PackagesApi
+from .apis.rates_api import RatesApi
 from .apis.repos_api import ReposApi
 from .apis.status_api import StatusApi
 from .apis.user_api import UserApi

@@ -54,6 +54,7 @@ class RpmPackageUpload(object):
         'is_sync_in_flight': 'bool',
         'namespace_url': 'str',
         'slug_perm': 'str',
+        'indexed': 'bool',
         'uploader_url': 'str',
         'cdn_url': 'str',
         'checksum_sha1': 'str',
@@ -109,6 +110,7 @@ class RpmPackageUpload(object):
         'is_sync_in_flight': 'is_sync_in_flight',
         'namespace_url': 'namespace_url',
         'slug_perm': 'slug_perm',
+        'indexed': 'indexed',
         'uploader_url': 'uploader_url',
         'cdn_url': 'cdn_url',
         'checksum_sha1': 'checksum_sha1',
@@ -140,7 +142,7 @@ class RpmPackageUpload(object):
         'format_url': 'format_url'
     }
 
-    def __init__(self, files=None, stage_updated_at=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, version_orig=None, architectures=None, uploader=None, self_html_url=None, stage=None, self_url=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
+    def __init__(self, files=None, stage_updated_at=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, indexed=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, version_orig=None, architectures=None, uploader=None, self_html_url=None, stage=None, self_url=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
         """
         RpmPackageUpload - a model defined in Swagger
         """
@@ -168,6 +170,7 @@ class RpmPackageUpload(object):
         self._is_sync_in_flight = None
         self._namespace_url = None
         self._slug_perm = None
+        self._indexed = None
         self._uploader_url = None
         self._cdn_url = None
         self._checksum_sha1 = None
@@ -244,6 +247,8 @@ class RpmPackageUpload(object):
           self.namespace_url = namespace_url
         if slug_perm is not None:
           self.slug_perm = slug_perm
+        if indexed is not None:
+          self.indexed = indexed
         if uploader_url is not None:
           self.uploader_url = uploader_url
         if cdn_url is not None:
@@ -831,6 +836,29 @@ class RpmPackageUpload(object):
         """
 
         self._slug_perm = slug_perm
+
+    @property
+    def indexed(self):
+        """
+        Gets the indexed of this RpmPackageUpload.
+        
+
+        :return: The indexed of this RpmPackageUpload.
+        :rtype: bool
+        """
+        return self._indexed
+
+    @indexed.setter
+    def indexed(self, indexed):
+        """
+        Sets the indexed of this RpmPackageUpload.
+        
+
+        :param indexed: The indexed of this RpmPackageUpload.
+        :type: bool
+        """
+
+        self._indexed = indexed
 
     @property
     def uploader_url(self):

@@ -31,26 +31,82 @@ class PackagesValidateuploadRaw(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'summary': 'str',
+        'description': 'str',
         'version': 'str',
         'package_file': 'str'
     }
 
     attribute_map = {
+        'summary': 'summary',
+        'description': 'description',
         'version': 'version',
         'package_file': 'package_file'
     }
 
-    def __init__(self, version=None, package_file=None):
+    def __init__(self, summary=None, description=None, version=None, package_file=None):
         """
         PackagesValidateuploadRaw - a model defined in Swagger
         """
 
+        self._summary = None
+        self._description = None
         self._version = None
         self._package_file = None
 
+        if summary is not None:
+          self.summary = summary
+        if description is not None:
+          self.description = description
         if version is not None:
           self.version = version
         self.package_file = package_file
+
+    @property
+    def summary(self):
+        """
+        Gets the summary of this PackagesValidateuploadRaw.
+        A one-liner synopsis of this package.
+
+        :return: The summary of this PackagesValidateuploadRaw.
+        :rtype: str
+        """
+        return self._summary
+
+    @summary.setter
+    def summary(self, summary):
+        """
+        Sets the summary of this PackagesValidateuploadRaw.
+        A one-liner synopsis of this package.
+
+        :param summary: The summary of this PackagesValidateuploadRaw.
+        :type: str
+        """
+
+        self._summary = summary
+
+    @property
+    def description(self):
+        """
+        Gets the description of this PackagesValidateuploadRaw.
+        A textual description of this package.
+
+        :return: The description of this PackagesValidateuploadRaw.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """
+        Sets the description of this PackagesValidateuploadRaw.
+        A textual description of this package.
+
+        :param description: The description of this PackagesValidateuploadRaw.
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def version(self):
