@@ -43,10 +43,11 @@ func NewEntitlementsApiWithBasePath(basePath string) *EntitlementsApi {
  *
  * @param owner 
  * @param repo 
+ * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryToken
  */
-func (a EntitlementsApi) EntitlementsCreate(owner string, repo string, data EntitlementsCreate) (*RepositoryToken, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsCreate(owner string, repo string, showTokens bool, data EntitlementsCreate) (*RepositoryToken, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -75,6 +76,7 @@ func (a EntitlementsApi) EntitlementsCreate(owner string, repo string, data Enti
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -120,9 +122,10 @@ func (a EntitlementsApi) EntitlementsCreate(owner string, repo string, data Enti
  * @param owner 
  * @param repo 
  * @param slugPerm 
+ * @param showTokens Show entitlement token strings in results
  * @return void
  */
-func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, slugPerm string) (*APIResponse, error) {
+func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, slugPerm string, showTokens bool) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Delete")
 	// create path and map variables
@@ -152,6 +155,7 @@ func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, slugPerm 
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{  }
@@ -194,9 +198,10 @@ func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, slugPerm 
  * @param repo 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
+ * @param showTokens Show entitlement token strings in results
  * @return []RepositoryToken
  */
-func (a EntitlementsApi) EntitlementsList(owner string, repo string, page int32, pageSize int32) ([]RepositoryToken, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsList(owner string, repo string, page int32, pageSize int32, showTokens bool) ([]RepositoryToken, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -227,6 +232,7 @@ func (a EntitlementsApi) EntitlementsList(owner string, repo string, page int32,
 	}
 	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
 	localVarQueryParams.Add("page_size", a.Configuration.APIClient.ParameterToString(pageSize, ""))
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{  }
@@ -270,10 +276,11 @@ func (a EntitlementsApi) EntitlementsList(owner string, repo string, page int32,
  * @param owner 
  * @param repo 
  * @param slugPerm 
+ * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryToken
  */
-func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, slugPerm string, data EntitlementsPartialUpdate) (*RepositoryToken, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, slugPerm string, showTokens bool, data EntitlementsPartialUpdate) (*RepositoryToken, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Patch")
 	// create path and map variables
@@ -303,6 +310,7 @@ func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, sl
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -348,9 +356,10 @@ func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, sl
  * @param owner 
  * @param repo 
  * @param slugPerm 
+ * @param showTokens Show entitlement token strings in results
  * @return *RepositoryToken
  */
-func (a EntitlementsApi) EntitlementsRead(owner string, repo string, slugPerm string) (*RepositoryToken, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsRead(owner string, repo string, slugPerm string, showTokens bool) (*RepositoryToken, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -380,6 +389,7 @@ func (a EntitlementsApi) EntitlementsRead(owner string, repo string, slugPerm st
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{  }
@@ -423,10 +433,11 @@ func (a EntitlementsApi) EntitlementsRead(owner string, repo string, slugPerm st
  * @param owner 
  * @param repo 
  * @param slugPerm 
+ * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryTokenRefresh
  */
-func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, slugPerm string, data EntitlementsRefresh) (*RepositoryTokenRefresh, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, slugPerm string, showTokens bool, data EntitlementsRefresh) (*RepositoryTokenRefresh, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -456,6 +467,7 @@ func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, slugPerm
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -500,10 +512,11 @@ func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, slugPerm
  *
  * @param owner 
  * @param repo 
+ * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryTokenSync
  */
-func (a EntitlementsApi) EntitlementsSync(owner string, repo string, data EntitlementsSync) (*RepositoryTokenSync, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsSync(owner string, repo string, showTokens bool, data EntitlementsSync) (*RepositoryTokenSync, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -532,6 +545,7 @@ func (a EntitlementsApi) EntitlementsSync(owner string, repo string, data Entitl
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }

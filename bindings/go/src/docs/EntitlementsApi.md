@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **EntitlementsCreate**
-> RepositoryToken EntitlementsCreate($owner, $repo, $data)
+> RepositoryToken EntitlementsCreate($owner, $repo, $showTokens, $data)
 
 Create a specific entitlement in a repository.
 
@@ -27,6 +27,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsCreate**](EntitlementsCreate.md)|  | [optional] 
 
 ### Return type
@@ -45,7 +46,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsDelete**
-> EntitlementsDelete($owner, $repo, $slugPerm)
+> EntitlementsDelete($owner, $repo, $slugPerm, $showTokens)
 
 Delete a specific entitlement in a repository.
 
@@ -59,6 +60,7 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **slugPerm** | **string**|  | 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -76,7 +78,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsList**
-> []RepositoryToken EntitlementsList($owner, $repo, $page, $pageSize)
+> []RepositoryToken EntitlementsList($owner, $repo, $page, $pageSize, $showTokens)
 
 Get a list of all entitlements in a repository.
 
@@ -91,6 +93,7 @@ Name | Type | Description  | Notes
  **repo** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -108,7 +111,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsPartialUpdate**
-> RepositoryToken EntitlementsPartialUpdate($owner, $repo, $slugPerm, $data)
+> RepositoryToken EntitlementsPartialUpdate($owner, $repo, $slugPerm, $showTokens, $data)
 
 Update a specific entitlement in a repository.
 
@@ -122,6 +125,7 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **slugPerm** | **string**|  | 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
 
 ### Return type
@@ -140,7 +144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsRead**
-> RepositoryToken EntitlementsRead($owner, $repo, $slugPerm)
+> RepositoryToken EntitlementsRead($owner, $repo, $slugPerm, $showTokens)
 
 Views for working with repository entitlements.
 
@@ -154,6 +158,7 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **slugPerm** | **string**|  | 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -171,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsRefresh**
-> RepositoryTokenRefresh EntitlementsRefresh($owner, $repo, $slugPerm, $data)
+> RepositoryTokenRefresh EntitlementsRefresh($owner, $repo, $slugPerm, $showTokens, $data)
 
 Refresh an entitlement token in a repository.
 
@@ -185,6 +190,7 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **slugPerm** | **string**|  | 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
 
 ### Return type
@@ -203,7 +209,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsSync**
-> RepositoryTokenSync EntitlementsSync($owner, $repo, $data)
+> RepositoryTokenSync EntitlementsSync($owner, $repo, $showTokens, $data)
 
 Synchronise tokens from a source repository.
 
@@ -216,6 +222,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional] 
 
 ### Return type
