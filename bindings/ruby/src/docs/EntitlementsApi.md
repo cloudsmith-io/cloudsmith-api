@@ -48,6 +48,7 @@ owner = "owner_example" # String |
 repo = "repo_example" # String | 
 
 opts = { 
+  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsCreate.new # EntitlementsCreate | 
 }
 
@@ -66,6 +67,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsCreate**](EntitlementsCreate.md)|  | [optional] 
 
 ### Return type
@@ -84,7 +86,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_delete**
-> entitlements_delete(owner, repo, slug_perm)
+> entitlements_delete(owner, repo, slug_perm, opts)
 
 Delete a specific entitlement in a repository.
 
@@ -119,10 +121,13 @@ repo = "repo_example" # String |
 
 slug_perm = "slug_perm_example" # String | 
 
+opts = { 
+  show_tokens: true # BOOLEAN | Show entitlement token strings in results
+}
 
 begin
   #Delete a specific entitlement in a repository.
-  api_instance.entitlements_delete(owner, repo, slug_perm)
+  api_instance.entitlements_delete(owner, repo, slug_perm, opts)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_delete: #{e}"
 end
@@ -135,6 +140,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **slug_perm** | **String**|  | 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -187,7 +193,8 @@ repo = "repo_example" # String |
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
-  page_size: 56 # Integer | Number of results to return per page.
+  page_size: 56, # Integer | Number of results to return per page.
+  show_tokens: true # BOOLEAN | Show entitlement token strings in results
 }
 
 begin
@@ -207,6 +214,7 @@ Name | Type | Description  | Notes
  **repo** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -260,6 +268,7 @@ repo = "repo_example" # String |
 slug_perm = "slug_perm_example" # String | 
 
 opts = { 
+  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsPartialUpdate.new # EntitlementsPartialUpdate | 
 }
 
@@ -279,6 +288,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **slug_perm** | **String**|  | 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
 
 ### Return type
@@ -297,7 +307,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_read**
-> RepositoryToken entitlements_read(owner, repo, slug_perm)
+> RepositoryToken entitlements_read(owner, repo, slug_perm, opts)
 
 Views for working with repository entitlements.
 
@@ -332,10 +342,13 @@ repo = "repo_example" # String |
 
 slug_perm = "slug_perm_example" # String | 
 
+opts = { 
+  show_tokens: true # BOOLEAN | Show entitlement token strings in results
+}
 
 begin
   #Views for working with repository entitlements.
-  result = api_instance.entitlements_read(owner, repo, slug_perm)
+  result = api_instance.entitlements_read(owner, repo, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_read: #{e}"
@@ -349,6 +362,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **slug_perm** | **String**|  | 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -402,6 +416,7 @@ repo = "repo_example" # String |
 slug_perm = "slug_perm_example" # String | 
 
 opts = { 
+  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsRefresh.new # EntitlementsRefresh | 
 }
 
@@ -421,6 +436,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **slug_perm** | **String**|  | 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
 
 ### Return type
@@ -473,6 +489,7 @@ owner = "owner_example" # String |
 repo = "repo_example" # String | 
 
 opts = { 
+  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsSync.new # EntitlementsSync | 
 }
 
@@ -491,6 +508,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional] 
 
 ### Return type

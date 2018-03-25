@@ -38,6 +38,7 @@ describe 'EntitlementsApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsCreate] :data 
   # @return [RepositoryToken]
   describe 'entitlements_create test' do
@@ -53,6 +54,7 @@ describe 'EntitlementsApi' do
   # @param repo 
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @return [nil]
   describe 'entitlements_delete test' do
     it "should work" do
@@ -68,6 +70,7 @@ describe 'EntitlementsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @return [Array<RepositoryToken>]
   describe 'entitlements_list test' do
     it "should work" do
@@ -82,6 +85,7 @@ describe 'EntitlementsApi' do
   # @param repo 
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsPartialUpdate] :data 
   # @return [RepositoryToken]
   describe 'entitlements_partial_update test' do
@@ -97,6 +101,7 @@ describe 'EntitlementsApi' do
   # @param repo 
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @return [RepositoryToken]
   describe 'entitlements_read test' do
     it "should work" do
@@ -111,6 +116,7 @@ describe 'EntitlementsApi' do
   # @param repo 
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsRefresh] :data 
   # @return [RepositoryTokenRefresh]
   describe 'entitlements_refresh test' do
@@ -125,6 +131,7 @@ describe 'EntitlementsApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsSync] :data 
   # @return [RepositoryTokenSync]
   describe 'entitlements_sync test' do

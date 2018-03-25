@@ -25,6 +25,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsCreate] :data 
     # @return [RepositoryToken]
     def entitlements_create(owner, repo, opts = {})
@@ -37,6 +38,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsCreate] :data 
     # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_create_with_http_info(owner, repo, opts = {})
@@ -56,6 +58,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
@@ -87,6 +90,7 @@ module CloudsmithApi
     # @param repo 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [nil]
     def entitlements_delete(owner, repo, slug_perm, opts = {})
       entitlements_delete_with_http_info(owner, repo, slug_perm, opts)
@@ -99,6 +103,7 @@ module CloudsmithApi
     # @param repo 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def entitlements_delete_with_http_info(owner, repo, slug_perm, opts = {})
       if @api_client.config.debugging
@@ -121,6 +126,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
@@ -150,6 +156,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [Array<RepositoryToken>]
     def entitlements_list(owner, repo, opts = {})
       data, _status_code, _headers = entitlements_list_with_http_info(owner, repo, opts)
@@ -163,6 +170,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [Array<(Array<RepositoryToken>, Fixnum, Hash)>] Array<RepositoryToken> data, response status code and response headers
     def entitlements_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -183,6 +191,7 @@ module CloudsmithApi
       query_params = {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
@@ -212,6 +221,7 @@ module CloudsmithApi
     # @param repo 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsPartialUpdate] :data 
     # @return [RepositoryToken]
     def entitlements_partial_update(owner, repo, slug_perm, opts = {})
@@ -225,6 +235,7 @@ module CloudsmithApi
     # @param repo 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsPartialUpdate] :data 
     # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_partial_update_with_http_info(owner, repo, slug_perm, opts = {})
@@ -248,6 +259,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
@@ -279,6 +291,7 @@ module CloudsmithApi
     # @param repo 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [RepositoryToken]
     def entitlements_read(owner, repo, slug_perm, opts = {})
       data, _status_code, _headers = entitlements_read_with_http_info(owner, repo, slug_perm, opts)
@@ -291,6 +304,7 @@ module CloudsmithApi
     # @param repo 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_read_with_http_info(owner, repo, slug_perm, opts = {})
       if @api_client.config.debugging
@@ -313,6 +327,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
@@ -342,6 +357,7 @@ module CloudsmithApi
     # @param repo 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsRefresh] :data 
     # @return [RepositoryTokenRefresh]
     def entitlements_refresh(owner, repo, slug_perm, opts = {})
@@ -355,6 +371,7 @@ module CloudsmithApi
     # @param repo 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsRefresh] :data 
     # @return [Array<(RepositoryTokenRefresh, Fixnum, Hash)>] RepositoryTokenRefresh data, response status code and response headers
     def entitlements_refresh_with_http_info(owner, repo, slug_perm, opts = {})
@@ -378,6 +395,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
@@ -408,6 +426,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsSync] :data 
     # @return [RepositoryTokenSync]
     def entitlements_sync(owner, repo, opts = {})
@@ -420,6 +439,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsSync] :data 
     # @return [Array<(RepositoryTokenSync, Fixnum, Hash)>] RepositoryTokenSync data, response status code and response headers
     def entitlements_sync_with_http_info(owner, repo, opts = {})
@@ -439,6 +459,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
