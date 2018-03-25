@@ -154,6 +154,9 @@ public class VagrantPackageUpload implements Serializable {
   @SerializedName("uploader")
   private String uploader = null;
 
+  @SerializedName("status_reason")
+  private String statusReason = null;
+
   @SerializedName("self_html_url")
   private String selfHtmlUrl = null;
 
@@ -922,6 +925,24 @@ public class VagrantPackageUpload implements Serializable {
     this.uploader = uploader;
   }
 
+  public VagrantPackageUpload statusReason(String statusReason) {
+    this.statusReason = statusReason;
+    return this;
+  }
+
+   /**
+   * A textual description for the synchronous status reason (if any
+   * @return statusReason
+  **/
+  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+  public String getStatusReason() {
+    return statusReason;
+  }
+
+  public void setStatusReason(String statusReason) {
+    this.statusReason = statusReason;
+  }
+
   public VagrantPackageUpload selfHtmlUrl(String selfHtmlUrl) {
     this.selfHtmlUrl = selfHtmlUrl;
     return this;
@@ -1241,6 +1262,7 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.versionOrig, vagrantPackageUpload.versionOrig) &&
         Objects.equals(this.architectures, vagrantPackageUpload.architectures) &&
         Objects.equals(this.uploader, vagrantPackageUpload.uploader) &&
+        Objects.equals(this.statusReason, vagrantPackageUpload.statusReason) &&
         Objects.equals(this.selfHtmlUrl, vagrantPackageUpload.selfHtmlUrl) &&
         Objects.equals(this.stage, vagrantPackageUpload.stage) &&
         Objects.equals(this.selfUrl, vagrantPackageUpload.selfUrl) &&
@@ -1260,7 +1282,7 @@ public class VagrantPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, provider, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
+    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, provider, versionOrig, architectures, uploader, statusReason, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
   }
 
 
@@ -1308,6 +1330,7 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
     sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");

@@ -69,6 +69,9 @@ public class PackageStatus implements Serializable {
   @SerializedName("sync_progress")
   private Integer syncProgress = null;
 
+  @SerializedName("status_reason")
+  private String statusReason = null;
+
   @SerializedName("is_sync_in_progress")
   private Boolean isSyncInProgress = null;
 
@@ -291,6 +294,24 @@ public class PackageStatus implements Serializable {
     this.syncProgress = syncProgress;
   }
 
+  public PackageStatus statusReason(String statusReason) {
+    this.statusReason = statusReason;
+    return this;
+  }
+
+   /**
+   * A textual description for the synchronous status reason (if any
+   * @return statusReason
+  **/
+  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+  public String getStatusReason() {
+    return statusReason;
+  }
+
+  public void setStatusReason(String statusReason) {
+    this.statusReason = statusReason;
+  }
+
   public PackageStatus isSyncInProgress(Boolean isSyncInProgress) {
     this.isSyncInProgress = isSyncInProgress;
     return this;
@@ -349,13 +370,14 @@ public class PackageStatus implements Serializable {
         Objects.equals(this.isSyncInFlight, packageStatus.isSyncInFlight) &&
         Objects.equals(this.statusStr, packageStatus.statusStr) &&
         Objects.equals(this.syncProgress, packageStatus.syncProgress) &&
+        Objects.equals(this.statusReason, packageStatus.statusReason) &&
         Objects.equals(this.isSyncInProgress, packageStatus.isSyncInProgress) &&
         Objects.equals(this.stage, packageStatus.stage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(selfUrl, status, isSyncAwaiting, stageUpdatedAt, stageStr, isSyncCompleted, statusUpdatedAt, syncFinishedAt, isSyncFailed, isSyncInFlight, statusStr, syncProgress, isSyncInProgress, stage);
+    return Objects.hash(selfUrl, status, isSyncAwaiting, stageUpdatedAt, stageStr, isSyncCompleted, statusUpdatedAt, syncFinishedAt, isSyncFailed, isSyncInFlight, statusStr, syncProgress, statusReason, isSyncInProgress, stage);
   }
 
 
@@ -376,6 +398,7 @@ public class PackageStatus implements Serializable {
     sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
     sb.append("    statusStr: ").append(toIndentedString(statusStr)).append("\n");
     sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    isSyncInProgress: ").append(toIndentedString(isSyncInProgress)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("}");

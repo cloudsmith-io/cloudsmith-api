@@ -151,6 +151,9 @@ public class RawPackageUpload implements Serializable {
   @SerializedName("uploader")
   private String uploader = null;
 
+  @SerializedName("status_reason")
+  private String statusReason = null;
+
   @SerializedName("self_html_url")
   private String selfHtmlUrl = null;
 
@@ -898,6 +901,24 @@ public class RawPackageUpload implements Serializable {
     this.uploader = uploader;
   }
 
+  public RawPackageUpload statusReason(String statusReason) {
+    this.statusReason = statusReason;
+    return this;
+  }
+
+   /**
+   * A textual description for the synchronous status reason (if any
+   * @return statusReason
+  **/
+  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+  public String getStatusReason() {
+    return statusReason;
+  }
+
+  public void setStatusReason(String statusReason) {
+    this.statusReason = statusReason;
+  }
+
   public RawPackageUpload selfHtmlUrl(String selfHtmlUrl) {
     this.selfHtmlUrl = selfHtmlUrl;
     return this;
@@ -1216,6 +1237,7 @@ public class RawPackageUpload implements Serializable {
         Objects.equals(this.versionOrig, rawPackageUpload.versionOrig) &&
         Objects.equals(this.architectures, rawPackageUpload.architectures) &&
         Objects.equals(this.uploader, rawPackageUpload.uploader) &&
+        Objects.equals(this.statusReason, rawPackageUpload.statusReason) &&
         Objects.equals(this.selfHtmlUrl, rawPackageUpload.selfHtmlUrl) &&
         Objects.equals(this.stage, rawPackageUpload.stage) &&
         Objects.equals(this.selfUrl, rawPackageUpload.selfUrl) &&
@@ -1235,7 +1257,7 @@ public class RawPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
+    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, statusReason, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
   }
 
 
@@ -1282,6 +1304,7 @@ public class RawPackageUpload implements Serializable {
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
     sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");

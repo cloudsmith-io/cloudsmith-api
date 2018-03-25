@@ -157,6 +157,9 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("uploader")
   private String uploader = null;
 
+  @SerializedName("status_reason")
+  private String statusReason = null;
+
   @SerializedName("self_html_url")
   private String selfHtmlUrl = null;
 
@@ -943,6 +946,24 @@ public class MavenPackageUpload implements Serializable {
     this.uploader = uploader;
   }
 
+  public MavenPackageUpload statusReason(String statusReason) {
+    this.statusReason = statusReason;
+    return this;
+  }
+
+   /**
+   * A textual description for the synchronous status reason (if any
+   * @return statusReason
+  **/
+  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+  public String getStatusReason() {
+    return statusReason;
+  }
+
+  public void setStatusReason(String statusReason) {
+    this.statusReason = statusReason;
+  }
+
   public MavenPackageUpload selfHtmlUrl(String selfHtmlUrl) {
     this.selfHtmlUrl = selfHtmlUrl;
     return this;
@@ -1281,6 +1302,7 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.versionOrig, mavenPackageUpload.versionOrig) &&
         Objects.equals(this.architectures, mavenPackageUpload.architectures) &&
         Objects.equals(this.uploader, mavenPackageUpload.uploader) &&
+        Objects.equals(this.statusReason, mavenPackageUpload.statusReason) &&
         Objects.equals(this.selfHtmlUrl, mavenPackageUpload.selfHtmlUrl) &&
         Objects.equals(this.stage, mavenPackageUpload.stage) &&
         Objects.equals(this.selfUrl, mavenPackageUpload.selfUrl) &&
@@ -1301,7 +1323,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, stageUpdatedAt, artifactId, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, groupId, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, selfHtmlUrl, stage, selfUrl, packaging, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
+    return Objects.hash(files, stageUpdatedAt, artifactId, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, groupId, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, versionOrig, architectures, uploader, statusReason, selfHtmlUrl, stage, selfUrl, packaging, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
   }
 
 
@@ -1350,6 +1372,7 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
     sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
