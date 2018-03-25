@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **entitlements_create**
-> RepositoryToken entitlements_create(owner, repo, data=data)
+> RepositoryToken entitlements_create(owner, repo, show_tokens=show_tokens, data=data)
 
 Create a specific entitlement in a repository.
 
@@ -44,11 +44,12 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
+show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsCreate() # EntitlementsCreate |  (optional)
 
 try: 
     # Create a specific entitlement in a repository.
-    api_response = api_instance.entitlements_create(owner, repo, data=data)
+    api_response = api_instance.entitlements_create(owner, repo, show_tokens=show_tokens, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_create: %s\n" % e)
@@ -60,6 +61,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsCreate**](EntitlementsCreate.md)|  | [optional] 
 
 ### Return type
@@ -78,7 +80,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_delete**
-> entitlements_delete(owner, repo, slug_perm)
+> entitlements_delete(owner, repo, slug_perm, show_tokens=show_tokens)
 
 Delete a specific entitlement in a repository.
 
@@ -109,10 +111,11 @@ api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 slug_perm = 'slug_perm_example' # str | 
+show_tokens = true # bool | Show entitlement token strings in results (optional)
 
 try: 
     # Delete a specific entitlement in a repository.
-    api_instance.entitlements_delete(owner, repo, slug_perm)
+    api_instance.entitlements_delete(owner, repo, slug_perm, show_tokens=show_tokens)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_delete: %s\n" % e)
 ```
@@ -124,6 +127,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **slug_perm** | **str**|  | 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -141,7 +145,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_list**
-> list[RepositoryToken] entitlements_list(owner, repo, page=page, page_size=page_size)
+> list[RepositoryToken] entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens)
 
 Get a list of all entitlements in a repository.
 
@@ -173,10 +177,11 @@ owner = 'owner_example' # str |
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+show_tokens = true # bool | Show entitlement token strings in results (optional)
 
 try: 
     # Get a list of all entitlements in a repository.
-    api_response = api_instance.entitlements_list(owner, repo, page=page, page_size=page_size)
+    api_response = api_instance.entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_list: %s\n" % e)
@@ -190,6 +195,7 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -207,7 +213,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_partial_update**
-> RepositoryToken entitlements_partial_update(owner, repo, slug_perm, data=data)
+> RepositoryToken entitlements_partial_update(owner, repo, slug_perm, show_tokens=show_tokens, data=data)
 
 Update a specific entitlement in a repository.
 
@@ -238,11 +244,12 @@ api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 slug_perm = 'slug_perm_example' # str | 
+show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsPartialUpdate() # EntitlementsPartialUpdate |  (optional)
 
 try: 
     # Update a specific entitlement in a repository.
-    api_response = api_instance.entitlements_partial_update(owner, repo, slug_perm, data=data)
+    api_response = api_instance.entitlements_partial_update(owner, repo, slug_perm, show_tokens=show_tokens, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_partial_update: %s\n" % e)
@@ -255,6 +262,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **slug_perm** | **str**|  | 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
 
 ### Return type
@@ -273,7 +281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_read**
-> RepositoryToken entitlements_read(owner, repo, slug_perm)
+> RepositoryToken entitlements_read(owner, repo, slug_perm, show_tokens=show_tokens)
 
 Views for working with repository entitlements.
 
@@ -304,10 +312,11 @@ api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 slug_perm = 'slug_perm_example' # str | 
+show_tokens = true # bool | Show entitlement token strings in results (optional)
 
 try: 
     # Views for working with repository entitlements.
-    api_response = api_instance.entitlements_read(owner, repo, slug_perm)
+    api_response = api_instance.entitlements_read(owner, repo, slug_perm, show_tokens=show_tokens)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_read: %s\n" % e)
@@ -320,6 +329,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **slug_perm** | **str**|  | 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 
@@ -337,7 +347,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_refresh**
-> RepositoryTokenRefresh entitlements_refresh(owner, repo, slug_perm, data=data)
+> RepositoryTokenRefresh entitlements_refresh(owner, repo, slug_perm, show_tokens=show_tokens, data=data)
 
 Refresh an entitlement token in a repository.
 
@@ -368,11 +378,12 @@ api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 slug_perm = 'slug_perm_example' # str | 
+show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsRefresh() # EntitlementsRefresh |  (optional)
 
 try: 
     # Refresh an entitlement token in a repository.
-    api_response = api_instance.entitlements_refresh(owner, repo, slug_perm, data=data)
+    api_response = api_instance.entitlements_refresh(owner, repo, slug_perm, show_tokens=show_tokens, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_refresh: %s\n" % e)
@@ -385,6 +396,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **slug_perm** | **str**|  | 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
 
 ### Return type
@@ -403,7 +415,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_sync**
-> RepositoryTokenSync entitlements_sync(owner, repo, data=data)
+> RepositoryTokenSync entitlements_sync(owner, repo, show_tokens=show_tokens, data=data)
 
 Synchronise tokens from a source repository.
 
@@ -433,11 +445,12 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
+show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsSync() # EntitlementsSync |  (optional)
 
 try: 
     # Synchronise tokens from a source repository.
-    api_response = api_instance.entitlements_sync(owner, repo, data=data)
+    api_response = api_instance.entitlements_sync(owner, repo, show_tokens=show_tokens, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_sync: %s\n" % e)
@@ -449,6 +462,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional] 
 
 ### Return type

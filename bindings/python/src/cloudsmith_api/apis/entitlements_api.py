@@ -56,6 +56,7 @@ class EntitlementsApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsCreate data:
         :return: RepositoryToken
                  If the method is called asynchronously,
@@ -84,13 +85,14 @@ class EntitlementsApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsCreate data:
         :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'data']
+        all_params = ['owner', 'repo', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -122,6 +124,8 @@ class EntitlementsApi(object):
             path_params['repo'] = params['repo']
 
         query_params = []
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
@@ -170,6 +174,7 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str slug_perm:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -198,12 +203,13 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str slug_perm:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug_perm']
+        all_params = ['owner', 'repo', 'slug_perm', 'show_tokens']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -240,6 +246,8 @@ class EntitlementsApi(object):
             path_params['slug_perm'] = params['slug_perm']
 
         query_params = []
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
@@ -283,6 +291,7 @@ class EntitlementsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param bool show_tokens: Show entitlement token strings in results
         :return: list[RepositoryToken]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -312,12 +321,13 @@ class EntitlementsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param bool show_tokens: Show entitlement token strings in results
         :return: list[RepositoryToken]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'page', 'page_size']
+        all_params = ['owner', 'repo', 'page', 'page_size', 'show_tokens']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -353,6 +363,8 @@ class EntitlementsApi(object):
             query_params.append(('page', params['page']))
         if 'page_size' in params:
             query_params.append(('page_size', params['page_size']))
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
@@ -395,6 +407,7 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str slug_perm:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsPartialUpdate data:
         :return: RepositoryToken
                  If the method is called asynchronously,
@@ -424,13 +437,14 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str slug_perm:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsPartialUpdate data:
         :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug_perm', 'data']
+        all_params = ['owner', 'repo', 'slug_perm', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -467,6 +481,8 @@ class EntitlementsApi(object):
             path_params['slug_perm'] = params['slug_perm']
 
         query_params = []
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
@@ -515,6 +531,7 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str slug_perm:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
@@ -543,12 +560,13 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str slug_perm:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug_perm']
+        all_params = ['owner', 'repo', 'slug_perm', 'show_tokens']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -585,6 +603,8 @@ class EntitlementsApi(object):
             path_params['slug_perm'] = params['slug_perm']
 
         query_params = []
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
@@ -627,6 +647,7 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str slug_perm:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsRefresh data:
         :return: RepositoryTokenRefresh
                  If the method is called asynchronously,
@@ -656,13 +677,14 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str slug_perm:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsRefresh data:
         :return: RepositoryTokenRefresh
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug_perm', 'data']
+        all_params = ['owner', 'repo', 'slug_perm', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -699,6 +721,8 @@ class EntitlementsApi(object):
             path_params['slug_perm'] = params['slug_perm']
 
         query_params = []
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
@@ -746,6 +770,7 @@ class EntitlementsApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsSync data:
         :return: RepositoryTokenSync
                  If the method is called asynchronously,
@@ -774,13 +799,14 @@ class EntitlementsApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsSync data:
         :return: RepositoryTokenSync
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'data']
+        all_params = ['owner', 'repo', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -812,6 +838,8 @@ class EntitlementsApi(object):
             path_params['repo'] = params['repo']
 
         query_params = []
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
