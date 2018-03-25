@@ -1,6 +1,6 @@
 # CloudsmithApi::FilesApi
 
-All URIs are relative to *https://api-prd.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **is_sync_in_flight** | **BOOLEAN** |  | [optional] 
 **namespace_url** | **String** |  | [optional] 
 **slug_perm** | **String** |  | [optional] 
+**indexed** | **BOOLEAN** |  | [optional] 
 **uploader_url** | **String** |  | [optional] 
 **cdn_url** | **String** |  | [optional] 
 **checksum_sha1** | **String** |  | [optional] 
@@ -33,7 +34,7 @@ Name | Type | Description | Notes
 **status** | **String** | The synchronisation status of the package. | [optional] 
 **checksum_sha512** | **String** |  | [optional] 
 **description** | **String** | A textual description of this package. | [optional] 
-**name** | **String** | The name of this package. | [optional] 
+**name** | **String** | The name of this package. | 
 **format** | **String** |  | [optional] 
 **is_sync_completed** | **BOOLEAN** |  | [optional] 
 **downloads** | **String** |  | [optional] 

@@ -32,6 +32,21 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_copy
+  # Copy a package to another repository.
+  # Copy a package to another repository.
+  # @param owner 
+  # @param repo 
+  # @param slug 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesCopy] :data 
+  # @return [PackageCopy]
+  describe 'packages_copy test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_delete
   # Delete a specific package in a repository.
   # Delete a specific package in a repository.
@@ -54,8 +69,24 @@ describe 'PackagesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [String] :query A search term for querying names, filenames, versions, distributions or architectures of packages.
   # @return [Array<RpmPackageUpload>]
   describe 'packages_list test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_move
+  # Move a package to another repository.
+  # Move a package to another repository.
+  # @param owner 
+  # @param repo 
+  # @param slug 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesMove] :data 
+  # @return [PackageMove]
+  describe 'packages_move test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -70,6 +101,20 @@ describe 'PackagesApi' do
   # @param [Hash] opts the optional parameters
   # @return [RpmPackageUpload]
   describe 'packages_read test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_resync
+  # Schedule a package for resynchronisation.
+  # Schedule a package for resynchronisation.
+  # @param owner 
+  # @param repo 
+  # @param slug 
+  # @param [Hash] opts the optional parameters
+  # @return [RpmPackageUpload]
+  describe 'packages_resync test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -138,7 +183,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadRaw] :data 
-  # @return [RpmPackageUpload]
+  # @return [RawPackageUpload]
   describe 'packages_upload_raw test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

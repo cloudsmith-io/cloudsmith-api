@@ -15,6 +15,12 @@ require 'date'
 module CloudsmithApi
 
   class PackagesValidateuploadRaw
+    # A one-liner synopsis of this package.
+    attr_accessor :summary
+
+    # A textual description of this package.
+    attr_accessor :description
+
     # The version of this package.
     attr_accessor :version
 
@@ -25,6 +31,8 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'summary' => :'summary',
+        :'description' => :'description',
         :'version' => :'version',
         :'package_file' => :'package_file'
       }
@@ -33,6 +41,8 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'summary' => :'String',
+        :'description' => :'String',
         :'version' => :'String',
         :'package_file' => :'String'
       }
@@ -45,6 +55,14 @@ module CloudsmithApi
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'summary')
+        self.summary = attributes[:'summary']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
 
       if attributes.has_key?(:'version')
         self.version = attributes[:'version']
@@ -79,6 +97,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          summary == o.summary &&
+          description == o.description &&
           version == o.version &&
           package_file == o.package_file
     end
@@ -92,7 +112,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [version, package_file].hash
+      [summary, description, version, package_file].hash
     end
 
     # Builds the object from hash

@@ -85,6 +85,9 @@ module CloudsmithApi
     attr_accessor :slug_perm
 
     # 
+    attr_accessor :indexed
+
+    # 
     attr_accessor :uploader_url
 
     # 
@@ -198,6 +201,7 @@ module CloudsmithApi
         :'is_sync_in_flight' => :'is_sync_in_flight',
         :'namespace_url' => :'namespace_url',
         :'slug_perm' => :'slug_perm',
+        :'indexed' => :'indexed',
         :'uploader_url' => :'uploader_url',
         :'cdn_url' => :'cdn_url',
         :'checksum_sha1' => :'checksum_sha1',
@@ -256,6 +260,7 @@ module CloudsmithApi
         :'is_sync_in_flight' => :'BOOLEAN',
         :'namespace_url' => :'String',
         :'slug_perm' => :'String',
+        :'indexed' => :'BOOLEAN',
         :'uploader_url' => :'String',
         :'cdn_url' => :'String',
         :'checksum_sha1' => :'String',
@@ -388,6 +393,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'slug_perm')
         self.slug_perm = attributes[:'slug_perm']
+      end
+
+      if attributes.has_key?(:'indexed')
+        self.indexed = attributes[:'indexed']
       end
 
       if attributes.has_key?(:'uploader_url')
@@ -551,6 +560,7 @@ module CloudsmithApi
           is_sync_in_flight == o.is_sync_in_flight &&
           namespace_url == o.namespace_url &&
           slug_perm == o.slug_perm &&
+          indexed == o.indexed &&
           uploader_url == o.uploader_url &&
           cdn_url == o.cdn_url &&
           checksum_sha1 == o.checksum_sha1 &&
@@ -591,7 +601,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [files, stage_updated_at, is_sync_failed, distro_version, checksum_sha256, repository_url, is_sync_in_progress, size, status_str, is_sync_awaiting, repository, subtype, status_url, status_updated_at, namespace, sync_finished_at, filename, sync_progress, epoch, version, is_sync_in_flight, namespace_url, slug_perm, uploader_url, cdn_url, checksum_sha1, distro, status, checksum_sha512, description, name, format, is_sync_completed, downloads, version_orig, architectures, uploader, self_html_url, stage, self_url, slug, uploaded_at, license, extension, stage_str, package_type, summary, num_files, checksum_md5, release, type_display, format_url].hash
+      [files, stage_updated_at, is_sync_failed, distro_version, checksum_sha256, repository_url, is_sync_in_progress, size, status_str, is_sync_awaiting, repository, subtype, status_url, status_updated_at, namespace, sync_finished_at, filename, sync_progress, epoch, version, is_sync_in_flight, namespace_url, slug_perm, indexed, uploader_url, cdn_url, checksum_sha1, distro, status, checksum_sha512, description, name, format, is_sync_completed, downloads, version_orig, architectures, uploader, self_html_url, stage, self_url, slug, uploaded_at, license, extension, stage_str, package_type, summary, num_files, checksum_md5, release, type_display, format_url].hash
     end
 
     # Builds the object from hash

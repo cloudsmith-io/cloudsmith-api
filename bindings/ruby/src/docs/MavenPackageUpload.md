@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **is_sync_in_flight** | **BOOLEAN** |  | [optional] 
 **namespace_url** | **String** |  | [optional] 
 **slug_perm** | **String** |  | [optional] 
+**indexed** | **BOOLEAN** |  | [optional] 
 **uploader_url** | **String** |  | [optional] 
 **cdn_url** | **String** |  | [optional] 
 **checksum_sha1** | **String** |  | [optional] 

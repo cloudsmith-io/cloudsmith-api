@@ -15,31 +15,36 @@ require 'date'
 module CloudsmithApi
 
   class PackagesValidateuploadVagrant
+    # The virtual machine provider for the box.
+    attr_accessor :provider
+
     # The version of this package.
     attr_accessor :version
 
+    # The name of this package.
+    attr_accessor :name
+
     # The primary file for the package.
     attr_accessor :package_file
-
-    # The virtual machine provider for the box.
-    attr_accessor :provider
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'provider' => :'provider',
         :'version' => :'version',
-        :'package_file' => :'package_file',
-        :'provider' => :'provider'
+        :'name' => :'name',
+        :'package_file' => :'package_file'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'provider' => :'String',
         :'version' => :'String',
-        :'package_file' => :'String',
-        :'provider' => :'String'
+        :'name' => :'String',
+        :'package_file' => :'String'
       }
     end
 
@@ -51,16 +56,20 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'provider')
+        self.provider = attributes[:'provider']
+      end
+
       if attributes.has_key?(:'version')
         self.version = attributes[:'version']
       end
 
-      if attributes.has_key?(:'package_file')
-        self.package_file = attributes[:'package_file']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'provider')
-        self.provider = attributes[:'provider']
+      if attributes.has_key?(:'package_file')
+        self.package_file = attributes[:'package_file']
       end
 
     end
@@ -69,16 +78,20 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @provider.nil?
+        invalid_properties.push("invalid value for 'provider', provider cannot be nil.")
+      end
+
       if @version.nil?
         invalid_properties.push("invalid value for 'version', version cannot be nil.")
       end
 
-      if @package_file.nil?
-        invalid_properties.push("invalid value for 'package_file', package_file cannot be nil.")
+      if @name.nil?
+        invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
-      if @provider.nil?
-        invalid_properties.push("invalid value for 'provider', provider cannot be nil.")
+      if @package_file.nil?
+        invalid_properties.push("invalid value for 'package_file', package_file cannot be nil.")
       end
 
       return invalid_properties
@@ -87,9 +100,10 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @version.nil?
-      return false if @package_file.nil?
       return false if @provider.nil?
+      return false if @version.nil?
+      return false if @name.nil?
+      return false if @package_file.nil?
       return true
     end
 
@@ -98,9 +112,10 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          provider == o.provider &&
           version == o.version &&
-          package_file == o.package_file &&
-          provider == o.provider
+          name == o.name &&
+          package_file == o.package_file
     end
 
     # @see the `==` method
@@ -112,7 +127,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [version, package_file, provider].hash
+      [provider, version, name, package_file].hash
     end
 
     # Builds the object from hash
