@@ -126,6 +126,9 @@ type RpmPackageUpload struct {
 	// 
 	Uploader string `json:"uploader,omitempty"`
 
+	// A textual description for the synchronous status reason (if any
+	StatusReason string `json:"status_reason,omitempty"`
+
 	// 
 	SelfHtmlUrl string `json:"self_html_url,omitempty"`
 

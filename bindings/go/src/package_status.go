@@ -48,6 +48,9 @@ type PackageStatus struct {
 	// Synchronisation progress (from 0-100)
 	SyncProgress int32 `json:"sync_progress,omitempty"`
 
+	// A textual description for the synchronous status reason (if any
+	StatusReason string `json:"status_reason,omitempty"`
+
 	// 
 	IsSyncInProgress bool `json:"is_sync_in_progress,omitempty"`
 
