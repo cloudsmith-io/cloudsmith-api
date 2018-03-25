@@ -6,7 +6,7 @@ language=$1
 api_url=$2
 . $root_dir/scripts/common.sh
 
-build_language() {
+full_deploy() {
   local language=$1
   $root_dir/scripts/build.sh || die "Could not build"
   $root_dir/scripts/test.sh || die "Could not test"
