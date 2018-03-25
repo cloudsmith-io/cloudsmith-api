@@ -104,6 +104,12 @@ describe 'PackageStatus' do
     end
   end
 
+  describe 'test attribute "status_reason"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "is_sync_in_progress"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

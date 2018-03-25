@@ -51,6 +51,9 @@ module CloudsmithApi
     # Synchronisation progress (from 0-100)
     attr_accessor :sync_progress
 
+    # A textual description for the synchronous status reason (if any
+    attr_accessor :status_reason
+
     # 
     attr_accessor :is_sync_in_progress
 
@@ -73,6 +76,7 @@ module CloudsmithApi
         :'is_sync_in_flight' => :'is_sync_in_flight',
         :'status_str' => :'status_str',
         :'sync_progress' => :'sync_progress',
+        :'status_reason' => :'status_reason',
         :'is_sync_in_progress' => :'is_sync_in_progress',
         :'stage' => :'stage'
       }
@@ -93,6 +97,7 @@ module CloudsmithApi
         :'is_sync_in_flight' => :'BOOLEAN',
         :'status_str' => :'String',
         :'sync_progress' => :'Integer',
+        :'status_reason' => :'String',
         :'is_sync_in_progress' => :'BOOLEAN',
         :'stage' => :'String'
       }
@@ -154,6 +159,10 @@ module CloudsmithApi
         self.sync_progress = attributes[:'sync_progress']
       end
 
+      if attributes.has_key?(:'status_reason')
+        self.status_reason = attributes[:'status_reason']
+      end
+
       if attributes.has_key?(:'is_sync_in_progress')
         self.is_sync_in_progress = attributes[:'is_sync_in_progress']
       end
@@ -194,6 +203,7 @@ module CloudsmithApi
           is_sync_in_flight == o.is_sync_in_flight &&
           status_str == o.status_str &&
           sync_progress == o.sync_progress &&
+          status_reason == o.status_reason &&
           is_sync_in_progress == o.is_sync_in_progress &&
           stage == o.stage
     end
@@ -207,7 +217,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [self_url, status, is_sync_awaiting, stage_updated_at, stage_str, is_sync_completed, status_updated_at, sync_finished_at, is_sync_failed, is_sync_in_flight, status_str, sync_progress, is_sync_in_progress, stage].hash
+      [self_url, status, is_sync_awaiting, stage_updated_at, stage_str, is_sync_completed, status_updated_at, sync_finished_at, is_sync_failed, is_sync_in_flight, status_str, sync_progress, status_reason, is_sync_in_progress, stage].hash
     end
 
     # Builds the object from hash

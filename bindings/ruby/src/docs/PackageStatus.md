@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **is_sync_in_flight** | **BOOLEAN** |  | [optional] 
 **status_str** | **String** |  | [optional] 
 **sync_progress** | **Integer** | Synchronisation progress (from 0-100) | [optional] 
+**status_reason** | **String** | A textual description for the synchronous status reason (if any | [optional] 
 **is_sync_in_progress** | **BOOLEAN** |  | [optional] 
 **stage** | **String** | The synchronisation (in progress) stage of the package. | [optional] 
 
