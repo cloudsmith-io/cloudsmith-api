@@ -51,8 +51,9 @@ public class EntitlementsApiTest {
     public void entitlementsCreateTest() throws ApiException {
         String owner = null;
         String repo = null;
+        Boolean showTokens = null;
         EntitlementsCreate data = null;
-        RepositoryToken response = api.entitlementsCreate(owner, repo, data);
+        RepositoryToken response = api.entitlementsCreate(owner, repo, showTokens, data);
 
         // TODO: test validations
     }
@@ -70,7 +71,8 @@ public class EntitlementsApiTest {
         String owner = null;
         String repo = null;
         String slugPerm = null;
-        api.entitlementsDelete(owner, repo, slugPerm);
+        Boolean showTokens = null;
+        api.entitlementsDelete(owner, repo, slugPerm, showTokens);
 
         // TODO: test validations
     }
@@ -89,7 +91,8 @@ public class EntitlementsApiTest {
         String repo = null;
         Integer page = null;
         Integer pageSize = null;
-        List<RepositoryToken> response = api.entitlementsList(owner, repo, page, pageSize);
+        Boolean showTokens = null;
+        List<RepositoryToken> response = api.entitlementsList(owner, repo, page, pageSize, showTokens);
 
         // TODO: test validations
     }
@@ -107,8 +110,9 @@ public class EntitlementsApiTest {
         String owner = null;
         String repo = null;
         String slugPerm = null;
+        Boolean showTokens = null;
         EntitlementsPartialUpdate data = null;
-        RepositoryToken response = api.entitlementsPartialUpdate(owner, repo, slugPerm, data);
+        RepositoryToken response = api.entitlementsPartialUpdate(owner, repo, slugPerm, showTokens, data);
 
         // TODO: test validations
     }
@@ -126,7 +130,8 @@ public class EntitlementsApiTest {
         String owner = null;
         String repo = null;
         String slugPerm = null;
-        RepositoryToken response = api.entitlementsRead(owner, repo, slugPerm);
+        Boolean showTokens = null;
+        RepositoryToken response = api.entitlementsRead(owner, repo, slugPerm, showTokens);
 
         // TODO: test validations
     }
@@ -144,8 +149,9 @@ public class EntitlementsApiTest {
         String owner = null;
         String repo = null;
         String slugPerm = null;
+        Boolean showTokens = null;
         EntitlementsRefresh data = null;
-        RepositoryTokenRefresh response = api.entitlementsRefresh(owner, repo, slugPerm, data);
+        RepositoryTokenRefresh response = api.entitlementsRefresh(owner, repo, slugPerm, showTokens, data);
 
         // TODO: test validations
     }
@@ -162,8 +168,9 @@ public class EntitlementsApiTest {
     public void entitlementsSyncTest() throws ApiException {
         String owner = null;
         String repo = null;
+        Boolean showTokens = null;
         EntitlementsSync data = null;
-        RepositoryTokenSync response = api.entitlementsSync(owner, repo, data);
+        RepositoryTokenSync response = api.entitlementsSync(owner, repo, showTokens, data);
 
         // TODO: test validations
     }

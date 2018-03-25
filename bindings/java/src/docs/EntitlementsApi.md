@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="entitlementsCreate"></a>
 # **entitlementsCreate**
-> RepositoryToken entitlementsCreate(owner, repo, data)
+> RepositoryToken entitlementsCreate(owner, repo, showTokens, data)
 
 Create a specific entitlement in a repository.
 
@@ -52,9 +52,10 @@ csrf_token.setApiKey("YOUR API KEY");
 EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
+Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 EntitlementsCreate data = new EntitlementsCreate(); // EntitlementsCreate | 
 try {
-    RepositoryToken result = apiInstance.entitlementsCreate(owner, repo, data);
+    RepositoryToken result = apiInstance.entitlementsCreate(owner, repo, showTokens, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsCreate");
@@ -68,6 +69,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
+ **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
  **data** | [**EntitlementsCreate**](EntitlementsCreate.md)|  | [optional]
 
 ### Return type
@@ -85,7 +87,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsDelete"></a>
 # **entitlementsDelete**
-> entitlementsDelete(owner, repo, slugPerm)
+> entitlementsDelete(owner, repo, slugPerm, showTokens)
 
 Delete a specific entitlement in a repository.
 
@@ -123,8 +125,9 @@ EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
+Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 try {
-    apiInstance.entitlementsDelete(owner, repo, slugPerm);
+    apiInstance.entitlementsDelete(owner, repo, slugPerm, showTokens);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsDelete");
     e.printStackTrace();
@@ -138,6 +141,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **slugPerm** | **String**|  |
+ **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
 
 ### Return type
 
@@ -154,7 +158,7 @@ null (empty response body)
 
 <a name="entitlementsList"></a>
 # **entitlementsList**
-> List&lt;RepositoryToken&gt; entitlementsList(owner, repo, page, pageSize)
+> List&lt;RepositoryToken&gt; entitlementsList(owner, repo, page, pageSize, showTokens)
 
 Get a list of all entitlements in a repository.
 
@@ -193,8 +197,9 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
+Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 try {
-    List<RepositoryToken> result = apiInstance.entitlementsList(owner, repo, page, pageSize);
+    List<RepositoryToken> result = apiInstance.entitlementsList(owner, repo, page, pageSize, showTokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsList");
@@ -210,6 +215,7 @@ Name | Type | Description  | Notes
  **repo** | **String**|  |
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
 
 ### Return type
 
@@ -226,7 +232,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsPartialUpdate"></a>
 # **entitlementsPartialUpdate**
-> RepositoryToken entitlementsPartialUpdate(owner, repo, slugPerm, data)
+> RepositoryToken entitlementsPartialUpdate(owner, repo, slugPerm, showTokens, data)
 
 Update a specific entitlement in a repository.
 
@@ -264,9 +270,10 @@ EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
+Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 EntitlementsPartialUpdate data = new EntitlementsPartialUpdate(); // EntitlementsPartialUpdate | 
 try {
-    RepositoryToken result = apiInstance.entitlementsPartialUpdate(owner, repo, slugPerm, data);
+    RepositoryToken result = apiInstance.entitlementsPartialUpdate(owner, repo, slugPerm, showTokens, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsPartialUpdate");
@@ -281,6 +288,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **slugPerm** | **String**|  |
+ **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional]
 
 ### Return type
@@ -298,7 +306,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsRead"></a>
 # **entitlementsRead**
-> RepositoryToken entitlementsRead(owner, repo, slugPerm)
+> RepositoryToken entitlementsRead(owner, repo, slugPerm, showTokens)
 
 Views for working with repository entitlements.
 
@@ -336,8 +344,9 @@ EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
+Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 try {
-    RepositoryToken result = apiInstance.entitlementsRead(owner, repo, slugPerm);
+    RepositoryToken result = apiInstance.entitlementsRead(owner, repo, slugPerm, showTokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsRead");
@@ -352,6 +361,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **slugPerm** | **String**|  |
+ **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
 
 ### Return type
 
@@ -368,7 +378,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsRefresh"></a>
 # **entitlementsRefresh**
-> RepositoryTokenRefresh entitlementsRefresh(owner, repo, slugPerm, data)
+> RepositoryTokenRefresh entitlementsRefresh(owner, repo, slugPerm, showTokens, data)
 
 Refresh an entitlement token in a repository.
 
@@ -406,9 +416,10 @@ EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
+Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 EntitlementsRefresh data = new EntitlementsRefresh(); // EntitlementsRefresh | 
 try {
-    RepositoryTokenRefresh result = apiInstance.entitlementsRefresh(owner, repo, slugPerm, data);
+    RepositoryTokenRefresh result = apiInstance.entitlementsRefresh(owner, repo, slugPerm, showTokens, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsRefresh");
@@ -423,6 +434,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **slugPerm** | **String**|  |
+ **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional]
 
 ### Return type
@@ -440,7 +452,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsSync"></a>
 # **entitlementsSync**
-> RepositoryTokenSync entitlementsSync(owner, repo, data)
+> RepositoryTokenSync entitlementsSync(owner, repo, showTokens, data)
 
 Synchronise tokens from a source repository.
 
@@ -477,9 +489,10 @@ csrf_token.setApiKey("YOUR API KEY");
 EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
+Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 EntitlementsSync data = new EntitlementsSync(); // EntitlementsSync | 
 try {
-    RepositoryTokenSync result = apiInstance.entitlementsSync(owner, repo, data);
+    RepositoryTokenSync result = apiInstance.entitlementsSync(owner, repo, showTokens, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsSync");
@@ -493,6 +506,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
+ **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
  **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional]
 
 ### Return type
