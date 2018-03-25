@@ -43,6 +43,7 @@ class PackageStatus(object):
         'is_sync_in_flight': 'bool',
         'status_str': 'str',
         'sync_progress': 'int',
+        'status_reason': 'str',
         'is_sync_in_progress': 'bool',
         'stage': 'str'
     }
@@ -60,11 +61,12 @@ class PackageStatus(object):
         'is_sync_in_flight': 'is_sync_in_flight',
         'status_str': 'status_str',
         'sync_progress': 'sync_progress',
+        'status_reason': 'status_reason',
         'is_sync_in_progress': 'is_sync_in_progress',
         'stage': 'stage'
     }
 
-    def __init__(self, self_url=None, status=None, is_sync_awaiting=None, stage_updated_at=None, stage_str=None, is_sync_completed=None, status_updated_at=None, sync_finished_at=None, is_sync_failed=None, is_sync_in_flight=None, status_str=None, sync_progress=None, is_sync_in_progress=None, stage=None):
+    def __init__(self, self_url=None, status=None, is_sync_awaiting=None, stage_updated_at=None, stage_str=None, is_sync_completed=None, status_updated_at=None, sync_finished_at=None, is_sync_failed=None, is_sync_in_flight=None, status_str=None, sync_progress=None, status_reason=None, is_sync_in_progress=None, stage=None):
         """
         PackageStatus - a model defined in Swagger
         """
@@ -81,6 +83,7 @@ class PackageStatus(object):
         self._is_sync_in_flight = None
         self._status_str = None
         self._sync_progress = None
+        self._status_reason = None
         self._is_sync_in_progress = None
         self._stage = None
 
@@ -108,6 +111,8 @@ class PackageStatus(object):
           self.status_str = status_str
         if sync_progress is not None:
           self.sync_progress = sync_progress
+        if status_reason is not None:
+          self.status_reason = status_reason
         if is_sync_in_progress is not None:
           self.is_sync_in_progress = is_sync_in_progress
         if stage is not None:
@@ -388,6 +393,29 @@ class PackageStatus(object):
         """
 
         self._sync_progress = sync_progress
+
+    @property
+    def status_reason(self):
+        """
+        Gets the status_reason of this PackageStatus.
+        A textual description for the synchronous status reason (if any
+
+        :return: The status_reason of this PackageStatus.
+        :rtype: str
+        """
+        return self._status_reason
+
+    @status_reason.setter
+    def status_reason(self, status_reason):
+        """
+        Sets the status_reason of this PackageStatus.
+        A textual description for the synchronous status reason (if any
+
+        :param status_reason: The status_reason of this PackageStatus.
+        :type: str
+        """
+
+        self._status_reason = status_reason
 
     @property
     def is_sync_in_progress(self):

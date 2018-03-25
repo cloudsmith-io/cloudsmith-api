@@ -71,6 +71,7 @@ class MavenPackageUpload(object):
         'version_orig': 'str',
         'architectures': 'list[RpmPackageUploadArchitectures]',
         'uploader': 'str',
+        'status_reason': 'str',
         'self_html_url': 'str',
         'stage': 'str',
         'self_url': 'str',
@@ -130,6 +131,7 @@ class MavenPackageUpload(object):
         'version_orig': 'version_orig',
         'architectures': 'architectures',
         'uploader': 'uploader',
+        'status_reason': 'status_reason',
         'self_html_url': 'self_html_url',
         'stage': 'stage',
         'self_url': 'self_url',
@@ -148,7 +150,7 @@ class MavenPackageUpload(object):
         'format_url': 'format_url'
     }
 
-    def __init__(self, files=None, stage_updated_at=None, artifact_id=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, group_id=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, indexed=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, version_orig=None, architectures=None, uploader=None, self_html_url=None, stage=None, self_url=None, packaging=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
+    def __init__(self, files=None, stage_updated_at=None, artifact_id=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, group_id=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, indexed=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, version_orig=None, architectures=None, uploader=None, status_reason=None, self_html_url=None, stage=None, self_url=None, packaging=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
         """
         MavenPackageUpload - a model defined in Swagger
         """
@@ -193,6 +195,7 @@ class MavenPackageUpload(object):
         self._version_orig = None
         self._architectures = None
         self._uploader = None
+        self._status_reason = None
         self._self_html_url = None
         self._stage = None
         self._self_url = None
@@ -290,6 +293,8 @@ class MavenPackageUpload(object):
           self.architectures = architectures
         if uploader is not None:
           self.uploader = uploader
+        if status_reason is not None:
+          self.status_reason = status_reason
         if self_html_url is not None:
           self.self_html_url = self_html_url
         if stage is not None:
@@ -1242,6 +1247,29 @@ class MavenPackageUpload(object):
         """
 
         self._uploader = uploader
+
+    @property
+    def status_reason(self):
+        """
+        Gets the status_reason of this MavenPackageUpload.
+        A textual description for the synchronous status reason (if any
+
+        :return: The status_reason of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._status_reason
+
+    @status_reason.setter
+    def status_reason(self, status_reason):
+        """
+        Sets the status_reason of this MavenPackageUpload.
+        A textual description for the synchronous status reason (if any
+
+        :param status_reason: The status_reason of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._status_reason = status_reason
 
     @property
     def self_html_url(self):

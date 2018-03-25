@@ -42,6 +42,7 @@ Name | Type | Description | Notes
 **version_orig** | **str** |  | [optional] 
 **architectures** | [**list[RpmPackageUploadArchitectures]**](RpmPackageUploadArchitectures.md) |  | [optional] 
 **uploader** | **str** |  | [optional] 
+**status_reason** | **str** | A textual description for the synchronous status reason (if any | [optional] 
 **self_html_url** | **str** |  | [optional] 
 **stage** | **str** | The synchronisation (in progress) stage of the package. | [optional] 
 **self_url** | **str** |  | [optional] 
