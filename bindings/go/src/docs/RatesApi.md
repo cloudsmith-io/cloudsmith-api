@@ -1,18 +1,18 @@
-# \StatusApi
+# \RatesApi
 
 All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**StatusCheckBasic**](StatusApi.md#StatusCheckBasic) | **Get** /status/check/basic/ | Endpoint to check basic API connectivity.
+[**RatesLimitsList**](RatesApi.md#RatesLimitsList) | **Get** /rates/limits/ | Endpoint to check rate limits for current user.
 
 
-# **StatusCheckBasic**
-> StatusBasic StatusCheckBasic()
+# **RatesLimitsList**
+> ResourcesRateCheck RatesLimitsList()
 
-Endpoint to check basic API connectivity.
+Endpoint to check rate limits for current user.
 
-Endpoint to check basic API connectivity.
+Endpoint to check rate limits for current user.
 
 
 ### Parameters
@@ -20,11 +20,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**StatusBasic**](StatusBasic.md)
+[**ResourcesRateCheck**](ResourcesRateCheck.md)
 
 ### Authorization
 
-No authorization required
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

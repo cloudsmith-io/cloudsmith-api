@@ -82,6 +82,9 @@ type RpmPackageUpload struct {
 	SlugPerm string `json:"slug_perm,omitempty"`
 
 	// 
+	Indexed bool `json:"indexed,omitempty"`
+
+	// 
 	UploaderUrl string `json:"uploader_url,omitempty"`
 
 	// 

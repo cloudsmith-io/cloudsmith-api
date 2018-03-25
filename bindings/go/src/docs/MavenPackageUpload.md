@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **IsSyncInFlight** | **bool** |  | [optional] [default to null]
 **NamespaceUrl** | **string** |  | [optional] [default to null]
 **SlugPerm** | **string** |  | [optional] [default to null]
+**Indexed** | **bool** |  | [optional] [default to null]
 **UploaderUrl** | **string** |  | [optional] [default to null]
 **CdnUrl** | **string** |  | [optional] [default to null]
 **ChecksumSha1** | **string** |  | [optional] [default to null]

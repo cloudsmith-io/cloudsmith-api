@@ -12,12 +12,15 @@ package cloudsmith_api
 
 type PackagesUploadVagrant struct {
 
+	// The virtual machine provider for the box.
+	Provider string `json:"provider"`
+
 	// The version of this package.
 	Version string `json:"version"`
 
+	// The name of this package.
+	Name string `json:"name"`
+
 	// The primary file for the package.
 	PackageFile string `json:"package_file"`
-
-	// The virtual machine provider for the box.
-	Provider string `json:"provider"`
 }

@@ -38,11 +38,11 @@ type Configuration struct {
 
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		BasePath:      "https://api-prd.cloudsmith.io/v1",
+		BasePath:      "https://api.cloudsmith.io/v1",
 		DefaultHeader: make(map[string]string),
 		APIKey:        make(map[string]string),
 		APIKeyPrefix:  make(map[string]string),
-		UserAgent:     "Swagger-Codegen/0.25.27/go",
+		UserAgent:     "Swagger-Codegen/0.26.4/go",
 		APIClient:     &APIClient{},
 	}
 

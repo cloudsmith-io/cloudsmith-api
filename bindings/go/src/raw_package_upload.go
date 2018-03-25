@@ -10,7 +10,7 @@
 
 package cloudsmith_api
 
-type VagrantPackageUpload struct {
+type RawPackageUpload struct {
 
 	// 
 	Files []RpmPackageUploadFiles `json:"files,omitempty"`
@@ -70,7 +70,7 @@ type VagrantPackageUpload struct {
 	Epoch int32 `json:"epoch,omitempty"`
 
 	// The version of this package.
-	Version string `json:"version"`
+	Version string `json:"version,omitempty"`
 
 	// 
 	IsSyncInFlight bool `json:"is_sync_in_flight,omitempty"`
@@ -106,7 +106,7 @@ type VagrantPackageUpload struct {
 	Description string `json:"description,omitempty"`
 
 	// The name of this package.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 
 	// 
 	Format string `json:"format,omitempty"`
@@ -116,9 +116,6 @@ type VagrantPackageUpload struct {
 
 	// 
 	Downloads string `json:"downloads,omitempty"`
-
-	// The virtual machine provider for the box.
-	Provider string `json:"provider"`
 
 	// 
 	VersionOrig string `json:"version_orig,omitempty"`

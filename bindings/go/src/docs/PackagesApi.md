@@ -1,12 +1,15 @@
 # \PackagesApi
 
-All URIs are relative to *https://api-prd.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**PackagesCopy**](PackagesApi.md#PackagesCopy) | **Post** /packages/{owner}/{repo}/{slug}/copy/ | Copy a package to another repository.
 [**PackagesDelete**](PackagesApi.md#PackagesDelete) | **Delete** /packages/{owner}/{repo}/{slug}/ | Delete a specific package in a repository.
 [**PackagesList**](PackagesApi.md#PackagesList) | **Get** /packages/{owner}/{repo}/ | Views for working with repository packages.
+[**PackagesMove**](PackagesApi.md#PackagesMove) | **Post** /packages/{owner}/{repo}/{slug}/move/ | Move a package to another repository.
 [**PackagesRead**](PackagesApi.md#PackagesRead) | **Get** /packages/{owner}/{repo}/{slug}/ | Get a specific package in a repository.
+[**PackagesResync**](PackagesApi.md#PackagesResync) | **Post** /packages/{owner}/{repo}/{slug}/resync/ | Schedule a package for resynchronisation.
 [**PackagesStatus**](PackagesApi.md#PackagesStatus) | **Get** /packages/{owner}/{repo}/{slug}/status/ | Get the synchronisation status for a package.
 [**PackagesUploadDeb**](PackagesApi.md#PackagesUploadDeb) | **Post** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**PackagesUploadMaven**](PackagesApi.md#PackagesUploadMaven) | **Post** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
@@ -23,6 +26,38 @@ Method | HTTP request | Description
 [**PackagesValidateUploadRuby**](PackagesApi.md#PackagesValidateUploadRuby) | **Post** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
 [**PackagesValidateUploadVagrant**](PackagesApi.md#PackagesValidateUploadVagrant) | **Post** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
 
+
+# **PackagesCopy**
+> PackageCopy PackagesCopy($owner, $repo, $slug, $data)
+
+Copy a package to another repository.
+
+Copy a package to another repository.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **slug** | **string**|  | 
+ **data** | [**PackagesCopy**](PackagesCopy.md)|  | [optional] 
+
+### Return type
+
+[**PackageCopy**](PackageCopy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesDelete**
 > PackagesDelete($owner, $repo, $slug)
@@ -56,7 +91,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesList**
-> []RpmPackageUpload PackagesList($owner, $repo, $page, $pageSize)
+> []RpmPackageUpload PackagesList($owner, $repo, $page, $pageSize, $query)
 
 Views for working with repository packages.
 
@@ -71,6 +106,7 @@ Name | Type | Description  | Notes
  **repo** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **query** | **string**| A search term for querying names, filenames, versions, distributions or architectures of packages. | [optional] 
 
 ### Return type
 
@@ -87,12 +123,75 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PackagesMove**
+> PackageMove PackagesMove($owner, $repo, $slug, $data)
+
+Move a package to another repository.
+
+Move a package to another repository.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **slug** | **string**|  | 
+ **data** | [**PackagesMove**](PackagesMove.md)|  | [optional] 
+
+### Return type
+
+[**PackageMove**](PackageMove.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PackagesRead**
 > RpmPackageUpload PackagesRead($owner, $repo, $slug)
 
 Get a specific package in a repository.
 
 Get a specific package in a repository.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **slug** | **string**|  | 
+
+### Return type
+
+[**RpmPackageUpload**](RpmPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PackagesResync**
+> RpmPackageUpload PackagesResync($owner, $repo, $slug)
+
+Schedule a package for resynchronisation.
+
+Schedule a package for resynchronisation.
 
 
 ### Parameters
@@ -243,7 +342,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadRaw**
-> RpmPackageUpload PackagesUploadRaw($owner, $repo, $data)
+> RawPackageUpload PackagesUploadRaw($owner, $repo, $data)
 
 Create a new Raw package
 
@@ -260,7 +359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**RawPackageUpload**](RawPackageUpload.md)
 
 ### Authorization
 

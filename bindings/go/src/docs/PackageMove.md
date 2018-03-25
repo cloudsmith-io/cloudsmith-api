@@ -1,4 +1,4 @@
-# RpmPackageUpload
+# PackageMove
 
 ## Properties
 Name | Type | Description | Notes
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Size** | **int32** | The calculated size of the package. | [optional] [default to null]
 **StatusStr** | **string** |  | [optional] [default to null]
 **IsSyncAwaiting** | **bool** |  | [optional] [default to null]
-**Repository** | **string** |  | [optional] [default to null]
+**Repository** | **string** | The repository the package will be moved to. | [optional] [default to null]
 **Subtype** | **string** |  | [optional] [default to null]
 **StatusUrl** | **string** |  | [optional] [default to null]
 **StatusUpdatedAt** | **string** | The datetime the package status was updated at. | [optional] [default to null]
