@@ -10,26 +10,26 @@
 
 package cloudsmith_api
 
-type ReposownerGpgKeys struct {
+type ReposGpgKeys struct {
+
+	// If selected this is the active key for this repository.
+	Active bool `json:"active,omitempty"`
 
 	// 
 	Comment string `json:"comment,omitempty"`
 
-	// The public key given to repository users.
-	PublicKey string `json:"public_key,omitempty"`
-
 	// 
-	FingerprintShort string `json:"fingerprint_short,omitempty"`
+	CreatedAt string `json:"created_at,omitempty"`
 
 	// If selected this is the default key for this repository.
 	Default_ bool `json:"default,omitempty"`
 
-	// 
-	CreatedAt string `json:"created_at,omitempty"`
-
 	// The long identifier used by GPG for this key.
 	Fingerprint string `json:"fingerprint,omitempty"`
 
-	// If selected this is the active key for this repository.
-	Active bool `json:"active,omitempty"`
+	// 
+	FingerprintShort string `json:"fingerprint_short,omitempty"`
+
+	// The public key given to repository users.
+	PublicKey string `json:"public_key,omitempty"`
 }

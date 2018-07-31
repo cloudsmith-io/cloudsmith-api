@@ -12,9 +12,9 @@ package cloudsmith_api
 
 type StatusBasic struct {
 
-	// The current version for the Cloudsmith service.
-	Version string `json:"version,omitempty"`
-
 	// The message describing the state of the API.
 	Detail string `json:"detail,omitempty"`
+
+	// The current version for the Cloudsmith service.
+	Version string `json:"version,omitempty"`
 }

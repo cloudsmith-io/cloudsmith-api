@@ -15,8 +15,14 @@ type PackagesUploadMaven struct {
 	// The ID of the artifact.
 	ArtifactId string `json:"artifact_id,omitempty"`
 
-	// Adds bundled Java source code to the Maven package.
-	SourcesFile string `json:"sources_file,omitempty"`
+	// Artifact's group ID.
+	GroupId string `json:"group_id,omitempty"`
+
+	// Adds bundled Java documentation to the Maven package
+	JavadocFile string `json:"javadoc_file,omitempty"`
+
+	// The primary file for the package.
+	PackageFile string `json:"package_file"`
 
 	// Artifact's Maven packaging type.
 	Packaging string `json:"packaging,omitempty"`
@@ -24,15 +30,9 @@ type PackagesUploadMaven struct {
 	// The POM file is an XML file containing the Maven coordinates.
 	PomFile string `json:"pom_file,omitempty"`
 
-	// Adds bundled Java documentation to the Maven package
-	JavadocFile string `json:"javadoc_file,omitempty"`
+	// Adds bundled Java source code to the Maven package.
+	SourcesFile string `json:"sources_file,omitempty"`
 
 	// The version of this package.
 	Version string `json:"version,omitempty"`
-
-	// Artifact's group ID.
-	GroupId string `json:"group_id,omitempty"`
-
-	// The primary file for the package.
-	PackageFile string `json:"package_file"`
 }

@@ -13,5 +13,5 @@ package cloudsmith_api
 type RepositoryTokenSync struct {
 
 	// The entitlements that have been synchronised.
-	Tokens []RepositoryTokenRefresh `json:"tokens,omitempty"`
+	Tokens []RepositoryTokenSyncTokens `json:"tokens,omitempty"`
 }

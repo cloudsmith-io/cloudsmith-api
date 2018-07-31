@@ -13,71 +13,71 @@ package cloudsmith_api
 type Repository struct {
 
 	// 
-	IsOpenSource bool `json:"is_open_source"`
-
-	// 
-	RepositoryTypeStr string `json:"repository_type_str,omitempty"`
-
-	// If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
-	IndexFiles bool `json:"index_files,omitempty"`
-
-	// The number of packages in the repository.
-	PackageCount int32 `json:"package_count,omitempty"`
-
-	// 
-	DeletedAt string `json:"deleted_at,omitempty"`
-
-	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
-	RepositoryType string `json:"repository_type,omitempty"`
-
-	// The calculated size of the repository.
-	Size int32 `json:"size,omitempty"`
-
-	// 
 	CdnUrl string `json:"cdn_url,omitempty"`
 
 	// 
-	Namespace string `json:"namespace"`
+	CreatedAt string `json:"created_at,omitempty"`
 
 	// 
-	SelfHtmlUrl string `json:"self_html_url,omitempty"`
-
-	// 
-	NamespaceUrl string `json:"namespace_url,omitempty"`
-
-	// 
-	GpgKeys []ReposownerGpgKeys `json:"gpg_keys,omitempty"`
+	DeletedAt string `json:"deleted_at,omitempty"`
 
 	// 
 	Description string `json:"description"`
 
 	// 
-	SizeStr string `json:"size_str,omitempty"`
+	GpgKeys []ReposGpgKeys `json:"gpg_keys,omitempty"`
+
+	// If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
+	IndexFiles bool `json:"index_files,omitempty"`
 
 	// 
-	SlugPerm string `json:"slug_perm,omitempty"`
-
-	// 
-	IsPublic bool `json:"is_public"`
-
-	// The slug identifies the repository in URIs.
-	Slug string `json:"slug,omitempty"`
+	IsOpenSource bool `json:"is_open_source"`
 
 	// 
 	IsPrivate bool `json:"is_private"`
 
-	// The number of downloads for packages in the repository.
-	NumDownloads int32 `json:"num_downloads,omitempty"`
-
 	// 
-	SelfUrl string `json:"self_url,omitempty"`
+	IsPublic bool `json:"is_public"`
 
 	// A descriptive name for the repository.
 	Name string `json:"name,omitempty"`
 
 	// 
-	CreatedAt string `json:"created_at,omitempty"`
+	Namespace string `json:"namespace"`
+
+	// 
+	NamespaceUrl string `json:"namespace_url,omitempty"`
+
+	// The number of downloads for packages in the repository.
+	NumDownloads int32 `json:"num_downloads,omitempty"`
+
+	// The number of packages in the repository.
+	PackageCount int32 `json:"package_count,omitempty"`
 
 	// The number of groups in the repository.
 	PackageGroupCount int32 `json:"package_group_count,omitempty"`
+
+	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
+	RepositoryType string `json:"repository_type,omitempty"`
+
+	// 
+	RepositoryTypeStr string `json:"repository_type_str,omitempty"`
+
+	// 
+	SelfHtmlUrl string `json:"self_html_url,omitempty"`
+
+	// 
+	SelfUrl string `json:"self_url,omitempty"`
+
+	// The calculated size of the repository.
+	Size int32 `json:"size,omitempty"`
+
+	// 
+	SizeStr string `json:"size_str,omitempty"`
+
+	// The slug identifies the repository in URIs.
+	Slug string `json:"slug,omitempty"`
+
+	// 
+	SlugPerm string `json:"slug_perm,omitempty"`
 }

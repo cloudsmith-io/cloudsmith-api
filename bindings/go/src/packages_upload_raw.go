@@ -12,15 +12,15 @@ package cloudsmith_api
 
 type PackagesUploadRaw struct {
 
-	// A one-liner synopsis of this package.
-	Summary string `json:"summary,omitempty"`
-
 	// A textual description of this package.
 	Description string `json:"description,omitempty"`
 
-	// The version of this package.
-	Version string `json:"version,omitempty"`
-
 	// The primary file for the package.
 	PackageFile string `json:"package_file"`
+
+	// A one-liner synopsis of this package.
+	Summary string `json:"summary,omitempty"`
+
+	// The version of this package.
+	Version string `json:"version,omitempty"`
 }

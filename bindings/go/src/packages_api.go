@@ -43,18 +43,18 @@ func NewPackagesApiWithBasePath(basePath string) *PackagesApi {
  *
  * @param owner 
  * @param repo 
- * @param slug 
+ * @param identifier 
  * @param data 
  * @return *PackageCopy
  */
-func (a PackagesApi) PackagesCopy(owner string, repo string, slug string, data PackagesCopy) (*PackageCopy, *APIResponse, error) {
+func (a PackagesApi) PackagesCopy(owner string, repo string, identifier string, data PackagesCopy) (*PackageCopy, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{slug}/copy/"
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{identifier}/copy/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", fmt.Sprintf("%v", slug), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -121,17 +121,17 @@ func (a PackagesApi) PackagesCopy(owner string, repo string, slug string, data P
  *
  * @param owner 
  * @param repo 
- * @param slug 
+ * @param identifier 
  * @return void
  */
-func (a PackagesApi) PackagesDelete(owner string, repo string, slug string) (*APIResponse, error) {
+func (a PackagesApi) PackagesDelete(owner string, repo string, identifier string) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Delete")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{slug}/"
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", fmt.Sprintf("%v", slug), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -196,10 +196,10 @@ func (a PackagesApi) PackagesDelete(owner string, repo string, slug string) (*AP
  * @param repo 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
- * @param query A search term for querying names, filenames, versions, distributions or architectures of packages.
- * @return []RpmPackageUpload
+ * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+ * @return []ModelPackage
  */
-func (a PackagesApi) PackagesList(owner string, repo string, page int32, pageSize int32, query string) ([]RpmPackageUpload, *APIResponse, error) {
+func (a PackagesApi) PackagesList(owner string, repo string, page int32, pageSize int32, query string) ([]ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -249,7 +249,7 @@ func (a PackagesApi) PackagesList(owner string, repo string, page int32, pageSiz
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new([]RpmPackageUpload)
+	var successPayload = new([]ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -273,18 +273,18 @@ func (a PackagesApi) PackagesList(owner string, repo string, page int32, pageSiz
  *
  * @param owner 
  * @param repo 
- * @param slug 
+ * @param identifier 
  * @param data 
  * @return *PackageMove
  */
-func (a PackagesApi) PackagesMove(owner string, repo string, slug string, data PackagesMove) (*PackageMove, *APIResponse, error) {
+func (a PackagesApi) PackagesMove(owner string, repo string, identifier string, data PackagesMove) (*PackageMove, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{slug}/move/"
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{identifier}/move/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", fmt.Sprintf("%v", slug), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -351,17 +351,17 @@ func (a PackagesApi) PackagesMove(owner string, repo string, slug string, data P
  *
  * @param owner 
  * @param repo 
- * @param slug 
- * @return *RpmPackageUpload
+ * @param identifier 
+ * @return *ModelPackage
  */
-func (a PackagesApi) PackagesRead(owner string, repo string, slug string) (*RpmPackageUpload, *APIResponse, error) {
+func (a PackagesApi) PackagesRead(owner string, repo string, identifier string) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{slug}/"
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", fmt.Sprintf("%v", slug), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -402,7 +402,7 @@ func (a PackagesApi) PackagesRead(owner string, repo string, slug string) (*RpmP
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(RpmPackageUpload)
+	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -426,17 +426,17 @@ func (a PackagesApi) PackagesRead(owner string, repo string, slug string) (*RpmP
  *
  * @param owner 
  * @param repo 
- * @param slug 
- * @return *RpmPackageUpload
+ * @param identifier 
+ * @return *ModelPackage
  */
-func (a PackagesApi) PackagesResync(owner string, repo string, slug string) (*RpmPackageUpload, *APIResponse, error) {
+func (a PackagesApi) PackagesResync(owner string, repo string, identifier string) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{slug}/resync/"
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{identifier}/resync/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", fmt.Sprintf("%v", slug), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -477,7 +477,7 @@ func (a PackagesApi) PackagesResync(owner string, repo string, slug string) (*Rp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(RpmPackageUpload)
+	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -501,17 +501,17 @@ func (a PackagesApi) PackagesResync(owner string, repo string, slug string) (*Rp
  *
  * @param owner 
  * @param repo 
- * @param slug 
+ * @param identifier 
  * @return *PackageStatus
  */
-func (a PackagesApi) PackagesStatus(owner string, repo string, slug string) (*PackageStatus, *APIResponse, error) {
+func (a PackagesApi) PackagesStatus(owner string, repo string, identifier string) (*PackageStatus, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{slug}/status/"
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{identifier}/status/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", fmt.Sprintf("%v", slug), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -571,15 +571,91 @@ func (a PackagesApi) PackagesStatus(owner string, repo string, slug string) (*Pa
 }
 
 /**
+ * Create a new Composer package
+ * Create a new Composer package
+ *
+ * @param owner 
+ * @param repo 
+ * @param data 
+ * @return *ModelPackage
+ */
+func (a PackagesApi) PackagesUploadComposer(owner string, repo string, data PackagesUploadComposer) (*ModelPackage, *APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/upload/composer/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(basic)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &data
+	var successPayload = new(ModelPackage)
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "PackagesUploadComposer", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return successPayload, localVarAPIResponse, err
+	}
+	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
+	return successPayload, localVarAPIResponse, err
+}
+
+/**
  * Create a new Debian package
  * Create a new Debian package
  *
  * @param owner 
  * @param repo 
  * @param data 
- * @return *RpmPackageUpload
+ * @return *ModelPackage
  */
-func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesUploadDeb) (*RpmPackageUpload, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesUploadDeb) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -628,7 +704,7 @@ func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesU
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(RpmPackageUpload)
+	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -729,9 +805,9 @@ func (a PackagesApi) PackagesUploadMaven(owner string, repo string, data Package
  * @param owner 
  * @param repo 
  * @param data 
- * @return *RpmPackageUpload
+ * @return *ModelPackage
  */
-func (a PackagesApi) PackagesUploadPython(owner string, repo string, data PackagesUploadPython) (*RpmPackageUpload, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadPython(owner string, repo string, data PackagesUploadPython) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -780,7 +856,7 @@ func (a PackagesApi) PackagesUploadPython(owner string, repo string, data Packag
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(RpmPackageUpload)
+	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -881,9 +957,9 @@ func (a PackagesApi) PackagesUploadRaw(owner string, repo string, data PackagesU
  * @param owner 
  * @param repo 
  * @param data 
- * @return *RpmPackageUpload
+ * @return *ModelPackage
  */
-func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesUploadRpm) (*RpmPackageUpload, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesUploadRpm) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -932,7 +1008,7 @@ func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesU
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(RpmPackageUpload)
+	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -957,9 +1033,9 @@ func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesU
  * @param owner 
  * @param repo 
  * @param data 
- * @return *RpmPackageUpload
+ * @return *ModelPackage
  */
-func (a PackagesApi) PackagesUploadRuby(owner string, repo string, data PackagesUploadRuby) (*RpmPackageUpload, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadRuby(owner string, repo string, data PackagesUploadRuby) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1008,7 +1084,7 @@ func (a PackagesApi) PackagesUploadRuby(owner string, repo string, data Packages
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(RpmPackageUpload)
+	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1100,6 +1176,80 @@ func (a PackagesApi) PackagesUploadVagrant(owner string, repo string, data Packa
 	}
 	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
 	return successPayload, localVarAPIResponse, err
+}
+
+/**
+ * Validate parameters for create Composer package
+ * Validate parameters for create Composer package
+ *
+ * @param owner 
+ * @param repo 
+ * @param data 
+ * @return void
+ */
+func (a PackagesApi) PackagesValidateUploadComposer(owner string, repo string, data PackagesValidateuploadComposer) (*APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/validate-upload/composer/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(basic)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &data
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "PackagesValidateUploadComposer", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return localVarAPIResponse, err
+	}
+	return localVarAPIResponse, err
 }
 
 /**

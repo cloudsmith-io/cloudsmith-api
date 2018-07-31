@@ -12,11 +12,11 @@ package cloudsmith_api
 
 type PackageFileUpload struct {
 
-	// The dictionary of fields that must be sent with POST uploads
-	UploadFields interface{} `json:"upload_fields,omitempty"`
-
 	// The identifier for the file to use when creating packages
 	Identifier string `json:"identifier,omitempty"`
+
+	// The dictionary of fields that must be sent with POST uploads
+	UploadFields interface{} `json:"upload_fields,omitempty"`
 
 	// The URL to use for the next-step POST upload
 	UploadUrl string `json:"upload_url,omitempty"`

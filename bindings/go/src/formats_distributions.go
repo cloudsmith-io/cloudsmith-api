@@ -10,17 +10,17 @@
 
 package cloudsmith_api
 
-type FormatDistributions struct {
+type FormatsDistributions struct {
+
+	// 
+	Name string `json:"name,omitempty"`
 
 	// 
 	SelfUrl string `json:"self_url,omitempty"`
-
-	// 
-	Variants string `json:"variants,omitempty"`
 
 	// The slug identifier for this distribution
 	Slug string `json:"slug,omitempty"`
 
 	// 
-	Name string `json:"name,omitempty"`
+	Variants string `json:"variants,omitempty"`
 }

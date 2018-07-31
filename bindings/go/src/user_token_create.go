@@ -12,9 +12,9 @@ package cloudsmith_api
 
 type UserTokenCreate struct {
 
-	// Password to authenticate with
-	Password string `json:"password,omitempty"`
-
 	// Email address to authenticate with
 	Email string `json:"email,omitempty"`
+
+	// Password to authenticate with
+	Password string `json:"password,omitempty"`
 }

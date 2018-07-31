@@ -10,11 +10,8 @@
 
 package cloudsmith_api
 
-type DistributionVersions struct {
+type PackagesValidateuploadComposer struct {
 
-	// The slug identifier for this version
-	Slug string `json:"slug,omitempty"`
-
-	// The textual name for this version.
-	Name string `json:"name,omitempty"`
+	// The primary file for the package.
+	PackageFile string `json:"package_file"`
 }

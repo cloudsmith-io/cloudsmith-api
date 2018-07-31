@@ -12,24 +12,24 @@ package cloudsmith_api
 
 type Organization struct {
 
-	// A descriptive name for your organization.
-	Name string `json:"name,omitempty"`
-
 	// The country your organization is based in.
 	Country string `json:"country,omitempty"`
 
 	// 
 	CreatedAt string `json:"created_at,omitempty"`
 
-	// A short public descriptive for your organization.
-	Tagline string `json:"tagline,omitempty"`
-
 	// The city/town/area your organization is based in.
 	Location string `json:"location,omitempty"`
+
+	// A descriptive name for your organization.
+	Name string `json:"name,omitempty"`
+
+	// 
+	Slug string `json:"slug,omitempty"`
 
 	// 
 	SlugPerm string `json:"slug_perm,omitempty"`
 
-	// 
-	Slug string `json:"slug,omitempty"`
+	// A short public descriptive for your organization.
+	Tagline string `json:"tagline,omitempty"`
 }

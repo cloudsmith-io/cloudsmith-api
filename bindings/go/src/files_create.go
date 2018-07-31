@@ -12,9 +12,9 @@ package cloudsmith_api
 
 type FilesCreate struct {
 
-	// MD5 checksum for the package file upload.
-	Md5Checksum string `json:"md5_checksum"`
-
 	// Filename for the package file upload.
 	Filename string `json:"filename"`
+
+	// MD5 checksum for the package file upload.
+	Md5Checksum string `json:"md5_checksum"`
 }

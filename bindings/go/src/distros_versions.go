@@ -10,11 +10,11 @@
 
 package cloudsmith_api
 
-type RpmPackageUploadArchitectures struct {
+type DistrosVersions struct {
 
-	// 
+	// The textual name for this version.
 	Name string `json:"name,omitempty"`
 
-	// 
-	Description string `json:"description,omitempty"`
+	// The slug identifier for this version
+	Slug string `json:"slug,omitempty"`
 }

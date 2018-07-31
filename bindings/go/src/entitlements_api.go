@@ -121,18 +121,17 @@ func (a EntitlementsApi) EntitlementsCreate(owner string, repo string, showToken
  *
  * @param owner 
  * @param repo 
- * @param slugPerm 
- * @param showTokens Show entitlement token strings in results
+ * @param identifier 
  * @return void
  */
-func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, slugPerm string, showTokens bool) (*APIResponse, error) {
+func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, identifier string) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Delete")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{slug_perm}/"
+	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug_perm"+"}", fmt.Sprintf("%v", slugPerm), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -155,7 +154,6 @@ func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, slugPerm 
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
-	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{  }
@@ -179,6 +177,152 @@ func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, slugPerm 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
 	var localVarAPIResponse = &APIResponse{Operation: "EntitlementsDelete", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return localVarAPIResponse, err
+	}
+	return localVarAPIResponse, err
+}
+
+/**
+ * Disable an entitlement token in a repository.
+ * Disable an entitlement token in a repository.
+ *
+ * @param owner 
+ * @param repo 
+ * @param identifier 
+ * @return void
+ */
+func (a EntitlementsApi) EntitlementsDisable(owner string, repo string, identifier string) (*APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/disable/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(basic)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "EntitlementsDisable", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return localVarAPIResponse, err
+	}
+	return localVarAPIResponse, err
+}
+
+/**
+ * Enable an entitlement token in a repository.
+ * Enable an entitlement token in a repository.
+ *
+ * @param owner 
+ * @param repo 
+ * @param identifier 
+ * @return void
+ */
+func (a EntitlementsApi) EntitlementsEnable(owner string, repo string, identifier string) (*APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/enable/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(basic)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "EntitlementsEnable", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
@@ -275,19 +419,17 @@ func (a EntitlementsApi) EntitlementsList(owner string, repo string, page int32,
  *
  * @param owner 
  * @param repo 
- * @param slugPerm 
  * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryToken
  */
-func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, slugPerm string, showTokens bool, data EntitlementsPartialUpdate) (*RepositoryToken, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, showTokens bool, data EntitlementsPartialUpdate) (*RepositoryToken, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Patch")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{slug_perm}/"
+	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug_perm"+"}", fmt.Sprintf("%v", slugPerm), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -350,23 +492,23 @@ func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, sl
 }
 
 /**
- * Views for working with repository entitlements.
- * Views for working with repository entitlements.
+ * Get a specific entitlement in a repository.
+ * Get a specific entitlement in a repository.
  *
  * @param owner 
  * @param repo 
- * @param slugPerm 
+ * @param identifier 
  * @param showTokens Show entitlement token strings in results
  * @return *RepositoryToken
  */
-func (a EntitlementsApi) EntitlementsRead(owner string, repo string, slugPerm string, showTokens bool) (*RepositoryToken, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsRead(owner string, repo string, identifier string, showTokens bool) (*RepositoryToken, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{slug_perm}/"
+	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug_perm"+"}", fmt.Sprintf("%v", slugPerm), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -432,19 +574,17 @@ func (a EntitlementsApi) EntitlementsRead(owner string, repo string, slugPerm st
  *
  * @param owner 
  * @param repo 
- * @param slugPerm 
  * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryTokenRefresh
  */
-func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, slugPerm string, showTokens bool, data EntitlementsRefresh) (*RepositoryTokenRefresh, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, showTokens bool, data EntitlementsRefresh) (*RepositoryTokenRefresh, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{slug_perm}/refresh/"
+	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/refresh/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug_perm"+"}", fmt.Sprintf("%v", slugPerm), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -507,16 +647,88 @@ func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, slugPerm
 }
 
 /**
+ * Reset the statistics for an entitlement token in a repository.
+ * Reset the statistics for an entitlement token in a repository.
+ *
+ * @param owner 
+ * @param repo 
+ * @param identifier 
+ * @return void
+ */
+func (a EntitlementsApi) EntitlementsReset(owner string, repo string, identifier string) (*APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/reset/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(basic)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "EntitlementsReset", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return localVarAPIResponse, err
+	}
+	return localVarAPIResponse, err
+}
+
+/**
  * Synchronise tokens from a source repository.
  * Synchronise tokens from a source repository.
  *
  * @param owner 
  * @param repo 
- * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryTokenSync
  */
-func (a EntitlementsApi) EntitlementsSync(owner string, repo string, showTokens bool, data EntitlementsSync) (*RepositoryTokenSync, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsSync(owner string, repo string, data EntitlementsSync) (*RepositoryTokenSync, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -545,7 +757,6 @@ func (a EntitlementsApi) EntitlementsSync(owner string, repo string, showTokens 
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
-	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }

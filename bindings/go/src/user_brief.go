@@ -12,24 +12,24 @@ package cloudsmith_api
 
 type UserBrief struct {
 
-	// 
-	SelfUrl string `json:"self_url,omitempty"`
-
 	// If true then you're logged in as a user.
 	Authenticated bool `json:"authenticated,omitempty"`
-
-	// The full name of the user (if any).
-	Name string `json:"name,omitempty"`
 
 	// Your email address that we use to contact you. This is only visible to you.
 	Email string `json:"email,omitempty"`
 
+	// The full name of the user (if any).
+	Name string `json:"name,omitempty"`
+
+	// The URL for the full profile of the user.
+	ProfileUrl string `json:"profile_url,omitempty"`
+
 	// 
-	SlugPerm string `json:"slug_perm,omitempty"`
+	SelfUrl string `json:"self_url,omitempty"`
 
 	// 
 	Slug string `json:"slug,omitempty"`
 
-	// The URL for the full profile of the user.
-	ProfileUrl string `json:"profile_url,omitempty"`
+	// 
+	SlugPerm string `json:"slug_perm,omitempty"`
 }

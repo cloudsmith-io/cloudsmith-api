@@ -4,13 +4,14 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PackagesCopy**](PackagesApi.md#PackagesCopy) | **Post** /packages/{owner}/{repo}/{slug}/copy/ | Copy a package to another repository.
-[**PackagesDelete**](PackagesApi.md#PackagesDelete) | **Delete** /packages/{owner}/{repo}/{slug}/ | Delete a specific package in a repository.
+[**PackagesCopy**](PackagesApi.md#PackagesCopy) | **Post** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
+[**PackagesDelete**](PackagesApi.md#PackagesDelete) | **Delete** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 [**PackagesList**](PackagesApi.md#PackagesList) | **Get** /packages/{owner}/{repo}/ | Views for working with repository packages.
-[**PackagesMove**](PackagesApi.md#PackagesMove) | **Post** /packages/{owner}/{repo}/{slug}/move/ | Move a package to another repository.
-[**PackagesRead**](PackagesApi.md#PackagesRead) | **Get** /packages/{owner}/{repo}/{slug}/ | Get a specific package in a repository.
-[**PackagesResync**](PackagesApi.md#PackagesResync) | **Post** /packages/{owner}/{repo}/{slug}/resync/ | Schedule a package for resynchronisation.
-[**PackagesStatus**](PackagesApi.md#PackagesStatus) | **Get** /packages/{owner}/{repo}/{slug}/status/ | Get the synchronisation status for a package.
+[**PackagesMove**](PackagesApi.md#PackagesMove) | **Post** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
+[**PackagesRead**](PackagesApi.md#PackagesRead) | **Get** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
+[**PackagesResync**](PackagesApi.md#PackagesResync) | **Post** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
+[**PackagesStatus**](PackagesApi.md#PackagesStatus) | **Get** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+[**PackagesUploadComposer**](PackagesApi.md#PackagesUploadComposer) | **Post** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**PackagesUploadDeb**](PackagesApi.md#PackagesUploadDeb) | **Post** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**PackagesUploadMaven**](PackagesApi.md#PackagesUploadMaven) | **Post** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**PackagesUploadPython**](PackagesApi.md#PackagesUploadPython) | **Post** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**PackagesUploadRpm**](PackagesApi.md#PackagesUploadRpm) | **Post** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 [**PackagesUploadRuby**](PackagesApi.md#PackagesUploadRuby) | **Post** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
 [**PackagesUploadVagrant**](PackagesApi.md#PackagesUploadVagrant) | **Post** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
+[**PackagesValidateUploadComposer**](PackagesApi.md#PackagesValidateUploadComposer) | **Post** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**PackagesValidateUploadDeb**](PackagesApi.md#PackagesValidateUploadDeb) | **Post** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**PackagesValidateUploadMaven**](PackagesApi.md#PackagesValidateUploadMaven) | **Post** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**PackagesValidateUploadPython**](PackagesApi.md#PackagesValidateUploadPython) | **Post** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
@@ -28,7 +30,7 @@ Method | HTTP request | Description
 
 
 # **PackagesCopy**
-> PackageCopy PackagesCopy($owner, $repo, $slug, $data)
+> PackageCopy PackagesCopy($owner, $repo, $identifier, $data)
 
 Copy a package to another repository.
 
@@ -41,7 +43,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
- **slug** | **string**|  | 
+ **identifier** | **string**|  | 
  **data** | [**PackagesCopy**](PackagesCopy.md)|  | [optional] 
 
 ### Return type
@@ -60,7 +62,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesDelete**
-> PackagesDelete($owner, $repo, $slug)
+> PackagesDelete($owner, $repo, $identifier)
 
 Delete a specific package in a repository.
 
@@ -73,7 +75,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
- **slug** | **string**|  | 
+ **identifier** | **string**|  | 
 
 ### Return type
 
@@ -91,7 +93,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesList**
-> []RpmPackageUpload PackagesList($owner, $repo, $page, $pageSize, $query)
+> []ModelPackage PackagesList($owner, $repo, $page, $pageSize, $query)
 
 Views for working with repository packages.
 
@@ -106,11 +108,11 @@ Name | Type | Description  | Notes
  **repo** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **query** | **string**| A search term for querying names, filenames, versions, distributions or architectures of packages. | [optional] 
+ **query** | **string**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] 
 
 ### Return type
 
-[**[]RpmPackageUpload**](RpmPackageUpload.md)
+[**[]ModelPackage**](Package.md)
 
 ### Authorization
 
@@ -124,7 +126,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesMove**
-> PackageMove PackagesMove($owner, $repo, $slug, $data)
+> PackageMove PackagesMove($owner, $repo, $identifier, $data)
 
 Move a package to another repository.
 
@@ -137,7 +139,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
- **slug** | **string**|  | 
+ **identifier** | **string**|  | 
  **data** | [**PackagesMove**](PackagesMove.md)|  | [optional] 
 
 ### Return type
@@ -156,7 +158,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesRead**
-> RpmPackageUpload PackagesRead($owner, $repo, $slug)
+> ModelPackage PackagesRead($owner, $repo, $identifier)
 
 Get a specific package in a repository.
 
@@ -169,11 +171,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
- **slug** | **string**|  | 
+ **identifier** | **string**|  | 
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](Package.md)
 
 ### Authorization
 
@@ -187,7 +189,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesResync**
-> RpmPackageUpload PackagesResync($owner, $repo, $slug)
+> ModelPackage PackagesResync($owner, $repo, $identifier)
 
 Schedule a package for resynchronisation.
 
@@ -200,11 +202,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
- **slug** | **string**|  | 
+ **identifier** | **string**|  | 
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](Package.md)
 
 ### Authorization
 
@@ -218,7 +220,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesStatus**
-> PackageStatus PackagesStatus($owner, $repo, $slug)
+> PackageStatus PackagesStatus($owner, $repo, $identifier)
 
 Get the synchronisation status for a package.
 
@@ -231,7 +233,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
- **slug** | **string**|  | 
+ **identifier** | **string**|  | 
 
 ### Return type
 
@@ -248,8 +250,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PackagesUploadComposer**
+> ModelPackage PackagesUploadComposer($owner, $repo, $data)
+
+Create a new Composer package
+
+Create a new Composer package
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **data** | [**PackagesUploadComposer**](PackagesUploadComposer.md)|  | [optional] 
+
+### Return type
+
+[**ModelPackage**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PackagesUploadDeb**
-> RpmPackageUpload PackagesUploadDeb($owner, $repo, $data)
+> ModelPackage PackagesUploadDeb($owner, $repo, $data)
 
 Create a new Debian package
 
@@ -266,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](Package.md)
 
 ### Authorization
 
@@ -311,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadPython**
-> RpmPackageUpload PackagesUploadPython($owner, $repo, $data)
+> ModelPackage PackagesUploadPython($owner, $repo, $data)
 
 Create a new Python package
 
@@ -328,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](Package.md)
 
 ### Authorization
 
@@ -373,7 +406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadRpm**
-> RpmPackageUpload PackagesUploadRpm($owner, $repo, $data)
+> ModelPackage PackagesUploadRpm($owner, $repo, $data)
 
 Create a new RedHat package
 
@@ -390,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](Package.md)
 
 ### Authorization
 
@@ -404,7 +437,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadRuby**
-> RpmPackageUpload PackagesUploadRuby($owner, $repo, $data)
+> ModelPackage PackagesUploadRuby($owner, $repo, $data)
 
 Create a new Ruby package
 
@@ -421,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](Package.md)
 
 ### Authorization
 
@@ -453,6 +486,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**VagrantPackageUpload**](VagrantPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PackagesValidateUploadComposer**
+> PackagesValidateUploadComposer($owner, $repo, $data)
+
+Validate parameters for create Composer package
+
+Validate parameters for create Composer package
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **data** | [**PackagesValidateuploadComposer**](PackagesValidateuploadComposer.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

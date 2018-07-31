@@ -13,7 +13,16 @@ package cloudsmith_api
 type UserProfile struct {
 
 	// 
+	Company string `json:"company,omitempty"`
+
+	// 
 	FirstName string `json:"first_name"`
+
+	// 
+	JobTitle string `json:"job_title,omitempty"`
+
+	// 
+	JoinedAt string `json:"joined_at,omitempty"`
 
 	// 
 	LastName string `json:"last_name"`
@@ -22,23 +31,14 @@ type UserProfile struct {
 	Name string `json:"name,omitempty"`
 
 	// 
-	Url string `json:"url,omitempty"`
+	Slug string `json:"slug,omitempty"`
+
+	// 
+	SlugPerm string `json:"slug_perm,omitempty"`
 
 	// Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
 	Tagline string `json:"tagline,omitempty"`
 
 	// 
-	Company string `json:"company,omitempty"`
-
-	// 
-	JoinedAt string `json:"joined_at,omitempty"`
-
-	// 
-	SlugPerm string `json:"slug_perm,omitempty"`
-
-	// 
-	Slug string `json:"slug,omitempty"`
-
-	// 
-	JobTitle string `json:"job_title,omitempty"`
+	Url string `json:"url,omitempty"`
 }
