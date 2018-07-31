@@ -31,81 +31,56 @@ class Format(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'premium': 'bool',
         'description': 'str',
-        'distributions': 'list[FormatDistributions]',
+        'distributions': 'list[FormatsDistributions]',
+        'extensions': 'list[str]',
+        'name': 'str',
+        'premium': 'bool',
         'premium_plan_id': 'str',
         'premium_plan_name': 'str',
-        'extensions': 'list[str]',
-        'supports': 'object',
         'slug': 'str',
-        'name': 'str'
+        'supports': 'object'
     }
 
     attribute_map = {
-        'premium': 'premium',
         'description': 'description',
         'distributions': 'distributions',
+        'extensions': 'extensions',
+        'name': 'name',
+        'premium': 'premium',
         'premium_plan_id': 'premium_plan_id',
         'premium_plan_name': 'premium_plan_name',
-        'extensions': 'extensions',
-        'supports': 'supports',
         'slug': 'slug',
-        'name': 'name'
+        'supports': 'supports'
     }
 
-    def __init__(self, premium=None, description=None, distributions=None, premium_plan_id=None, premium_plan_name=None, extensions=None, supports=None, slug=None, name=None):
+    def __init__(self, description=None, distributions=None, extensions=None, name=None, premium=None, premium_plan_id=None, premium_plan_name=None, slug=None, supports=None):
         """
         Format - a model defined in Swagger
         """
 
-        self._premium = None
         self._description = None
         self._distributions = None
+        self._extensions = None
+        self._name = None
+        self._premium = None
         self._premium_plan_id = None
         self._premium_plan_name = None
-        self._extensions = None
-        self._supports = None
         self._slug = None
-        self._name = None
+        self._supports = None
 
-        self.premium = premium
         self.description = description
         if distributions is not None:
           self.distributions = distributions
+        self.extensions = extensions
+        self.name = name
+        self.premium = premium
         if premium_plan_id is not None:
           self.premium_plan_id = premium_plan_id
         if premium_plan_name is not None:
           self.premium_plan_name = premium_plan_name
-        self.extensions = extensions
-        self.supports = supports
         self.slug = slug
-        self.name = name
-
-    @property
-    def premium(self):
-        """
-        Gets the premium of this Format.
-        If true the package format is a premium-only feature
-
-        :return: The premium of this Format.
-        :rtype: bool
-        """
-        return self._premium
-
-    @premium.setter
-    def premium(self, premium):
-        """
-        Sets the premium of this Format.
-        If true the package format is a premium-only feature
-
-        :param premium: The premium of this Format.
-        :type: bool
-        """
-        if premium is None:
-            raise ValueError("Invalid value for `premium`, must not be `None`")
-
-        self._premium = premium
+        self.supports = supports
 
     @property
     def description(self):
@@ -139,7 +114,7 @@ class Format(object):
         The distributions supported by this package format
 
         :return: The distributions of this Format.
-        :rtype: list[FormatDistributions]
+        :rtype: list[FormatsDistributions]
         """
         return self._distributions
 
@@ -150,10 +125,85 @@ class Format(object):
         The distributions supported by this package format
 
         :param distributions: The distributions of this Format.
-        :type: list[FormatDistributions]
+        :type: list[FormatsDistributions]
         """
 
         self._distributions = distributions
+
+    @property
+    def extensions(self):
+        """
+        Gets the extensions of this Format.
+        A non-exhaustive list of extensions supported
+
+        :return: The extensions of this Format.
+        :rtype: list[str]
+        """
+        return self._extensions
+
+    @extensions.setter
+    def extensions(self, extensions):
+        """
+        Sets the extensions of this Format.
+        A non-exhaustive list of extensions supported
+
+        :param extensions: The extensions of this Format.
+        :type: list[str]
+        """
+        if extensions is None:
+            raise ValueError("Invalid value for `extensions`, must not be `None`")
+
+        self._extensions = extensions
+
+    @property
+    def name(self):
+        """
+        Gets the name of this Format.
+        Name for the package format
+
+        :return: The name of this Format.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this Format.
+        Name for the package format
+
+        :param name: The name of this Format.
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+
+        self._name = name
+
+    @property
+    def premium(self):
+        """
+        Gets the premium of this Format.
+        If true the package format is a premium-only feature
+
+        :return: The premium of this Format.
+        :rtype: bool
+        """
+        return self._premium
+
+    @premium.setter
+    def premium(self, premium):
+        """
+        Sets the premium of this Format.
+        If true the package format is a premium-only feature
+
+        :param premium: The premium of this Format.
+        :type: bool
+        """
+        if premium is None:
+            raise ValueError("Invalid value for `premium`, must not be `None`")
+
+        self._premium = premium
 
     @property
     def premium_plan_id(self):
@@ -202,56 +252,6 @@ class Format(object):
         self._premium_plan_name = premium_plan_name
 
     @property
-    def extensions(self):
-        """
-        Gets the extensions of this Format.
-        A non-exhaustive list of extensions supported
-
-        :return: The extensions of this Format.
-        :rtype: list[str]
-        """
-        return self._extensions
-
-    @extensions.setter
-    def extensions(self, extensions):
-        """
-        Sets the extensions of this Format.
-        A non-exhaustive list of extensions supported
-
-        :param extensions: The extensions of this Format.
-        :type: list[str]
-        """
-        if extensions is None:
-            raise ValueError("Invalid value for `extensions`, must not be `None`")
-
-        self._extensions = extensions
-
-    @property
-    def supports(self):
-        """
-        Gets the supports of this Format.
-        A set of what the package format supports
-
-        :return: The supports of this Format.
-        :rtype: object
-        """
-        return self._supports
-
-    @supports.setter
-    def supports(self, supports):
-        """
-        Sets the supports of this Format.
-        A set of what the package format supports
-
-        :param supports: The supports of this Format.
-        :type: object
-        """
-        if supports is None:
-            raise ValueError("Invalid value for `supports`, must not be `None`")
-
-        self._supports = supports
-
-    @property
     def slug(self):
         """
         Gets the slug of this Format.
@@ -277,29 +277,29 @@ class Format(object):
         self._slug = slug
 
     @property
-    def name(self):
+    def supports(self):
         """
-        Gets the name of this Format.
-        Name for the package format
+        Gets the supports of this Format.
+        A set of what the package format supports
 
-        :return: The name of this Format.
-        :rtype: str
+        :return: The supports of this Format.
+        :rtype: object
         """
-        return self._name
+        return self._supports
 
-    @name.setter
-    def name(self, name):
+    @supports.setter
+    def supports(self, supports):
         """
-        Sets the name of this Format.
-        Name for the package format
+        Sets the supports of this Format.
+        A set of what the package format supports
 
-        :param name: The name of this Format.
-        :type: str
+        :param supports: The supports of this Format.
+        :type: object
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
+        if supports is None:
+            raise ValueError("Invalid value for `supports`, must not be `None`")
 
-        self._name = name
+        self._supports = supports
 
     def to_dict(self):
         """

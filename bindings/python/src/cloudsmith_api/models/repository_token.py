@@ -31,86 +31,185 @@ class RepositoryToken(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'created_by_url': 'str',
-        'self_url': 'str',
-        'name': 'str',
-        'user_url': 'str',
-        'default': 'bool',
         'created_at': 'str',
-        'refresh_url': 'str',
-        'updated_at': 'str',
         'created_by': 'str',
+        'created_by_url': 'str',
+        'default': 'bool',
+        'has_limits': 'str',
+        'identifier': 'int',
+        'is_active': 'bool',
+        'is_limited': 'str',
+        'limit_date_range_from': 'str',
+        'limit_date_range_to': 'str',
+        'limit_num_clients': 'int',
+        'limit_num_downloads': 'int',
+        'limit_package_query': 'str',
+        'limit_path_query': 'str',
+        'metadata': 'object',
+        'name': 'str',
+        'refresh_url': 'str',
+        'self_url': 'str',
+        'slug_perm': 'str',
         'token': 'str',
+        'updated_at': 'str',
+        'updated_by': 'str',
         'updated_by_url': 'str',
         'user': 'str',
-        'slug_perm': 'str',
-        'updated_by': 'str'
+        'user_url': 'str'
     }
 
     attribute_map = {
-        'created_by_url': 'created_by_url',
-        'self_url': 'self_url',
-        'name': 'name',
-        'user_url': 'user_url',
-        'default': 'default',
         'created_at': 'created_at',
-        'refresh_url': 'refresh_url',
-        'updated_at': 'updated_at',
         'created_by': 'created_by',
+        'created_by_url': 'created_by_url',
+        'default': 'default',
+        'has_limits': 'has_limits',
+        'identifier': 'identifier',
+        'is_active': 'is_active',
+        'is_limited': 'is_limited',
+        'limit_date_range_from': 'limit_date_range_from',
+        'limit_date_range_to': 'limit_date_range_to',
+        'limit_num_clients': 'limit_num_clients',
+        'limit_num_downloads': 'limit_num_downloads',
+        'limit_package_query': 'limit_package_query',
+        'limit_path_query': 'limit_path_query',
+        'metadata': 'metadata',
+        'name': 'name',
+        'refresh_url': 'refresh_url',
+        'self_url': 'self_url',
+        'slug_perm': 'slug_perm',
         'token': 'token',
+        'updated_at': 'updated_at',
+        'updated_by': 'updated_by',
         'updated_by_url': 'updated_by_url',
         'user': 'user',
-        'slug_perm': 'slug_perm',
-        'updated_by': 'updated_by'
+        'user_url': 'user_url'
     }
 
-    def __init__(self, created_by_url=None, self_url=None, name=None, user_url=None, default=None, created_at=None, refresh_url=None, updated_at=None, created_by=None, token=None, updated_by_url=None, user=None, slug_perm=None, updated_by=None):
+    def __init__(self, created_at=None, created_by=None, created_by_url=None, default=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, user=None, user_url=None):
         """
         RepositoryToken - a model defined in Swagger
         """
 
-        self._created_by_url = None
-        self._self_url = None
-        self._name = None
-        self._user_url = None
-        self._default = None
         self._created_at = None
-        self._refresh_url = None
-        self._updated_at = None
         self._created_by = None
+        self._created_by_url = None
+        self._default = None
+        self._has_limits = None
+        self._identifier = None
+        self._is_active = None
+        self._is_limited = None
+        self._limit_date_range_from = None
+        self._limit_date_range_to = None
+        self._limit_num_clients = None
+        self._limit_num_downloads = None
+        self._limit_package_query = None
+        self._limit_path_query = None
+        self._metadata = None
+        self._name = None
+        self._refresh_url = None
+        self._self_url = None
+        self._slug_perm = None
         self._token = None
+        self._updated_at = None
+        self._updated_by = None
         self._updated_by_url = None
         self._user = None
-        self._slug_perm = None
-        self._updated_by = None
+        self._user_url = None
 
-        if created_by_url is not None:
-          self.created_by_url = created_by_url
-        if self_url is not None:
-          self.self_url = self_url
-        self.name = name
-        if user_url is not None:
-          self.user_url = user_url
-        if default is not None:
-          self.default = default
         if created_at is not None:
           self.created_at = created_at
-        if refresh_url is not None:
-          self.refresh_url = refresh_url
-        if updated_at is not None:
-          self.updated_at = updated_at
         if created_by is not None:
           self.created_by = created_by
+        if created_by_url is not None:
+          self.created_by_url = created_by_url
+        if default is not None:
+          self.default = default
+        if has_limits is not None:
+          self.has_limits = has_limits
+        self.identifier = identifier
+        if is_active is not None:
+          self.is_active = is_active
+        if is_limited is not None:
+          self.is_limited = is_limited
+        if limit_date_range_from is not None:
+          self.limit_date_range_from = limit_date_range_from
+        if limit_date_range_to is not None:
+          self.limit_date_range_to = limit_date_range_to
+        if limit_num_clients is not None:
+          self.limit_num_clients = limit_num_clients
+        if limit_num_downloads is not None:
+          self.limit_num_downloads = limit_num_downloads
+        if limit_package_query is not None:
+          self.limit_package_query = limit_package_query
+        if limit_path_query is not None:
+          self.limit_path_query = limit_path_query
+        self.metadata = metadata
+        self.name = name
+        if refresh_url is not None:
+          self.refresh_url = refresh_url
+        if self_url is not None:
+          self.self_url = self_url
+        if slug_perm is not None:
+          self.slug_perm = slug_perm
         if token is not None:
           self.token = token
+        if updated_at is not None:
+          self.updated_at = updated_at
+        if updated_by is not None:
+          self.updated_by = updated_by
         if updated_by_url is not None:
           self.updated_by_url = updated_by_url
         if user is not None:
           self.user = user
-        if slug_perm is not None:
-          self.slug_perm = slug_perm
-        if updated_by is not None:
-          self.updated_by = updated_by
+        if user_url is not None:
+          self.user_url = user_url
+
+    @property
+    def created_at(self):
+        """
+        Gets the created_at of this RepositoryToken.
+        
+
+        :return: The created_at of this RepositoryToken.
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """
+        Sets the created_at of this RepositoryToken.
+        
+
+        :param created_at: The created_at of this RepositoryToken.
+        :type: str
+        """
+
+        self._created_at = created_at
+
+    @property
+    def created_by(self):
+        """
+        Gets the created_by of this RepositoryToken.
+        
+
+        :return: The created_by of this RepositoryToken.
+        :rtype: str
+        """
+        return self._created_by
+
+    @created_by.setter
+    def created_by(self, created_by):
+        """
+        Sets the created_by of this RepositoryToken.
+        
+
+        :param created_by: The created_by of this RepositoryToken.
+        :type: str
+        """
+
+        self._created_by = created_by
 
     @property
     def created_by_url(self):
@@ -136,27 +235,284 @@ class RepositoryToken(object):
         self._created_by_url = created_by_url
 
     @property
-    def self_url(self):
+    def default(self):
         """
-        Gets the self_url of this RepositoryToken.
+        Gets the default of this RepositoryToken.
+        If selected this is the default token for this repository.
+
+        :return: The default of this RepositoryToken.
+        :rtype: bool
+        """
+        return self._default
+
+    @default.setter
+    def default(self, default):
+        """
+        Sets the default of this RepositoryToken.
+        If selected this is the default token for this repository.
+
+        :param default: The default of this RepositoryToken.
+        :type: bool
+        """
+
+        self._default = default
+
+    @property
+    def has_limits(self):
+        """
+        Gets the has_limits of this RepositoryToken.
         
 
-        :return: The self_url of this RepositoryToken.
+        :return: The has_limits of this RepositoryToken.
         :rtype: str
         """
-        return self._self_url
+        return self._has_limits
 
-    @self_url.setter
-    def self_url(self, self_url):
+    @has_limits.setter
+    def has_limits(self, has_limits):
         """
-        Sets the self_url of this RepositoryToken.
+        Sets the has_limits of this RepositoryToken.
         
 
-        :param self_url: The self_url of this RepositoryToken.
+        :param has_limits: The has_limits of this RepositoryToken.
         :type: str
         """
 
-        self._self_url = self_url
+        self._has_limits = has_limits
+
+    @property
+    def identifier(self):
+        """
+        Gets the identifier of this RepositoryToken.
+        
+
+        :return: The identifier of this RepositoryToken.
+        :rtype: int
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """
+        Sets the identifier of this RepositoryToken.
+        
+
+        :param identifier: The identifier of this RepositoryToken.
+        :type: int
+        """
+        if identifier is None:
+            raise ValueError("Invalid value for `identifier`, must not be `None`")
+
+        self._identifier = identifier
+
+    @property
+    def is_active(self):
+        """
+        Gets the is_active of this RepositoryToken.
+        If enabled, the token will allow downloads based on configured restrictions (if any).
+
+        :return: The is_active of this RepositoryToken.
+        :rtype: bool
+        """
+        return self._is_active
+
+    @is_active.setter
+    def is_active(self, is_active):
+        """
+        Sets the is_active of this RepositoryToken.
+        If enabled, the token will allow downloads based on configured restrictions (if any).
+
+        :param is_active: The is_active of this RepositoryToken.
+        :type: bool
+        """
+
+        self._is_active = is_active
+
+    @property
+    def is_limited(self):
+        """
+        Gets the is_limited of this RepositoryToken.
+        
+
+        :return: The is_limited of this RepositoryToken.
+        :rtype: str
+        """
+        return self._is_limited
+
+    @is_limited.setter
+    def is_limited(self, is_limited):
+        """
+        Sets the is_limited of this RepositoryToken.
+        
+
+        :param is_limited: The is_limited of this RepositoryToken.
+        :type: str
+        """
+
+        self._is_limited = is_limited
+
+    @property
+    def limit_date_range_from(self):
+        """
+        Gets the limit_date_range_from of this RepositoryToken.
+        The starting date/time the token is allowed to be used from.
+
+        :return: The limit_date_range_from of this RepositoryToken.
+        :rtype: str
+        """
+        return self._limit_date_range_from
+
+    @limit_date_range_from.setter
+    def limit_date_range_from(self, limit_date_range_from):
+        """
+        Sets the limit_date_range_from of this RepositoryToken.
+        The starting date/time the token is allowed to be used from.
+
+        :param limit_date_range_from: The limit_date_range_from of this RepositoryToken.
+        :type: str
+        """
+
+        self._limit_date_range_from = limit_date_range_from
+
+    @property
+    def limit_date_range_to(self):
+        """
+        Gets the limit_date_range_to of this RepositoryToken.
+        The ending date/time the token is allowed to be used until.
+
+        :return: The limit_date_range_to of this RepositoryToken.
+        :rtype: str
+        """
+        return self._limit_date_range_to
+
+    @limit_date_range_to.setter
+    def limit_date_range_to(self, limit_date_range_to):
+        """
+        Sets the limit_date_range_to of this RepositoryToken.
+        The ending date/time the token is allowed to be used until.
+
+        :param limit_date_range_to: The limit_date_range_to of this RepositoryToken.
+        :type: str
+        """
+
+        self._limit_date_range_to = limit_date_range_to
+
+    @property
+    def limit_num_clients(self):
+        """
+        Gets the limit_num_clients of this RepositoryToken.
+        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+
+        :return: The limit_num_clients of this RepositoryToken.
+        :rtype: int
+        """
+        return self._limit_num_clients
+
+    @limit_num_clients.setter
+    def limit_num_clients(self, limit_num_clients):
+        """
+        Sets the limit_num_clients of this RepositoryToken.
+        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+
+        :param limit_num_clients: The limit_num_clients of this RepositoryToken.
+        :type: int
+        """
+
+        self._limit_num_clients = limit_num_clients
+
+    @property
+    def limit_num_downloads(self):
+        """
+        Gets the limit_num_downloads of this RepositoryToken.
+        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+
+        :return: The limit_num_downloads of this RepositoryToken.
+        :rtype: int
+        """
+        return self._limit_num_downloads
+
+    @limit_num_downloads.setter
+    def limit_num_downloads(self, limit_num_downloads):
+        """
+        Sets the limit_num_downloads of this RepositoryToken.
+        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+
+        :param limit_num_downloads: The limit_num_downloads of this RepositoryToken.
+        :type: int
+        """
+
+        self._limit_num_downloads = limit_num_downloads
+
+    @property
+    def limit_package_query(self):
+        """
+        Gets the limit_package_query of this RepositoryToken.
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+
+        :return: The limit_package_query of this RepositoryToken.
+        :rtype: str
+        """
+        return self._limit_package_query
+
+    @limit_package_query.setter
+    def limit_package_query(self, limit_package_query):
+        """
+        Sets the limit_package_query of this RepositoryToken.
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+
+        :param limit_package_query: The limit_package_query of this RepositoryToken.
+        :type: str
+        """
+
+        self._limit_package_query = limit_package_query
+
+    @property
+    def limit_path_query(self):
+        """
+        Gets the limit_path_query of this RepositoryToken.
+        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
+
+        :return: The limit_path_query of this RepositoryToken.
+        :rtype: str
+        """
+        return self._limit_path_query
+
+    @limit_path_query.setter
+    def limit_path_query(self, limit_path_query):
+        """
+        Sets the limit_path_query of this RepositoryToken.
+        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
+
+        :param limit_path_query: The limit_path_query of this RepositoryToken.
+        :type: str
+        """
+
+        self._limit_path_query = limit_path_query
+
+    @property
+    def metadata(self):
+        """
+        Gets the metadata of this RepositoryToken.
+        
+
+        :return: The metadata of this RepositoryToken.
+        :rtype: object
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """
+        Sets the metadata of this RepositoryToken.
+        
+
+        :param metadata: The metadata of this RepositoryToken.
+        :type: object
+        """
+        if metadata is None:
+            raise ValueError("Invalid value for `metadata`, must not be `None`")
+
+        self._metadata = metadata
 
     @property
     def name(self):
@@ -184,75 +540,6 @@ class RepositoryToken(object):
         self._name = name
 
     @property
-    def user_url(self):
-        """
-        Gets the user_url of this RepositoryToken.
-        
-
-        :return: The user_url of this RepositoryToken.
-        :rtype: str
-        """
-        return self._user_url
-
-    @user_url.setter
-    def user_url(self, user_url):
-        """
-        Sets the user_url of this RepositoryToken.
-        
-
-        :param user_url: The user_url of this RepositoryToken.
-        :type: str
-        """
-
-        self._user_url = user_url
-
-    @property
-    def default(self):
-        """
-        Gets the default of this RepositoryToken.
-        If selected this is the default token for this repository.
-
-        :return: The default of this RepositoryToken.
-        :rtype: bool
-        """
-        return self._default
-
-    @default.setter
-    def default(self, default):
-        """
-        Sets the default of this RepositoryToken.
-        If selected this is the default token for this repository.
-
-        :param default: The default of this RepositoryToken.
-        :type: bool
-        """
-
-        self._default = default
-
-    @property
-    def created_at(self):
-        """
-        Gets the created_at of this RepositoryToken.
-        
-
-        :return: The created_at of this RepositoryToken.
-        :rtype: str
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """
-        Sets the created_at of this RepositoryToken.
-        
-
-        :param created_at: The created_at of this RepositoryToken.
-        :type: str
-        """
-
-        self._created_at = created_at
-
-    @property
     def refresh_url(self):
         """
         Gets the refresh_url of this RepositoryToken.
@@ -274,6 +561,75 @@ class RepositoryToken(object):
         """
 
         self._refresh_url = refresh_url
+
+    @property
+    def self_url(self):
+        """
+        Gets the self_url of this RepositoryToken.
+        
+
+        :return: The self_url of this RepositoryToken.
+        :rtype: str
+        """
+        return self._self_url
+
+    @self_url.setter
+    def self_url(self, self_url):
+        """
+        Sets the self_url of this RepositoryToken.
+        
+
+        :param self_url: The self_url of this RepositoryToken.
+        :type: str
+        """
+
+        self._self_url = self_url
+
+    @property
+    def slug_perm(self):
+        """
+        Gets the slug_perm of this RepositoryToken.
+        
+
+        :return: The slug_perm of this RepositoryToken.
+        :rtype: str
+        """
+        return self._slug_perm
+
+    @slug_perm.setter
+    def slug_perm(self, slug_perm):
+        """
+        Sets the slug_perm of this RepositoryToken.
+        
+
+        :param slug_perm: The slug_perm of this RepositoryToken.
+        :type: str
+        """
+
+        self._slug_perm = slug_perm
+
+    @property
+    def token(self):
+        """
+        Gets the token of this RepositoryToken.
+        
+
+        :return: The token of this RepositoryToken.
+        :rtype: str
+        """
+        return self._token
+
+    @token.setter
+    def token(self, token):
+        """
+        Sets the token of this RepositoryToken.
+        
+
+        :param token: The token of this RepositoryToken.
+        :type: str
+        """
+
+        self._token = token
 
     @property
     def updated_at(self):
@@ -299,50 +655,27 @@ class RepositoryToken(object):
         self._updated_at = updated_at
 
     @property
-    def created_by(self):
+    def updated_by(self):
         """
-        Gets the created_by of this RepositoryToken.
+        Gets the updated_by of this RepositoryToken.
         
 
-        :return: The created_by of this RepositoryToken.
+        :return: The updated_by of this RepositoryToken.
         :rtype: str
         """
-        return self._created_by
+        return self._updated_by
 
-    @created_by.setter
-    def created_by(self, created_by):
+    @updated_by.setter
+    def updated_by(self, updated_by):
         """
-        Sets the created_by of this RepositoryToken.
+        Sets the updated_by of this RepositoryToken.
         
 
-        :param created_by: The created_by of this RepositoryToken.
+        :param updated_by: The updated_by of this RepositoryToken.
         :type: str
         """
 
-        self._created_by = created_by
-
-    @property
-    def token(self):
-        """
-        Gets the token of this RepositoryToken.
-        
-
-        :return: The token of this RepositoryToken.
-        :rtype: str
-        """
-        return self._token
-
-    @token.setter
-    def token(self, token):
-        """
-        Sets the token of this RepositoryToken.
-        
-
-        :param token: The token of this RepositoryToken.
-        :type: str
-        """
-
-        self._token = token
+        self._updated_by = updated_by
 
     @property
     def updated_by_url(self):
@@ -391,50 +724,27 @@ class RepositoryToken(object):
         self._user = user
 
     @property
-    def slug_perm(self):
+    def user_url(self):
         """
-        Gets the slug_perm of this RepositoryToken.
+        Gets the user_url of this RepositoryToken.
         
 
-        :return: The slug_perm of this RepositoryToken.
+        :return: The user_url of this RepositoryToken.
         :rtype: str
         """
-        return self._slug_perm
+        return self._user_url
 
-    @slug_perm.setter
-    def slug_perm(self, slug_perm):
+    @user_url.setter
+    def user_url(self, user_url):
         """
-        Sets the slug_perm of this RepositoryToken.
+        Sets the user_url of this RepositoryToken.
         
 
-        :param slug_perm: The slug_perm of this RepositoryToken.
+        :param user_url: The user_url of this RepositoryToken.
         :type: str
         """
 
-        self._slug_perm = slug_perm
-
-    @property
-    def updated_by(self):
-        """
-        Gets the updated_by of this RepositoryToken.
-        
-
-        :return: The updated_by of this RepositoryToken.
-        :rtype: str
-        """
-        return self._updated_by
-
-    @updated_by.setter
-    def updated_by(self, updated_by):
-        """
-        Sets the updated_by of this RepositoryToken.
-        
-
-        :param updated_by: The updated_by of this RepositoryToken.
-        :type: str
-        """
-
-        self._updated_by = updated_by
+        self._user_url = user_url
 
     def to_dict(self):
         """

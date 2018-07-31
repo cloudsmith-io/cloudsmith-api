@@ -40,7 +40,106 @@ class ReposApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def repos_list(self, owner, **kwargs):
+    def repos_list(self, **kwargs):
+        """
+        Get a list of all repositories associated with current user.
+        Get a list of all repositories associated with current user.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.repos_list(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[Repository]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.repos_list_with_http_info(**kwargs)
+        else:
+            (data) = self.repos_list_with_http_info(**kwargs)
+            return data
+
+    def repos_list_with_http_info(self, **kwargs):
+        """
+        Get a list of all repositories associated with current user.
+        Get a list of all repositories associated with current user.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.repos_list_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[Repository]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['page', 'page_size']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/repos/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='list[Repository]',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def repos_list0(self, owner, **kwargs):
         """
         Get a list of all repositories within a namespace.
         Get a list of all repositories within a namespace.
@@ -50,7 +149,7 @@ class ReposApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.repos_list(owner, callback=callback_function)
+        >>> thread = api.repos_list0(owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -63,12 +162,12 @@ class ReposApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.repos_list_with_http_info(owner, **kwargs)
+            return self.repos_list0_with_http_info(owner, **kwargs)
         else:
-            (data) = self.repos_list_with_http_info(owner, **kwargs)
+            (data) = self.repos_list0_with_http_info(owner, **kwargs)
             return data
 
-    def repos_list_with_http_info(self, owner, **kwargs):
+    def repos_list0_with_http_info(self, owner, **kwargs):
         """
         Get a list of all repositories within a namespace.
         Get a list of all repositories within a namespace.
@@ -78,7 +177,7 @@ class ReposApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.repos_list_with_http_info(owner, callback=callback_function)
+        >>> thread = api.repos_list0_with_http_info(owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -101,13 +200,13 @@ class ReposApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method repos_list" % key
+                    " to method repos_list0" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `repos_list`")
+            raise ValueError("Missing the required parameter `owner` when calling `repos_list0`")
 
 
         collection_formats = {}

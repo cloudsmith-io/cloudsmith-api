@@ -31,866 +31,317 @@ class VagrantPackageUpload(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'files': 'list[RpmPackageUploadFiles]',
-        'stage_updated_at': 'str',
-        'is_sync_failed': 'bool',
-        'distro_version': 'object',
-        'checksum_sha256': 'str',
-        'repository_url': 'str',
-        'is_sync_in_progress': 'bool',
-        'size': 'int',
-        'status_str': 'str',
-        'is_sync_awaiting': 'bool',
-        'repository': 'str',
-        'subtype': 'str',
-        'status_url': 'str',
-        'status_updated_at': 'str',
-        'namespace': 'str',
-        'sync_finished_at': 'str',
-        'filename': 'str',
-        'sync_progress': 'int',
-        'epoch': 'int',
-        'version': 'str',
-        'is_sync_in_flight': 'bool',
-        'namespace_url': 'str',
-        'slug_perm': 'str',
-        'indexed': 'bool',
-        'uploader_url': 'str',
+        'architectures': 'list[PackagesownerrepoArchitectures]',
         'cdn_url': 'str',
+        'checksum_md5': 'str',
         'checksum_sha1': 'str',
-        'distro': 'object',
-        'status': 'str',
+        'checksum_sha256': 'str',
         'checksum_sha512': 'str',
         'description': 'str',
-        'name': 'str',
-        'format': 'str',
-        'is_sync_completed': 'bool',
-        'downloads': 'str',
-        'provider': 'str',
-        'version_orig': 'str',
-        'architectures': 'list[RpmPackageUploadArchitectures]',
-        'uploader': 'str',
-        'status_reason': 'str',
-        'self_html_url': 'str',
-        'stage': 'str',
-        'self_url': 'str',
-        'slug': 'str',
-        'uploaded_at': 'str',
-        'license': 'str',
+        'distro': 'object',
+        'distro_version': 'object',
+        'downloads': 'int',
+        'epoch': 'int',
         'extension': 'str',
-        'stage_str': 'str',
-        'package_type': 'str',
-        'summary': 'str',
+        'filename': 'str',
+        'files': 'list[PackagesownerrepoFiles]',
+        'format': 'str',
+        'format_url': 'str',
+        'identifier': 'int',
+        'indexed': 'bool',
+        'is_sync_awaiting': 'bool',
+        'is_sync_completed': 'bool',
+        'is_sync_failed': 'bool',
+        'is_sync_in_flight': 'bool',
+        'is_sync_in_progress': 'bool',
+        'license': 'str',
+        'name': 'str',
+        'namespace': 'str',
+        'namespace_url': 'str',
         'num_files': 'int',
-        'checksum_md5': 'str',
+        'package_type': 'str',
+        'provider': 'str',
         'release': 'str',
+        'repository': 'str',
+        'repository_url': 'str',
+        'self_html_url': 'str',
+        'self_url': 'str',
+        'size': 'int',
+        'slug': 'str',
+        'slug_perm': 'str',
+        'stage': 'str',
+        'stage_str': 'str',
+        'stage_updated_at': 'str',
+        'status': 'str',
+        'status_reason': 'str',
+        'status_str': 'str',
+        'status_updated_at': 'str',
+        'status_url': 'str',
+        'subtype': 'str',
+        'summary': 'str',
+        'sync_finished_at': 'str',
+        'sync_progress': 'int',
         'type_display': 'str',
-        'format_url': 'str'
+        'uploaded_at': 'str',
+        'uploader': 'str',
+        'uploader_url': 'str',
+        'version': 'str',
+        'version_orig': 'str'
     }
 
     attribute_map = {
-        'files': 'files',
-        'stage_updated_at': 'stage_updated_at',
-        'is_sync_failed': 'is_sync_failed',
-        'distro_version': 'distro_version',
-        'checksum_sha256': 'checksum_sha256',
-        'repository_url': 'repository_url',
-        'is_sync_in_progress': 'is_sync_in_progress',
-        'size': 'size',
-        'status_str': 'status_str',
-        'is_sync_awaiting': 'is_sync_awaiting',
-        'repository': 'repository',
-        'subtype': 'subtype',
-        'status_url': 'status_url',
-        'status_updated_at': 'status_updated_at',
-        'namespace': 'namespace',
-        'sync_finished_at': 'sync_finished_at',
-        'filename': 'filename',
-        'sync_progress': 'sync_progress',
-        'epoch': 'epoch',
-        'version': 'version',
-        'is_sync_in_flight': 'is_sync_in_flight',
-        'namespace_url': 'namespace_url',
-        'slug_perm': 'slug_perm',
-        'indexed': 'indexed',
-        'uploader_url': 'uploader_url',
+        'architectures': 'architectures',
         'cdn_url': 'cdn_url',
+        'checksum_md5': 'checksum_md5',
         'checksum_sha1': 'checksum_sha1',
-        'distro': 'distro',
-        'status': 'status',
+        'checksum_sha256': 'checksum_sha256',
         'checksum_sha512': 'checksum_sha512',
         'description': 'description',
-        'name': 'name',
-        'format': 'format',
-        'is_sync_completed': 'is_sync_completed',
+        'distro': 'distro',
+        'distro_version': 'distro_version',
         'downloads': 'downloads',
-        'provider': 'provider',
-        'version_orig': 'version_orig',
-        'architectures': 'architectures',
-        'uploader': 'uploader',
-        'status_reason': 'status_reason',
-        'self_html_url': 'self_html_url',
-        'stage': 'stage',
-        'self_url': 'self_url',
-        'slug': 'slug',
-        'uploaded_at': 'uploaded_at',
-        'license': 'license',
+        'epoch': 'epoch',
         'extension': 'extension',
-        'stage_str': 'stage_str',
-        'package_type': 'package_type',
-        'summary': 'summary',
+        'filename': 'filename',
+        'files': 'files',
+        'format': 'format',
+        'format_url': 'format_url',
+        'identifier': 'identifier',
+        'indexed': 'indexed',
+        'is_sync_awaiting': 'is_sync_awaiting',
+        'is_sync_completed': 'is_sync_completed',
+        'is_sync_failed': 'is_sync_failed',
+        'is_sync_in_flight': 'is_sync_in_flight',
+        'is_sync_in_progress': 'is_sync_in_progress',
+        'license': 'license',
+        'name': 'name',
+        'namespace': 'namespace',
+        'namespace_url': 'namespace_url',
         'num_files': 'num_files',
-        'checksum_md5': 'checksum_md5',
+        'package_type': 'package_type',
+        'provider': 'provider',
         'release': 'release',
+        'repository': 'repository',
+        'repository_url': 'repository_url',
+        'self_html_url': 'self_html_url',
+        'self_url': 'self_url',
+        'size': 'size',
+        'slug': 'slug',
+        'slug_perm': 'slug_perm',
+        'stage': 'stage',
+        'stage_str': 'stage_str',
+        'stage_updated_at': 'stage_updated_at',
+        'status': 'status',
+        'status_reason': 'status_reason',
+        'status_str': 'status_str',
+        'status_updated_at': 'status_updated_at',
+        'status_url': 'status_url',
+        'subtype': 'subtype',
+        'summary': 'summary',
+        'sync_finished_at': 'sync_finished_at',
+        'sync_progress': 'sync_progress',
         'type_display': 'type_display',
-        'format_url': 'format_url'
+        'uploaded_at': 'uploaded_at',
+        'uploader': 'uploader',
+        'uploader_url': 'uploader_url',
+        'version': 'version',
+        'version_orig': 'version_orig'
     }
 
-    def __init__(self, files=None, stage_updated_at=None, is_sync_failed=None, distro_version=None, checksum_sha256=None, repository_url=None, is_sync_in_progress=None, size=None, status_str=None, is_sync_awaiting=None, repository=None, subtype=None, status_url=None, status_updated_at=None, namespace=None, sync_finished_at=None, filename=None, sync_progress=None, epoch=None, version=None, is_sync_in_flight=None, namespace_url=None, slug_perm=None, indexed=None, uploader_url=None, cdn_url=None, checksum_sha1=None, distro=None, status=None, checksum_sha512=None, description=None, name=None, format=None, is_sync_completed=None, downloads=None, provider=None, version_orig=None, architectures=None, uploader=None, status_reason=None, self_html_url=None, stage=None, self_url=None, slug=None, uploaded_at=None, license=None, extension=None, stage_str=None, package_type=None, summary=None, num_files=None, checksum_md5=None, release=None, type_display=None, format_url=None):
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, provider=None, release=None, repository=None, repository_url=None, self_html_url=None, self_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None):
         """
         VagrantPackageUpload - a model defined in Swagger
         """
 
-        self._files = None
-        self._stage_updated_at = None
-        self._is_sync_failed = None
-        self._distro_version = None
-        self._checksum_sha256 = None
-        self._repository_url = None
-        self._is_sync_in_progress = None
-        self._size = None
-        self._status_str = None
-        self._is_sync_awaiting = None
-        self._repository = None
-        self._subtype = None
-        self._status_url = None
-        self._status_updated_at = None
-        self._namespace = None
-        self._sync_finished_at = None
-        self._filename = None
-        self._sync_progress = None
-        self._epoch = None
-        self._version = None
-        self._is_sync_in_flight = None
-        self._namespace_url = None
-        self._slug_perm = None
-        self._indexed = None
-        self._uploader_url = None
+        self._architectures = None
         self._cdn_url = None
+        self._checksum_md5 = None
         self._checksum_sha1 = None
-        self._distro = None
-        self._status = None
+        self._checksum_sha256 = None
         self._checksum_sha512 = None
         self._description = None
-        self._name = None
-        self._format = None
-        self._is_sync_completed = None
+        self._distro = None
+        self._distro_version = None
         self._downloads = None
-        self._provider = None
-        self._version_orig = None
-        self._architectures = None
-        self._uploader = None
-        self._status_reason = None
-        self._self_html_url = None
-        self._stage = None
-        self._self_url = None
-        self._slug = None
-        self._uploaded_at = None
-        self._license = None
+        self._epoch = None
         self._extension = None
-        self._stage_str = None
-        self._package_type = None
-        self._summary = None
-        self._num_files = None
-        self._checksum_md5 = None
-        self._release = None
-        self._type_display = None
+        self._filename = None
+        self._files = None
+        self._format = None
         self._format_url = None
+        self._identifier = None
+        self._indexed = None
+        self._is_sync_awaiting = None
+        self._is_sync_completed = None
+        self._is_sync_failed = None
+        self._is_sync_in_flight = None
+        self._is_sync_in_progress = None
+        self._license = None
+        self._name = None
+        self._namespace = None
+        self._namespace_url = None
+        self._num_files = None
+        self._package_type = None
+        self._provider = None
+        self._release = None
+        self._repository = None
+        self._repository_url = None
+        self._self_html_url = None
+        self._self_url = None
+        self._size = None
+        self._slug = None
+        self._slug_perm = None
+        self._stage = None
+        self._stage_str = None
+        self._stage_updated_at = None
+        self._status = None
+        self._status_reason = None
+        self._status_str = None
+        self._status_updated_at = None
+        self._status_url = None
+        self._subtype = None
+        self._summary = None
+        self._sync_finished_at = None
+        self._sync_progress = None
+        self._type_display = None
+        self._uploaded_at = None
+        self._uploader = None
+        self._uploader_url = None
+        self._version = None
+        self._version_orig = None
 
-        if files is not None:
-          self.files = files
-        if stage_updated_at is not None:
-          self.stage_updated_at = stage_updated_at
-        if is_sync_failed is not None:
-          self.is_sync_failed = is_sync_failed
-        if distro_version is not None:
-          self.distro_version = distro_version
-        if checksum_sha256 is not None:
-          self.checksum_sha256 = checksum_sha256
-        if repository_url is not None:
-          self.repository_url = repository_url
-        if is_sync_in_progress is not None:
-          self.is_sync_in_progress = is_sync_in_progress
-        if size is not None:
-          self.size = size
-        if status_str is not None:
-          self.status_str = status_str
-        if is_sync_awaiting is not None:
-          self.is_sync_awaiting = is_sync_awaiting
-        if repository is not None:
-          self.repository = repository
-        if subtype is not None:
-          self.subtype = subtype
-        if status_url is not None:
-          self.status_url = status_url
-        if status_updated_at is not None:
-          self.status_updated_at = status_updated_at
-        if namespace is not None:
-          self.namespace = namespace
-        if sync_finished_at is not None:
-          self.sync_finished_at = sync_finished_at
-        if filename is not None:
-          self.filename = filename
-        if sync_progress is not None:
-          self.sync_progress = sync_progress
-        if epoch is not None:
-          self.epoch = epoch
-        self.version = version
-        if is_sync_in_flight is not None:
-          self.is_sync_in_flight = is_sync_in_flight
-        if namespace_url is not None:
-          self.namespace_url = namespace_url
-        if slug_perm is not None:
-          self.slug_perm = slug_perm
-        if indexed is not None:
-          self.indexed = indexed
-        if uploader_url is not None:
-          self.uploader_url = uploader_url
+        if architectures is not None:
+          self.architectures = architectures
         if cdn_url is not None:
           self.cdn_url = cdn_url
+        if checksum_md5 is not None:
+          self.checksum_md5 = checksum_md5
         if checksum_sha1 is not None:
           self.checksum_sha1 = checksum_sha1
-        if distro is not None:
-          self.distro = distro
-        if status is not None:
-          self.status = status
+        if checksum_sha256 is not None:
+          self.checksum_sha256 = checksum_sha256
         if checksum_sha512 is not None:
           self.checksum_sha512 = checksum_sha512
         if description is not None:
           self.description = description
-        self.name = name
-        if format is not None:
-          self.format = format
-        if is_sync_completed is not None:
-          self.is_sync_completed = is_sync_completed
+        if distro is not None:
+          self.distro = distro
+        if distro_version is not None:
+          self.distro_version = distro_version
         if downloads is not None:
           self.downloads = downloads
-        self.provider = provider
-        if version_orig is not None:
-          self.version_orig = version_orig
-        if architectures is not None:
-          self.architectures = architectures
-        if uploader is not None:
-          self.uploader = uploader
-        if status_reason is not None:
-          self.status_reason = status_reason
-        if self_html_url is not None:
-          self.self_html_url = self_html_url
-        if stage is not None:
-          self.stage = stage
-        if self_url is not None:
-          self.self_url = self_url
-        if slug is not None:
-          self.slug = slug
-        if uploaded_at is not None:
-          self.uploaded_at = uploaded_at
-        if license is not None:
-          self.license = license
+        if epoch is not None:
+          self.epoch = epoch
         if extension is not None:
           self.extension = extension
-        if stage_str is not None:
-          self.stage_str = stage_str
-        if package_type is not None:
-          self.package_type = package_type
-        if summary is not None:
-          self.summary = summary
-        if num_files is not None:
-          self.num_files = num_files
-        if checksum_md5 is not None:
-          self.checksum_md5 = checksum_md5
-        if release is not None:
-          self.release = release
-        if type_display is not None:
-          self.type_display = type_display
+        if filename is not None:
+          self.filename = filename
+        if files is not None:
+          self.files = files
+        if format is not None:
+          self.format = format
         if format_url is not None:
           self.format_url = format_url
+        if identifier is not None:
+          self.identifier = identifier
+        if indexed is not None:
+          self.indexed = indexed
+        if is_sync_awaiting is not None:
+          self.is_sync_awaiting = is_sync_awaiting
+        if is_sync_completed is not None:
+          self.is_sync_completed = is_sync_completed
+        if is_sync_failed is not None:
+          self.is_sync_failed = is_sync_failed
+        if is_sync_in_flight is not None:
+          self.is_sync_in_flight = is_sync_in_flight
+        if is_sync_in_progress is not None:
+          self.is_sync_in_progress = is_sync_in_progress
+        if license is not None:
+          self.license = license
+        self.name = name
+        if namespace is not None:
+          self.namespace = namespace
+        if namespace_url is not None:
+          self.namespace_url = namespace_url
+        if num_files is not None:
+          self.num_files = num_files
+        if package_type is not None:
+          self.package_type = package_type
+        self.provider = provider
+        if release is not None:
+          self.release = release
+        if repository is not None:
+          self.repository = repository
+        if repository_url is not None:
+          self.repository_url = repository_url
+        if self_html_url is not None:
+          self.self_html_url = self_html_url
+        if self_url is not None:
+          self.self_url = self_url
+        if size is not None:
+          self.size = size
+        if slug is not None:
+          self.slug = slug
+        if slug_perm is not None:
+          self.slug_perm = slug_perm
+        if stage is not None:
+          self.stage = stage
+        if stage_str is not None:
+          self.stage_str = stage_str
+        if stage_updated_at is not None:
+          self.stage_updated_at = stage_updated_at
+        if status is not None:
+          self.status = status
+        if status_reason is not None:
+          self.status_reason = status_reason
+        if status_str is not None:
+          self.status_str = status_str
+        if status_updated_at is not None:
+          self.status_updated_at = status_updated_at
+        if status_url is not None:
+          self.status_url = status_url
+        if subtype is not None:
+          self.subtype = subtype
+        if summary is not None:
+          self.summary = summary
+        if sync_finished_at is not None:
+          self.sync_finished_at = sync_finished_at
+        if sync_progress is not None:
+          self.sync_progress = sync_progress
+        if type_display is not None:
+          self.type_display = type_display
+        if uploaded_at is not None:
+          self.uploaded_at = uploaded_at
+        if uploader is not None:
+          self.uploader = uploader
+        if uploader_url is not None:
+          self.uploader_url = uploader_url
+        self.version = version
+        if version_orig is not None:
+          self.version_orig = version_orig
 
     @property
-    def files(self):
+    def architectures(self):
         """
-        Gets the files of this VagrantPackageUpload.
+        Gets the architectures of this VagrantPackageUpload.
         
 
-        :return: The files of this VagrantPackageUpload.
-        :rtype: list[RpmPackageUploadFiles]
+        :return: The architectures of this VagrantPackageUpload.
+        :rtype: list[PackagesownerrepoArchitectures]
         """
-        return self._files
+        return self._architectures
 
-    @files.setter
-    def files(self, files):
+    @architectures.setter
+    def architectures(self, architectures):
         """
-        Sets the files of this VagrantPackageUpload.
+        Sets the architectures of this VagrantPackageUpload.
         
 
-        :param files: The files of this VagrantPackageUpload.
-        :type: list[RpmPackageUploadFiles]
+        :param architectures: The architectures of this VagrantPackageUpload.
+        :type: list[PackagesownerrepoArchitectures]
         """
 
-        self._files = files
-
-    @property
-    def stage_updated_at(self):
-        """
-        Gets the stage_updated_at of this VagrantPackageUpload.
-        The datetime the package stage was updated at.
-
-        :return: The stage_updated_at of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._stage_updated_at
-
-    @stage_updated_at.setter
-    def stage_updated_at(self, stage_updated_at):
-        """
-        Sets the stage_updated_at of this VagrantPackageUpload.
-        The datetime the package stage was updated at.
-
-        :param stage_updated_at: The stage_updated_at of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._stage_updated_at = stage_updated_at
-
-    @property
-    def is_sync_failed(self):
-        """
-        Gets the is_sync_failed of this VagrantPackageUpload.
-        
-
-        :return: The is_sync_failed of this VagrantPackageUpload.
-        :rtype: bool
-        """
-        return self._is_sync_failed
-
-    @is_sync_failed.setter
-    def is_sync_failed(self, is_sync_failed):
-        """
-        Sets the is_sync_failed of this VagrantPackageUpload.
-        
-
-        :param is_sync_failed: The is_sync_failed of this VagrantPackageUpload.
-        :type: bool
-        """
-
-        self._is_sync_failed = is_sync_failed
-
-    @property
-    def distro_version(self):
-        """
-        Gets the distro_version of this VagrantPackageUpload.
-        
-
-        :return: The distro_version of this VagrantPackageUpload.
-        :rtype: object
-        """
-        return self._distro_version
-
-    @distro_version.setter
-    def distro_version(self, distro_version):
-        """
-        Sets the distro_version of this VagrantPackageUpload.
-        
-
-        :param distro_version: The distro_version of this VagrantPackageUpload.
-        :type: object
-        """
-
-        self._distro_version = distro_version
-
-    @property
-    def checksum_sha256(self):
-        """
-        Gets the checksum_sha256 of this VagrantPackageUpload.
-        
-
-        :return: The checksum_sha256 of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._checksum_sha256
-
-    @checksum_sha256.setter
-    def checksum_sha256(self, checksum_sha256):
-        """
-        Sets the checksum_sha256 of this VagrantPackageUpload.
-        
-
-        :param checksum_sha256: The checksum_sha256 of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._checksum_sha256 = checksum_sha256
-
-    @property
-    def repository_url(self):
-        """
-        Gets the repository_url of this VagrantPackageUpload.
-        
-
-        :return: The repository_url of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._repository_url
-
-    @repository_url.setter
-    def repository_url(self, repository_url):
-        """
-        Sets the repository_url of this VagrantPackageUpload.
-        
-
-        :param repository_url: The repository_url of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._repository_url = repository_url
-
-    @property
-    def is_sync_in_progress(self):
-        """
-        Gets the is_sync_in_progress of this VagrantPackageUpload.
-        
-
-        :return: The is_sync_in_progress of this VagrantPackageUpload.
-        :rtype: bool
-        """
-        return self._is_sync_in_progress
-
-    @is_sync_in_progress.setter
-    def is_sync_in_progress(self, is_sync_in_progress):
-        """
-        Sets the is_sync_in_progress of this VagrantPackageUpload.
-        
-
-        :param is_sync_in_progress: The is_sync_in_progress of this VagrantPackageUpload.
-        :type: bool
-        """
-
-        self._is_sync_in_progress = is_sync_in_progress
-
-    @property
-    def size(self):
-        """
-        Gets the size of this VagrantPackageUpload.
-        The calculated size of the package.
-
-        :return: The size of this VagrantPackageUpload.
-        :rtype: int
-        """
-        return self._size
-
-    @size.setter
-    def size(self, size):
-        """
-        Sets the size of this VagrantPackageUpload.
-        The calculated size of the package.
-
-        :param size: The size of this VagrantPackageUpload.
-        :type: int
-        """
-
-        self._size = size
-
-    @property
-    def status_str(self):
-        """
-        Gets the status_str of this VagrantPackageUpload.
-        
-
-        :return: The status_str of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._status_str
-
-    @status_str.setter
-    def status_str(self, status_str):
-        """
-        Sets the status_str of this VagrantPackageUpload.
-        
-
-        :param status_str: The status_str of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._status_str = status_str
-
-    @property
-    def is_sync_awaiting(self):
-        """
-        Gets the is_sync_awaiting of this VagrantPackageUpload.
-        
-
-        :return: The is_sync_awaiting of this VagrantPackageUpload.
-        :rtype: bool
-        """
-        return self._is_sync_awaiting
-
-    @is_sync_awaiting.setter
-    def is_sync_awaiting(self, is_sync_awaiting):
-        """
-        Sets the is_sync_awaiting of this VagrantPackageUpload.
-        
-
-        :param is_sync_awaiting: The is_sync_awaiting of this VagrantPackageUpload.
-        :type: bool
-        """
-
-        self._is_sync_awaiting = is_sync_awaiting
-
-    @property
-    def repository(self):
-        """
-        Gets the repository of this VagrantPackageUpload.
-        
-
-        :return: The repository of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._repository
-
-    @repository.setter
-    def repository(self, repository):
-        """
-        Sets the repository of this VagrantPackageUpload.
-        
-
-        :param repository: The repository of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._repository = repository
-
-    @property
-    def subtype(self):
-        """
-        Gets the subtype of this VagrantPackageUpload.
-        
-
-        :return: The subtype of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._subtype
-
-    @subtype.setter
-    def subtype(self, subtype):
-        """
-        Sets the subtype of this VagrantPackageUpload.
-        
-
-        :param subtype: The subtype of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._subtype = subtype
-
-    @property
-    def status_url(self):
-        """
-        Gets the status_url of this VagrantPackageUpload.
-        
-
-        :return: The status_url of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._status_url
-
-    @status_url.setter
-    def status_url(self, status_url):
-        """
-        Sets the status_url of this VagrantPackageUpload.
-        
-
-        :param status_url: The status_url of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._status_url = status_url
-
-    @property
-    def status_updated_at(self):
-        """
-        Gets the status_updated_at of this VagrantPackageUpload.
-        The datetime the package status was updated at.
-
-        :return: The status_updated_at of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._status_updated_at
-
-    @status_updated_at.setter
-    def status_updated_at(self, status_updated_at):
-        """
-        Sets the status_updated_at of this VagrantPackageUpload.
-        The datetime the package status was updated at.
-
-        :param status_updated_at: The status_updated_at of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._status_updated_at = status_updated_at
-
-    @property
-    def namespace(self):
-        """
-        Gets the namespace of this VagrantPackageUpload.
-        
-
-        :return: The namespace of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._namespace
-
-    @namespace.setter
-    def namespace(self, namespace):
-        """
-        Sets the namespace of this VagrantPackageUpload.
-        
-
-        :param namespace: The namespace of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._namespace = namespace
-
-    @property
-    def sync_finished_at(self):
-        """
-        Gets the sync_finished_at of this VagrantPackageUpload.
-        The datetime the package sync was finished at.
-
-        :return: The sync_finished_at of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._sync_finished_at
-
-    @sync_finished_at.setter
-    def sync_finished_at(self, sync_finished_at):
-        """
-        Sets the sync_finished_at of this VagrantPackageUpload.
-        The datetime the package sync was finished at.
-
-        :param sync_finished_at: The sync_finished_at of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._sync_finished_at = sync_finished_at
-
-    @property
-    def filename(self):
-        """
-        Gets the filename of this VagrantPackageUpload.
-        
-
-        :return: The filename of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._filename
-
-    @filename.setter
-    def filename(self, filename):
-        """
-        Sets the filename of this VagrantPackageUpload.
-        
-
-        :param filename: The filename of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._filename = filename
-
-    @property
-    def sync_progress(self):
-        """
-        Gets the sync_progress of this VagrantPackageUpload.
-        Synchronisation progress (from 0-100)
-
-        :return: The sync_progress of this VagrantPackageUpload.
-        :rtype: int
-        """
-        return self._sync_progress
-
-    @sync_progress.setter
-    def sync_progress(self, sync_progress):
-        """
-        Sets the sync_progress of this VagrantPackageUpload.
-        Synchronisation progress (from 0-100)
-
-        :param sync_progress: The sync_progress of this VagrantPackageUpload.
-        :type: int
-        """
-
-        self._sync_progress = sync_progress
-
-    @property
-    def epoch(self):
-        """
-        Gets the epoch of this VagrantPackageUpload.
-        The epoch of the package version (if any).
-
-        :return: The epoch of this VagrantPackageUpload.
-        :rtype: int
-        """
-        return self._epoch
-
-    @epoch.setter
-    def epoch(self, epoch):
-        """
-        Sets the epoch of this VagrantPackageUpload.
-        The epoch of the package version (if any).
-
-        :param epoch: The epoch of this VagrantPackageUpload.
-        :type: int
-        """
-
-        self._epoch = epoch
-
-    @property
-    def version(self):
-        """
-        Gets the version of this VagrantPackageUpload.
-        The version of this package.
-
-        :return: The version of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """
-        Sets the version of this VagrantPackageUpload.
-        The version of this package.
-
-        :param version: The version of this VagrantPackageUpload.
-        :type: str
-        """
-        if version is None:
-            raise ValueError("Invalid value for `version`, must not be `None`")
-
-        self._version = version
-
-    @property
-    def is_sync_in_flight(self):
-        """
-        Gets the is_sync_in_flight of this VagrantPackageUpload.
-        
-
-        :return: The is_sync_in_flight of this VagrantPackageUpload.
-        :rtype: bool
-        """
-        return self._is_sync_in_flight
-
-    @is_sync_in_flight.setter
-    def is_sync_in_flight(self, is_sync_in_flight):
-        """
-        Sets the is_sync_in_flight of this VagrantPackageUpload.
-        
-
-        :param is_sync_in_flight: The is_sync_in_flight of this VagrantPackageUpload.
-        :type: bool
-        """
-
-        self._is_sync_in_flight = is_sync_in_flight
-
-    @property
-    def namespace_url(self):
-        """
-        Gets the namespace_url of this VagrantPackageUpload.
-        
-
-        :return: The namespace_url of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._namespace_url
-
-    @namespace_url.setter
-    def namespace_url(self, namespace_url):
-        """
-        Sets the namespace_url of this VagrantPackageUpload.
-        
-
-        :param namespace_url: The namespace_url of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._namespace_url = namespace_url
-
-    @property
-    def slug_perm(self):
-        """
-        Gets the slug_perm of this VagrantPackageUpload.
-        
-
-        :return: The slug_perm of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._slug_perm
-
-    @slug_perm.setter
-    def slug_perm(self, slug_perm):
-        """
-        Sets the slug_perm of this VagrantPackageUpload.
-        
-
-        :param slug_perm: The slug_perm of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._slug_perm = slug_perm
-
-    @property
-    def indexed(self):
-        """
-        Gets the indexed of this VagrantPackageUpload.
-        
-
-        :return: The indexed of this VagrantPackageUpload.
-        :rtype: bool
-        """
-        return self._indexed
-
-    @indexed.setter
-    def indexed(self, indexed):
-        """
-        Sets the indexed of this VagrantPackageUpload.
-        
-
-        :param indexed: The indexed of this VagrantPackageUpload.
-        :type: bool
-        """
-
-        self._indexed = indexed
-
-    @property
-    def uploader_url(self):
-        """
-        Gets the uploader_url of this VagrantPackageUpload.
-        
-
-        :return: The uploader_url of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._uploader_url
-
-    @uploader_url.setter
-    def uploader_url(self, uploader_url):
-        """
-        Sets the uploader_url of this VagrantPackageUpload.
-        
-
-        :param uploader_url: The uploader_url of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._uploader_url = uploader_url
+        self._architectures = architectures
 
     @property
     def cdn_url(self):
@@ -916,6 +367,29 @@ class VagrantPackageUpload(object):
         self._cdn_url = cdn_url
 
     @property
+    def checksum_md5(self):
+        """
+        Gets the checksum_md5 of this VagrantPackageUpload.
+        
+
+        :return: The checksum_md5 of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._checksum_md5
+
+    @checksum_md5.setter
+    def checksum_md5(self, checksum_md5):
+        """
+        Sets the checksum_md5 of this VagrantPackageUpload.
+        
+
+        :param checksum_md5: The checksum_md5 of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._checksum_md5 = checksum_md5
+
+    @property
     def checksum_sha1(self):
         """
         Gets the checksum_sha1 of this VagrantPackageUpload.
@@ -939,50 +413,27 @@ class VagrantPackageUpload(object):
         self._checksum_sha1 = checksum_sha1
 
     @property
-    def distro(self):
+    def checksum_sha256(self):
         """
-        Gets the distro of this VagrantPackageUpload.
+        Gets the checksum_sha256 of this VagrantPackageUpload.
         
 
-        :return: The distro of this VagrantPackageUpload.
-        :rtype: object
-        """
-        return self._distro
-
-    @distro.setter
-    def distro(self, distro):
-        """
-        Sets the distro of this VagrantPackageUpload.
-        
-
-        :param distro: The distro of this VagrantPackageUpload.
-        :type: object
-        """
-
-        self._distro = distro
-
-    @property
-    def status(self):
-        """
-        Gets the status of this VagrantPackageUpload.
-        The synchronisation status of the package.
-
-        :return: The status of this VagrantPackageUpload.
+        :return: The checksum_sha256 of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._status
+        return self._checksum_sha256
 
-    @status.setter
-    def status(self, status):
+    @checksum_sha256.setter
+    def checksum_sha256(self, checksum_sha256):
         """
-        Sets the status of this VagrantPackageUpload.
-        The synchronisation status of the package.
+        Sets the checksum_sha256 of this VagrantPackageUpload.
+        
 
-        :param status: The status of this VagrantPackageUpload.
+        :param checksum_sha256: The checksum_sha256 of this VagrantPackageUpload.
         :type: str
         """
 
-        self._status = status
+        self._checksum_sha256 = checksum_sha256
 
     @property
     def checksum_sha512(self):
@@ -1031,29 +482,165 @@ class VagrantPackageUpload(object):
         self._description = description
 
     @property
-    def name(self):
+    def distro(self):
         """
-        Gets the name of this VagrantPackageUpload.
-        The name of this package.
+        Gets the distro of this VagrantPackageUpload.
+        
 
-        :return: The name of this VagrantPackageUpload.
+        :return: The distro of this VagrantPackageUpload.
+        :rtype: object
+        """
+        return self._distro
+
+    @distro.setter
+    def distro(self, distro):
+        """
+        Sets the distro of this VagrantPackageUpload.
+        
+
+        :param distro: The distro of this VagrantPackageUpload.
+        :type: object
+        """
+
+        self._distro = distro
+
+    @property
+    def distro_version(self):
+        """
+        Gets the distro_version of this VagrantPackageUpload.
+        
+
+        :return: The distro_version of this VagrantPackageUpload.
+        :rtype: object
+        """
+        return self._distro_version
+
+    @distro_version.setter
+    def distro_version(self, distro_version):
+        """
+        Sets the distro_version of this VagrantPackageUpload.
+        
+
+        :param distro_version: The distro_version of this VagrantPackageUpload.
+        :type: object
+        """
+
+        self._distro_version = distro_version
+
+    @property
+    def downloads(self):
+        """
+        Gets the downloads of this VagrantPackageUpload.
+        
+
+        :return: The downloads of this VagrantPackageUpload.
+        :rtype: int
+        """
+        return self._downloads
+
+    @downloads.setter
+    def downloads(self, downloads):
+        """
+        Sets the downloads of this VagrantPackageUpload.
+        
+
+        :param downloads: The downloads of this VagrantPackageUpload.
+        :type: int
+        """
+
+        self._downloads = downloads
+
+    @property
+    def epoch(self):
+        """
+        Gets the epoch of this VagrantPackageUpload.
+        The epoch of the package version (if any).
+
+        :return: The epoch of this VagrantPackageUpload.
+        :rtype: int
+        """
+        return self._epoch
+
+    @epoch.setter
+    def epoch(self, epoch):
+        """
+        Sets the epoch of this VagrantPackageUpload.
+        The epoch of the package version (if any).
+
+        :param epoch: The epoch of this VagrantPackageUpload.
+        :type: int
+        """
+
+        self._epoch = epoch
+
+    @property
+    def extension(self):
+        """
+        Gets the extension of this VagrantPackageUpload.
+        
+
+        :return: The extension of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._name
+        return self._extension
 
-    @name.setter
-    def name(self, name):
+    @extension.setter
+    def extension(self, extension):
         """
-        Sets the name of this VagrantPackageUpload.
-        The name of this package.
+        Sets the extension of this VagrantPackageUpload.
+        
 
-        :param name: The name of this VagrantPackageUpload.
+        :param extension: The extension of this VagrantPackageUpload.
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
 
-        self._name = name
+        self._extension = extension
+
+    @property
+    def filename(self):
+        """
+        Gets the filename of this VagrantPackageUpload.
+        
+
+        :return: The filename of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._filename
+
+    @filename.setter
+    def filename(self, filename):
+        """
+        Sets the filename of this VagrantPackageUpload.
+        
+
+        :param filename: The filename of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._filename = filename
+
+    @property
+    def files(self):
+        """
+        Gets the files of this VagrantPackageUpload.
+        
+
+        :return: The files of this VagrantPackageUpload.
+        :rtype: list[PackagesownerrepoFiles]
+        """
+        return self._files
+
+    @files.setter
+    def files(self, files):
+        """
+        Sets the files of this VagrantPackageUpload.
+        
+
+        :param files: The files of this VagrantPackageUpload.
+        :type: list[PackagesownerrepoFiles]
+        """
+
+        self._files = files
 
     @property
     def format(self):
@@ -1079,6 +666,98 @@ class VagrantPackageUpload(object):
         self._format = format
 
     @property
+    def format_url(self):
+        """
+        Gets the format_url of this VagrantPackageUpload.
+        
+
+        :return: The format_url of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._format_url
+
+    @format_url.setter
+    def format_url(self, format_url):
+        """
+        Sets the format_url of this VagrantPackageUpload.
+        
+
+        :param format_url: The format_url of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._format_url = format_url
+
+    @property
+    def identifier(self):
+        """
+        Gets the identifier of this VagrantPackageUpload.
+        
+
+        :return: The identifier of this VagrantPackageUpload.
+        :rtype: int
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """
+        Sets the identifier of this VagrantPackageUpload.
+        
+
+        :param identifier: The identifier of this VagrantPackageUpload.
+        :type: int
+        """
+
+        self._identifier = identifier
+
+    @property
+    def indexed(self):
+        """
+        Gets the indexed of this VagrantPackageUpload.
+        
+
+        :return: The indexed of this VagrantPackageUpload.
+        :rtype: bool
+        """
+        return self._indexed
+
+    @indexed.setter
+    def indexed(self, indexed):
+        """
+        Sets the indexed of this VagrantPackageUpload.
+        
+
+        :param indexed: The indexed of this VagrantPackageUpload.
+        :type: bool
+        """
+
+        self._indexed = indexed
+
+    @property
+    def is_sync_awaiting(self):
+        """
+        Gets the is_sync_awaiting of this VagrantPackageUpload.
+        
+
+        :return: The is_sync_awaiting of this VagrantPackageUpload.
+        :rtype: bool
+        """
+        return self._is_sync_awaiting
+
+    @is_sync_awaiting.setter
+    def is_sync_awaiting(self, is_sync_awaiting):
+        """
+        Sets the is_sync_awaiting of this VagrantPackageUpload.
+        
+
+        :param is_sync_awaiting: The is_sync_awaiting of this VagrantPackageUpload.
+        :type: bool
+        """
+
+        self._is_sync_awaiting = is_sync_awaiting
+
+    @property
     def is_sync_completed(self):
         """
         Gets the is_sync_completed of this VagrantPackageUpload.
@@ -1102,27 +781,213 @@ class VagrantPackageUpload(object):
         self._is_sync_completed = is_sync_completed
 
     @property
-    def downloads(self):
+    def is_sync_failed(self):
         """
-        Gets the downloads of this VagrantPackageUpload.
+        Gets the is_sync_failed of this VagrantPackageUpload.
         
 
-        :return: The downloads of this VagrantPackageUpload.
+        :return: The is_sync_failed of this VagrantPackageUpload.
+        :rtype: bool
+        """
+        return self._is_sync_failed
+
+    @is_sync_failed.setter
+    def is_sync_failed(self, is_sync_failed):
+        """
+        Sets the is_sync_failed of this VagrantPackageUpload.
+        
+
+        :param is_sync_failed: The is_sync_failed of this VagrantPackageUpload.
+        :type: bool
+        """
+
+        self._is_sync_failed = is_sync_failed
+
+    @property
+    def is_sync_in_flight(self):
+        """
+        Gets the is_sync_in_flight of this VagrantPackageUpload.
+        
+
+        :return: The is_sync_in_flight of this VagrantPackageUpload.
+        :rtype: bool
+        """
+        return self._is_sync_in_flight
+
+    @is_sync_in_flight.setter
+    def is_sync_in_flight(self, is_sync_in_flight):
+        """
+        Sets the is_sync_in_flight of this VagrantPackageUpload.
+        
+
+        :param is_sync_in_flight: The is_sync_in_flight of this VagrantPackageUpload.
+        :type: bool
+        """
+
+        self._is_sync_in_flight = is_sync_in_flight
+
+    @property
+    def is_sync_in_progress(self):
+        """
+        Gets the is_sync_in_progress of this VagrantPackageUpload.
+        
+
+        :return: The is_sync_in_progress of this VagrantPackageUpload.
+        :rtype: bool
+        """
+        return self._is_sync_in_progress
+
+    @is_sync_in_progress.setter
+    def is_sync_in_progress(self, is_sync_in_progress):
+        """
+        Sets the is_sync_in_progress of this VagrantPackageUpload.
+        
+
+        :param is_sync_in_progress: The is_sync_in_progress of this VagrantPackageUpload.
+        :type: bool
+        """
+
+        self._is_sync_in_progress = is_sync_in_progress
+
+    @property
+    def license(self):
+        """
+        Gets the license of this VagrantPackageUpload.
+        The license of this package.
+
+        :return: The license of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._downloads
+        return self._license
 
-    @downloads.setter
-    def downloads(self, downloads):
+    @license.setter
+    def license(self, license):
         """
-        Sets the downloads of this VagrantPackageUpload.
-        
+        Sets the license of this VagrantPackageUpload.
+        The license of this package.
 
-        :param downloads: The downloads of this VagrantPackageUpload.
+        :param license: The license of this VagrantPackageUpload.
         :type: str
         """
 
-        self._downloads = downloads
+        self._license = license
+
+    @property
+    def name(self):
+        """
+        Gets the name of this VagrantPackageUpload.
+        The name of this package.
+
+        :return: The name of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this VagrantPackageUpload.
+        The name of this package.
+
+        :param name: The name of this VagrantPackageUpload.
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+
+        self._name = name
+
+    @property
+    def namespace(self):
+        """
+        Gets the namespace of this VagrantPackageUpload.
+        
+
+        :return: The namespace of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._namespace
+
+    @namespace.setter
+    def namespace(self, namespace):
+        """
+        Sets the namespace of this VagrantPackageUpload.
+        
+
+        :param namespace: The namespace of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._namespace = namespace
+
+    @property
+    def namespace_url(self):
+        """
+        Gets the namespace_url of this VagrantPackageUpload.
+        
+
+        :return: The namespace_url of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._namespace_url
+
+    @namespace_url.setter
+    def namespace_url(self, namespace_url):
+        """
+        Sets the namespace_url of this VagrantPackageUpload.
+        
+
+        :param namespace_url: The namespace_url of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._namespace_url = namespace_url
+
+    @property
+    def num_files(self):
+        """
+        Gets the num_files of this VagrantPackageUpload.
+        
+
+        :return: The num_files of this VagrantPackageUpload.
+        :rtype: int
+        """
+        return self._num_files
+
+    @num_files.setter
+    def num_files(self, num_files):
+        """
+        Sets the num_files of this VagrantPackageUpload.
+        
+
+        :param num_files: The num_files of this VagrantPackageUpload.
+        :type: int
+        """
+
+        self._num_files = num_files
+
+    @property
+    def package_type(self):
+        """
+        Gets the package_type of this VagrantPackageUpload.
+        The type of package contents.
+
+        :return: The package_type of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._package_type
+
+    @package_type.setter
+    def package_type(self, package_type):
+        """
+        Sets the package_type of this VagrantPackageUpload.
+        The type of package contents.
+
+        :param package_type: The package_type of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._package_type = package_type
 
     @property
     def provider(self):
@@ -1150,96 +1015,73 @@ class VagrantPackageUpload(object):
         self._provider = provider
 
     @property
-    def version_orig(self):
+    def release(self):
         """
-        Gets the version_orig of this VagrantPackageUpload.
-        
+        Gets the release of this VagrantPackageUpload.
+        The release of the package version (if any).
 
-        :return: The version_orig of this VagrantPackageUpload.
+        :return: The release of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._version_orig
+        return self._release
 
-    @version_orig.setter
-    def version_orig(self, version_orig):
+    @release.setter
+    def release(self, release):
         """
-        Sets the version_orig of this VagrantPackageUpload.
-        
+        Sets the release of this VagrantPackageUpload.
+        The release of the package version (if any).
 
-        :param version_orig: The version_orig of this VagrantPackageUpload.
+        :param release: The release of this VagrantPackageUpload.
         :type: str
         """
 
-        self._version_orig = version_orig
+        self._release = release
 
     @property
-    def architectures(self):
+    def repository(self):
         """
-        Gets the architectures of this VagrantPackageUpload.
+        Gets the repository of this VagrantPackageUpload.
         
 
-        :return: The architectures of this VagrantPackageUpload.
-        :rtype: list[RpmPackageUploadArchitectures]
-        """
-        return self._architectures
-
-    @architectures.setter
-    def architectures(self, architectures):
-        """
-        Sets the architectures of this VagrantPackageUpload.
-        
-
-        :param architectures: The architectures of this VagrantPackageUpload.
-        :type: list[RpmPackageUploadArchitectures]
-        """
-
-        self._architectures = architectures
-
-    @property
-    def uploader(self):
-        """
-        Gets the uploader of this VagrantPackageUpload.
-        
-
-        :return: The uploader of this VagrantPackageUpload.
+        :return: The repository of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._uploader
+        return self._repository
 
-    @uploader.setter
-    def uploader(self, uploader):
+    @repository.setter
+    def repository(self, repository):
         """
-        Sets the uploader of this VagrantPackageUpload.
+        Sets the repository of this VagrantPackageUpload.
         
 
-        :param uploader: The uploader of this VagrantPackageUpload.
+        :param repository: The repository of this VagrantPackageUpload.
         :type: str
         """
 
-        self._uploader = uploader
+        self._repository = repository
 
     @property
-    def status_reason(self):
+    def repository_url(self):
         """
-        Gets the status_reason of this VagrantPackageUpload.
-        A textual description for the synchronous status reason (if any
+        Gets the repository_url of this VagrantPackageUpload.
+        
 
-        :return: The status_reason of this VagrantPackageUpload.
+        :return: The repository_url of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._status_reason
+        return self._repository_url
 
-    @status_reason.setter
-    def status_reason(self, status_reason):
+    @repository_url.setter
+    def repository_url(self, repository_url):
         """
-        Sets the status_reason of this VagrantPackageUpload.
-        A textual description for the synchronous status reason (if any
+        Sets the repository_url of this VagrantPackageUpload.
+        
 
-        :param status_reason: The status_reason of this VagrantPackageUpload.
+        :param repository_url: The repository_url of this VagrantPackageUpload.
         :type: str
         """
 
-        self._status_reason = status_reason
+        self._repository_url = repository_url
 
     @property
     def self_html_url(self):
@@ -1265,29 +1107,6 @@ class VagrantPackageUpload(object):
         self._self_html_url = self_html_url
 
     @property
-    def stage(self):
-        """
-        Gets the stage of this VagrantPackageUpload.
-        The synchronisation (in progress) stage of the package.
-
-        :return: The stage of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._stage
-
-    @stage.setter
-    def stage(self, stage):
-        """
-        Sets the stage of this VagrantPackageUpload.
-        The synchronisation (in progress) stage of the package.
-
-        :param stage: The stage of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._stage = stage
-
-    @property
     def self_url(self):
         """
         Gets the self_url of this VagrantPackageUpload.
@@ -1309,6 +1128,29 @@ class VagrantPackageUpload(object):
         """
 
         self._self_url = self_url
+
+    @property
+    def size(self):
+        """
+        Gets the size of this VagrantPackageUpload.
+        The calculated size of the package.
+
+        :return: The size of this VagrantPackageUpload.
+        :rtype: int
+        """
+        return self._size
+
+    @size.setter
+    def size(self, size):
+        """
+        Sets the size of this VagrantPackageUpload.
+        The calculated size of the package.
+
+        :param size: The size of this VagrantPackageUpload.
+        :type: int
+        """
+
+        self._size = size
 
     @property
     def slug(self):
@@ -1334,73 +1176,50 @@ class VagrantPackageUpload(object):
         self._slug = slug
 
     @property
-    def uploaded_at(self):
+    def slug_perm(self):
         """
-        Gets the uploaded_at of this VagrantPackageUpload.
-        The date this package was uploaded.
-
-        :return: The uploaded_at of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._uploaded_at
-
-    @uploaded_at.setter
-    def uploaded_at(self, uploaded_at):
-        """
-        Sets the uploaded_at of this VagrantPackageUpload.
-        The date this package was uploaded.
-
-        :param uploaded_at: The uploaded_at of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._uploaded_at = uploaded_at
-
-    @property
-    def license(self):
-        """
-        Gets the license of this VagrantPackageUpload.
-        The license of this package.
-
-        :return: The license of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._license
-
-    @license.setter
-    def license(self, license):
-        """
-        Sets the license of this VagrantPackageUpload.
-        The license of this package.
-
-        :param license: The license of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._license = license
-
-    @property
-    def extension(self):
-        """
-        Gets the extension of this VagrantPackageUpload.
+        Gets the slug_perm of this VagrantPackageUpload.
         
 
-        :return: The extension of this VagrantPackageUpload.
+        :return: The slug_perm of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._extension
+        return self._slug_perm
 
-    @extension.setter
-    def extension(self, extension):
+    @slug_perm.setter
+    def slug_perm(self, slug_perm):
         """
-        Sets the extension of this VagrantPackageUpload.
+        Sets the slug_perm of this VagrantPackageUpload.
         
 
-        :param extension: The extension of this VagrantPackageUpload.
+        :param slug_perm: The slug_perm of this VagrantPackageUpload.
         :type: str
         """
 
-        self._extension = extension
+        self._slug_perm = slug_perm
+
+    @property
+    def stage(self):
+        """
+        Gets the stage of this VagrantPackageUpload.
+        The synchronisation (in progress) stage of the package.
+
+        :return: The stage of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._stage
+
+    @stage.setter
+    def stage(self, stage):
+        """
+        Sets the stage of this VagrantPackageUpload.
+        The synchronisation (in progress) stage of the package.
+
+        :param stage: The stage of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._stage = stage
 
     @property
     def stage_str(self):
@@ -1426,27 +1245,165 @@ class VagrantPackageUpload(object):
         self._stage_str = stage_str
 
     @property
-    def package_type(self):
+    def stage_updated_at(self):
         """
-        Gets the package_type of this VagrantPackageUpload.
-        The type of package contents.
+        Gets the stage_updated_at of this VagrantPackageUpload.
+        The datetime the package stage was updated at.
 
-        :return: The package_type of this VagrantPackageUpload.
+        :return: The stage_updated_at of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._package_type
+        return self._stage_updated_at
 
-    @package_type.setter
-    def package_type(self, package_type):
+    @stage_updated_at.setter
+    def stage_updated_at(self, stage_updated_at):
         """
-        Sets the package_type of this VagrantPackageUpload.
-        The type of package contents.
+        Sets the stage_updated_at of this VagrantPackageUpload.
+        The datetime the package stage was updated at.
 
-        :param package_type: The package_type of this VagrantPackageUpload.
+        :param stage_updated_at: The stage_updated_at of this VagrantPackageUpload.
         :type: str
         """
 
-        self._package_type = package_type
+        self._stage_updated_at = stage_updated_at
+
+    @property
+    def status(self):
+        """
+        Gets the status of this VagrantPackageUpload.
+        The synchronisation status of the package.
+
+        :return: The status of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """
+        Sets the status of this VagrantPackageUpload.
+        The synchronisation status of the package.
+
+        :param status: The status of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._status = status
+
+    @property
+    def status_reason(self):
+        """
+        Gets the status_reason of this VagrantPackageUpload.
+        A textual description for the synchronous status reason (if any
+
+        :return: The status_reason of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._status_reason
+
+    @status_reason.setter
+    def status_reason(self, status_reason):
+        """
+        Sets the status_reason of this VagrantPackageUpload.
+        A textual description for the synchronous status reason (if any
+
+        :param status_reason: The status_reason of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._status_reason = status_reason
+
+    @property
+    def status_str(self):
+        """
+        Gets the status_str of this VagrantPackageUpload.
+        
+
+        :return: The status_str of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._status_str
+
+    @status_str.setter
+    def status_str(self, status_str):
+        """
+        Sets the status_str of this VagrantPackageUpload.
+        
+
+        :param status_str: The status_str of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._status_str = status_str
+
+    @property
+    def status_updated_at(self):
+        """
+        Gets the status_updated_at of this VagrantPackageUpload.
+        The datetime the package status was updated at.
+
+        :return: The status_updated_at of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._status_updated_at
+
+    @status_updated_at.setter
+    def status_updated_at(self, status_updated_at):
+        """
+        Sets the status_updated_at of this VagrantPackageUpload.
+        The datetime the package status was updated at.
+
+        :param status_updated_at: The status_updated_at of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._status_updated_at = status_updated_at
+
+    @property
+    def status_url(self):
+        """
+        Gets the status_url of this VagrantPackageUpload.
+        
+
+        :return: The status_url of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._status_url
+
+    @status_url.setter
+    def status_url(self, status_url):
+        """
+        Sets the status_url of this VagrantPackageUpload.
+        
+
+        :param status_url: The status_url of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._status_url = status_url
+
+    @property
+    def subtype(self):
+        """
+        Gets the subtype of this VagrantPackageUpload.
+        
+
+        :return: The subtype of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._subtype
+
+    @subtype.setter
+    def subtype(self, subtype):
+        """
+        Sets the subtype of this VagrantPackageUpload.
+        
+
+        :param subtype: The subtype of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._subtype = subtype
 
     @property
     def summary(self):
@@ -1472,73 +1429,50 @@ class VagrantPackageUpload(object):
         self._summary = summary
 
     @property
-    def num_files(self):
+    def sync_finished_at(self):
         """
-        Gets the num_files of this VagrantPackageUpload.
-        
+        Gets the sync_finished_at of this VagrantPackageUpload.
+        The datetime the package sync was finished at.
 
-        :return: The num_files of this VagrantPackageUpload.
+        :return: The sync_finished_at of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._sync_finished_at
+
+    @sync_finished_at.setter
+    def sync_finished_at(self, sync_finished_at):
+        """
+        Sets the sync_finished_at of this VagrantPackageUpload.
+        The datetime the package sync was finished at.
+
+        :param sync_finished_at: The sync_finished_at of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._sync_finished_at = sync_finished_at
+
+    @property
+    def sync_progress(self):
+        """
+        Gets the sync_progress of this VagrantPackageUpload.
+        Synchronisation progress (from 0-100)
+
+        :return: The sync_progress of this VagrantPackageUpload.
         :rtype: int
         """
-        return self._num_files
+        return self._sync_progress
 
-    @num_files.setter
-    def num_files(self, num_files):
+    @sync_progress.setter
+    def sync_progress(self, sync_progress):
         """
-        Sets the num_files of this VagrantPackageUpload.
-        
+        Sets the sync_progress of this VagrantPackageUpload.
+        Synchronisation progress (from 0-100)
 
-        :param num_files: The num_files of this VagrantPackageUpload.
+        :param sync_progress: The sync_progress of this VagrantPackageUpload.
         :type: int
         """
 
-        self._num_files = num_files
-
-    @property
-    def checksum_md5(self):
-        """
-        Gets the checksum_md5 of this VagrantPackageUpload.
-        
-
-        :return: The checksum_md5 of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._checksum_md5
-
-    @checksum_md5.setter
-    def checksum_md5(self, checksum_md5):
-        """
-        Sets the checksum_md5 of this VagrantPackageUpload.
-        
-
-        :param checksum_md5: The checksum_md5 of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._checksum_md5 = checksum_md5
-
-    @property
-    def release(self):
-        """
-        Gets the release of this VagrantPackageUpload.
-        The release of the package version (if any).
-
-        :return: The release of this VagrantPackageUpload.
-        :rtype: str
-        """
-        return self._release
-
-    @release.setter
-    def release(self, release):
-        """
-        Sets the release of this VagrantPackageUpload.
-        The release of the package version (if any).
-
-        :param release: The release of this VagrantPackageUpload.
-        :type: str
-        """
-
-        self._release = release
+        self._sync_progress = sync_progress
 
     @property
     def type_display(self):
@@ -1564,27 +1498,121 @@ class VagrantPackageUpload(object):
         self._type_display = type_display
 
     @property
-    def format_url(self):
+    def uploaded_at(self):
         """
-        Gets the format_url of this VagrantPackageUpload.
-        
+        Gets the uploaded_at of this VagrantPackageUpload.
+        The date this package was uploaded.
 
-        :return: The format_url of this VagrantPackageUpload.
+        :return: The uploaded_at of this VagrantPackageUpload.
         :rtype: str
         """
-        return self._format_url
+        return self._uploaded_at
 
-    @format_url.setter
-    def format_url(self, format_url):
+    @uploaded_at.setter
+    def uploaded_at(self, uploaded_at):
         """
-        Sets the format_url of this VagrantPackageUpload.
-        
+        Sets the uploaded_at of this VagrantPackageUpload.
+        The date this package was uploaded.
 
-        :param format_url: The format_url of this VagrantPackageUpload.
+        :param uploaded_at: The uploaded_at of this VagrantPackageUpload.
         :type: str
         """
 
-        self._format_url = format_url
+        self._uploaded_at = uploaded_at
+
+    @property
+    def uploader(self):
+        """
+        Gets the uploader of this VagrantPackageUpload.
+        
+
+        :return: The uploader of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._uploader
+
+    @uploader.setter
+    def uploader(self, uploader):
+        """
+        Sets the uploader of this VagrantPackageUpload.
+        
+
+        :param uploader: The uploader of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._uploader = uploader
+
+    @property
+    def uploader_url(self):
+        """
+        Gets the uploader_url of this VagrantPackageUpload.
+        
+
+        :return: The uploader_url of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._uploader_url
+
+    @uploader_url.setter
+    def uploader_url(self, uploader_url):
+        """
+        Sets the uploader_url of this VagrantPackageUpload.
+        
+
+        :param uploader_url: The uploader_url of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._uploader_url = uploader_url
+
+    @property
+    def version(self):
+        """
+        Gets the version of this VagrantPackageUpload.
+        The version of this package.
+
+        :return: The version of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """
+        Sets the version of this VagrantPackageUpload.
+        The version of this package.
+
+        :param version: The version of this VagrantPackageUpload.
+        :type: str
+        """
+        if version is None:
+            raise ValueError("Invalid value for `version`, must not be `None`")
+
+        self._version = version
+
+    @property
+    def version_orig(self):
+        """
+        Gets the version_orig of this VagrantPackageUpload.
+        
+
+        :return: The version_orig of this VagrantPackageUpload.
+        :rtype: str
+        """
+        return self._version_orig
+
+    @version_orig.setter
+    def version_orig(self, version_orig):
+        """
+        Sets the version_orig of this VagrantPackageUpload.
+        
+
+        :param version_orig: The version_orig of this VagrantPackageUpload.
+        :type: str
+        """
+
+        self._version_orig = version_orig
 
     def to_dict(self):
         """

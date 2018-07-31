@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.rpm_package_upload_files import RpmPackageUploadFiles
+from cloudsmith_api.models.webhooks_create import WebhooksCreate
 
 
-class TestRpmPackageUploadFiles(unittest.TestCase):
-    """ RpmPackageUploadFiles unit test stubs """
+class TestWebhooksCreate(unittest.TestCase):
+    """ WebhooksCreate unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestRpmPackageUploadFiles(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRpmPackageUploadFiles(self):
+    def testWebhooksCreate(self):
         """
-        Test RpmPackageUploadFiles
+        Test WebhooksCreate
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.rpm_package_upload_files.RpmPackageUploadFiles()
+        #model = cloudsmith_api.models.webhooks_create.WebhooksCreate()
         pass
 
 

@@ -31,83 +31,37 @@ class Namespace(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'type_name': 'str',
-        'slug_perm': 'str',
         'name': 'str',
-        'slug': 'str'
+        'slug': 'str',
+        'slug_perm': 'str',
+        'type_name': 'str'
     }
 
     attribute_map = {
-        'type_name': 'type_name',
-        'slug_perm': 'slug_perm',
         'name': 'name',
-        'slug': 'slug'
+        'slug': 'slug',
+        'slug_perm': 'slug_perm',
+        'type_name': 'type_name'
     }
 
-    def __init__(self, type_name=None, slug_perm=None, name=None, slug=None):
+    def __init__(self, name=None, slug=None, slug_perm=None, type_name=None):
         """
         Namespace - a model defined in Swagger
         """
 
-        self._type_name = None
-        self._slug_perm = None
         self._name = None
         self._slug = None
+        self._slug_perm = None
+        self._type_name = None
 
-        if type_name is not None:
-          self.type_name = type_name
-        if slug_perm is not None:
-          self.slug_perm = slug_perm
         if name is not None:
           self.name = name
         if slug is not None:
           self.slug = slug
-
-    @property
-    def type_name(self):
-        """
-        Gets the type_name of this Namespace.
-        
-
-        :return: The type_name of this Namespace.
-        :rtype: str
-        """
-        return self._type_name
-
-    @type_name.setter
-    def type_name(self, type_name):
-        """
-        Sets the type_name of this Namespace.
-        
-
-        :param type_name: The type_name of this Namespace.
-        :type: str
-        """
-
-        self._type_name = type_name
-
-    @property
-    def slug_perm(self):
-        """
-        Gets the slug_perm of this Namespace.
-        
-
-        :return: The slug_perm of this Namespace.
-        :rtype: str
-        """
-        return self._slug_perm
-
-    @slug_perm.setter
-    def slug_perm(self, slug_perm):
-        """
-        Sets the slug_perm of this Namespace.
-        
-
-        :param slug_perm: The slug_perm of this Namespace.
-        :type: str
-        """
-
-        self._slug_perm = slug_perm
+        if slug_perm is not None:
+          self.slug_perm = slug_perm
+        if type_name is not None:
+          self.type_name = type_name
 
     @property
     def name(self):
@@ -154,6 +108,52 @@ class Namespace(object):
         """
 
         self._slug = slug
+
+    @property
+    def slug_perm(self):
+        """
+        Gets the slug_perm of this Namespace.
+        
+
+        :return: The slug_perm of this Namespace.
+        :rtype: str
+        """
+        return self._slug_perm
+
+    @slug_perm.setter
+    def slug_perm(self, slug_perm):
+        """
+        Sets the slug_perm of this Namespace.
+        
+
+        :param slug_perm: The slug_perm of this Namespace.
+        :type: str
+        """
+
+        self._slug_perm = slug_perm
+
+    @property
+    def type_name(self):
+        """
+        Gets the type_name of this Namespace.
+        
+
+        :return: The type_name of this Namespace.
+        :rtype: str
+        """
+        return self._type_name
+
+    @type_name.setter
+    def type_name(self, type_name):
+        """
+        Sets the type_name of this Namespace.
+        
+
+        :param type_name: The type_name of this Namespace.
+        :type: str
+        """
+
+        self._type_name = type_name
 
     def to_dict(self):
         """

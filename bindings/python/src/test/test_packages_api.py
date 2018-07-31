@@ -87,6 +87,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_composer(self):
+        """
+        Test case for packages_upload_composer
+
+        Create a new Composer package
+        """
+        pass
+
     def test_packages_upload_deb(self):
         """
         Test case for packages_upload_deb
@@ -140,6 +148,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_upload_vagrant
 
         Create a new Vagrant package
+        """
+        pass
+
+    def test_packages_validate_upload_composer(self):
+        """
+        Test case for packages_validate_upload_composer
+
+        Validate parameters for create Composer package
         """
         pass
 

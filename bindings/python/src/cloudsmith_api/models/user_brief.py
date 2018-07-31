@@ -31,75 +31,52 @@ class UserBrief(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'self_url': 'str',
         'authenticated': 'bool',
-        'name': 'str',
         'email': 'str',
-        'slug_perm': 'str',
+        'name': 'str',
+        'profile_url': 'str',
+        'self_url': 'str',
         'slug': 'str',
-        'profile_url': 'str'
+        'slug_perm': 'str'
     }
 
     attribute_map = {
-        'self_url': 'self_url',
         'authenticated': 'authenticated',
-        'name': 'name',
         'email': 'email',
-        'slug_perm': 'slug_perm',
+        'name': 'name',
+        'profile_url': 'profile_url',
+        'self_url': 'self_url',
         'slug': 'slug',
-        'profile_url': 'profile_url'
+        'slug_perm': 'slug_perm'
     }
 
-    def __init__(self, self_url=None, authenticated=None, name=None, email=None, slug_perm=None, slug=None, profile_url=None):
+    def __init__(self, authenticated=None, email=None, name=None, profile_url=None, self_url=None, slug=None, slug_perm=None):
         """
         UserBrief - a model defined in Swagger
         """
 
-        self._self_url = None
         self._authenticated = None
-        self._name = None
         self._email = None
-        self._slug_perm = None
-        self._slug = None
+        self._name = None
         self._profile_url = None
+        self._self_url = None
+        self._slug = None
+        self._slug_perm = None
 
-        if self_url is not None:
-          self.self_url = self_url
         if authenticated is not None:
           self.authenticated = authenticated
-        if name is not None:
-          self.name = name
         if email is not None:
           self.email = email
-        if slug_perm is not None:
-          self.slug_perm = slug_perm
-        if slug is not None:
-          self.slug = slug
+        if name is not None:
+          self.name = name
         if profile_url is not None:
           self.profile_url = profile_url
-
-    @property
-    def self_url(self):
-        """
-        Gets the self_url of this UserBrief.
-        
-
-        :return: The self_url of this UserBrief.
-        :rtype: str
-        """
-        return self._self_url
-
-    @self_url.setter
-    def self_url(self, self_url):
-        """
-        Sets the self_url of this UserBrief.
-        
-
-        :param self_url: The self_url of this UserBrief.
-        :type: str
-        """
-
-        self._self_url = self_url
+        if self_url is not None:
+          self.self_url = self_url
+        if slug is not None:
+          self.slug = slug
+        if slug_perm is not None:
+          self.slug_perm = slug_perm
 
     @property
     def authenticated(self):
@@ -125,29 +102,6 @@ class UserBrief(object):
         self._authenticated = authenticated
 
     @property
-    def name(self):
-        """
-        Gets the name of this UserBrief.
-        The full name of the user (if any).
-
-        :return: The name of this UserBrief.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this UserBrief.
-        The full name of the user (if any).
-
-        :param name: The name of this UserBrief.
-        :type: str
-        """
-
-        self._name = name
-
-    @property
     def email(self):
         """
         Gets the email of this UserBrief.
@@ -171,27 +125,73 @@ class UserBrief(object):
         self._email = email
 
     @property
-    def slug_perm(self):
+    def name(self):
         """
-        Gets the slug_perm of this UserBrief.
-        
+        Gets the name of this UserBrief.
+        The full name of the user (if any).
 
-        :return: The slug_perm of this UserBrief.
+        :return: The name of this UserBrief.
         :rtype: str
         """
-        return self._slug_perm
+        return self._name
 
-    @slug_perm.setter
-    def slug_perm(self, slug_perm):
+    @name.setter
+    def name(self, name):
         """
-        Sets the slug_perm of this UserBrief.
-        
+        Sets the name of this UserBrief.
+        The full name of the user (if any).
 
-        :param slug_perm: The slug_perm of this UserBrief.
+        :param name: The name of this UserBrief.
         :type: str
         """
 
-        self._slug_perm = slug_perm
+        self._name = name
+
+    @property
+    def profile_url(self):
+        """
+        Gets the profile_url of this UserBrief.
+        The URL for the full profile of the user.
+
+        :return: The profile_url of this UserBrief.
+        :rtype: str
+        """
+        return self._profile_url
+
+    @profile_url.setter
+    def profile_url(self, profile_url):
+        """
+        Sets the profile_url of this UserBrief.
+        The URL for the full profile of the user.
+
+        :param profile_url: The profile_url of this UserBrief.
+        :type: str
+        """
+
+        self._profile_url = profile_url
+
+    @property
+    def self_url(self):
+        """
+        Gets the self_url of this UserBrief.
+        
+
+        :return: The self_url of this UserBrief.
+        :rtype: str
+        """
+        return self._self_url
+
+    @self_url.setter
+    def self_url(self, self_url):
+        """
+        Sets the self_url of this UserBrief.
+        
+
+        :param self_url: The self_url of this UserBrief.
+        :type: str
+        """
+
+        self._self_url = self_url
 
     @property
     def slug(self):
@@ -217,27 +217,27 @@ class UserBrief(object):
         self._slug = slug
 
     @property
-    def profile_url(self):
+    def slug_perm(self):
         """
-        Gets the profile_url of this UserBrief.
-        The URL for the full profile of the user.
+        Gets the slug_perm of this UserBrief.
+        
 
-        :return: The profile_url of this UserBrief.
+        :return: The slug_perm of this UserBrief.
         :rtype: str
         """
-        return self._profile_url
+        return self._slug_perm
 
-    @profile_url.setter
-    def profile_url(self, profile_url):
+    @slug_perm.setter
+    def slug_perm(self, slug_perm):
         """
-        Sets the profile_url of this UserBrief.
-        The URL for the full profile of the user.
+        Sets the slug_perm of this UserBrief.
+        
 
-        :param profile_url: The profile_url of this UserBrief.
+        :param slug_perm: The slug_perm of this UserBrief.
         :type: str
         """
 
-        self._profile_url = profile_url
+        self._slug_perm = slug_perm
 
     def to_dict(self):
         """

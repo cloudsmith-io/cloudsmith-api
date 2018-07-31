@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.reposowner_gpg_keys import ReposownerGpgKeys
+from cloudsmith_api.models.packagesownerrepo_files import PackagesownerrepoFiles
 
 
-class TestReposownerGpgKeys(unittest.TestCase):
-    """ ReposownerGpgKeys unit test stubs """
+class TestPackagesownerrepoFiles(unittest.TestCase):
+    """ PackagesownerrepoFiles unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestReposownerGpgKeys(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testReposownerGpgKeys(self):
+    def testPackagesownerrepoFiles(self):
         """
-        Test ReposownerGpgKeys
+        Test PackagesownerrepoFiles
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.reposowner_gpg_keys.ReposownerGpgKeys()
+        #model = cloudsmith_api.models.packagesownerrepo_files.PackagesownerrepoFiles()
         pass
 
 

@@ -31,75 +31,52 @@ class Organization(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
         'country': 'str',
         'created_at': 'str',
-        'tagline': 'str',
         'location': 'str',
+        'name': 'str',
+        'slug': 'str',
         'slug_perm': 'str',
-        'slug': 'str'
+        'tagline': 'str'
     }
 
     attribute_map = {
-        'name': 'name',
         'country': 'country',
         'created_at': 'created_at',
-        'tagline': 'tagline',
         'location': 'location',
+        'name': 'name',
+        'slug': 'slug',
         'slug_perm': 'slug_perm',
-        'slug': 'slug'
+        'tagline': 'tagline'
     }
 
-    def __init__(self, name=None, country=None, created_at=None, tagline=None, location=None, slug_perm=None, slug=None):
+    def __init__(self, country=None, created_at=None, location=None, name=None, slug=None, slug_perm=None, tagline=None):
         """
         Organization - a model defined in Swagger
         """
 
-        self._name = None
         self._country = None
         self._created_at = None
-        self._tagline = None
         self._location = None
-        self._slug_perm = None
+        self._name = None
         self._slug = None
+        self._slug_perm = None
+        self._tagline = None
 
-        if name is not None:
-          self.name = name
         if country is not None:
           self.country = country
         if created_at is not None:
           self.created_at = created_at
-        if tagline is not None:
-          self.tagline = tagline
         if location is not None:
           self.location = location
-        if slug_perm is not None:
-          self.slug_perm = slug_perm
+        if name is not None:
+          self.name = name
         if slug is not None:
           self.slug = slug
-
-    @property
-    def name(self):
-        """
-        Gets the name of this Organization.
-        A descriptive name for your organization.
-
-        :return: The name of this Organization.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this Organization.
-        A descriptive name for your organization.
-
-        :param name: The name of this Organization.
-        :type: str
-        """
-
-        self._name = name
+        if slug_perm is not None:
+          self.slug_perm = slug_perm
+        if tagline is not None:
+          self.tagline = tagline
 
     @property
     def country(self):
@@ -148,29 +125,6 @@ class Organization(object):
         self._created_at = created_at
 
     @property
-    def tagline(self):
-        """
-        Gets the tagline of this Organization.
-        A short public descriptive for your organization.
-
-        :return: The tagline of this Organization.
-        :rtype: str
-        """
-        return self._tagline
-
-    @tagline.setter
-    def tagline(self, tagline):
-        """
-        Sets the tagline of this Organization.
-        A short public descriptive for your organization.
-
-        :param tagline: The tagline of this Organization.
-        :type: str
-        """
-
-        self._tagline = tagline
-
-    @property
     def location(self):
         """
         Gets the location of this Organization.
@@ -192,6 +146,52 @@ class Organization(object):
         """
 
         self._location = location
+
+    @property
+    def name(self):
+        """
+        Gets the name of this Organization.
+        A descriptive name for your organization.
+
+        :return: The name of this Organization.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this Organization.
+        A descriptive name for your organization.
+
+        :param name: The name of this Organization.
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def slug(self):
+        """
+        Gets the slug of this Organization.
+        
+
+        :return: The slug of this Organization.
+        :rtype: str
+        """
+        return self._slug
+
+    @slug.setter
+    def slug(self, slug):
+        """
+        Sets the slug of this Organization.
+        
+
+        :param slug: The slug of this Organization.
+        :type: str
+        """
+
+        self._slug = slug
 
     @property
     def slug_perm(self):
@@ -217,27 +217,27 @@ class Organization(object):
         self._slug_perm = slug_perm
 
     @property
-    def slug(self):
+    def tagline(self):
         """
-        Gets the slug of this Organization.
-        
+        Gets the tagline of this Organization.
+        A short public descriptive for your organization.
 
-        :return: The slug of this Organization.
+        :return: The tagline of this Organization.
         :rtype: str
         """
-        return self._slug
+        return self._tagline
 
-    @slug.setter
-    def slug(self, slug):
+    @tagline.setter
+    def tagline(self, tagline):
         """
-        Sets the slug of this Organization.
-        
+        Sets the tagline of this Organization.
+        A short public descriptive for your organization.
 
-        :param slug: The slug of this Organization.
+        :param tagline: The tagline of this Organization.
         :type: str
         """
 
-        self._slug = slug
+        self._tagline = tagline
 
     def to_dict(self):
         """

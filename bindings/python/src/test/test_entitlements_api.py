@@ -47,6 +47,22 @@ class TestEntitlementsApi(unittest.TestCase):
         """
         pass
 
+    def test_entitlements_disable(self):
+        """
+        Test case for entitlements_disable
+
+        Disable an entitlement token in a repository.
+        """
+        pass
+
+    def test_entitlements_enable(self):
+        """
+        Test case for entitlements_enable
+
+        Enable an entitlement token in a repository.
+        """
+        pass
+
     def test_entitlements_list(self):
         """
         Test case for entitlements_list
@@ -67,7 +83,7 @@ class TestEntitlementsApi(unittest.TestCase):
         """
         Test case for entitlements_read
 
-        Views for working with repository entitlements.
+        Get a specific entitlement in a repository.
         """
         pass
 
@@ -76,6 +92,14 @@ class TestEntitlementsApi(unittest.TestCase):
         Test case for entitlements_refresh
 
         Refresh an entitlement token in a repository.
+        """
+        pass
+
+    def test_entitlements_reset(self):
+        """
+        Test case for entitlements_reset
+
+        Reset the statistics for an entitlement token in a repository.
         """
         pass
 

@@ -4,12 +4,75 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**repos_list**](ReposApi.md#repos_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**repos_list0**](ReposApi.md#repos_list0) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{slug}/ | Views for working with repositories.
 
 
 # **repos_list**
-> list[Repository] repos_list(owner, page=page, page_size=page_size)
+> list[Repository] repos_list(page=page, page_size=page_size)
+
+Get a list of all repositories associated with current user.
+
+Get a list of all repositories associated with current user.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi()
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try: 
+    # Get a list of all repositories associated with current user.
+    api_response = api_instance.repos_list(page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[Repository]**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_list0**
+> list[Repository] repos_list0(owner, page=page, page_size=page_size)
 
 Get a list of all repositories within a namespace.
 
@@ -43,10 +106,10 @@ page_size = 56 # int | Number of results to return per page. (optional)
 
 try: 
     # Get a list of all repositories within a namespace.
-    api_response = api_instance.repos_list(owner, page=page, page_size=page_size)
+    api_response = api_instance.repos_list0(owner, page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ReposApi->repos_list: %s\n" % e)
+    print("Exception when calling ReposApi->repos_list0: %s\n" % e)
 ```
 
 ### Parameters

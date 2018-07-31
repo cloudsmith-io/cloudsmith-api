@@ -31,138 +31,92 @@ class PackageStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'self_url': 'str',
-        'status': 'str',
         'is_sync_awaiting': 'bool',
-        'stage_updated_at': 'str',
-        'stage_str': 'str',
         'is_sync_completed': 'bool',
-        'status_updated_at': 'str',
-        'sync_finished_at': 'str',
         'is_sync_failed': 'bool',
         'is_sync_in_flight': 'bool',
-        'status_str': 'str',
-        'sync_progress': 'int',
-        'status_reason': 'str',
         'is_sync_in_progress': 'bool',
-        'stage': 'str'
+        'self_url': 'str',
+        'stage': 'str',
+        'stage_str': 'str',
+        'stage_updated_at': 'str',
+        'status': 'str',
+        'status_reason': 'str',
+        'status_str': 'str',
+        'status_updated_at': 'str',
+        'sync_finished_at': 'str',
+        'sync_progress': 'int'
     }
 
     attribute_map = {
-        'self_url': 'self_url',
-        'status': 'status',
         'is_sync_awaiting': 'is_sync_awaiting',
-        'stage_updated_at': 'stage_updated_at',
-        'stage_str': 'stage_str',
         'is_sync_completed': 'is_sync_completed',
-        'status_updated_at': 'status_updated_at',
-        'sync_finished_at': 'sync_finished_at',
         'is_sync_failed': 'is_sync_failed',
         'is_sync_in_flight': 'is_sync_in_flight',
-        'status_str': 'status_str',
-        'sync_progress': 'sync_progress',
-        'status_reason': 'status_reason',
         'is_sync_in_progress': 'is_sync_in_progress',
-        'stage': 'stage'
+        'self_url': 'self_url',
+        'stage': 'stage',
+        'stage_str': 'stage_str',
+        'stage_updated_at': 'stage_updated_at',
+        'status': 'status',
+        'status_reason': 'status_reason',
+        'status_str': 'status_str',
+        'status_updated_at': 'status_updated_at',
+        'sync_finished_at': 'sync_finished_at',
+        'sync_progress': 'sync_progress'
     }
 
-    def __init__(self, self_url=None, status=None, is_sync_awaiting=None, stage_updated_at=None, stage_str=None, is_sync_completed=None, status_updated_at=None, sync_finished_at=None, is_sync_failed=None, is_sync_in_flight=None, status_str=None, sync_progress=None, status_reason=None, is_sync_in_progress=None, stage=None):
+    def __init__(self, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, self_url=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, sync_finished_at=None, sync_progress=None):
         """
         PackageStatus - a model defined in Swagger
         """
 
-        self._self_url = None
-        self._status = None
         self._is_sync_awaiting = None
-        self._stage_updated_at = None
-        self._stage_str = None
         self._is_sync_completed = None
-        self._status_updated_at = None
-        self._sync_finished_at = None
         self._is_sync_failed = None
         self._is_sync_in_flight = None
-        self._status_str = None
-        self._sync_progress = None
-        self._status_reason = None
         self._is_sync_in_progress = None
+        self._self_url = None
         self._stage = None
+        self._stage_str = None
+        self._stage_updated_at = None
+        self._status = None
+        self._status_reason = None
+        self._status_str = None
+        self._status_updated_at = None
+        self._sync_finished_at = None
+        self._sync_progress = None
 
-        if self_url is not None:
-          self.self_url = self_url
-        if status is not None:
-          self.status = status
         if is_sync_awaiting is not None:
           self.is_sync_awaiting = is_sync_awaiting
-        if stage_updated_at is not None:
-          self.stage_updated_at = stage_updated_at
-        if stage_str is not None:
-          self.stage_str = stage_str
         if is_sync_completed is not None:
           self.is_sync_completed = is_sync_completed
-        if status_updated_at is not None:
-          self.status_updated_at = status_updated_at
-        if sync_finished_at is not None:
-          self.sync_finished_at = sync_finished_at
         if is_sync_failed is not None:
           self.is_sync_failed = is_sync_failed
         if is_sync_in_flight is not None:
           self.is_sync_in_flight = is_sync_in_flight
-        if status_str is not None:
-          self.status_str = status_str
-        if sync_progress is not None:
-          self.sync_progress = sync_progress
-        if status_reason is not None:
-          self.status_reason = status_reason
         if is_sync_in_progress is not None:
           self.is_sync_in_progress = is_sync_in_progress
+        if self_url is not None:
+          self.self_url = self_url
         if stage is not None:
           self.stage = stage
-
-    @property
-    def self_url(self):
-        """
-        Gets the self_url of this PackageStatus.
-        
-
-        :return: The self_url of this PackageStatus.
-        :rtype: str
-        """
-        return self._self_url
-
-    @self_url.setter
-    def self_url(self, self_url):
-        """
-        Sets the self_url of this PackageStatus.
-        
-
-        :param self_url: The self_url of this PackageStatus.
-        :type: str
-        """
-
-        self._self_url = self_url
-
-    @property
-    def status(self):
-        """
-        Gets the status of this PackageStatus.
-        The synchronisation status of the package.
-
-        :return: The status of this PackageStatus.
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """
-        Sets the status of this PackageStatus.
-        The synchronisation status of the package.
-
-        :param status: The status of this PackageStatus.
-        :type: str
-        """
-
-        self._status = status
+        if stage_str is not None:
+          self.stage_str = stage_str
+        if stage_updated_at is not None:
+          self.stage_updated_at = stage_updated_at
+        if status is not None:
+          self.status = status
+        if status_reason is not None:
+          self.status_reason = status_reason
+        if status_str is not None:
+          self.status_str = status_str
+        if status_updated_at is not None:
+          self.status_updated_at = status_updated_at
+        if sync_finished_at is not None:
+          self.sync_finished_at = sync_finished_at
+        if sync_progress is not None:
+          self.sync_progress = sync_progress
 
     @property
     def is_sync_awaiting(self):
@@ -188,52 +142,6 @@ class PackageStatus(object):
         self._is_sync_awaiting = is_sync_awaiting
 
     @property
-    def stage_updated_at(self):
-        """
-        Gets the stage_updated_at of this PackageStatus.
-        The datetime the package stage was updated at.
-
-        :return: The stage_updated_at of this PackageStatus.
-        :rtype: str
-        """
-        return self._stage_updated_at
-
-    @stage_updated_at.setter
-    def stage_updated_at(self, stage_updated_at):
-        """
-        Sets the stage_updated_at of this PackageStatus.
-        The datetime the package stage was updated at.
-
-        :param stage_updated_at: The stage_updated_at of this PackageStatus.
-        :type: str
-        """
-
-        self._stage_updated_at = stage_updated_at
-
-    @property
-    def stage_str(self):
-        """
-        Gets the stage_str of this PackageStatus.
-        
-
-        :return: The stage_str of this PackageStatus.
-        :rtype: str
-        """
-        return self._stage_str
-
-    @stage_str.setter
-    def stage_str(self, stage_str):
-        """
-        Sets the stage_str of this PackageStatus.
-        
-
-        :param stage_str: The stage_str of this PackageStatus.
-        :type: str
-        """
-
-        self._stage_str = stage_str
-
-    @property
     def is_sync_completed(self):
         """
         Gets the is_sync_completed of this PackageStatus.
@@ -255,52 +163,6 @@ class PackageStatus(object):
         """
 
         self._is_sync_completed = is_sync_completed
-
-    @property
-    def status_updated_at(self):
-        """
-        Gets the status_updated_at of this PackageStatus.
-        The datetime the package status was updated at.
-
-        :return: The status_updated_at of this PackageStatus.
-        :rtype: str
-        """
-        return self._status_updated_at
-
-    @status_updated_at.setter
-    def status_updated_at(self, status_updated_at):
-        """
-        Sets the status_updated_at of this PackageStatus.
-        The datetime the package status was updated at.
-
-        :param status_updated_at: The status_updated_at of this PackageStatus.
-        :type: str
-        """
-
-        self._status_updated_at = status_updated_at
-
-    @property
-    def sync_finished_at(self):
-        """
-        Gets the sync_finished_at of this PackageStatus.
-        The datetime the package sync was finished at.
-
-        :return: The sync_finished_at of this PackageStatus.
-        :rtype: str
-        """
-        return self._sync_finished_at
-
-    @sync_finished_at.setter
-    def sync_finished_at(self, sync_finished_at):
-        """
-        Sets the sync_finished_at of this PackageStatus.
-        The datetime the package sync was finished at.
-
-        :param sync_finished_at: The sync_finished_at of this PackageStatus.
-        :type: str
-        """
-
-        self._sync_finished_at = sync_finished_at
 
     @property
     def is_sync_failed(self):
@@ -349,50 +211,142 @@ class PackageStatus(object):
         self._is_sync_in_flight = is_sync_in_flight
 
     @property
-    def status_str(self):
+    def is_sync_in_progress(self):
         """
-        Gets the status_str of this PackageStatus.
+        Gets the is_sync_in_progress of this PackageStatus.
         
 
-        :return: The status_str of this PackageStatus.
+        :return: The is_sync_in_progress of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_sync_in_progress
+
+    @is_sync_in_progress.setter
+    def is_sync_in_progress(self, is_sync_in_progress):
+        """
+        Sets the is_sync_in_progress of this PackageStatus.
+        
+
+        :param is_sync_in_progress: The is_sync_in_progress of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_sync_in_progress = is_sync_in_progress
+
+    @property
+    def self_url(self):
+        """
+        Gets the self_url of this PackageStatus.
+        
+
+        :return: The self_url of this PackageStatus.
         :rtype: str
         """
-        return self._status_str
+        return self._self_url
 
-    @status_str.setter
-    def status_str(self, status_str):
+    @self_url.setter
+    def self_url(self, self_url):
         """
-        Sets the status_str of this PackageStatus.
+        Sets the self_url of this PackageStatus.
         
 
-        :param status_str: The status_str of this PackageStatus.
+        :param self_url: The self_url of this PackageStatus.
         :type: str
         """
 
-        self._status_str = status_str
+        self._self_url = self_url
 
     @property
-    def sync_progress(self):
+    def stage(self):
         """
-        Gets the sync_progress of this PackageStatus.
-        Synchronisation progress (from 0-100)
+        Gets the stage of this PackageStatus.
+        The synchronisation (in progress) stage of the package.
 
-        :return: The sync_progress of this PackageStatus.
-        :rtype: int
+        :return: The stage of this PackageStatus.
+        :rtype: str
         """
-        return self._sync_progress
+        return self._stage
 
-    @sync_progress.setter
-    def sync_progress(self, sync_progress):
+    @stage.setter
+    def stage(self, stage):
         """
-        Sets the sync_progress of this PackageStatus.
-        Synchronisation progress (from 0-100)
+        Sets the stage of this PackageStatus.
+        The synchronisation (in progress) stage of the package.
 
-        :param sync_progress: The sync_progress of this PackageStatus.
-        :type: int
+        :param stage: The stage of this PackageStatus.
+        :type: str
         """
 
-        self._sync_progress = sync_progress
+        self._stage = stage
+
+    @property
+    def stage_str(self):
+        """
+        Gets the stage_str of this PackageStatus.
+        
+
+        :return: The stage_str of this PackageStatus.
+        :rtype: str
+        """
+        return self._stage_str
+
+    @stage_str.setter
+    def stage_str(self, stage_str):
+        """
+        Sets the stage_str of this PackageStatus.
+        
+
+        :param stage_str: The stage_str of this PackageStatus.
+        :type: str
+        """
+
+        self._stage_str = stage_str
+
+    @property
+    def stage_updated_at(self):
+        """
+        Gets the stage_updated_at of this PackageStatus.
+        The datetime the package stage was updated at.
+
+        :return: The stage_updated_at of this PackageStatus.
+        :rtype: str
+        """
+        return self._stage_updated_at
+
+    @stage_updated_at.setter
+    def stage_updated_at(self, stage_updated_at):
+        """
+        Sets the stage_updated_at of this PackageStatus.
+        The datetime the package stage was updated at.
+
+        :param stage_updated_at: The stage_updated_at of this PackageStatus.
+        :type: str
+        """
+
+        self._stage_updated_at = stage_updated_at
+
+    @property
+    def status(self):
+        """
+        Gets the status of this PackageStatus.
+        The synchronisation status of the package.
+
+        :return: The status of this PackageStatus.
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """
+        Sets the status of this PackageStatus.
+        The synchronisation status of the package.
+
+        :param status: The status of this PackageStatus.
+        :type: str
+        """
+
+        self._status = status
 
     @property
     def status_reason(self):
@@ -418,50 +372,96 @@ class PackageStatus(object):
         self._status_reason = status_reason
 
     @property
-    def is_sync_in_progress(self):
+    def status_str(self):
         """
-        Gets the is_sync_in_progress of this PackageStatus.
+        Gets the status_str of this PackageStatus.
         
 
-        :return: The is_sync_in_progress of this PackageStatus.
-        :rtype: bool
-        """
-        return self._is_sync_in_progress
-
-    @is_sync_in_progress.setter
-    def is_sync_in_progress(self, is_sync_in_progress):
-        """
-        Sets the is_sync_in_progress of this PackageStatus.
-        
-
-        :param is_sync_in_progress: The is_sync_in_progress of this PackageStatus.
-        :type: bool
-        """
-
-        self._is_sync_in_progress = is_sync_in_progress
-
-    @property
-    def stage(self):
-        """
-        Gets the stage of this PackageStatus.
-        The synchronisation (in progress) stage of the package.
-
-        :return: The stage of this PackageStatus.
+        :return: The status_str of this PackageStatus.
         :rtype: str
         """
-        return self._stage
+        return self._status_str
 
-    @stage.setter
-    def stage(self, stage):
+    @status_str.setter
+    def status_str(self, status_str):
         """
-        Sets the stage of this PackageStatus.
-        The synchronisation (in progress) stage of the package.
+        Sets the status_str of this PackageStatus.
+        
 
-        :param stage: The stage of this PackageStatus.
+        :param status_str: The status_str of this PackageStatus.
         :type: str
         """
 
-        self._stage = stage
+        self._status_str = status_str
+
+    @property
+    def status_updated_at(self):
+        """
+        Gets the status_updated_at of this PackageStatus.
+        The datetime the package status was updated at.
+
+        :return: The status_updated_at of this PackageStatus.
+        :rtype: str
+        """
+        return self._status_updated_at
+
+    @status_updated_at.setter
+    def status_updated_at(self, status_updated_at):
+        """
+        Sets the status_updated_at of this PackageStatus.
+        The datetime the package status was updated at.
+
+        :param status_updated_at: The status_updated_at of this PackageStatus.
+        :type: str
+        """
+
+        self._status_updated_at = status_updated_at
+
+    @property
+    def sync_finished_at(self):
+        """
+        Gets the sync_finished_at of this PackageStatus.
+        The datetime the package sync was finished at.
+
+        :return: The sync_finished_at of this PackageStatus.
+        :rtype: str
+        """
+        return self._sync_finished_at
+
+    @sync_finished_at.setter
+    def sync_finished_at(self, sync_finished_at):
+        """
+        Sets the sync_finished_at of this PackageStatus.
+        The datetime the package sync was finished at.
+
+        :param sync_finished_at: The sync_finished_at of this PackageStatus.
+        :type: str
+        """
+
+        self._sync_finished_at = sync_finished_at
+
+    @property
+    def sync_progress(self):
+        """
+        Gets the sync_progress of this PackageStatus.
+        Synchronisation progress (from 0-100)
+
+        :return: The sync_progress of this PackageStatus.
+        :rtype: int
+        """
+        return self._sync_progress
+
+    @sync_progress.setter
+    def sync_progress(self, sync_progress):
+        """
+        Sets the sync_progress of this PackageStatus.
+        Synchronisation progress (from 0-100)
+
+        :param sync_progress: The sync_progress of this PackageStatus.
+        :type: int
+        """
+
+        self._sync_progress = sync_progress
 
     def to_dict(self):
         """

@@ -35,6 +35,14 @@ class TestReposApi(unittest.TestCase):
         """
         Test case for repos_list
 
+        Get a list of all repositories associated with current user.
+        """
+        pass
+
+    def test_repos_list0(self):
+        """
+        Test case for repos_list0
+
         Get a list of all repositories within a namespace.
         """
         pass

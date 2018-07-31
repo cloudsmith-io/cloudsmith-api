@@ -31,83 +31,33 @@ class PackagesUploadVagrant(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'provider': 'str',
-        'version': 'str',
         'name': 'str',
-        'package_file': 'str'
+        'package_file': 'str',
+        'provider': 'str',
+        'version': 'str'
     }
 
     attribute_map = {
-        'provider': 'provider',
-        'version': 'version',
         'name': 'name',
-        'package_file': 'package_file'
+        'package_file': 'package_file',
+        'provider': 'provider',
+        'version': 'version'
     }
 
-    def __init__(self, provider=None, version=None, name=None, package_file=None):
+    def __init__(self, name=None, package_file=None, provider=None, version=None):
         """
         PackagesUploadVagrant - a model defined in Swagger
         """
 
-        self._provider = None
-        self._version = None
         self._name = None
         self._package_file = None
+        self._provider = None
+        self._version = None
 
-        self.provider = provider
-        self.version = version
         self.name = name
         self.package_file = package_file
-
-    @property
-    def provider(self):
-        """
-        Gets the provider of this PackagesUploadVagrant.
-        The virtual machine provider for the box.
-
-        :return: The provider of this PackagesUploadVagrant.
-        :rtype: str
-        """
-        return self._provider
-
-    @provider.setter
-    def provider(self, provider):
-        """
-        Sets the provider of this PackagesUploadVagrant.
-        The virtual machine provider for the box.
-
-        :param provider: The provider of this PackagesUploadVagrant.
-        :type: str
-        """
-        if provider is None:
-            raise ValueError("Invalid value for `provider`, must not be `None`")
-
-        self._provider = provider
-
-    @property
-    def version(self):
-        """
-        Gets the version of this PackagesUploadVagrant.
-        The version of this package.
-
-        :return: The version of this PackagesUploadVagrant.
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """
-        Sets the version of this PackagesUploadVagrant.
-        The version of this package.
-
-        :param version: The version of this PackagesUploadVagrant.
-        :type: str
-        """
-        if version is None:
-            raise ValueError("Invalid value for `version`, must not be `None`")
-
-        self._version = version
+        self.provider = provider
+        self.version = version
 
     @property
     def name(self):
@@ -158,6 +108,56 @@ class PackagesUploadVagrant(object):
             raise ValueError("Invalid value for `package_file`, must not be `None`")
 
         self._package_file = package_file
+
+    @property
+    def provider(self):
+        """
+        Gets the provider of this PackagesUploadVagrant.
+        The virtual machine provider for the box.
+
+        :return: The provider of this PackagesUploadVagrant.
+        :rtype: str
+        """
+        return self._provider
+
+    @provider.setter
+    def provider(self, provider):
+        """
+        Sets the provider of this PackagesUploadVagrant.
+        The virtual machine provider for the box.
+
+        :param provider: The provider of this PackagesUploadVagrant.
+        :type: str
+        """
+        if provider is None:
+            raise ValueError("Invalid value for `provider`, must not be `None`")
+
+        self._provider = provider
+
+    @property
+    def version(self):
+        """
+        Gets the version of this PackagesUploadVagrant.
+        The version of this package.
+
+        :return: The version of this PackagesUploadVagrant.
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """
+        Sets the version of this PackagesUploadVagrant.
+        The version of this package.
+
+        :param version: The version of this PackagesUploadVagrant.
+        :type: str
+        """
+        if version is None:
+            raise ValueError("Invalid value for `version`, must not be `None`")
+
+        self._version = version
 
     def to_dict(self):
         """

@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.rpm_package_upload import RpmPackageUpload
+from cloudsmith_api.models.packages_validateupload_composer import PackagesValidateuploadComposer
 
 
-class TestRpmPackageUpload(unittest.TestCase):
-    """ RpmPackageUpload unit test stubs """
+class TestPackagesValidateuploadComposer(unittest.TestCase):
+    """ PackagesValidateuploadComposer unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestRpmPackageUpload(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRpmPackageUpload(self):
+    def testPackagesValidateuploadComposer(self):
         """
-        Test RpmPackageUpload
+        Test PackagesValidateuploadComposer
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.rpm_package_upload.RpmPackageUpload()
+        #model = cloudsmith_api.models.packages_validateupload_composer.PackagesValidateuploadComposer()
         pass
 
 

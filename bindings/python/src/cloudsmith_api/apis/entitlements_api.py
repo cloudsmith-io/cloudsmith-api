@@ -157,7 +157,7 @@ class EntitlementsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def entitlements_delete(self, owner, repo, slug_perm, **kwargs):
+    def entitlements_delete(self, owner, repo, identifier, **kwargs):
         """
         Delete a specific entitlement in a repository.
         Delete a specific entitlement in a repository.
@@ -167,26 +167,25 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_delete(owner, repo, slug_perm, callback=callback_function)
+        >>> thread = api.entitlements_delete(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug_perm:  (required)
-        :param bool show_tokens: Show entitlement token strings in results
+        :param str identifier:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.entitlements_delete_with_http_info(owner, repo, slug_perm, **kwargs)
+            return self.entitlements_delete_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.entitlements_delete_with_http_info(owner, repo, slug_perm, **kwargs)
+            (data) = self.entitlements_delete_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def entitlements_delete_with_http_info(self, owner, repo, slug_perm, **kwargs):
+    def entitlements_delete_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Delete a specific entitlement in a repository.
         Delete a specific entitlement in a repository.
@@ -196,20 +195,19 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_delete_with_http_info(owner, repo, slug_perm, callback=callback_function)
+        >>> thread = api.entitlements_delete_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug_perm:  (required)
-        :param bool show_tokens: Show entitlement token strings in results
+        :param str identifier:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug_perm', 'show_tokens']
+        all_params = ['owner', 'repo', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -230,9 +228,9 @@ class EntitlementsApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `entitlements_delete`")
-        # verify the required parameter 'slug_perm' is set
-        if ('slug_perm' not in params) or (params['slug_perm'] is None):
-            raise ValueError("Missing the required parameter `slug_perm` when calling `entitlements_delete`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `entitlements_delete`")
 
 
         collection_formats = {}
@@ -242,12 +240,10 @@ class EntitlementsApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
-        if 'show_tokens' in params:
-            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
@@ -258,7 +254,231 @@ class EntitlementsApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/entitlements/{owner}/{repo}/{slug_perm}/', 'DELETE',
+        return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def entitlements_disable(self, owner, repo, identifier, **kwargs):
+        """
+        Disable an entitlement token in a repository.
+        Disable an entitlement token in a repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.entitlements_disable(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.entitlements_disable_with_http_info(owner, repo, identifier, **kwargs)
+        else:
+            (data) = self.entitlements_disable_with_http_info(owner, repo, identifier, **kwargs)
+            return data
+
+    def entitlements_disable_with_http_info(self, owner, repo, identifier, **kwargs):
+        """
+        Disable an entitlement token in a repository.
+        Disable an entitlement token in a repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.entitlements_disable_with_http_info(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'identifier']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method entitlements_disable" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `entitlements_disable`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `entitlements_disable`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `entitlements_disable`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/disable/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def entitlements_enable(self, owner, repo, identifier, **kwargs):
+        """
+        Enable an entitlement token in a repository.
+        Enable an entitlement token in a repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.entitlements_enable(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.entitlements_enable_with_http_info(owner, repo, identifier, **kwargs)
+        else:
+            (data) = self.entitlements_enable_with_http_info(owner, repo, identifier, **kwargs)
+            return data
+
+    def entitlements_enable_with_http_info(self, owner, repo, identifier, **kwargs):
+        """
+        Enable an entitlement token in a repository.
+        Enable an entitlement token in a repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.entitlements_enable_with_http_info(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'identifier']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method entitlements_enable" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `entitlements_enable`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `entitlements_enable`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `entitlements_enable`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/enable/', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -390,7 +610,7 @@ class EntitlementsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def entitlements_partial_update(self, owner, repo, slug_perm, **kwargs):
+    def entitlements_partial_update(self, owner, repo, **kwargs):
         """
         Update a specific entitlement in a repository.
         Update a specific entitlement in a repository.
@@ -400,13 +620,12 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_partial_update(owner, repo, slug_perm, callback=callback_function)
+        >>> thread = api.entitlements_partial_update(owner, repo, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug_perm:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsPartialUpdate data:
         :return: RepositoryToken
@@ -415,12 +634,12 @@ class EntitlementsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.entitlements_partial_update_with_http_info(owner, repo, slug_perm, **kwargs)
+            return self.entitlements_partial_update_with_http_info(owner, repo, **kwargs)
         else:
-            (data) = self.entitlements_partial_update_with_http_info(owner, repo, slug_perm, **kwargs)
+            (data) = self.entitlements_partial_update_with_http_info(owner, repo, **kwargs)
             return data
 
-    def entitlements_partial_update_with_http_info(self, owner, repo, slug_perm, **kwargs):
+    def entitlements_partial_update_with_http_info(self, owner, repo, **kwargs):
         """
         Update a specific entitlement in a repository.
         Update a specific entitlement in a repository.
@@ -430,13 +649,12 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_partial_update_with_http_info(owner, repo, slug_perm, callback=callback_function)
+        >>> thread = api.entitlements_partial_update_with_http_info(owner, repo, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug_perm:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsPartialUpdate data:
         :return: RepositoryToken
@@ -444,7 +662,7 @@ class EntitlementsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug_perm', 'show_tokens', 'data']
+        all_params = ['owner', 'repo', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -465,9 +683,6 @@ class EntitlementsApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `entitlements_partial_update`")
-        # verify the required parameter 'slug_perm' is set
-        if ('slug_perm' not in params) or (params['slug_perm'] is None):
-            raise ValueError("Missing the required parameter `slug_perm` when calling `entitlements_partial_update`")
 
 
         collection_formats = {}
@@ -477,8 +692,6 @@ class EntitlementsApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']
 
         query_params = []
         if 'show_tokens' in params:
@@ -499,7 +712,7 @@ class EntitlementsApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/entitlements/{owner}/{repo}/{slug_perm}/', 'PATCH',
+        return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'PATCH',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -514,23 +727,23 @@ class EntitlementsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def entitlements_read(self, owner, repo, slug_perm, **kwargs):
+    def entitlements_read(self, owner, repo, identifier, **kwargs):
         """
-        Views for working with repository entitlements.
-        Views for working with repository entitlements.
+        Get a specific entitlement in a repository.
+        Get a specific entitlement in a repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_read(owner, repo, slug_perm, callback=callback_function)
+        >>> thread = api.entitlements_read(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug_perm:  (required)
+        :param str identifier:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :return: RepositoryToken
                  If the method is called asynchronously,
@@ -538,35 +751,35 @@ class EntitlementsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.entitlements_read_with_http_info(owner, repo, slug_perm, **kwargs)
+            return self.entitlements_read_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.entitlements_read_with_http_info(owner, repo, slug_perm, **kwargs)
+            (data) = self.entitlements_read_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def entitlements_read_with_http_info(self, owner, repo, slug_perm, **kwargs):
+    def entitlements_read_with_http_info(self, owner, repo, identifier, **kwargs):
         """
-        Views for working with repository entitlements.
-        Views for working with repository entitlements.
+        Get a specific entitlement in a repository.
+        Get a specific entitlement in a repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_read_with_http_info(owner, repo, slug_perm, callback=callback_function)
+        >>> thread = api.entitlements_read_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug_perm:  (required)
+        :param str identifier:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug_perm', 'show_tokens']
+        all_params = ['owner', 'repo', 'identifier', 'show_tokens']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -587,9 +800,9 @@ class EntitlementsApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `entitlements_read`")
-        # verify the required parameter 'slug_perm' is set
-        if ('slug_perm' not in params) or (params['slug_perm'] is None):
-            raise ValueError("Missing the required parameter `slug_perm` when calling `entitlements_read`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `entitlements_read`")
 
 
         collection_formats = {}
@@ -599,8 +812,8 @@ class EntitlementsApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
         if 'show_tokens' in params:
@@ -615,7 +828,7 @@ class EntitlementsApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/entitlements/{owner}/{repo}/{slug_perm}/', 'GET',
+        return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -630,7 +843,7 @@ class EntitlementsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def entitlements_refresh(self, owner, repo, slug_perm, **kwargs):
+    def entitlements_refresh(self, owner, repo, **kwargs):
         """
         Refresh an entitlement token in a repository.
         Refresh an entitlement token in a repository.
@@ -640,13 +853,12 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_refresh(owner, repo, slug_perm, callback=callback_function)
+        >>> thread = api.entitlements_refresh(owner, repo, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug_perm:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsRefresh data:
         :return: RepositoryTokenRefresh
@@ -655,12 +867,12 @@ class EntitlementsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.entitlements_refresh_with_http_info(owner, repo, slug_perm, **kwargs)
+            return self.entitlements_refresh_with_http_info(owner, repo, **kwargs)
         else:
-            (data) = self.entitlements_refresh_with_http_info(owner, repo, slug_perm, **kwargs)
+            (data) = self.entitlements_refresh_with_http_info(owner, repo, **kwargs)
             return data
 
-    def entitlements_refresh_with_http_info(self, owner, repo, slug_perm, **kwargs):
+    def entitlements_refresh_with_http_info(self, owner, repo, **kwargs):
         """
         Refresh an entitlement token in a repository.
         Refresh an entitlement token in a repository.
@@ -670,13 +882,12 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_refresh_with_http_info(owner, repo, slug_perm, callback=callback_function)
+        >>> thread = api.entitlements_refresh_with_http_info(owner, repo, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug_perm:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsRefresh data:
         :return: RepositoryTokenRefresh
@@ -684,7 +895,7 @@ class EntitlementsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug_perm', 'show_tokens', 'data']
+        all_params = ['owner', 'repo', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -705,9 +916,6 @@ class EntitlementsApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `entitlements_refresh`")
-        # verify the required parameter 'slug_perm' is set
-        if ('slug_perm' not in params) or (params['slug_perm'] is None):
-            raise ValueError("Missing the required parameter `slug_perm` when calling `entitlements_refresh`")
 
 
         collection_formats = {}
@@ -717,8 +925,6 @@ class EntitlementsApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']
 
         query_params = []
         if 'show_tokens' in params:
@@ -739,7 +945,7 @@ class EntitlementsApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/entitlements/{owner}/{repo}/{slug_perm}/refresh/', 'POST',
+        return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/refresh/', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -747,6 +953,118 @@ class EntitlementsApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='RepositoryTokenRefresh',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def entitlements_reset(self, owner, repo, identifier, **kwargs):
+        """
+        Reset the statistics for an entitlement token in a repository.
+        Reset the statistics for an entitlement token in a repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.entitlements_reset(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.entitlements_reset_with_http_info(owner, repo, identifier, **kwargs)
+        else:
+            (data) = self.entitlements_reset_with_http_info(owner, repo, identifier, **kwargs)
+            return data
+
+    def entitlements_reset_with_http_info(self, owner, repo, identifier, **kwargs):
+        """
+        Reset the statistics for an entitlement token in a repository.
+        Reset the statistics for an entitlement token in a repository.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.entitlements_reset_with_http_info(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'identifier']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method entitlements_reset" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `entitlements_reset`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `entitlements_reset`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `entitlements_reset`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/reset/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -770,7 +1088,6 @@ class EntitlementsApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsSync data:
         :return: RepositoryTokenSync
                  If the method is called asynchronously,
@@ -799,14 +1116,13 @@ class EntitlementsApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsSync data:
         :return: RepositoryTokenSync
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'show_tokens', 'data']
+        all_params = ['owner', 'repo', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -838,8 +1154,6 @@ class EntitlementsApi(object):
             path_params['repo'] = params['repo']
 
         query_params = []
-        if 'show_tokens' in params:
-            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 

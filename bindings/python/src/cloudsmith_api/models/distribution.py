@@ -31,122 +31,51 @@ class Distribution(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'self_url': 'str',
-        'name': 'str',
-        'versions': 'list[DistributionVersions]',
         'format': 'str',
         'format_url': 'str',
+        'name': 'str',
+        'self_url': 'str',
+        'slug': 'str',
         'variants': 'str',
-        'slug': 'str'
+        'versions': 'list[DistrosVersions]'
     }
 
     attribute_map = {
-        'self_url': 'self_url',
-        'name': 'name',
-        'versions': 'versions',
         'format': 'format',
         'format_url': 'format_url',
+        'name': 'name',
+        'self_url': 'self_url',
+        'slug': 'slug',
         'variants': 'variants',
-        'slug': 'slug'
+        'versions': 'versions'
     }
 
-    def __init__(self, self_url=None, name=None, versions=None, format=None, format_url=None, variants=None, slug=None):
+    def __init__(self, format=None, format_url=None, name=None, self_url=None, slug=None, variants=None, versions=None):
         """
         Distribution - a model defined in Swagger
         """
 
-        self._self_url = None
-        self._name = None
-        self._versions = None
         self._format = None
         self._format_url = None
-        self._variants = None
+        self._name = None
+        self._self_url = None
         self._slug = None
+        self._variants = None
+        self._versions = None
 
-        if self_url is not None:
-          self.self_url = self_url
-        self.name = name
-        if versions is not None:
-          self.versions = versions
         if format is not None:
           self.format = format
         if format_url is not None:
           self.format_url = format_url
-        if variants is not None:
-          self.variants = variants
+        self.name = name
+        if self_url is not None:
+          self.self_url = self_url
         if slug is not None:
           self.slug = slug
-
-    @property
-    def self_url(self):
-        """
-        Gets the self_url of this Distribution.
-        
-
-        :return: The self_url of this Distribution.
-        :rtype: str
-        """
-        return self._self_url
-
-    @self_url.setter
-    def self_url(self, self_url):
-        """
-        Sets the self_url of this Distribution.
-        
-
-        :param self_url: The self_url of this Distribution.
-        :type: str
-        """
-
-        self._self_url = self_url
-
-    @property
-    def name(self):
-        """
-        Gets the name of this Distribution.
-        
-
-        :return: The name of this Distribution.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this Distribution.
-        
-
-        :param name: The name of this Distribution.
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-
-        self._name = name
-
-    @property
-    def versions(self):
-        """
-        Gets the versions of this Distribution.
-        A list of the versions for this distribution
-
-        :return: The versions of this Distribution.
-        :rtype: list[DistributionVersions]
-        """
-        return self._versions
-
-    @versions.setter
-    def versions(self, versions):
-        """
-        Sets the versions of this Distribution.
-        A list of the versions for this distribution
-
-        :param versions: The versions of this Distribution.
-        :type: list[DistributionVersions]
-        """
-
-        self._versions = versions
+        if variants is not None:
+          self.variants = variants
+        if versions is not None:
+          self.versions = versions
 
     @property
     def format(self):
@@ -195,27 +124,52 @@ class Distribution(object):
         self._format_url = format_url
 
     @property
-    def variants(self):
+    def name(self):
         """
-        Gets the variants of this Distribution.
+        Gets the name of this Distribution.
         
 
-        :return: The variants of this Distribution.
+        :return: The name of this Distribution.
         :rtype: str
         """
-        return self._variants
+        return self._name
 
-    @variants.setter
-    def variants(self, variants):
+    @name.setter
+    def name(self, name):
         """
-        Sets the variants of this Distribution.
+        Sets the name of this Distribution.
         
 
-        :param variants: The variants of this Distribution.
+        :param name: The name of this Distribution.
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")
+
+        self._name = name
+
+    @property
+    def self_url(self):
+        """
+        Gets the self_url of this Distribution.
+        
+
+        :return: The self_url of this Distribution.
+        :rtype: str
+        """
+        return self._self_url
+
+    @self_url.setter
+    def self_url(self, self_url):
+        """
+        Sets the self_url of this Distribution.
+        
+
+        :param self_url: The self_url of this Distribution.
         :type: str
         """
 
-        self._variants = variants
+        self._self_url = self_url
 
     @property
     def slug(self):
@@ -239,6 +193,52 @@ class Distribution(object):
         """
 
         self._slug = slug
+
+    @property
+    def variants(self):
+        """
+        Gets the variants of this Distribution.
+        
+
+        :return: The variants of this Distribution.
+        :rtype: str
+        """
+        return self._variants
+
+    @variants.setter
+    def variants(self, variants):
+        """
+        Sets the variants of this Distribution.
+        
+
+        :param variants: The variants of this Distribution.
+        :type: str
+        """
+
+        self._variants = variants
+
+    @property
+    def versions(self):
+        """
+        Gets the versions of this Distribution.
+        A list of the versions for this distribution
+
+        :return: The versions of this Distribution.
+        :rtype: list[DistrosVersions]
+        """
+        return self._versions
+
+    @versions.setter
+    def versions(self, versions):
+        """
+        Sets the versions of this Distribution.
+        A list of the versions for this distribution
+
+        :param versions: The versions of this Distribution.
+        :type: list[DistrosVersions]
+        """
+
+        self._versions = versions
 
     def to_dict(self):
         """

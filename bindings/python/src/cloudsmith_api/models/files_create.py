@@ -31,50 +31,25 @@ class FilesCreate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'md5_checksum': 'str',
-        'filename': 'str'
+        'filename': 'str',
+        'md5_checksum': 'str'
     }
 
     attribute_map = {
-        'md5_checksum': 'md5_checksum',
-        'filename': 'filename'
+        'filename': 'filename',
+        'md5_checksum': 'md5_checksum'
     }
 
-    def __init__(self, md5_checksum=None, filename=None):
+    def __init__(self, filename=None, md5_checksum=None):
         """
         FilesCreate - a model defined in Swagger
         """
 
-        self._md5_checksum = None
         self._filename = None
+        self._md5_checksum = None
 
-        self.md5_checksum = md5_checksum
         self.filename = filename
-
-    @property
-    def md5_checksum(self):
-        """
-        Gets the md5_checksum of this FilesCreate.
-        MD5 checksum for the package file upload.
-
-        :return: The md5_checksum of this FilesCreate.
-        :rtype: str
-        """
-        return self._md5_checksum
-
-    @md5_checksum.setter
-    def md5_checksum(self, md5_checksum):
-        """
-        Sets the md5_checksum of this FilesCreate.
-        MD5 checksum for the package file upload.
-
-        :param md5_checksum: The md5_checksum of this FilesCreate.
-        :type: str
-        """
-        if md5_checksum is None:
-            raise ValueError("Invalid value for `md5_checksum`, must not be `None`")
-
-        self._md5_checksum = md5_checksum
+        self.md5_checksum = md5_checksum
 
     @property
     def filename(self):
@@ -100,6 +75,31 @@ class FilesCreate(object):
             raise ValueError("Invalid value for `filename`, must not be `None`")
 
         self._filename = filename
+
+    @property
+    def md5_checksum(self):
+        """
+        Gets the md5_checksum of this FilesCreate.
+        MD5 checksum for the package file upload.
+
+        :return: The md5_checksum of this FilesCreate.
+        :rtype: str
+        """
+        return self._md5_checksum
+
+    @md5_checksum.setter
+    def md5_checksum(self, md5_checksum):
+        """
+        Sets the md5_checksum of this FilesCreate.
+        MD5 checksum for the package file upload.
+
+        :param md5_checksum: The md5_checksum of this FilesCreate.
+        :type: str
+        """
+        if md5_checksum is None:
+            raise ValueError("Invalid value for `md5_checksum`, must not be `None`")
+
+        self._md5_checksum = md5_checksum
 
     def to_dict(self):
         """

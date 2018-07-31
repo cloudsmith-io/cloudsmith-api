@@ -31,55 +31,32 @@ class PackageFileUpload(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'upload_fields': 'object',
         'identifier': 'str',
+        'upload_fields': 'object',
         'upload_url': 'str'
     }
 
     attribute_map = {
-        'upload_fields': 'upload_fields',
         'identifier': 'identifier',
+        'upload_fields': 'upload_fields',
         'upload_url': 'upload_url'
     }
 
-    def __init__(self, upload_fields=None, identifier=None, upload_url=None):
+    def __init__(self, identifier=None, upload_fields=None, upload_url=None):
         """
         PackageFileUpload - a model defined in Swagger
         """
 
-        self._upload_fields = None
         self._identifier = None
+        self._upload_fields = None
         self._upload_url = None
 
-        if upload_fields is not None:
-          self.upload_fields = upload_fields
         if identifier is not None:
           self.identifier = identifier
+        if upload_fields is not None:
+          self.upload_fields = upload_fields
         if upload_url is not None:
           self.upload_url = upload_url
-
-    @property
-    def upload_fields(self):
-        """
-        Gets the upload_fields of this PackageFileUpload.
-        The dictionary of fields that must be sent with POST uploads
-
-        :return: The upload_fields of this PackageFileUpload.
-        :rtype: object
-        """
-        return self._upload_fields
-
-    @upload_fields.setter
-    def upload_fields(self, upload_fields):
-        """
-        Sets the upload_fields of this PackageFileUpload.
-        The dictionary of fields that must be sent with POST uploads
-
-        :param upload_fields: The upload_fields of this PackageFileUpload.
-        :type: object
-        """
-
-        self._upload_fields = upload_fields
 
     @property
     def identifier(self):
@@ -103,6 +80,29 @@ class PackageFileUpload(object):
         """
 
         self._identifier = identifier
+
+    @property
+    def upload_fields(self):
+        """
+        Gets the upload_fields of this PackageFileUpload.
+        The dictionary of fields that must be sent with POST uploads
+
+        :return: The upload_fields of this PackageFileUpload.
+        :rtype: object
+        """
+        return self._upload_fields
+
+    @upload_fields.setter
+    def upload_fields(self, upload_fields):
+        """
+        Sets the upload_fields of this PackageFileUpload.
+        The dictionary of fields that must be sent with POST uploads
+
+        :param upload_fields: The upload_fields of this PackageFileUpload.
+        :type: object
+        """
+
+        self._upload_fields = upload_fields
 
     @property
     def upload_url(self):

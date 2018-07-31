@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.format_distributions import FormatDistributions
+from cloudsmith_api.models.distros_versions import DistrosVersions
 
 
-class TestFormatDistributions(unittest.TestCase):
-    """ FormatDistributions unit test stubs """
+class TestDistrosVersions(unittest.TestCase):
+    """ DistrosVersions unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestFormatDistributions(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testFormatDistributions(self):
+    def testDistrosVersions(self):
         """
-        Test FormatDistributions
+        Test DistrosVersions
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.format_distributions.FormatDistributions()
+        #model = cloudsmith_api.models.distros_versions.DistrosVersions()
         pass
 
 

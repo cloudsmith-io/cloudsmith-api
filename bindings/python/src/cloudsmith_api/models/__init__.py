@@ -15,7 +15,7 @@ from __future__ import absolute_import
 
 # import models into model package
 from .distribution import Distribution
-from .distribution_versions import DistributionVersions
+from .distros_versions import DistrosVersions
 from .entitlements_create import EntitlementsCreate
 from .entitlements_partial_update import EntitlementsPartialUpdate
 from .entitlements_refresh import EntitlementsRefresh
@@ -23,16 +23,18 @@ from .entitlements_sync import EntitlementsSync
 from .files_create import FilesCreate
 from .files_validate import FilesValidate
 from .format import Format
-from .format_distributions import FormatDistributions
+from .formats_distributions import FormatsDistributions
 from .maven_package_upload import MavenPackageUpload
 from .namespace import Namespace
 from .organization import Organization
+from .package import Package
 from .package_copy import PackageCopy
 from .package_file_upload import PackageFileUpload
 from .package_move import PackageMove
 from .package_status import PackageStatus
 from .packages_copy import PackagesCopy
 from .packages_move import PackagesMove
+from .packages_upload_composer import PackagesUploadComposer
 from .packages_upload_deb import PackagesUploadDeb
 from .packages_upload_maven import PackagesUploadMaven
 from .packages_upload_python import PackagesUploadPython
@@ -40,6 +42,7 @@ from .packages_upload_raw import PackagesUploadRaw
 from .packages_upload_rpm import PackagesUploadRpm
 from .packages_upload_ruby import PackagesUploadRuby
 from .packages_upload_vagrant import PackagesUploadVagrant
+from .packages_validateupload_composer import PackagesValidateuploadComposer
 from .packages_validateupload_deb import PackagesValidateuploadDeb
 from .packages_validateupload_maven import PackagesValidateuploadMaven
 from .packages_validateupload_python import PackagesValidateuploadPython
@@ -47,16 +50,17 @@ from .packages_validateupload_raw import PackagesValidateuploadRaw
 from .packages_validateupload_rpm import PackagesValidateuploadRpm
 from .packages_validateupload_ruby import PackagesValidateuploadRuby
 from .packages_validateupload_vagrant import PackagesValidateuploadVagrant
+from .packagesownerrepo_architectures import PackagesownerrepoArchitectures
+from .packagesownerrepo_files import PackagesownerrepoFiles
 from .raw_package_upload import RawPackageUpload
+from .repos_gpg_keys import ReposGpgKeys
 from .repository import Repository
 from .repository_token import RepositoryToken
 from .repository_token_refresh import RepositoryTokenRefresh
 from .repository_token_sync import RepositoryTokenSync
-from .reposowner_gpg_keys import ReposownerGpgKeys
+from .repository_token_sync_tokens import RepositoryTokenSyncTokens
+from .repository_webhook import RepositoryWebhook
 from .resources_rate_check import ResourcesRateCheck
-from .rpm_package_upload import RpmPackageUpload
-from .rpm_package_upload_architectures import RpmPackageUploadArchitectures
-from .rpm_package_upload_files import RpmPackageUploadFiles
 from .status import Status
 from .status_basic import StatusBasic
 from .user_auth_token import UserAuthToken
@@ -64,3 +68,5 @@ from .user_brief import UserBrief
 from .user_profile import UserProfile
 from .user_token_create import UserTokenCreate
 from .vagrant_package_upload import VagrantPackageUpload
+from .webhooks_create import WebhooksCreate
+from .webhooks_partial_update import WebhooksPartialUpdate

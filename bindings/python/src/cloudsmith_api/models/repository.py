@@ -31,290 +31,127 @@ class Repository(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'is_open_source': 'bool',
-        'repository_type_str': 'str',
-        'index_files': 'bool',
-        'package_count': 'int',
-        'deleted_at': 'str',
-        'repository_type': 'str',
-        'size': 'int',
         'cdn_url': 'str',
-        'namespace': 'str',
-        'self_html_url': 'str',
-        'namespace_url': 'str',
-        'gpg_keys': 'list[ReposownerGpgKeys]',
-        'description': 'str',
-        'size_str': 'str',
-        'slug_perm': 'str',
-        'is_public': 'bool',
-        'slug': 'str',
-        'is_private': 'bool',
-        'num_downloads': 'int',
-        'self_url': 'str',
-        'name': 'str',
         'created_at': 'str',
-        'package_group_count': 'int'
+        'deleted_at': 'str',
+        'description': 'str',
+        'gpg_keys': 'list[ReposGpgKeys]',
+        'index_files': 'bool',
+        'is_open_source': 'bool',
+        'is_private': 'bool',
+        'is_public': 'bool',
+        'name': 'str',
+        'namespace': 'str',
+        'namespace_url': 'str',
+        'num_downloads': 'int',
+        'package_count': 'int',
+        'package_group_count': 'int',
+        'repository_type': 'str',
+        'repository_type_str': 'str',
+        'self_html_url': 'str',
+        'self_url': 'str',
+        'size': 'int',
+        'size_str': 'str',
+        'slug': 'str',
+        'slug_perm': 'str'
     }
 
     attribute_map = {
-        'is_open_source': 'is_open_source',
-        'repository_type_str': 'repository_type_str',
-        'index_files': 'index_files',
-        'package_count': 'package_count',
-        'deleted_at': 'deleted_at',
-        'repository_type': 'repository_type',
-        'size': 'size',
         'cdn_url': 'cdn_url',
-        'namespace': 'namespace',
-        'self_html_url': 'self_html_url',
-        'namespace_url': 'namespace_url',
-        'gpg_keys': 'gpg_keys',
-        'description': 'description',
-        'size_str': 'size_str',
-        'slug_perm': 'slug_perm',
-        'is_public': 'is_public',
-        'slug': 'slug',
-        'is_private': 'is_private',
-        'num_downloads': 'num_downloads',
-        'self_url': 'self_url',
-        'name': 'name',
         'created_at': 'created_at',
-        'package_group_count': 'package_group_count'
+        'deleted_at': 'deleted_at',
+        'description': 'description',
+        'gpg_keys': 'gpg_keys',
+        'index_files': 'index_files',
+        'is_open_source': 'is_open_source',
+        'is_private': 'is_private',
+        'is_public': 'is_public',
+        'name': 'name',
+        'namespace': 'namespace',
+        'namespace_url': 'namespace_url',
+        'num_downloads': 'num_downloads',
+        'package_count': 'package_count',
+        'package_group_count': 'package_group_count',
+        'repository_type': 'repository_type',
+        'repository_type_str': 'repository_type_str',
+        'self_html_url': 'self_html_url',
+        'self_url': 'self_url',
+        'size': 'size',
+        'size_str': 'size_str',
+        'slug': 'slug',
+        'slug_perm': 'slug_perm'
     }
 
-    def __init__(self, is_open_source=None, repository_type_str=None, index_files=None, package_count=None, deleted_at=None, repository_type=None, size=None, cdn_url=None, namespace=None, self_html_url=None, namespace_url=None, gpg_keys=None, description=None, size_str=None, slug_perm=None, is_public=None, slug=None, is_private=None, num_downloads=None, self_url=None, name=None, created_at=None, package_group_count=None):
+    def __init__(self, cdn_url=None, created_at=None, deleted_at=None, description=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, name=None, namespace=None, namespace_url=None, num_downloads=None, package_count=None, package_group_count=None, repository_type=None, repository_type_str=None, self_html_url=None, self_url=None, size=None, size_str=None, slug=None, slug_perm=None):
         """
         Repository - a model defined in Swagger
         """
 
-        self._is_open_source = None
-        self._repository_type_str = None
-        self._index_files = None
-        self._package_count = None
-        self._deleted_at = None
-        self._repository_type = None
-        self._size = None
         self._cdn_url = None
-        self._namespace = None
-        self._self_html_url = None
-        self._namespace_url = None
-        self._gpg_keys = None
-        self._description = None
-        self._size_str = None
-        self._slug_perm = None
-        self._is_public = None
-        self._slug = None
-        self._is_private = None
-        self._num_downloads = None
-        self._self_url = None
-        self._name = None
         self._created_at = None
+        self._deleted_at = None
+        self._description = None
+        self._gpg_keys = None
+        self._index_files = None
+        self._is_open_source = None
+        self._is_private = None
+        self._is_public = None
+        self._name = None
+        self._namespace = None
+        self._namespace_url = None
+        self._num_downloads = None
+        self._package_count = None
         self._package_group_count = None
+        self._repository_type = None
+        self._repository_type_str = None
+        self._self_html_url = None
+        self._self_url = None
+        self._size = None
+        self._size_str = None
+        self._slug = None
+        self._slug_perm = None
 
-        self.is_open_source = is_open_source
-        if repository_type_str is not None:
-          self.repository_type_str = repository_type_str
-        if index_files is not None:
-          self.index_files = index_files
-        if package_count is not None:
-          self.package_count = package_count
-        if deleted_at is not None:
-          self.deleted_at = deleted_at
-        if repository_type is not None:
-          self.repository_type = repository_type
-        if size is not None:
-          self.size = size
         if cdn_url is not None:
           self.cdn_url = cdn_url
-        self.namespace = namespace
-        if self_html_url is not None:
-          self.self_html_url = self_html_url
-        if namespace_url is not None:
-          self.namespace_url = namespace_url
-        if gpg_keys is not None:
-          self.gpg_keys = gpg_keys
-        self.description = description
-        if size_str is not None:
-          self.size_str = size_str
-        if slug_perm is not None:
-          self.slug_perm = slug_perm
-        self.is_public = is_public
-        if slug is not None:
-          self.slug = slug
-        self.is_private = is_private
-        if num_downloads is not None:
-          self.num_downloads = num_downloads
-        if self_url is not None:
-          self.self_url = self_url
-        if name is not None:
-          self.name = name
         if created_at is not None:
           self.created_at = created_at
+        if deleted_at is not None:
+          self.deleted_at = deleted_at
+        self.description = description
+        if gpg_keys is not None:
+          self.gpg_keys = gpg_keys
+        if index_files is not None:
+          self.index_files = index_files
+        self.is_open_source = is_open_source
+        self.is_private = is_private
+        self.is_public = is_public
+        if name is not None:
+          self.name = name
+        self.namespace = namespace
+        if namespace_url is not None:
+          self.namespace_url = namespace_url
+        if num_downloads is not None:
+          self.num_downloads = num_downloads
+        if package_count is not None:
+          self.package_count = package_count
         if package_group_count is not None:
           self.package_group_count = package_group_count
-
-    @property
-    def is_open_source(self):
-        """
-        Gets the is_open_source of this Repository.
-        
-
-        :return: The is_open_source of this Repository.
-        :rtype: bool
-        """
-        return self._is_open_source
-
-    @is_open_source.setter
-    def is_open_source(self, is_open_source):
-        """
-        Sets the is_open_source of this Repository.
-        
-
-        :param is_open_source: The is_open_source of this Repository.
-        :type: bool
-        """
-        if is_open_source is None:
-            raise ValueError("Invalid value for `is_open_source`, must not be `None`")
-
-        self._is_open_source = is_open_source
-
-    @property
-    def repository_type_str(self):
-        """
-        Gets the repository_type_str of this Repository.
-        
-
-        :return: The repository_type_str of this Repository.
-        :rtype: str
-        """
-        return self._repository_type_str
-
-    @repository_type_str.setter
-    def repository_type_str(self, repository_type_str):
-        """
-        Sets the repository_type_str of this Repository.
-        
-
-        :param repository_type_str: The repository_type_str of this Repository.
-        :type: str
-        """
-
-        self._repository_type_str = repository_type_str
-
-    @property
-    def index_files(self):
-        """
-        Gets the index_files of this Repository.
-        If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
-
-        :return: The index_files of this Repository.
-        :rtype: bool
-        """
-        return self._index_files
-
-    @index_files.setter
-    def index_files(self, index_files):
-        """
-        Sets the index_files of this Repository.
-        If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
-
-        :param index_files: The index_files of this Repository.
-        :type: bool
-        """
-
-        self._index_files = index_files
-
-    @property
-    def package_count(self):
-        """
-        Gets the package_count of this Repository.
-        The number of packages in the repository.
-
-        :return: The package_count of this Repository.
-        :rtype: int
-        """
-        return self._package_count
-
-    @package_count.setter
-    def package_count(self, package_count):
-        """
-        Sets the package_count of this Repository.
-        The number of packages in the repository.
-
-        :param package_count: The package_count of this Repository.
-        :type: int
-        """
-
-        self._package_count = package_count
-
-    @property
-    def deleted_at(self):
-        """
-        Gets the deleted_at of this Repository.
-        
-
-        :return: The deleted_at of this Repository.
-        :rtype: str
-        """
-        return self._deleted_at
-
-    @deleted_at.setter
-    def deleted_at(self, deleted_at):
-        """
-        Sets the deleted_at of this Repository.
-        
-
-        :param deleted_at: The deleted_at of this Repository.
-        :type: str
-        """
-
-        self._deleted_at = deleted_at
-
-    @property
-    def repository_type(self):
-        """
-        Gets the repository_type of this Repository.
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
-
-        :return: The repository_type of this Repository.
-        :rtype: str
-        """
-        return self._repository_type
-
-    @repository_type.setter
-    def repository_type(self, repository_type):
-        """
-        Sets the repository_type of this Repository.
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
-
-        :param repository_type: The repository_type of this Repository.
-        :type: str
-        """
-
-        self._repository_type = repository_type
-
-    @property
-    def size(self):
-        """
-        Gets the size of this Repository.
-        The calculated size of the repository.
-
-        :return: The size of this Repository.
-        :rtype: int
-        """
-        return self._size
-
-    @size.setter
-    def size(self, size):
-        """
-        Sets the size of this Repository.
-        The calculated size of the repository.
-
-        :param size: The size of this Repository.
-        :type: int
-        """
-
-        self._size = size
+        if repository_type is not None:
+          self.repository_type = repository_type
+        if repository_type_str is not None:
+          self.repository_type_str = repository_type_str
+        if self_html_url is not None:
+          self.self_html_url = self_html_url
+        if self_url is not None:
+          self.self_url = self_url
+        if size is not None:
+          self.size = size
+        if size_str is not None:
+          self.size_str = size_str
+        if slug is not None:
+          self.slug = slug
+        if slug_perm is not None:
+          self.slug_perm = slug_perm
 
     @property
     def cdn_url(self):
@@ -340,98 +177,50 @@ class Repository(object):
         self._cdn_url = cdn_url
 
     @property
-    def namespace(self):
+    def created_at(self):
         """
-        Gets the namespace of this Repository.
+        Gets the created_at of this Repository.
         
 
-        :return: The namespace of this Repository.
+        :return: The created_at of this Repository.
         :rtype: str
         """
-        return self._namespace
+        return self._created_at
 
-    @namespace.setter
-    def namespace(self, namespace):
+    @created_at.setter
+    def created_at(self, created_at):
         """
-        Sets the namespace of this Repository.
+        Sets the created_at of this Repository.
         
 
-        :param namespace: The namespace of this Repository.
-        :type: str
-        """
-        if namespace is None:
-            raise ValueError("Invalid value for `namespace`, must not be `None`")
-
-        self._namespace = namespace
-
-    @property
-    def self_html_url(self):
-        """
-        Gets the self_html_url of this Repository.
-        
-
-        :return: The self_html_url of this Repository.
-        :rtype: str
-        """
-        return self._self_html_url
-
-    @self_html_url.setter
-    def self_html_url(self, self_html_url):
-        """
-        Sets the self_html_url of this Repository.
-        
-
-        :param self_html_url: The self_html_url of this Repository.
+        :param created_at: The created_at of this Repository.
         :type: str
         """
 
-        self._self_html_url = self_html_url
+        self._created_at = created_at
 
     @property
-    def namespace_url(self):
+    def deleted_at(self):
         """
-        Gets the namespace_url of this Repository.
+        Gets the deleted_at of this Repository.
         
 
-        :return: The namespace_url of this Repository.
+        :return: The deleted_at of this Repository.
         :rtype: str
         """
-        return self._namespace_url
+        return self._deleted_at
 
-    @namespace_url.setter
-    def namespace_url(self, namespace_url):
+    @deleted_at.setter
+    def deleted_at(self, deleted_at):
         """
-        Sets the namespace_url of this Repository.
+        Sets the deleted_at of this Repository.
         
 
-        :param namespace_url: The namespace_url of this Repository.
+        :param deleted_at: The deleted_at of this Repository.
         :type: str
         """
 
-        self._namespace_url = namespace_url
-
-    @property
-    def gpg_keys(self):
-        """
-        Gets the gpg_keys of this Repository.
-        
-
-        :return: The gpg_keys of this Repository.
-        :rtype: list[ReposownerGpgKeys]
-        """
-        return self._gpg_keys
-
-    @gpg_keys.setter
-    def gpg_keys(self, gpg_keys):
-        """
-        Sets the gpg_keys of this Repository.
-        
-
-        :param gpg_keys: The gpg_keys of this Repository.
-        :type: list[ReposownerGpgKeys]
-        """
-
-        self._gpg_keys = gpg_keys
+        self._deleted_at = deleted_at
 
     @property
     def description(self):
@@ -459,98 +248,75 @@ class Repository(object):
         self._description = description
 
     @property
-    def size_str(self):
+    def gpg_keys(self):
         """
-        Gets the size_str of this Repository.
+        Gets the gpg_keys of this Repository.
         
 
-        :return: The size_str of this Repository.
-        :rtype: str
+        :return: The gpg_keys of this Repository.
+        :rtype: list[ReposGpgKeys]
         """
-        return self._size_str
+        return self._gpg_keys
 
-    @size_str.setter
-    def size_str(self, size_str):
+    @gpg_keys.setter
+    def gpg_keys(self, gpg_keys):
         """
-        Sets the size_str of this Repository.
+        Sets the gpg_keys of this Repository.
         
 
-        :param size_str: The size_str of this Repository.
-        :type: str
+        :param gpg_keys: The gpg_keys of this Repository.
+        :type: list[ReposGpgKeys]
         """
 
-        self._size_str = size_str
+        self._gpg_keys = gpg_keys
 
     @property
-    def slug_perm(self):
+    def index_files(self):
         """
-        Gets the slug_perm of this Repository.
-        
+        Gets the index_files of this Repository.
+        If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
 
-        :return: The slug_perm of this Repository.
-        :rtype: str
-        """
-        return self._slug_perm
-
-    @slug_perm.setter
-    def slug_perm(self, slug_perm):
-        """
-        Sets the slug_perm of this Repository.
-        
-
-        :param slug_perm: The slug_perm of this Repository.
-        :type: str
-        """
-
-        self._slug_perm = slug_perm
-
-    @property
-    def is_public(self):
-        """
-        Gets the is_public of this Repository.
-        
-
-        :return: The is_public of this Repository.
+        :return: The index_files of this Repository.
         :rtype: bool
         """
-        return self._is_public
+        return self._index_files
 
-    @is_public.setter
-    def is_public(self, is_public):
+    @index_files.setter
+    def index_files(self, index_files):
         """
-        Sets the is_public of this Repository.
-        
+        Sets the index_files of this Repository.
+        If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
 
-        :param is_public: The is_public of this Repository.
+        :param index_files: The index_files of this Repository.
         :type: bool
         """
-        if is_public is None:
-            raise ValueError("Invalid value for `is_public`, must not be `None`")
 
-        self._is_public = is_public
+        self._index_files = index_files
 
     @property
-    def slug(self):
+    def is_open_source(self):
         """
-        Gets the slug of this Repository.
-        The slug identifies the repository in URIs.
+        Gets the is_open_source of this Repository.
+        
 
-        :return: The slug of this Repository.
-        :rtype: str
+        :return: The is_open_source of this Repository.
+        :rtype: bool
         """
-        return self._slug
+        return self._is_open_source
 
-    @slug.setter
-    def slug(self, slug):
+    @is_open_source.setter
+    def is_open_source(self, is_open_source):
         """
-        Sets the slug of this Repository.
-        The slug identifies the repository in URIs.
+        Sets the is_open_source of this Repository.
+        
 
-        :param slug: The slug of this Repository.
-        :type: str
+        :param is_open_source: The is_open_source of this Repository.
+        :type: bool
         """
+        if is_open_source is None:
+            raise ValueError("Invalid value for `is_open_source`, must not be `None`")
 
-        self._slug = slug
+        self._is_open_source = is_open_source
 
     @property
     def is_private(self):
@@ -578,50 +344,29 @@ class Repository(object):
         self._is_private = is_private
 
     @property
-    def num_downloads(self):
+    def is_public(self):
         """
-        Gets the num_downloads of this Repository.
-        The number of downloads for packages in the repository.
-
-        :return: The num_downloads of this Repository.
-        :rtype: int
-        """
-        return self._num_downloads
-
-    @num_downloads.setter
-    def num_downloads(self, num_downloads):
-        """
-        Sets the num_downloads of this Repository.
-        The number of downloads for packages in the repository.
-
-        :param num_downloads: The num_downloads of this Repository.
-        :type: int
-        """
-
-        self._num_downloads = num_downloads
-
-    @property
-    def self_url(self):
-        """
-        Gets the self_url of this Repository.
+        Gets the is_public of this Repository.
         
 
-        :return: The self_url of this Repository.
-        :rtype: str
+        :return: The is_public of this Repository.
+        :rtype: bool
         """
-        return self._self_url
+        return self._is_public
 
-    @self_url.setter
-    def self_url(self, self_url):
+    @is_public.setter
+    def is_public(self, is_public):
         """
-        Sets the self_url of this Repository.
+        Sets the is_public of this Repository.
         
 
-        :param self_url: The self_url of this Repository.
-        :type: str
+        :param is_public: The is_public of this Repository.
+        :type: bool
         """
+        if is_public is None:
+            raise ValueError("Invalid value for `is_public`, must not be `None`")
 
-        self._self_url = self_url
+        self._is_public = is_public
 
     @property
     def name(self):
@@ -647,27 +392,98 @@ class Repository(object):
         self._name = name
 
     @property
-    def created_at(self):
+    def namespace(self):
         """
-        Gets the created_at of this Repository.
+        Gets the namespace of this Repository.
         
 
-        :return: The created_at of this Repository.
+        :return: The namespace of this Repository.
         :rtype: str
         """
-        return self._created_at
+        return self._namespace
 
-    @created_at.setter
-    def created_at(self, created_at):
+    @namespace.setter
+    def namespace(self, namespace):
         """
-        Sets the created_at of this Repository.
+        Sets the namespace of this Repository.
         
 
-        :param created_at: The created_at of this Repository.
+        :param namespace: The namespace of this Repository.
+        :type: str
+        """
+        if namespace is None:
+            raise ValueError("Invalid value for `namespace`, must not be `None`")
+
+        self._namespace = namespace
+
+    @property
+    def namespace_url(self):
+        """
+        Gets the namespace_url of this Repository.
+        
+
+        :return: The namespace_url of this Repository.
+        :rtype: str
+        """
+        return self._namespace_url
+
+    @namespace_url.setter
+    def namespace_url(self, namespace_url):
+        """
+        Sets the namespace_url of this Repository.
+        
+
+        :param namespace_url: The namespace_url of this Repository.
         :type: str
         """
 
-        self._created_at = created_at
+        self._namespace_url = namespace_url
+
+    @property
+    def num_downloads(self):
+        """
+        Gets the num_downloads of this Repository.
+        The number of downloads for packages in the repository.
+
+        :return: The num_downloads of this Repository.
+        :rtype: int
+        """
+        return self._num_downloads
+
+    @num_downloads.setter
+    def num_downloads(self, num_downloads):
+        """
+        Sets the num_downloads of this Repository.
+        The number of downloads for packages in the repository.
+
+        :param num_downloads: The num_downloads of this Repository.
+        :type: int
+        """
+
+        self._num_downloads = num_downloads
+
+    @property
+    def package_count(self):
+        """
+        Gets the package_count of this Repository.
+        The number of packages in the repository.
+
+        :return: The package_count of this Repository.
+        :rtype: int
+        """
+        return self._package_count
+
+    @package_count.setter
+    def package_count(self, package_count):
+        """
+        Sets the package_count of this Repository.
+        The number of packages in the repository.
+
+        :param package_count: The package_count of this Repository.
+        :type: int
+        """
+
+        self._package_count = package_count
 
     @property
     def package_group_count(self):
@@ -691,6 +507,190 @@ class Repository(object):
         """
 
         self._package_group_count = package_group_count
+
+    @property
+    def repository_type(self):
+        """
+        Gets the repository_type of this Repository.
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
+
+        :return: The repository_type of this Repository.
+        :rtype: str
+        """
+        return self._repository_type
+
+    @repository_type.setter
+    def repository_type(self, repository_type):
+        """
+        Sets the repository_type of this Repository.
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
+
+        :param repository_type: The repository_type of this Repository.
+        :type: str
+        """
+
+        self._repository_type = repository_type
+
+    @property
+    def repository_type_str(self):
+        """
+        Gets the repository_type_str of this Repository.
+        
+
+        :return: The repository_type_str of this Repository.
+        :rtype: str
+        """
+        return self._repository_type_str
+
+    @repository_type_str.setter
+    def repository_type_str(self, repository_type_str):
+        """
+        Sets the repository_type_str of this Repository.
+        
+
+        :param repository_type_str: The repository_type_str of this Repository.
+        :type: str
+        """
+
+        self._repository_type_str = repository_type_str
+
+    @property
+    def self_html_url(self):
+        """
+        Gets the self_html_url of this Repository.
+        
+
+        :return: The self_html_url of this Repository.
+        :rtype: str
+        """
+        return self._self_html_url
+
+    @self_html_url.setter
+    def self_html_url(self, self_html_url):
+        """
+        Sets the self_html_url of this Repository.
+        
+
+        :param self_html_url: The self_html_url of this Repository.
+        :type: str
+        """
+
+        self._self_html_url = self_html_url
+
+    @property
+    def self_url(self):
+        """
+        Gets the self_url of this Repository.
+        
+
+        :return: The self_url of this Repository.
+        :rtype: str
+        """
+        return self._self_url
+
+    @self_url.setter
+    def self_url(self, self_url):
+        """
+        Sets the self_url of this Repository.
+        
+
+        :param self_url: The self_url of this Repository.
+        :type: str
+        """
+
+        self._self_url = self_url
+
+    @property
+    def size(self):
+        """
+        Gets the size of this Repository.
+        The calculated size of the repository.
+
+        :return: The size of this Repository.
+        :rtype: int
+        """
+        return self._size
+
+    @size.setter
+    def size(self, size):
+        """
+        Sets the size of this Repository.
+        The calculated size of the repository.
+
+        :param size: The size of this Repository.
+        :type: int
+        """
+
+        self._size = size
+
+    @property
+    def size_str(self):
+        """
+        Gets the size_str of this Repository.
+        
+
+        :return: The size_str of this Repository.
+        :rtype: str
+        """
+        return self._size_str
+
+    @size_str.setter
+    def size_str(self, size_str):
+        """
+        Sets the size_str of this Repository.
+        
+
+        :param size_str: The size_str of this Repository.
+        :type: str
+        """
+
+        self._size_str = size_str
+
+    @property
+    def slug(self):
+        """
+        Gets the slug of this Repository.
+        The slug identifies the repository in URIs.
+
+        :return: The slug of this Repository.
+        :rtype: str
+        """
+        return self._slug
+
+    @slug.setter
+    def slug(self, slug):
+        """
+        Sets the slug of this Repository.
+        The slug identifies the repository in URIs.
+
+        :param slug: The slug of this Repository.
+        :type: str
+        """
+
+        self._slug = slug
+
+    @property
+    def slug_perm(self):
+        """
+        Gets the slug_perm of this Repository.
+        
+
+        :return: The slug_perm of this Repository.
+        :rtype: str
+        """
+        return self._slug_perm
+
+    @slug_perm.setter
+    def slug_perm(self, slug_perm):
+        """
+        Sets the slug_perm of this Repository.
+        
+
+        :param slug_perm: The slug_perm of this Repository.
+        :type: str
+        """
+
+        self._slug_perm = slug_perm
 
     def to_dict(self):
         """

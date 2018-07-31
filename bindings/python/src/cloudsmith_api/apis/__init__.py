@@ -13,3 +13,4 @@ from .repos_api import ReposApi
 from .status_api import StatusApi
 from .user_api import UserApi
 from .users_api import UsersApi
+from .webhooks_api import WebhooksApi

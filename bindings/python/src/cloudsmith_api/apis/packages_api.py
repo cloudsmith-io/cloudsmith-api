@@ -40,7 +40,7 @@ class PackagesApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def packages_copy(self, owner, repo, slug, **kwargs):
+    def packages_copy(self, owner, repo, identifier, **kwargs):
         """
         Copy a package to another repository.
         Copy a package to another repository.
@@ -50,13 +50,13 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_copy(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_copy(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :param PackagesCopy data:
         :return: PackageCopy
                  If the method is called asynchronously,
@@ -64,12 +64,12 @@ class PackagesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.packages_copy_with_http_info(owner, repo, slug, **kwargs)
+            return self.packages_copy_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.packages_copy_with_http_info(owner, repo, slug, **kwargs)
+            (data) = self.packages_copy_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def packages_copy_with_http_info(self, owner, repo, slug, **kwargs):
+    def packages_copy_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Copy a package to another repository.
         Copy a package to another repository.
@@ -79,20 +79,20 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_copy_with_http_info(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_copy_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :param PackagesCopy data:
         :return: PackageCopy
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug', 'data']
+        all_params = ['owner', 'repo', 'identifier', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -113,9 +113,9 @@ class PackagesApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `packages_copy`")
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `packages_copy`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `packages_copy`")
 
 
         collection_formats = {}
@@ -125,8 +125,8 @@ class PackagesApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -145,7 +145,7 @@ class PackagesApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/copy/', 'POST',
+        return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/copy/', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -160,7 +160,7 @@ class PackagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def packages_delete(self, owner, repo, slug, **kwargs):
+    def packages_delete(self, owner, repo, identifier, **kwargs):
         """
         Delete a specific package in a repository.
         Delete a specific package in a repository.
@@ -170,25 +170,25 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_delete(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_delete(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.packages_delete_with_http_info(owner, repo, slug, **kwargs)
+            return self.packages_delete_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.packages_delete_with_http_info(owner, repo, slug, **kwargs)
+            (data) = self.packages_delete_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def packages_delete_with_http_info(self, owner, repo, slug, **kwargs):
+    def packages_delete_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Delete a specific package in a repository.
         Delete a specific package in a repository.
@@ -198,19 +198,19 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_delete_with_http_info(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_delete_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug']
+        all_params = ['owner', 'repo', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -231,9 +231,9 @@ class PackagesApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `packages_delete`")
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `packages_delete`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `packages_delete`")
 
 
         collection_formats = {}
@@ -243,8 +243,8 @@ class PackagesApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -257,7 +257,7 @@ class PackagesApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/', 'DELETE',
+        return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -290,8 +290,8 @@ class PackagesApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param str query: A search term for querying names, filenames, versions, distributions or architectures of packages.
-        :return: list[RpmPackageUpload]
+        :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+        :return: list[Package]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -320,8 +320,8 @@ class PackagesApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param str query: A search term for querying names, filenames, versions, distributions or architectures of packages.
-        :return: list[RpmPackageUpload]
+        :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+        :return: list[Package]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -381,7 +381,7 @@ class PackagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[RpmPackageUpload]',
+                                        response_type='list[Package]',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -389,7 +389,7 @@ class PackagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def packages_move(self, owner, repo, slug, **kwargs):
+    def packages_move(self, owner, repo, identifier, **kwargs):
         """
         Move a package to another repository.
         Move a package to another repository.
@@ -399,13 +399,13 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_move(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_move(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :param PackagesMove data:
         :return: PackageMove
                  If the method is called asynchronously,
@@ -413,12 +413,12 @@ class PackagesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.packages_move_with_http_info(owner, repo, slug, **kwargs)
+            return self.packages_move_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.packages_move_with_http_info(owner, repo, slug, **kwargs)
+            (data) = self.packages_move_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def packages_move_with_http_info(self, owner, repo, slug, **kwargs):
+    def packages_move_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Move a package to another repository.
         Move a package to another repository.
@@ -428,20 +428,20 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_move_with_http_info(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_move_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :param PackagesMove data:
         :return: PackageMove
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug', 'data']
+        all_params = ['owner', 'repo', 'identifier', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -462,9 +462,9 @@ class PackagesApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `packages_move`")
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `packages_move`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `packages_move`")
 
 
         collection_formats = {}
@@ -474,8 +474,8 @@ class PackagesApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -494,7 +494,7 @@ class PackagesApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/move/', 'POST',
+        return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/move/', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -509,7 +509,7 @@ class PackagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def packages_read(self, owner, repo, slug, **kwargs):
+    def packages_read(self, owner, repo, identifier, **kwargs):
         """
         Get a specific package in a repository.
         Get a specific package in a repository.
@@ -519,25 +519,25 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_read(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_read(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
-        :return: RpmPackageUpload
+        :param str identifier:  (required)
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.packages_read_with_http_info(owner, repo, slug, **kwargs)
+            return self.packages_read_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.packages_read_with_http_info(owner, repo, slug, **kwargs)
+            (data) = self.packages_read_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def packages_read_with_http_info(self, owner, repo, slug, **kwargs):
+    def packages_read_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Get a specific package in a repository.
         Get a specific package in a repository.
@@ -547,19 +547,19 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_read_with_http_info(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_read_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
-        :return: RpmPackageUpload
+        :param str identifier:  (required)
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug']
+        all_params = ['owner', 'repo', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -580,9 +580,9 @@ class PackagesApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `packages_read`")
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `packages_read`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `packages_read`")
 
 
         collection_formats = {}
@@ -592,8 +592,8 @@ class PackagesApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -606,14 +606,14 @@ class PackagesApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/', 'GET',
+        return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RpmPackageUpload',
+                                        response_type='Package',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -621,7 +621,7 @@ class PackagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def packages_resync(self, owner, repo, slug, **kwargs):
+    def packages_resync(self, owner, repo, identifier, **kwargs):
         """
         Schedule a package for resynchronisation.
         Schedule a package for resynchronisation.
@@ -631,25 +631,25 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_resync(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_resync(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
-        :return: RpmPackageUpload
+        :param str identifier:  (required)
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.packages_resync_with_http_info(owner, repo, slug, **kwargs)
+            return self.packages_resync_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.packages_resync_with_http_info(owner, repo, slug, **kwargs)
+            (data) = self.packages_resync_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def packages_resync_with_http_info(self, owner, repo, slug, **kwargs):
+    def packages_resync_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Schedule a package for resynchronisation.
         Schedule a package for resynchronisation.
@@ -659,19 +659,19 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_resync_with_http_info(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_resync_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
-        :return: RpmPackageUpload
+        :param str identifier:  (required)
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug']
+        all_params = ['owner', 'repo', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -692,9 +692,9 @@ class PackagesApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `packages_resync`")
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `packages_resync`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `packages_resync`")
 
 
         collection_formats = {}
@@ -704,8 +704,8 @@ class PackagesApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -718,14 +718,14 @@ class PackagesApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/resync/', 'POST',
+        return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/resync/', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RpmPackageUpload',
+                                        response_type='Package',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -733,7 +733,7 @@ class PackagesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def packages_status(self, owner, repo, slug, **kwargs):
+    def packages_status(self, owner, repo, identifier, **kwargs):
         """
         Get the synchronisation status for a package.
         Get the synchronisation status for a package.
@@ -743,25 +743,25 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_status(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_status(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :return: PackageStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.packages_status_with_http_info(owner, repo, slug, **kwargs)
+            return self.packages_status_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.packages_status_with_http_info(owner, repo, slug, **kwargs)
+            (data) = self.packages_status_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def packages_status_with_http_info(self, owner, repo, slug, **kwargs):
+    def packages_status_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Get the synchronisation status for a package.
         Get the synchronisation status for a package.
@@ -771,19 +771,19 @@ class PackagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.packages_status_with_http_info(owner, repo, slug, callback=callback_function)
+        >>> thread = api.packages_status_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :return: PackageStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'slug']
+        all_params = ['owner', 'repo', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -804,9 +804,9 @@ class PackagesApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `packages_status`")
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `packages_status`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `packages_status`")
 
 
         collection_formats = {}
@@ -816,8 +816,8 @@ class PackagesApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -830,7 +830,7 @@ class PackagesApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'basic', 'csrf_token']
 
-        return self.api_client.call_api('/packages/{owner}/{repo}/{slug}/status/', 'GET',
+        return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/status/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -838,6 +838,119 @@ class PackagesApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='PackageStatus',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def packages_upload_composer(self, owner, repo, **kwargs):
+        """
+        Create a new Composer package
+        Create a new Composer package
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_upload_composer(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param PackagesUploadComposer data:
+        :return: Package
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.packages_upload_composer_with_http_info(owner, repo, **kwargs)
+        else:
+            (data) = self.packages_upload_composer_with_http_info(owner, repo, **kwargs)
+            return data
+
+    def packages_upload_composer_with_http_info(self, owner, repo, **kwargs):
+        """
+        Create a new Composer package
+        Create a new Composer package
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_upload_composer_with_http_info(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param PackagesUploadComposer data:
+        :return: Package
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_upload_composer" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_upload_composer`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `packages_upload_composer`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/packages/{owner}/{repo}/upload/composer/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='Package',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -862,7 +975,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadDeb data:
-        :return: RpmPackageUpload
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -890,7 +1003,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadDeb data:
-        :return: RpmPackageUpload
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -950,7 +1063,7 @@ class PackagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RpmPackageUpload',
+                                        response_type='Package',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1088,7 +1201,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadPython data:
-        :return: RpmPackageUpload
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1116,7 +1229,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadPython data:
-        :return: RpmPackageUpload
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1176,7 +1289,7 @@ class PackagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RpmPackageUpload',
+                                        response_type='Package',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1314,7 +1427,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadRpm data:
-        :return: RpmPackageUpload
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1342,7 +1455,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadRpm data:
-        :return: RpmPackageUpload
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1402,7 +1515,7 @@ class PackagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RpmPackageUpload',
+                                        response_type='Package',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1427,7 +1540,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadRuby data:
-        :return: RpmPackageUpload
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1455,7 +1568,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param PackagesUploadRuby data:
-        :return: RpmPackageUpload
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1515,7 +1628,7 @@ class PackagesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RpmPackageUpload',
+                                        response_type='Package',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1629,6 +1742,119 @@ class PackagesApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='VagrantPackageUpload',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def packages_validate_upload_composer(self, owner, repo, **kwargs):
+        """
+        Validate parameters for create Composer package
+        Validate parameters for create Composer package
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_validate_upload_composer(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param PackagesValidateuploadComposer data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.packages_validate_upload_composer_with_http_info(owner, repo, **kwargs)
+        else:
+            (data) = self.packages_validate_upload_composer_with_http_info(owner, repo, **kwargs)
+            return data
+
+    def packages_validate_upload_composer_with_http_info(self, owner, repo, **kwargs):
+        """
+        Validate parameters for create Composer package
+        Validate parameters for create Composer package
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_validate_upload_composer_with_http_info(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param PackagesValidateuploadComposer data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_validate_upload_composer" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_validate_upload_composer`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `packages_validate_upload_composer`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/composer/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

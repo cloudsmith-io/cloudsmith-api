@@ -31,59 +31,36 @@ class PackagesValidateuploadRaw(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'summary': 'str',
         'description': 'str',
-        'version': 'str',
-        'package_file': 'str'
+        'package_file': 'str',
+        'summary': 'str',
+        'version': 'str'
     }
 
     attribute_map = {
-        'summary': 'summary',
         'description': 'description',
-        'version': 'version',
-        'package_file': 'package_file'
+        'package_file': 'package_file',
+        'summary': 'summary',
+        'version': 'version'
     }
 
-    def __init__(self, summary=None, description=None, version=None, package_file=None):
+    def __init__(self, description=None, package_file=None, summary=None, version=None):
         """
         PackagesValidateuploadRaw - a model defined in Swagger
         """
 
-        self._summary = None
         self._description = None
-        self._version = None
         self._package_file = None
+        self._summary = None
+        self._version = None
 
-        if summary is not None:
-          self.summary = summary
         if description is not None:
           self.description = description
+        self.package_file = package_file
+        if summary is not None:
+          self.summary = summary
         if version is not None:
           self.version = version
-        self.package_file = package_file
-
-    @property
-    def summary(self):
-        """
-        Gets the summary of this PackagesValidateuploadRaw.
-        A one-liner synopsis of this package.
-
-        :return: The summary of this PackagesValidateuploadRaw.
-        :rtype: str
-        """
-        return self._summary
-
-    @summary.setter
-    def summary(self, summary):
-        """
-        Sets the summary of this PackagesValidateuploadRaw.
-        A one-liner synopsis of this package.
-
-        :param summary: The summary of this PackagesValidateuploadRaw.
-        :type: str
-        """
-
-        self._summary = summary
 
     @property
     def description(self):
@@ -109,29 +86,6 @@ class PackagesValidateuploadRaw(object):
         self._description = description
 
     @property
-    def version(self):
-        """
-        Gets the version of this PackagesValidateuploadRaw.
-        The version of this package.
-
-        :return: The version of this PackagesValidateuploadRaw.
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """
-        Sets the version of this PackagesValidateuploadRaw.
-        The version of this package.
-
-        :param version: The version of this PackagesValidateuploadRaw.
-        :type: str
-        """
-
-        self._version = version
-
-    @property
     def package_file(self):
         """
         Gets the package_file of this PackagesValidateuploadRaw.
@@ -155,6 +109,52 @@ class PackagesValidateuploadRaw(object):
             raise ValueError("Invalid value for `package_file`, must not be `None`")
 
         self._package_file = package_file
+
+    @property
+    def summary(self):
+        """
+        Gets the summary of this PackagesValidateuploadRaw.
+        A one-liner synopsis of this package.
+
+        :return: The summary of this PackagesValidateuploadRaw.
+        :rtype: str
+        """
+        return self._summary
+
+    @summary.setter
+    def summary(self, summary):
+        """
+        Sets the summary of this PackagesValidateuploadRaw.
+        A one-liner synopsis of this package.
+
+        :param summary: The summary of this PackagesValidateuploadRaw.
+        :type: str
+        """
+
+        self._summary = summary
+
+    @property
+    def version(self):
+        """
+        Gets the version of this PackagesValidateuploadRaw.
+        The version of this package.
+
+        :return: The version of this PackagesValidateuploadRaw.
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """
+        Sets the version of this PackagesValidateuploadRaw.
+        The version of this package.
+
+        :param version: The version of this PackagesValidateuploadRaw.
+        :type: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """

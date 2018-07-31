@@ -31,65 +31,88 @@ class UserProfile(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'company': 'str',
         'first_name': 'str',
+        'job_title': 'str',
+        'joined_at': 'str',
         'last_name': 'str',
         'name': 'str',
-        'url': 'str',
-        'tagline': 'str',
-        'company': 'str',
-        'joined_at': 'str',
-        'slug_perm': 'str',
         'slug': 'str',
-        'job_title': 'str'
+        'slug_perm': 'str',
+        'tagline': 'str',
+        'url': 'str'
     }
 
     attribute_map = {
+        'company': 'company',
         'first_name': 'first_name',
+        'job_title': 'job_title',
+        'joined_at': 'joined_at',
         'last_name': 'last_name',
         'name': 'name',
-        'url': 'url',
-        'tagline': 'tagline',
-        'company': 'company',
-        'joined_at': 'joined_at',
-        'slug_perm': 'slug_perm',
         'slug': 'slug',
-        'job_title': 'job_title'
+        'slug_perm': 'slug_perm',
+        'tagline': 'tagline',
+        'url': 'url'
     }
 
-    def __init__(self, first_name=None, last_name=None, name=None, url=None, tagline=None, company=None, joined_at=None, slug_perm=None, slug=None, job_title=None):
+    def __init__(self, company=None, first_name=None, job_title=None, joined_at=None, last_name=None, name=None, slug=None, slug_perm=None, tagline=None, url=None):
         """
         UserProfile - a model defined in Swagger
         """
 
+        self._company = None
         self._first_name = None
+        self._job_title = None
+        self._joined_at = None
         self._last_name = None
         self._name = None
-        self._url = None
-        self._tagline = None
-        self._company = None
-        self._joined_at = None
-        self._slug_perm = None
         self._slug = None
-        self._job_title = None
+        self._slug_perm = None
+        self._tagline = None
+        self._url = None
 
+        if company is not None:
+          self.company = company
         self.first_name = first_name
+        if job_title is not None:
+          self.job_title = job_title
+        if joined_at is not None:
+          self.joined_at = joined_at
         self.last_name = last_name
         if name is not None:
           self.name = name
-        if url is not None:
-          self.url = url
-        if tagline is not None:
-          self.tagline = tagline
-        if company is not None:
-          self.company = company
-        if joined_at is not None:
-          self.joined_at = joined_at
-        if slug_perm is not None:
-          self.slug_perm = slug_perm
         if slug is not None:
           self.slug = slug
-        if job_title is not None:
-          self.job_title = job_title
+        if slug_perm is not None:
+          self.slug_perm = slug_perm
+        if tagline is not None:
+          self.tagline = tagline
+        if url is not None:
+          self.url = url
+
+    @property
+    def company(self):
+        """
+        Gets the company of this UserProfile.
+        
+
+        :return: The company of this UserProfile.
+        :rtype: str
+        """
+        return self._company
+
+    @company.setter
+    def company(self, company):
+        """
+        Sets the company of this UserProfile.
+        
+
+        :param company: The company of this UserProfile.
+        :type: str
+        """
+
+        self._company = company
 
     @property
     def first_name(self):
@@ -115,6 +138,52 @@ class UserProfile(object):
             raise ValueError("Invalid value for `first_name`, must not be `None`")
 
         self._first_name = first_name
+
+    @property
+    def job_title(self):
+        """
+        Gets the job_title of this UserProfile.
+        
+
+        :return: The job_title of this UserProfile.
+        :rtype: str
+        """
+        return self._job_title
+
+    @job_title.setter
+    def job_title(self, job_title):
+        """
+        Sets the job_title of this UserProfile.
+        
+
+        :param job_title: The job_title of this UserProfile.
+        :type: str
+        """
+
+        self._job_title = job_title
+
+    @property
+    def joined_at(self):
+        """
+        Gets the joined_at of this UserProfile.
+        
+
+        :return: The joined_at of this UserProfile.
+        :rtype: str
+        """
+        return self._joined_at
+
+    @joined_at.setter
+    def joined_at(self, joined_at):
+        """
+        Sets the joined_at of this UserProfile.
+        
+
+        :param joined_at: The joined_at of this UserProfile.
+        :type: str
+        """
+
+        self._joined_at = joined_at
 
     @property
     def last_name(self):
@@ -165,96 +234,27 @@ class UserProfile(object):
         self._name = name
 
     @property
-    def url(self):
+    def slug(self):
         """
-        Gets the url of this UserProfile.
+        Gets the slug of this UserProfile.
         
 
-        :return: The url of this UserProfile.
+        :return: The slug of this UserProfile.
         :rtype: str
         """
-        return self._url
+        return self._slug
 
-    @url.setter
-    def url(self, url):
+    @slug.setter
+    def slug(self, slug):
         """
-        Sets the url of this UserProfile.
+        Sets the slug of this UserProfile.
         
 
-        :param url: The url of this UserProfile.
+        :param slug: The slug of this UserProfile.
         :type: str
         """
 
-        self._url = url
-
-    @property
-    def tagline(self):
-        """
-        Gets the tagline of this UserProfile.
-        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
-
-        :return: The tagline of this UserProfile.
-        :rtype: str
-        """
-        return self._tagline
-
-    @tagline.setter
-    def tagline(self, tagline):
-        """
-        Sets the tagline of this UserProfile.
-        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
-
-        :param tagline: The tagline of this UserProfile.
-        :type: str
-        """
-
-        self._tagline = tagline
-
-    @property
-    def company(self):
-        """
-        Gets the company of this UserProfile.
-        
-
-        :return: The company of this UserProfile.
-        :rtype: str
-        """
-        return self._company
-
-    @company.setter
-    def company(self, company):
-        """
-        Sets the company of this UserProfile.
-        
-
-        :param company: The company of this UserProfile.
-        :type: str
-        """
-
-        self._company = company
-
-    @property
-    def joined_at(self):
-        """
-        Gets the joined_at of this UserProfile.
-        
-
-        :return: The joined_at of this UserProfile.
-        :rtype: str
-        """
-        return self._joined_at
-
-    @joined_at.setter
-    def joined_at(self, joined_at):
-        """
-        Sets the joined_at of this UserProfile.
-        
-
-        :param joined_at: The joined_at of this UserProfile.
-        :type: str
-        """
-
-        self._joined_at = joined_at
+        self._slug = slug
 
     @property
     def slug_perm(self):
@@ -280,50 +280,50 @@ class UserProfile(object):
         self._slug_perm = slug_perm
 
     @property
-    def slug(self):
+    def tagline(self):
         """
-        Gets the slug of this UserProfile.
-        
+        Gets the tagline of this UserProfile.
+        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
 
-        :return: The slug of this UserProfile.
+        :return: The tagline of this UserProfile.
         :rtype: str
         """
-        return self._slug
+        return self._tagline
 
-    @slug.setter
-    def slug(self, slug):
+    @tagline.setter
+    def tagline(self, tagline):
         """
-        Sets the slug of this UserProfile.
-        
+        Sets the tagline of this UserProfile.
+        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
 
-        :param slug: The slug of this UserProfile.
+        :param tagline: The tagline of this UserProfile.
         :type: str
         """
 
-        self._slug = slug
+        self._tagline = tagline
 
     @property
-    def job_title(self):
+    def url(self):
         """
-        Gets the job_title of this UserProfile.
+        Gets the url of this UserProfile.
         
 
-        :return: The job_title of this UserProfile.
+        :return: The url of this UserProfile.
         :rtype: str
         """
-        return self._job_title
+        return self._url
 
-    @job_title.setter
-    def job_title(self, job_title):
+    @url.setter
+    def url(self, url):
         """
-        Sets the job_title of this UserProfile.
+        Sets the url of this UserProfile.
         
 
-        :param job_title: The job_title of this UserProfile.
+        :param url: The url of this UserProfile.
         :type: str
         """
 
-        self._job_title = job_title
+        self._url = url
 
     def to_dict(self):
         """

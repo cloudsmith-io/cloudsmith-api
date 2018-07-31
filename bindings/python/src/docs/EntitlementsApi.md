@@ -5,11 +5,14 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**entitlements_create**](EntitlementsApi.md#entitlements_create) | **POST** /entitlements/{owner}/{repo}/ | Create a specific entitlement in a repository.
-[**entitlements_delete**](EntitlementsApi.md#entitlements_delete) | **DELETE** /entitlements/{owner}/{repo}/{slug_perm}/ | Delete a specific entitlement in a repository.
+[**entitlements_delete**](EntitlementsApi.md#entitlements_delete) | **DELETE** /entitlements/{owner}/{repo}/{identifier}/ | Delete a specific entitlement in a repository.
+[**entitlements_disable**](EntitlementsApi.md#entitlements_disable) | **POST** /entitlements/{owner}/{repo}/{identifier}/disable/ | Disable an entitlement token in a repository.
+[**entitlements_enable**](EntitlementsApi.md#entitlements_enable) | **POST** /entitlements/{owner}/{repo}/{identifier}/enable/ | Enable an entitlement token in a repository.
 [**entitlements_list**](EntitlementsApi.md#entitlements_list) | **GET** /entitlements/{owner}/{repo}/ | Get a list of all entitlements in a repository.
-[**entitlements_partial_update**](EntitlementsApi.md#entitlements_partial_update) | **PATCH** /entitlements/{owner}/{repo}/{slug_perm}/ | Update a specific entitlement in a repository.
-[**entitlements_read**](EntitlementsApi.md#entitlements_read) | **GET** /entitlements/{owner}/{repo}/{slug_perm}/ | Views for working with repository entitlements.
-[**entitlements_refresh**](EntitlementsApi.md#entitlements_refresh) | **POST** /entitlements/{owner}/{repo}/{slug_perm}/refresh/ | Refresh an entitlement token in a repository.
+[**entitlements_partial_update**](EntitlementsApi.md#entitlements_partial_update) | **PATCH** /entitlements/{owner}/{repo}/{identifier}/ | Update a specific entitlement in a repository.
+[**entitlements_read**](EntitlementsApi.md#entitlements_read) | **GET** /entitlements/{owner}/{repo}/{identifier}/ | Get a specific entitlement in a repository.
+[**entitlements_refresh**](EntitlementsApi.md#entitlements_refresh) | **POST** /entitlements/{owner}/{repo}/{identifier}/refresh/ | Refresh an entitlement token in a repository.
+[**entitlements_reset**](EntitlementsApi.md#entitlements_reset) | **POST** /entitlements/{owner}/{repo}/{identifier}/reset/ | Reset the statistics for an entitlement token in a repository.
 [**entitlements_sync**](EntitlementsApi.md#entitlements_sync) | **POST** /entitlements/{owner}/{repo}/sync/ | Synchronise tokens from a source repository.
 
 
@@ -80,7 +83,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_delete**
-> entitlements_delete(owner, repo, slug_perm, show_tokens=show_tokens)
+> entitlements_delete(owner, repo, identifier)
 
 Delete a specific entitlement in a repository.
 
@@ -110,12 +113,11 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-show_tokens = true # bool | Show entitlement token strings in results (optional)
+identifier = 'identifier_example' # str | 
 
 try: 
     # Delete a specific entitlement in a repository.
-    api_instance.entitlements_delete(owner, repo, slug_perm, show_tokens=show_tokens)
+    api_instance.entitlements_delete(owner, repo, identifier)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_delete: %s\n" % e)
 ```
@@ -126,8 +128,133 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **slug_perm** | **str**|  | 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
+ **identifier** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **entitlements_disable**
+> entitlements_disable(owner, repo, identifier)
+
+Disable an entitlement token in a repository.
+
+Disable an entitlement token in a repository.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.EntitlementsApi()
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try: 
+    # Disable an entitlement token in a repository.
+    api_instance.entitlements_disable(owner, repo, identifier)
+except ApiException as e:
+    print("Exception when calling EntitlementsApi->entitlements_disable: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **entitlements_enable**
+> entitlements_enable(owner, repo, identifier)
+
+Enable an entitlement token in a repository.
+
+Enable an entitlement token in a repository.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.EntitlementsApi()
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try: 
+    # Enable an entitlement token in a repository.
+    api_instance.entitlements_enable(owner, repo, identifier)
+except ApiException as e:
+    print("Exception when calling EntitlementsApi->entitlements_enable: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **identifier** | **str**|  | 
 
 ### Return type
 
@@ -213,7 +340,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_partial_update**
-> RepositoryToken entitlements_partial_update(owner, repo, slug_perm, show_tokens=show_tokens, data=data)
+> RepositoryToken entitlements_partial_update(owner, repo, show_tokens=show_tokens, data=data)
 
 Update a specific entitlement in a repository.
 
@@ -243,13 +370,12 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsPartialUpdate() # EntitlementsPartialUpdate |  (optional)
 
 try: 
     # Update a specific entitlement in a repository.
-    api_response = api_instance.entitlements_partial_update(owner, repo, slug_perm, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_partial_update(owner, repo, show_tokens=show_tokens, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_partial_update: %s\n" % e)
@@ -261,7 +387,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **slug_perm** | **str**|  | 
  **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
 
@@ -281,11 +406,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_read**
-> RepositoryToken entitlements_read(owner, repo, slug_perm, show_tokens=show_tokens)
+> RepositoryToken entitlements_read(owner, repo, identifier, show_tokens=show_tokens)
 
-Views for working with repository entitlements.
+Get a specific entitlement in a repository.
 
-Views for working with repository entitlements.
+Get a specific entitlement in a repository.
 
 ### Example 
 ```python
@@ -311,12 +436,12 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+identifier = 'identifier_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 
 try: 
-    # Views for working with repository entitlements.
-    api_response = api_instance.entitlements_read(owner, repo, slug_perm, show_tokens=show_tokens)
+    # Get a specific entitlement in a repository.
+    api_response = api_instance.entitlements_read(owner, repo, identifier, show_tokens=show_tokens)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_read: %s\n" % e)
@@ -328,7 +453,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **slug_perm** | **str**|  | 
+ **identifier** | **str**|  | 
  **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
@@ -347,7 +472,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_refresh**
-> RepositoryTokenRefresh entitlements_refresh(owner, repo, slug_perm, show_tokens=show_tokens, data=data)
+> RepositoryTokenRefresh entitlements_refresh(owner, repo, show_tokens=show_tokens, data=data)
 
 Refresh an entitlement token in a repository.
 
@@ -377,13 +502,12 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsRefresh() # EntitlementsRefresh |  (optional)
 
 try: 
     # Refresh an entitlement token in a repository.
-    api_response = api_instance.entitlements_refresh(owner, repo, slug_perm, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_refresh(owner, repo, show_tokens=show_tokens, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_refresh: %s\n" % e)
@@ -395,7 +519,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **slug_perm** | **str**|  | 
  **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
 
@@ -414,8 +537,71 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **entitlements_reset**
+> entitlements_reset(owner, repo, identifier)
+
+Reset the statistics for an entitlement token in a repository.
+
+Reset the statistics for an entitlement token in a repository.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.EntitlementsApi()
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try: 
+    # Reset the statistics for an entitlement token in a repository.
+    api_instance.entitlements_reset(owner, repo, identifier)
+except ApiException as e:
+    print("Exception when calling EntitlementsApi->entitlements_reset: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **entitlements_sync**
-> RepositoryTokenSync entitlements_sync(owner, repo, show_tokens=show_tokens, data=data)
+> RepositoryTokenSync entitlements_sync(owner, repo, data=data)
 
 Synchronise tokens from a source repository.
 
@@ -445,12 +631,11 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsSync() # EntitlementsSync |  (optional)
 
 try: 
     # Synchronise tokens from a source repository.
-    api_response = api_instance.entitlements_sync(owner, repo, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_sync(owner, repo, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_sync: %s\n" % e)
@@ -462,7 +647,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional] 
 
 ### Return type

@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.distribution_versions import DistributionVersions
+from cloudsmith_api.models.packagesownerrepo_architectures import PackagesownerrepoArchitectures
 
 
-class TestDistributionVersions(unittest.TestCase):
-    """ DistributionVersions unit test stubs """
+class TestPackagesownerrepoArchitectures(unittest.TestCase):
+    """ PackagesownerrepoArchitectures unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestDistributionVersions(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testDistributionVersions(self):
+    def testPackagesownerrepoArchitectures(self):
         """
-        Test DistributionVersions
+        Test PackagesownerrepoArchitectures
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.distribution_versions.DistributionVersions()
+        #model = cloudsmith_api.models.packagesownerrepo_architectures.PackagesownerrepoArchitectures()
         pass
 
 

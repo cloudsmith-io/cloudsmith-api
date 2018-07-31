@@ -32,55 +32,55 @@ class PackagesUploadMaven(object):
     """
     swagger_types = {
         'artifact_id': 'str',
-        'sources_file': 'str',
+        'group_id': 'str',
+        'javadoc_file': 'str',
+        'package_file': 'str',
         'packaging': 'str',
         'pom_file': 'str',
-        'javadoc_file': 'str',
-        'version': 'str',
-        'group_id': 'str',
-        'package_file': 'str'
+        'sources_file': 'str',
+        'version': 'str'
     }
 
     attribute_map = {
         'artifact_id': 'artifact_id',
-        'sources_file': 'sources_file',
+        'group_id': 'group_id',
+        'javadoc_file': 'javadoc_file',
+        'package_file': 'package_file',
         'packaging': 'packaging',
         'pom_file': 'pom_file',
-        'javadoc_file': 'javadoc_file',
-        'version': 'version',
-        'group_id': 'group_id',
-        'package_file': 'package_file'
+        'sources_file': 'sources_file',
+        'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, sources_file=None, packaging=None, pom_file=None, javadoc_file=None, version=None, group_id=None, package_file=None):
+    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, sources_file=None, version=None):
         """
         PackagesUploadMaven - a model defined in Swagger
         """
 
         self._artifact_id = None
-        self._sources_file = None
+        self._group_id = None
+        self._javadoc_file = None
+        self._package_file = None
         self._packaging = None
         self._pom_file = None
-        self._javadoc_file = None
+        self._sources_file = None
         self._version = None
-        self._group_id = None
-        self._package_file = None
 
         if artifact_id is not None:
           self.artifact_id = artifact_id
-        if sources_file is not None:
-          self.sources_file = sources_file
+        if group_id is not None:
+          self.group_id = group_id
+        if javadoc_file is not None:
+          self.javadoc_file = javadoc_file
+        self.package_file = package_file
         if packaging is not None:
           self.packaging = packaging
         if pom_file is not None:
           self.pom_file = pom_file
-        if javadoc_file is not None:
-          self.javadoc_file = javadoc_file
+        if sources_file is not None:
+          self.sources_file = sources_file
         if version is not None:
           self.version = version
-        if group_id is not None:
-          self.group_id = group_id
-        self.package_file = package_file
 
     @property
     def artifact_id(self):
@@ -106,27 +106,75 @@ class PackagesUploadMaven(object):
         self._artifact_id = artifact_id
 
     @property
-    def sources_file(self):
+    def group_id(self):
         """
-        Gets the sources_file of this PackagesUploadMaven.
-        Adds bundled Java source code to the Maven package.
+        Gets the group_id of this PackagesUploadMaven.
+        Artifact's group ID.
 
-        :return: The sources_file of this PackagesUploadMaven.
+        :return: The group_id of this PackagesUploadMaven.
         :rtype: str
         """
-        return self._sources_file
+        return self._group_id
 
-    @sources_file.setter
-    def sources_file(self, sources_file):
+    @group_id.setter
+    def group_id(self, group_id):
         """
-        Sets the sources_file of this PackagesUploadMaven.
-        Adds bundled Java source code to the Maven package.
+        Sets the group_id of this PackagesUploadMaven.
+        Artifact's group ID.
 
-        :param sources_file: The sources_file of this PackagesUploadMaven.
+        :param group_id: The group_id of this PackagesUploadMaven.
         :type: str
         """
 
-        self._sources_file = sources_file
+        self._group_id = group_id
+
+    @property
+    def javadoc_file(self):
+        """
+        Gets the javadoc_file of this PackagesUploadMaven.
+        Adds bundled Java documentation to the Maven package
+
+        :return: The javadoc_file of this PackagesUploadMaven.
+        :rtype: str
+        """
+        return self._javadoc_file
+
+    @javadoc_file.setter
+    def javadoc_file(self, javadoc_file):
+        """
+        Sets the javadoc_file of this PackagesUploadMaven.
+        Adds bundled Java documentation to the Maven package
+
+        :param javadoc_file: The javadoc_file of this PackagesUploadMaven.
+        :type: str
+        """
+
+        self._javadoc_file = javadoc_file
+
+    @property
+    def package_file(self):
+        """
+        Gets the package_file of this PackagesUploadMaven.
+        The primary file for the package.
+
+        :return: The package_file of this PackagesUploadMaven.
+        :rtype: str
+        """
+        return self._package_file
+
+    @package_file.setter
+    def package_file(self, package_file):
+        """
+        Sets the package_file of this PackagesUploadMaven.
+        The primary file for the package.
+
+        :param package_file: The package_file of this PackagesUploadMaven.
+        :type: str
+        """
+        if package_file is None:
+            raise ValueError("Invalid value for `package_file`, must not be `None`")
+
+        self._package_file = package_file
 
     @property
     def packaging(self):
@@ -175,27 +223,27 @@ class PackagesUploadMaven(object):
         self._pom_file = pom_file
 
     @property
-    def javadoc_file(self):
+    def sources_file(self):
         """
-        Gets the javadoc_file of this PackagesUploadMaven.
-        Adds bundled Java documentation to the Maven package
+        Gets the sources_file of this PackagesUploadMaven.
+        Adds bundled Java source code to the Maven package.
 
-        :return: The javadoc_file of this PackagesUploadMaven.
+        :return: The sources_file of this PackagesUploadMaven.
         :rtype: str
         """
-        return self._javadoc_file
+        return self._sources_file
 
-    @javadoc_file.setter
-    def javadoc_file(self, javadoc_file):
+    @sources_file.setter
+    def sources_file(self, sources_file):
         """
-        Sets the javadoc_file of this PackagesUploadMaven.
-        Adds bundled Java documentation to the Maven package
+        Sets the sources_file of this PackagesUploadMaven.
+        Adds bundled Java source code to the Maven package.
 
-        :param javadoc_file: The javadoc_file of this PackagesUploadMaven.
+        :param sources_file: The sources_file of this PackagesUploadMaven.
         :type: str
         """
 
-        self._javadoc_file = javadoc_file
+        self._sources_file = sources_file
 
     @property
     def version(self):
@@ -219,54 +267,6 @@ class PackagesUploadMaven(object):
         """
 
         self._version = version
-
-    @property
-    def group_id(self):
-        """
-        Gets the group_id of this PackagesUploadMaven.
-        Artifact's group ID.
-
-        :return: The group_id of this PackagesUploadMaven.
-        :rtype: str
-        """
-        return self._group_id
-
-    @group_id.setter
-    def group_id(self, group_id):
-        """
-        Sets the group_id of this PackagesUploadMaven.
-        Artifact's group ID.
-
-        :param group_id: The group_id of this PackagesUploadMaven.
-        :type: str
-        """
-
-        self._group_id = group_id
-
-    @property
-    def package_file(self):
-        """
-        Gets the package_file of this PackagesUploadMaven.
-        The primary file for the package.
-
-        :return: The package_file of this PackagesUploadMaven.
-        :rtype: str
-        """
-        return self._package_file
-
-    @package_file.setter
-    def package_file(self, package_file):
-        """
-        Sets the package_file of this PackagesUploadMaven.
-        The primary file for the package.
-
-        :param package_file: The package_file of this PackagesUploadMaven.
-        :type: str
-        """
-        if package_file is None:
-            raise ValueError("Invalid value for `package_file`, must not be `None`")
-
-        self._package_file = package_file
 
     def to_dict(self):
         """

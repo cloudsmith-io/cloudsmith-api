@@ -31,50 +31,27 @@ class StatusBasic(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'version': 'str',
-        'detail': 'str'
+        'detail': 'str',
+        'version': 'str'
     }
 
     attribute_map = {
-        'version': 'version',
-        'detail': 'detail'
+        'detail': 'detail',
+        'version': 'version'
     }
 
-    def __init__(self, version=None, detail=None):
+    def __init__(self, detail=None, version=None):
         """
         StatusBasic - a model defined in Swagger
         """
 
-        self._version = None
         self._detail = None
+        self._version = None
 
-        if version is not None:
-          self.version = version
         if detail is not None:
           self.detail = detail
-
-    @property
-    def version(self):
-        """
-        Gets the version of this StatusBasic.
-        The current version for the Cloudsmith service.
-
-        :return: The version of this StatusBasic.
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """
-        Sets the version of this StatusBasic.
-        The current version for the Cloudsmith service.
-
-        :param version: The version of this StatusBasic.
-        :type: str
-        """
-
-        self._version = version
+        if version is not None:
+          self.version = version
 
     @property
     def detail(self):
@@ -98,6 +75,29 @@ class StatusBasic(object):
         """
 
         self._detail = detail
+
+    @property
+    def version(self):
+        """
+        Gets the version of this StatusBasic.
+        The current version for the Cloudsmith service.
+
+        :return: The version of this StatusBasic.
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """
+        Sets the version of this StatusBasic.
+        The current version for the Cloudsmith service.
+
+        :param version: The version of this StatusBasic.
+        :type: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """

@@ -31,49 +31,280 @@ class EntitlementsCreate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'token': 'str',
-        'name': 'str'
+        'identifier': 'int',
+        'is_active': 'bool',
+        'limit_date_range_from': 'str',
+        'limit_date_range_to': 'str',
+        'limit_num_clients': 'int',
+        'limit_num_downloads': 'int',
+        'limit_package_query': 'str',
+        'limit_path_query': 'str',
+        'metadata': 'object',
+        'name': 'str',
+        'token': 'str'
     }
 
     attribute_map = {
-        'token': 'token',
-        'name': 'name'
+        'identifier': 'identifier',
+        'is_active': 'is_active',
+        'limit_date_range_from': 'limit_date_range_from',
+        'limit_date_range_to': 'limit_date_range_to',
+        'limit_num_clients': 'limit_num_clients',
+        'limit_num_downloads': 'limit_num_downloads',
+        'limit_package_query': 'limit_package_query',
+        'limit_path_query': 'limit_path_query',
+        'metadata': 'metadata',
+        'name': 'name',
+        'token': 'token'
     }
 
-    def __init__(self, token=None, name=None):
+    def __init__(self, identifier=None, is_active=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, token=None):
         """
         EntitlementsCreate - a model defined in Swagger
         """
 
-        self._token = None
+        self._identifier = None
+        self._is_active = None
+        self._limit_date_range_from = None
+        self._limit_date_range_to = None
+        self._limit_num_clients = None
+        self._limit_num_downloads = None
+        self._limit_package_query = None
+        self._limit_path_query = None
+        self._metadata = None
         self._name = None
+        self._token = None
 
+        self.identifier = identifier
+        if is_active is not None:
+          self.is_active = is_active
+        if limit_date_range_from is not None:
+          self.limit_date_range_from = limit_date_range_from
+        if limit_date_range_to is not None:
+          self.limit_date_range_to = limit_date_range_to
+        if limit_num_clients is not None:
+          self.limit_num_clients = limit_num_clients
+        if limit_num_downloads is not None:
+          self.limit_num_downloads = limit_num_downloads
+        if limit_package_query is not None:
+          self.limit_package_query = limit_package_query
+        if limit_path_query is not None:
+          self.limit_path_query = limit_path_query
+        self.metadata = metadata
+        self.name = name
         if token is not None:
           self.token = token
-        self.name = name
 
     @property
-    def token(self):
+    def identifier(self):
         """
-        Gets the token of this EntitlementsCreate.
+        Gets the identifier of this EntitlementsCreate.
         None
 
-        :return: The token of this EntitlementsCreate.
+        :return: The identifier of this EntitlementsCreate.
+        :rtype: int
+        """
+        return self._identifier
+
+    @identifier.setter
+    def identifier(self, identifier):
+        """
+        Sets the identifier of this EntitlementsCreate.
+        None
+
+        :param identifier: The identifier of this EntitlementsCreate.
+        :type: int
+        """
+        if identifier is None:
+            raise ValueError("Invalid value for `identifier`, must not be `None`")
+
+        self._identifier = identifier
+
+    @property
+    def is_active(self):
+        """
+        Gets the is_active of this EntitlementsCreate.
+        If enabled, the token will allow downloads based on configured restrictions (if any).
+
+        :return: The is_active of this EntitlementsCreate.
+        :rtype: bool
+        """
+        return self._is_active
+
+    @is_active.setter
+    def is_active(self, is_active):
+        """
+        Sets the is_active of this EntitlementsCreate.
+        If enabled, the token will allow downloads based on configured restrictions (if any).
+
+        :param is_active: The is_active of this EntitlementsCreate.
+        :type: bool
+        """
+
+        self._is_active = is_active
+
+    @property
+    def limit_date_range_from(self):
+        """
+        Gets the limit_date_range_from of this EntitlementsCreate.
+        The starting date/time the token is allowed to be used from.
+
+        :return: The limit_date_range_from of this EntitlementsCreate.
         :rtype: str
         """
-        return self._token
+        return self._limit_date_range_from
 
-    @token.setter
-    def token(self, token):
+    @limit_date_range_from.setter
+    def limit_date_range_from(self, limit_date_range_from):
         """
-        Sets the token of this EntitlementsCreate.
-        None
+        Sets the limit_date_range_from of this EntitlementsCreate.
+        The starting date/time the token is allowed to be used from.
 
-        :param token: The token of this EntitlementsCreate.
+        :param limit_date_range_from: The limit_date_range_from of this EntitlementsCreate.
         :type: str
         """
 
-        self._token = token
+        self._limit_date_range_from = limit_date_range_from
+
+    @property
+    def limit_date_range_to(self):
+        """
+        Gets the limit_date_range_to of this EntitlementsCreate.
+        The ending date/time the token is allowed to be used until.
+
+        :return: The limit_date_range_to of this EntitlementsCreate.
+        :rtype: str
+        """
+        return self._limit_date_range_to
+
+    @limit_date_range_to.setter
+    def limit_date_range_to(self, limit_date_range_to):
+        """
+        Sets the limit_date_range_to of this EntitlementsCreate.
+        The ending date/time the token is allowed to be used until.
+
+        :param limit_date_range_to: The limit_date_range_to of this EntitlementsCreate.
+        :type: str
+        """
+
+        self._limit_date_range_to = limit_date_range_to
+
+    @property
+    def limit_num_clients(self):
+        """
+        Gets the limit_num_clients of this EntitlementsCreate.
+        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+
+        :return: The limit_num_clients of this EntitlementsCreate.
+        :rtype: int
+        """
+        return self._limit_num_clients
+
+    @limit_num_clients.setter
+    def limit_num_clients(self, limit_num_clients):
+        """
+        Sets the limit_num_clients of this EntitlementsCreate.
+        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+
+        :param limit_num_clients: The limit_num_clients of this EntitlementsCreate.
+        :type: int
+        """
+
+        self._limit_num_clients = limit_num_clients
+
+    @property
+    def limit_num_downloads(self):
+        """
+        Gets the limit_num_downloads of this EntitlementsCreate.
+        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+
+        :return: The limit_num_downloads of this EntitlementsCreate.
+        :rtype: int
+        """
+        return self._limit_num_downloads
+
+    @limit_num_downloads.setter
+    def limit_num_downloads(self, limit_num_downloads):
+        """
+        Sets the limit_num_downloads of this EntitlementsCreate.
+        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+
+        :param limit_num_downloads: The limit_num_downloads of this EntitlementsCreate.
+        :type: int
+        """
+
+        self._limit_num_downloads = limit_num_downloads
+
+    @property
+    def limit_package_query(self):
+        """
+        Gets the limit_package_query of this EntitlementsCreate.
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+
+        :return: The limit_package_query of this EntitlementsCreate.
+        :rtype: str
+        """
+        return self._limit_package_query
+
+    @limit_package_query.setter
+    def limit_package_query(self, limit_package_query):
+        """
+        Sets the limit_package_query of this EntitlementsCreate.
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+
+        :param limit_package_query: The limit_package_query of this EntitlementsCreate.
+        :type: str
+        """
+
+        self._limit_package_query = limit_package_query
+
+    @property
+    def limit_path_query(self):
+        """
+        Gets the limit_path_query of this EntitlementsCreate.
+        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
+
+        :return: The limit_path_query of this EntitlementsCreate.
+        :rtype: str
+        """
+        return self._limit_path_query
+
+    @limit_path_query.setter
+    def limit_path_query(self, limit_path_query):
+        """
+        Sets the limit_path_query of this EntitlementsCreate.
+        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
+
+        :param limit_path_query: The limit_path_query of this EntitlementsCreate.
+        :type: str
+        """
+
+        self._limit_path_query = limit_path_query
+
+    @property
+    def metadata(self):
+        """
+        Gets the metadata of this EntitlementsCreate.
+        None
+
+        :return: The metadata of this EntitlementsCreate.
+        :rtype: object
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """
+        Sets the metadata of this EntitlementsCreate.
+        None
+
+        :param metadata: The metadata of this EntitlementsCreate.
+        :type: object
+        """
+        if metadata is None:
+            raise ValueError("Invalid value for `metadata`, must not be `None`")
+
+        self._metadata = metadata
 
     @property
     def name(self):
@@ -99,6 +330,29 @@ class EntitlementsCreate(object):
             raise ValueError("Invalid value for `name`, must not be `None`")
 
         self._name = name
+
+    @property
+    def token(self):
+        """
+        Gets the token of this EntitlementsCreate.
+        None
+
+        :return: The token of this EntitlementsCreate.
+        :rtype: str
+        """
+        return self._token
+
+    @token.setter
+    def token(self, token):
+        """
+        Sets the token of this EntitlementsCreate.
+        None
+
+        :param token: The token of this EntitlementsCreate.
+        :type: str
+        """
+
+        self._token = token
 
     def to_dict(self):
         """

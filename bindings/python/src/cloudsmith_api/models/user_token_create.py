@@ -31,50 +31,27 @@ class UserTokenCreate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'password': 'str',
-        'email': 'str'
+        'email': 'str',
+        'password': 'str'
     }
 
     attribute_map = {
-        'password': 'password',
-        'email': 'email'
+        'email': 'email',
+        'password': 'password'
     }
 
-    def __init__(self, password=None, email=None):
+    def __init__(self, email=None, password=None):
         """
         UserTokenCreate - a model defined in Swagger
         """
 
-        self._password = None
         self._email = None
+        self._password = None
 
-        if password is not None:
-          self.password = password
         if email is not None:
           self.email = email
-
-    @property
-    def password(self):
-        """
-        Gets the password of this UserTokenCreate.
-        Password to authenticate with
-
-        :return: The password of this UserTokenCreate.
-        :rtype: str
-        """
-        return self._password
-
-    @password.setter
-    def password(self, password):
-        """
-        Sets the password of this UserTokenCreate.
-        Password to authenticate with
-
-        :param password: The password of this UserTokenCreate.
-        :type: str
-        """
-
-        self._password = password
+        if password is not None:
+          self.password = password
 
     @property
     def email(self):
@@ -98,6 +75,29 @@ class UserTokenCreate(object):
         """
 
         self._email = email
+
+    @property
+    def password(self):
+        """
+        Gets the password of this UserTokenCreate.
+        Password to authenticate with
+
+        :return: The password of this UserTokenCreate.
+        :rtype: str
+        """
+        return self._password
+
+    @password.setter
+    def password(self, password):
+        """
+        Sets the password of this UserTokenCreate.
+        Password to authenticate with
+
+        :param password: The password of this UserTokenCreate.
+        :type: str
+        """
+
+        self._password = password
 
     def to_dict(self):
         """

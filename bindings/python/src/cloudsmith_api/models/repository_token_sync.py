@@ -31,7 +31,7 @@ class RepositoryTokenSync(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'tokens': 'list[RepositoryTokenRefresh]'
+        'tokens': 'list[RepositoryTokenSyncTokens]'
     }
 
     attribute_map = {
@@ -55,7 +55,7 @@ class RepositoryTokenSync(object):
         The entitlements that have been synchronised.
 
         :return: The tokens of this RepositoryTokenSync.
-        :rtype: list[RepositoryTokenRefresh]
+        :rtype: list[RepositoryTokenSyncTokens]
         """
         return self._tokens
 
@@ -66,7 +66,7 @@ class RepositoryTokenSync(object):
         The entitlements that have been synchronised.
 
         :param tokens: The tokens of this RepositoryTokenSync.
-        :type: list[RepositoryTokenRefresh]
+        :type: list[RepositoryTokenSyncTokens]
         """
 
         self._tokens = tokens

@@ -15,7 +15,7 @@ from __future__ import absolute_import
 
 # import models into sdk package
 from .models.distribution import Distribution
-from .models.distribution_versions import DistributionVersions
+from .models.distros_versions import DistrosVersions
 from .models.entitlements_create import EntitlementsCreate
 from .models.entitlements_partial_update import EntitlementsPartialUpdate
 from .models.entitlements_refresh import EntitlementsRefresh
@@ -23,16 +23,18 @@ from .models.entitlements_sync import EntitlementsSync
 from .models.files_create import FilesCreate
 from .models.files_validate import FilesValidate
 from .models.format import Format
-from .models.format_distributions import FormatDistributions
+from .models.formats_distributions import FormatsDistributions
 from .models.maven_package_upload import MavenPackageUpload
 from .models.namespace import Namespace
 from .models.organization import Organization
+from .models.package import Package
 from .models.package_copy import PackageCopy
 from .models.package_file_upload import PackageFileUpload
 from .models.package_move import PackageMove
 from .models.package_status import PackageStatus
 from .models.packages_copy import PackagesCopy
 from .models.packages_move import PackagesMove
+from .models.packages_upload_composer import PackagesUploadComposer
 from .models.packages_upload_deb import PackagesUploadDeb
 from .models.packages_upload_maven import PackagesUploadMaven
 from .models.packages_upload_python import PackagesUploadPython
@@ -40,6 +42,7 @@ from .models.packages_upload_raw import PackagesUploadRaw
 from .models.packages_upload_rpm import PackagesUploadRpm
 from .models.packages_upload_ruby import PackagesUploadRuby
 from .models.packages_upload_vagrant import PackagesUploadVagrant
+from .models.packages_validateupload_composer import PackagesValidateuploadComposer
 from .models.packages_validateupload_deb import PackagesValidateuploadDeb
 from .models.packages_validateupload_maven import PackagesValidateuploadMaven
 from .models.packages_validateupload_python import PackagesValidateuploadPython
@@ -47,16 +50,17 @@ from .models.packages_validateupload_raw import PackagesValidateuploadRaw
 from .models.packages_validateupload_rpm import PackagesValidateuploadRpm
 from .models.packages_validateupload_ruby import PackagesValidateuploadRuby
 from .models.packages_validateupload_vagrant import PackagesValidateuploadVagrant
+from .models.packagesownerrepo_architectures import PackagesownerrepoArchitectures
+from .models.packagesownerrepo_files import PackagesownerrepoFiles
 from .models.raw_package_upload import RawPackageUpload
+from .models.repos_gpg_keys import ReposGpgKeys
 from .models.repository import Repository
 from .models.repository_token import RepositoryToken
 from .models.repository_token_refresh import RepositoryTokenRefresh
 from .models.repository_token_sync import RepositoryTokenSync
-from .models.reposowner_gpg_keys import ReposownerGpgKeys
+from .models.repository_token_sync_tokens import RepositoryTokenSyncTokens
+from .models.repository_webhook import RepositoryWebhook
 from .models.resources_rate_check import ResourcesRateCheck
-from .models.rpm_package_upload import RpmPackageUpload
-from .models.rpm_package_upload_architectures import RpmPackageUploadArchitectures
-from .models.rpm_package_upload_files import RpmPackageUploadFiles
 from .models.status import Status
 from .models.status_basic import StatusBasic
 from .models.user_auth_token import UserAuthToken
@@ -64,6 +68,8 @@ from .models.user_brief import UserBrief
 from .models.user_profile import UserProfile
 from .models.user_token_create import UserTokenCreate
 from .models.vagrant_package_upload import VagrantPackageUpload
+from .models.webhooks_create import WebhooksCreate
+from .models.webhooks_partial_update import WebhooksPartialUpdate
 
 # import apis into sdk package
 from .apis.distros_api import DistrosApi
@@ -78,6 +84,7 @@ from .apis.repos_api import ReposApi
 from .apis.status_api import StatusApi
 from .apis.user_api import UserApi
 from .apis.users_api import UsersApi
+from .apis.webhooks_api import WebhooksApi
 
 # import ApiClient
 from .api_client import ApiClient
