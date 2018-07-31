@@ -33,35 +33,71 @@ import javax.validation.Valid;
 public class RepositoryToken implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("created_by_url")
-  private String createdByUrl = null;
-
-  @SerializedName("self_url")
-  private String selfUrl = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("user_url")
-  private String userUrl = null;
-
-  @SerializedName("default")
-  private Boolean _default = null;
-
   @SerializedName("created_at")
   private String createdAt = null;
-
-  @SerializedName("refresh_url")
-  private String refreshUrl = null;
-
-  @SerializedName("updated_at")
-  private String updatedAt = null;
 
   @SerializedName("created_by")
   private String createdBy = null;
 
+  @SerializedName("created_by_url")
+  private String createdByUrl = null;
+
+  @SerializedName("default")
+  private Boolean _default = null;
+
+  @SerializedName("has_limits")
+  private String hasLimits = null;
+
+  @SerializedName("identifier")
+  private Integer identifier = null;
+
+  @SerializedName("is_active")
+  private Boolean isActive = null;
+
+  @SerializedName("is_limited")
+  private String isLimited = null;
+
+  @SerializedName("limit_date_range_from")
+  private String limitDateRangeFrom = null;
+
+  @SerializedName("limit_date_range_to")
+  private String limitDateRangeTo = null;
+
+  @SerializedName("limit_num_clients")
+  private Integer limitNumClients = null;
+
+  @SerializedName("limit_num_downloads")
+  private Integer limitNumDownloads = null;
+
+  @SerializedName("limit_package_query")
+  private String limitPackageQuery = null;
+
+  @SerializedName("limit_path_query")
+  private String limitPathQuery = null;
+
+  @SerializedName("metadata")
+  private Object metadata = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("refresh_url")
+  private String refreshUrl = null;
+
+  @SerializedName("self_url")
+  private String selfUrl = null;
+
+  @SerializedName("slug_perm")
+  private String slugPerm = null;
+
   @SerializedName("token")
   private String token = null;
+
+  @SerializedName("updated_at")
+  private String updatedAt = null;
+
+  @SerializedName("updated_by")
+  private String updatedBy = null;
 
   @SerializedName("updated_by_url")
   private String updatedByUrl = null;
@@ -69,11 +105,44 @@ public class RepositoryToken implements Serializable {
   @SerializedName("user")
   private String user = null;
 
-  @SerializedName("slug_perm")
-  private String slugPerm = null;
+  @SerializedName("user_url")
+  private String userUrl = null;
 
-  @SerializedName("updated_by")
-  private String updatedBy = null;
+  public RepositoryToken createdAt(String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * 
+   * @return createdAt
+  **/
+  @ApiModelProperty(value = "")
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public RepositoryToken createdBy(String createdBy) {
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * 
+   * @return createdBy
+  **/
+  @ApiModelProperty(value = "")
+  public String getCreatedBy() {
+    return createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
 
   public RepositoryToken createdByUrl(String createdByUrl) {
     this.createdByUrl = createdByUrl;
@@ -93,22 +162,222 @@ public class RepositoryToken implements Serializable {
     this.createdByUrl = createdByUrl;
   }
 
-  public RepositoryToken selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
+  public RepositoryToken _default(Boolean _default) {
+    this._default = _default;
+    return this;
+  }
+
+   /**
+   * If selected this is the default token for this repository.
+   * @return _default
+  **/
+  @ApiModelProperty(value = "If selected this is the default token for this repository.")
+  public Boolean getDefault() {
+    return _default;
+  }
+
+  public void setDefault(Boolean _default) {
+    this._default = _default;
+  }
+
+  public RepositoryToken hasLimits(String hasLimits) {
+    this.hasLimits = hasLimits;
     return this;
   }
 
    /**
    * 
-   * @return selfUrl
+   * @return hasLimits
   **/
   @ApiModelProperty(value = "")
-  public String getSelfUrl() {
-    return selfUrl;
+  public String getHasLimits() {
+    return hasLimits;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
+  public void setHasLimits(String hasLimits) {
+    this.hasLimits = hasLimits;
+  }
+
+  public RepositoryToken identifier(Integer identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * 
+   * @return identifier
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "")
+  public Integer getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(Integer identifier) {
+    this.identifier = identifier;
+  }
+
+  public RepositoryToken isActive(Boolean isActive) {
+    this.isActive = isActive;
+    return this;
+  }
+
+   /**
+   * If enabled, the token will allow downloads based on configured restrictions (if any).
+   * @return isActive
+  **/
+  @ApiModelProperty(value = "If enabled, the token will allow downloads based on configured restrictions (if any).")
+  public Boolean getIsActive() {
+    return isActive;
+  }
+
+  public void setIsActive(Boolean isActive) {
+    this.isActive = isActive;
+  }
+
+  public RepositoryToken isLimited(String isLimited) {
+    this.isLimited = isLimited;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isLimited
+  **/
+  @ApiModelProperty(value = "")
+  public String getIsLimited() {
+    return isLimited;
+  }
+
+  public void setIsLimited(String isLimited) {
+    this.isLimited = isLimited;
+  }
+
+  public RepositoryToken limitDateRangeFrom(String limitDateRangeFrom) {
+    this.limitDateRangeFrom = limitDateRangeFrom;
+    return this;
+  }
+
+   /**
+   * The starting date/time the token is allowed to be used from.
+   * @return limitDateRangeFrom
+  **/
+  @ApiModelProperty(value = "The starting date/time the token is allowed to be used from.")
+  public String getLimitDateRangeFrom() {
+    return limitDateRangeFrom;
+  }
+
+  public void setLimitDateRangeFrom(String limitDateRangeFrom) {
+    this.limitDateRangeFrom = limitDateRangeFrom;
+  }
+
+  public RepositoryToken limitDateRangeTo(String limitDateRangeTo) {
+    this.limitDateRangeTo = limitDateRangeTo;
+    return this;
+  }
+
+   /**
+   * The ending date/time the token is allowed to be used until.
+   * @return limitDateRangeTo
+  **/
+  @ApiModelProperty(value = "The ending date/time the token is allowed to be used until.")
+  public String getLimitDateRangeTo() {
+    return limitDateRangeTo;
+  }
+
+  public void setLimitDateRangeTo(String limitDateRangeTo) {
+    this.limitDateRangeTo = limitDateRangeTo;
+  }
+
+  public RepositoryToken limitNumClients(Integer limitNumClients) {
+    this.limitNumClients = limitNumClients;
+    return this;
+  }
+
+   /**
+   * The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+   * @return limitNumClients
+  **/
+  @ApiModelProperty(value = "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+  public Integer getLimitNumClients() {
+    return limitNumClients;
+  }
+
+  public void setLimitNumClients(Integer limitNumClients) {
+    this.limitNumClients = limitNumClients;
+  }
+
+  public RepositoryToken limitNumDownloads(Integer limitNumDownloads) {
+    this.limitNumDownloads = limitNumDownloads;
+    return this;
+  }
+
+   /**
+   * The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+   * @return limitNumDownloads
+  **/
+  @ApiModelProperty(value = "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+  public Integer getLimitNumDownloads() {
+    return limitNumDownloads;
+  }
+
+  public void setLimitNumDownloads(Integer limitNumDownloads) {
+    this.limitNumDownloads = limitNumDownloads;
+  }
+
+  public RepositoryToken limitPackageQuery(String limitPackageQuery) {
+    this.limitPackageQuery = limitPackageQuery;
+    return this;
+  }
+
+   /**
+   * The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+   * @return limitPackageQuery
+  **/
+  @ApiModelProperty(value = "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.")
+  public String getLimitPackageQuery() {
+    return limitPackageQuery;
+  }
+
+  public void setLimitPackageQuery(String limitPackageQuery) {
+    this.limitPackageQuery = limitPackageQuery;
+  }
+
+  public RepositoryToken limitPathQuery(String limitPathQuery) {
+    this.limitPathQuery = limitPathQuery;
+    return this;
+  }
+
+   /**
+   * The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
+   * @return limitPathQuery
+  **/
+  @ApiModelProperty(value = "The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.")
+  public String getLimitPathQuery() {
+    return limitPathQuery;
+  }
+
+  public void setLimitPathQuery(String limitPathQuery) {
+    this.limitPathQuery = limitPathQuery;
+  }
+
+  public RepositoryToken metadata(Object metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * 
+   * @return metadata
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "")
+  public Object getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
   }
 
   public RepositoryToken name(String name) {
@@ -130,60 +399,6 @@ public class RepositoryToken implements Serializable {
     this.name = name;
   }
 
-  public RepositoryToken userUrl(String userUrl) {
-    this.userUrl = userUrl;
-    return this;
-  }
-
-   /**
-   * 
-   * @return userUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getUserUrl() {
-    return userUrl;
-  }
-
-  public void setUserUrl(String userUrl) {
-    this.userUrl = userUrl;
-  }
-
-  public RepositoryToken _default(Boolean _default) {
-    this._default = _default;
-    return this;
-  }
-
-   /**
-   * If selected this is the default token for this repository.
-   * @return _default
-  **/
-  @ApiModelProperty(value = "If selected this is the default token for this repository.")
-  public Boolean getDefault() {
-    return _default;
-  }
-
-  public void setDefault(Boolean _default) {
-    this._default = _default;
-  }
-
-  public RepositoryToken createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * 
-   * @return createdAt
-  **/
-  @ApiModelProperty(value = "")
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
   public RepositoryToken refreshUrl(String refreshUrl) {
     this.refreshUrl = refreshUrl;
     return this;
@@ -200,6 +415,60 @@ public class RepositoryToken implements Serializable {
 
   public void setRefreshUrl(String refreshUrl) {
     this.refreshUrl = refreshUrl;
+  }
+
+  public RepositoryToken selfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return selfUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSelfUrl() {
+    return selfUrl;
+  }
+
+  public void setSelfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+  }
+
+  public RepositoryToken slugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+    return this;
+  }
+
+   /**
+   * 
+   * @return slugPerm
+  **/
+  @ApiModelProperty(value = "")
+  public String getSlugPerm() {
+    return slugPerm;
+  }
+
+  public void setSlugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+  }
+
+  public RepositoryToken token(String token) {
+    this.token = token;
+    return this;
+  }
+
+   /**
+   * 
+   * @return token
+  **/
+  @ApiModelProperty(value = "")
+  public String getToken() {
+    return token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
   }
 
   public RepositoryToken updatedAt(String updatedAt) {
@@ -220,40 +489,22 @@ public class RepositoryToken implements Serializable {
     this.updatedAt = updatedAt;
   }
 
-  public RepositoryToken createdBy(String createdBy) {
-    this.createdBy = createdBy;
+  public RepositoryToken updatedBy(String updatedBy) {
+    this.updatedBy = updatedBy;
     return this;
   }
 
    /**
    * 
-   * @return createdBy
+   * @return updatedBy
   **/
   @ApiModelProperty(value = "")
-  public String getCreatedBy() {
-    return createdBy;
+  public String getUpdatedBy() {
+    return updatedBy;
   }
 
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public RepositoryToken token(String token) {
-    this.token = token;
-    return this;
-  }
-
-   /**
-   * 
-   * @return token
-  **/
-  @ApiModelProperty(value = "")
-  public String getToken() {
-    return token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
+  public void setUpdatedBy(String updatedBy) {
+    this.updatedBy = updatedBy;
   }
 
   public RepositoryToken updatedByUrl(String updatedByUrl) {
@@ -292,40 +543,22 @@ public class RepositoryToken implements Serializable {
     this.user = user;
   }
 
-  public RepositoryToken slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public RepositoryToken userUrl(String userUrl) {
+    this.userUrl = userUrl;
     return this;
   }
 
    /**
    * 
-   * @return slugPerm
+   * @return userUrl
   **/
   @ApiModelProperty(value = "")
-  public String getSlugPerm() {
-    return slugPerm;
+  public String getUserUrl() {
+    return userUrl;
   }
 
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-  }
-
-  public RepositoryToken updatedBy(String updatedBy) {
-    this.updatedBy = updatedBy;
-    return this;
-  }
-
-   /**
-   * 
-   * @return updatedBy
-  **/
-  @ApiModelProperty(value = "")
-  public String getUpdatedBy() {
-    return updatedBy;
-  }
-
-  public void setUpdatedBy(String updatedBy) {
-    this.updatedBy = updatedBy;
+  public void setUserUrl(String userUrl) {
+    this.userUrl = userUrl;
   }
 
 
@@ -338,25 +571,36 @@ public class RepositoryToken implements Serializable {
       return false;
     }
     RepositoryToken repositoryToken = (RepositoryToken) o;
-    return Objects.equals(this.createdByUrl, repositoryToken.createdByUrl) &&
-        Objects.equals(this.selfUrl, repositoryToken.selfUrl) &&
-        Objects.equals(this.name, repositoryToken.name) &&
-        Objects.equals(this.userUrl, repositoryToken.userUrl) &&
-        Objects.equals(this._default, repositoryToken._default) &&
-        Objects.equals(this.createdAt, repositoryToken.createdAt) &&
-        Objects.equals(this.refreshUrl, repositoryToken.refreshUrl) &&
-        Objects.equals(this.updatedAt, repositoryToken.updatedAt) &&
+    return Objects.equals(this.createdAt, repositoryToken.createdAt) &&
         Objects.equals(this.createdBy, repositoryToken.createdBy) &&
+        Objects.equals(this.createdByUrl, repositoryToken.createdByUrl) &&
+        Objects.equals(this._default, repositoryToken._default) &&
+        Objects.equals(this.hasLimits, repositoryToken.hasLimits) &&
+        Objects.equals(this.identifier, repositoryToken.identifier) &&
+        Objects.equals(this.isActive, repositoryToken.isActive) &&
+        Objects.equals(this.isLimited, repositoryToken.isLimited) &&
+        Objects.equals(this.limitDateRangeFrom, repositoryToken.limitDateRangeFrom) &&
+        Objects.equals(this.limitDateRangeTo, repositoryToken.limitDateRangeTo) &&
+        Objects.equals(this.limitNumClients, repositoryToken.limitNumClients) &&
+        Objects.equals(this.limitNumDownloads, repositoryToken.limitNumDownloads) &&
+        Objects.equals(this.limitPackageQuery, repositoryToken.limitPackageQuery) &&
+        Objects.equals(this.limitPathQuery, repositoryToken.limitPathQuery) &&
+        Objects.equals(this.metadata, repositoryToken.metadata) &&
+        Objects.equals(this.name, repositoryToken.name) &&
+        Objects.equals(this.refreshUrl, repositoryToken.refreshUrl) &&
+        Objects.equals(this.selfUrl, repositoryToken.selfUrl) &&
+        Objects.equals(this.slugPerm, repositoryToken.slugPerm) &&
         Objects.equals(this.token, repositoryToken.token) &&
+        Objects.equals(this.updatedAt, repositoryToken.updatedAt) &&
+        Objects.equals(this.updatedBy, repositoryToken.updatedBy) &&
         Objects.equals(this.updatedByUrl, repositoryToken.updatedByUrl) &&
         Objects.equals(this.user, repositoryToken.user) &&
-        Objects.equals(this.slugPerm, repositoryToken.slugPerm) &&
-        Objects.equals(this.updatedBy, repositoryToken.updatedBy);
+        Objects.equals(this.userUrl, repositoryToken.userUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdByUrl, selfUrl, name, userUrl, _default, createdAt, refreshUrl, updatedAt, createdBy, token, updatedByUrl, user, slugPerm, updatedBy);
+    return Objects.hash(createdAt, createdBy, createdByUrl, _default, hasLimits, identifier, isActive, isLimited, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, user, userUrl);
   }
 
 
@@ -365,20 +609,31 @@ public class RepositoryToken implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepositoryToken {\n");
     
-    sb.append("    createdByUrl: ").append(toIndentedString(createdByUrl)).append("\n");
-    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    userUrl: ").append(toIndentedString(userUrl)).append("\n");
-    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    refreshUrl: ").append(toIndentedString(refreshUrl)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    createdByUrl: ").append(toIndentedString(createdByUrl)).append("\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    hasLimits: ").append(toIndentedString(hasLimits)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    isLimited: ").append(toIndentedString(isLimited)).append("\n");
+    sb.append("    limitDateRangeFrom: ").append(toIndentedString(limitDateRangeFrom)).append("\n");
+    sb.append("    limitDateRangeTo: ").append(toIndentedString(limitDateRangeTo)).append("\n");
+    sb.append("    limitNumClients: ").append(toIndentedString(limitNumClients)).append("\n");
+    sb.append("    limitNumDownloads: ").append(toIndentedString(limitNumDownloads)).append("\n");
+    sb.append("    limitPackageQuery: ").append(toIndentedString(limitPackageQuery)).append("\n");
+    sb.append("    limitPathQuery: ").append(toIndentedString(limitPathQuery)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    refreshUrl: ").append(toIndentedString(refreshUrl)).append("\n");
+    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
     sb.append("    updatedByUrl: ").append(toIndentedString(updatedByUrl)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
-    sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
+    sb.append("    userUrl: ").append(toIndentedString(userUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

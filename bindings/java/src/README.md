@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.26.6</version>
+    <version>0.30.3</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.26.6"
+compile "io.cloudsmith.api:cloudsmith-api:0.30.3"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.26.6.jar
+* target/cloudsmith-api-0.30.3.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -110,11 +110,14 @@ Class | Method | HTTP request | Description
 *DistrosApi* | [**distrosList**](docs/DistrosApi.md#distrosList) | **GET** /distros/ | Get a list of all supported distributions.
 *DistrosApi* | [**distrosRead**](docs/DistrosApi.md#distrosRead) | **GET** /distros/{slug}/ | View for viewing/listing package formats.
 *EntitlementsApi* | [**entitlementsCreate**](docs/EntitlementsApi.md#entitlementsCreate) | **POST** /entitlements/{owner}/{repo}/ | Create a specific entitlement in a repository.
-*EntitlementsApi* | [**entitlementsDelete**](docs/EntitlementsApi.md#entitlementsDelete) | **DELETE** /entitlements/{owner}/{repo}/{slug_perm}/ | Delete a specific entitlement in a repository.
+*EntitlementsApi* | [**entitlementsDelete**](docs/EntitlementsApi.md#entitlementsDelete) | **DELETE** /entitlements/{owner}/{repo}/{identifier}/ | Delete a specific entitlement in a repository.
+*EntitlementsApi* | [**entitlementsDisable**](docs/EntitlementsApi.md#entitlementsDisable) | **POST** /entitlements/{owner}/{repo}/{identifier}/disable/ | Disable an entitlement token in a repository.
+*EntitlementsApi* | [**entitlementsEnable**](docs/EntitlementsApi.md#entitlementsEnable) | **POST** /entitlements/{owner}/{repo}/{identifier}/enable/ | Enable an entitlement token in a repository.
 *EntitlementsApi* | [**entitlementsList**](docs/EntitlementsApi.md#entitlementsList) | **GET** /entitlements/{owner}/{repo}/ | Get a list of all entitlements in a repository.
-*EntitlementsApi* | [**entitlementsPartialUpdate**](docs/EntitlementsApi.md#entitlementsPartialUpdate) | **PATCH** /entitlements/{owner}/{repo}/{slug_perm}/ | Update a specific entitlement in a repository.
-*EntitlementsApi* | [**entitlementsRead**](docs/EntitlementsApi.md#entitlementsRead) | **GET** /entitlements/{owner}/{repo}/{slug_perm}/ | Views for working with repository entitlements.
-*EntitlementsApi* | [**entitlementsRefresh**](docs/EntitlementsApi.md#entitlementsRefresh) | **POST** /entitlements/{owner}/{repo}/{slug_perm}/refresh/ | Refresh an entitlement token in a repository.
+*EntitlementsApi* | [**entitlementsPartialUpdate**](docs/EntitlementsApi.md#entitlementsPartialUpdate) | **PATCH** /entitlements/{owner}/{repo}/{identifier}/ | Update a specific entitlement in a repository.
+*EntitlementsApi* | [**entitlementsRead**](docs/EntitlementsApi.md#entitlementsRead) | **GET** /entitlements/{owner}/{repo}/{identifier}/ | Get a specific entitlement in a repository.
+*EntitlementsApi* | [**entitlementsRefresh**](docs/EntitlementsApi.md#entitlementsRefresh) | **POST** /entitlements/{owner}/{repo}/{identifier}/refresh/ | Refresh an entitlement token in a repository.
+*EntitlementsApi* | [**entitlementsReset**](docs/EntitlementsApi.md#entitlementsReset) | **POST** /entitlements/{owner}/{repo}/{identifier}/reset/ | Reset the statistics for an entitlement token in a repository.
 *EntitlementsApi* | [**entitlementsSync**](docs/EntitlementsApi.md#entitlementsSync) | **POST** /entitlements/{owner}/{repo}/sync/ | Synchronise tokens from a source repository.
 *FilesApi* | [**filesCreate**](docs/FilesApi.md#filesCreate) | **POST** /files/{owner}/{repo}/ | Request URL(s) to POST new package file upload(s) to.
 *FilesApi* | [**filesValidate**](docs/FilesApi.md#filesValidate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
@@ -124,13 +127,14 @@ Class | Method | HTTP request | Description
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{slug}/ | Views for working with organizations.
-*PackagesApi* | [**packagesCopy**](docs/PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{slug}/copy/ | Copy a package to another repository.
-*PackagesApi* | [**packagesDelete**](docs/PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{slug}/ | Delete a specific package in a repository.
+*PackagesApi* | [**packagesCopy**](docs/PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
+*PackagesApi* | [**packagesDelete**](docs/PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 *PackagesApi* | [**packagesList**](docs/PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Views for working with repository packages.
-*PackagesApi* | [**packagesMove**](docs/PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{slug}/move/ | Move a package to another repository.
-*PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{slug}/ | Get a specific package in a repository.
-*PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{slug}/resync/ | Schedule a package for resynchronisation.
-*PackagesApi* | [**packagesStatus**](docs/PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{slug}/status/ | Get the synchronisation status for a package.
+*PackagesApi* | [**packagesMove**](docs/PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
+*PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
+*PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
+*PackagesApi* | [**packagesStatus**](docs/PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+*PackagesApi* | [**packagesUploadComposer**](docs/PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 *PackagesApi* | [**packagesUploadMaven**](docs/PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 *PackagesApi* | [**packagesUploadPython**](docs/PackagesApi.md#packagesUploadPython) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
@@ -138,6 +142,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadRpm**](docs/PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 *PackagesApi* | [**packagesUploadRuby**](docs/PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
 *PackagesApi* | [**packagesUploadVagrant**](docs/PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
+*PackagesApi* | [**packagesValidateUploadComposer**](docs/PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 *PackagesApi* | [**packagesValidateUploadMaven**](docs/PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 *PackagesApi* | [**packagesValidateUploadPython**](docs/PackagesApi.md#packagesValidateUploadPython) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
@@ -146,18 +151,24 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadRuby**](docs/PackagesApi.md#packagesValidateUploadRuby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
 *PackagesApi* | [**packagesValidateUploadVagrant**](docs/PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
-*ReposApi* | [**reposList**](docs/ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+*ReposApi* | [**reposList**](docs/ReposApi.md#reposList) | **GET** /repos/ | Get a list of all repositories associated with current user.
+*ReposApi* | [**reposList0**](docs/ReposApi.md#reposList0) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 *ReposApi* | [**reposRead**](docs/ReposApi.md#reposRead) | **GET** /repos/{owner}/{slug}/ | Views for working with repositories.
 *StatusApi* | [**statusCheckBasic**](docs/StatusApi.md#statusCheckBasic) | **GET** /status/check/basic/ | Endpoint to check basic API connectivity.
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
 *UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
+*WebhooksApi* | [**webhooksCreate**](docs/WebhooksApi.md#webhooksCreate) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
+*WebhooksApi* | [**webhooksDelete**](docs/WebhooksApi.md#webhooksDelete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
+*WebhooksApi* | [**webhooksList**](docs/WebhooksApi.md#webhooksList) | **GET** /webhooks/{owner}/{repo}/ | Get a list of all webhooks in a repository.
+*WebhooksApi* | [**webhooksPartialUpdate**](docs/WebhooksApi.md#webhooksPartialUpdate) | **PATCH** /webhooks/{owner}/{repo}/{identifier}/ | Update a specific webhook in a repository.
+*WebhooksApi* | [**webhooksRead**](docs/WebhooksApi.md#webhooksRead) | **GET** /webhooks/{owner}/{repo}/{identifier}/ | Views for working with repository webhooks.
 
 
 ## Documentation for Models
 
  - [Distribution](docs/Distribution.md)
- - [DistributionVersions](docs/DistributionVersions.md)
+ - [DistrosVersions](docs/DistrosVersions.md)
  - [EntitlementsCreate](docs/EntitlementsCreate.md)
  - [EntitlementsPartialUpdate](docs/EntitlementsPartialUpdate.md)
  - [EntitlementsRefresh](docs/EntitlementsRefresh.md)
@@ -165,8 +176,9 @@ Class | Method | HTTP request | Description
  - [FilesCreate](docs/FilesCreate.md)
  - [FilesValidate](docs/FilesValidate.md)
  - [Format](docs/Format.md)
- - [FormatDistributions](docs/FormatDistributions.md)
+ - [FormatsDistributions](docs/FormatsDistributions.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
+ - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [Organization](docs/Organization.md)
  - [PackageCopy](docs/PackageCopy.md)
@@ -175,6 +187,7 @@ Class | Method | HTTP request | Description
  - [PackageStatus](docs/PackageStatus.md)
  - [PackagesCopy](docs/PackagesCopy.md)
  - [PackagesMove](docs/PackagesMove.md)
+ - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
  - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
  - [PackagesUploadMaven](docs/PackagesUploadMaven.md)
  - [PackagesUploadPython](docs/PackagesUploadPython.md)
@@ -182,6 +195,7 @@ Class | Method | HTTP request | Description
  - [PackagesUploadRpm](docs/PackagesUploadRpm.md)
  - [PackagesUploadRuby](docs/PackagesUploadRuby.md)
  - [PackagesUploadVagrant](docs/PackagesUploadVagrant.md)
+ - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
  - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)
  - [PackagesValidateuploadMaven](docs/PackagesValidateuploadMaven.md)
  - [PackagesValidateuploadPython](docs/PackagesValidateuploadPython.md)
@@ -189,16 +203,17 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadRpm](docs/PackagesValidateuploadRpm.md)
  - [PackagesValidateuploadRuby](docs/PackagesValidateuploadRuby.md)
  - [PackagesValidateuploadVagrant](docs/PackagesValidateuploadVagrant.md)
+ - [PackagesownerrepoArchitectures](docs/PackagesownerrepoArchitectures.md)
+ - [PackagesownerrepoFiles](docs/PackagesownerrepoFiles.md)
  - [RawPackageUpload](docs/RawPackageUpload.md)
+ - [ReposGpgKeys](docs/ReposGpgKeys.md)
  - [Repository](docs/Repository.md)
  - [RepositoryToken](docs/RepositoryToken.md)
  - [RepositoryTokenRefresh](docs/RepositoryTokenRefresh.md)
  - [RepositoryTokenSync](docs/RepositoryTokenSync.md)
- - [ReposownerGpgKeys](docs/ReposownerGpgKeys.md)
+ - [RepositoryTokenSyncTokens](docs/RepositoryTokenSyncTokens.md)
+ - [RepositoryWebhook](docs/RepositoryWebhook.md)
  - [ResourcesRateCheck](docs/ResourcesRateCheck.md)
- - [RpmPackageUpload](docs/RpmPackageUpload.md)
- - [RpmPackageUploadArchitectures](docs/RpmPackageUploadArchitectures.md)
- - [RpmPackageUploadFiles](docs/RpmPackageUploadFiles.md)
  - [Status](docs/Status.md)
  - [StatusBasic](docs/StatusBasic.md)
  - [UserAuthToken](docs/UserAuthToken.md)
@@ -206,6 +221,8 @@ Class | Method | HTTP request | Description
  - [UserProfile](docs/UserProfile.md)
  - [UserTokenCreate](docs/UserTokenCreate.md)
  - [VagrantPackageUpload](docs/VagrantPackageUpload.md)
+ - [WebhooksCreate](docs/WebhooksCreate.md)
+ - [WebhooksPartialUpdate](docs/WebhooksPartialUpdate.md)
 
 
 ## Documentation for Authorization

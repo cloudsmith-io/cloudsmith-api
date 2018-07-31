@@ -33,8 +33,199 @@ import javax.validation.Valid;
 public class EntitlementsRefresh implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("identifier")
+  private Integer identifier = null;
+
+  @SerializedName("is_active")
+  private Boolean isActive = null;
+
+  @SerializedName("limit_date_range_from")
+  private String limitDateRangeFrom = null;
+
+  @SerializedName("limit_date_range_to")
+  private String limitDateRangeTo = null;
+
+  @SerializedName("limit_num_clients")
+  private Integer limitNumClients = null;
+
+  @SerializedName("limit_num_downloads")
+  private Integer limitNumDownloads = null;
+
+  @SerializedName("limit_package_query")
+  private String limitPackageQuery = null;
+
+  @SerializedName("limit_path_query")
+  private String limitPathQuery = null;
+
+  @SerializedName("metadata")
+  private Object metadata = null;
+
   @SerializedName("token")
   private String token = null;
+
+  public EntitlementsRefresh identifier(Integer identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * None
+   * @return identifier
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "None")
+  public Integer getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(Integer identifier) {
+    this.identifier = identifier;
+  }
+
+  public EntitlementsRefresh isActive(Boolean isActive) {
+    this.isActive = isActive;
+    return this;
+  }
+
+   /**
+   * If enabled, the token will allow downloads based on configured restrictions (if any).
+   * @return isActive
+  **/
+  @ApiModelProperty(value = "If enabled, the token will allow downloads based on configured restrictions (if any).")
+  public Boolean getIsActive() {
+    return isActive;
+  }
+
+  public void setIsActive(Boolean isActive) {
+    this.isActive = isActive;
+  }
+
+  public EntitlementsRefresh limitDateRangeFrom(String limitDateRangeFrom) {
+    this.limitDateRangeFrom = limitDateRangeFrom;
+    return this;
+  }
+
+   /**
+   * The starting date/time the token is allowed to be used from.
+   * @return limitDateRangeFrom
+  **/
+  @ApiModelProperty(value = "The starting date/time the token is allowed to be used from.")
+  public String getLimitDateRangeFrom() {
+    return limitDateRangeFrom;
+  }
+
+  public void setLimitDateRangeFrom(String limitDateRangeFrom) {
+    this.limitDateRangeFrom = limitDateRangeFrom;
+  }
+
+  public EntitlementsRefresh limitDateRangeTo(String limitDateRangeTo) {
+    this.limitDateRangeTo = limitDateRangeTo;
+    return this;
+  }
+
+   /**
+   * The ending date/time the token is allowed to be used until.
+   * @return limitDateRangeTo
+  **/
+  @ApiModelProperty(value = "The ending date/time the token is allowed to be used until.")
+  public String getLimitDateRangeTo() {
+    return limitDateRangeTo;
+  }
+
+  public void setLimitDateRangeTo(String limitDateRangeTo) {
+    this.limitDateRangeTo = limitDateRangeTo;
+  }
+
+  public EntitlementsRefresh limitNumClients(Integer limitNumClients) {
+    this.limitNumClients = limitNumClients;
+    return this;
+  }
+
+   /**
+   * The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+   * @return limitNumClients
+  **/
+  @ApiModelProperty(value = "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+  public Integer getLimitNumClients() {
+    return limitNumClients;
+  }
+
+  public void setLimitNumClients(Integer limitNumClients) {
+    this.limitNumClients = limitNumClients;
+  }
+
+  public EntitlementsRefresh limitNumDownloads(Integer limitNumDownloads) {
+    this.limitNumDownloads = limitNumDownloads;
+    return this;
+  }
+
+   /**
+   * The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+   * @return limitNumDownloads
+  **/
+  @ApiModelProperty(value = "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+  public Integer getLimitNumDownloads() {
+    return limitNumDownloads;
+  }
+
+  public void setLimitNumDownloads(Integer limitNumDownloads) {
+    this.limitNumDownloads = limitNumDownloads;
+  }
+
+  public EntitlementsRefresh limitPackageQuery(String limitPackageQuery) {
+    this.limitPackageQuery = limitPackageQuery;
+    return this;
+  }
+
+   /**
+   * The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+   * @return limitPackageQuery
+  **/
+  @ApiModelProperty(value = "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.")
+  public String getLimitPackageQuery() {
+    return limitPackageQuery;
+  }
+
+  public void setLimitPackageQuery(String limitPackageQuery) {
+    this.limitPackageQuery = limitPackageQuery;
+  }
+
+  public EntitlementsRefresh limitPathQuery(String limitPathQuery) {
+    this.limitPathQuery = limitPathQuery;
+    return this;
+  }
+
+   /**
+   * The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
+   * @return limitPathQuery
+  **/
+  @ApiModelProperty(value = "The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.")
+  public String getLimitPathQuery() {
+    return limitPathQuery;
+  }
+
+  public void setLimitPathQuery(String limitPathQuery) {
+    this.limitPathQuery = limitPathQuery;
+  }
+
+  public EntitlementsRefresh metadata(Object metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * None
+   * @return metadata
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "None")
+  public Object getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
+  }
 
   public EntitlementsRefresh token(String token) {
     this.token = token;
@@ -64,12 +255,21 @@ public class EntitlementsRefresh implements Serializable {
       return false;
     }
     EntitlementsRefresh entitlementsRefresh = (EntitlementsRefresh) o;
-    return Objects.equals(this.token, entitlementsRefresh.token);
+    return Objects.equals(this.identifier, entitlementsRefresh.identifier) &&
+        Objects.equals(this.isActive, entitlementsRefresh.isActive) &&
+        Objects.equals(this.limitDateRangeFrom, entitlementsRefresh.limitDateRangeFrom) &&
+        Objects.equals(this.limitDateRangeTo, entitlementsRefresh.limitDateRangeTo) &&
+        Objects.equals(this.limitNumClients, entitlementsRefresh.limitNumClients) &&
+        Objects.equals(this.limitNumDownloads, entitlementsRefresh.limitNumDownloads) &&
+        Objects.equals(this.limitPackageQuery, entitlementsRefresh.limitPackageQuery) &&
+        Objects.equals(this.limitPathQuery, entitlementsRefresh.limitPathQuery) &&
+        Objects.equals(this.metadata, entitlementsRefresh.metadata) &&
+        Objects.equals(this.token, entitlementsRefresh.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return Objects.hash(identifier, isActive, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, token);
   }
 
 
@@ -78,6 +278,15 @@ public class EntitlementsRefresh implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class EntitlementsRefresh {\n");
     
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    limitDateRangeFrom: ").append(toIndentedString(limitDateRangeFrom)).append("\n");
+    sb.append("    limitDateRangeTo: ").append(toIndentedString(limitDateRangeTo)).append("\n");
+    sb.append("    limitNumClients: ").append(toIndentedString(limitNumClients)).append("\n");
+    sb.append("    limitNumDownloads: ").append(toIndentedString(limitNumDownloads)).append("\n");
+    sb.append("    limitPackageQuery: ").append(toIndentedString(limitPackageQuery)).append("\n");
+    sb.append("    limitPathQuery: ").append(toIndentedString(limitPathQuery)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();

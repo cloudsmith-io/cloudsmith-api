@@ -70,9 +70,44 @@ public class EntitlementsApiTest {
     public void entitlementsDeleteTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slugPerm = null;
-        Boolean showTokens = null;
-        api.entitlementsDelete(owner, repo, slugPerm, showTokens);
+        String identifier = null;
+        api.entitlementsDelete(owner, repo, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Disable an entitlement token in a repository.
+     *
+     * Disable an entitlement token in a repository.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void entitlementsDisableTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        api.entitlementsDisable(owner, repo, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Enable an entitlement token in a repository.
+     *
+     * Enable an entitlement token in a repository.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void entitlementsEnableTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        api.entitlementsEnable(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -109,18 +144,17 @@ public class EntitlementsApiTest {
     public void entitlementsPartialUpdateTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slugPerm = null;
         Boolean showTokens = null;
         EntitlementsPartialUpdate data = null;
-        RepositoryToken response = api.entitlementsPartialUpdate(owner, repo, slugPerm, showTokens, data);
+        RepositoryToken response = api.entitlementsPartialUpdate(owner, repo, showTokens, data);
 
         // TODO: test validations
     }
     
     /**
-     * Views for working with repository entitlements.
+     * Get a specific entitlement in a repository.
      *
-     * Views for working with repository entitlements.
+     * Get a specific entitlement in a repository.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -129,9 +163,9 @@ public class EntitlementsApiTest {
     public void entitlementsReadTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slugPerm = null;
+        String identifier = null;
         Boolean showTokens = null;
-        RepositoryToken response = api.entitlementsRead(owner, repo, slugPerm, showTokens);
+        RepositoryToken response = api.entitlementsRead(owner, repo, identifier, showTokens);
 
         // TODO: test validations
     }
@@ -148,10 +182,27 @@ public class EntitlementsApiTest {
     public void entitlementsRefreshTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slugPerm = null;
         Boolean showTokens = null;
         EntitlementsRefresh data = null;
-        RepositoryTokenRefresh response = api.entitlementsRefresh(owner, repo, slugPerm, showTokens, data);
+        RepositoryTokenRefresh response = api.entitlementsRefresh(owner, repo, showTokens, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Reset the statistics for an entitlement token in a repository.
+     *
+     * Reset the statistics for an entitlement token in a repository.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void entitlementsResetTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        api.entitlementsReset(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -168,9 +219,8 @@ public class EntitlementsApiTest {
     public void entitlementsSyncTest() throws ApiException {
         String owner = null;
         String repo = null;
-        Boolean showTokens = null;
         EntitlementsSync data = null;
-        RepositoryTokenSync response = api.entitlementsSync(owner, repo, showTokens, data);
+        RepositoryTokenSync response = api.entitlementsSync(owner, repo, data);
 
         // TODO: test validations
     }

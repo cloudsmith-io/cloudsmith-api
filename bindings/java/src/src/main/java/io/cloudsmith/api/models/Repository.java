@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.ReposownerGpgKeys;
+import io.cloudsmith.api.models.ReposGpgKeys;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -36,201 +36,74 @@ import javax.validation.Valid;
 public class Repository implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("is_open_source")
-  private Boolean isOpenSource = null;
-
-  @SerializedName("repository_type_str")
-  private String repositoryTypeStr = null;
-
-  @SerializedName("index_files")
-  private Boolean indexFiles = null;
-
-  @SerializedName("package_count")
-  private Integer packageCount = null;
-
-  @SerializedName("deleted_at")
-  private String deletedAt = null;
-
-  @SerializedName("repository_type")
-  private String repositoryType = null;
-
-  @SerializedName("size")
-  private Integer size = null;
-
   @SerializedName("cdn_url")
   private String cdnUrl = null;
-
-  @SerializedName("namespace")
-  private String namespace = null;
-
-  @SerializedName("self_html_url")
-  private String selfHtmlUrl = null;
-
-  @SerializedName("namespace_url")
-  private String namespaceUrl = null;
-
-  @SerializedName("gpg_keys")
-  private List<ReposownerGpgKeys> gpgKeys = null;
-
-  @SerializedName("description")
-  private String description = null;
-
-  @SerializedName("size_str")
-  private String sizeStr = null;
-
-  @SerializedName("slug_perm")
-  private String slugPerm = null;
-
-  @SerializedName("is_public")
-  private Boolean isPublic = null;
-
-  @SerializedName("slug")
-  private String slug = null;
-
-  @SerializedName("is_private")
-  private Boolean isPrivate = null;
-
-  @SerializedName("num_downloads")
-  private Integer numDownloads = null;
-
-  @SerializedName("self_url")
-  private String selfUrl = null;
-
-  @SerializedName("name")
-  private String name = null;
 
   @SerializedName("created_at")
   private String createdAt = null;
 
+  @SerializedName("deleted_at")
+  private String deletedAt = null;
+
+  @SerializedName("description")
+  private String description = null;
+
+  @SerializedName("gpg_keys")
+  private List<ReposGpgKeys> gpgKeys = null;
+
+  @SerializedName("index_files")
+  private Boolean indexFiles = null;
+
+  @SerializedName("is_open_source")
+  private Boolean isOpenSource = null;
+
+  @SerializedName("is_private")
+  private Boolean isPrivate = null;
+
+  @SerializedName("is_public")
+  private Boolean isPublic = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("namespace")
+  private String namespace = null;
+
+  @SerializedName("namespace_url")
+  private String namespaceUrl = null;
+
+  @SerializedName("num_downloads")
+  private Integer numDownloads = null;
+
+  @SerializedName("package_count")
+  private Integer packageCount = null;
+
   @SerializedName("package_group_count")
   private Integer packageGroupCount = null;
 
-  public Repository isOpenSource(Boolean isOpenSource) {
-    this.isOpenSource = isOpenSource;
-    return this;
-  }
+  @SerializedName("repository_type")
+  private String repositoryType = null;
 
-   /**
-   * 
-   * @return isOpenSource
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
-  public Boolean getIsOpenSource() {
-    return isOpenSource;
-  }
+  @SerializedName("repository_type_str")
+  private String repositoryTypeStr = null;
 
-  public void setIsOpenSource(Boolean isOpenSource) {
-    this.isOpenSource = isOpenSource;
-  }
+  @SerializedName("self_html_url")
+  private String selfHtmlUrl = null;
 
-  public Repository repositoryTypeStr(String repositoryTypeStr) {
-    this.repositoryTypeStr = repositoryTypeStr;
-    return this;
-  }
+  @SerializedName("self_url")
+  private String selfUrl = null;
 
-   /**
-   * 
-   * @return repositoryTypeStr
-  **/
-  @ApiModelProperty(value = "")
-  public String getRepositoryTypeStr() {
-    return repositoryTypeStr;
-  }
+  @SerializedName("size")
+  private Integer size = null;
 
-  public void setRepositoryTypeStr(String repositoryTypeStr) {
-    this.repositoryTypeStr = repositoryTypeStr;
-  }
+  @SerializedName("size_str")
+  private String sizeStr = null;
 
-  public Repository indexFiles(Boolean indexFiles) {
-    this.indexFiles = indexFiles;
-    return this;
-  }
+  @SerializedName("slug")
+  private String slug = null;
 
-   /**
-   * If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
-   * @return indexFiles
-  **/
-  @ApiModelProperty(value = "If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.")
-  public Boolean getIndexFiles() {
-    return indexFiles;
-  }
-
-  public void setIndexFiles(Boolean indexFiles) {
-    this.indexFiles = indexFiles;
-  }
-
-  public Repository packageCount(Integer packageCount) {
-    this.packageCount = packageCount;
-    return this;
-  }
-
-   /**
-   * The number of packages in the repository.
-   * @return packageCount
-  **/
-  @ApiModelProperty(value = "The number of packages in the repository.")
-  public Integer getPackageCount() {
-    return packageCount;
-  }
-
-  public void setPackageCount(Integer packageCount) {
-    this.packageCount = packageCount;
-  }
-
-  public Repository deletedAt(String deletedAt) {
-    this.deletedAt = deletedAt;
-    return this;
-  }
-
-   /**
-   * 
-   * @return deletedAt
-  **/
-  @ApiModelProperty(value = "")
-  public String getDeletedAt() {
-    return deletedAt;
-  }
-
-  public void setDeletedAt(String deletedAt) {
-    this.deletedAt = deletedAt;
-  }
-
-  public Repository repositoryType(String repositoryType) {
-    this.repositoryType = repositoryType;
-    return this;
-  }
-
-   /**
-   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
-   * @return repositoryType
-  **/
-  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.")
-  public String getRepositoryType() {
-    return repositoryType;
-  }
-
-  public void setRepositoryType(String repositoryType) {
-    this.repositoryType = repositoryType;
-  }
-
-  public Repository size(Integer size) {
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * The calculated size of the repository.
-   * @return size
-  **/
-  @ApiModelProperty(value = "The calculated size of the repository.")
-  public Integer getSize() {
-    return size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
+  @SerializedName("slug_perm")
+  private String slugPerm = null;
 
   public Repository cdnUrl(String cdnUrl) {
     this.cdnUrl = cdnUrl;
@@ -250,86 +123,40 @@ public class Repository implements Serializable {
     this.cdnUrl = cdnUrl;
   }
 
-  public Repository namespace(String namespace) {
-    this.namespace = namespace;
+  public Repository createdAt(String createdAt) {
+    this.createdAt = createdAt;
     return this;
   }
 
    /**
    * 
-   * @return namespace
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
-  public String getNamespace() {
-    return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
-  public Repository selfHtmlUrl(String selfHtmlUrl) {
-    this.selfHtmlUrl = selfHtmlUrl;
-    return this;
-  }
-
-   /**
-   * 
-   * @return selfHtmlUrl
+   * @return createdAt
   **/
   @ApiModelProperty(value = "")
-  public String getSelfHtmlUrl() {
-    return selfHtmlUrl;
+  public String getCreatedAt() {
+    return createdAt;
   }
 
-  public void setSelfHtmlUrl(String selfHtmlUrl) {
-    this.selfHtmlUrl = selfHtmlUrl;
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
   }
 
-  public Repository namespaceUrl(String namespaceUrl) {
-    this.namespaceUrl = namespaceUrl;
+  public Repository deletedAt(String deletedAt) {
+    this.deletedAt = deletedAt;
     return this;
   }
 
    /**
    * 
-   * @return namespaceUrl
+   * @return deletedAt
   **/
   @ApiModelProperty(value = "")
-  public String getNamespaceUrl() {
-    return namespaceUrl;
+  public String getDeletedAt() {
+    return deletedAt;
   }
 
-  public void setNamespaceUrl(String namespaceUrl) {
-    this.namespaceUrl = namespaceUrl;
-  }
-
-  public Repository gpgKeys(List<ReposownerGpgKeys> gpgKeys) {
-    this.gpgKeys = gpgKeys;
-    return this;
-  }
-
-  public Repository addGpgKeysItem(ReposownerGpgKeys gpgKeysItem) {
-    if (this.gpgKeys == null) {
-      this.gpgKeys = new ArrayList<ReposownerGpgKeys>();
-    }
-    this.gpgKeys.add(gpgKeysItem);
-    return this;
-  }
-
-   /**
-   * 
-   * @return gpgKeys
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public List<ReposownerGpgKeys> getGpgKeys() {
-    return gpgKeys;
-  }
-
-  public void setGpgKeys(List<ReposownerGpgKeys> gpgKeys) {
-    this.gpgKeys = gpgKeys;
+  public void setDeletedAt(String deletedAt) {
+    this.deletedAt = deletedAt;
   }
 
   public Repository description(String description) {
@@ -351,77 +178,68 @@ public class Repository implements Serializable {
     this.description = description;
   }
 
-  public Repository sizeStr(String sizeStr) {
-    this.sizeStr = sizeStr;
+  public Repository gpgKeys(List<ReposGpgKeys> gpgKeys) {
+    this.gpgKeys = gpgKeys;
+    return this;
+  }
+
+  public Repository addGpgKeysItem(ReposGpgKeys gpgKeysItem) {
+    if (this.gpgKeys == null) {
+      this.gpgKeys = new ArrayList<ReposGpgKeys>();
+    }
+    this.gpgKeys.add(gpgKeysItem);
     return this;
   }
 
    /**
    * 
-   * @return sizeStr
+   * @return gpgKeys
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getSizeStr() {
-    return sizeStr;
+  public List<ReposGpgKeys> getGpgKeys() {
+    return gpgKeys;
   }
 
-  public void setSizeStr(String sizeStr) {
-    this.sizeStr = sizeStr;
+  public void setGpgKeys(List<ReposGpgKeys> gpgKeys) {
+    this.gpgKeys = gpgKeys;
   }
 
-  public Repository slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public Repository indexFiles(Boolean indexFiles) {
+    this.indexFiles = indexFiles;
     return this;
   }
 
    /**
-   * 
-   * @return slugPerm
+   * If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
+   * @return indexFiles
   **/
-  @ApiModelProperty(value = "")
-  public String getSlugPerm() {
-    return slugPerm;
+  @ApiModelProperty(value = "If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.")
+  public Boolean getIndexFiles() {
+    return indexFiles;
   }
 
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public void setIndexFiles(Boolean indexFiles) {
+    this.indexFiles = indexFiles;
   }
 
-  public Repository isPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
+  public Repository isOpenSource(Boolean isOpenSource) {
+    this.isOpenSource = isOpenSource;
     return this;
   }
 
    /**
    * 
-   * @return isPublic
+   * @return isOpenSource
   **/
   @NotNull
   @ApiModelProperty(required = true, value = "")
-  public Boolean getIsPublic() {
-    return isPublic;
+  public Boolean getIsOpenSource() {
+    return isOpenSource;
   }
 
-  public void setIsPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
-  }
-
-  public Repository slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * The slug identifies the repository in URIs.
-   * @return slug
-  **/
-  @ApiModelProperty(value = "The slug identifies the repository in URIs.")
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
+  public void setIsOpenSource(Boolean isOpenSource) {
+    this.isOpenSource = isOpenSource;
   }
 
   public Repository isPrivate(Boolean isPrivate) {
@@ -443,40 +261,23 @@ public class Repository implements Serializable {
     this.isPrivate = isPrivate;
   }
 
-  public Repository numDownloads(Integer numDownloads) {
-    this.numDownloads = numDownloads;
-    return this;
-  }
-
-   /**
-   * The number of downloads for packages in the repository.
-   * @return numDownloads
-  **/
-  @ApiModelProperty(value = "The number of downloads for packages in the repository.")
-  public Integer getNumDownloads() {
-    return numDownloads;
-  }
-
-  public void setNumDownloads(Integer numDownloads) {
-    this.numDownloads = numDownloads;
-  }
-
-  public Repository selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
+  public Repository isPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
     return this;
   }
 
    /**
    * 
-   * @return selfUrl
+   * @return isPublic
   **/
-  @ApiModelProperty(value = "")
-  public String getSelfUrl() {
-    return selfUrl;
+  @NotNull
+  @ApiModelProperty(required = true, value = "")
+  public Boolean getIsPublic() {
+    return isPublic;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
   }
 
   public Repository name(String name) {
@@ -497,22 +298,77 @@ public class Repository implements Serializable {
     this.name = name;
   }
 
-  public Repository createdAt(String createdAt) {
-    this.createdAt = createdAt;
+  public Repository namespace(String namespace) {
+    this.namespace = namespace;
     return this;
   }
 
    /**
    * 
-   * @return createdAt
+   * @return namespace
   **/
-  @ApiModelProperty(value = "")
-  public String getCreatedAt() {
-    return createdAt;
+  @NotNull
+  @ApiModelProperty(required = true, value = "")
+  public String getNamespace() {
+    return namespace;
   }
 
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public Repository namespaceUrl(String namespaceUrl) {
+    this.namespaceUrl = namespaceUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return namespaceUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getNamespaceUrl() {
+    return namespaceUrl;
+  }
+
+  public void setNamespaceUrl(String namespaceUrl) {
+    this.namespaceUrl = namespaceUrl;
+  }
+
+  public Repository numDownloads(Integer numDownloads) {
+    this.numDownloads = numDownloads;
+    return this;
+  }
+
+   /**
+   * The number of downloads for packages in the repository.
+   * @return numDownloads
+  **/
+  @ApiModelProperty(value = "The number of downloads for packages in the repository.")
+  public Integer getNumDownloads() {
+    return numDownloads;
+  }
+
+  public void setNumDownloads(Integer numDownloads) {
+    this.numDownloads = numDownloads;
+  }
+
+  public Repository packageCount(Integer packageCount) {
+    this.packageCount = packageCount;
+    return this;
+  }
+
+   /**
+   * The number of packages in the repository.
+   * @return packageCount
+  **/
+  @ApiModelProperty(value = "The number of packages in the repository.")
+  public Integer getPackageCount() {
+    return packageCount;
+  }
+
+  public void setPackageCount(Integer packageCount) {
+    this.packageCount = packageCount;
   }
 
   public Repository packageGroupCount(Integer packageGroupCount) {
@@ -533,6 +389,150 @@ public class Repository implements Serializable {
     this.packageGroupCount = packageGroupCount;
   }
 
+  public Repository repositoryType(String repositoryType) {
+    this.repositoryType = repositoryType;
+    return this;
+  }
+
+   /**
+   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
+   * @return repositoryType
+  **/
+  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.")
+  public String getRepositoryType() {
+    return repositoryType;
+  }
+
+  public void setRepositoryType(String repositoryType) {
+    this.repositoryType = repositoryType;
+  }
+
+  public Repository repositoryTypeStr(String repositoryTypeStr) {
+    this.repositoryTypeStr = repositoryTypeStr;
+    return this;
+  }
+
+   /**
+   * 
+   * @return repositoryTypeStr
+  **/
+  @ApiModelProperty(value = "")
+  public String getRepositoryTypeStr() {
+    return repositoryTypeStr;
+  }
+
+  public void setRepositoryTypeStr(String repositoryTypeStr) {
+    this.repositoryTypeStr = repositoryTypeStr;
+  }
+
+  public Repository selfHtmlUrl(String selfHtmlUrl) {
+    this.selfHtmlUrl = selfHtmlUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return selfHtmlUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSelfHtmlUrl() {
+    return selfHtmlUrl;
+  }
+
+  public void setSelfHtmlUrl(String selfHtmlUrl) {
+    this.selfHtmlUrl = selfHtmlUrl;
+  }
+
+  public Repository selfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return selfUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSelfUrl() {
+    return selfUrl;
+  }
+
+  public void setSelfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+  }
+
+  public Repository size(Integer size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * The calculated size of the repository.
+   * @return size
+  **/
+  @ApiModelProperty(value = "The calculated size of the repository.")
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
+  public Repository sizeStr(String sizeStr) {
+    this.sizeStr = sizeStr;
+    return this;
+  }
+
+   /**
+   * 
+   * @return sizeStr
+  **/
+  @ApiModelProperty(value = "")
+  public String getSizeStr() {
+    return sizeStr;
+  }
+
+  public void setSizeStr(String sizeStr) {
+    this.sizeStr = sizeStr;
+  }
+
+  public Repository slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+   /**
+   * The slug identifies the repository in URIs.
+   * @return slug
+  **/
+  @ApiModelProperty(value = "The slug identifies the repository in URIs.")
+  public String getSlug() {
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
+  }
+
+  public Repository slugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+    return this;
+  }
+
+   /**
+   * 
+   * @return slugPerm
+  **/
+  @ApiModelProperty(value = "")
+  public String getSlugPerm() {
+    return slugPerm;
+  }
+
+  public void setSlugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -543,34 +543,34 @@ public class Repository implements Serializable {
       return false;
     }
     Repository repository = (Repository) o;
-    return Objects.equals(this.isOpenSource, repository.isOpenSource) &&
-        Objects.equals(this.repositoryTypeStr, repository.repositoryTypeStr) &&
-        Objects.equals(this.indexFiles, repository.indexFiles) &&
-        Objects.equals(this.packageCount, repository.packageCount) &&
-        Objects.equals(this.deletedAt, repository.deletedAt) &&
-        Objects.equals(this.repositoryType, repository.repositoryType) &&
-        Objects.equals(this.size, repository.size) &&
-        Objects.equals(this.cdnUrl, repository.cdnUrl) &&
-        Objects.equals(this.namespace, repository.namespace) &&
-        Objects.equals(this.selfHtmlUrl, repository.selfHtmlUrl) &&
-        Objects.equals(this.namespaceUrl, repository.namespaceUrl) &&
-        Objects.equals(this.gpgKeys, repository.gpgKeys) &&
-        Objects.equals(this.description, repository.description) &&
-        Objects.equals(this.sizeStr, repository.sizeStr) &&
-        Objects.equals(this.slugPerm, repository.slugPerm) &&
-        Objects.equals(this.isPublic, repository.isPublic) &&
-        Objects.equals(this.slug, repository.slug) &&
-        Objects.equals(this.isPrivate, repository.isPrivate) &&
-        Objects.equals(this.numDownloads, repository.numDownloads) &&
-        Objects.equals(this.selfUrl, repository.selfUrl) &&
-        Objects.equals(this.name, repository.name) &&
+    return Objects.equals(this.cdnUrl, repository.cdnUrl) &&
         Objects.equals(this.createdAt, repository.createdAt) &&
-        Objects.equals(this.packageGroupCount, repository.packageGroupCount);
+        Objects.equals(this.deletedAt, repository.deletedAt) &&
+        Objects.equals(this.description, repository.description) &&
+        Objects.equals(this.gpgKeys, repository.gpgKeys) &&
+        Objects.equals(this.indexFiles, repository.indexFiles) &&
+        Objects.equals(this.isOpenSource, repository.isOpenSource) &&
+        Objects.equals(this.isPrivate, repository.isPrivate) &&
+        Objects.equals(this.isPublic, repository.isPublic) &&
+        Objects.equals(this.name, repository.name) &&
+        Objects.equals(this.namespace, repository.namespace) &&
+        Objects.equals(this.namespaceUrl, repository.namespaceUrl) &&
+        Objects.equals(this.numDownloads, repository.numDownloads) &&
+        Objects.equals(this.packageCount, repository.packageCount) &&
+        Objects.equals(this.packageGroupCount, repository.packageGroupCount) &&
+        Objects.equals(this.repositoryType, repository.repositoryType) &&
+        Objects.equals(this.repositoryTypeStr, repository.repositoryTypeStr) &&
+        Objects.equals(this.selfHtmlUrl, repository.selfHtmlUrl) &&
+        Objects.equals(this.selfUrl, repository.selfUrl) &&
+        Objects.equals(this.size, repository.size) &&
+        Objects.equals(this.sizeStr, repository.sizeStr) &&
+        Objects.equals(this.slug, repository.slug) &&
+        Objects.equals(this.slugPerm, repository.slugPerm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isOpenSource, repositoryTypeStr, indexFiles, packageCount, deletedAt, repositoryType, size, cdnUrl, namespace, selfHtmlUrl, namespaceUrl, gpgKeys, description, sizeStr, slugPerm, isPublic, slug, isPrivate, numDownloads, selfUrl, name, createdAt, packageGroupCount);
+    return Objects.hash(cdnUrl, createdAt, deletedAt, description, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, name, namespace, namespaceUrl, numDownloads, packageCount, packageGroupCount, repositoryType, repositoryTypeStr, selfHtmlUrl, selfUrl, size, sizeStr, slug, slugPerm);
   }
 
 
@@ -579,29 +579,29 @@ public class Repository implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Repository {\n");
     
-    sb.append("    isOpenSource: ").append(toIndentedString(isOpenSource)).append("\n");
-    sb.append("    repositoryTypeStr: ").append(toIndentedString(repositoryTypeStr)).append("\n");
-    sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
-    sb.append("    packageCount: ").append(toIndentedString(packageCount)).append("\n");
-    sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
-    sb.append("    repositoryType: ").append(toIndentedString(repositoryType)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
-    sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
-    sb.append("    gpgKeys: ").append(toIndentedString(gpgKeys)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    sizeStr: ").append(toIndentedString(sizeStr)).append("\n");
-    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
-    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
-    sb.append("    numDownloads: ").append(toIndentedString(numDownloads)).append("\n");
-    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    gpgKeys: ").append(toIndentedString(gpgKeys)).append("\n");
+    sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
+    sb.append("    isOpenSource: ").append(toIndentedString(isOpenSource)).append("\n");
+    sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
+    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
+    sb.append("    numDownloads: ").append(toIndentedString(numDownloads)).append("\n");
+    sb.append("    packageCount: ").append(toIndentedString(packageCount)).append("\n");
     sb.append("    packageGroupCount: ").append(toIndentedString(packageGroupCount)).append("\n");
+    sb.append("    repositoryType: ").append(toIndentedString(repositoryType)).append("\n");
+    sb.append("    repositoryTypeStr: ").append(toIndentedString(repositoryTypeStr)).append("\n");
+    sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
+    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    sizeStr: ").append(toIndentedString(sizeStr)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("}");
     return sb.toString();
   }

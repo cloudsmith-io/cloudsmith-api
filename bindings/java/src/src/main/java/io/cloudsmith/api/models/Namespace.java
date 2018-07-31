@@ -33,53 +33,17 @@ import javax.validation.Valid;
 public class Namespace implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("type_name")
-  private String typeName = null;
-
-  @SerializedName("slug_perm")
-  private String slugPerm = null;
-
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("slug")
   private String slug = null;
 
-  public Namespace typeName(String typeName) {
-    this.typeName = typeName;
-    return this;
-  }
+  @SerializedName("slug_perm")
+  private String slugPerm = null;
 
-   /**
-   * 
-   * @return typeName
-  **/
-  @ApiModelProperty(value = "")
-  public String getTypeName() {
-    return typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
-  public Namespace slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
-   /**
-   * 
-   * @return slugPerm
-  **/
-  @ApiModelProperty(value = "")
-  public String getSlugPerm() {
-    return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-  }
+  @SerializedName("type_name")
+  private String typeName = null;
 
   public Namespace name(String name) {
     this.name = name;
@@ -117,6 +81,42 @@ public class Namespace implements Serializable {
     this.slug = slug;
   }
 
+  public Namespace slugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+    return this;
+  }
+
+   /**
+   * 
+   * @return slugPerm
+  **/
+  @ApiModelProperty(value = "")
+  public String getSlugPerm() {
+    return slugPerm;
+  }
+
+  public void setSlugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+  }
+
+  public Namespace typeName(String typeName) {
+    this.typeName = typeName;
+    return this;
+  }
+
+   /**
+   * 
+   * @return typeName
+  **/
+  @ApiModelProperty(value = "")
+  public String getTypeName() {
+    return typeName;
+  }
+
+  public void setTypeName(String typeName) {
+    this.typeName = typeName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,15 +127,15 @@ public class Namespace implements Serializable {
       return false;
     }
     Namespace namespace = (Namespace) o;
-    return Objects.equals(this.typeName, namespace.typeName) &&
+    return Objects.equals(this.name, namespace.name) &&
+        Objects.equals(this.slug, namespace.slug) &&
         Objects.equals(this.slugPerm, namespace.slugPerm) &&
-        Objects.equals(this.name, namespace.name) &&
-        Objects.equals(this.slug, namespace.slug);
+        Objects.equals(this.typeName, namespace.typeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(typeName, slugPerm, name, slug);
+    return Objects.hash(name, slug, slugPerm, typeName);
   }
 
 
@@ -144,10 +144,10 @@ public class Namespace implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Namespace {\n");
     
-    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
-    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

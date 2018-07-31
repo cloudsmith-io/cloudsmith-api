@@ -33,35 +33,17 @@ import javax.validation.Valid;
 public class PackagesUploadRaw implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("summary")
-  private String summary = null;
-
   @SerializedName("description")
   private String description = null;
-
-  @SerializedName("version")
-  private String version = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
 
-  public PackagesUploadRaw summary(String summary) {
-    this.summary = summary;
-    return this;
-  }
+  @SerializedName("summary")
+  private String summary = null;
 
-   /**
-   * A one-liner synopsis of this package.
-   * @return summary
-  **/
-  @ApiModelProperty(example = "My Package File", value = "A one-liner synopsis of this package.")
-  public String getSummary() {
-    return summary;
-  }
-
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
+  @SerializedName("version")
+  private String version = null;
 
   public PackagesUploadRaw description(String description) {
     this.description = description;
@@ -79,24 +61,6 @@ public class PackagesUploadRaw implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public PackagesUploadRaw version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The version of this package.
-   * @return version
-  **/
-  @ApiModelProperty(example = "1.0", value = "The version of this package.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
   }
 
   public PackagesUploadRaw packageFile(String packageFile) {
@@ -118,6 +82,42 @@ public class PackagesUploadRaw implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public PackagesUploadRaw summary(String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+   /**
+   * A one-liner synopsis of this package.
+   * @return summary
+  **/
+  @ApiModelProperty(example = "My Package File", value = "A one-liner synopsis of this package.")
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public PackagesUploadRaw version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The version of this package.
+   * @return version
+  **/
+  @ApiModelProperty(example = "1.0", value = "The version of this package.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,15 +128,15 @@ public class PackagesUploadRaw implements Serializable {
       return false;
     }
     PackagesUploadRaw packagesUploadRaw = (PackagesUploadRaw) o;
-    return Objects.equals(this.summary, packagesUploadRaw.summary) &&
-        Objects.equals(this.description, packagesUploadRaw.description) &&
-        Objects.equals(this.version, packagesUploadRaw.version) &&
-        Objects.equals(this.packageFile, packagesUploadRaw.packageFile);
+    return Objects.equals(this.description, packagesUploadRaw.description) &&
+        Objects.equals(this.packageFile, packagesUploadRaw.packageFile) &&
+        Objects.equals(this.summary, packagesUploadRaw.summary) &&
+        Objects.equals(this.version, packagesUploadRaw.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(summary, description, version, packageFile);
+    return Objects.hash(description, packageFile, summary, version);
   }
 
 
@@ -145,10 +145,10 @@ public class PackagesUploadRaw implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagesUploadRaw {\n");
     
-    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -33,35 +33,17 @@ import javax.validation.Valid;
 public class PackagesValidateuploadRaw implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("summary")
-  private String summary = null;
-
   @SerializedName("description")
   private String description = null;
-
-  @SerializedName("version")
-  private String version = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
 
-  public PackagesValidateuploadRaw summary(String summary) {
-    this.summary = summary;
-    return this;
-  }
+  @SerializedName("summary")
+  private String summary = null;
 
-   /**
-   * A one-liner synopsis of this package.
-   * @return summary
-  **/
-  @ApiModelProperty(example = "My Package File", value = "A one-liner synopsis of this package.")
-  public String getSummary() {
-    return summary;
-  }
-
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
+  @SerializedName("version")
+  private String version = null;
 
   public PackagesValidateuploadRaw description(String description) {
     this.description = description;
@@ -79,24 +61,6 @@ public class PackagesValidateuploadRaw implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public PackagesValidateuploadRaw version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The version of this package.
-   * @return version
-  **/
-  @ApiModelProperty(example = "1.0", value = "The version of this package.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
   }
 
   public PackagesValidateuploadRaw packageFile(String packageFile) {
@@ -118,6 +82,42 @@ public class PackagesValidateuploadRaw implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public PackagesValidateuploadRaw summary(String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+   /**
+   * A one-liner synopsis of this package.
+   * @return summary
+  **/
+  @ApiModelProperty(example = "My Package File", value = "A one-liner synopsis of this package.")
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public PackagesValidateuploadRaw version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The version of this package.
+   * @return version
+  **/
+  @ApiModelProperty(example = "1.0", value = "The version of this package.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,15 +128,15 @@ public class PackagesValidateuploadRaw implements Serializable {
       return false;
     }
     PackagesValidateuploadRaw packagesValidateuploadRaw = (PackagesValidateuploadRaw) o;
-    return Objects.equals(this.summary, packagesValidateuploadRaw.summary) &&
-        Objects.equals(this.description, packagesValidateuploadRaw.description) &&
-        Objects.equals(this.version, packagesValidateuploadRaw.version) &&
-        Objects.equals(this.packageFile, packagesValidateuploadRaw.packageFile);
+    return Objects.equals(this.description, packagesValidateuploadRaw.description) &&
+        Objects.equals(this.packageFile, packagesValidateuploadRaw.packageFile) &&
+        Objects.equals(this.summary, packagesValidateuploadRaw.summary) &&
+        Objects.equals(this.version, packagesValidateuploadRaw.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(summary, description, version, packageFile);
+    return Objects.hash(description, packageFile, summary, version);
   }
 
 
@@ -145,10 +145,10 @@ public class PackagesValidateuploadRaw implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagesValidateuploadRaw {\n");
     
-    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

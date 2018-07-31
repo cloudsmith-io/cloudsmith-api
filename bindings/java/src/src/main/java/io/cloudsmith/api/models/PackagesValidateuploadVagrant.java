@@ -33,55 +33,17 @@ import javax.validation.Valid;
 public class PackagesValidateuploadVagrant implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("provider")
-  private String provider = null;
-
-  @SerializedName("version")
-  private String version = null;
-
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
 
-  public PackagesValidateuploadVagrant provider(String provider) {
-    this.provider = provider;
-    return this;
-  }
+  @SerializedName("provider")
+  private String provider = null;
 
-   /**
-   * The virtual machine provider for the box.
-   * @return provider
-  **/
-  @NotNull
-  @ApiModelProperty(example = "virtualbox", required = true, value = "The virtual machine provider for the box.")
-  public String getProvider() {
-    return provider;
-  }
-
-  public void setProvider(String provider) {
-    this.provider = provider;
-  }
-
-  public PackagesValidateuploadVagrant version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The version of this package.
-   * @return version
-  **/
-  @NotNull
-  @ApiModelProperty(example = "1.0", required = true, value = "The version of this package.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
+  @SerializedName("version")
+  private String version = null;
 
   public PackagesValidateuploadVagrant name(String name) {
     this.name = name;
@@ -121,6 +83,44 @@ public class PackagesValidateuploadVagrant implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public PackagesValidateuploadVagrant provider(String provider) {
+    this.provider = provider;
+    return this;
+  }
+
+   /**
+   * The virtual machine provider for the box.
+   * @return provider
+  **/
+  @NotNull
+  @ApiModelProperty(example = "virtualbox", required = true, value = "The virtual machine provider for the box.")
+  public String getProvider() {
+    return provider;
+  }
+
+  public void setProvider(String provider) {
+    this.provider = provider;
+  }
+
+  public PackagesValidateuploadVagrant version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The version of this package.
+   * @return version
+  **/
+  @NotNull
+  @ApiModelProperty(example = "1.0", required = true, value = "The version of this package.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,15 +131,15 @@ public class PackagesValidateuploadVagrant implements Serializable {
       return false;
     }
     PackagesValidateuploadVagrant packagesValidateuploadVagrant = (PackagesValidateuploadVagrant) o;
-    return Objects.equals(this.provider, packagesValidateuploadVagrant.provider) &&
-        Objects.equals(this.version, packagesValidateuploadVagrant.version) &&
-        Objects.equals(this.name, packagesValidateuploadVagrant.name) &&
-        Objects.equals(this.packageFile, packagesValidateuploadVagrant.packageFile);
+    return Objects.equals(this.name, packagesValidateuploadVagrant.name) &&
+        Objects.equals(this.packageFile, packagesValidateuploadVagrant.packageFile) &&
+        Objects.equals(this.provider, packagesValidateuploadVagrant.provider) &&
+        Objects.equals(this.version, packagesValidateuploadVagrant.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, version, name, packageFile);
+    return Objects.hash(name, packageFile, provider, version);
   }
 
 
@@ -148,10 +148,10 @@ public class PackagesValidateuploadVagrant implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagesValidateuploadVagrant {\n");
     
-    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

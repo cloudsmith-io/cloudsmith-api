@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.RpmPackageUploadArchitectures;
-import io.cloudsmith.api.models.RpmPackageUploadFiles;
+import io.cloudsmith.api.models.PackagesownerrepoArchitectures;
+import io.cloudsmith.api.models.PackagesownerrepoFiles;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -37,92 +37,20 @@ import javax.validation.Valid;
 public class VagrantPackageUpload implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("files")
-  private List<RpmPackageUploadFiles> files = null;
-
-  @SerializedName("stage_updated_at")
-  private String stageUpdatedAt = null;
-
-  @SerializedName("is_sync_failed")
-  private Boolean isSyncFailed = null;
-
-  @SerializedName("distro_version")
-  private Object distroVersion = null;
-
-  @SerializedName("checksum_sha256")
-  private String checksumSha256 = null;
-
-  @SerializedName("repository_url")
-  private String repositoryUrl = null;
-
-  @SerializedName("is_sync_in_progress")
-  private Boolean isSyncInProgress = null;
-
-  @SerializedName("size")
-  private Integer size = null;
-
-  @SerializedName("status_str")
-  private String statusStr = null;
-
-  @SerializedName("is_sync_awaiting")
-  private Boolean isSyncAwaiting = null;
-
-  @SerializedName("repository")
-  private String repository = null;
-
-  @SerializedName("subtype")
-  private String subtype = null;
-
-  @SerializedName("status_url")
-  private String statusUrl = null;
-
-  @SerializedName("status_updated_at")
-  private String statusUpdatedAt = null;
-
-  @SerializedName("namespace")
-  private String namespace = null;
-
-  @SerializedName("sync_finished_at")
-  private String syncFinishedAt = null;
-
-  @SerializedName("filename")
-  private String filename = null;
-
-  @SerializedName("sync_progress")
-  private Integer syncProgress = null;
-
-  @SerializedName("epoch")
-  private Integer epoch = null;
-
-  @SerializedName("version")
-  private String version = null;
-
-  @SerializedName("is_sync_in_flight")
-  private Boolean isSyncInFlight = null;
-
-  @SerializedName("namespace_url")
-  private String namespaceUrl = null;
-
-  @SerializedName("slug_perm")
-  private String slugPerm = null;
-
-  @SerializedName("indexed")
-  private Boolean indexed = null;
-
-  @SerializedName("uploader_url")
-  private String uploaderUrl = null;
+  @SerializedName("architectures")
+  private List<PackagesownerrepoArchitectures> architectures = null;
 
   @SerializedName("cdn_url")
   private String cdnUrl = null;
 
+  @SerializedName("checksum_md5")
+  private String checksumMd5 = null;
+
   @SerializedName("checksum_sha1")
   private String checksumSha1 = null;
 
-  @SerializedName("distro")
-  private Object distro = null;
-
-  @SerializedName("status")
-  private String status = null;
+  @SerializedName("checksum_sha256")
+  private String checksumSha256 = null;
 
   @SerializedName("checksum_sha512")
   private String checksumSha512 = null;
@@ -130,536 +58,178 @@ public class VagrantPackageUpload implements Serializable {
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("distro")
+  private Object distro = null;
 
-  @SerializedName("format")
-  private String format = null;
-
-  @SerializedName("is_sync_completed")
-  private Boolean isSyncCompleted = null;
+  @SerializedName("distro_version")
+  private Object distroVersion = null;
 
   @SerializedName("downloads")
-  private String downloads = null;
+  private Integer downloads = null;
 
-  @SerializedName("provider")
-  private String provider = null;
-
-  @SerializedName("version_orig")
-  private String versionOrig = null;
-
-  @SerializedName("architectures")
-  private List<RpmPackageUploadArchitectures> architectures = null;
-
-  @SerializedName("uploader")
-  private String uploader = null;
-
-  @SerializedName("status_reason")
-  private String statusReason = null;
-
-  @SerializedName("self_html_url")
-  private String selfHtmlUrl = null;
-
-  @SerializedName("stage")
-  private String stage = null;
-
-  @SerializedName("self_url")
-  private String selfUrl = null;
-
-  @SerializedName("slug")
-  private String slug = null;
-
-  @SerializedName("uploaded_at")
-  private String uploadedAt = null;
-
-  @SerializedName("license")
-  private String license = null;
+  @SerializedName("epoch")
+  private Integer epoch = null;
 
   @SerializedName("extension")
   private String extension = null;
 
-  @SerializedName("stage_str")
-  private String stageStr = null;
+  @SerializedName("filename")
+  private String filename = null;
 
-  @SerializedName("package_type")
-  private String packageType = null;
+  @SerializedName("files")
+  private List<PackagesownerrepoFiles> files = null;
 
-  @SerializedName("summary")
-  private String summary = null;
-
-  @SerializedName("num_files")
-  private Integer numFiles = null;
-
-  @SerializedName("checksum_md5")
-  private String checksumMd5 = null;
-
-  @SerializedName("release")
-  private String release = null;
-
-  @SerializedName("type_display")
-  private String typeDisplay = null;
+  @SerializedName("format")
+  private String format = null;
 
   @SerializedName("format_url")
   private String formatUrl = null;
 
-  public VagrantPackageUpload files(List<RpmPackageUploadFiles> files) {
-    this.files = files;
+  @SerializedName("identifier")
+  private Integer identifier = null;
+
+  @SerializedName("indexed")
+  private Boolean indexed = null;
+
+  @SerializedName("is_sync_awaiting")
+  private Boolean isSyncAwaiting = null;
+
+  @SerializedName("is_sync_completed")
+  private Boolean isSyncCompleted = null;
+
+  @SerializedName("is_sync_failed")
+  private Boolean isSyncFailed = null;
+
+  @SerializedName("is_sync_in_flight")
+  private Boolean isSyncInFlight = null;
+
+  @SerializedName("is_sync_in_progress")
+  private Boolean isSyncInProgress = null;
+
+  @SerializedName("license")
+  private String license = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("namespace")
+  private String namespace = null;
+
+  @SerializedName("namespace_url")
+  private String namespaceUrl = null;
+
+  @SerializedName("num_files")
+  private Integer numFiles = null;
+
+  @SerializedName("package_type")
+  private String packageType = null;
+
+  @SerializedName("provider")
+  private String provider = null;
+
+  @SerializedName("release")
+  private String release = null;
+
+  @SerializedName("repository")
+  private String repository = null;
+
+  @SerializedName("repository_url")
+  private String repositoryUrl = null;
+
+  @SerializedName("self_html_url")
+  private String selfHtmlUrl = null;
+
+  @SerializedName("self_url")
+  private String selfUrl = null;
+
+  @SerializedName("size")
+  private Integer size = null;
+
+  @SerializedName("slug")
+  private String slug = null;
+
+  @SerializedName("slug_perm")
+  private String slugPerm = null;
+
+  @SerializedName("stage")
+  private String stage = null;
+
+  @SerializedName("stage_str")
+  private String stageStr = null;
+
+  @SerializedName("stage_updated_at")
+  private String stageUpdatedAt = null;
+
+  @SerializedName("status")
+  private String status = null;
+
+  @SerializedName("status_reason")
+  private String statusReason = null;
+
+  @SerializedName("status_str")
+  private String statusStr = null;
+
+  @SerializedName("status_updated_at")
+  private String statusUpdatedAt = null;
+
+  @SerializedName("status_url")
+  private String statusUrl = null;
+
+  @SerializedName("subtype")
+  private String subtype = null;
+
+  @SerializedName("summary")
+  private String summary = null;
+
+  @SerializedName("sync_finished_at")
+  private String syncFinishedAt = null;
+
+  @SerializedName("sync_progress")
+  private Integer syncProgress = null;
+
+  @SerializedName("type_display")
+  private String typeDisplay = null;
+
+  @SerializedName("uploaded_at")
+  private String uploadedAt = null;
+
+  @SerializedName("uploader")
+  private String uploader = null;
+
+  @SerializedName("uploader_url")
+  private String uploaderUrl = null;
+
+  @SerializedName("version")
+  private String version = null;
+
+  @SerializedName("version_orig")
+  private String versionOrig = null;
+
+  public VagrantPackageUpload architectures(List<PackagesownerrepoArchitectures> architectures) {
+    this.architectures = architectures;
     return this;
   }
 
-  public VagrantPackageUpload addFilesItem(RpmPackageUploadFiles filesItem) {
-    if (this.files == null) {
-      this.files = new ArrayList<RpmPackageUploadFiles>();
+  public VagrantPackageUpload addArchitecturesItem(PackagesownerrepoArchitectures architecturesItem) {
+    if (this.architectures == null) {
+      this.architectures = new ArrayList<PackagesownerrepoArchitectures>();
     }
-    this.files.add(filesItem);
+    this.architectures.add(architecturesItem);
     return this;
   }
 
    /**
    * 
-   * @return files
+   * @return architectures
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public List<RpmPackageUploadFiles> getFiles() {
-    return files;
+  public List<PackagesownerrepoArchitectures> getArchitectures() {
+    return architectures;
   }
 
-  public void setFiles(List<RpmPackageUploadFiles> files) {
-    this.files = files;
-  }
-
-  public VagrantPackageUpload stageUpdatedAt(String stageUpdatedAt) {
-    this.stageUpdatedAt = stageUpdatedAt;
-    return this;
-  }
-
-   /**
-   * The datetime the package stage was updated at.
-   * @return stageUpdatedAt
-  **/
-  @ApiModelProperty(value = "The datetime the package stage was updated at.")
-  public String getStageUpdatedAt() {
-    return stageUpdatedAt;
-  }
-
-  public void setStageUpdatedAt(String stageUpdatedAt) {
-    this.stageUpdatedAt = stageUpdatedAt;
-  }
-
-  public VagrantPackageUpload isSyncFailed(Boolean isSyncFailed) {
-    this.isSyncFailed = isSyncFailed;
-    return this;
-  }
-
-   /**
-   * 
-   * @return isSyncFailed
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getIsSyncFailed() {
-    return isSyncFailed;
-  }
-
-  public void setIsSyncFailed(Boolean isSyncFailed) {
-    this.isSyncFailed = isSyncFailed;
-  }
-
-  public VagrantPackageUpload distroVersion(Object distroVersion) {
-    this.distroVersion = distroVersion;
-    return this;
-  }
-
-   /**
-   * 
-   * @return distroVersion
-  **/
-  @ApiModelProperty(value = "")
-  public Object getDistroVersion() {
-    return distroVersion;
-  }
-
-  public void setDistroVersion(Object distroVersion) {
-    this.distroVersion = distroVersion;
-  }
-
-  public VagrantPackageUpload checksumSha256(String checksumSha256) {
-    this.checksumSha256 = checksumSha256;
-    return this;
-  }
-
-   /**
-   * 
-   * @return checksumSha256
-  **/
-  @ApiModelProperty(value = "")
-  public String getChecksumSha256() {
-    return checksumSha256;
-  }
-
-  public void setChecksumSha256(String checksumSha256) {
-    this.checksumSha256 = checksumSha256;
-  }
-
-  public VagrantPackageUpload repositoryUrl(String repositoryUrl) {
-    this.repositoryUrl = repositoryUrl;
-    return this;
-  }
-
-   /**
-   * 
-   * @return repositoryUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getRepositoryUrl() {
-    return repositoryUrl;
-  }
-
-  public void setRepositoryUrl(String repositoryUrl) {
-    this.repositoryUrl = repositoryUrl;
-  }
-
-  public VagrantPackageUpload isSyncInProgress(Boolean isSyncInProgress) {
-    this.isSyncInProgress = isSyncInProgress;
-    return this;
-  }
-
-   /**
-   * 
-   * @return isSyncInProgress
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getIsSyncInProgress() {
-    return isSyncInProgress;
-  }
-
-  public void setIsSyncInProgress(Boolean isSyncInProgress) {
-    this.isSyncInProgress = isSyncInProgress;
-  }
-
-  public VagrantPackageUpload size(Integer size) {
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * The calculated size of the package.
-   * @return size
-  **/
-  @ApiModelProperty(value = "The calculated size of the package.")
-  public Integer getSize() {
-    return size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public VagrantPackageUpload statusStr(String statusStr) {
-    this.statusStr = statusStr;
-    return this;
-  }
-
-   /**
-   * 
-   * @return statusStr
-  **/
-  @ApiModelProperty(value = "")
-  public String getStatusStr() {
-    return statusStr;
-  }
-
-  public void setStatusStr(String statusStr) {
-    this.statusStr = statusStr;
-  }
-
-  public VagrantPackageUpload isSyncAwaiting(Boolean isSyncAwaiting) {
-    this.isSyncAwaiting = isSyncAwaiting;
-    return this;
-  }
-
-   /**
-   * 
-   * @return isSyncAwaiting
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getIsSyncAwaiting() {
-    return isSyncAwaiting;
-  }
-
-  public void setIsSyncAwaiting(Boolean isSyncAwaiting) {
-    this.isSyncAwaiting = isSyncAwaiting;
-  }
-
-  public VagrantPackageUpload repository(String repository) {
-    this.repository = repository;
-    return this;
-  }
-
-   /**
-   * 
-   * @return repository
-  **/
-  @ApiModelProperty(value = "")
-  public String getRepository() {
-    return repository;
-  }
-
-  public void setRepository(String repository) {
-    this.repository = repository;
-  }
-
-  public VagrantPackageUpload subtype(String subtype) {
-    this.subtype = subtype;
-    return this;
-  }
-
-   /**
-   * 
-   * @return subtype
-  **/
-  @ApiModelProperty(value = "")
-  public String getSubtype() {
-    return subtype;
-  }
-
-  public void setSubtype(String subtype) {
-    this.subtype = subtype;
-  }
-
-  public VagrantPackageUpload statusUrl(String statusUrl) {
-    this.statusUrl = statusUrl;
-    return this;
-  }
-
-   /**
-   * 
-   * @return statusUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getStatusUrl() {
-    return statusUrl;
-  }
-
-  public void setStatusUrl(String statusUrl) {
-    this.statusUrl = statusUrl;
-  }
-
-  public VagrantPackageUpload statusUpdatedAt(String statusUpdatedAt) {
-    this.statusUpdatedAt = statusUpdatedAt;
-    return this;
-  }
-
-   /**
-   * The datetime the package status was updated at.
-   * @return statusUpdatedAt
-  **/
-  @ApiModelProperty(value = "The datetime the package status was updated at.")
-  public String getStatusUpdatedAt() {
-    return statusUpdatedAt;
-  }
-
-  public void setStatusUpdatedAt(String statusUpdatedAt) {
-    this.statusUpdatedAt = statusUpdatedAt;
-  }
-
-  public VagrantPackageUpload namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-   /**
-   * 
-   * @return namespace
-  **/
-  @ApiModelProperty(value = "")
-  public String getNamespace() {
-    return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
-  public VagrantPackageUpload syncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
-    return this;
-  }
-
-   /**
-   * The datetime the package sync was finished at.
-   * @return syncFinishedAt
-  **/
-  @ApiModelProperty(value = "The datetime the package sync was finished at.")
-  public String getSyncFinishedAt() {
-    return syncFinishedAt;
-  }
-
-  public void setSyncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
-  }
-
-  public VagrantPackageUpload filename(String filename) {
-    this.filename = filename;
-    return this;
-  }
-
-   /**
-   * 
-   * @return filename
-  **/
-  @ApiModelProperty(value = "")
-  public String getFilename() {
-    return filename;
-  }
-
-  public void setFilename(String filename) {
-    this.filename = filename;
-  }
-
-  public VagrantPackageUpload syncProgress(Integer syncProgress) {
-    this.syncProgress = syncProgress;
-    return this;
-  }
-
-   /**
-   * Synchronisation progress (from 0-100)
-   * @return syncProgress
-  **/
-  @ApiModelProperty(value = "Synchronisation progress (from 0-100)")
-  public Integer getSyncProgress() {
-    return syncProgress;
-  }
-
-  public void setSyncProgress(Integer syncProgress) {
-    this.syncProgress = syncProgress;
-  }
-
-  public VagrantPackageUpload epoch(Integer epoch) {
-    this.epoch = epoch;
-    return this;
-  }
-
-   /**
-   * The epoch of the package version (if any).
-   * @return epoch
-  **/
-  @ApiModelProperty(value = "The epoch of the package version (if any).")
-  public Integer getEpoch() {
-    return epoch;
-  }
-
-  public void setEpoch(Integer epoch) {
-    this.epoch = epoch;
-  }
-
-  public VagrantPackageUpload version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The version of this package.
-   * @return version
-  **/
-  @NotNull
-  @ApiModelProperty(example = "1.0", required = true, value = "The version of this package.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public VagrantPackageUpload isSyncInFlight(Boolean isSyncInFlight) {
-    this.isSyncInFlight = isSyncInFlight;
-    return this;
-  }
-
-   /**
-   * 
-   * @return isSyncInFlight
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getIsSyncInFlight() {
-    return isSyncInFlight;
-  }
-
-  public void setIsSyncInFlight(Boolean isSyncInFlight) {
-    this.isSyncInFlight = isSyncInFlight;
-  }
-
-  public VagrantPackageUpload namespaceUrl(String namespaceUrl) {
-    this.namespaceUrl = namespaceUrl;
-    return this;
-  }
-
-   /**
-   * 
-   * @return namespaceUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getNamespaceUrl() {
-    return namespaceUrl;
-  }
-
-  public void setNamespaceUrl(String namespaceUrl) {
-    this.namespaceUrl = namespaceUrl;
-  }
-
-  public VagrantPackageUpload slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
-   /**
-   * 
-   * @return slugPerm
-  **/
-  @ApiModelProperty(value = "")
-  public String getSlugPerm() {
-    return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-  }
-
-  public VagrantPackageUpload indexed(Boolean indexed) {
-    this.indexed = indexed;
-    return this;
-  }
-
-   /**
-   * 
-   * @return indexed
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getIndexed() {
-    return indexed;
-  }
-
-  public void setIndexed(Boolean indexed) {
-    this.indexed = indexed;
-  }
-
-  public VagrantPackageUpload uploaderUrl(String uploaderUrl) {
-    this.uploaderUrl = uploaderUrl;
-    return this;
-  }
-
-   /**
-   * 
-   * @return uploaderUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getUploaderUrl() {
-    return uploaderUrl;
-  }
-
-  public void setUploaderUrl(String uploaderUrl) {
-    this.uploaderUrl = uploaderUrl;
+  public void setArchitectures(List<PackagesownerrepoArchitectures> architectures) {
+    this.architectures = architectures;
   }
 
   public VagrantPackageUpload cdnUrl(String cdnUrl) {
@@ -680,6 +250,24 @@ public class VagrantPackageUpload implements Serializable {
     this.cdnUrl = cdnUrl;
   }
 
+  public VagrantPackageUpload checksumMd5(String checksumMd5) {
+    this.checksumMd5 = checksumMd5;
+    return this;
+  }
+
+   /**
+   * 
+   * @return checksumMd5
+  **/
+  @ApiModelProperty(value = "")
+  public String getChecksumMd5() {
+    return checksumMd5;
+  }
+
+  public void setChecksumMd5(String checksumMd5) {
+    this.checksumMd5 = checksumMd5;
+  }
+
   public VagrantPackageUpload checksumSha1(String checksumSha1) {
     this.checksumSha1 = checksumSha1;
     return this;
@@ -698,40 +286,22 @@ public class VagrantPackageUpload implements Serializable {
     this.checksumSha1 = checksumSha1;
   }
 
-  public VagrantPackageUpload distro(Object distro) {
-    this.distro = distro;
+  public VagrantPackageUpload checksumSha256(String checksumSha256) {
+    this.checksumSha256 = checksumSha256;
     return this;
   }
 
    /**
    * 
-   * @return distro
+   * @return checksumSha256
   **/
   @ApiModelProperty(value = "")
-  public Object getDistro() {
-    return distro;
+  public String getChecksumSha256() {
+    return checksumSha256;
   }
 
-  public void setDistro(Object distro) {
-    this.distro = distro;
-  }
-
-  public VagrantPackageUpload status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * The synchronisation status of the package.
-   * @return status
-  **/
-  @ApiModelProperty(value = "The synchronisation status of the package.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
+  public void setChecksumSha256(String checksumSha256) {
+    this.checksumSha256 = checksumSha256;
   }
 
   public VagrantPackageUpload checksumSha512(String checksumSha512) {
@@ -770,23 +340,139 @@ public class VagrantPackageUpload implements Serializable {
     this.description = description;
   }
 
-  public VagrantPackageUpload name(String name) {
-    this.name = name;
+  public VagrantPackageUpload distro(Object distro) {
+    this.distro = distro;
     return this;
   }
 
    /**
-   * The name of this package.
-   * @return name
+   * 
+   * @return distro
   **/
-  @NotNull
-  @ApiModelProperty(example = "tcl", required = true, value = "The name of this package.")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "")
+  public Object getDistro() {
+    return distro;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setDistro(Object distro) {
+    this.distro = distro;
+  }
+
+  public VagrantPackageUpload distroVersion(Object distroVersion) {
+    this.distroVersion = distroVersion;
+    return this;
+  }
+
+   /**
+   * 
+   * @return distroVersion
+  **/
+  @ApiModelProperty(value = "")
+  public Object getDistroVersion() {
+    return distroVersion;
+  }
+
+  public void setDistroVersion(Object distroVersion) {
+    this.distroVersion = distroVersion;
+  }
+
+  public VagrantPackageUpload downloads(Integer downloads) {
+    this.downloads = downloads;
+    return this;
+  }
+
+   /**
+   * 
+   * @return downloads
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getDownloads() {
+    return downloads;
+  }
+
+  public void setDownloads(Integer downloads) {
+    this.downloads = downloads;
+  }
+
+  public VagrantPackageUpload epoch(Integer epoch) {
+    this.epoch = epoch;
+    return this;
+  }
+
+   /**
+   * The epoch of the package version (if any).
+   * @return epoch
+  **/
+  @ApiModelProperty(value = "The epoch of the package version (if any).")
+  public Integer getEpoch() {
+    return epoch;
+  }
+
+  public void setEpoch(Integer epoch) {
+    this.epoch = epoch;
+  }
+
+  public VagrantPackageUpload extension(String extension) {
+    this.extension = extension;
+    return this;
+  }
+
+   /**
+   * 
+   * @return extension
+  **/
+  @ApiModelProperty(value = "")
+  public String getExtension() {
+    return extension;
+  }
+
+  public void setExtension(String extension) {
+    this.extension = extension;
+  }
+
+  public VagrantPackageUpload filename(String filename) {
+    this.filename = filename;
+    return this;
+  }
+
+   /**
+   * 
+   * @return filename
+  **/
+  @ApiModelProperty(value = "")
+  public String getFilename() {
+    return filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
+  public VagrantPackageUpload files(List<PackagesownerrepoFiles> files) {
+    this.files = files;
+    return this;
+  }
+
+  public VagrantPackageUpload addFilesItem(PackagesownerrepoFiles filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<PackagesownerrepoFiles>();
+    }
+    this.files.add(filesItem);
+    return this;
+  }
+
+   /**
+   * 
+   * @return files
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public List<PackagesownerrepoFiles> getFiles() {
+    return files;
+  }
+
+  public void setFiles(List<PackagesownerrepoFiles> files) {
+    this.files = files;
   }
 
   public VagrantPackageUpload format(String format) {
@@ -807,6 +493,78 @@ public class VagrantPackageUpload implements Serializable {
     this.format = format;
   }
 
+  public VagrantPackageUpload formatUrl(String formatUrl) {
+    this.formatUrl = formatUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return formatUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getFormatUrl() {
+    return formatUrl;
+  }
+
+  public void setFormatUrl(String formatUrl) {
+    this.formatUrl = formatUrl;
+  }
+
+  public VagrantPackageUpload identifier(Integer identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * 
+   * @return identifier
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(Integer identifier) {
+    this.identifier = identifier;
+  }
+
+  public VagrantPackageUpload indexed(Boolean indexed) {
+    this.indexed = indexed;
+    return this;
+  }
+
+   /**
+   * 
+   * @return indexed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getIndexed() {
+    return indexed;
+  }
+
+  public void setIndexed(Boolean indexed) {
+    this.indexed = indexed;
+  }
+
+  public VagrantPackageUpload isSyncAwaiting(Boolean isSyncAwaiting) {
+    this.isSyncAwaiting = isSyncAwaiting;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isSyncAwaiting
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getIsSyncAwaiting() {
+    return isSyncAwaiting;
+  }
+
+  public void setIsSyncAwaiting(Boolean isSyncAwaiting) {
+    this.isSyncAwaiting = isSyncAwaiting;
+  }
+
   public VagrantPackageUpload isSyncCompleted(Boolean isSyncCompleted) {
     this.isSyncCompleted = isSyncCompleted;
     return this;
@@ -825,22 +583,167 @@ public class VagrantPackageUpload implements Serializable {
     this.isSyncCompleted = isSyncCompleted;
   }
 
-  public VagrantPackageUpload downloads(String downloads) {
-    this.downloads = downloads;
+  public VagrantPackageUpload isSyncFailed(Boolean isSyncFailed) {
+    this.isSyncFailed = isSyncFailed;
     return this;
   }
 
    /**
    * 
-   * @return downloads
+   * @return isSyncFailed
   **/
   @ApiModelProperty(value = "")
-  public String getDownloads() {
-    return downloads;
+  public Boolean getIsSyncFailed() {
+    return isSyncFailed;
   }
 
-  public void setDownloads(String downloads) {
-    this.downloads = downloads;
+  public void setIsSyncFailed(Boolean isSyncFailed) {
+    this.isSyncFailed = isSyncFailed;
+  }
+
+  public VagrantPackageUpload isSyncInFlight(Boolean isSyncInFlight) {
+    this.isSyncInFlight = isSyncInFlight;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isSyncInFlight
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getIsSyncInFlight() {
+    return isSyncInFlight;
+  }
+
+  public void setIsSyncInFlight(Boolean isSyncInFlight) {
+    this.isSyncInFlight = isSyncInFlight;
+  }
+
+  public VagrantPackageUpload isSyncInProgress(Boolean isSyncInProgress) {
+    this.isSyncInProgress = isSyncInProgress;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isSyncInProgress
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getIsSyncInProgress() {
+    return isSyncInProgress;
+  }
+
+  public void setIsSyncInProgress(Boolean isSyncInProgress) {
+    this.isSyncInProgress = isSyncInProgress;
+  }
+
+  public VagrantPackageUpload license(String license) {
+    this.license = license;
+    return this;
+  }
+
+   /**
+   * The license of this package.
+   * @return license
+  **/
+  @ApiModelProperty(value = "The license of this package.")
+  public String getLicense() {
+    return license;
+  }
+
+  public void setLicense(String license) {
+    this.license = license;
+  }
+
+  public VagrantPackageUpload name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name of this package.
+   * @return name
+  **/
+  @NotNull
+  @ApiModelProperty(example = "tcl", required = true, value = "The name of this package.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public VagrantPackageUpload namespace(String namespace) {
+    this.namespace = namespace;
+    return this;
+  }
+
+   /**
+   * 
+   * @return namespace
+  **/
+  @ApiModelProperty(value = "")
+  public String getNamespace() {
+    return namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public VagrantPackageUpload namespaceUrl(String namespaceUrl) {
+    this.namespaceUrl = namespaceUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return namespaceUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getNamespaceUrl() {
+    return namespaceUrl;
+  }
+
+  public void setNamespaceUrl(String namespaceUrl) {
+    this.namespaceUrl = namespaceUrl;
+  }
+
+  public VagrantPackageUpload numFiles(Integer numFiles) {
+    this.numFiles = numFiles;
+    return this;
+  }
+
+   /**
+   * 
+   * @return numFiles
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getNumFiles() {
+    return numFiles;
+  }
+
+  public void setNumFiles(Integer numFiles) {
+    this.numFiles = numFiles;
+  }
+
+  public VagrantPackageUpload packageType(String packageType) {
+    this.packageType = packageType;
+    return this;
+  }
+
+   /**
+   * The type of package contents.
+   * @return packageType
+  **/
+  @ApiModelProperty(value = "The type of package contents.")
+  public String getPackageType() {
+    return packageType;
+  }
+
+  public void setPackageType(String packageType) {
+    this.packageType = packageType;
   }
 
   public VagrantPackageUpload provider(String provider) {
@@ -862,85 +765,58 @@ public class VagrantPackageUpload implements Serializable {
     this.provider = provider;
   }
 
-  public VagrantPackageUpload versionOrig(String versionOrig) {
-    this.versionOrig = versionOrig;
+  public VagrantPackageUpload release(String release) {
+    this.release = release;
+    return this;
+  }
+
+   /**
+   * The release of the package version (if any).
+   * @return release
+  **/
+  @ApiModelProperty(value = "The release of the package version (if any).")
+  public String getRelease() {
+    return release;
+  }
+
+  public void setRelease(String release) {
+    this.release = release;
+  }
+
+  public VagrantPackageUpload repository(String repository) {
+    this.repository = repository;
     return this;
   }
 
    /**
    * 
-   * @return versionOrig
+   * @return repository
   **/
   @ApiModelProperty(value = "")
-  public String getVersionOrig() {
-    return versionOrig;
+  public String getRepository() {
+    return repository;
   }
 
-  public void setVersionOrig(String versionOrig) {
-    this.versionOrig = versionOrig;
+  public void setRepository(String repository) {
+    this.repository = repository;
   }
 
-  public VagrantPackageUpload architectures(List<RpmPackageUploadArchitectures> architectures) {
-    this.architectures = architectures;
-    return this;
-  }
-
-  public VagrantPackageUpload addArchitecturesItem(RpmPackageUploadArchitectures architecturesItem) {
-    if (this.architectures == null) {
-      this.architectures = new ArrayList<RpmPackageUploadArchitectures>();
-    }
-    this.architectures.add(architecturesItem);
+  public VagrantPackageUpload repositoryUrl(String repositoryUrl) {
+    this.repositoryUrl = repositoryUrl;
     return this;
   }
 
    /**
    * 
-   * @return architectures
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public List<RpmPackageUploadArchitectures> getArchitectures() {
-    return architectures;
-  }
-
-  public void setArchitectures(List<RpmPackageUploadArchitectures> architectures) {
-    this.architectures = architectures;
-  }
-
-  public VagrantPackageUpload uploader(String uploader) {
-    this.uploader = uploader;
-    return this;
-  }
-
-   /**
-   * 
-   * @return uploader
+   * @return repositoryUrl
   **/
   @ApiModelProperty(value = "")
-  public String getUploader() {
-    return uploader;
+  public String getRepositoryUrl() {
+    return repositoryUrl;
   }
 
-  public void setUploader(String uploader) {
-    this.uploader = uploader;
-  }
-
-  public VagrantPackageUpload statusReason(String statusReason) {
-    this.statusReason = statusReason;
-    return this;
-  }
-
-   /**
-   * A textual description for the synchronous status reason (if any
-   * @return statusReason
-  **/
-  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
-  public String getStatusReason() {
-    return statusReason;
-  }
-
-  public void setStatusReason(String statusReason) {
-    this.statusReason = statusReason;
+  public void setRepositoryUrl(String repositoryUrl) {
+    this.repositoryUrl = repositoryUrl;
   }
 
   public VagrantPackageUpload selfHtmlUrl(String selfHtmlUrl) {
@@ -961,24 +837,6 @@ public class VagrantPackageUpload implements Serializable {
     this.selfHtmlUrl = selfHtmlUrl;
   }
 
-  public VagrantPackageUpload stage(String stage) {
-    this.stage = stage;
-    return this;
-  }
-
-   /**
-   * The synchronisation (in progress) stage of the package.
-   * @return stage
-  **/
-  @ApiModelProperty(value = "The synchronisation (in progress) stage of the package.")
-  public String getStage() {
-    return stage;
-  }
-
-  public void setStage(String stage) {
-    this.stage = stage;
-  }
-
   public VagrantPackageUpload selfUrl(String selfUrl) {
     this.selfUrl = selfUrl;
     return this;
@@ -995,6 +853,24 @@ public class VagrantPackageUpload implements Serializable {
 
   public void setSelfUrl(String selfUrl) {
     this.selfUrl = selfUrl;
+  }
+
+  public VagrantPackageUpload size(Integer size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * The calculated size of the package.
+   * @return size
+  **/
+  @ApiModelProperty(value = "The calculated size of the package.")
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
   }
 
   public VagrantPackageUpload slug(String slug) {
@@ -1015,58 +891,40 @@ public class VagrantPackageUpload implements Serializable {
     this.slug = slug;
   }
 
-  public VagrantPackageUpload uploadedAt(String uploadedAt) {
-    this.uploadedAt = uploadedAt;
-    return this;
-  }
-
-   /**
-   * The date this package was uploaded.
-   * @return uploadedAt
-  **/
-  @ApiModelProperty(value = "The date this package was uploaded.")
-  public String getUploadedAt() {
-    return uploadedAt;
-  }
-
-  public void setUploadedAt(String uploadedAt) {
-    this.uploadedAt = uploadedAt;
-  }
-
-  public VagrantPackageUpload license(String license) {
-    this.license = license;
-    return this;
-  }
-
-   /**
-   * The license of this package.
-   * @return license
-  **/
-  @ApiModelProperty(value = "The license of this package.")
-  public String getLicense() {
-    return license;
-  }
-
-  public void setLicense(String license) {
-    this.license = license;
-  }
-
-  public VagrantPackageUpload extension(String extension) {
-    this.extension = extension;
+  public VagrantPackageUpload slugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
     return this;
   }
 
    /**
    * 
-   * @return extension
+   * @return slugPerm
   **/
   @ApiModelProperty(value = "")
-  public String getExtension() {
-    return extension;
+  public String getSlugPerm() {
+    return slugPerm;
   }
 
-  public void setExtension(String extension) {
-    this.extension = extension;
+  public void setSlugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+  }
+
+  public VagrantPackageUpload stage(String stage) {
+    this.stage = stage;
+    return this;
+  }
+
+   /**
+   * The synchronisation (in progress) stage of the package.
+   * @return stage
+  **/
+  @ApiModelProperty(value = "The synchronisation (in progress) stage of the package.")
+  public String getStage() {
+    return stage;
+  }
+
+  public void setStage(String stage) {
+    this.stage = stage;
   }
 
   public VagrantPackageUpload stageStr(String stageStr) {
@@ -1087,22 +945,130 @@ public class VagrantPackageUpload implements Serializable {
     this.stageStr = stageStr;
   }
 
-  public VagrantPackageUpload packageType(String packageType) {
-    this.packageType = packageType;
+  public VagrantPackageUpload stageUpdatedAt(String stageUpdatedAt) {
+    this.stageUpdatedAt = stageUpdatedAt;
     return this;
   }
 
    /**
-   * The type of package contents.
-   * @return packageType
+   * The datetime the package stage was updated at.
+   * @return stageUpdatedAt
   **/
-  @ApiModelProperty(value = "The type of package contents.")
-  public String getPackageType() {
-    return packageType;
+  @ApiModelProperty(value = "The datetime the package stage was updated at.")
+  public String getStageUpdatedAt() {
+    return stageUpdatedAt;
   }
 
-  public void setPackageType(String packageType) {
-    this.packageType = packageType;
+  public void setStageUpdatedAt(String stageUpdatedAt) {
+    this.stageUpdatedAt = stageUpdatedAt;
+  }
+
+  public VagrantPackageUpload status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * The synchronisation status of the package.
+   * @return status
+  **/
+  @ApiModelProperty(value = "The synchronisation status of the package.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public VagrantPackageUpload statusReason(String statusReason) {
+    this.statusReason = statusReason;
+    return this;
+  }
+
+   /**
+   * A textual description for the synchronous status reason (if any
+   * @return statusReason
+  **/
+  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+  public String getStatusReason() {
+    return statusReason;
+  }
+
+  public void setStatusReason(String statusReason) {
+    this.statusReason = statusReason;
+  }
+
+  public VagrantPackageUpload statusStr(String statusStr) {
+    this.statusStr = statusStr;
+    return this;
+  }
+
+   /**
+   * 
+   * @return statusStr
+  **/
+  @ApiModelProperty(value = "")
+  public String getStatusStr() {
+    return statusStr;
+  }
+
+  public void setStatusStr(String statusStr) {
+    this.statusStr = statusStr;
+  }
+
+  public VagrantPackageUpload statusUpdatedAt(String statusUpdatedAt) {
+    this.statusUpdatedAt = statusUpdatedAt;
+    return this;
+  }
+
+   /**
+   * The datetime the package status was updated at.
+   * @return statusUpdatedAt
+  **/
+  @ApiModelProperty(value = "The datetime the package status was updated at.")
+  public String getStatusUpdatedAt() {
+    return statusUpdatedAt;
+  }
+
+  public void setStatusUpdatedAt(String statusUpdatedAt) {
+    this.statusUpdatedAt = statusUpdatedAt;
+  }
+
+  public VagrantPackageUpload statusUrl(String statusUrl) {
+    this.statusUrl = statusUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return statusUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getStatusUrl() {
+    return statusUrl;
+  }
+
+  public void setStatusUrl(String statusUrl) {
+    this.statusUrl = statusUrl;
+  }
+
+  public VagrantPackageUpload subtype(String subtype) {
+    this.subtype = subtype;
+    return this;
+  }
+
+   /**
+   * 
+   * @return subtype
+  **/
+  @ApiModelProperty(value = "")
+  public String getSubtype() {
+    return subtype;
+  }
+
+  public void setSubtype(String subtype) {
+    this.subtype = subtype;
   }
 
   public VagrantPackageUpload summary(String summary) {
@@ -1123,58 +1089,40 @@ public class VagrantPackageUpload implements Serializable {
     this.summary = summary;
   }
 
-  public VagrantPackageUpload numFiles(Integer numFiles) {
-    this.numFiles = numFiles;
+  public VagrantPackageUpload syncFinishedAt(String syncFinishedAt) {
+    this.syncFinishedAt = syncFinishedAt;
     return this;
   }
 
    /**
-   * 
-   * @return numFiles
+   * The datetime the package sync was finished at.
+   * @return syncFinishedAt
   **/
-  @ApiModelProperty(value = "")
-  public Integer getNumFiles() {
-    return numFiles;
+  @ApiModelProperty(value = "The datetime the package sync was finished at.")
+  public String getSyncFinishedAt() {
+    return syncFinishedAt;
   }
 
-  public void setNumFiles(Integer numFiles) {
-    this.numFiles = numFiles;
+  public void setSyncFinishedAt(String syncFinishedAt) {
+    this.syncFinishedAt = syncFinishedAt;
   }
 
-  public VagrantPackageUpload checksumMd5(String checksumMd5) {
-    this.checksumMd5 = checksumMd5;
+  public VagrantPackageUpload syncProgress(Integer syncProgress) {
+    this.syncProgress = syncProgress;
     return this;
   }
 
    /**
-   * 
-   * @return checksumMd5
+   * Synchronisation progress (from 0-100)
+   * @return syncProgress
   **/
-  @ApiModelProperty(value = "")
-  public String getChecksumMd5() {
-    return checksumMd5;
+  @ApiModelProperty(value = "Synchronisation progress (from 0-100)")
+  public Integer getSyncProgress() {
+    return syncProgress;
   }
 
-  public void setChecksumMd5(String checksumMd5) {
-    this.checksumMd5 = checksumMd5;
-  }
-
-  public VagrantPackageUpload release(String release) {
-    this.release = release;
-    return this;
-  }
-
-   /**
-   * The release of the package version (if any).
-   * @return release
-  **/
-  @ApiModelProperty(value = "The release of the package version (if any).")
-  public String getRelease() {
-    return release;
-  }
-
-  public void setRelease(String release) {
-    this.release = release;
+  public void setSyncProgress(Integer syncProgress) {
+    this.syncProgress = syncProgress;
   }
 
   public VagrantPackageUpload typeDisplay(String typeDisplay) {
@@ -1195,22 +1143,95 @@ public class VagrantPackageUpload implements Serializable {
     this.typeDisplay = typeDisplay;
   }
 
-  public VagrantPackageUpload formatUrl(String formatUrl) {
-    this.formatUrl = formatUrl;
+  public VagrantPackageUpload uploadedAt(String uploadedAt) {
+    this.uploadedAt = uploadedAt;
+    return this;
+  }
+
+   /**
+   * The date this package was uploaded.
+   * @return uploadedAt
+  **/
+  @ApiModelProperty(value = "The date this package was uploaded.")
+  public String getUploadedAt() {
+    return uploadedAt;
+  }
+
+  public void setUploadedAt(String uploadedAt) {
+    this.uploadedAt = uploadedAt;
+  }
+
+  public VagrantPackageUpload uploader(String uploader) {
+    this.uploader = uploader;
     return this;
   }
 
    /**
    * 
-   * @return formatUrl
+   * @return uploader
   **/
   @ApiModelProperty(value = "")
-  public String getFormatUrl() {
-    return formatUrl;
+  public String getUploader() {
+    return uploader;
   }
 
-  public void setFormatUrl(String formatUrl) {
-    this.formatUrl = formatUrl;
+  public void setUploader(String uploader) {
+    this.uploader = uploader;
+  }
+
+  public VagrantPackageUpload uploaderUrl(String uploaderUrl) {
+    this.uploaderUrl = uploaderUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return uploaderUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getUploaderUrl() {
+    return uploaderUrl;
+  }
+
+  public void setUploaderUrl(String uploaderUrl) {
+    this.uploaderUrl = uploaderUrl;
+  }
+
+  public VagrantPackageUpload version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The version of this package.
+   * @return version
+  **/
+  @NotNull
+  @ApiModelProperty(example = "1.0", required = true, value = "The version of this package.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  public VagrantPackageUpload versionOrig(String versionOrig) {
+    this.versionOrig = versionOrig;
+    return this;
+  }
+
+   /**
+   * 
+   * @return versionOrig
+  **/
+  @ApiModelProperty(value = "")
+  public String getVersionOrig() {
+    return versionOrig;
+  }
+
+  public void setVersionOrig(String versionOrig) {
+    this.versionOrig = versionOrig;
   }
 
 
@@ -1223,66 +1244,67 @@ public class VagrantPackageUpload implements Serializable {
       return false;
     }
     VagrantPackageUpload vagrantPackageUpload = (VagrantPackageUpload) o;
-    return Objects.equals(this.files, vagrantPackageUpload.files) &&
-        Objects.equals(this.stageUpdatedAt, vagrantPackageUpload.stageUpdatedAt) &&
-        Objects.equals(this.isSyncFailed, vagrantPackageUpload.isSyncFailed) &&
-        Objects.equals(this.distroVersion, vagrantPackageUpload.distroVersion) &&
-        Objects.equals(this.checksumSha256, vagrantPackageUpload.checksumSha256) &&
-        Objects.equals(this.repositoryUrl, vagrantPackageUpload.repositoryUrl) &&
-        Objects.equals(this.isSyncInProgress, vagrantPackageUpload.isSyncInProgress) &&
-        Objects.equals(this.size, vagrantPackageUpload.size) &&
-        Objects.equals(this.statusStr, vagrantPackageUpload.statusStr) &&
-        Objects.equals(this.isSyncAwaiting, vagrantPackageUpload.isSyncAwaiting) &&
-        Objects.equals(this.repository, vagrantPackageUpload.repository) &&
-        Objects.equals(this.subtype, vagrantPackageUpload.subtype) &&
-        Objects.equals(this.statusUrl, vagrantPackageUpload.statusUrl) &&
-        Objects.equals(this.statusUpdatedAt, vagrantPackageUpload.statusUpdatedAt) &&
-        Objects.equals(this.namespace, vagrantPackageUpload.namespace) &&
-        Objects.equals(this.syncFinishedAt, vagrantPackageUpload.syncFinishedAt) &&
-        Objects.equals(this.filename, vagrantPackageUpload.filename) &&
-        Objects.equals(this.syncProgress, vagrantPackageUpload.syncProgress) &&
-        Objects.equals(this.epoch, vagrantPackageUpload.epoch) &&
-        Objects.equals(this.version, vagrantPackageUpload.version) &&
-        Objects.equals(this.isSyncInFlight, vagrantPackageUpload.isSyncInFlight) &&
-        Objects.equals(this.namespaceUrl, vagrantPackageUpload.namespaceUrl) &&
-        Objects.equals(this.slugPerm, vagrantPackageUpload.slugPerm) &&
-        Objects.equals(this.indexed, vagrantPackageUpload.indexed) &&
-        Objects.equals(this.uploaderUrl, vagrantPackageUpload.uploaderUrl) &&
+    return Objects.equals(this.architectures, vagrantPackageUpload.architectures) &&
         Objects.equals(this.cdnUrl, vagrantPackageUpload.cdnUrl) &&
+        Objects.equals(this.checksumMd5, vagrantPackageUpload.checksumMd5) &&
         Objects.equals(this.checksumSha1, vagrantPackageUpload.checksumSha1) &&
-        Objects.equals(this.distro, vagrantPackageUpload.distro) &&
-        Objects.equals(this.status, vagrantPackageUpload.status) &&
+        Objects.equals(this.checksumSha256, vagrantPackageUpload.checksumSha256) &&
         Objects.equals(this.checksumSha512, vagrantPackageUpload.checksumSha512) &&
         Objects.equals(this.description, vagrantPackageUpload.description) &&
-        Objects.equals(this.name, vagrantPackageUpload.name) &&
-        Objects.equals(this.format, vagrantPackageUpload.format) &&
-        Objects.equals(this.isSyncCompleted, vagrantPackageUpload.isSyncCompleted) &&
+        Objects.equals(this.distro, vagrantPackageUpload.distro) &&
+        Objects.equals(this.distroVersion, vagrantPackageUpload.distroVersion) &&
         Objects.equals(this.downloads, vagrantPackageUpload.downloads) &&
-        Objects.equals(this.provider, vagrantPackageUpload.provider) &&
-        Objects.equals(this.versionOrig, vagrantPackageUpload.versionOrig) &&
-        Objects.equals(this.architectures, vagrantPackageUpload.architectures) &&
-        Objects.equals(this.uploader, vagrantPackageUpload.uploader) &&
-        Objects.equals(this.statusReason, vagrantPackageUpload.statusReason) &&
-        Objects.equals(this.selfHtmlUrl, vagrantPackageUpload.selfHtmlUrl) &&
-        Objects.equals(this.stage, vagrantPackageUpload.stage) &&
-        Objects.equals(this.selfUrl, vagrantPackageUpload.selfUrl) &&
-        Objects.equals(this.slug, vagrantPackageUpload.slug) &&
-        Objects.equals(this.uploadedAt, vagrantPackageUpload.uploadedAt) &&
-        Objects.equals(this.license, vagrantPackageUpload.license) &&
+        Objects.equals(this.epoch, vagrantPackageUpload.epoch) &&
         Objects.equals(this.extension, vagrantPackageUpload.extension) &&
-        Objects.equals(this.stageStr, vagrantPackageUpload.stageStr) &&
-        Objects.equals(this.packageType, vagrantPackageUpload.packageType) &&
-        Objects.equals(this.summary, vagrantPackageUpload.summary) &&
+        Objects.equals(this.filename, vagrantPackageUpload.filename) &&
+        Objects.equals(this.files, vagrantPackageUpload.files) &&
+        Objects.equals(this.format, vagrantPackageUpload.format) &&
+        Objects.equals(this.formatUrl, vagrantPackageUpload.formatUrl) &&
+        Objects.equals(this.identifier, vagrantPackageUpload.identifier) &&
+        Objects.equals(this.indexed, vagrantPackageUpload.indexed) &&
+        Objects.equals(this.isSyncAwaiting, vagrantPackageUpload.isSyncAwaiting) &&
+        Objects.equals(this.isSyncCompleted, vagrantPackageUpload.isSyncCompleted) &&
+        Objects.equals(this.isSyncFailed, vagrantPackageUpload.isSyncFailed) &&
+        Objects.equals(this.isSyncInFlight, vagrantPackageUpload.isSyncInFlight) &&
+        Objects.equals(this.isSyncInProgress, vagrantPackageUpload.isSyncInProgress) &&
+        Objects.equals(this.license, vagrantPackageUpload.license) &&
+        Objects.equals(this.name, vagrantPackageUpload.name) &&
+        Objects.equals(this.namespace, vagrantPackageUpload.namespace) &&
+        Objects.equals(this.namespaceUrl, vagrantPackageUpload.namespaceUrl) &&
         Objects.equals(this.numFiles, vagrantPackageUpload.numFiles) &&
-        Objects.equals(this.checksumMd5, vagrantPackageUpload.checksumMd5) &&
+        Objects.equals(this.packageType, vagrantPackageUpload.packageType) &&
+        Objects.equals(this.provider, vagrantPackageUpload.provider) &&
         Objects.equals(this.release, vagrantPackageUpload.release) &&
+        Objects.equals(this.repository, vagrantPackageUpload.repository) &&
+        Objects.equals(this.repositoryUrl, vagrantPackageUpload.repositoryUrl) &&
+        Objects.equals(this.selfHtmlUrl, vagrantPackageUpload.selfHtmlUrl) &&
+        Objects.equals(this.selfUrl, vagrantPackageUpload.selfUrl) &&
+        Objects.equals(this.size, vagrantPackageUpload.size) &&
+        Objects.equals(this.slug, vagrantPackageUpload.slug) &&
+        Objects.equals(this.slugPerm, vagrantPackageUpload.slugPerm) &&
+        Objects.equals(this.stage, vagrantPackageUpload.stage) &&
+        Objects.equals(this.stageStr, vagrantPackageUpload.stageStr) &&
+        Objects.equals(this.stageUpdatedAt, vagrantPackageUpload.stageUpdatedAt) &&
+        Objects.equals(this.status, vagrantPackageUpload.status) &&
+        Objects.equals(this.statusReason, vagrantPackageUpload.statusReason) &&
+        Objects.equals(this.statusStr, vagrantPackageUpload.statusStr) &&
+        Objects.equals(this.statusUpdatedAt, vagrantPackageUpload.statusUpdatedAt) &&
+        Objects.equals(this.statusUrl, vagrantPackageUpload.statusUrl) &&
+        Objects.equals(this.subtype, vagrantPackageUpload.subtype) &&
+        Objects.equals(this.summary, vagrantPackageUpload.summary) &&
+        Objects.equals(this.syncFinishedAt, vagrantPackageUpload.syncFinishedAt) &&
+        Objects.equals(this.syncProgress, vagrantPackageUpload.syncProgress) &&
         Objects.equals(this.typeDisplay, vagrantPackageUpload.typeDisplay) &&
-        Objects.equals(this.formatUrl, vagrantPackageUpload.formatUrl);
+        Objects.equals(this.uploadedAt, vagrantPackageUpload.uploadedAt) &&
+        Objects.equals(this.uploader, vagrantPackageUpload.uploader) &&
+        Objects.equals(this.uploaderUrl, vagrantPackageUpload.uploaderUrl) &&
+        Objects.equals(this.version, vagrantPackageUpload.version) &&
+        Objects.equals(this.versionOrig, vagrantPackageUpload.versionOrig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, stageUpdatedAt, isSyncFailed, distroVersion, checksumSha256, repositoryUrl, isSyncInProgress, size, statusStr, isSyncAwaiting, repository, subtype, statusUrl, statusUpdatedAt, namespace, syncFinishedAt, filename, syncProgress, epoch, version, isSyncInFlight, namespaceUrl, slugPerm, indexed, uploaderUrl, cdnUrl, checksumSha1, distro, status, checksumSha512, description, name, format, isSyncCompleted, downloads, provider, versionOrig, architectures, uploader, statusReason, selfHtmlUrl, stage, selfUrl, slug, uploadedAt, license, extension, stageStr, packageType, summary, numFiles, checksumMd5, release, typeDisplay, formatUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifier, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, provider, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
   }
 
 
@@ -1291,61 +1313,62 @@ public class VagrantPackageUpload implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class VagrantPackageUpload {\n");
     
-    sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    stageUpdatedAt: ").append(toIndentedString(stageUpdatedAt)).append("\n");
-    sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");
-    sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
-    sb.append("    checksumSha256: ").append(toIndentedString(checksumSha256)).append("\n");
-    sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
-    sb.append("    isSyncInProgress: ").append(toIndentedString(isSyncInProgress)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    statusStr: ").append(toIndentedString(statusStr)).append("\n");
-    sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
-    sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
-    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
-    sb.append("    statusUrl: ").append(toIndentedString(statusUrl)).append("\n");
-    sb.append("    statusUpdatedAt: ").append(toIndentedString(statusUpdatedAt)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
-    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
-    sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
-    sb.append("    epoch: ").append(toIndentedString(epoch)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
-    sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
-    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
-    sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
-    sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
+    sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
+    sb.append("    checksumMd5: ").append(toIndentedString(checksumMd5)).append("\n");
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");
-    sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    checksumSha256: ").append(toIndentedString(checksumSha256)).append("\n");
     sb.append("    checksumSha512: ").append(toIndentedString(checksumSha512)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
-    sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
+    sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
+    sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
-    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
-    sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
-    sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
-    sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
-    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
-    sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
-    sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
-    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
-    sb.append("    license: ").append(toIndentedString(license)).append("\n");
+    sb.append("    epoch: ").append(toIndentedString(epoch)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
-    sb.append("    stageStr: ").append(toIndentedString(stageStr)).append("\n");
-    sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
-    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
-    sb.append("    numFiles: ").append(toIndentedString(numFiles)).append("\n");
-    sb.append("    checksumMd5: ").append(toIndentedString(checksumMd5)).append("\n");
-    sb.append("    release: ").append(toIndentedString(release)).append("\n");
-    sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
+    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
+    sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
+    sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
+    sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");
+    sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
+    sb.append("    isSyncInProgress: ").append(toIndentedString(isSyncInProgress)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
+    sb.append("    numFiles: ").append(toIndentedString(numFiles)).append("\n");
+    sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    release: ").append(toIndentedString(release)).append("\n");
+    sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
+    sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
+    sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
+    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
+    sb.append("    stageStr: ").append(toIndentedString(stageStr)).append("\n");
+    sb.append("    stageUpdatedAt: ").append(toIndentedString(stageUpdatedAt)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    statusStr: ").append(toIndentedString(statusStr)).append("\n");
+    sb.append("    statusUpdatedAt: ").append(toIndentedString(statusUpdatedAt)).append("\n");
+    sb.append("    statusUrl: ").append(toIndentedString(statusUrl)).append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
+    sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
+    sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
+    sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
+    sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
+    sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

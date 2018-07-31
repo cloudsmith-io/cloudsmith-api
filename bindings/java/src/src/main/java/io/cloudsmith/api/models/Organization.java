@@ -33,44 +33,26 @@ import javax.validation.Valid;
 public class Organization implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("name")
-  private String name = null;
-
   @SerializedName("country")
   private String country = null;
 
   @SerializedName("created_at")
   private String createdAt = null;
 
-  @SerializedName("tagline")
-  private String tagline = null;
-
   @SerializedName("location")
   private String location = null;
 
-  @SerializedName("slug_perm")
-  private String slugPerm = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("slug")
   private String slug = null;
 
-  public Organization name(String name) {
-    this.name = name;
-    return this;
-  }
+  @SerializedName("slug_perm")
+  private String slugPerm = null;
 
-   /**
-   * A descriptive name for your organization.
-   * @return name
-  **/
-  @ApiModelProperty(value = "A descriptive name for your organization.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
+  @SerializedName("tagline")
+  private String tagline = null;
 
   public Organization country(String country) {
     this.country = country;
@@ -108,24 +90,6 @@ public class Organization implements Serializable {
     this.createdAt = createdAt;
   }
 
-  public Organization tagline(String tagline) {
-    this.tagline = tagline;
-    return this;
-  }
-
-   /**
-   * A short public descriptive for your organization.
-   * @return tagline
-  **/
-  @ApiModelProperty(value = "A short public descriptive for your organization.")
-  public String getTagline() {
-    return tagline;
-  }
-
-  public void setTagline(String tagline) {
-    this.tagline = tagline;
-  }
-
   public Organization location(String location) {
     this.location = location;
     return this;
@@ -144,22 +108,22 @@ public class Organization implements Serializable {
     this.location = location;
   }
 
-  public Organization slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public Organization name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * 
-   * @return slugPerm
+   * A descriptive name for your organization.
+   * @return name
   **/
-  @ApiModelProperty(value = "")
-  public String getSlugPerm() {
-    return slugPerm;
+  @ApiModelProperty(value = "A descriptive name for your organization.")
+  public String getName() {
+    return name;
   }
 
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public Organization slug(String slug) {
@@ -180,6 +144,42 @@ public class Organization implements Serializable {
     this.slug = slug;
   }
 
+  public Organization slugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+    return this;
+  }
+
+   /**
+   * 
+   * @return slugPerm
+  **/
+  @ApiModelProperty(value = "")
+  public String getSlugPerm() {
+    return slugPerm;
+  }
+
+  public void setSlugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+  }
+
+  public Organization tagline(String tagline) {
+    this.tagline = tagline;
+    return this;
+  }
+
+   /**
+   * A short public descriptive for your organization.
+   * @return tagline
+  **/
+  @ApiModelProperty(value = "A short public descriptive for your organization.")
+  public String getTagline() {
+    return tagline;
+  }
+
+  public void setTagline(String tagline) {
+    this.tagline = tagline;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -190,18 +190,18 @@ public class Organization implements Serializable {
       return false;
     }
     Organization organization = (Organization) o;
-    return Objects.equals(this.name, organization.name) &&
-        Objects.equals(this.country, organization.country) &&
+    return Objects.equals(this.country, organization.country) &&
         Objects.equals(this.createdAt, organization.createdAt) &&
-        Objects.equals(this.tagline, organization.tagline) &&
         Objects.equals(this.location, organization.location) &&
+        Objects.equals(this.name, organization.name) &&
+        Objects.equals(this.slug, organization.slug) &&
         Objects.equals(this.slugPerm, organization.slugPerm) &&
-        Objects.equals(this.slug, organization.slug);
+        Objects.equals(this.tagline, organization.tagline);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, country, createdAt, tagline, location, slugPerm, slug);
+    return Objects.hash(country, createdAt, location, name, slug, slugPerm, tagline);
   }
 
 
@@ -210,13 +210,13 @@ public class Organization implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Organization {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    tagline: ").append(toIndentedString(tagline)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    tagline: ").append(toIndentedString(tagline)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -33,29 +33,11 @@ import javax.validation.Valid;
 public class StatusBasic implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("version")
-  private String version = null;
-
   @SerializedName("detail")
   private String detail = null;
 
-  public StatusBasic version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The current version for the Cloudsmith service.
-   * @return version
-  **/
-  @ApiModelProperty(example = "0.26.6", value = "The current version for the Cloudsmith service.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
+  @SerializedName("version")
+  private String version = null;
 
   public StatusBasic detail(String detail) {
     this.detail = detail;
@@ -75,6 +57,24 @@ public class StatusBasic implements Serializable {
     this.detail = detail;
   }
 
+  public StatusBasic version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The current version for the Cloudsmith service.
+   * @return version
+  **/
+  @ApiModelProperty(example = "0.30.3", value = "The current version for the Cloudsmith service.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,13 +85,13 @@ public class StatusBasic implements Serializable {
       return false;
     }
     StatusBasic statusBasic = (StatusBasic) o;
-    return Objects.equals(this.version, statusBasic.version) &&
-        Objects.equals(this.detail, statusBasic.detail);
+    return Objects.equals(this.detail, statusBasic.detail) &&
+        Objects.equals(this.version, statusBasic.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, detail);
+    return Objects.hash(detail, version);
   }
 
 
@@ -100,8 +100,8 @@ public class StatusBasic implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusBasic {\n");
     
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

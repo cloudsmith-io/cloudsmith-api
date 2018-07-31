@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.FormatDistributions;
+import io.cloudsmith.api.models.FormatsDistributions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -36,14 +36,20 @@ import javax.validation.Valid;
 public class Format implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("premium")
-  private Boolean premium = null;
-
   @SerializedName("description")
   private String description = null;
 
   @SerializedName("distributions")
-  private List<FormatDistributions> distributions = null;
+  private List<FormatsDistributions> distributions = null;
+
+  @SerializedName("extensions")
+  private List<String> extensions = new ArrayList<String>();
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("premium")
+  private Boolean premium = null;
 
   @SerializedName("premium_plan_id")
   private String premiumPlanId = null;
@@ -51,36 +57,11 @@ public class Format implements Serializable {
   @SerializedName("premium_plan_name")
   private String premiumPlanName = null;
 
-  @SerializedName("extensions")
-  private List<String> extensions = new ArrayList<String>();
-
-  @SerializedName("supports")
-  private Object supports = null;
-
   @SerializedName("slug")
   private String slug = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  public Format premium(Boolean premium) {
-    this.premium = premium;
-    return this;
-  }
-
-   /**
-   * If true the package format is a premium-only feature
-   * @return premium
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "If true the package format is a premium-only feature")
-  public Boolean getPremium() {
-    return premium;
-  }
-
-  public void setPremium(Boolean premium) {
-    this.premium = premium;
-  }
+  @SerializedName("supports")
+  private Object supports = null;
 
   public Format description(String description) {
     this.description = description;
@@ -101,14 +82,14 @@ public class Format implements Serializable {
     this.description = description;
   }
 
-  public Format distributions(List<FormatDistributions> distributions) {
+  public Format distributions(List<FormatsDistributions> distributions) {
     this.distributions = distributions;
     return this;
   }
 
-  public Format addDistributionsItem(FormatDistributions distributionsItem) {
+  public Format addDistributionsItem(FormatsDistributions distributionsItem) {
     if (this.distributions == null) {
-      this.distributions = new ArrayList<FormatDistributions>();
+      this.distributions = new ArrayList<FormatsDistributions>();
     }
     this.distributions.add(distributionsItem);
     return this;
@@ -120,12 +101,74 @@ public class Format implements Serializable {
   **/
   @Valid
   @ApiModelProperty(value = "The distributions supported by this package format")
-  public List<FormatDistributions> getDistributions() {
+  public List<FormatsDistributions> getDistributions() {
     return distributions;
   }
 
-  public void setDistributions(List<FormatDistributions> distributions) {
+  public void setDistributions(List<FormatsDistributions> distributions) {
     this.distributions = distributions;
+  }
+
+  public Format extensions(List<String> extensions) {
+    this.extensions = extensions;
+    return this;
+  }
+
+  public Format addExtensionsItem(String extensionsItem) {
+    this.extensions.add(extensionsItem);
+    return this;
+  }
+
+   /**
+   * A non-exhaustive list of extensions supported
+   * @return extensions
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "A non-exhaustive list of extensions supported")
+  public List<String> getExtensions() {
+    return extensions;
+  }
+
+  public void setExtensions(List<String> extensions) {
+    this.extensions = extensions;
+  }
+
+  public Format name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name for the package format
+   * @return name
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "Name for the package format")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Format premium(Boolean premium) {
+    this.premium = premium;
+    return this;
+  }
+
+   /**
+   * If true the package format is a premium-only feature
+   * @return premium
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "If true the package format is a premium-only feature")
+  public Boolean getPremium() {
+    return premium;
+  }
+
+  public void setPremium(Boolean premium) {
+    this.premium = premium;
   }
 
   public Format premiumPlanId(String premiumPlanId) {
@@ -164,28 +207,23 @@ public class Format implements Serializable {
     this.premiumPlanName = premiumPlanName;
   }
 
-  public Format extensions(List<String> extensions) {
-    this.extensions = extensions;
-    return this;
-  }
-
-  public Format addExtensionsItem(String extensionsItem) {
-    this.extensions.add(extensionsItem);
+  public Format slug(String slug) {
+    this.slug = slug;
     return this;
   }
 
    /**
-   * A non-exhaustive list of extensions supported
-   * @return extensions
+   * Slug for the package format
+   * @return slug
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "A non-exhaustive list of extensions supported")
-  public List<String> getExtensions() {
-    return extensions;
+  @ApiModelProperty(required = true, value = "Slug for the package format")
+  public String getSlug() {
+    return slug;
   }
 
-  public void setExtensions(List<String> extensions) {
-    this.extensions = extensions;
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 
   public Format supports(Object supports) {
@@ -207,44 +245,6 @@ public class Format implements Serializable {
     this.supports = supports;
   }
 
-  public Format slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Slug for the package format
-   * @return slug
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "Slug for the package format")
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public Format name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name for the package format
-   * @return name
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "Name for the package format")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -255,20 +255,20 @@ public class Format implements Serializable {
       return false;
     }
     Format format = (Format) o;
-    return Objects.equals(this.premium, format.premium) &&
-        Objects.equals(this.description, format.description) &&
+    return Objects.equals(this.description, format.description) &&
         Objects.equals(this.distributions, format.distributions) &&
+        Objects.equals(this.extensions, format.extensions) &&
+        Objects.equals(this.name, format.name) &&
+        Objects.equals(this.premium, format.premium) &&
         Objects.equals(this.premiumPlanId, format.premiumPlanId) &&
         Objects.equals(this.premiumPlanName, format.premiumPlanName) &&
-        Objects.equals(this.extensions, format.extensions) &&
-        Objects.equals(this.supports, format.supports) &&
         Objects.equals(this.slug, format.slug) &&
-        Objects.equals(this.name, format.name);
+        Objects.equals(this.supports, format.supports);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(premium, description, distributions, premiumPlanId, premiumPlanName, extensions, supports, slug, name);
+    return Objects.hash(description, distributions, extensions, name, premium, premiumPlanId, premiumPlanName, slug, supports);
   }
 
 
@@ -277,15 +277,15 @@ public class Format implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Format {\n");
     
-    sb.append("    premium: ").append(toIndentedString(premium)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    distributions: ").append(toIndentedString(distributions)).append("\n");
+    sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    premium: ").append(toIndentedString(premium)).append("\n");
     sb.append("    premiumPlanId: ").append(toIndentedString(premiumPlanId)).append("\n");
     sb.append("    premiumPlanName: ").append(toIndentedString(premiumPlanName)).append("\n");
-    sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
-    sb.append("    supports: ").append(toIndentedString(supports)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    supports: ").append(toIndentedString(supports)).append("\n");
     sb.append("}");
     return sb.toString();
   }

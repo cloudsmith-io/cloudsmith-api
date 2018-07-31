@@ -33,29 +33,11 @@ import javax.validation.Valid;
 public class PackageStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("self_url")
-  private String selfUrl = null;
-
-  @SerializedName("status")
-  private String status = null;
-
   @SerializedName("is_sync_awaiting")
   private Boolean isSyncAwaiting = null;
 
-  @SerializedName("stage_updated_at")
-  private String stageUpdatedAt = null;
-
-  @SerializedName("stage_str")
-  private String stageStr = null;
-
   @SerializedName("is_sync_completed")
   private Boolean isSyncCompleted = null;
-
-  @SerializedName("status_updated_at")
-  private String statusUpdatedAt = null;
-
-  @SerializedName("sync_finished_at")
-  private String syncFinishedAt = null;
 
   @SerializedName("is_sync_failed")
   private Boolean isSyncFailed = null;
@@ -63,56 +45,38 @@ public class PackageStatus implements Serializable {
   @SerializedName("is_sync_in_flight")
   private Boolean isSyncInFlight = null;
 
-  @SerializedName("status_str")
-  private String statusStr = null;
-
-  @SerializedName("sync_progress")
-  private Integer syncProgress = null;
-
-  @SerializedName("status_reason")
-  private String statusReason = null;
-
   @SerializedName("is_sync_in_progress")
   private Boolean isSyncInProgress = null;
+
+  @SerializedName("self_url")
+  private String selfUrl = null;
 
   @SerializedName("stage")
   private String stage = null;
 
-  public PackageStatus selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
+  @SerializedName("stage_str")
+  private String stageStr = null;
 
-   /**
-   * 
-   * @return selfUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getSelfUrl() {
-    return selfUrl;
-  }
+  @SerializedName("stage_updated_at")
+  private String stageUpdatedAt = null;
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
+  @SerializedName("status")
+  private String status = null;
 
-  public PackageStatus status(String status) {
-    this.status = status;
-    return this;
-  }
+  @SerializedName("status_reason")
+  private String statusReason = null;
 
-   /**
-   * The synchronisation status of the package.
-   * @return status
-  **/
-  @ApiModelProperty(value = "The synchronisation status of the package.")
-  public String getStatus() {
-    return status;
-  }
+  @SerializedName("status_str")
+  private String statusStr = null;
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+  @SerializedName("status_updated_at")
+  private String statusUpdatedAt = null;
+
+  @SerializedName("sync_finished_at")
+  private String syncFinishedAt = null;
+
+  @SerializedName("sync_progress")
+  private Integer syncProgress = null;
 
   public PackageStatus isSyncAwaiting(Boolean isSyncAwaiting) {
     this.isSyncAwaiting = isSyncAwaiting;
@@ -132,42 +96,6 @@ public class PackageStatus implements Serializable {
     this.isSyncAwaiting = isSyncAwaiting;
   }
 
-  public PackageStatus stageUpdatedAt(String stageUpdatedAt) {
-    this.stageUpdatedAt = stageUpdatedAt;
-    return this;
-  }
-
-   /**
-   * The datetime the package stage was updated at.
-   * @return stageUpdatedAt
-  **/
-  @ApiModelProperty(value = "The datetime the package stage was updated at.")
-  public String getStageUpdatedAt() {
-    return stageUpdatedAt;
-  }
-
-  public void setStageUpdatedAt(String stageUpdatedAt) {
-    this.stageUpdatedAt = stageUpdatedAt;
-  }
-
-  public PackageStatus stageStr(String stageStr) {
-    this.stageStr = stageStr;
-    return this;
-  }
-
-   /**
-   * 
-   * @return stageStr
-  **/
-  @ApiModelProperty(value = "")
-  public String getStageStr() {
-    return stageStr;
-  }
-
-  public void setStageStr(String stageStr) {
-    this.stageStr = stageStr;
-  }
-
   public PackageStatus isSyncCompleted(Boolean isSyncCompleted) {
     this.isSyncCompleted = isSyncCompleted;
     return this;
@@ -184,42 +112,6 @@ public class PackageStatus implements Serializable {
 
   public void setIsSyncCompleted(Boolean isSyncCompleted) {
     this.isSyncCompleted = isSyncCompleted;
-  }
-
-  public PackageStatus statusUpdatedAt(String statusUpdatedAt) {
-    this.statusUpdatedAt = statusUpdatedAt;
-    return this;
-  }
-
-   /**
-   * The datetime the package status was updated at.
-   * @return statusUpdatedAt
-  **/
-  @ApiModelProperty(value = "The datetime the package status was updated at.")
-  public String getStatusUpdatedAt() {
-    return statusUpdatedAt;
-  }
-
-  public void setStatusUpdatedAt(String statusUpdatedAt) {
-    this.statusUpdatedAt = statusUpdatedAt;
-  }
-
-  public PackageStatus syncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
-    return this;
-  }
-
-   /**
-   * The datetime the package sync was finished at.
-   * @return syncFinishedAt
-  **/
-  @ApiModelProperty(value = "The datetime the package sync was finished at.")
-  public String getSyncFinishedAt() {
-    return syncFinishedAt;
-  }
-
-  public void setSyncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
   }
 
   public PackageStatus isSyncFailed(Boolean isSyncFailed) {
@@ -258,60 +150,6 @@ public class PackageStatus implements Serializable {
     this.isSyncInFlight = isSyncInFlight;
   }
 
-  public PackageStatus statusStr(String statusStr) {
-    this.statusStr = statusStr;
-    return this;
-  }
-
-   /**
-   * 
-   * @return statusStr
-  **/
-  @ApiModelProperty(value = "")
-  public String getStatusStr() {
-    return statusStr;
-  }
-
-  public void setStatusStr(String statusStr) {
-    this.statusStr = statusStr;
-  }
-
-  public PackageStatus syncProgress(Integer syncProgress) {
-    this.syncProgress = syncProgress;
-    return this;
-  }
-
-   /**
-   * Synchronisation progress (from 0-100)
-   * @return syncProgress
-  **/
-  @ApiModelProperty(value = "Synchronisation progress (from 0-100)")
-  public Integer getSyncProgress() {
-    return syncProgress;
-  }
-
-  public void setSyncProgress(Integer syncProgress) {
-    this.syncProgress = syncProgress;
-  }
-
-  public PackageStatus statusReason(String statusReason) {
-    this.statusReason = statusReason;
-    return this;
-  }
-
-   /**
-   * A textual description for the synchronous status reason (if any
-   * @return statusReason
-  **/
-  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
-  public String getStatusReason() {
-    return statusReason;
-  }
-
-  public void setStatusReason(String statusReason) {
-    this.statusReason = statusReason;
-  }
-
   public PackageStatus isSyncInProgress(Boolean isSyncInProgress) {
     this.isSyncInProgress = isSyncInProgress;
     return this;
@@ -328,6 +166,24 @@ public class PackageStatus implements Serializable {
 
   public void setIsSyncInProgress(Boolean isSyncInProgress) {
     this.isSyncInProgress = isSyncInProgress;
+  }
+
+  public PackageStatus selfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return selfUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSelfUrl() {
+    return selfUrl;
+  }
+
+  public void setSelfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
   }
 
   public PackageStatus stage(String stage) {
@@ -348,6 +204,150 @@ public class PackageStatus implements Serializable {
     this.stage = stage;
   }
 
+  public PackageStatus stageStr(String stageStr) {
+    this.stageStr = stageStr;
+    return this;
+  }
+
+   /**
+   * 
+   * @return stageStr
+  **/
+  @ApiModelProperty(value = "")
+  public String getStageStr() {
+    return stageStr;
+  }
+
+  public void setStageStr(String stageStr) {
+    this.stageStr = stageStr;
+  }
+
+  public PackageStatus stageUpdatedAt(String stageUpdatedAt) {
+    this.stageUpdatedAt = stageUpdatedAt;
+    return this;
+  }
+
+   /**
+   * The datetime the package stage was updated at.
+   * @return stageUpdatedAt
+  **/
+  @ApiModelProperty(value = "The datetime the package stage was updated at.")
+  public String getStageUpdatedAt() {
+    return stageUpdatedAt;
+  }
+
+  public void setStageUpdatedAt(String stageUpdatedAt) {
+    this.stageUpdatedAt = stageUpdatedAt;
+  }
+
+  public PackageStatus status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * The synchronisation status of the package.
+   * @return status
+  **/
+  @ApiModelProperty(value = "The synchronisation status of the package.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public PackageStatus statusReason(String statusReason) {
+    this.statusReason = statusReason;
+    return this;
+  }
+
+   /**
+   * A textual description for the synchronous status reason (if any
+   * @return statusReason
+  **/
+  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+  public String getStatusReason() {
+    return statusReason;
+  }
+
+  public void setStatusReason(String statusReason) {
+    this.statusReason = statusReason;
+  }
+
+  public PackageStatus statusStr(String statusStr) {
+    this.statusStr = statusStr;
+    return this;
+  }
+
+   /**
+   * 
+   * @return statusStr
+  **/
+  @ApiModelProperty(value = "")
+  public String getStatusStr() {
+    return statusStr;
+  }
+
+  public void setStatusStr(String statusStr) {
+    this.statusStr = statusStr;
+  }
+
+  public PackageStatus statusUpdatedAt(String statusUpdatedAt) {
+    this.statusUpdatedAt = statusUpdatedAt;
+    return this;
+  }
+
+   /**
+   * The datetime the package status was updated at.
+   * @return statusUpdatedAt
+  **/
+  @ApiModelProperty(value = "The datetime the package status was updated at.")
+  public String getStatusUpdatedAt() {
+    return statusUpdatedAt;
+  }
+
+  public void setStatusUpdatedAt(String statusUpdatedAt) {
+    this.statusUpdatedAt = statusUpdatedAt;
+  }
+
+  public PackageStatus syncFinishedAt(String syncFinishedAt) {
+    this.syncFinishedAt = syncFinishedAt;
+    return this;
+  }
+
+   /**
+   * The datetime the package sync was finished at.
+   * @return syncFinishedAt
+  **/
+  @ApiModelProperty(value = "The datetime the package sync was finished at.")
+  public String getSyncFinishedAt() {
+    return syncFinishedAt;
+  }
+
+  public void setSyncFinishedAt(String syncFinishedAt) {
+    this.syncFinishedAt = syncFinishedAt;
+  }
+
+  public PackageStatus syncProgress(Integer syncProgress) {
+    this.syncProgress = syncProgress;
+    return this;
+  }
+
+   /**
+   * Synchronisation progress (from 0-100)
+   * @return syncProgress
+  **/
+  @ApiModelProperty(value = "Synchronisation progress (from 0-100)")
+  public Integer getSyncProgress() {
+    return syncProgress;
+  }
+
+  public void setSyncProgress(Integer syncProgress) {
+    this.syncProgress = syncProgress;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -358,26 +358,26 @@ public class PackageStatus implements Serializable {
       return false;
     }
     PackageStatus packageStatus = (PackageStatus) o;
-    return Objects.equals(this.selfUrl, packageStatus.selfUrl) &&
-        Objects.equals(this.status, packageStatus.status) &&
-        Objects.equals(this.isSyncAwaiting, packageStatus.isSyncAwaiting) &&
-        Objects.equals(this.stageUpdatedAt, packageStatus.stageUpdatedAt) &&
-        Objects.equals(this.stageStr, packageStatus.stageStr) &&
+    return Objects.equals(this.isSyncAwaiting, packageStatus.isSyncAwaiting) &&
         Objects.equals(this.isSyncCompleted, packageStatus.isSyncCompleted) &&
-        Objects.equals(this.statusUpdatedAt, packageStatus.statusUpdatedAt) &&
-        Objects.equals(this.syncFinishedAt, packageStatus.syncFinishedAt) &&
         Objects.equals(this.isSyncFailed, packageStatus.isSyncFailed) &&
         Objects.equals(this.isSyncInFlight, packageStatus.isSyncInFlight) &&
-        Objects.equals(this.statusStr, packageStatus.statusStr) &&
-        Objects.equals(this.syncProgress, packageStatus.syncProgress) &&
-        Objects.equals(this.statusReason, packageStatus.statusReason) &&
         Objects.equals(this.isSyncInProgress, packageStatus.isSyncInProgress) &&
-        Objects.equals(this.stage, packageStatus.stage);
+        Objects.equals(this.selfUrl, packageStatus.selfUrl) &&
+        Objects.equals(this.stage, packageStatus.stage) &&
+        Objects.equals(this.stageStr, packageStatus.stageStr) &&
+        Objects.equals(this.stageUpdatedAt, packageStatus.stageUpdatedAt) &&
+        Objects.equals(this.status, packageStatus.status) &&
+        Objects.equals(this.statusReason, packageStatus.statusReason) &&
+        Objects.equals(this.statusStr, packageStatus.statusStr) &&
+        Objects.equals(this.statusUpdatedAt, packageStatus.statusUpdatedAt) &&
+        Objects.equals(this.syncFinishedAt, packageStatus.syncFinishedAt) &&
+        Objects.equals(this.syncProgress, packageStatus.syncProgress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(selfUrl, status, isSyncAwaiting, stageUpdatedAt, stageStr, isSyncCompleted, statusUpdatedAt, syncFinishedAt, isSyncFailed, isSyncInFlight, statusStr, syncProgress, statusReason, isSyncInProgress, stage);
+    return Objects.hash(isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, selfUrl, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, syncFinishedAt, syncProgress);
   }
 
 
@@ -386,21 +386,21 @@ public class PackageStatus implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackageStatus {\n");
     
-    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
-    sb.append("    stageUpdatedAt: ").append(toIndentedString(stageUpdatedAt)).append("\n");
-    sb.append("    stageStr: ").append(toIndentedString(stageStr)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
-    sb.append("    statusUpdatedAt: ").append(toIndentedString(statusUpdatedAt)).append("\n");
-    sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
     sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");
     sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
-    sb.append("    statusStr: ").append(toIndentedString(statusStr)).append("\n");
-    sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
-    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    isSyncInProgress: ").append(toIndentedString(isSyncInProgress)).append("\n");
+    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
+    sb.append("    stageStr: ").append(toIndentedString(stageStr)).append("\n");
+    sb.append("    stageUpdatedAt: ").append(toIndentedString(stageUpdatedAt)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    statusStr: ").append(toIndentedString(statusStr)).append("\n");
+    sb.append("    statusUpdatedAt: ").append(toIndentedString(statusUpdatedAt)).append("\n");
+    sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
+    sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
     sb.append("}");
     return sb.toString();
   }

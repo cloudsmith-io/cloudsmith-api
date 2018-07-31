@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.RepositoryTokenRefresh;
+import io.cloudsmith.api.models.RepositoryTokenSyncTokens;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -37,16 +37,16 @@ public class RepositoryTokenSync implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("tokens")
-  private List<RepositoryTokenRefresh> tokens = null;
+  private List<RepositoryTokenSyncTokens> tokens = null;
 
-  public RepositoryTokenSync tokens(List<RepositoryTokenRefresh> tokens) {
+  public RepositoryTokenSync tokens(List<RepositoryTokenSyncTokens> tokens) {
     this.tokens = tokens;
     return this;
   }
 
-  public RepositoryTokenSync addTokensItem(RepositoryTokenRefresh tokensItem) {
+  public RepositoryTokenSync addTokensItem(RepositoryTokenSyncTokens tokensItem) {
     if (this.tokens == null) {
-      this.tokens = new ArrayList<RepositoryTokenRefresh>();
+      this.tokens = new ArrayList<RepositoryTokenSyncTokens>();
     }
     this.tokens.add(tokensItem);
     return this;
@@ -58,11 +58,11 @@ public class RepositoryTokenSync implements Serializable {
   **/
   @Valid
   @ApiModelProperty(value = "The entitlements that have been synchronised.")
-  public List<RepositoryTokenRefresh> getTokens() {
+  public List<RepositoryTokenSyncTokens> getTokens() {
     return tokens;
   }
 
-  public void setTokens(List<RepositoryTokenRefresh> tokens) {
+  public void setTokens(List<RepositoryTokenSyncTokens> tokens) {
     this.tokens = tokens;
   }
 

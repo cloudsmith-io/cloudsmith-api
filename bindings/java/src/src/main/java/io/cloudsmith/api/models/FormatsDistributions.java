@@ -27,19 +27,25 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RpmPackageUploadArchitectures
+ * FormatsDistributions
  */
 
-public class RpmPackageUploadArchitectures implements Serializable {
+public class FormatsDistributions implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("description")
-  private String description = null;
+  @SerializedName("self_url")
+  private String selfUrl = null;
 
-  public RpmPackageUploadArchitectures name(String name) {
+  @SerializedName("slug")
+  private String slug = null;
+
+  @SerializedName("variants")
+  private String variants = null;
+
+  public FormatsDistributions name(String name) {
     this.name = name;
     return this;
   }
@@ -57,22 +63,58 @@ public class RpmPackageUploadArchitectures implements Serializable {
     this.name = name;
   }
 
-  public RpmPackageUploadArchitectures description(String description) {
-    this.description = description;
+  public FormatsDistributions selfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
     return this;
   }
 
    /**
    * 
-   * @return description
+   * @return selfUrl
   **/
   @ApiModelProperty(value = "")
-  public String getDescription() {
-    return description;
+  public String getSelfUrl() {
+    return selfUrl;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setSelfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+  }
+
+  public FormatsDistributions slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+   /**
+   * The slug identifier for this distribution
+   * @return slug
+  **/
+  @ApiModelProperty(value = "The slug identifier for this distribution")
+  public String getSlug() {
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
+  }
+
+  public FormatsDistributions variants(String variants) {
+    this.variants = variants;
+    return this;
+  }
+
+   /**
+   * 
+   * @return variants
+  **/
+  @ApiModelProperty(value = "")
+  public String getVariants() {
+    return variants;
+  }
+
+  public void setVariants(String variants) {
+    this.variants = variants;
   }
 
 
@@ -84,24 +126,28 @@ public class RpmPackageUploadArchitectures implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RpmPackageUploadArchitectures rpmPackageUploadArchitectures = (RpmPackageUploadArchitectures) o;
-    return Objects.equals(this.name, rpmPackageUploadArchitectures.name) &&
-        Objects.equals(this.description, rpmPackageUploadArchitectures.description);
+    FormatsDistributions formatsDistributions = (FormatsDistributions) o;
+    return Objects.equals(this.name, formatsDistributions.name) &&
+        Objects.equals(this.selfUrl, formatsDistributions.selfUrl) &&
+        Objects.equals(this.slug, formatsDistributions.slug) &&
+        Objects.equals(this.variants, formatsDistributions.variants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description);
+    return Objects.hash(name, selfUrl, slug, variants);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RpmPackageUploadArchitectures {\n");
+    sb.append("class FormatsDistributions {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
     sb.append("}");
     return sb.toString();
   }

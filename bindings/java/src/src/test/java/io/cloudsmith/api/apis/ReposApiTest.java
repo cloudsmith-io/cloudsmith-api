@@ -34,6 +34,23 @@ public class ReposApiTest {
 
     
     /**
+     * Get a list of all repositories associated with current user.
+     *
+     * Get a list of all repositories associated with current user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void reposListTest() throws ApiException {
+        Integer page = null;
+        Integer pageSize = null;
+        List<Repository> response = api.reposList(page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a list of all repositories within a namespace.
      *
      * Get a list of all repositories within a namespace.
@@ -42,11 +59,11 @@ public class ReposApiTest {
      *          if the Api call fails
      */
     @Test
-    public void reposListTest() throws ApiException {
+    public void reposList0Test() throws ApiException {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
-        List<Repository> response = api.reposList(owner, page, pageSize);
+        List<Repository> response = api.reposList0(owner, page, pageSize);
 
         // TODO: test validations
     }

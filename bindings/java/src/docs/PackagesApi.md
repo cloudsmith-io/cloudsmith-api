@@ -4,13 +4,14 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**packagesCopy**](PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{slug}/copy/ | Copy a package to another repository.
-[**packagesDelete**](PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{slug}/ | Delete a specific package in a repository.
+[**packagesCopy**](PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
+[**packagesDelete**](PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 [**packagesList**](PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Views for working with repository packages.
-[**packagesMove**](PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{slug}/move/ | Move a package to another repository.
-[**packagesRead**](PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{slug}/ | Get a specific package in a repository.
-[**packagesResync**](PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{slug}/resync/ | Schedule a package for resynchronisation.
-[**packagesStatus**](PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{slug}/status/ | Get the synchronisation status for a package.
+[**packagesMove**](PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
+[**packagesRead**](PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
+[**packagesResync**](PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
+[**packagesStatus**](PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+[**packagesUploadComposer**](PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**packagesUploadDeb**](PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packagesUploadMaven**](PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packagesUploadPython**](PackagesApi.md#packagesUploadPython) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**packagesUploadRpm**](PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 [**packagesUploadRuby**](PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
 [**packagesUploadVagrant**](PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
+[**packagesValidateUploadComposer**](PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**packagesValidateUploadDeb**](PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**packagesValidateUploadMaven**](PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packagesValidateUploadPython**](PackagesApi.md#packagesValidateUploadPython) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
@@ -29,7 +31,7 @@ Method | HTTP request | Description
 
 <a name="packagesCopy"></a>
 # **packagesCopy**
-> PackageCopy packagesCopy(owner, repo, slug, data)
+> PackageCopy packagesCopy(owner, repo, identifier, data)
 
 Copy a package to another repository.
 
@@ -66,10 +68,10 @@ csrf_token.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-String slug = "slug_example"; // String | 
+String identifier = "identifier_example"; // String | 
 PackagesCopy data = new PackagesCopy(); // PackagesCopy | 
 try {
-    PackageCopy result = apiInstance.packagesCopy(owner, repo, slug, data);
+    PackageCopy result = apiInstance.packagesCopy(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesCopy");
@@ -83,7 +85,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **slug** | **String**|  |
+ **identifier** | **String**|  |
  **data** | [**PackagesCopy**](PackagesCopy.md)|  | [optional]
 
 ### Return type
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesDelete"></a>
 # **packagesDelete**
-> packagesDelete(owner, repo, slug)
+> packagesDelete(owner, repo, identifier)
 
 Delete a specific package in a repository.
 
@@ -138,9 +140,9 @@ csrf_token.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-String slug = "slug_example"; // String | 
+String identifier = "identifier_example"; // String | 
 try {
-    apiInstance.packagesDelete(owner, repo, slug);
+    apiInstance.packagesDelete(owner, repo, identifier);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesDelete");
     e.printStackTrace();
@@ -153,7 +155,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **slug** | **String**|  |
+ **identifier** | **String**|  |
 
 ### Return type
 
@@ -170,7 +172,7 @@ null (empty response body)
 
 <a name="packagesList"></a>
 # **packagesList**
-> List&lt;RpmPackageUpload&gt; packagesList(owner, repo, page, pageSize, query)
+> List&lt;ModelPackage&gt; packagesList(owner, repo, page, pageSize, query)
 
 Views for working with repository packages.
 
@@ -209,9 +211,9 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
-String query = "query_example"; // String | A search term for querying names, filenames, versions, distributions or architectures of packages.
+String query = "query_example"; // String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
 try {
-    List<RpmPackageUpload> result = apiInstance.packagesList(owner, repo, page, pageSize, query);
+    List<ModelPackage> result = apiInstance.packagesList(owner, repo, page, pageSize, query);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesList");
@@ -227,11 +229,11 @@ Name | Type | Description  | Notes
  **repo** | **String**|  |
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
- **query** | **String**| A search term for querying names, filenames, versions, distributions or architectures of packages. | [optional]
+ **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional]
 
 ### Return type
 
-[**List&lt;RpmPackageUpload&gt;**](RpmPackageUpload.md)
+[**List&lt;ModelPackage&gt;**](ModelPackage.md)
 
 ### Authorization
 
@@ -244,7 +246,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesMove"></a>
 # **packagesMove**
-> PackageMove packagesMove(owner, repo, slug, data)
+> PackageMove packagesMove(owner, repo, identifier, data)
 
 Move a package to another repository.
 
@@ -281,10 +283,10 @@ csrf_token.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-String slug = "slug_example"; // String | 
+String identifier = "identifier_example"; // String | 
 PackagesMove data = new PackagesMove(); // PackagesMove | 
 try {
-    PackageMove result = apiInstance.packagesMove(owner, repo, slug, data);
+    PackageMove result = apiInstance.packagesMove(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesMove");
@@ -298,7 +300,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **slug** | **String**|  |
+ **identifier** | **String**|  |
  **data** | [**PackagesMove**](PackagesMove.md)|  | [optional]
 
 ### Return type
@@ -316,7 +318,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesRead"></a>
 # **packagesRead**
-> RpmPackageUpload packagesRead(owner, repo, slug)
+> ModelPackage packagesRead(owner, repo, identifier)
 
 Get a specific package in a repository.
 
@@ -353,9 +355,9 @@ csrf_token.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-String slug = "slug_example"; // String | 
+String identifier = "identifier_example"; // String | 
 try {
-    RpmPackageUpload result = apiInstance.packagesRead(owner, repo, slug);
+    ModelPackage result = apiInstance.packagesRead(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesRead");
@@ -369,11 +371,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **slug** | **String**|  |
+ **identifier** | **String**|  |
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -386,7 +388,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesResync"></a>
 # **packagesResync**
-> RpmPackageUpload packagesResync(owner, repo, slug)
+> ModelPackage packagesResync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -423,9 +425,9 @@ csrf_token.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-String slug = "slug_example"; // String | 
+String identifier = "identifier_example"; // String | 
 try {
-    RpmPackageUpload result = apiInstance.packagesResync(owner, repo, slug);
+    ModelPackage result = apiInstance.packagesResync(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesResync");
@@ -439,11 +441,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **slug** | **String**|  |
+ **identifier** | **String**|  |
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -456,7 +458,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesStatus"></a>
 # **packagesStatus**
-> PackageStatus packagesStatus(owner, repo, slug)
+> PackageStatus packagesStatus(owner, repo, identifier)
 
 Get the synchronisation status for a package.
 
@@ -493,9 +495,9 @@ csrf_token.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-String slug = "slug_example"; // String | 
+String identifier = "identifier_example"; // String | 
 try {
-    PackageStatus result = apiInstance.packagesStatus(owner, repo, slug);
+    PackageStatus result = apiInstance.packagesStatus(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesStatus");
@@ -509,7 +511,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **slug** | **String**|  |
+ **identifier** | **String**|  |
 
 ### Return type
 
@@ -524,9 +526,79 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+<a name="packagesUploadComposer"></a>
+# **packagesUploadComposer**
+> ModelPackage packagesUploadComposer(owner, repo, data)
+
+Create a new Composer package
+
+Create a new Composer package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: csrf_token
+ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
+csrf_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//csrf_token.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+PackagesUploadComposer data = new PackagesUploadComposer(); // PackagesUploadComposer | 
+try {
+    ModelPackage result = apiInstance.packagesUploadComposer(owner, repo, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesUploadComposer");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**PackagesUploadComposer**](PackagesUploadComposer.md)|  | [optional]
+
+### Return type
+
+[**ModelPackage**](ModelPackage.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
 <a name="packagesUploadDeb"></a>
 # **packagesUploadDeb**
-> RpmPackageUpload packagesUploadDeb(owner, repo, data)
+> ModelPackage packagesUploadDeb(owner, repo, data)
 
 Create a new Debian package
 
@@ -565,7 +637,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 PackagesUploadDeb data = new PackagesUploadDeb(); // PackagesUploadDeb | 
 try {
-    RpmPackageUpload result = apiInstance.packagesUploadDeb(owner, repo, data);
+    ModelPackage result = apiInstance.packagesUploadDeb(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadDeb");
@@ -583,7 +655,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -666,7 +738,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadPython"></a>
 # **packagesUploadPython**
-> RpmPackageUpload packagesUploadPython(owner, repo, data)
+> ModelPackage packagesUploadPython(owner, repo, data)
 
 Create a new Python package
 
@@ -705,7 +777,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 PackagesUploadPython data = new PackagesUploadPython(); // PackagesUploadPython | 
 try {
-    RpmPackageUpload result = apiInstance.packagesUploadPython(owner, repo, data);
+    ModelPackage result = apiInstance.packagesUploadPython(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadPython");
@@ -723,7 +795,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -806,7 +878,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadRpm"></a>
 # **packagesUploadRpm**
-> RpmPackageUpload packagesUploadRpm(owner, repo, data)
+> ModelPackage packagesUploadRpm(owner, repo, data)
 
 Create a new RedHat package
 
@@ -845,7 +917,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 PackagesUploadRpm data = new PackagesUploadRpm(); // PackagesUploadRpm | 
 try {
-    RpmPackageUpload result = apiInstance.packagesUploadRpm(owner, repo, data);
+    ModelPackage result = apiInstance.packagesUploadRpm(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadRpm");
@@ -863,7 +935,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -876,7 +948,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadRuby"></a>
 # **packagesUploadRuby**
-> RpmPackageUpload packagesUploadRuby(owner, repo, data)
+> ModelPackage packagesUploadRuby(owner, repo, data)
 
 Create a new Ruby package
 
@@ -915,7 +987,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 PackagesUploadRuby data = new PackagesUploadRuby(); // PackagesUploadRuby | 
 try {
-    RpmPackageUpload result = apiInstance.packagesUploadRuby(owner, repo, data);
+    ModelPackage result = apiInstance.packagesUploadRuby(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadRuby");
@@ -933,7 +1005,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -1004,6 +1076,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**VagrantPackageUpload**](VagrantPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="packagesValidateUploadComposer"></a>
+# **packagesValidateUploadComposer**
+> packagesValidateUploadComposer(owner, repo, data)
+
+Validate parameters for create Composer package
+
+Validate parameters for create Composer package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: csrf_token
+ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
+csrf_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//csrf_token.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+PackagesValidateuploadComposer data = new PackagesValidateuploadComposer(); // PackagesValidateuploadComposer | 
+try {
+    apiInstance.packagesValidateUploadComposer(owner, repo, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesValidateUploadComposer");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**PackagesValidateuploadComposer**](PackagesValidateuploadComposer.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

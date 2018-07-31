@@ -27,52 +27,32 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * DistributionVersions
+ * PackagesValidateuploadComposer
  */
 
-public class DistributionVersions implements Serializable {
+public class PackagesValidateuploadComposer implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("slug")
-  private String slug = null;
+  @SerializedName("package_file")
+  private String packageFile = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  public DistributionVersions slug(String slug) {
-    this.slug = slug;
+  public PackagesValidateuploadComposer packageFile(String packageFile) {
+    this.packageFile = packageFile;
     return this;
   }
 
    /**
-   * The slug identifier for this version
-   * @return slug
+   * The primary file for the package.
+   * @return packageFile
   **/
-  @ApiModelProperty(value = "The slug identifier for this version")
-  public String getSlug() {
-    return slug;
+  @NotNull
+  @ApiModelProperty(example = "y123456789", required = true, value = "The primary file for the package.")
+  public String getPackageFile() {
+    return packageFile;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public DistributionVersions name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The textual name for this version.
-   * @return name
-  **/
-  @ApiModelProperty(value = "The textual name for this version.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setPackageFile(String packageFile) {
+    this.packageFile = packageFile;
   }
 
 
@@ -84,24 +64,22 @@ public class DistributionVersions implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DistributionVersions distributionVersions = (DistributionVersions) o;
-    return Objects.equals(this.slug, distributionVersions.slug) &&
-        Objects.equals(this.name, distributionVersions.name);
+    PackagesValidateuploadComposer packagesValidateuploadComposer = (PackagesValidateuploadComposer) o;
+    return Objects.equals(this.packageFile, packagesValidateuploadComposer.packageFile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(slug, name);
+    return Objects.hash(packageFile);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DistributionVersions {\n");
+    sb.append("class PackagesValidateuploadComposer {\n");
     
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

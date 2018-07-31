@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.DistributionVersions;
+import io.cloudsmith.api.models.DistrosVersions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -36,90 +36,26 @@ import javax.validation.Valid;
 public class Distribution implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("self_url")
-  private String selfUrl = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("versions")
-  private List<DistributionVersions> versions = null;
-
   @SerializedName("format")
   private String format = null;
 
   @SerializedName("format_url")
   private String formatUrl = null;
 
-  @SerializedName("variants")
-  private String variants = null;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("self_url")
+  private String selfUrl = null;
 
   @SerializedName("slug")
   private String slug = null;
 
-  public Distribution selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
+  @SerializedName("variants")
+  private String variants = null;
 
-   /**
-   * 
-   * @return selfUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getSelfUrl() {
-    return selfUrl;
-  }
-
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
-
-  public Distribution name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * 
-   * @return name
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Distribution versions(List<DistributionVersions> versions) {
-    this.versions = versions;
-    return this;
-  }
-
-  public Distribution addVersionsItem(DistributionVersions versionsItem) {
-    if (this.versions == null) {
-      this.versions = new ArrayList<DistributionVersions>();
-    }
-    this.versions.add(versionsItem);
-    return this;
-  }
-
-   /**
-   * A list of the versions for this distribution
-   * @return versions
-  **/
-  @Valid
-  @ApiModelProperty(value = "A list of the versions for this distribution")
-  public List<DistributionVersions> getVersions() {
-    return versions;
-  }
-
-  public void setVersions(List<DistributionVersions> versions) {
-    this.versions = versions;
-  }
+  @SerializedName("versions")
+  private List<DistrosVersions> versions = null;
 
   public Distribution format(String format) {
     this.format = format;
@@ -157,22 +93,41 @@ public class Distribution implements Serializable {
     this.formatUrl = formatUrl;
   }
 
-  public Distribution variants(String variants) {
-    this.variants = variants;
+  public Distribution name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
    * 
-   * @return variants
+   * @return name
   **/
-  @ApiModelProperty(value = "")
-  public String getVariants() {
-    return variants;
+  @NotNull
+  @ApiModelProperty(required = true, value = "")
+  public String getName() {
+    return name;
   }
 
-  public void setVariants(String variants) {
-    this.variants = variants;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Distribution selfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return selfUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSelfUrl() {
+    return selfUrl;
+  }
+
+  public void setSelfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
   }
 
   public Distribution slug(String slug) {
@@ -193,6 +148,51 @@ public class Distribution implements Serializable {
     this.slug = slug;
   }
 
+  public Distribution variants(String variants) {
+    this.variants = variants;
+    return this;
+  }
+
+   /**
+   * 
+   * @return variants
+  **/
+  @ApiModelProperty(value = "")
+  public String getVariants() {
+    return variants;
+  }
+
+  public void setVariants(String variants) {
+    this.variants = variants;
+  }
+
+  public Distribution versions(List<DistrosVersions> versions) {
+    this.versions = versions;
+    return this;
+  }
+
+  public Distribution addVersionsItem(DistrosVersions versionsItem) {
+    if (this.versions == null) {
+      this.versions = new ArrayList<DistrosVersions>();
+    }
+    this.versions.add(versionsItem);
+    return this;
+  }
+
+   /**
+   * A list of the versions for this distribution
+   * @return versions
+  **/
+  @Valid
+  @ApiModelProperty(value = "A list of the versions for this distribution")
+  public List<DistrosVersions> getVersions() {
+    return versions;
+  }
+
+  public void setVersions(List<DistrosVersions> versions) {
+    this.versions = versions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -203,18 +203,18 @@ public class Distribution implements Serializable {
       return false;
     }
     Distribution distribution = (Distribution) o;
-    return Objects.equals(this.selfUrl, distribution.selfUrl) &&
-        Objects.equals(this.name, distribution.name) &&
-        Objects.equals(this.versions, distribution.versions) &&
-        Objects.equals(this.format, distribution.format) &&
+    return Objects.equals(this.format, distribution.format) &&
         Objects.equals(this.formatUrl, distribution.formatUrl) &&
+        Objects.equals(this.name, distribution.name) &&
+        Objects.equals(this.selfUrl, distribution.selfUrl) &&
+        Objects.equals(this.slug, distribution.slug) &&
         Objects.equals(this.variants, distribution.variants) &&
-        Objects.equals(this.slug, distribution.slug);
+        Objects.equals(this.versions, distribution.versions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(selfUrl, name, versions, format, formatUrl, variants, slug);
+    return Objects.hash(format, formatUrl, name, selfUrl, slug, variants, versions);
   }
 
 
@@ -223,13 +223,13 @@ public class Distribution implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Distribution {\n");
     
-    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
-    sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
+    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

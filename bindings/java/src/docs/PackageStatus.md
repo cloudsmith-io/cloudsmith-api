@@ -4,21 +4,21 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selfUrl** | **String** |  |  [optional]
-**status** | **String** | The synchronisation status of the package. |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
-**stageUpdatedAt** | **String** | The datetime the package stage was updated at. |  [optional]
-**stageStr** | **String** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]
-**statusUpdatedAt** | **String** | The datetime the package status was updated at. |  [optional]
-**syncFinishedAt** | **String** | The datetime the package sync was finished at. |  [optional]
 **isSyncFailed** | **Boolean** |  |  [optional]
 **isSyncInFlight** | **Boolean** |  |  [optional]
-**statusStr** | **String** |  |  [optional]
-**syncProgress** | **Integer** | Synchronisation progress (from 0-100) |  [optional]
-**statusReason** | **String** | A textual description for the synchronous status reason (if any |  [optional]
 **isSyncInProgress** | **Boolean** |  |  [optional]
+**selfUrl** | **String** |  |  [optional]
 **stage** | **String** | The synchronisation (in progress) stage of the package. |  [optional]
+**stageStr** | **String** |  |  [optional]
+**stageUpdatedAt** | **String** | The datetime the package stage was updated at. |  [optional]
+**status** | **String** | The synchronisation status of the package. |  [optional]
+**statusReason** | **String** | A textual description for the synchronous status reason (if any |  [optional]
+**statusStr** | **String** |  |  [optional]
+**statusUpdatedAt** | **String** | The datetime the package status was updated at. |  [optional]
+**syncFinishedAt** | **String** | The datetime the package sync was finished at. |  [optional]
+**syncProgress** | **Integer** | Synchronisation progress (from 0-100) |  [optional]
 
 
 

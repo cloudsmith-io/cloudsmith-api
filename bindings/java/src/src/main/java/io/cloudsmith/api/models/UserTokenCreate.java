@@ -33,29 +33,11 @@ import javax.validation.Valid;
 public class UserTokenCreate implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("password")
-  private String password = null;
-
   @SerializedName("email")
   private String email = null;
 
-  public UserTokenCreate password(String password) {
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Password to authenticate with
-   * @return password
-  **/
-  @ApiModelProperty(value = "Password to authenticate with")
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
+  @SerializedName("password")
+  private String password = null;
 
   public UserTokenCreate email(String email) {
     this.email = email;
@@ -75,6 +57,24 @@ public class UserTokenCreate implements Serializable {
     this.email = email;
   }
 
+  public UserTokenCreate password(String password) {
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Password to authenticate with
+   * @return password
+  **/
+  @ApiModelProperty(value = "Password to authenticate with")
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,13 +85,13 @@ public class UserTokenCreate implements Serializable {
       return false;
     }
     UserTokenCreate userTokenCreate = (UserTokenCreate) o;
-    return Objects.equals(this.password, userTokenCreate.password) &&
-        Objects.equals(this.email, userTokenCreate.email);
+    return Objects.equals(this.email, userTokenCreate.email) &&
+        Objects.equals(this.password, userTokenCreate.password);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, email);
+    return Objects.hash(email, password);
   }
 
 
@@ -100,8 +100,8 @@ public class UserTokenCreate implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserTokenCreate {\n");
     
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");
     return sb.toString();
   }

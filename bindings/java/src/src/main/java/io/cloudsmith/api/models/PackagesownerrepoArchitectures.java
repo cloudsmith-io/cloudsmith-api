@@ -27,79 +27,37 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * FormatDistributions
+ * PackagesownerrepoArchitectures
  */
 
-public class FormatDistributions implements Serializable {
+public class PackagesownerrepoArchitectures implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("self_url")
-  private String selfUrl = null;
-
-  @SerializedName("variants")
-  private String variants = null;
-
-  @SerializedName("slug")
-  private String slug = null;
+  @SerializedName("description")
+  private String description = null;
 
   @SerializedName("name")
   private String name = null;
 
-  public FormatDistributions selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
+  public PackagesownerrepoArchitectures description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
    * 
-   * @return selfUrl
+   * @return description
   **/
   @ApiModelProperty(value = "")
-  public String getSelfUrl() {
-    return selfUrl;
+  public String getDescription() {
+    return description;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public FormatDistributions variants(String variants) {
-    this.variants = variants;
-    return this;
-  }
-
-   /**
-   * 
-   * @return variants
-  **/
-  @ApiModelProperty(value = "")
-  public String getVariants() {
-    return variants;
-  }
-
-  public void setVariants(String variants) {
-    this.variants = variants;
-  }
-
-  public FormatDistributions slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * The slug identifier for this distribution
-   * @return slug
-  **/
-  @ApiModelProperty(value = "The slug identifier for this distribution")
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public FormatDistributions name(String name) {
+  public PackagesownerrepoArchitectures name(String name) {
     this.name = name;
     return this;
   }
@@ -126,27 +84,23 @@ public class FormatDistributions implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormatDistributions formatDistributions = (FormatDistributions) o;
-    return Objects.equals(this.selfUrl, formatDistributions.selfUrl) &&
-        Objects.equals(this.variants, formatDistributions.variants) &&
-        Objects.equals(this.slug, formatDistributions.slug) &&
-        Objects.equals(this.name, formatDistributions.name);
+    PackagesownerrepoArchitectures packagesownerrepoArchitectures = (PackagesownerrepoArchitectures) o;
+    return Objects.equals(this.description, packagesownerrepoArchitectures.description) &&
+        Objects.equals(this.name, packagesownerrepoArchitectures.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(selfUrl, variants, slug, name);
+    return Objects.hash(description, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FormatDistributions {\n");
+    sb.append("class PackagesownerrepoArchitectures {\n");
     
-    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
-    sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();

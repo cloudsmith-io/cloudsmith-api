@@ -33,44 +33,26 @@ import javax.validation.Valid;
 public class UserBrief implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("self_url")
-  private String selfUrl = null;
-
   @SerializedName("authenticated")
   private Boolean authenticated = null;
-
-  @SerializedName("name")
-  private String name = null;
 
   @SerializedName("email")
   private String email = null;
 
-  @SerializedName("slug_perm")
-  private String slugPerm = null;
-
-  @SerializedName("slug")
-  private String slug = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("profile_url")
   private String profileUrl = null;
 
-  public UserBrief selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
+  @SerializedName("self_url")
+  private String selfUrl = null;
 
-   /**
-   * 
-   * @return selfUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getSelfUrl() {
-    return selfUrl;
-  }
+  @SerializedName("slug")
+  private String slug = null;
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
+  @SerializedName("slug_perm")
+  private String slugPerm = null;
 
   public UserBrief authenticated(Boolean authenticated) {
     this.authenticated = authenticated;
@@ -88,24 +70,6 @@ public class UserBrief implements Serializable {
 
   public void setAuthenticated(Boolean authenticated) {
     this.authenticated = authenticated;
-  }
-
-  public UserBrief name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The full name of the user (if any).
-   * @return name
-  **/
-  @ApiModelProperty(example = "Example User", value = "The full name of the user (if any).")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public UserBrief email(String email) {
@@ -126,40 +90,22 @@ public class UserBrief implements Serializable {
     this.email = email;
   }
 
-  public UserBrief slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
+  public UserBrief name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * 
-   * @return slugPerm
+   * The full name of the user (if any).
+   * @return name
   **/
-  @ApiModelProperty(example = "x1y2z3z4y", value = "")
-  public String getSlugPerm() {
-    return slugPerm;
+  @ApiModelProperty(example = "Example User", value = "The full name of the user (if any).")
+  public String getName() {
+    return name;
   }
 
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-  }
-
-  public UserBrief slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * 
-   * @return slug
-  **/
-  @ApiModelProperty(example = "example-user", value = "")
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public UserBrief profileUrl(String profileUrl) {
@@ -180,6 +126,60 @@ public class UserBrief implements Serializable {
     this.profileUrl = profileUrl;
   }
 
+  public UserBrief selfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return selfUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSelfUrl() {
+    return selfUrl;
+  }
+
+  public void setSelfUrl(String selfUrl) {
+    this.selfUrl = selfUrl;
+  }
+
+  public UserBrief slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+   /**
+   * 
+   * @return slug
+  **/
+  @ApiModelProperty(example = "example-user", value = "")
+  public String getSlug() {
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
+  }
+
+  public UserBrief slugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+    return this;
+  }
+
+   /**
+   * 
+   * @return slugPerm
+  **/
+  @ApiModelProperty(example = "x1y2z3z4y", value = "")
+  public String getSlugPerm() {
+    return slugPerm;
+  }
+
+  public void setSlugPerm(String slugPerm) {
+    this.slugPerm = slugPerm;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -190,18 +190,18 @@ public class UserBrief implements Serializable {
       return false;
     }
     UserBrief userBrief = (UserBrief) o;
-    return Objects.equals(this.selfUrl, userBrief.selfUrl) &&
-        Objects.equals(this.authenticated, userBrief.authenticated) &&
-        Objects.equals(this.name, userBrief.name) &&
+    return Objects.equals(this.authenticated, userBrief.authenticated) &&
         Objects.equals(this.email, userBrief.email) &&
-        Objects.equals(this.slugPerm, userBrief.slugPerm) &&
+        Objects.equals(this.name, userBrief.name) &&
+        Objects.equals(this.profileUrl, userBrief.profileUrl) &&
+        Objects.equals(this.selfUrl, userBrief.selfUrl) &&
         Objects.equals(this.slug, userBrief.slug) &&
-        Objects.equals(this.profileUrl, userBrief.profileUrl);
+        Objects.equals(this.slugPerm, userBrief.slugPerm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(selfUrl, authenticated, name, email, slugPerm, slug, profileUrl);
+    return Objects.hash(authenticated, email, name, profileUrl, selfUrl, slug, slugPerm);
   }
 
 
@@ -210,13 +210,13 @@ public class UserBrief implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserBrief {\n");
     
-    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    authenticated: ").append(toIndentedString(authenticated)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    profileUrl: ").append(toIndentedString(profileUrl)).append("\n");
+    sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("}");
     return sb.toString();
   }

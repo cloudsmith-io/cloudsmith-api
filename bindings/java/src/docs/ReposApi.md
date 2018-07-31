@@ -4,13 +4,82 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reposList**](ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**reposList**](ReposApi.md#reposList) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**reposList0**](ReposApi.md#reposList0) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**reposRead**](ReposApi.md#reposRead) | **GET** /repos/{owner}/{slug}/ | Views for working with repositories.
 
 
 <a name="reposList"></a>
 # **reposList**
-> List&lt;Repository&gt; reposList(owner, page, pageSize)
+> List&lt;Repository&gt; reposList(page, pageSize)
+
+Get a list of all repositories associated with current user.
+
+Get a list of all repositories associated with current user.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: csrf_token
+ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
+csrf_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//csrf_token.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+Integer page = 56; // Integer | A page number within the paginated result set.
+Integer pageSize = 56; // Integer | Number of results to return per page.
+try {
+    List<Repository> result = apiInstance.reposList(page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| A page number within the paginated result set. | [optional]
+ **pageSize** | **Integer**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;Repository&gt;**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="reposList0"></a>
+# **reposList0**
+> List&lt;Repository&gt; reposList0(owner, page, pageSize)
 
 Get a list of all repositories within a namespace.
 
@@ -49,10 +118,10 @@ String owner = "owner_example"; // String |
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<Repository> result = apiInstance.reposList(owner, page, pageSize);
+    List<Repository> result = apiInstance.reposList0(owner, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReposApi#reposList");
+    System.err.println("Exception when calling ReposApi#reposList0");
     e.printStackTrace();
 }
 ```

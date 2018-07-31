@@ -36,8 +36,14 @@ public class PackagesValidateuploadMaven implements Serializable {
   @SerializedName("artifact_id")
   private String artifactId = null;
 
-  @SerializedName("sources_file")
-  private String sourcesFile = null;
+  @SerializedName("group_id")
+  private String groupId = null;
+
+  @SerializedName("javadoc_file")
+  private String javadocFile = null;
+
+  @SerializedName("package_file")
+  private String packageFile = null;
 
   @SerializedName("packaging")
   private String packaging = null;
@@ -45,17 +51,11 @@ public class PackagesValidateuploadMaven implements Serializable {
   @SerializedName("pom_file")
   private String pomFile = null;
 
-  @SerializedName("javadoc_file")
-  private String javadocFile = null;
+  @SerializedName("sources_file")
+  private String sourcesFile = null;
 
   @SerializedName("version")
   private String version = null;
-
-  @SerializedName("group_id")
-  private String groupId = null;
-
-  @SerializedName("package_file")
-  private String packageFile = null;
 
   public PackagesValidateuploadMaven artifactId(String artifactId) {
     this.artifactId = artifactId;
@@ -75,22 +75,59 @@ public class PackagesValidateuploadMaven implements Serializable {
     this.artifactId = artifactId;
   }
 
-  public PackagesValidateuploadMaven sourcesFile(String sourcesFile) {
-    this.sourcesFile = sourcesFile;
+  public PackagesValidateuploadMaven groupId(String groupId) {
+    this.groupId = groupId;
     return this;
   }
 
    /**
-   * Adds bundled Java source code to the Maven package.
-   * @return sourcesFile
+   * Artifact&#39;s group ID.
+   * @return groupId
   **/
-  @ApiModelProperty(example = "y1234456789d", value = "Adds bundled Java source code to the Maven package.")
-  public String getSourcesFile() {
-    return sourcesFile;
+  @ApiModelProperty(example = "io.cloudsmith.example", value = "Artifact's group ID.")
+  public String getGroupId() {
+    return groupId;
   }
 
-  public void setSourcesFile(String sourcesFile) {
-    this.sourcesFile = sourcesFile;
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  public PackagesValidateuploadMaven javadocFile(String javadocFile) {
+    this.javadocFile = javadocFile;
+    return this;
+  }
+
+   /**
+   * Adds bundled Java documentation to the Maven package
+   * @return javadocFile
+  **/
+  @ApiModelProperty(example = "y1234456789c", value = "Adds bundled Java documentation to the Maven package")
+  public String getJavadocFile() {
+    return javadocFile;
+  }
+
+  public void setJavadocFile(String javadocFile) {
+    this.javadocFile = javadocFile;
+  }
+
+  public PackagesValidateuploadMaven packageFile(String packageFile) {
+    this.packageFile = packageFile;
+    return this;
+  }
+
+   /**
+   * The primary file for the package.
+   * @return packageFile
+  **/
+  @NotNull
+  @ApiModelProperty(example = "y1234456789a", required = true, value = "The primary file for the package.")
+  public String getPackageFile() {
+    return packageFile;
+  }
+
+  public void setPackageFile(String packageFile) {
+    this.packageFile = packageFile;
   }
 
   public PackagesValidateuploadMaven packaging(String packaging) {
@@ -129,22 +166,22 @@ public class PackagesValidateuploadMaven implements Serializable {
     this.pomFile = pomFile;
   }
 
-  public PackagesValidateuploadMaven javadocFile(String javadocFile) {
-    this.javadocFile = javadocFile;
+  public PackagesValidateuploadMaven sourcesFile(String sourcesFile) {
+    this.sourcesFile = sourcesFile;
     return this;
   }
 
    /**
-   * Adds bundled Java documentation to the Maven package
-   * @return javadocFile
+   * Adds bundled Java source code to the Maven package.
+   * @return sourcesFile
   **/
-  @ApiModelProperty(example = "y1234456789c", value = "Adds bundled Java documentation to the Maven package")
-  public String getJavadocFile() {
-    return javadocFile;
+  @ApiModelProperty(example = "y1234456789d", value = "Adds bundled Java source code to the Maven package.")
+  public String getSourcesFile() {
+    return sourcesFile;
   }
 
-  public void setJavadocFile(String javadocFile) {
-    this.javadocFile = javadocFile;
+  public void setSourcesFile(String sourcesFile) {
+    this.sourcesFile = sourcesFile;
   }
 
   public PackagesValidateuploadMaven version(String version) {
@@ -165,43 +202,6 @@ public class PackagesValidateuploadMaven implements Serializable {
     this.version = version;
   }
 
-  public PackagesValidateuploadMaven groupId(String groupId) {
-    this.groupId = groupId;
-    return this;
-  }
-
-   /**
-   * Artifact&#39;s group ID.
-   * @return groupId
-  **/
-  @ApiModelProperty(example = "io.cloudsmith.example", value = "Artifact's group ID.")
-  public String getGroupId() {
-    return groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public PackagesValidateuploadMaven packageFile(String packageFile) {
-    this.packageFile = packageFile;
-    return this;
-  }
-
-   /**
-   * The primary file for the package.
-   * @return packageFile
-  **/
-  @NotNull
-  @ApiModelProperty(example = "y1234456789a", required = true, value = "The primary file for the package.")
-  public String getPackageFile() {
-    return packageFile;
-  }
-
-  public void setPackageFile(String packageFile) {
-    this.packageFile = packageFile;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -213,18 +213,18 @@ public class PackagesValidateuploadMaven implements Serializable {
     }
     PackagesValidateuploadMaven packagesValidateuploadMaven = (PackagesValidateuploadMaven) o;
     return Objects.equals(this.artifactId, packagesValidateuploadMaven.artifactId) &&
-        Objects.equals(this.sourcesFile, packagesValidateuploadMaven.sourcesFile) &&
+        Objects.equals(this.groupId, packagesValidateuploadMaven.groupId) &&
+        Objects.equals(this.javadocFile, packagesValidateuploadMaven.javadocFile) &&
+        Objects.equals(this.packageFile, packagesValidateuploadMaven.packageFile) &&
         Objects.equals(this.packaging, packagesValidateuploadMaven.packaging) &&
         Objects.equals(this.pomFile, packagesValidateuploadMaven.pomFile) &&
-        Objects.equals(this.javadocFile, packagesValidateuploadMaven.javadocFile) &&
-        Objects.equals(this.version, packagesValidateuploadMaven.version) &&
-        Objects.equals(this.groupId, packagesValidateuploadMaven.groupId) &&
-        Objects.equals(this.packageFile, packagesValidateuploadMaven.packageFile);
+        Objects.equals(this.sourcesFile, packagesValidateuploadMaven.sourcesFile) &&
+        Objects.equals(this.version, packagesValidateuploadMaven.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, sourcesFile, packaging, pomFile, javadocFile, version, groupId, packageFile);
+    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, sourcesFile, version);
   }
 
 
@@ -234,13 +234,13 @@ public class PackagesValidateuploadMaven implements Serializable {
     sb.append("class PackagesValidateuploadMaven {\n");
     
     sb.append("    artifactId: ").append(toIndentedString(artifactId)).append("\n");
-    sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    javadocFile: ").append(toIndentedString(javadocFile)).append("\n");
+    sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
     sb.append("    pomFile: ").append(toIndentedString(pomFile)).append("\n");
-    sb.append("    javadocFile: ").append(toIndentedString(javadocFile)).append("\n");
+    sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
-    sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

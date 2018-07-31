@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selfUrl** | **String** |  |  [optional]
-**name** | **String** |  | 
-**versions** | [**List&lt;DistributionVersions&gt;**](DistributionVersions.md) | A list of the versions for this distribution |  [optional]
 **format** | **String** |  |  [optional]
 **formatUrl** | **String** |  |  [optional]
-**variants** | **String** |  |  [optional]
+**name** | **String** |  | 
+**selfUrl** | **String** |  |  [optional]
 **slug** | **String** | The slug identifier for this distribution |  [optional]
+**variants** | **String** |  |  [optional]
+**versions** | [**List&lt;DistrosVersions&gt;**](DistrosVersions.md) | A list of the versions for this distribution |  [optional]
 
 
 

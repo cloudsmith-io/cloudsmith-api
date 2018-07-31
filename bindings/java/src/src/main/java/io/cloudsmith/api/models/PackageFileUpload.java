@@ -33,32 +33,14 @@ import javax.validation.Valid;
 public class PackageFileUpload implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("upload_fields")
-  private Object uploadFields = null;
-
   @SerializedName("identifier")
   private String identifier = null;
 
+  @SerializedName("upload_fields")
+  private Object uploadFields = null;
+
   @SerializedName("upload_url")
   private String uploadUrl = null;
-
-  public PackageFileUpload uploadFields(Object uploadFields) {
-    this.uploadFields = uploadFields;
-    return this;
-  }
-
-   /**
-   * The dictionary of fields that must be sent with POST uploads
-   * @return uploadFields
-  **/
-  @ApiModelProperty(value = "The dictionary of fields that must be sent with POST uploads")
-  public Object getUploadFields() {
-    return uploadFields;
-  }
-
-  public void setUploadFields(Object uploadFields) {
-    this.uploadFields = uploadFields;
-  }
 
   public PackageFileUpload identifier(String identifier) {
     this.identifier = identifier;
@@ -76,6 +58,24 @@ public class PackageFileUpload implements Serializable {
 
   public void setIdentifier(String identifier) {
     this.identifier = identifier;
+  }
+
+  public PackageFileUpload uploadFields(Object uploadFields) {
+    this.uploadFields = uploadFields;
+    return this;
+  }
+
+   /**
+   * The dictionary of fields that must be sent with POST uploads
+   * @return uploadFields
+  **/
+  @ApiModelProperty(value = "The dictionary of fields that must be sent with POST uploads")
+  public Object getUploadFields() {
+    return uploadFields;
+  }
+
+  public void setUploadFields(Object uploadFields) {
+    this.uploadFields = uploadFields;
   }
 
   public PackageFileUpload uploadUrl(String uploadUrl) {
@@ -106,14 +106,14 @@ public class PackageFileUpload implements Serializable {
       return false;
     }
     PackageFileUpload packageFileUpload = (PackageFileUpload) o;
-    return Objects.equals(this.uploadFields, packageFileUpload.uploadFields) &&
-        Objects.equals(this.identifier, packageFileUpload.identifier) &&
+    return Objects.equals(this.identifier, packageFileUpload.identifier) &&
+        Objects.equals(this.uploadFields, packageFileUpload.uploadFields) &&
         Objects.equals(this.uploadUrl, packageFileUpload.uploadUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uploadFields, identifier, uploadUrl);
+    return Objects.hash(identifier, uploadFields, uploadUrl);
   }
 
 
@@ -122,8 +122,8 @@ public class PackageFileUpload implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackageFileUpload {\n");
     
-    sb.append("    uploadFields: ").append(toIndentedString(uploadFields)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    uploadFields: ").append(toIndentedString(uploadFields)).append("\n");
     sb.append("    uploadUrl: ").append(toIndentedString(uploadUrl)).append("\n");
     sb.append("}");
     return sb.toString();

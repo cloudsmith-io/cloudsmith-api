@@ -33,30 +33,11 @@ import javax.validation.Valid;
 public class FilesValidate implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("md5_checksum")
-  private String md5Checksum = null;
-
   @SerializedName("filename")
   private String filename = null;
 
-  public FilesValidate md5Checksum(String md5Checksum) {
-    this.md5Checksum = md5Checksum;
-    return this;
-  }
-
-   /**
-   * MD5 checksum for the package file upload.
-   * @return md5Checksum
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "MD5 checksum for the package file upload.")
-  public String getMd5Checksum() {
-    return md5Checksum;
-  }
-
-  public void setMd5Checksum(String md5Checksum) {
-    this.md5Checksum = md5Checksum;
-  }
+  @SerializedName("md5_checksum")
+  private String md5Checksum = null;
 
   public FilesValidate filename(String filename) {
     this.filename = filename;
@@ -77,6 +58,25 @@ public class FilesValidate implements Serializable {
     this.filename = filename;
   }
 
+  public FilesValidate md5Checksum(String md5Checksum) {
+    this.md5Checksum = md5Checksum;
+    return this;
+  }
+
+   /**
+   * MD5 checksum for the package file upload.
+   * @return md5Checksum
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "MD5 checksum for the package file upload.")
+  public String getMd5Checksum() {
+    return md5Checksum;
+  }
+
+  public void setMd5Checksum(String md5Checksum) {
+    this.md5Checksum = md5Checksum;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,13 +87,13 @@ public class FilesValidate implements Serializable {
       return false;
     }
     FilesValidate filesValidate = (FilesValidate) o;
-    return Objects.equals(this.md5Checksum, filesValidate.md5Checksum) &&
-        Objects.equals(this.filename, filesValidate.filename);
+    return Objects.equals(this.filename, filesValidate.filename) &&
+        Objects.equals(this.md5Checksum, filesValidate.md5Checksum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(md5Checksum, filename);
+    return Objects.hash(filename, md5Checksum);
   }
 
 
@@ -102,8 +102,8 @@ public class FilesValidate implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilesValidate {\n");
     
-    sb.append("    md5Checksum: ").append(toIndentedString(md5Checksum)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    md5Checksum: ").append(toIndentedString(md5Checksum)).append("\n");
     sb.append("}");
     return sb.toString();
   }

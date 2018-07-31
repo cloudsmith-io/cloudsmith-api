@@ -33,8 +33,17 @@ import javax.validation.Valid;
 public class UserProfile implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("company")
+  private String company = null;
+
   @SerializedName("first_name")
   private String firstName = null;
+
+  @SerializedName("job_title")
+  private String jobTitle = null;
+
+  @SerializedName("joined_at")
+  private String joinedAt = null;
 
   @SerializedName("last_name")
   private String lastName = null;
@@ -42,26 +51,35 @@ public class UserProfile implements Serializable {
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("url")
-  private String url = null;
-
-  @SerializedName("tagline")
-  private String tagline = null;
-
-  @SerializedName("company")
-  private String company = null;
-
-  @SerializedName("joined_at")
-  private String joinedAt = null;
+  @SerializedName("slug")
+  private String slug = null;
 
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+  @SerializedName("tagline")
+  private String tagline = null;
 
-  @SerializedName("job_title")
-  private String jobTitle = null;
+  @SerializedName("url")
+  private String url = null;
+
+  public UserProfile company(String company) {
+    this.company = company;
+    return this;
+  }
+
+   /**
+   * 
+   * @return company
+  **/
+  @ApiModelProperty(value = "")
+  public String getCompany() {
+    return company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
 
   public UserProfile firstName(String firstName) {
     this.firstName = firstName;
@@ -80,6 +98,42 @@ public class UserProfile implements Serializable {
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+  }
+
+  public UserProfile jobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+    return this;
+  }
+
+   /**
+   * 
+   * @return jobTitle
+  **/
+  @ApiModelProperty(value = "")
+  public String getJobTitle() {
+    return jobTitle;
+  }
+
+  public void setJobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public UserProfile joinedAt(String joinedAt) {
+    this.joinedAt = joinedAt;
+    return this;
+  }
+
+   /**
+   * 
+   * @return joinedAt
+  **/
+  @ApiModelProperty(value = "")
+  public String getJoinedAt() {
+    return joinedAt;
+  }
+
+  public void setJoinedAt(String joinedAt) {
+    this.joinedAt = joinedAt;
   }
 
   public UserProfile lastName(String lastName) {
@@ -119,76 +173,22 @@ public class UserProfile implements Serializable {
     this.name = name;
   }
 
-  public UserProfile url(String url) {
-    this.url = url;
+  public UserProfile slug(String slug) {
+    this.slug = slug;
     return this;
   }
 
    /**
    * 
-   * @return url
+   * @return slug
   **/
   @ApiModelProperty(value = "")
-  public String getUrl() {
-    return url;
+  public String getSlug() {
+    return slug;
   }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public UserProfile tagline(String tagline) {
-    this.tagline = tagline;
-    return this;
-  }
-
-   /**
-   * Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it&#39;s public and it represents who you are.
-   * @return tagline
-  **/
-  @ApiModelProperty(value = "Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.")
-  public String getTagline() {
-    return tagline;
-  }
-
-  public void setTagline(String tagline) {
-    this.tagline = tagline;
-  }
-
-  public UserProfile company(String company) {
-    this.company = company;
-    return this;
-  }
-
-   /**
-   * 
-   * @return company
-  **/
-  @ApiModelProperty(value = "")
-  public String getCompany() {
-    return company;
-  }
-
-  public void setCompany(String company) {
-    this.company = company;
-  }
-
-  public UserProfile joinedAt(String joinedAt) {
-    this.joinedAt = joinedAt;
-    return this;
-  }
-
-   /**
-   * 
-   * @return joinedAt
-  **/
-  @ApiModelProperty(value = "")
-  public String getJoinedAt() {
-    return joinedAt;
-  }
-
-  public void setJoinedAt(String joinedAt) {
-    this.joinedAt = joinedAt;
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 
   public UserProfile slugPerm(String slugPerm) {
@@ -209,40 +209,40 @@ public class UserProfile implements Serializable {
     this.slugPerm = slugPerm;
   }
 
-  public UserProfile slug(String slug) {
-    this.slug = slug;
+  public UserProfile tagline(String tagline) {
+    this.tagline = tagline;
+    return this;
+  }
+
+   /**
+   * Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it&#39;s public and it represents who you are.
+   * @return tagline
+  **/
+  @ApiModelProperty(value = "Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.")
+  public String getTagline() {
+    return tagline;
+  }
+
+  public void setTagline(String tagline) {
+    this.tagline = tagline;
+  }
+
+  public UserProfile url(String url) {
+    this.url = url;
     return this;
   }
 
    /**
    * 
-   * @return slug
+   * @return url
   **/
   @ApiModelProperty(value = "")
-  public String getSlug() {
-    return slug;
+  public String getUrl() {
+    return url;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public UserProfile jobTitle(String jobTitle) {
-    this.jobTitle = jobTitle;
-    return this;
-  }
-
-   /**
-   * 
-   * @return jobTitle
-  **/
-  @ApiModelProperty(value = "")
-  public String getJobTitle() {
-    return jobTitle;
-  }
-
-  public void setJobTitle(String jobTitle) {
-    this.jobTitle = jobTitle;
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -255,21 +255,21 @@ public class UserProfile implements Serializable {
       return false;
     }
     UserProfile userProfile = (UserProfile) o;
-    return Objects.equals(this.firstName, userProfile.firstName) &&
+    return Objects.equals(this.company, userProfile.company) &&
+        Objects.equals(this.firstName, userProfile.firstName) &&
+        Objects.equals(this.jobTitle, userProfile.jobTitle) &&
+        Objects.equals(this.joinedAt, userProfile.joinedAt) &&
         Objects.equals(this.lastName, userProfile.lastName) &&
         Objects.equals(this.name, userProfile.name) &&
-        Objects.equals(this.url, userProfile.url) &&
-        Objects.equals(this.tagline, userProfile.tagline) &&
-        Objects.equals(this.company, userProfile.company) &&
-        Objects.equals(this.joinedAt, userProfile.joinedAt) &&
-        Objects.equals(this.slugPerm, userProfile.slugPerm) &&
         Objects.equals(this.slug, userProfile.slug) &&
-        Objects.equals(this.jobTitle, userProfile.jobTitle);
+        Objects.equals(this.slugPerm, userProfile.slugPerm) &&
+        Objects.equals(this.tagline, userProfile.tagline) &&
+        Objects.equals(this.url, userProfile.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, name, url, tagline, company, joinedAt, slugPerm, slug, jobTitle);
+    return Objects.hash(company, firstName, jobTitle, joinedAt, lastName, name, slug, slugPerm, tagline, url);
   }
 
 
@@ -278,16 +278,16 @@ public class UserProfile implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserProfile {\n");
     
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
+    sb.append("    joinedAt: ").append(toIndentedString(joinedAt)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    tagline: ").append(toIndentedString(tagline)).append("\n");
-    sb.append("    company: ").append(toIndentedString(company)).append("\n");
-    sb.append("    joinedAt: ").append(toIndentedString(joinedAt)).append("\n");
-    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
+    sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    tagline: ").append(toIndentedString(tagline)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

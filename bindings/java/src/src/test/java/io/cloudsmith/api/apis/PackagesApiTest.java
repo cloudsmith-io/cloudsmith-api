@@ -15,11 +15,13 @@ package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.MavenPackageUpload;
+import io.cloudsmith.api.models.ModelPackage;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackagesCopy;
 import io.cloudsmith.api.models.PackagesMove;
+import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadDeb;
 import io.cloudsmith.api.models.PackagesUploadMaven;
 import io.cloudsmith.api.models.PackagesUploadPython;
@@ -27,6 +29,7 @@ import io.cloudsmith.api.models.PackagesUploadRaw;
 import io.cloudsmith.api.models.PackagesUploadRpm;
 import io.cloudsmith.api.models.PackagesUploadRuby;
 import io.cloudsmith.api.models.PackagesUploadVagrant;
+import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
 import io.cloudsmith.api.models.PackagesValidateuploadMaven;
 import io.cloudsmith.api.models.PackagesValidateuploadPython;
@@ -35,7 +38,6 @@ import io.cloudsmith.api.models.PackagesValidateuploadRpm;
 import io.cloudsmith.api.models.PackagesValidateuploadRuby;
 import io.cloudsmith.api.models.PackagesValidateuploadVagrant;
 import io.cloudsmith.api.models.RawPackageUpload;
-import io.cloudsmith.api.models.RpmPackageUpload;
 import io.cloudsmith.api.models.Status;
 import io.cloudsmith.api.models.VagrantPackageUpload;
 import org.junit.Test;
@@ -67,9 +69,9 @@ public class PackagesApiTest {
     public void packagesCopyTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slug = null;
+        String identifier = null;
         PackagesCopy data = null;
-        PackageCopy response = api.packagesCopy(owner, repo, slug, data);
+        PackageCopy response = api.packagesCopy(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -86,8 +88,8 @@ public class PackagesApiTest {
     public void packagesDeleteTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slug = null;
-        api.packagesDelete(owner, repo, slug);
+        String identifier = null;
+        api.packagesDelete(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -107,7 +109,7 @@ public class PackagesApiTest {
         Integer page = null;
         Integer pageSize = null;
         String query = null;
-        List<RpmPackageUpload> response = api.packagesList(owner, repo, page, pageSize, query);
+        List<ModelPackage> response = api.packagesList(owner, repo, page, pageSize, query);
 
         // TODO: test validations
     }
@@ -124,9 +126,9 @@ public class PackagesApiTest {
     public void packagesMoveTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slug = null;
+        String identifier = null;
         PackagesMove data = null;
-        PackageMove response = api.packagesMove(owner, repo, slug, data);
+        PackageMove response = api.packagesMove(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -143,8 +145,8 @@ public class PackagesApiTest {
     public void packagesReadTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slug = null;
-        RpmPackageUpload response = api.packagesRead(owner, repo, slug);
+        String identifier = null;
+        ModelPackage response = api.packagesRead(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -161,8 +163,8 @@ public class PackagesApiTest {
     public void packagesResyncTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slug = null;
-        RpmPackageUpload response = api.packagesResync(owner, repo, slug);
+        String identifier = null;
+        ModelPackage response = api.packagesResync(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -179,8 +181,26 @@ public class PackagesApiTest {
     public void packagesStatusTest() throws ApiException {
         String owner = null;
         String repo = null;
-        String slug = null;
-        PackageStatus response = api.packagesStatus(owner, repo, slug);
+        String identifier = null;
+        PackageStatus response = api.packagesStatus(owner, repo, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Composer package
+     *
+     * Create a new Composer package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadComposerTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadComposer data = null;
+        ModelPackage response = api.packagesUploadComposer(owner, repo, data);
 
         // TODO: test validations
     }
@@ -198,7 +218,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadDeb data = null;
-        RpmPackageUpload response = api.packagesUploadDeb(owner, repo, data);
+        ModelPackage response = api.packagesUploadDeb(owner, repo, data);
 
         // TODO: test validations
     }
@@ -234,7 +254,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadPython data = null;
-        RpmPackageUpload response = api.packagesUploadPython(owner, repo, data);
+        ModelPackage response = api.packagesUploadPython(owner, repo, data);
 
         // TODO: test validations
     }
@@ -270,7 +290,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadRpm data = null;
-        RpmPackageUpload response = api.packagesUploadRpm(owner, repo, data);
+        ModelPackage response = api.packagesUploadRpm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -288,7 +308,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadRuby data = null;
-        RpmPackageUpload response = api.packagesUploadRuby(owner, repo, data);
+        ModelPackage response = api.packagesUploadRuby(owner, repo, data);
 
         // TODO: test validations
     }
@@ -307,6 +327,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesUploadVagrant data = null;
         VagrantPackageUpload response = api.packagesUploadVagrant(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Composer package
+     *
+     * Validate parameters for create Composer package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadComposerTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadComposer data = null;
+        api.packagesValidateUploadComposer(owner, repo, data);
 
         // TODO: test validations
     }
