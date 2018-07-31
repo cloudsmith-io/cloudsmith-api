@@ -16,50 +16,50 @@ module CloudsmithApi
 
   class Distribution
     # 
-    attr_accessor :self_url
-
-    # 
-    attr_accessor :name
-
-    # A list of the versions for this distribution
-    attr_accessor :versions
-
-    # 
     attr_accessor :format
 
     # 
     attr_accessor :format_url
 
     # 
-    attr_accessor :variants
+    attr_accessor :name
+
+    # 
+    attr_accessor :self_url
 
     # The slug identifier for this distribution
     attr_accessor :slug
+
+    # 
+    attr_accessor :variants
+
+    # A list of the versions for this distribution
+    attr_accessor :versions
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'self_url' => :'self_url',
-        :'name' => :'name',
-        :'versions' => :'versions',
         :'format' => :'format',
         :'format_url' => :'format_url',
+        :'name' => :'name',
+        :'self_url' => :'self_url',
+        :'slug' => :'slug',
         :'variants' => :'variants',
-        :'slug' => :'slug'
+        :'versions' => :'versions'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'self_url' => :'String',
-        :'name' => :'String',
-        :'versions' => :'Array<DistributionVersions>',
         :'format' => :'String',
         :'format_url' => :'String',
+        :'name' => :'String',
+        :'self_url' => :'String',
+        :'slug' => :'String',
         :'variants' => :'String',
-        :'slug' => :'String'
+        :'versions' => :'Array<DistrosVersions>'
       }
     end
 
@@ -71,20 +71,6 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'versions')
-        if (value = attributes[:'versions']).is_a?(Array)
-          self.versions = value
-        end
-      end
-
       if attributes.has_key?(:'format')
         self.format = attributes[:'format']
       end
@@ -93,12 +79,26 @@ module CloudsmithApi
         self.format_url = attributes[:'format_url']
       end
 
-      if attributes.has_key?(:'variants')
-        self.variants = attributes[:'variants']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'self_url')
+        self.self_url = attributes[:'self_url']
       end
 
       if attributes.has_key?(:'slug')
         self.slug = attributes[:'slug']
+      end
+
+      if attributes.has_key?(:'variants')
+        self.variants = attributes[:'variants']
+      end
+
+      if attributes.has_key?(:'versions')
+        if (value = attributes[:'versions']).is_a?(Array)
+          self.versions = value
+        end
       end
 
     end
@@ -126,13 +126,13 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          self_url == o.self_url &&
-          name == o.name &&
-          versions == o.versions &&
           format == o.format &&
           format_url == o.format_url &&
+          name == o.name &&
+          self_url == o.self_url &&
+          slug == o.slug &&
           variants == o.variants &&
-          slug == o.slug
+          versions == o.versions
     end
 
     # @see the `==` method
@@ -144,7 +144,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [self_url, name, versions, format, format_url, variants, slug].hash
+      [format, format_url, name, self_url, slug, variants, versions].hash
     end
 
     # Builds the object from hash

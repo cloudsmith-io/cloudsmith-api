@@ -15,51 +15,51 @@ require 'date'
 module CloudsmithApi
 
   class Organization
-    # A descriptive name for your organization.
-    attr_accessor :name
-
     # The country your organization is based in.
     attr_accessor :country
 
     # 
     attr_accessor :created_at
 
-    # A short public descriptive for your organization.
-    attr_accessor :tagline
-
     # The city/town/area your organization is based in.
     attr_accessor :location
+
+    # A descriptive name for your organization.
+    attr_accessor :name
+
+    # 
+    attr_accessor :slug
 
     # 
     attr_accessor :slug_perm
 
-    # 
-    attr_accessor :slug
+    # A short public descriptive for your organization.
+    attr_accessor :tagline
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
         :'country' => :'country',
         :'created_at' => :'created_at',
-        :'tagline' => :'tagline',
         :'location' => :'location',
+        :'name' => :'name',
+        :'slug' => :'slug',
         :'slug_perm' => :'slug_perm',
-        :'slug' => :'slug'
+        :'tagline' => :'tagline'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
         :'country' => :'String',
         :'created_at' => :'String',
-        :'tagline' => :'String',
         :'location' => :'String',
+        :'name' => :'String',
+        :'slug' => :'String',
         :'slug_perm' => :'String',
-        :'slug' => :'String'
+        :'tagline' => :'String'
       }
     end
 
@@ -71,10 +71,6 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.has_key?(:'country')
         self.country = attributes[:'country']
       end
@@ -83,20 +79,24 @@ module CloudsmithApi
         self.created_at = attributes[:'created_at']
       end
 
-      if attributes.has_key?(:'tagline')
-        self.tagline = attributes[:'tagline']
-      end
-
       if attributes.has_key?(:'location')
         self.location = attributes[:'location']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'slug')
+        self.slug = attributes[:'slug']
       end
 
       if attributes.has_key?(:'slug_perm')
         self.slug_perm = attributes[:'slug_perm']
       end
 
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
+      if attributes.has_key?(:'tagline')
+        self.tagline = attributes[:'tagline']
       end
 
     end
@@ -119,13 +119,13 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
           country == o.country &&
           created_at == o.created_at &&
-          tagline == o.tagline &&
           location == o.location &&
+          name == o.name &&
+          slug == o.slug &&
           slug_perm == o.slug_perm &&
-          slug == o.slug
+          tagline == o.tagline
     end
 
     # @see the `==` method
@@ -137,7 +137,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, country, created_at, tagline, location, slug_perm, slug].hash
+      [country, created_at, location, name, slug, slug_perm, tagline].hash
     end
 
     # Builds the object from hash

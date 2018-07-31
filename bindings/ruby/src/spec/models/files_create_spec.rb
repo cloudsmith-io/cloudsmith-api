@@ -32,13 +32,13 @@ describe 'FilesCreate' do
       expect(@instance).to be_instance_of(CloudsmithApi::FilesCreate)
     end
   end
-  describe 'test attribute "md5_checksum"' do
+  describe 'test attribute "filename"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "filename"' do
+  describe 'test attribute "md5_checksum"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

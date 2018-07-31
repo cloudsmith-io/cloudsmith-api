@@ -14,15 +14,9 @@ require 'date'
 
 module CloudsmithApi
 
-  class FormatDistributions
+  class PackagesownerrepoArchitectures
     # 
-    attr_accessor :self_url
-
-    # 
-    attr_accessor :variants
-
-    # The slug identifier for this distribution
-    attr_accessor :slug
+    attr_accessor :description
 
     # 
     attr_accessor :name
@@ -31,9 +25,7 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'self_url' => :'self_url',
-        :'variants' => :'variants',
-        :'slug' => :'slug',
+        :'description' => :'description',
         :'name' => :'name'
       }
     end
@@ -41,9 +33,7 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'self_url' => :'String',
-        :'variants' => :'String',
-        :'slug' => :'String',
+        :'description' => :'String',
         :'name' => :'String'
       }
     end
@@ -56,16 +46,8 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'variants')
-        self.variants = attributes[:'variants']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.has_key?(:'name')
@@ -92,9 +74,7 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          self_url == o.self_url &&
-          variants == o.variants &&
-          slug == o.slug &&
+          description == o.description &&
           name == o.name
     end
 
@@ -107,7 +87,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [self_url, variants, slug, name].hash
+      [description, name].hash
     end
 
     # Builds the object from hash

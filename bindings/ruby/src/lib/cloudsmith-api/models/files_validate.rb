@@ -15,26 +15,26 @@ require 'date'
 module CloudsmithApi
 
   class FilesValidate
-    # MD5 checksum for the package file upload.
-    attr_accessor :md5_checksum
-
     # Filename for the package file upload.
     attr_accessor :filename
+
+    # MD5 checksum for the package file upload.
+    attr_accessor :md5_checksum
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'md5_checksum' => :'md5_checksum',
-        :'filename' => :'filename'
+        :'filename' => :'filename',
+        :'md5_checksum' => :'md5_checksum'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'md5_checksum' => :'String',
-        :'filename' => :'String'
+        :'filename' => :'String',
+        :'md5_checksum' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'md5_checksum')
-        self.md5_checksum = attributes[:'md5_checksum']
-      end
-
       if attributes.has_key?(:'filename')
         self.filename = attributes[:'filename']
+      end
+
+      if attributes.has_key?(:'md5_checksum')
+        self.md5_checksum = attributes[:'md5_checksum']
       end
 
     end
@@ -60,12 +60,12 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @md5_checksum.nil?
-        invalid_properties.push("invalid value for 'md5_checksum', md5_checksum cannot be nil.")
-      end
-
       if @filename.nil?
         invalid_properties.push("invalid value for 'filename', filename cannot be nil.")
+      end
+
+      if @md5_checksum.nil?
+        invalid_properties.push("invalid value for 'md5_checksum', md5_checksum cannot be nil.")
       end
 
       return invalid_properties
@@ -74,8 +74,8 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @md5_checksum.nil?
       return false if @filename.nil?
+      return false if @md5_checksum.nil?
       return true
     end
 
@@ -84,8 +84,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          md5_checksum == o.md5_checksum &&
-          filename == o.filename
+          filename == o.filename &&
+          md5_checksum == o.md5_checksum
     end
 
     # @see the `==` method
@@ -97,7 +97,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [md5_checksum, filename].hash
+      [filename, md5_checksum].hash
     end
 
     # Builds the object from hash

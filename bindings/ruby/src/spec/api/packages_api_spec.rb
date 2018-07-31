@@ -37,7 +37,7 @@ describe 'PackagesApi' do
   # Copy a package to another repository.
   # @param owner 
   # @param repo 
-  # @param slug 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesCopy] :data 
   # @return [PackageCopy]
@@ -52,7 +52,7 @@ describe 'PackagesApi' do
   # Delete a specific package in a repository.
   # @param owner 
   # @param repo 
-  # @param slug 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'packages_delete test' do
@@ -69,8 +69,8 @@ describe 'PackagesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @option opts [String] :query A search term for querying names, filenames, versions, distributions or architectures of packages.
-  # @return [Array<RpmPackageUpload>]
+  # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+  # @return [Array<Package>]
   describe 'packages_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -82,7 +82,7 @@ describe 'PackagesApi' do
   # Move a package to another repository.
   # @param owner 
   # @param repo 
-  # @param slug 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesMove] :data 
   # @return [PackageMove]
@@ -97,9 +97,9 @@ describe 'PackagesApi' do
   # Get a specific package in a repository.
   # @param owner 
   # @param repo 
-  # @param slug 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RpmPackageUpload]
+  # @return [Package]
   describe 'packages_read test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -111,9 +111,9 @@ describe 'PackagesApi' do
   # Schedule a package for resynchronisation.
   # @param owner 
   # @param repo 
-  # @param slug 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RpmPackageUpload]
+  # @return [Package]
   describe 'packages_resync test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -125,10 +125,24 @@ describe 'PackagesApi' do
   # Get the synchronisation status for a package.
   # @param owner 
   # @param repo 
-  # @param slug 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @return [PackageStatus]
   describe 'packages_status test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_upload_composer
+  # Create a new Composer package
+  # Create a new Composer package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadComposer] :data 
+  # @return [Package]
+  describe 'packages_upload_composer test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -141,7 +155,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadDeb] :data 
-  # @return [RpmPackageUpload]
+  # @return [Package]
   describe 'packages_upload_deb test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -169,7 +183,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadPython] :data 
-  # @return [RpmPackageUpload]
+  # @return [Package]
   describe 'packages_upload_python test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -197,7 +211,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadRpm] :data 
-  # @return [RpmPackageUpload]
+  # @return [Package]
   describe 'packages_upload_rpm test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -211,7 +225,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadRuby] :data 
-  # @return [RpmPackageUpload]
+  # @return [Package]
   describe 'packages_upload_ruby test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -227,6 +241,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesUploadVagrant] :data 
   # @return [VagrantPackageUpload]
   describe 'packages_upload_vagrant test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_composer
+  # Validate parameters for create Composer package
+  # Validate parameters for create Composer package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadComposer] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_composer test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

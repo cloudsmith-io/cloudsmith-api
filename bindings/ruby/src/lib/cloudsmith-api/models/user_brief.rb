@@ -15,51 +15,51 @@ require 'date'
 module CloudsmithApi
 
   class UserBrief
-    # 
-    attr_accessor :self_url
-
     # If true then you're logged in as a user.
     attr_accessor :authenticated
-
-    # The full name of the user (if any).
-    attr_accessor :name
 
     # Your email address that we use to contact you. This is only visible to you.
     attr_accessor :email
 
+    # The full name of the user (if any).
+    attr_accessor :name
+
+    # The URL for the full profile of the user.
+    attr_accessor :profile_url
+
     # 
-    attr_accessor :slug_perm
+    attr_accessor :self_url
 
     # 
     attr_accessor :slug
 
-    # The URL for the full profile of the user.
-    attr_accessor :profile_url
+    # 
+    attr_accessor :slug_perm
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'self_url' => :'self_url',
         :'authenticated' => :'authenticated',
-        :'name' => :'name',
         :'email' => :'email',
-        :'slug_perm' => :'slug_perm',
+        :'name' => :'name',
+        :'profile_url' => :'profile_url',
+        :'self_url' => :'self_url',
         :'slug' => :'slug',
-        :'profile_url' => :'profile_url'
+        :'slug_perm' => :'slug_perm'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'self_url' => :'String',
         :'authenticated' => :'BOOLEAN',
-        :'name' => :'String',
         :'email' => :'String',
-        :'slug_perm' => :'String',
+        :'name' => :'String',
+        :'profile_url' => :'String',
+        :'self_url' => :'String',
         :'slug' => :'String',
-        :'profile_url' => :'String'
+        :'slug_perm' => :'String'
       }
     end
 
@@ -71,32 +71,32 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
       if attributes.has_key?(:'authenticated')
         self.authenticated = attributes[:'authenticated']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'email')
         self.email = attributes[:'email']
       end
 
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'profile_url')
+        self.profile_url = attributes[:'profile_url']
+      end
+
+      if attributes.has_key?(:'self_url')
+        self.self_url = attributes[:'self_url']
       end
 
       if attributes.has_key?(:'slug')
         self.slug = attributes[:'slug']
       end
 
-      if attributes.has_key?(:'profile_url')
-        self.profile_url = attributes[:'profile_url']
+      if attributes.has_key?(:'slug_perm')
+        self.slug_perm = attributes[:'slug_perm']
       end
 
     end
@@ -119,13 +119,13 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          self_url == o.self_url &&
           authenticated == o.authenticated &&
-          name == o.name &&
           email == o.email &&
-          slug_perm == o.slug_perm &&
+          name == o.name &&
+          profile_url == o.profile_url &&
+          self_url == o.self_url &&
           slug == o.slug &&
-          profile_url == o.profile_url
+          slug_perm == o.slug_perm
     end
 
     # @see the `==` method
@@ -137,7 +137,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [self_url, authenticated, name, email, slug_perm, slug, profile_url].hash
+      [authenticated, email, name, profile_url, self_url, slug, slug_perm].hash
     end
 
     # Builds the object from hash

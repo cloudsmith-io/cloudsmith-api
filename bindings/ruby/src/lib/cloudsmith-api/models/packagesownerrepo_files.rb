@@ -14,63 +14,63 @@ require 'date'
 
 module CloudsmithApi
 
-  class RpmPackageUploadFiles
+  class PackagesownerrepoFiles
     # 
     attr_accessor :cdn_url
-
-    # 
-    attr_accessor :checksum_sha512
-
-    # 
-    attr_accessor :is_primary
-
-    # The number of downloads for the package file.
-    attr_accessor :downloads
-
-    # 
-    attr_accessor :is_synchronised
-
-    # 
-    attr_accessor :is_downloadable
-
-    # 
-    attr_accessor :filename
-
-    # Freeform descriptor that describes what the file is.
-    attr_accessor :tag
 
     # 
     attr_accessor :checksum_md5
 
     # 
+    attr_accessor :checksum_sha1
+
+    # 
     attr_accessor :checksum_sha256
+
+    # 
+    attr_accessor :checksum_sha512
+
+    # 
+    attr_accessor :downloads
+
+    # 
+    attr_accessor :filename
+
+    # 
+    attr_accessor :is_downloadable
+
+    # 
+    attr_accessor :is_primary
+
+    # 
+    attr_accessor :is_synchronised
+
+    # The calculated size of the file.
+    attr_accessor :size
 
     # 
     attr_accessor :slug_perm
 
-    # 
-    attr_accessor :checksum_sha1
-
-    # The calculated size of the file.
-    attr_accessor :size
+    # Freeform descriptor that describes what the file is.
+    attr_accessor :tag
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'cdn_url' => :'cdn_url',
-        :'checksum_sha512' => :'checksum_sha512',
-        :'is_primary' => :'is_primary',
-        :'downloads' => :'downloads',
-        :'is_synchronised' => :'is_synchronised',
-        :'is_downloadable' => :'is_downloadable',
-        :'filename' => :'filename',
-        :'tag' => :'tag',
         :'checksum_md5' => :'checksum_md5',
-        :'checksum_sha256' => :'checksum_sha256',
-        :'slug_perm' => :'slug_perm',
         :'checksum_sha1' => :'checksum_sha1',
-        :'size' => :'size'
+        :'checksum_sha256' => :'checksum_sha256',
+        :'checksum_sha512' => :'checksum_sha512',
+        :'downloads' => :'downloads',
+        :'filename' => :'filename',
+        :'is_downloadable' => :'is_downloadable',
+        :'is_primary' => :'is_primary',
+        :'is_synchronised' => :'is_synchronised',
+        :'size' => :'size',
+        :'slug_perm' => :'slug_perm',
+        :'tag' => :'tag'
       }
     end
 
@@ -78,18 +78,18 @@ module CloudsmithApi
     def self.swagger_types
       {
         :'cdn_url' => :'String',
-        :'checksum_sha512' => :'String',
-        :'is_primary' => :'BOOLEAN',
-        :'downloads' => :'Integer',
-        :'is_synchronised' => :'BOOLEAN',
-        :'is_downloadable' => :'BOOLEAN',
-        :'filename' => :'String',
-        :'tag' => :'String',
         :'checksum_md5' => :'String',
-        :'checksum_sha256' => :'String',
-        :'slug_perm' => :'String',
         :'checksum_sha1' => :'String',
-        :'size' => :'Integer'
+        :'checksum_sha256' => :'String',
+        :'checksum_sha512' => :'String',
+        :'downloads' => :'Integer',
+        :'filename' => :'String',
+        :'is_downloadable' => :'BOOLEAN',
+        :'is_primary' => :'BOOLEAN',
+        :'is_synchronised' => :'BOOLEAN',
+        :'size' => :'Integer',
+        :'slug_perm' => :'String',
+        :'tag' => :'String'
       }
     end
 
@@ -105,52 +105,52 @@ module CloudsmithApi
         self.cdn_url = attributes[:'cdn_url']
       end
 
-      if attributes.has_key?(:'checksum_sha512')
-        self.checksum_sha512 = attributes[:'checksum_sha512']
-      end
-
-      if attributes.has_key?(:'is_primary')
-        self.is_primary = attributes[:'is_primary']
-      end
-
-      if attributes.has_key?(:'downloads')
-        self.downloads = attributes[:'downloads']
-      end
-
-      if attributes.has_key?(:'is_synchronised')
-        self.is_synchronised = attributes[:'is_synchronised']
-      end
-
-      if attributes.has_key?(:'is_downloadable')
-        self.is_downloadable = attributes[:'is_downloadable']
-      end
-
-      if attributes.has_key?(:'filename')
-        self.filename = attributes[:'filename']
-      end
-
-      if attributes.has_key?(:'tag')
-        self.tag = attributes[:'tag']
-      end
-
       if attributes.has_key?(:'checksum_md5')
         self.checksum_md5 = attributes[:'checksum_md5']
-      end
-
-      if attributes.has_key?(:'checksum_sha256')
-        self.checksum_sha256 = attributes[:'checksum_sha256']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
       end
 
       if attributes.has_key?(:'checksum_sha1')
         self.checksum_sha1 = attributes[:'checksum_sha1']
       end
 
+      if attributes.has_key?(:'checksum_sha256')
+        self.checksum_sha256 = attributes[:'checksum_sha256']
+      end
+
+      if attributes.has_key?(:'checksum_sha512')
+        self.checksum_sha512 = attributes[:'checksum_sha512']
+      end
+
+      if attributes.has_key?(:'downloads')
+        self.downloads = attributes[:'downloads']
+      end
+
+      if attributes.has_key?(:'filename')
+        self.filename = attributes[:'filename']
+      end
+
+      if attributes.has_key?(:'is_downloadable')
+        self.is_downloadable = attributes[:'is_downloadable']
+      end
+
+      if attributes.has_key?(:'is_primary')
+        self.is_primary = attributes[:'is_primary']
+      end
+
+      if attributes.has_key?(:'is_synchronised')
+        self.is_synchronised = attributes[:'is_synchronised']
+      end
+
       if attributes.has_key?(:'size')
         self.size = attributes[:'size']
+      end
+
+      if attributes.has_key?(:'slug_perm')
+        self.slug_perm = attributes[:'slug_perm']
+      end
+
+      if attributes.has_key?(:'tag')
+        self.tag = attributes[:'tag']
       end
 
     end
@@ -174,18 +174,18 @@ module CloudsmithApi
       return true if self.equal?(o)
       self.class == o.class &&
           cdn_url == o.cdn_url &&
-          checksum_sha512 == o.checksum_sha512 &&
-          is_primary == o.is_primary &&
-          downloads == o.downloads &&
-          is_synchronised == o.is_synchronised &&
-          is_downloadable == o.is_downloadable &&
-          filename == o.filename &&
-          tag == o.tag &&
           checksum_md5 == o.checksum_md5 &&
-          checksum_sha256 == o.checksum_sha256 &&
-          slug_perm == o.slug_perm &&
           checksum_sha1 == o.checksum_sha1 &&
-          size == o.size
+          checksum_sha256 == o.checksum_sha256 &&
+          checksum_sha512 == o.checksum_sha512 &&
+          downloads == o.downloads &&
+          filename == o.filename &&
+          is_downloadable == o.is_downloadable &&
+          is_primary == o.is_primary &&
+          is_synchronised == o.is_synchronised &&
+          size == o.size &&
+          slug_perm == o.slug_perm &&
+          tag == o.tag
     end
 
     # @see the `==` method
@@ -197,7 +197,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [cdn_url, checksum_sha512, is_primary, downloads, is_synchronised, is_downloadable, filename, tag, checksum_md5, checksum_sha256, slug_perm, checksum_sha1, size].hash
+      [cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, downloads, filename, is_downloadable, is_primary, is_synchronised, size, slug_perm, tag].hash
     end
 
     # Builds the object from hash

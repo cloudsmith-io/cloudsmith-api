@@ -5,11 +5,14 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**entitlements_create**](EntitlementsApi.md#entitlements_create) | **POST** /entitlements/{owner}/{repo}/ | Create a specific entitlement in a repository.
-[**entitlements_delete**](EntitlementsApi.md#entitlements_delete) | **DELETE** /entitlements/{owner}/{repo}/{slug_perm}/ | Delete a specific entitlement in a repository.
+[**entitlements_delete**](EntitlementsApi.md#entitlements_delete) | **DELETE** /entitlements/{owner}/{repo}/{identifier}/ | Delete a specific entitlement in a repository.
+[**entitlements_disable**](EntitlementsApi.md#entitlements_disable) | **POST** /entitlements/{owner}/{repo}/{identifier}/disable/ | Disable an entitlement token in a repository.
+[**entitlements_enable**](EntitlementsApi.md#entitlements_enable) | **POST** /entitlements/{owner}/{repo}/{identifier}/enable/ | Enable an entitlement token in a repository.
 [**entitlements_list**](EntitlementsApi.md#entitlements_list) | **GET** /entitlements/{owner}/{repo}/ | Get a list of all entitlements in a repository.
-[**entitlements_partial_update**](EntitlementsApi.md#entitlements_partial_update) | **PATCH** /entitlements/{owner}/{repo}/{slug_perm}/ | Update a specific entitlement in a repository.
-[**entitlements_read**](EntitlementsApi.md#entitlements_read) | **GET** /entitlements/{owner}/{repo}/{slug_perm}/ | Views for working with repository entitlements.
-[**entitlements_refresh**](EntitlementsApi.md#entitlements_refresh) | **POST** /entitlements/{owner}/{repo}/{slug_perm}/refresh/ | Refresh an entitlement token in a repository.
+[**entitlements_partial_update**](EntitlementsApi.md#entitlements_partial_update) | **PATCH** /entitlements/{owner}/{repo}/{identifier}/ | Update a specific entitlement in a repository.
+[**entitlements_read**](EntitlementsApi.md#entitlements_read) | **GET** /entitlements/{owner}/{repo}/{identifier}/ | Get a specific entitlement in a repository.
+[**entitlements_refresh**](EntitlementsApi.md#entitlements_refresh) | **POST** /entitlements/{owner}/{repo}/{identifier}/refresh/ | Refresh an entitlement token in a repository.
+[**entitlements_reset**](EntitlementsApi.md#entitlements_reset) | **POST** /entitlements/{owner}/{repo}/{identifier}/reset/ | Reset the statistics for an entitlement token in a repository.
 [**entitlements_sync**](EntitlementsApi.md#entitlements_sync) | **POST** /entitlements/{owner}/{repo}/sync/ | Synchronise tokens from a source repository.
 
 
@@ -86,7 +89,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_delete**
-> entitlements_delete(owner, repo, slug_perm, opts)
+> entitlements_delete(owner, repo, identifier)
 
 Delete a specific entitlement in a repository.
 
@@ -119,15 +122,12 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug_perm = "slug_perm_example" # String | 
+identifier = "identifier_example" # String | 
 
-opts = { 
-  show_tokens: true # BOOLEAN | Show entitlement token strings in results
-}
 
 begin
   #Delete a specific entitlement in a repository.
-  api_instance.entitlements_delete(owner, repo, slug_perm, opts)
+  api_instance.entitlements_delete(owner, repo, identifier)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_delete: #{e}"
 end
@@ -139,8 +139,143 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug_perm** | **String**|  | 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
+ **identifier** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+
+# **entitlements_disable**
+> entitlements_disable(owner, repo, identifier)
+
+Disable an entitlement token in a repository.
+
+Disable an entitlement token in a repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::EntitlementsApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+identifier = "identifier_example" # String | 
+
+
+begin
+  #Disable an entitlement token in a repository.
+  api_instance.entitlements_disable(owner, repo, identifier)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling EntitlementsApi->entitlements_disable: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **identifier** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+
+# **entitlements_enable**
+> entitlements_enable(owner, repo, identifier)
+
+Enable an entitlement token in a repository.
+
+Enable an entitlement token in a repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::EntitlementsApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+identifier = "identifier_example" # String | 
+
+
+begin
+  #Enable an entitlement token in a repository.
+  api_instance.entitlements_enable(owner, repo, identifier)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling EntitlementsApi->entitlements_enable: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **identifier** | **String**|  | 
 
 ### Return type
 
@@ -232,7 +367,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_partial_update**
-> RepositoryToken entitlements_partial_update(owner, repo, slug_perm, opts)
+> RepositoryToken entitlements_partial_update(owner, repo, opts)
 
 Update a specific entitlement in a repository.
 
@@ -265,8 +400,6 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug_perm = "slug_perm_example" # String | 
-
 opts = { 
   show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsPartialUpdate.new # EntitlementsPartialUpdate | 
@@ -274,7 +407,7 @@ opts = {
 
 begin
   #Update a specific entitlement in a repository.
-  result = api_instance.entitlements_partial_update(owner, repo, slug_perm, opts)
+  result = api_instance.entitlements_partial_update(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_partial_update: #{e}"
@@ -287,7 +420,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug_perm** | **String**|  | 
  **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
 
@@ -307,11 +439,11 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_read**
-> RepositoryToken entitlements_read(owner, repo, slug_perm, opts)
+> RepositoryToken entitlements_read(owner, repo, identifier, opts)
 
-Views for working with repository entitlements.
+Get a specific entitlement in a repository.
 
-Views for working with repository entitlements.
+Get a specific entitlement in a repository.
 
 ### Example
 ```ruby
@@ -340,15 +472,15 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug_perm = "slug_perm_example" # String | 
+identifier = "identifier_example" # String | 
 
 opts = { 
   show_tokens: true # BOOLEAN | Show entitlement token strings in results
 }
 
 begin
-  #Views for working with repository entitlements.
-  result = api_instance.entitlements_read(owner, repo, slug_perm, opts)
+  #Get a specific entitlement in a repository.
+  result = api_instance.entitlements_read(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_read: #{e}"
@@ -361,7 +493,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug_perm** | **String**|  | 
+ **identifier** | **String**|  | 
  **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
 
 ### Return type
@@ -380,7 +512,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_refresh**
-> RepositoryTokenRefresh entitlements_refresh(owner, repo, slug_perm, opts)
+> RepositoryTokenRefresh entitlements_refresh(owner, repo, opts)
 
 Refresh an entitlement token in a repository.
 
@@ -413,8 +545,6 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug_perm = "slug_perm_example" # String | 
-
 opts = { 
   show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsRefresh.new # EntitlementsRefresh | 
@@ -422,7 +552,7 @@ opts = {
 
 begin
   #Refresh an entitlement token in a repository.
-  result = api_instance.entitlements_refresh(owner, repo, slug_perm, opts)
+  result = api_instance.entitlements_refresh(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_refresh: #{e}"
@@ -435,7 +565,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug_perm** | **String**|  | 
  **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
 
@@ -450,6 +579,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **entitlements_reset**
+> entitlements_reset(owner, repo, identifier)
+
+Reset the statistics for an entitlement token in a repository.
+
+Reset the statistics for an entitlement token in a repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::EntitlementsApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+identifier = "identifier_example" # String | 
+
+
+begin
+  #Reset the statistics for an entitlement token in a repository.
+  api_instance.entitlements_reset(owner, repo, identifier)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling EntitlementsApi->entitlements_reset: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **identifier** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 
@@ -489,7 +686,6 @@ owner = "owner_example" # String |
 repo = "repo_example" # String | 
 
 opts = { 
-  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsSync.new # EntitlementsSync | 
 }
 
@@ -508,7 +704,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional] 
 
 ### Return type

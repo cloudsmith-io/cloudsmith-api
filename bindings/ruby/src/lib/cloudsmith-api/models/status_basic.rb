@@ -15,26 +15,26 @@ require 'date'
 module CloudsmithApi
 
   class StatusBasic
-    # The current version for the Cloudsmith service.
-    attr_accessor :version
-
     # The message describing the state of the API.
     attr_accessor :detail
+
+    # The current version for the Cloudsmith service.
+    attr_accessor :version
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'version' => :'version',
-        :'detail' => :'detail'
+        :'detail' => :'detail',
+        :'version' => :'version'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'version' => :'String',
-        :'detail' => :'String'
+        :'detail' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
-
       if attributes.has_key?(:'detail')
         self.detail = attributes[:'detail']
+      end
+
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
       end
 
     end
@@ -74,8 +74,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          version == o.version &&
-          detail == o.detail
+          detail == o.detail &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -87,7 +87,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [version, detail].hash
+      [detail, version].hash
     end
 
     # Builds the object from hash

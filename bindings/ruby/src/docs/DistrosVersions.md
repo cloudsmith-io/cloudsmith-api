@@ -1,9 +1,9 @@
-# CloudsmithApi::DistributionVersions
+# CloudsmithApi::DistrosVersions
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**slug** | **String** | The slug identifier for this version | [optional] 
 **name** | **String** | The textual name for this version. | [optional] 
+**slug** | **String** | The slug identifier for this version | [optional] 
 
 

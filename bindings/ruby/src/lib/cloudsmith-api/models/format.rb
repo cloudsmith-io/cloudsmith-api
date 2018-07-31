@@ -15,14 +15,20 @@ require 'date'
 module CloudsmithApi
 
   class Format
-    # If true the package format is a premium-only feature
-    attr_accessor :premium
-
     # Description of the package format
     attr_accessor :description
 
     # The distributions supported by this package format
     attr_accessor :distributions
+
+    # A non-exhaustive list of extensions supported
+    attr_accessor :extensions
+
+    # Name for the package format
+    attr_accessor :name
+
+    # If true the package format is a premium-only feature
+    attr_accessor :premium
 
     # The minimum plan id required for this package format
     attr_accessor :premium_plan_id
@@ -30,46 +36,40 @@ module CloudsmithApi
     # The minimum plan name required for this package format
     attr_accessor :premium_plan_name
 
-    # A non-exhaustive list of extensions supported
-    attr_accessor :extensions
-
-    # A set of what the package format supports
-    attr_accessor :supports
-
     # Slug for the package format
     attr_accessor :slug
 
-    # Name for the package format
-    attr_accessor :name
+    # A set of what the package format supports
+    attr_accessor :supports
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'premium' => :'premium',
         :'description' => :'description',
         :'distributions' => :'distributions',
+        :'extensions' => :'extensions',
+        :'name' => :'name',
+        :'premium' => :'premium',
         :'premium_plan_id' => :'premium_plan_id',
         :'premium_plan_name' => :'premium_plan_name',
-        :'extensions' => :'extensions',
-        :'supports' => :'supports',
         :'slug' => :'slug',
-        :'name' => :'name'
+        :'supports' => :'supports'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'premium' => :'BOOLEAN',
         :'description' => :'String',
-        :'distributions' => :'Array<FormatDistributions>',
+        :'distributions' => :'Array<FormatsDistributions>',
+        :'extensions' => :'Array<String>',
+        :'name' => :'String',
+        :'premium' => :'BOOLEAN',
         :'premium_plan_id' => :'String',
         :'premium_plan_name' => :'String',
-        :'extensions' => :'Array<String>',
-        :'supports' => :'Object',
         :'slug' => :'String',
-        :'name' => :'String'
+        :'supports' => :'Object'
       }
     end
 
@@ -81,10 +81,6 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'premium')
-        self.premium = attributes[:'premium']
-      end
-
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
       end
@@ -95,6 +91,20 @@ module CloudsmithApi
         end
       end
 
+      if attributes.has_key?(:'extensions')
+        if (value = attributes[:'extensions']).is_a?(Array)
+          self.extensions = value
+        end
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'premium')
+        self.premium = attributes[:'premium']
+      end
+
       if attributes.has_key?(:'premium_plan_id')
         self.premium_plan_id = attributes[:'premium_plan_id']
       end
@@ -103,22 +113,12 @@ module CloudsmithApi
         self.premium_plan_name = attributes[:'premium_plan_name']
       end
 
-      if attributes.has_key?(:'extensions')
-        if (value = attributes[:'extensions']).is_a?(Array)
-          self.extensions = value
-        end
-      end
-
-      if attributes.has_key?(:'supports')
-        self.supports = attributes[:'supports']
-      end
-
       if attributes.has_key?(:'slug')
         self.slug = attributes[:'slug']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'supports')
+        self.supports = attributes[:'supports']
       end
 
     end
@@ -127,10 +127,6 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @premium.nil?
-        invalid_properties.push("invalid value for 'premium', premium cannot be nil.")
-      end
-
       if @description.nil?
         invalid_properties.push("invalid value for 'description', description cannot be nil.")
       end
@@ -139,16 +135,20 @@ module CloudsmithApi
         invalid_properties.push("invalid value for 'extensions', extensions cannot be nil.")
       end
 
-      if @supports.nil?
-        invalid_properties.push("invalid value for 'supports', supports cannot be nil.")
+      if @name.nil?
+        invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      end
+
+      if @premium.nil?
+        invalid_properties.push("invalid value for 'premium', premium cannot be nil.")
       end
 
       if @slug.nil?
         invalid_properties.push("invalid value for 'slug', slug cannot be nil.")
       end
 
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      if @supports.nil?
+        invalid_properties.push("invalid value for 'supports', supports cannot be nil.")
       end
 
       return invalid_properties
@@ -157,12 +157,12 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @premium.nil?
       return false if @description.nil?
       return false if @extensions.nil?
-      return false if @supports.nil?
-      return false if @slug.nil?
       return false if @name.nil?
+      return false if @premium.nil?
+      return false if @slug.nil?
+      return false if @supports.nil?
       return true
     end
 
@@ -171,15 +171,15 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          premium == o.premium &&
           description == o.description &&
           distributions == o.distributions &&
+          extensions == o.extensions &&
+          name == o.name &&
+          premium == o.premium &&
           premium_plan_id == o.premium_plan_id &&
           premium_plan_name == o.premium_plan_name &&
-          extensions == o.extensions &&
-          supports == o.supports &&
           slug == o.slug &&
-          name == o.name
+          supports == o.supports
     end
 
     # @see the `==` method
@@ -191,7 +191,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [premium, description, distributions, premium_plan_id, premium_plan_name, extensions, supports, slug, name].hash
+      [description, distributions, extensions, name, premium, premium_plan_id, premium_plan_name, slug, supports].hash
     end
 
     # Builds the object from hash

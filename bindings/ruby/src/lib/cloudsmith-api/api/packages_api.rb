@@ -24,12 +24,12 @@ module CloudsmithApi
     # Copy a package to another repository.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesCopy] :data 
     # @return [PackageCopy]
-    def packages_copy(owner, repo, slug, opts = {})
-      data, _status_code, _headers = packages_copy_with_http_info(owner, repo, slug, opts)
+    def packages_copy(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_copy_with_http_info(owner, repo, identifier, opts)
       return data
     end
 
@@ -37,11 +37,11 @@ module CloudsmithApi
     # Copy a package to another repository.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesCopy] :data 
     # @return [Array<(PackageCopy, Fixnum, Hash)>] PackageCopy data, response status code and response headers
-    def packages_copy_with_http_info(owner, repo, slug, opts = {})
+    def packages_copy_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_copy ..."
       end
@@ -53,12 +53,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_copy"
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling PackagesApi.packages_copy"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_copy"
       end
       # resource path
-      local_var_path = "/packages/{owner}/{repo}/{slug}/copy/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/packages/{owner}/{repo}/{identifier}/copy/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -91,11 +91,11 @@ module CloudsmithApi
     # Delete a specific package in a repository.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def packages_delete(owner, repo, slug, opts = {})
-      packages_delete_with_http_info(owner, repo, slug, opts)
+    def packages_delete(owner, repo, identifier, opts = {})
+      packages_delete_with_http_info(owner, repo, identifier, opts)
       return nil
     end
 
@@ -103,10 +103,10 @@ module CloudsmithApi
     # Delete a specific package in a repository.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def packages_delete_with_http_info(owner, repo, slug, opts = {})
+    def packages_delete_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_delete ..."
       end
@@ -118,12 +118,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_delete"
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling PackagesApi.packages_delete"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_delete"
       end
       # resource path
-      local_var_path = "/packages/{owner}/{repo}/{slug}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/packages/{owner}/{repo}/{identifier}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -156,8 +156,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [String] :query A search term for querying names, filenames, versions, distributions or architectures of packages.
-    # @return [Array<RpmPackageUpload>]
+    # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+    # @return [Array<Package>]
     def packages_list(owner, repo, opts = {})
       data, _status_code, _headers = packages_list_with_http_info(owner, repo, opts)
       return data
@@ -170,8 +170,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [String] :query A search term for querying names, filenames, versions, distributions or architectures of packages.
-    # @return [Array<(Array<RpmPackageUpload>, Fixnum, Hash)>] Array<RpmPackageUpload> data, response status code and response headers
+    # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+    # @return [Array<(Array<Package>, Fixnum, Hash)>] Array<Package> data, response status code and response headers
     def packages_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_list ..."
@@ -208,7 +208,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RpmPackageUpload>')
+        :return_type => 'Array<Package>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -219,12 +219,12 @@ module CloudsmithApi
     # Move a package to another repository.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesMove] :data 
     # @return [PackageMove]
-    def packages_move(owner, repo, slug, opts = {})
-      data, _status_code, _headers = packages_move_with_http_info(owner, repo, slug, opts)
+    def packages_move(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_move_with_http_info(owner, repo, identifier, opts)
       return data
     end
 
@@ -232,11 +232,11 @@ module CloudsmithApi
     # Move a package to another repository.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesMove] :data 
     # @return [Array<(PackageMove, Fixnum, Hash)>] PackageMove data, response status code and response headers
-    def packages_move_with_http_info(owner, repo, slug, opts = {})
+    def packages_move_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_move ..."
       end
@@ -248,12 +248,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_move"
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling PackagesApi.packages_move"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_move"
       end
       # resource path
-      local_var_path = "/packages/{owner}/{repo}/{slug}/move/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/packages/{owner}/{repo}/{identifier}/move/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -286,11 +286,11 @@ module CloudsmithApi
     # Get a specific package in a repository.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RpmPackageUpload]
-    def packages_read(owner, repo, slug, opts = {})
-      data, _status_code, _headers = packages_read_with_http_info(owner, repo, slug, opts)
+    # @return [Package]
+    def packages_read(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_read_with_http_info(owner, repo, identifier, opts)
       return data
     end
 
@@ -298,10 +298,10 @@ module CloudsmithApi
     # Get a specific package in a repository.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RpmPackageUpload, Fixnum, Hash)>] RpmPackageUpload data, response status code and response headers
-    def packages_read_with_http_info(owner, repo, slug, opts = {})
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_read_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_read ..."
       end
@@ -313,12 +313,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_read"
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling PackagesApi.packages_read"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_read"
       end
       # resource path
-      local_var_path = "/packages/{owner}/{repo}/{slug}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/packages/{owner}/{repo}/{identifier}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -338,7 +338,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RpmPackageUpload')
+        :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -349,11 +349,11 @@ module CloudsmithApi
     # Schedule a package for resynchronisation.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RpmPackageUpload]
-    def packages_resync(owner, repo, slug, opts = {})
-      data, _status_code, _headers = packages_resync_with_http_info(owner, repo, slug, opts)
+    # @return [Package]
+    def packages_resync(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_resync_with_http_info(owner, repo, identifier, opts)
       return data
     end
 
@@ -361,10 +361,10 @@ module CloudsmithApi
     # Schedule a package for resynchronisation.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RpmPackageUpload, Fixnum, Hash)>] RpmPackageUpload data, response status code and response headers
-    def packages_resync_with_http_info(owner, repo, slug, opts = {})
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_resync_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_resync ..."
       end
@@ -376,12 +376,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_resync"
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling PackagesApi.packages_resync"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_resync"
       end
       # resource path
-      local_var_path = "/packages/{owner}/{repo}/{slug}/resync/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/packages/{owner}/{repo}/{identifier}/resync/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -401,7 +401,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RpmPackageUpload')
+        :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_resync\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -412,11 +412,11 @@ module CloudsmithApi
     # Get the synchronisation status for a package.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [PackageStatus]
-    def packages_status(owner, repo, slug, opts = {})
-      data, _status_code, _headers = packages_status_with_http_info(owner, repo, slug, opts)
+    def packages_status(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_status_with_http_info(owner, repo, identifier, opts)
       return data
     end
 
@@ -424,10 +424,10 @@ module CloudsmithApi
     # Get the synchronisation status for a package.
     # @param owner 
     # @param repo 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PackageStatus, Fixnum, Hash)>] PackageStatus data, response status code and response headers
-    def packages_status_with_http_info(owner, repo, slug, opts = {})
+    def packages_status_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_status ..."
       end
@@ -439,12 +439,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_status"
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling PackagesApi.packages_status"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_status"
       end
       # resource path
-      local_var_path = "/packages/{owner}/{repo}/{slug}/status/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/packages/{owner}/{repo}/{identifier}/status/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -471,13 +471,74 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Create a new Composer package
+    # Create a new Composer package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadComposer] :data 
+    # @return [Package]
+    def packages_upload_composer(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_composer_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # Create a new Composer package
+    # Create a new Composer package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadComposer] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_upload_composer_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_composer ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_composer"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_composer"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/upload/composer/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_composer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new Debian package
     # Create a new Debian package
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadDeb] :data 
-    # @return [RpmPackageUpload]
+    # @return [Package]
     def packages_upload_deb(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_deb_with_http_info(owner, repo, opts)
       return data
@@ -489,7 +550,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadDeb] :data 
-    # @return [Array<(RpmPackageUpload, Fixnum, Hash)>] RpmPackageUpload data, response status code and response headers
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_upload_deb_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_deb ..."
@@ -525,7 +586,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RpmPackageUpload')
+        :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_deb\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -599,7 +660,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadPython] :data 
-    # @return [RpmPackageUpload]
+    # @return [Package]
     def packages_upload_python(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_python_with_http_info(owner, repo, opts)
       return data
@@ -611,7 +672,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadPython] :data 
-    # @return [Array<(RpmPackageUpload, Fixnum, Hash)>] RpmPackageUpload data, response status code and response headers
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_upload_python_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_python ..."
@@ -647,7 +708,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RpmPackageUpload')
+        :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_python\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -721,7 +782,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadRpm] :data 
-    # @return [RpmPackageUpload]
+    # @return [Package]
     def packages_upload_rpm(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_rpm_with_http_info(owner, repo, opts)
       return data
@@ -733,7 +794,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadRpm] :data 
-    # @return [Array<(RpmPackageUpload, Fixnum, Hash)>] RpmPackageUpload data, response status code and response headers
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_upload_rpm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_rpm ..."
@@ -769,7 +830,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RpmPackageUpload')
+        :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_rpm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -782,7 +843,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadRuby] :data 
-    # @return [RpmPackageUpload]
+    # @return [Package]
     def packages_upload_ruby(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_ruby_with_http_info(owner, repo, opts)
       return data
@@ -794,7 +855,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadRuby] :data 
-    # @return [Array<(RpmPackageUpload, Fixnum, Hash)>] RpmPackageUpload data, response status code and response headers
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_upload_ruby_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_ruby ..."
@@ -830,7 +891,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RpmPackageUpload')
+        :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_ruby\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -894,6 +955,66 @@ module CloudsmithApi
         :return_type => 'VagrantPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_vagrant\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate parameters for create Composer package
+    # Validate parameters for create Composer package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadComposer] :data 
+    # @return [nil]
+    def packages_validate_upload_composer(owner, repo, opts = {})
+      packages_validate_upload_composer_with_http_info(owner, repo, opts)
+      return nil
+    end
+
+    # Validate parameters for create Composer package
+    # Validate parameters for create Composer package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadComposer] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_composer_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_composer ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_composer"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_composer"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/composer/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_composer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

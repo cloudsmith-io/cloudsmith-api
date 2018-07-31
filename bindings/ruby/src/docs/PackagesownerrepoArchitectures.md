@@ -1,9 +1,9 @@
-# CloudsmithApi::RpmPackageUploadArchitectures
+# CloudsmithApi::PackagesownerrepoArchitectures
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
 
 

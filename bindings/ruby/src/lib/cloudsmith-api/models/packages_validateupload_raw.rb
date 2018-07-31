@@ -15,36 +15,36 @@ require 'date'
 module CloudsmithApi
 
   class PackagesValidateuploadRaw
-    # A one-liner synopsis of this package.
-    attr_accessor :summary
-
     # A textual description of this package.
     attr_accessor :description
 
-    # The version of this package.
-    attr_accessor :version
-
     # The primary file for the package.
     attr_accessor :package_file
+
+    # A one-liner synopsis of this package.
+    attr_accessor :summary
+
+    # The version of this package.
+    attr_accessor :version
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'summary' => :'summary',
         :'description' => :'description',
-        :'version' => :'version',
-        :'package_file' => :'package_file'
+        :'package_file' => :'package_file',
+        :'summary' => :'summary',
+        :'version' => :'version'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'summary' => :'String',
         :'description' => :'String',
-        :'version' => :'String',
-        :'package_file' => :'String'
+        :'package_file' => :'String',
+        :'summary' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -56,20 +56,20 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'summary')
-        self.summary = attributes[:'summary']
-      end
-
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
       end
 
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
-
       if attributes.has_key?(:'package_file')
         self.package_file = attributes[:'package_file']
+      end
+
+      if attributes.has_key?(:'summary')
+        self.summary = attributes[:'summary']
+      end
+
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
       end
 
     end
@@ -97,10 +97,10 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          summary == o.summary &&
           description == o.description &&
-          version == o.version &&
-          package_file == o.package_file
+          package_file == o.package_file &&
+          summary == o.summary &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -112,7 +112,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [summary, description, version, package_file].hash
+      [description, package_file, summary, version].hash
     end
 
     # Builds the object from hash

@@ -14,27 +14,62 @@ require 'date'
 
 module CloudsmithApi
 
-  class DistributionVersions
-    # The slug identifier for this version
-    attr_accessor :slug
+  class WebhooksCreate
+    # None
+    attr_accessor :events
 
-    # The textual name for this version.
-    attr_accessor :name
+    # None
+    attr_accessor :identifier
+
+    # If enabled, the webhook will trigger on events and send payloads to the configured target URL.
+    attr_accessor :is_active
+
+    # The format of the payloads for webhook requests.
+    attr_accessor :request_body_format
+
+    # The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
+    attr_accessor :secret_header
+
+    # The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.
+    attr_accessor :secret_value
+
+    # The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).
+    attr_accessor :signature_key
+
+    # The destination URL that webhook payloads will be POST'ed to.
+    attr_accessor :target_url
+
+    # If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
+    attr_accessor :verify_ssl
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'slug' => :'slug',
-        :'name' => :'name'
+        :'events' => :'events',
+        :'identifier' => :'identifier',
+        :'is_active' => :'is_active',
+        :'request_body_format' => :'request_body_format',
+        :'secret_header' => :'secret_header',
+        :'secret_value' => :'secret_value',
+        :'signature_key' => :'signature_key',
+        :'target_url' => :'target_url',
+        :'verify_ssl' => :'verify_ssl'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'slug' => :'String',
-        :'name' => :'String'
+        :'events' => :'Array<String>',
+        :'identifier' => :'Integer',
+        :'is_active' => :'BOOLEAN',
+        :'request_body_format' => :'String',
+        :'secret_header' => :'String',
+        :'secret_value' => :'String',
+        :'signature_key' => :'String',
+        :'target_url' => :'String',
+        :'verify_ssl' => :'BOOLEAN'
       }
     end
 
@@ -46,12 +81,42 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
+      if attributes.has_key?(:'events')
+        if (value = attributes[:'events']).is_a?(Array)
+          self.events = value
+        end
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'identifier')
+        self.identifier = attributes[:'identifier']
+      end
+
+      if attributes.has_key?(:'is_active')
+        self.is_active = attributes[:'is_active']
+      end
+
+      if attributes.has_key?(:'request_body_format')
+        self.request_body_format = attributes[:'request_body_format']
+      end
+
+      if attributes.has_key?(:'secret_header')
+        self.secret_header = attributes[:'secret_header']
+      end
+
+      if attributes.has_key?(:'secret_value')
+        self.secret_value = attributes[:'secret_value']
+      end
+
+      if attributes.has_key?(:'signature_key')
+        self.signature_key = attributes[:'signature_key']
+      end
+
+      if attributes.has_key?(:'target_url')
+        self.target_url = attributes[:'target_url']
+      end
+
+      if attributes.has_key?(:'verify_ssl')
+        self.verify_ssl = attributes[:'verify_ssl']
       end
 
     end
@@ -60,12 +125,27 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @events.nil?
+        invalid_properties.push("invalid value for 'events', events cannot be nil.")
+      end
+
+      if @identifier.nil?
+        invalid_properties.push("invalid value for 'identifier', identifier cannot be nil.")
+      end
+
+      if @target_url.nil?
+        invalid_properties.push("invalid value for 'target_url', target_url cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @events.nil?
+      return false if @identifier.nil?
+      return false if @target_url.nil?
       return true
     end
 
@@ -74,8 +154,15 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          slug == o.slug &&
-          name == o.name
+          events == o.events &&
+          identifier == o.identifier &&
+          is_active == o.is_active &&
+          request_body_format == o.request_body_format &&
+          secret_header == o.secret_header &&
+          secret_value == o.secret_value &&
+          signature_key == o.signature_key &&
+          target_url == o.target_url &&
+          verify_ssl == o.verify_ssl
     end
 
     # @see the `==` method
@@ -87,7 +174,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [slug, name].hash
+      [events, identifier, is_active, request_body_format, secret_header, secret_value, signature_key, target_url, verify_ssl].hash
     end
 
     # Builds the object from hash

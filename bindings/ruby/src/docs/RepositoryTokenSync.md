@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tokens** | [**Array&lt;RepositoryTokenRefresh&gt;**](RepositoryTokenRefresh.md) | The entitlements that have been synchronised. | [optional] 
+**tokens** | [**Array&lt;RepositoryTokenSyncTokens&gt;**](RepositoryTokenSyncTokens.md) | The entitlements that have been synchronised. | [optional] 
 
 

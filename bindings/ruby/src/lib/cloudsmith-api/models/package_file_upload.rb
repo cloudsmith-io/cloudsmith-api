@@ -15,11 +15,11 @@ require 'date'
 module CloudsmithApi
 
   class PackageFileUpload
-    # The dictionary of fields that must be sent with POST uploads
-    attr_accessor :upload_fields
-
     # The identifier for the file to use when creating packages
     attr_accessor :identifier
+
+    # The dictionary of fields that must be sent with POST uploads
+    attr_accessor :upload_fields
 
     # The URL to use for the next-step POST upload
     attr_accessor :upload_url
@@ -28,8 +28,8 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'upload_fields' => :'upload_fields',
         :'identifier' => :'identifier',
+        :'upload_fields' => :'upload_fields',
         :'upload_url' => :'upload_url'
       }
     end
@@ -37,8 +37,8 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'upload_fields' => :'Object',
         :'identifier' => :'String',
+        :'upload_fields' => :'Object',
         :'upload_url' => :'String'
       }
     end
@@ -51,12 +51,12 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'upload_fields')
-        self.upload_fields = attributes[:'upload_fields']
-      end
-
       if attributes.has_key?(:'identifier')
         self.identifier = attributes[:'identifier']
+      end
+
+      if attributes.has_key?(:'upload_fields')
+        self.upload_fields = attributes[:'upload_fields']
       end
 
       if attributes.has_key?(:'upload_url')
@@ -83,8 +83,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          upload_fields == o.upload_fields &&
           identifier == o.identifier &&
+          upload_fields == o.upload_fields &&
           upload_url == o.upload_url
     end
 
@@ -97,7 +97,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [upload_fields, identifier, upload_url].hash
+      [identifier, upload_fields, upload_url].hash
     end
 
     # Builds the object from hash

@@ -29,7 +29,7 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'tokens' => :'Array<RepositoryTokenRefresh>'
+        :'tokens' => :'Array<RepositoryTokenSyncTokens>'
       }
     end
 

@@ -16,91 +16,19 @@ module CloudsmithApi
 
   class RawPackageUpload
     # 
-    attr_accessor :files
-
-    # The datetime the package stage was updated at.
-    attr_accessor :stage_updated_at
-
-    # 
-    attr_accessor :is_sync_failed
-
-    # 
-    attr_accessor :distro_version
-
-    # 
-    attr_accessor :checksum_sha256
-
-    # 
-    attr_accessor :repository_url
-
-    # 
-    attr_accessor :is_sync_in_progress
-
-    # The calculated size of the package.
-    attr_accessor :size
-
-    # 
-    attr_accessor :status_str
-
-    # 
-    attr_accessor :is_sync_awaiting
-
-    # 
-    attr_accessor :repository
-
-    # 
-    attr_accessor :subtype
-
-    # 
-    attr_accessor :status_url
-
-    # The datetime the package status was updated at.
-    attr_accessor :status_updated_at
-
-    # 
-    attr_accessor :namespace
-
-    # The datetime the package sync was finished at.
-    attr_accessor :sync_finished_at
-
-    # 
-    attr_accessor :filename
-
-    # Synchronisation progress (from 0-100)
-    attr_accessor :sync_progress
-
-    # The epoch of the package version (if any).
-    attr_accessor :epoch
-
-    # The version of this package.
-    attr_accessor :version
-
-    # 
-    attr_accessor :is_sync_in_flight
-
-    # 
-    attr_accessor :namespace_url
-
-    # 
-    attr_accessor :slug_perm
-
-    # 
-    attr_accessor :indexed
-
-    # 
-    attr_accessor :uploader_url
+    attr_accessor :architectures
 
     # 
     attr_accessor :cdn_url
 
     # 
+    attr_accessor :checksum_md5
+
+    # 
     attr_accessor :checksum_sha1
 
     # 
-    attr_accessor :distro
-
-    # The synchronisation status of the package.
-    attr_accessor :status
+    attr_accessor :checksum_sha256
 
     # 
     attr_accessor :checksum_sha512
@@ -108,193 +36,270 @@ module CloudsmithApi
     # A textual description of this package.
     attr_accessor :description
 
-    # The name of this package.
-    attr_accessor :name
+    # 
+    attr_accessor :distro
 
     # 
-    attr_accessor :format
-
-    # 
-    attr_accessor :is_sync_completed
+    attr_accessor :distro_version
 
     # 
     attr_accessor :downloads
 
-    # 
-    attr_accessor :version_orig
-
-    # 
-    attr_accessor :architectures
-
-    # 
-    attr_accessor :uploader
-
-    # A textual description for the synchronous status reason (if any
-    attr_accessor :status_reason
-
-    # 
-    attr_accessor :self_html_url
-
-    # The synchronisation (in progress) stage of the package.
-    attr_accessor :stage
-
-    # 
-    attr_accessor :self_url
-
-    # 
-    attr_accessor :slug
-
-    # The date this package was uploaded.
-    attr_accessor :uploaded_at
-
-    # The license of this package.
-    attr_accessor :license
+    # The epoch of the package version (if any).
+    attr_accessor :epoch
 
     # 
     attr_accessor :extension
 
     # 
-    attr_accessor :stage_str
+    attr_accessor :filename
 
-    # The type of package contents.
-    attr_accessor :package_type
+    # 
+    attr_accessor :files
 
-    # A one-liner synopsis of this package.
-    attr_accessor :summary
+    # 
+    attr_accessor :format
+
+    # 
+    attr_accessor :format_url
+
+    # 
+    attr_accessor :identifier
+
+    # 
+    attr_accessor :indexed
+
+    # 
+    attr_accessor :is_sync_awaiting
+
+    # 
+    attr_accessor :is_sync_completed
+
+    # 
+    attr_accessor :is_sync_failed
+
+    # 
+    attr_accessor :is_sync_in_flight
+
+    # 
+    attr_accessor :is_sync_in_progress
+
+    # The license of this package.
+    attr_accessor :license
+
+    # The name of this package.
+    attr_accessor :name
+
+    # 
+    attr_accessor :namespace
+
+    # 
+    attr_accessor :namespace_url
 
     # 
     attr_accessor :num_files
 
-    # 
-    attr_accessor :checksum_md5
+    # The type of package contents.
+    attr_accessor :package_type
 
     # The release of the package version (if any).
     attr_accessor :release
 
     # 
-    attr_accessor :type_display
+    attr_accessor :repository
 
     # 
-    attr_accessor :format_url
+    attr_accessor :repository_url
+
+    # 
+    attr_accessor :self_html_url
+
+    # 
+    attr_accessor :self_url
+
+    # The calculated size of the package.
+    attr_accessor :size
+
+    # 
+    attr_accessor :slug
+
+    # 
+    attr_accessor :slug_perm
+
+    # The synchronisation (in progress) stage of the package.
+    attr_accessor :stage
+
+    # 
+    attr_accessor :stage_str
+
+    # The datetime the package stage was updated at.
+    attr_accessor :stage_updated_at
+
+    # The synchronisation status of the package.
+    attr_accessor :status
+
+    # A textual description for the synchronous status reason (if any
+    attr_accessor :status_reason
+
+    # 
+    attr_accessor :status_str
+
+    # The datetime the package status was updated at.
+    attr_accessor :status_updated_at
+
+    # 
+    attr_accessor :status_url
+
+    # 
+    attr_accessor :subtype
+
+    # A one-liner synopsis of this package.
+    attr_accessor :summary
+
+    # The datetime the package sync was finished at.
+    attr_accessor :sync_finished_at
+
+    # Synchronisation progress (from 0-100)
+    attr_accessor :sync_progress
+
+    # 
+    attr_accessor :type_display
+
+    # The date this package was uploaded.
+    attr_accessor :uploaded_at
+
+    # 
+    attr_accessor :uploader
+
+    # 
+    attr_accessor :uploader_url
+
+    # The version of this package.
+    attr_accessor :version
+
+    # 
+    attr_accessor :version_orig
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'files' => :'files',
-        :'stage_updated_at' => :'stage_updated_at',
-        :'is_sync_failed' => :'is_sync_failed',
-        :'distro_version' => :'distro_version',
-        :'checksum_sha256' => :'checksum_sha256',
-        :'repository_url' => :'repository_url',
-        :'is_sync_in_progress' => :'is_sync_in_progress',
-        :'size' => :'size',
-        :'status_str' => :'status_str',
-        :'is_sync_awaiting' => :'is_sync_awaiting',
-        :'repository' => :'repository',
-        :'subtype' => :'subtype',
-        :'status_url' => :'status_url',
-        :'status_updated_at' => :'status_updated_at',
-        :'namespace' => :'namespace',
-        :'sync_finished_at' => :'sync_finished_at',
-        :'filename' => :'filename',
-        :'sync_progress' => :'sync_progress',
-        :'epoch' => :'epoch',
-        :'version' => :'version',
-        :'is_sync_in_flight' => :'is_sync_in_flight',
-        :'namespace_url' => :'namespace_url',
-        :'slug_perm' => :'slug_perm',
-        :'indexed' => :'indexed',
-        :'uploader_url' => :'uploader_url',
+        :'architectures' => :'architectures',
         :'cdn_url' => :'cdn_url',
+        :'checksum_md5' => :'checksum_md5',
         :'checksum_sha1' => :'checksum_sha1',
-        :'distro' => :'distro',
-        :'status' => :'status',
+        :'checksum_sha256' => :'checksum_sha256',
         :'checksum_sha512' => :'checksum_sha512',
         :'description' => :'description',
-        :'name' => :'name',
-        :'format' => :'format',
-        :'is_sync_completed' => :'is_sync_completed',
+        :'distro' => :'distro',
+        :'distro_version' => :'distro_version',
         :'downloads' => :'downloads',
-        :'version_orig' => :'version_orig',
-        :'architectures' => :'architectures',
-        :'uploader' => :'uploader',
-        :'status_reason' => :'status_reason',
-        :'self_html_url' => :'self_html_url',
-        :'stage' => :'stage',
-        :'self_url' => :'self_url',
-        :'slug' => :'slug',
-        :'uploaded_at' => :'uploaded_at',
-        :'license' => :'license',
+        :'epoch' => :'epoch',
         :'extension' => :'extension',
-        :'stage_str' => :'stage_str',
-        :'package_type' => :'package_type',
-        :'summary' => :'summary',
+        :'filename' => :'filename',
+        :'files' => :'files',
+        :'format' => :'format',
+        :'format_url' => :'format_url',
+        :'identifier' => :'identifier',
+        :'indexed' => :'indexed',
+        :'is_sync_awaiting' => :'is_sync_awaiting',
+        :'is_sync_completed' => :'is_sync_completed',
+        :'is_sync_failed' => :'is_sync_failed',
+        :'is_sync_in_flight' => :'is_sync_in_flight',
+        :'is_sync_in_progress' => :'is_sync_in_progress',
+        :'license' => :'license',
+        :'name' => :'name',
+        :'namespace' => :'namespace',
+        :'namespace_url' => :'namespace_url',
         :'num_files' => :'num_files',
-        :'checksum_md5' => :'checksum_md5',
+        :'package_type' => :'package_type',
         :'release' => :'release',
+        :'repository' => :'repository',
+        :'repository_url' => :'repository_url',
+        :'self_html_url' => :'self_html_url',
+        :'self_url' => :'self_url',
+        :'size' => :'size',
+        :'slug' => :'slug',
+        :'slug_perm' => :'slug_perm',
+        :'stage' => :'stage',
+        :'stage_str' => :'stage_str',
+        :'stage_updated_at' => :'stage_updated_at',
+        :'status' => :'status',
+        :'status_reason' => :'status_reason',
+        :'status_str' => :'status_str',
+        :'status_updated_at' => :'status_updated_at',
+        :'status_url' => :'status_url',
+        :'subtype' => :'subtype',
+        :'summary' => :'summary',
+        :'sync_finished_at' => :'sync_finished_at',
+        :'sync_progress' => :'sync_progress',
         :'type_display' => :'type_display',
-        :'format_url' => :'format_url'
+        :'uploaded_at' => :'uploaded_at',
+        :'uploader' => :'uploader',
+        :'uploader_url' => :'uploader_url',
+        :'version' => :'version',
+        :'version_orig' => :'version_orig'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'files' => :'Array<RpmPackageUploadFiles>',
-        :'stage_updated_at' => :'String',
-        :'is_sync_failed' => :'BOOLEAN',
-        :'distro_version' => :'Object',
-        :'checksum_sha256' => :'String',
-        :'repository_url' => :'String',
-        :'is_sync_in_progress' => :'BOOLEAN',
-        :'size' => :'Integer',
-        :'status_str' => :'String',
-        :'is_sync_awaiting' => :'BOOLEAN',
-        :'repository' => :'String',
-        :'subtype' => :'String',
-        :'status_url' => :'String',
-        :'status_updated_at' => :'String',
-        :'namespace' => :'String',
-        :'sync_finished_at' => :'String',
-        :'filename' => :'String',
-        :'sync_progress' => :'Integer',
-        :'epoch' => :'Integer',
-        :'version' => :'String',
-        :'is_sync_in_flight' => :'BOOLEAN',
-        :'namespace_url' => :'String',
-        :'slug_perm' => :'String',
-        :'indexed' => :'BOOLEAN',
-        :'uploader_url' => :'String',
+        :'architectures' => :'Array<PackagesownerrepoArchitectures>',
         :'cdn_url' => :'String',
+        :'checksum_md5' => :'String',
         :'checksum_sha1' => :'String',
-        :'distro' => :'Object',
-        :'status' => :'String',
+        :'checksum_sha256' => :'String',
         :'checksum_sha512' => :'String',
         :'description' => :'String',
-        :'name' => :'String',
-        :'format' => :'String',
-        :'is_sync_completed' => :'BOOLEAN',
-        :'downloads' => :'String',
-        :'version_orig' => :'String',
-        :'architectures' => :'Array<RpmPackageUploadArchitectures>',
-        :'uploader' => :'String',
-        :'status_reason' => :'String',
-        :'self_html_url' => :'String',
-        :'stage' => :'String',
-        :'self_url' => :'String',
-        :'slug' => :'String',
-        :'uploaded_at' => :'String',
-        :'license' => :'String',
+        :'distro' => :'Object',
+        :'distro_version' => :'Object',
+        :'downloads' => :'Integer',
+        :'epoch' => :'Integer',
         :'extension' => :'String',
-        :'stage_str' => :'String',
-        :'package_type' => :'String',
-        :'summary' => :'String',
+        :'filename' => :'String',
+        :'files' => :'Array<PackagesownerrepoFiles>',
+        :'format' => :'String',
+        :'format_url' => :'String',
+        :'identifier' => :'Integer',
+        :'indexed' => :'BOOLEAN',
+        :'is_sync_awaiting' => :'BOOLEAN',
+        :'is_sync_completed' => :'BOOLEAN',
+        :'is_sync_failed' => :'BOOLEAN',
+        :'is_sync_in_flight' => :'BOOLEAN',
+        :'is_sync_in_progress' => :'BOOLEAN',
+        :'license' => :'String',
+        :'name' => :'String',
+        :'namespace' => :'String',
+        :'namespace_url' => :'String',
         :'num_files' => :'Integer',
-        :'checksum_md5' => :'String',
+        :'package_type' => :'String',
         :'release' => :'String',
+        :'repository' => :'String',
+        :'repository_url' => :'String',
+        :'self_html_url' => :'String',
+        :'self_url' => :'String',
+        :'size' => :'Integer',
+        :'slug' => :'String',
+        :'slug_perm' => :'String',
+        :'stage' => :'String',
+        :'stage_str' => :'String',
+        :'stage_updated_at' => :'String',
+        :'status' => :'String',
+        :'status_reason' => :'String',
+        :'status_str' => :'String',
+        :'status_updated_at' => :'String',
+        :'status_url' => :'String',
+        :'subtype' => :'String',
+        :'summary' => :'String',
+        :'sync_finished_at' => :'String',
+        :'sync_progress' => :'Integer',
         :'type_display' => :'String',
-        :'format_url' => :'String'
+        :'uploaded_at' => :'String',
+        :'uploader' => :'String',
+        :'uploader_url' => :'String',
+        :'version' => :'String',
+        :'version_orig' => :'String'
       }
     end
 
@@ -306,122 +311,26 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'files')
-        if (value = attributes[:'files']).is_a?(Array)
-          self.files = value
+      if attributes.has_key?(:'architectures')
+        if (value = attributes[:'architectures']).is_a?(Array)
+          self.architectures = value
         end
-      end
-
-      if attributes.has_key?(:'stage_updated_at')
-        self.stage_updated_at = attributes[:'stage_updated_at']
-      end
-
-      if attributes.has_key?(:'is_sync_failed')
-        self.is_sync_failed = attributes[:'is_sync_failed']
-      end
-
-      if attributes.has_key?(:'distro_version')
-        self.distro_version = attributes[:'distro_version']
-      end
-
-      if attributes.has_key?(:'checksum_sha256')
-        self.checksum_sha256 = attributes[:'checksum_sha256']
-      end
-
-      if attributes.has_key?(:'repository_url')
-        self.repository_url = attributes[:'repository_url']
-      end
-
-      if attributes.has_key?(:'is_sync_in_progress')
-        self.is_sync_in_progress = attributes[:'is_sync_in_progress']
-      end
-
-      if attributes.has_key?(:'size')
-        self.size = attributes[:'size']
-      end
-
-      if attributes.has_key?(:'status_str')
-        self.status_str = attributes[:'status_str']
-      end
-
-      if attributes.has_key?(:'is_sync_awaiting')
-        self.is_sync_awaiting = attributes[:'is_sync_awaiting']
-      end
-
-      if attributes.has_key?(:'repository')
-        self.repository = attributes[:'repository']
-      end
-
-      if attributes.has_key?(:'subtype')
-        self.subtype = attributes[:'subtype']
-      end
-
-      if attributes.has_key?(:'status_url')
-        self.status_url = attributes[:'status_url']
-      end
-
-      if attributes.has_key?(:'status_updated_at')
-        self.status_updated_at = attributes[:'status_updated_at']
-      end
-
-      if attributes.has_key?(:'namespace')
-        self.namespace = attributes[:'namespace']
-      end
-
-      if attributes.has_key?(:'sync_finished_at')
-        self.sync_finished_at = attributes[:'sync_finished_at']
-      end
-
-      if attributes.has_key?(:'filename')
-        self.filename = attributes[:'filename']
-      end
-
-      if attributes.has_key?(:'sync_progress')
-        self.sync_progress = attributes[:'sync_progress']
-      end
-
-      if attributes.has_key?(:'epoch')
-        self.epoch = attributes[:'epoch']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
-
-      if attributes.has_key?(:'is_sync_in_flight')
-        self.is_sync_in_flight = attributes[:'is_sync_in_flight']
-      end
-
-      if attributes.has_key?(:'namespace_url')
-        self.namespace_url = attributes[:'namespace_url']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'indexed')
-        self.indexed = attributes[:'indexed']
-      end
-
-      if attributes.has_key?(:'uploader_url')
-        self.uploader_url = attributes[:'uploader_url']
       end
 
       if attributes.has_key?(:'cdn_url')
         self.cdn_url = attributes[:'cdn_url']
       end
 
+      if attributes.has_key?(:'checksum_md5')
+        self.checksum_md5 = attributes[:'checksum_md5']
+      end
+
       if attributes.has_key?(:'checksum_sha1')
         self.checksum_sha1 = attributes[:'checksum_sha1']
       end
 
-      if attributes.has_key?(:'distro')
-        self.distro = attributes[:'distro']
-      end
-
-      if attributes.has_key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.has_key?(:'checksum_sha256')
+        self.checksum_sha256 = attributes[:'checksum_sha256']
       end
 
       if attributes.has_key?(:'checksum_sha512')
@@ -432,98 +341,198 @@ module CloudsmithApi
         self.description = attributes[:'description']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'distro')
+        self.distro = attributes[:'distro']
       end
 
-      if attributes.has_key?(:'format')
-        self.format = attributes[:'format']
-      end
-
-      if attributes.has_key?(:'is_sync_completed')
-        self.is_sync_completed = attributes[:'is_sync_completed']
+      if attributes.has_key?(:'distro_version')
+        self.distro_version = attributes[:'distro_version']
       end
 
       if attributes.has_key?(:'downloads')
         self.downloads = attributes[:'downloads']
       end
 
-      if attributes.has_key?(:'version_orig')
-        self.version_orig = attributes[:'version_orig']
-      end
-
-      if attributes.has_key?(:'architectures')
-        if (value = attributes[:'architectures']).is_a?(Array)
-          self.architectures = value
-        end
-      end
-
-      if attributes.has_key?(:'uploader')
-        self.uploader = attributes[:'uploader']
-      end
-
-      if attributes.has_key?(:'status_reason')
-        self.status_reason = attributes[:'status_reason']
-      end
-
-      if attributes.has_key?(:'self_html_url')
-        self.self_html_url = attributes[:'self_html_url']
-      end
-
-      if attributes.has_key?(:'stage')
-        self.stage = attributes[:'stage']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'uploaded_at')
-        self.uploaded_at = attributes[:'uploaded_at']
-      end
-
-      if attributes.has_key?(:'license')
-        self.license = attributes[:'license']
+      if attributes.has_key?(:'epoch')
+        self.epoch = attributes[:'epoch']
       end
 
       if attributes.has_key?(:'extension')
         self.extension = attributes[:'extension']
       end
 
-      if attributes.has_key?(:'stage_str')
-        self.stage_str = attributes[:'stage_str']
+      if attributes.has_key?(:'filename')
+        self.filename = attributes[:'filename']
       end
 
-      if attributes.has_key?(:'package_type')
-        self.package_type = attributes[:'package_type']
+      if attributes.has_key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
+        end
       end
 
-      if attributes.has_key?(:'summary')
-        self.summary = attributes[:'summary']
+      if attributes.has_key?(:'format')
+        self.format = attributes[:'format']
+      end
+
+      if attributes.has_key?(:'format_url')
+        self.format_url = attributes[:'format_url']
+      end
+
+      if attributes.has_key?(:'identifier')
+        self.identifier = attributes[:'identifier']
+      end
+
+      if attributes.has_key?(:'indexed')
+        self.indexed = attributes[:'indexed']
+      end
+
+      if attributes.has_key?(:'is_sync_awaiting')
+        self.is_sync_awaiting = attributes[:'is_sync_awaiting']
+      end
+
+      if attributes.has_key?(:'is_sync_completed')
+        self.is_sync_completed = attributes[:'is_sync_completed']
+      end
+
+      if attributes.has_key?(:'is_sync_failed')
+        self.is_sync_failed = attributes[:'is_sync_failed']
+      end
+
+      if attributes.has_key?(:'is_sync_in_flight')
+        self.is_sync_in_flight = attributes[:'is_sync_in_flight']
+      end
+
+      if attributes.has_key?(:'is_sync_in_progress')
+        self.is_sync_in_progress = attributes[:'is_sync_in_progress']
+      end
+
+      if attributes.has_key?(:'license')
+        self.license = attributes[:'license']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'namespace')
+        self.namespace = attributes[:'namespace']
+      end
+
+      if attributes.has_key?(:'namespace_url')
+        self.namespace_url = attributes[:'namespace_url']
       end
 
       if attributes.has_key?(:'num_files')
         self.num_files = attributes[:'num_files']
       end
 
-      if attributes.has_key?(:'checksum_md5')
-        self.checksum_md5 = attributes[:'checksum_md5']
+      if attributes.has_key?(:'package_type')
+        self.package_type = attributes[:'package_type']
       end
 
       if attributes.has_key?(:'release')
         self.release = attributes[:'release']
       end
 
+      if attributes.has_key?(:'repository')
+        self.repository = attributes[:'repository']
+      end
+
+      if attributes.has_key?(:'repository_url')
+        self.repository_url = attributes[:'repository_url']
+      end
+
+      if attributes.has_key?(:'self_html_url')
+        self.self_html_url = attributes[:'self_html_url']
+      end
+
+      if attributes.has_key?(:'self_url')
+        self.self_url = attributes[:'self_url']
+      end
+
+      if attributes.has_key?(:'size')
+        self.size = attributes[:'size']
+      end
+
+      if attributes.has_key?(:'slug')
+        self.slug = attributes[:'slug']
+      end
+
+      if attributes.has_key?(:'slug_perm')
+        self.slug_perm = attributes[:'slug_perm']
+      end
+
+      if attributes.has_key?(:'stage')
+        self.stage = attributes[:'stage']
+      end
+
+      if attributes.has_key?(:'stage_str')
+        self.stage_str = attributes[:'stage_str']
+      end
+
+      if attributes.has_key?(:'stage_updated_at')
+        self.stage_updated_at = attributes[:'stage_updated_at']
+      end
+
+      if attributes.has_key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.has_key?(:'status_reason')
+        self.status_reason = attributes[:'status_reason']
+      end
+
+      if attributes.has_key?(:'status_str')
+        self.status_str = attributes[:'status_str']
+      end
+
+      if attributes.has_key?(:'status_updated_at')
+        self.status_updated_at = attributes[:'status_updated_at']
+      end
+
+      if attributes.has_key?(:'status_url')
+        self.status_url = attributes[:'status_url']
+      end
+
+      if attributes.has_key?(:'subtype')
+        self.subtype = attributes[:'subtype']
+      end
+
+      if attributes.has_key?(:'summary')
+        self.summary = attributes[:'summary']
+      end
+
+      if attributes.has_key?(:'sync_finished_at')
+        self.sync_finished_at = attributes[:'sync_finished_at']
+      end
+
+      if attributes.has_key?(:'sync_progress')
+        self.sync_progress = attributes[:'sync_progress']
+      end
+
       if attributes.has_key?(:'type_display')
         self.type_display = attributes[:'type_display']
       end
 
-      if attributes.has_key?(:'format_url')
-        self.format_url = attributes[:'format_url']
+      if attributes.has_key?(:'uploaded_at')
+        self.uploaded_at = attributes[:'uploaded_at']
+      end
+
+      if attributes.has_key?(:'uploader')
+        self.uploader = attributes[:'uploader']
+      end
+
+      if attributes.has_key?(:'uploader_url')
+        self.uploader_url = attributes[:'uploader_url']
+      end
+
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
+      end
+
+      if attributes.has_key?(:'version_orig')
+        self.version_orig = attributes[:'version_orig']
       end
 
     end
@@ -546,60 +555,61 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          files == o.files &&
-          stage_updated_at == o.stage_updated_at &&
-          is_sync_failed == o.is_sync_failed &&
-          distro_version == o.distro_version &&
-          checksum_sha256 == o.checksum_sha256 &&
-          repository_url == o.repository_url &&
-          is_sync_in_progress == o.is_sync_in_progress &&
-          size == o.size &&
-          status_str == o.status_str &&
-          is_sync_awaiting == o.is_sync_awaiting &&
-          repository == o.repository &&
-          subtype == o.subtype &&
-          status_url == o.status_url &&
-          status_updated_at == o.status_updated_at &&
-          namespace == o.namespace &&
-          sync_finished_at == o.sync_finished_at &&
-          filename == o.filename &&
-          sync_progress == o.sync_progress &&
-          epoch == o.epoch &&
-          version == o.version &&
-          is_sync_in_flight == o.is_sync_in_flight &&
-          namespace_url == o.namespace_url &&
-          slug_perm == o.slug_perm &&
-          indexed == o.indexed &&
-          uploader_url == o.uploader_url &&
+          architectures == o.architectures &&
           cdn_url == o.cdn_url &&
+          checksum_md5 == o.checksum_md5 &&
           checksum_sha1 == o.checksum_sha1 &&
-          distro == o.distro &&
-          status == o.status &&
+          checksum_sha256 == o.checksum_sha256 &&
           checksum_sha512 == o.checksum_sha512 &&
           description == o.description &&
-          name == o.name &&
-          format == o.format &&
-          is_sync_completed == o.is_sync_completed &&
+          distro == o.distro &&
+          distro_version == o.distro_version &&
           downloads == o.downloads &&
-          version_orig == o.version_orig &&
-          architectures == o.architectures &&
-          uploader == o.uploader &&
-          status_reason == o.status_reason &&
-          self_html_url == o.self_html_url &&
-          stage == o.stage &&
-          self_url == o.self_url &&
-          slug == o.slug &&
-          uploaded_at == o.uploaded_at &&
-          license == o.license &&
+          epoch == o.epoch &&
           extension == o.extension &&
-          stage_str == o.stage_str &&
-          package_type == o.package_type &&
-          summary == o.summary &&
+          filename == o.filename &&
+          files == o.files &&
+          format == o.format &&
+          format_url == o.format_url &&
+          identifier == o.identifier &&
+          indexed == o.indexed &&
+          is_sync_awaiting == o.is_sync_awaiting &&
+          is_sync_completed == o.is_sync_completed &&
+          is_sync_failed == o.is_sync_failed &&
+          is_sync_in_flight == o.is_sync_in_flight &&
+          is_sync_in_progress == o.is_sync_in_progress &&
+          license == o.license &&
+          name == o.name &&
+          namespace == o.namespace &&
+          namespace_url == o.namespace_url &&
           num_files == o.num_files &&
-          checksum_md5 == o.checksum_md5 &&
+          package_type == o.package_type &&
           release == o.release &&
+          repository == o.repository &&
+          repository_url == o.repository_url &&
+          self_html_url == o.self_html_url &&
+          self_url == o.self_url &&
+          size == o.size &&
+          slug == o.slug &&
+          slug_perm == o.slug_perm &&
+          stage == o.stage &&
+          stage_str == o.stage_str &&
+          stage_updated_at == o.stage_updated_at &&
+          status == o.status &&
+          status_reason == o.status_reason &&
+          status_str == o.status_str &&
+          status_updated_at == o.status_updated_at &&
+          status_url == o.status_url &&
+          subtype == o.subtype &&
+          summary == o.summary &&
+          sync_finished_at == o.sync_finished_at &&
+          sync_progress == o.sync_progress &&
           type_display == o.type_display &&
-          format_url == o.format_url
+          uploaded_at == o.uploaded_at &&
+          uploader == o.uploader &&
+          uploader_url == o.uploader_url &&
+          version == o.version &&
+          version_orig == o.version_orig
     end
 
     # @see the `==` method
@@ -611,7 +621,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [files, stage_updated_at, is_sync_failed, distro_version, checksum_sha256, repository_url, is_sync_in_progress, size, status_str, is_sync_awaiting, repository, subtype, status_url, status_updated_at, namespace, sync_finished_at, filename, sync_progress, epoch, version, is_sync_in_flight, namespace_url, slug_perm, indexed, uploader_url, cdn_url, checksum_sha1, distro, status, checksum_sha512, description, name, format, is_sync_completed, downloads, version_orig, architectures, uploader, status_reason, self_html_url, stage, self_url, slug, uploaded_at, license, extension, stage_str, package_type, summary, num_files, checksum_md5, release, type_display, format_url].hash
+      [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, type_display, uploaded_at, uploader, uploader_url, version, version_orig].hash
     end
 
     # Builds the object from hash

@@ -16,28 +16,10 @@ module CloudsmithApi
 
   class PackageStatus
     # 
-    attr_accessor :self_url
-
-    # The synchronisation status of the package.
-    attr_accessor :status
-
-    # 
     attr_accessor :is_sync_awaiting
-
-    # The datetime the package stage was updated at.
-    attr_accessor :stage_updated_at
-
-    # 
-    attr_accessor :stage_str
 
     # 
     attr_accessor :is_sync_completed
-
-    # The datetime the package status was updated at.
-    attr_accessor :status_updated_at
-
-    # The datetime the package sync was finished at.
-    attr_accessor :sync_finished_at
 
     # 
     attr_accessor :is_sync_failed
@@ -46,60 +28,78 @@ module CloudsmithApi
     attr_accessor :is_sync_in_flight
 
     # 
-    attr_accessor :status_str
+    attr_accessor :is_sync_in_progress
 
-    # Synchronisation progress (from 0-100)
-    attr_accessor :sync_progress
+    # 
+    attr_accessor :self_url
+
+    # The synchronisation (in progress) stage of the package.
+    attr_accessor :stage
+
+    # 
+    attr_accessor :stage_str
+
+    # The datetime the package stage was updated at.
+    attr_accessor :stage_updated_at
+
+    # The synchronisation status of the package.
+    attr_accessor :status
 
     # A textual description for the synchronous status reason (if any
     attr_accessor :status_reason
 
     # 
-    attr_accessor :is_sync_in_progress
+    attr_accessor :status_str
 
-    # The synchronisation (in progress) stage of the package.
-    attr_accessor :stage
+    # The datetime the package status was updated at.
+    attr_accessor :status_updated_at
+
+    # The datetime the package sync was finished at.
+    attr_accessor :sync_finished_at
+
+    # Synchronisation progress (from 0-100)
+    attr_accessor :sync_progress
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'self_url' => :'self_url',
-        :'status' => :'status',
         :'is_sync_awaiting' => :'is_sync_awaiting',
-        :'stage_updated_at' => :'stage_updated_at',
-        :'stage_str' => :'stage_str',
         :'is_sync_completed' => :'is_sync_completed',
-        :'status_updated_at' => :'status_updated_at',
-        :'sync_finished_at' => :'sync_finished_at',
         :'is_sync_failed' => :'is_sync_failed',
         :'is_sync_in_flight' => :'is_sync_in_flight',
-        :'status_str' => :'status_str',
-        :'sync_progress' => :'sync_progress',
-        :'status_reason' => :'status_reason',
         :'is_sync_in_progress' => :'is_sync_in_progress',
-        :'stage' => :'stage'
+        :'self_url' => :'self_url',
+        :'stage' => :'stage',
+        :'stage_str' => :'stage_str',
+        :'stage_updated_at' => :'stage_updated_at',
+        :'status' => :'status',
+        :'status_reason' => :'status_reason',
+        :'status_str' => :'status_str',
+        :'status_updated_at' => :'status_updated_at',
+        :'sync_finished_at' => :'sync_finished_at',
+        :'sync_progress' => :'sync_progress'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'self_url' => :'String',
-        :'status' => :'String',
         :'is_sync_awaiting' => :'BOOLEAN',
-        :'stage_updated_at' => :'String',
-        :'stage_str' => :'String',
         :'is_sync_completed' => :'BOOLEAN',
-        :'status_updated_at' => :'String',
-        :'sync_finished_at' => :'String',
         :'is_sync_failed' => :'BOOLEAN',
         :'is_sync_in_flight' => :'BOOLEAN',
-        :'status_str' => :'String',
-        :'sync_progress' => :'Integer',
-        :'status_reason' => :'String',
         :'is_sync_in_progress' => :'BOOLEAN',
-        :'stage' => :'String'
+        :'self_url' => :'String',
+        :'stage' => :'String',
+        :'stage_str' => :'String',
+        :'stage_updated_at' => :'String',
+        :'status' => :'String',
+        :'status_reason' => :'String',
+        :'status_str' => :'String',
+        :'status_updated_at' => :'String',
+        :'sync_finished_at' => :'String',
+        :'sync_progress' => :'Integer'
       }
     end
 
@@ -111,36 +111,12 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'status')
-        self.status = attributes[:'status']
-      end
-
       if attributes.has_key?(:'is_sync_awaiting')
         self.is_sync_awaiting = attributes[:'is_sync_awaiting']
       end
 
-      if attributes.has_key?(:'stage_updated_at')
-        self.stage_updated_at = attributes[:'stage_updated_at']
-      end
-
-      if attributes.has_key?(:'stage_str')
-        self.stage_str = attributes[:'stage_str']
-      end
-
       if attributes.has_key?(:'is_sync_completed')
         self.is_sync_completed = attributes[:'is_sync_completed']
-      end
-
-      if attributes.has_key?(:'status_updated_at')
-        self.status_updated_at = attributes[:'status_updated_at']
-      end
-
-      if attributes.has_key?(:'sync_finished_at')
-        self.sync_finished_at = attributes[:'sync_finished_at']
       end
 
       if attributes.has_key?(:'is_sync_failed')
@@ -151,24 +127,48 @@ module CloudsmithApi
         self.is_sync_in_flight = attributes[:'is_sync_in_flight']
       end
 
-      if attributes.has_key?(:'status_str')
-        self.status_str = attributes[:'status_str']
+      if attributes.has_key?(:'is_sync_in_progress')
+        self.is_sync_in_progress = attributes[:'is_sync_in_progress']
       end
 
-      if attributes.has_key?(:'sync_progress')
-        self.sync_progress = attributes[:'sync_progress']
+      if attributes.has_key?(:'self_url')
+        self.self_url = attributes[:'self_url']
+      end
+
+      if attributes.has_key?(:'stage')
+        self.stage = attributes[:'stage']
+      end
+
+      if attributes.has_key?(:'stage_str')
+        self.stage_str = attributes[:'stage_str']
+      end
+
+      if attributes.has_key?(:'stage_updated_at')
+        self.stage_updated_at = attributes[:'stage_updated_at']
+      end
+
+      if attributes.has_key?(:'status')
+        self.status = attributes[:'status']
       end
 
       if attributes.has_key?(:'status_reason')
         self.status_reason = attributes[:'status_reason']
       end
 
-      if attributes.has_key?(:'is_sync_in_progress')
-        self.is_sync_in_progress = attributes[:'is_sync_in_progress']
+      if attributes.has_key?(:'status_str')
+        self.status_str = attributes[:'status_str']
       end
 
-      if attributes.has_key?(:'stage')
-        self.stage = attributes[:'stage']
+      if attributes.has_key?(:'status_updated_at')
+        self.status_updated_at = attributes[:'status_updated_at']
+      end
+
+      if attributes.has_key?(:'sync_finished_at')
+        self.sync_finished_at = attributes[:'sync_finished_at']
+      end
+
+      if attributes.has_key?(:'sync_progress')
+        self.sync_progress = attributes[:'sync_progress']
       end
 
     end
@@ -191,21 +191,21 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          self_url == o.self_url &&
-          status == o.status &&
           is_sync_awaiting == o.is_sync_awaiting &&
-          stage_updated_at == o.stage_updated_at &&
-          stage_str == o.stage_str &&
           is_sync_completed == o.is_sync_completed &&
-          status_updated_at == o.status_updated_at &&
-          sync_finished_at == o.sync_finished_at &&
           is_sync_failed == o.is_sync_failed &&
           is_sync_in_flight == o.is_sync_in_flight &&
-          status_str == o.status_str &&
-          sync_progress == o.sync_progress &&
-          status_reason == o.status_reason &&
           is_sync_in_progress == o.is_sync_in_progress &&
-          stage == o.stage
+          self_url == o.self_url &&
+          stage == o.stage &&
+          stage_str == o.stage_str &&
+          stage_updated_at == o.stage_updated_at &&
+          status == o.status &&
+          status_reason == o.status_reason &&
+          status_str == o.status_str &&
+          status_updated_at == o.status_updated_at &&
+          sync_finished_at == o.sync_finished_at &&
+          sync_progress == o.sync_progress
     end
 
     # @see the `==` method
@@ -217,7 +217,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [self_url, status, is_sync_awaiting, stage_updated_at, stage_str, is_sync_completed, status_updated_at, sync_finished_at, is_sync_failed, is_sync_in_flight, status_str, sync_progress, status_reason, is_sync_in_progress, stage].hash
+      [is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, self_url, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, sync_finished_at, sync_progress].hash
     end
 
     # Builds the object from hash

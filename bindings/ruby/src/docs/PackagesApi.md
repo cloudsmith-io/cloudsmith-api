@@ -4,13 +4,14 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**packages_copy**](PackagesApi.md#packages_copy) | **POST** /packages/{owner}/{repo}/{slug}/copy/ | Copy a package to another repository.
-[**packages_delete**](PackagesApi.md#packages_delete) | **DELETE** /packages/{owner}/{repo}/{slug}/ | Delete a specific package in a repository.
+[**packages_copy**](PackagesApi.md#packages_copy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
+[**packages_delete**](PackagesApi.md#packages_delete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 [**packages_list**](PackagesApi.md#packages_list) | **GET** /packages/{owner}/{repo}/ | Views for working with repository packages.
-[**packages_move**](PackagesApi.md#packages_move) | **POST** /packages/{owner}/{repo}/{slug}/move/ | Move a package to another repository.
-[**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{slug}/ | Get a specific package in a repository.
-[**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{slug}/resync/ | Schedule a package for resynchronisation.
-[**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{slug}/status/ | Get the synchronisation status for a package.
+[**packages_move**](PackagesApi.md#packages_move) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
+[**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
+[**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
+[**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+[**packages_upload_composer**](PackagesApi.md#packages_upload_composer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**packages_upload_deb**](PackagesApi.md#packages_upload_deb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packages_upload_python**](PackagesApi.md#packages_upload_python) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**packages_upload_rpm**](PackagesApi.md#packages_upload_rpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 [**packages_upload_ruby**](PackagesApi.md#packages_upload_ruby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
 [**packages_upload_vagrant**](PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
+[**packages_validate_upload_composer**](PackagesApi.md#packages_validate_upload_composer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**packages_validate_upload_deb**](PackagesApi.md#packages_validate_upload_deb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**packages_validate_upload_maven**](PackagesApi.md#packages_validate_upload_maven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packages_validate_upload_python**](PackagesApi.md#packages_validate_upload_python) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
@@ -28,7 +30,7 @@ Method | HTTP request | Description
 
 
 # **packages_copy**
-> PackageCopy packages_copy(owner, repo, slug, opts)
+> PackageCopy packages_copy(owner, repo, identifier, opts)
 
 Copy a package to another repository.
 
@@ -61,7 +63,7 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug = "slug_example" # String | 
+identifier = "identifier_example" # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesCopy.new # PackagesCopy | 
@@ -69,7 +71,7 @@ opts = {
 
 begin
   #Copy a package to another repository.
-  result = api_instance.packages_copy(owner, repo, slug, opts)
+  result = api_instance.packages_copy(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_copy: #{e}"
@@ -82,7 +84,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug** | **String**|  | 
+ **identifier** | **String**|  | 
  **data** | [**PackagesCopy**](PackagesCopy.md)|  | [optional] 
 
 ### Return type
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_delete**
-> packages_delete(owner, repo, slug)
+> packages_delete(owner, repo, identifier)
 
 Delete a specific package in a repository.
 
@@ -134,12 +136,12 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug = "slug_example" # String | 
+identifier = "identifier_example" # String | 
 
 
 begin
   #Delete a specific package in a repository.
-  api_instance.packages_delete(owner, repo, slug)
+  api_instance.packages_delete(owner, repo, identifier)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_delete: #{e}"
 end
@@ -151,7 +153,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug** | **String**|  | 
+ **identifier** | **String**|  | 
 
 ### Return type
 
@@ -169,7 +171,7 @@ nil (empty response body)
 
 
 # **packages_list**
-> Array&lt;RpmPackageUpload&gt; packages_list(owner, repo, opts)
+> Array&lt;Package&gt; packages_list(owner, repo, opts)
 
 Views for working with repository packages.
 
@@ -205,7 +207,7 @@ repo = "repo_example" # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  query: "query_example" # String | A search term for querying names, filenames, versions, distributions or architectures of packages.
+  query: "query_example" # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
 }
 
 begin
@@ -225,11 +227,11 @@ Name | Type | Description  | Notes
  **repo** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **query** | **String**| A search term for querying names, filenames, versions, distributions or architectures of packages. | [optional] 
+ **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] 
 
 ### Return type
 
-[**Array&lt;RpmPackageUpload&gt;**](RpmPackageUpload.md)
+[**Array&lt;Package&gt;**](Package.md)
 
 ### Authorization
 
@@ -243,7 +245,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_move**
-> PackageMove packages_move(owner, repo, slug, opts)
+> PackageMove packages_move(owner, repo, identifier, opts)
 
 Move a package to another repository.
 
@@ -276,7 +278,7 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug = "slug_example" # String | 
+identifier = "identifier_example" # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesMove.new # PackagesMove | 
@@ -284,7 +286,7 @@ opts = {
 
 begin
   #Move a package to another repository.
-  result = api_instance.packages_move(owner, repo, slug, opts)
+  result = api_instance.packages_move(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_move: #{e}"
@@ -297,7 +299,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug** | **String**|  | 
+ **identifier** | **String**|  | 
  **data** | [**PackagesMove**](PackagesMove.md)|  | [optional] 
 
 ### Return type
@@ -316,7 +318,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_read**
-> RpmPackageUpload packages_read(owner, repo, slug)
+> Package packages_read(owner, repo, identifier)
 
 Get a specific package in a repository.
 
@@ -349,12 +351,12 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug = "slug_example" # String | 
+identifier = "identifier_example" # String | 
 
 
 begin
   #Get a specific package in a repository.
-  result = api_instance.packages_read(owner, repo, slug)
+  result = api_instance.packages_read(owner, repo, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_read: #{e}"
@@ -367,11 +369,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug** | **String**|  | 
+ **identifier** | **String**|  | 
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -385,7 +387,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_resync**
-> RpmPackageUpload packages_resync(owner, repo, slug)
+> Package packages_resync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -418,12 +420,12 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug = "slug_example" # String | 
+identifier = "identifier_example" # String | 
 
 
 begin
   #Schedule a package for resynchronisation.
-  result = api_instance.packages_resync(owner, repo, slug)
+  result = api_instance.packages_resync(owner, repo, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_resync: #{e}"
@@ -436,11 +438,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug** | **String**|  | 
+ **identifier** | **String**|  | 
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -454,7 +456,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_status**
-> PackageStatus packages_status(owner, repo, slug)
+> PackageStatus packages_status(owner, repo, identifier)
 
 Get the synchronisation status for a package.
 
@@ -487,12 +489,12 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-slug = "slug_example" # String | 
+identifier = "identifier_example" # String | 
 
 
 begin
   #Get the synchronisation status for a package.
-  result = api_instance.packages_status(owner, repo, slug)
+  result = api_instance.packages_status(owner, repo, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_status: #{e}"
@@ -505,7 +507,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **slug** | **String**|  | 
+ **identifier** | **String**|  | 
 
 ### Return type
 
@@ -522,8 +524,78 @@ Name | Type | Description  | Notes
 
 
 
+# **packages_upload_composer**
+> Package packages_upload_composer(owner, repo, opts)
+
+Create a new Composer package
+
+Create a new Composer package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadComposer.new # PackagesUploadComposer | 
+}
+
+begin
+  #Create a new Composer package
+  result = api_instance.packages_upload_composer(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_composer: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadComposer**](PackagesUploadComposer.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_upload_deb**
-> RpmPackageUpload packages_upload_deb(owner, repo, opts)
+> Package packages_upload_deb(owner, repo, opts)
 
 Create a new Debian package
 
@@ -579,7 +651,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -663,7 +735,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_python**
-> RpmPackageUpload packages_upload_python(owner, repo, opts)
+> Package packages_upload_python(owner, repo, opts)
 
 Create a new Python package
 
@@ -719,7 +791,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -803,7 +875,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_rpm**
-> RpmPackageUpload packages_upload_rpm(owner, repo, opts)
+> Package packages_upload_rpm(owner, repo, opts)
 
 Create a new RedHat package
 
@@ -859,7 +931,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -873,7 +945,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_ruby**
-> RpmPackageUpload packages_upload_ruby(owner, repo, opts)
+> Package packages_upload_ruby(owner, repo, opts)
 
 Create a new Ruby package
 
@@ -929,7 +1001,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUpload**](RpmPackageUpload.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -1000,6 +1072,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**VagrantPackageUpload**](VagrantPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_validate_upload_composer**
+> packages_validate_upload_composer(owner, repo, opts)
+
+Validate parameters for create Composer package
+
+Validate parameters for create Composer package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadComposer.new # PackagesValidateuploadComposer | 
+}
+
+begin
+  #Validate parameters for create Composer package
+  api_instance.packages_validate_upload_composer(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_composer: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadComposer**](PackagesValidateuploadComposer.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

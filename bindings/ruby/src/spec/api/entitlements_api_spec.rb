@@ -52,11 +52,38 @@ describe 'EntitlementsApi' do
   # Delete a specific entitlement in a repository.
   # @param owner 
   # @param repo 
-  # @param slug_perm 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @return [nil]
   describe 'entitlements_delete test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for entitlements_disable
+  # Disable an entitlement token in a repository.
+  # Disable an entitlement token in a repository.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'entitlements_disable test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for entitlements_enable
+  # Enable an entitlement token in a repository.
+  # Enable an entitlement token in a repository.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'entitlements_enable test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -83,7 +110,6 @@ describe 'EntitlementsApi' do
   # Update a specific entitlement in a repository.
   # @param owner 
   # @param repo 
-  # @param slug_perm 
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsPartialUpdate] :data 
@@ -95,11 +121,11 @@ describe 'EntitlementsApi' do
   end
 
   # unit tests for entitlements_read
-  # Views for working with repository entitlements.
-  # Views for working with repository entitlements.
+  # Get a specific entitlement in a repository.
+  # Get a specific entitlement in a repository.
   # @param owner 
   # @param repo 
-  # @param slug_perm 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @return [RepositoryToken]
@@ -114,12 +140,25 @@ describe 'EntitlementsApi' do
   # Refresh an entitlement token in a repository.
   # @param owner 
   # @param repo 
-  # @param slug_perm 
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsRefresh] :data 
   # @return [RepositoryTokenRefresh]
   describe 'entitlements_refresh test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for entitlements_reset
+  # Reset the statistics for an entitlement token in a repository.
+  # Reset the statistics for an entitlement token in a repository.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'entitlements_reset test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -131,7 +170,6 @@ describe 'EntitlementsApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
-  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsSync] :data 
   # @return [RepositoryTokenSync]
   describe 'entitlements_sync test' do

@@ -15,26 +15,26 @@ require 'date'
 module CloudsmithApi
 
   class UserTokenCreate
-    # Password to authenticate with
-    attr_accessor :password
-
     # Email address to authenticate with
     attr_accessor :email
+
+    # Password to authenticate with
+    attr_accessor :password
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'password' => :'password',
-        :'email' => :'email'
+        :'email' => :'email',
+        :'password' => :'password'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'password' => :'String',
-        :'email' => :'String'
+        :'email' => :'String',
+        :'password' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'password')
-        self.password = attributes[:'password']
-      end
-
       if attributes.has_key?(:'email')
         self.email = attributes[:'email']
+      end
+
+      if attributes.has_key?(:'password')
+        self.password = attributes[:'password']
       end
 
     end
@@ -74,8 +74,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          password == o.password &&
-          email == o.email
+          email == o.email &&
+          password == o.password
     end
 
     # @see the `==` method
@@ -87,7 +87,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [password, email].hash
+      [email, password].hash
     end
 
     # Builds the object from hash

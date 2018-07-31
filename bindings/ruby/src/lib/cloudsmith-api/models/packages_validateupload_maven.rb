@@ -18,8 +18,14 @@ module CloudsmithApi
     # The ID of the artifact.
     attr_accessor :artifact_id
 
-    # Adds bundled Java source code to the Maven package.
-    attr_accessor :sources_file
+    # Artifact's group ID.
+    attr_accessor :group_id
+
+    # Adds bundled Java documentation to the Maven package
+    attr_accessor :javadoc_file
+
+    # The primary file for the package.
+    attr_accessor :package_file
 
     # Artifact's Maven packaging type.
     attr_accessor :packaging
@@ -27,30 +33,24 @@ module CloudsmithApi
     # The POM file is an XML file containing the Maven coordinates.
     attr_accessor :pom_file
 
-    # Adds bundled Java documentation to the Maven package
-    attr_accessor :javadoc_file
+    # Adds bundled Java source code to the Maven package.
+    attr_accessor :sources_file
 
     # The version of this package.
     attr_accessor :version
-
-    # Artifact's group ID.
-    attr_accessor :group_id
-
-    # The primary file for the package.
-    attr_accessor :package_file
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'artifact_id' => :'artifact_id',
-        :'sources_file' => :'sources_file',
+        :'group_id' => :'group_id',
+        :'javadoc_file' => :'javadoc_file',
+        :'package_file' => :'package_file',
         :'packaging' => :'packaging',
         :'pom_file' => :'pom_file',
-        :'javadoc_file' => :'javadoc_file',
-        :'version' => :'version',
-        :'group_id' => :'group_id',
-        :'package_file' => :'package_file'
+        :'sources_file' => :'sources_file',
+        :'version' => :'version'
       }
     end
 
@@ -58,13 +58,13 @@ module CloudsmithApi
     def self.swagger_types
       {
         :'artifact_id' => :'String',
-        :'sources_file' => :'String',
+        :'group_id' => :'String',
+        :'javadoc_file' => :'String',
+        :'package_file' => :'String',
         :'packaging' => :'String',
         :'pom_file' => :'String',
-        :'javadoc_file' => :'String',
-        :'version' => :'String',
-        :'group_id' => :'String',
-        :'package_file' => :'String'
+        :'sources_file' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -80,8 +80,16 @@ module CloudsmithApi
         self.artifact_id = attributes[:'artifact_id']
       end
 
-      if attributes.has_key?(:'sources_file')
-        self.sources_file = attributes[:'sources_file']
+      if attributes.has_key?(:'group_id')
+        self.group_id = attributes[:'group_id']
+      end
+
+      if attributes.has_key?(:'javadoc_file')
+        self.javadoc_file = attributes[:'javadoc_file']
+      end
+
+      if attributes.has_key?(:'package_file')
+        self.package_file = attributes[:'package_file']
       end
 
       if attributes.has_key?(:'packaging')
@@ -92,20 +100,12 @@ module CloudsmithApi
         self.pom_file = attributes[:'pom_file']
       end
 
-      if attributes.has_key?(:'javadoc_file')
-        self.javadoc_file = attributes[:'javadoc_file']
+      if attributes.has_key?(:'sources_file')
+        self.sources_file = attributes[:'sources_file']
       end
 
       if attributes.has_key?(:'version')
         self.version = attributes[:'version']
-      end
-
-      if attributes.has_key?(:'group_id')
-        self.group_id = attributes[:'group_id']
-      end
-
-      if attributes.has_key?(:'package_file')
-        self.package_file = attributes[:'package_file']
       end
 
     end
@@ -134,13 +134,13 @@ module CloudsmithApi
       return true if self.equal?(o)
       self.class == o.class &&
           artifact_id == o.artifact_id &&
-          sources_file == o.sources_file &&
+          group_id == o.group_id &&
+          javadoc_file == o.javadoc_file &&
+          package_file == o.package_file &&
           packaging == o.packaging &&
           pom_file == o.pom_file &&
-          javadoc_file == o.javadoc_file &&
-          version == o.version &&
-          group_id == o.group_id &&
-          package_file == o.package_file
+          sources_file == o.sources_file &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -152,7 +152,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [artifact_id, sources_file, packaging, pom_file, javadoc_file, version, group_id, package_file].hash
+      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, sources_file, version].hash
     end
 
     # Builds the object from hash

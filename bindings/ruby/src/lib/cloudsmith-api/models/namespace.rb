@@ -16,35 +16,35 @@ module CloudsmithApi
 
   class Namespace
     # 
-    attr_accessor :type_name
-
-    # 
-    attr_accessor :slug_perm
-
-    # 
     attr_accessor :name
 
     # 
     attr_accessor :slug
 
+    # 
+    attr_accessor :slug_perm
+
+    # 
+    attr_accessor :type_name
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type_name' => :'type_name',
-        :'slug_perm' => :'slug_perm',
         :'name' => :'name',
-        :'slug' => :'slug'
+        :'slug' => :'slug',
+        :'slug_perm' => :'slug_perm',
+        :'type_name' => :'type_name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'type_name' => :'String',
-        :'slug_perm' => :'String',
         :'name' => :'String',
-        :'slug' => :'String'
+        :'slug' => :'String',
+        :'slug_perm' => :'String',
+        :'type_name' => :'String'
       }
     end
 
@@ -56,20 +56,20 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'type_name')
-        self.type_name = attributes[:'type_name']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'slug')
         self.slug = attributes[:'slug']
+      end
+
+      if attributes.has_key?(:'slug_perm')
+        self.slug_perm = attributes[:'slug_perm']
+      end
+
+      if attributes.has_key?(:'type_name')
+        self.type_name = attributes[:'type_name']
       end
 
     end
@@ -92,10 +92,10 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type_name == o.type_name &&
-          slug_perm == o.slug_perm &&
           name == o.name &&
-          slug == o.slug
+          slug == o.slug &&
+          slug_perm == o.slug_perm &&
+          type_name == o.type_name
     end
 
     # @see the `==` method
@@ -107,7 +107,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_name, slug_perm, name, slug].hash
+      [name, slug, slug_perm, type_name].hash
     end
 
     # Builds the object from hash

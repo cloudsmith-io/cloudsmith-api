@@ -14,52 +14,37 @@ require 'date'
 
 module CloudsmithApi
 
-  class ReposownerGpgKeys
+  class FormatsDistributions
     # 
-    attr_accessor :comment
-
-    # The public key given to repository users.
-    attr_accessor :public_key
+    attr_accessor :name
 
     # 
-    attr_accessor :fingerprint_short
+    attr_accessor :self_url
 
-    # If selected this is the default key for this repository.
-    attr_accessor :default
+    # The slug identifier for this distribution
+    attr_accessor :slug
 
     # 
-    attr_accessor :created_at
-
-    # The long identifier used by GPG for this key.
-    attr_accessor :fingerprint
-
-    # If selected this is the active key for this repository.
-    attr_accessor :active
+    attr_accessor :variants
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'comment' => :'comment',
-        :'public_key' => :'public_key',
-        :'fingerprint_short' => :'fingerprint_short',
-        :'default' => :'default',
-        :'created_at' => :'created_at',
-        :'fingerprint' => :'fingerprint',
-        :'active' => :'active'
+        :'name' => :'name',
+        :'self_url' => :'self_url',
+        :'slug' => :'slug',
+        :'variants' => :'variants'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'comment' => :'String',
-        :'public_key' => :'String',
-        :'fingerprint_short' => :'String',
-        :'default' => :'BOOLEAN',
-        :'created_at' => :'String',
-        :'fingerprint' => :'String',
-        :'active' => :'BOOLEAN'
+        :'name' => :'String',
+        :'self_url' => :'String',
+        :'slug' => :'String',
+        :'variants' => :'String'
       }
     end
 
@@ -71,32 +56,20 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'comment')
-        self.comment = attributes[:'comment']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'public_key')
-        self.public_key = attributes[:'public_key']
+      if attributes.has_key?(:'self_url')
+        self.self_url = attributes[:'self_url']
       end
 
-      if attributes.has_key?(:'fingerprint_short')
-        self.fingerprint_short = attributes[:'fingerprint_short']
+      if attributes.has_key?(:'slug')
+        self.slug = attributes[:'slug']
       end
 
-      if attributes.has_key?(:'default')
-        self.default = attributes[:'default']
-      end
-
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'fingerprint')
-        self.fingerprint = attributes[:'fingerprint']
-      end
-
-      if attributes.has_key?(:'active')
-        self.active = attributes[:'active']
+      if attributes.has_key?(:'variants')
+        self.variants = attributes[:'variants']
       end
 
     end
@@ -119,13 +92,10 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          comment == o.comment &&
-          public_key == o.public_key &&
-          fingerprint_short == o.fingerprint_short &&
-          default == o.default &&
-          created_at == o.created_at &&
-          fingerprint == o.fingerprint &&
-          active == o.active
+          name == o.name &&
+          self_url == o.self_url &&
+          slug == o.slug &&
+          variants == o.variants
     end
 
     # @see the `==` method
@@ -137,7 +107,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [comment, public_key, fingerprint_short, default, created_at, fingerprint, active].hash
+      [name, self_url, slug, variants].hash
     end
 
     # Builds the object from hash

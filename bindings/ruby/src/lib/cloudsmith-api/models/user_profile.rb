@@ -16,7 +16,16 @@ module CloudsmithApi
 
   class UserProfile
     # 
+    attr_accessor :company
+
+    # 
     attr_accessor :first_name
+
+    # 
+    attr_accessor :job_title
+
+    # 
+    attr_accessor :joined_at
 
     # 
     attr_accessor :last_name
@@ -25,56 +34,47 @@ module CloudsmithApi
     attr_accessor :name
 
     # 
-    attr_accessor :url
+    attr_accessor :slug
+
+    # 
+    attr_accessor :slug_perm
 
     # Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
     attr_accessor :tagline
 
     # 
-    attr_accessor :company
-
-    # 
-    attr_accessor :joined_at
-
-    # 
-    attr_accessor :slug_perm
-
-    # 
-    attr_accessor :slug
-
-    # 
-    attr_accessor :job_title
+    attr_accessor :url
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'company' => :'company',
         :'first_name' => :'first_name',
+        :'job_title' => :'job_title',
+        :'joined_at' => :'joined_at',
         :'last_name' => :'last_name',
         :'name' => :'name',
-        :'url' => :'url',
-        :'tagline' => :'tagline',
-        :'company' => :'company',
-        :'joined_at' => :'joined_at',
-        :'slug_perm' => :'slug_perm',
         :'slug' => :'slug',
-        :'job_title' => :'job_title'
+        :'slug_perm' => :'slug_perm',
+        :'tagline' => :'tagline',
+        :'url' => :'url'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'company' => :'String',
         :'first_name' => :'String',
+        :'job_title' => :'String',
+        :'joined_at' => :'String',
         :'last_name' => :'String',
         :'name' => :'String',
-        :'url' => :'String',
-        :'tagline' => :'String',
-        :'company' => :'String',
-        :'joined_at' => :'String',
-        :'slug_perm' => :'String',
         :'slug' => :'String',
-        :'job_title' => :'String'
+        :'slug_perm' => :'String',
+        :'tagline' => :'String',
+        :'url' => :'String'
       }
     end
 
@@ -86,8 +86,20 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'company')
+        self.company = attributes[:'company']
+      end
+
       if attributes.has_key?(:'first_name')
         self.first_name = attributes[:'first_name']
+      end
+
+      if attributes.has_key?(:'job_title')
+        self.job_title = attributes[:'job_title']
+      end
+
+      if attributes.has_key?(:'joined_at')
+        self.joined_at = attributes[:'joined_at']
       end
 
       if attributes.has_key?(:'last_name')
@@ -98,32 +110,20 @@ module CloudsmithApi
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
-      end
-
-      if attributes.has_key?(:'tagline')
-        self.tagline = attributes[:'tagline']
-      end
-
-      if attributes.has_key?(:'company')
-        self.company = attributes[:'company']
-      end
-
-      if attributes.has_key?(:'joined_at')
-        self.joined_at = attributes[:'joined_at']
+      if attributes.has_key?(:'slug')
+        self.slug = attributes[:'slug']
       end
 
       if attributes.has_key?(:'slug_perm')
         self.slug_perm = attributes[:'slug_perm']
       end
 
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
+      if attributes.has_key?(:'tagline')
+        self.tagline = attributes[:'tagline']
       end
 
-      if attributes.has_key?(:'job_title')
-        self.job_title = attributes[:'job_title']
+      if attributes.has_key?(:'url')
+        self.url = attributes[:'url']
       end
 
     end
@@ -156,16 +156,16 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          company == o.company &&
           first_name == o.first_name &&
+          job_title == o.job_title &&
+          joined_at == o.joined_at &&
           last_name == o.last_name &&
           name == o.name &&
-          url == o.url &&
-          tagline == o.tagline &&
-          company == o.company &&
-          joined_at == o.joined_at &&
-          slug_perm == o.slug_perm &&
           slug == o.slug &&
-          job_title == o.job_title
+          slug_perm == o.slug_perm &&
+          tagline == o.tagline &&
+          url == o.url
     end
 
     # @see the `==` method
@@ -177,7 +177,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [first_name, last_name, name, url, tagline, company, joined_at, slug_perm, slug, job_title].hash
+      [company, first_name, job_title, joined_at, last_name, name, slug, slug_perm, tagline, url].hash
     end
 
     # Builds the object from hash
