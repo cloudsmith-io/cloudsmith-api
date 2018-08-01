@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **WebhooksPartialUpdate**
-> RepositoryWebhook WebhooksPartialUpdate($owner, $repo, $data)
+> RepositoryWebhook WebhooksPartialUpdate($owner, $repo, $identifier, $data)
 
 Update a specific webhook in a repository.
 
@@ -119,6 +119,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
+ **identifier** | **string**|  | 
  **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional] 
 
 ### Return type

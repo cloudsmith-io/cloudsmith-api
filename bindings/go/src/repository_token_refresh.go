@@ -28,7 +28,7 @@ type RepositoryTokenRefresh struct {
 	HasLimits string `json:"has_limits,omitempty"`
 
 	// 
-	Identifier int32 `json:"identifier"`
+	Identifier int32 `json:"identifier,omitempty"`
 
 	// If enabled, the token will allow downloads based on configured restrictions (if any).
 	IsActive bool `json:"is_active,omitempty"`

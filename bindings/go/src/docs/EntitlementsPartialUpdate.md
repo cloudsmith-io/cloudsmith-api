@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identifier** | **int32** | None | [optional] [default to null]
 **IsActive** | **bool** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] [default to null]
 **LimitDateRangeFrom** | **string** | The starting date/time the token is allowed to be used from. | [optional] [default to null]
 **LimitDateRangeTo** | **string** | The ending date/time the token is allowed to be used until. | [optional] [default to null]

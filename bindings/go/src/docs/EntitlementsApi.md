@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsPartialUpdate**
-> RepositoryToken EntitlementsPartialUpdate($owner, $repo, $showTokens, $data)
+> RepositoryToken EntitlementsPartialUpdate($owner, $repo, $identifier, $showTokens, $data)
 
 Update a specific entitlement in a repository.
 
@@ -188,6 +188,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
+ **identifier** | **string**|  | 
  **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
 
@@ -239,7 +240,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsRefresh**
-> RepositoryTokenRefresh EntitlementsRefresh($owner, $repo, $showTokens, $data)
+> RepositoryTokenRefresh EntitlementsRefresh($owner, $repo, $identifier, $showTokens, $data)
 
 Refresh an entitlement token in a repository.
 
@@ -252,6 +253,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
+ **identifier** | **string**|  | 
  **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
 

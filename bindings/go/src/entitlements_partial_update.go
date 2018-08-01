@@ -12,9 +12,6 @@ package cloudsmith_api
 
 type EntitlementsPartialUpdate struct {
 
-	// None
-	Identifier int32 `json:"identifier,omitempty"`
-
 	// If enabled, the token will allow downloads based on configured restrictions (if any).
 	IsActive bool `json:"is_active,omitempty"`
 

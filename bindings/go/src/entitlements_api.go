@@ -419,17 +419,19 @@ func (a EntitlementsApi) EntitlementsList(owner string, repo string, page int32,
  *
  * @param owner 
  * @param repo 
+ * @param identifier 
  * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryToken
  */
-func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, showTokens bool, data EntitlementsPartialUpdate) (*RepositoryToken, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, identifier string, showTokens bool, data EntitlementsPartialUpdate) (*RepositoryToken, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Patch")
 	// create path and map variables
 	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -574,17 +576,19 @@ func (a EntitlementsApi) EntitlementsRead(owner string, repo string, identifier 
  *
  * @param owner 
  * @param repo 
+ * @param identifier 
  * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryTokenRefresh
  */
-func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, showTokens bool, data EntitlementsRefresh) (*RepositoryTokenRefresh, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, identifier string, showTokens bool, data EntitlementsRefresh) (*RepositoryTokenRefresh, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
 	localVarPath := a.Configuration.BasePath + "/entitlements/{owner}/{repo}/{identifier}/refresh/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

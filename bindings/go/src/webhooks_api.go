@@ -269,16 +269,18 @@ func (a WebhooksApi) WebhooksList(owner string, repo string, page int32, pageSiz
  *
  * @param owner 
  * @param repo 
+ * @param identifier 
  * @param data 
  * @return *RepositoryWebhook
  */
-func (a WebhooksApi) WebhooksPartialUpdate(owner string, repo string, data WebhooksPartialUpdate) (*RepositoryWebhook, *APIResponse, error) {
+func (a WebhooksApi) WebhooksPartialUpdate(owner string, repo string, identifier string, data WebhooksPartialUpdate) (*RepositoryWebhook, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Patch")
 	// create path and map variables
 	localVarPath := a.Configuration.BasePath + "/webhooks/{owner}/{repo}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

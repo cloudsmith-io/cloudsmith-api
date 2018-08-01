@@ -31,7 +31,7 @@ type RepositoryWebhook struct {
 	Events []string `json:"events"`
 
 	// 
-	Identifier int32 `json:"identifier"`
+	Identifier int32 `json:"identifier,omitempty"`
 
 	// If enabled, the webhook will trigger on events and send payloads to the configured target URL.
 	IsActive bool `json:"is_active,omitempty"`
@@ -54,6 +54,15 @@ type RepositoryWebhook struct {
 	// 
 	RequestBodyFormatStr string `json:"request_body_format_str,omitempty"`
 
+	// The format of the payloads for webhook requests.
+	RequestBodyTemplateFormat string `json:"request_body_template_format,omitempty"`
+
+	// 
+	RequestBodyTemplateFormatStr string `json:"request_body_template_format_str,omitempty"`
+
+	// The value that will be sent for the 'Content Type' header. 
+	RequestContentType string `json:"request_content_type,omitempty"`
+
 	// The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
 	SecretHeader string `json:"secret_header,omitempty"`
 
@@ -65,6 +74,9 @@ type RepositoryWebhook struct {
 
 	// The destination URL that webhook payloads will be POST'ed to.
 	TargetUrl string `json:"target_url"`
+
+	// 
+	Templates []WebhooksownerrepoTemplates `json:"templates"`
 
 	// 
 	UpdatedAt string `json:"updated_at,omitempty"`
