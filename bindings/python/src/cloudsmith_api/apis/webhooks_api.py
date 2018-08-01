@@ -378,7 +378,7 @@ class WebhooksApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def webhooks_partial_update(self, owner, repo, **kwargs):
+    def webhooks_partial_update(self, owner, repo, identifier, **kwargs):
         """
         Update a specific webhook in a repository.
         Update a specific webhook in a repository.
@@ -388,12 +388,13 @@ class WebhooksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhooks_partial_update(owner, repo, callback=callback_function)
+        >>> thread = api.webhooks_partial_update(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param str identifier:  (required)
         :param WebhooksPartialUpdate data:
         :return: RepositoryWebhook
                  If the method is called asynchronously,
@@ -401,12 +402,12 @@ class WebhooksApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.webhooks_partial_update_with_http_info(owner, repo, **kwargs)
+            return self.webhooks_partial_update_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.webhooks_partial_update_with_http_info(owner, repo, **kwargs)
+            (data) = self.webhooks_partial_update_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def webhooks_partial_update_with_http_info(self, owner, repo, **kwargs):
+    def webhooks_partial_update_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Update a specific webhook in a repository.
         Update a specific webhook in a repository.
@@ -416,19 +417,20 @@ class WebhooksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.webhooks_partial_update_with_http_info(owner, repo, callback=callback_function)
+        >>> thread = api.webhooks_partial_update_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param str identifier:  (required)
         :param WebhooksPartialUpdate data:
         :return: RepositoryWebhook
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'data']
+        all_params = ['owner', 'repo', 'identifier', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -449,6 +451,9 @@ class WebhooksApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `webhooks_partial_update`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `webhooks_partial_update`")
 
 
         collection_formats = {}
@@ -458,6 +463,8 @@ class WebhooksApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 

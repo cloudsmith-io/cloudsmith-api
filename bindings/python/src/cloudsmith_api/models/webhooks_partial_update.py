@@ -31,52 +31,60 @@ class WebhooksPartialUpdate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'identifier': 'int',
         'events': 'list[str]',
         'is_active': 'bool',
         'request_body_format': 'str',
+        'request_body_template_format': 'str',
+        'request_content_type': 'str',
         'secret_header': 'str',
         'secret_value': 'str',
         'signature_key': 'str',
         'target_url': 'str',
+        'templates': 'list[WebhooksownerrepoTemplates]',
         'verify_ssl': 'bool'
     }
 
     attribute_map = {
-        'identifier': 'identifier',
         'events': 'events',
         'is_active': 'is_active',
         'request_body_format': 'request_body_format',
+        'request_body_template_format': 'request_body_template_format',
+        'request_content_type': 'request_content_type',
         'secret_header': 'secret_header',
         'secret_value': 'secret_value',
         'signature_key': 'signature_key',
         'target_url': 'target_url',
+        'templates': 'templates',
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, identifier=None, events=None, is_active=None, request_body_format=None, secret_header=None, secret_value=None, signature_key=None, target_url=None, verify_ssl=None):
+    def __init__(self, events=None, is_active=None, request_body_format=None, request_body_template_format=None, request_content_type=None, secret_header=None, secret_value=None, signature_key=None, target_url=None, templates=None, verify_ssl=None):
         """
         WebhooksPartialUpdate - a model defined in Swagger
         """
 
-        self._identifier = None
         self._events = None
         self._is_active = None
         self._request_body_format = None
+        self._request_body_template_format = None
+        self._request_content_type = None
         self._secret_header = None
         self._secret_value = None
         self._signature_key = None
         self._target_url = None
+        self._templates = None
         self._verify_ssl = None
 
-        if identifier is not None:
-          self.identifier = identifier
         if events is not None:
           self.events = events
         if is_active is not None:
           self.is_active = is_active
         if request_body_format is not None:
           self.request_body_format = request_body_format
+        if request_body_template_format is not None:
+          self.request_body_template_format = request_body_template_format
+        if request_content_type is not None:
+          self.request_content_type = request_content_type
         if secret_header is not None:
           self.secret_header = secret_header
         if secret_value is not None:
@@ -85,31 +93,10 @@ class WebhooksPartialUpdate(object):
           self.signature_key = signature_key
         if target_url is not None:
           self.target_url = target_url
+        if templates is not None:
+          self.templates = templates
         if verify_ssl is not None:
           self.verify_ssl = verify_ssl
-
-    @property
-    def identifier(self):
-        """
-        Gets the identifier of this WebhooksPartialUpdate.
-        None
-
-        :return: The identifier of this WebhooksPartialUpdate.
-        :rtype: int
-        """
-        return self._identifier
-
-    @identifier.setter
-    def identifier(self, identifier):
-        """
-        Sets the identifier of this WebhooksPartialUpdate.
-        None
-
-        :param identifier: The identifier of this WebhooksPartialUpdate.
-        :type: int
-        """
-
-        self._identifier = identifier
 
     @property
     def events(self):
@@ -179,6 +166,52 @@ class WebhooksPartialUpdate(object):
         """
 
         self._request_body_format = request_body_format
+
+    @property
+    def request_body_template_format(self):
+        """
+        Gets the request_body_template_format of this WebhooksPartialUpdate.
+        The format of the payloads for webhook requests.
+
+        :return: The request_body_template_format of this WebhooksPartialUpdate.
+        :rtype: str
+        """
+        return self._request_body_template_format
+
+    @request_body_template_format.setter
+    def request_body_template_format(self, request_body_template_format):
+        """
+        Sets the request_body_template_format of this WebhooksPartialUpdate.
+        The format of the payloads for webhook requests.
+
+        :param request_body_template_format: The request_body_template_format of this WebhooksPartialUpdate.
+        :type: str
+        """
+
+        self._request_body_template_format = request_body_template_format
+
+    @property
+    def request_content_type(self):
+        """
+        Gets the request_content_type of this WebhooksPartialUpdate.
+        The value that will be sent for the 'Content Type' header. 
+
+        :return: The request_content_type of this WebhooksPartialUpdate.
+        :rtype: str
+        """
+        return self._request_content_type
+
+    @request_content_type.setter
+    def request_content_type(self, request_content_type):
+        """
+        Sets the request_content_type of this WebhooksPartialUpdate.
+        The value that will be sent for the 'Content Type' header. 
+
+        :param request_content_type: The request_content_type of this WebhooksPartialUpdate.
+        :type: str
+        """
+
+        self._request_content_type = request_content_type
 
     @property
     def secret_header(self):
@@ -271,6 +304,29 @@ class WebhooksPartialUpdate(object):
         """
 
         self._target_url = target_url
+
+    @property
+    def templates(self):
+        """
+        Gets the templates of this WebhooksPartialUpdate.
+        None
+
+        :return: The templates of this WebhooksPartialUpdate.
+        :rtype: list[WebhooksownerrepoTemplates]
+        """
+        return self._templates
+
+    @templates.setter
+    def templates(self, templates):
+        """
+        Sets the templates of this WebhooksPartialUpdate.
+        None
+
+        :param templates: The templates of this WebhooksPartialUpdate.
+        :type: list[WebhooksownerrepoTemplates]
+        """
+
+        self._templates = templates
 
     @property
     def verify_ssl(self):

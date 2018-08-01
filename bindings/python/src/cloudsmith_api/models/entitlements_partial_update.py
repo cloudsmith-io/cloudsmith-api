@@ -31,7 +31,6 @@ class EntitlementsPartialUpdate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'identifier': 'int',
         'is_active': 'bool',
         'limit_date_range_from': 'str',
         'limit_date_range_to': 'str',
@@ -45,7 +44,6 @@ class EntitlementsPartialUpdate(object):
     }
 
     attribute_map = {
-        'identifier': 'identifier',
         'is_active': 'is_active',
         'limit_date_range_from': 'limit_date_range_from',
         'limit_date_range_to': 'limit_date_range_to',
@@ -58,12 +56,11 @@ class EntitlementsPartialUpdate(object):
         'token': 'token'
     }
 
-    def __init__(self, identifier=None, is_active=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, token=None):
+    def __init__(self, is_active=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, token=None):
         """
         EntitlementsPartialUpdate - a model defined in Swagger
         """
 
-        self._identifier = None
         self._is_active = None
         self._limit_date_range_from = None
         self._limit_date_range_to = None
@@ -75,8 +72,6 @@ class EntitlementsPartialUpdate(object):
         self._name = None
         self._token = None
 
-        if identifier is not None:
-          self.identifier = identifier
         if is_active is not None:
           self.is_active = is_active
         if limit_date_range_from is not None:
@@ -97,29 +92,6 @@ class EntitlementsPartialUpdate(object):
           self.name = name
         if token is not None:
           self.token = token
-
-    @property
-    def identifier(self):
-        """
-        Gets the identifier of this EntitlementsPartialUpdate.
-        None
-
-        :return: The identifier of this EntitlementsPartialUpdate.
-        :rtype: int
-        """
-        return self._identifier
-
-    @identifier.setter
-    def identifier(self, identifier):
-        """
-        Sets the identifier of this EntitlementsPartialUpdate.
-        None
-
-        :param identifier: The identifier of this EntitlementsPartialUpdate.
-        :type: int
-        """
-
-        self._identifier = identifier
 
     @property
     def is_active(self):

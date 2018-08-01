@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhooks_partial_update**
-> RepositoryWebhook webhooks_partial_update(owner, repo, data=data)
+> RepositoryWebhook webhooks_partial_update(owner, repo, identifier, data=data)
 
 Update a specific webhook in a repository.
 
@@ -235,11 +235,12 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.WebhooksApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
+identifier = 'identifier_example' # str | 
 data = cloudsmith_api.WebhooksPartialUpdate() # WebhooksPartialUpdate |  (optional)
 
 try: 
     # Update a specific webhook in a repository.
-    api_response = api_instance.webhooks_partial_update(owner, repo, data=data)
+    api_response = api_instance.webhooks_partial_update(owner, repo, identifier, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling WebhooksApi->webhooks_partial_update: %s\n" % e)
@@ -251,6 +252,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
+ **identifier** | **str**|  | 
  **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional] 
 
 ### Return type

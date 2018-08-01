@@ -45,10 +45,14 @@ class RepositoryWebhook(object):
         'num_sent': 'int',
         'request_body_format': 'str',
         'request_body_format_str': 'str',
+        'request_body_template_format': 'str',
+        'request_body_template_format_str': 'str',
+        'request_content_type': 'str',
         'secret_header': 'str',
         'self_url': 'str',
         'slug_perm': 'str',
         'target_url': 'str',
+        'templates': 'list[WebhooksownerrepoTemplates]',
         'updated_at': 'str',
         'updated_by': 'str',
         'updated_by_url': 'str',
@@ -70,17 +74,21 @@ class RepositoryWebhook(object):
         'num_sent': 'num_sent',
         'request_body_format': 'request_body_format',
         'request_body_format_str': 'request_body_format_str',
+        'request_body_template_format': 'request_body_template_format',
+        'request_body_template_format_str': 'request_body_template_format_str',
+        'request_content_type': 'request_content_type',
         'secret_header': 'secret_header',
         'self_url': 'self_url',
         'slug_perm': 'slug_perm',
         'target_url': 'target_url',
+        'templates': 'templates',
         'updated_at': 'updated_at',
         'updated_by': 'updated_by',
         'updated_by_url': 'updated_by_url',
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, created_at=None, created_by=None, created_by_url=None, disable_reason=None, disable_reason_str=None, events=None, identifier=None, is_active=None, is_last_response_bad=None, last_response_status=None, last_response_status_str=None, num_sent=None, request_body_format=None, request_body_format_str=None, secret_header=None, self_url=None, slug_perm=None, target_url=None, updated_at=None, updated_by=None, updated_by_url=None, verify_ssl=None):
+    def __init__(self, created_at=None, created_by=None, created_by_url=None, disable_reason=None, disable_reason_str=None, events=None, identifier=None, is_active=None, is_last_response_bad=None, last_response_status=None, last_response_status_str=None, num_sent=None, request_body_format=None, request_body_format_str=None, request_body_template_format=None, request_body_template_format_str=None, request_content_type=None, secret_header=None, self_url=None, slug_perm=None, target_url=None, templates=None, updated_at=None, updated_by=None, updated_by_url=None, verify_ssl=None):
         """
         RepositoryWebhook - a model defined in Swagger
         """
@@ -99,10 +107,14 @@ class RepositoryWebhook(object):
         self._num_sent = None
         self._request_body_format = None
         self._request_body_format_str = None
+        self._request_body_template_format = None
+        self._request_body_template_format_str = None
+        self._request_content_type = None
         self._secret_header = None
         self._self_url = None
         self._slug_perm = None
         self._target_url = None
+        self._templates = None
         self._updated_at = None
         self._updated_by = None
         self._updated_by_url = None
@@ -119,7 +131,8 @@ class RepositoryWebhook(object):
         if disable_reason_str is not None:
           self.disable_reason_str = disable_reason_str
         self.events = events
-        self.identifier = identifier
+        if identifier is not None:
+          self.identifier = identifier
         if is_active is not None:
           self.is_active = is_active
         if is_last_response_bad is not None:
@@ -134,6 +147,12 @@ class RepositoryWebhook(object):
           self.request_body_format = request_body_format
         if request_body_format_str is not None:
           self.request_body_format_str = request_body_format_str
+        if request_body_template_format is not None:
+          self.request_body_template_format = request_body_template_format
+        if request_body_template_format_str is not None:
+          self.request_body_template_format_str = request_body_template_format_str
+        if request_content_type is not None:
+          self.request_content_type = request_content_type
         if secret_header is not None:
           self.secret_header = secret_header
         if self_url is not None:
@@ -141,6 +160,7 @@ class RepositoryWebhook(object):
         if slug_perm is not None:
           self.slug_perm = slug_perm
         self.target_url = target_url
+        self.templates = templates
         if updated_at is not None:
           self.updated_at = updated_at
         if updated_by is not None:
@@ -310,8 +330,6 @@ class RepositoryWebhook(object):
         :param identifier: The identifier of this RepositoryWebhook.
         :type: int
         """
-        if identifier is None:
-            raise ValueError("Invalid value for `identifier`, must not be `None`")
 
         self._identifier = identifier
 
@@ -477,6 +495,75 @@ class RepositoryWebhook(object):
         self._request_body_format_str = request_body_format_str
 
     @property
+    def request_body_template_format(self):
+        """
+        Gets the request_body_template_format of this RepositoryWebhook.
+        The format of the payloads for webhook requests.
+
+        :return: The request_body_template_format of this RepositoryWebhook.
+        :rtype: str
+        """
+        return self._request_body_template_format
+
+    @request_body_template_format.setter
+    def request_body_template_format(self, request_body_template_format):
+        """
+        Sets the request_body_template_format of this RepositoryWebhook.
+        The format of the payloads for webhook requests.
+
+        :param request_body_template_format: The request_body_template_format of this RepositoryWebhook.
+        :type: str
+        """
+
+        self._request_body_template_format = request_body_template_format
+
+    @property
+    def request_body_template_format_str(self):
+        """
+        Gets the request_body_template_format_str of this RepositoryWebhook.
+        
+
+        :return: The request_body_template_format_str of this RepositoryWebhook.
+        :rtype: str
+        """
+        return self._request_body_template_format_str
+
+    @request_body_template_format_str.setter
+    def request_body_template_format_str(self, request_body_template_format_str):
+        """
+        Sets the request_body_template_format_str of this RepositoryWebhook.
+        
+
+        :param request_body_template_format_str: The request_body_template_format_str of this RepositoryWebhook.
+        :type: str
+        """
+
+        self._request_body_template_format_str = request_body_template_format_str
+
+    @property
+    def request_content_type(self):
+        """
+        Gets the request_content_type of this RepositoryWebhook.
+        The value that will be sent for the 'Content Type' header. 
+
+        :return: The request_content_type of this RepositoryWebhook.
+        :rtype: str
+        """
+        return self._request_content_type
+
+    @request_content_type.setter
+    def request_content_type(self, request_content_type):
+        """
+        Sets the request_content_type of this RepositoryWebhook.
+        The value that will be sent for the 'Content Type' header. 
+
+        :param request_content_type: The request_content_type of this RepositoryWebhook.
+        :type: str
+        """
+
+        self._request_content_type = request_content_type
+
+    @property
     def secret_header(self):
         """
         Gets the secret_header of this RepositoryWebhook.
@@ -569,6 +656,31 @@ class RepositoryWebhook(object):
             raise ValueError("Invalid value for `target_url`, must not be `None`")
 
         self._target_url = target_url
+
+    @property
+    def templates(self):
+        """
+        Gets the templates of this RepositoryWebhook.
+        
+
+        :return: The templates of this RepositoryWebhook.
+        :rtype: list[WebhooksownerrepoTemplates]
+        """
+        return self._templates
+
+    @templates.setter
+    def templates(self, templates):
+        """
+        Sets the templates of this RepositoryWebhook.
+        
+
+        :param templates: The templates of this RepositoryWebhook.
+        :type: list[WebhooksownerrepoTemplates]
+        """
+        if templates is None:
+            raise ValueError("Invalid value for `templates`, must not be `None`")
+
+        self._templates = templates
 
     @property
     def updated_at(self):

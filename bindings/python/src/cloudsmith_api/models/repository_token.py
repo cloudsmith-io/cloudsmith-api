@@ -127,7 +127,8 @@ class RepositoryToken(object):
           self.default = default
         if has_limits is not None:
           self.has_limits = has_limits
-        self.identifier = identifier
+        if identifier is not None:
+          self.identifier = identifier
         if is_active is not None:
           self.is_active = is_active
         if is_limited is not None:
@@ -300,8 +301,6 @@ class RepositoryToken(object):
         :param identifier: The identifier of this RepositoryToken.
         :type: int
         """
-        if identifier is None:
-            raise ValueError("Invalid value for `identifier`, must not be `None`")
 
         self._identifier = identifier
 

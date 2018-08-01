@@ -610,7 +610,7 @@ class EntitlementsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def entitlements_partial_update(self, owner, repo, **kwargs):
+    def entitlements_partial_update(self, owner, repo, identifier, **kwargs):
         """
         Update a specific entitlement in a repository.
         Update a specific entitlement in a repository.
@@ -620,12 +620,13 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_partial_update(owner, repo, callback=callback_function)
+        >>> thread = api.entitlements_partial_update(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param str identifier:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsPartialUpdate data:
         :return: RepositoryToken
@@ -634,12 +635,12 @@ class EntitlementsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.entitlements_partial_update_with_http_info(owner, repo, **kwargs)
+            return self.entitlements_partial_update_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.entitlements_partial_update_with_http_info(owner, repo, **kwargs)
+            (data) = self.entitlements_partial_update_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def entitlements_partial_update_with_http_info(self, owner, repo, **kwargs):
+    def entitlements_partial_update_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Update a specific entitlement in a repository.
         Update a specific entitlement in a repository.
@@ -649,12 +650,13 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_partial_update_with_http_info(owner, repo, callback=callback_function)
+        >>> thread = api.entitlements_partial_update_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param str identifier:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsPartialUpdate data:
         :return: RepositoryToken
@@ -662,7 +664,7 @@ class EntitlementsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'show_tokens', 'data']
+        all_params = ['owner', 'repo', 'identifier', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -683,6 +685,9 @@ class EntitlementsApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `entitlements_partial_update`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `entitlements_partial_update`")
 
 
         collection_formats = {}
@@ -692,6 +697,8 @@ class EntitlementsApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
         if 'show_tokens' in params:
@@ -843,7 +850,7 @@ class EntitlementsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def entitlements_refresh(self, owner, repo, **kwargs):
+    def entitlements_refresh(self, owner, repo, identifier, **kwargs):
         """
         Refresh an entitlement token in a repository.
         Refresh an entitlement token in a repository.
@@ -853,12 +860,13 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_refresh(owner, repo, callback=callback_function)
+        >>> thread = api.entitlements_refresh(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param str identifier:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsRefresh data:
         :return: RepositoryTokenRefresh
@@ -867,12 +875,12 @@ class EntitlementsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.entitlements_refresh_with_http_info(owner, repo, **kwargs)
+            return self.entitlements_refresh_with_http_info(owner, repo, identifier, **kwargs)
         else:
-            (data) = self.entitlements_refresh_with_http_info(owner, repo, **kwargs)
+            (data) = self.entitlements_refresh_with_http_info(owner, repo, identifier, **kwargs)
             return data
 
-    def entitlements_refresh_with_http_info(self, owner, repo, **kwargs):
+    def entitlements_refresh_with_http_info(self, owner, repo, identifier, **kwargs):
         """
         Refresh an entitlement token in a repository.
         Refresh an entitlement token in a repository.
@@ -882,12 +890,13 @@ class EntitlementsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.entitlements_refresh_with_http_info(owner, repo, callback=callback_function)
+        >>> thread = api.entitlements_refresh_with_http_info(owner, repo, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param str identifier:  (required)
         :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsRefresh data:
         :return: RepositoryTokenRefresh
@@ -895,7 +904,7 @@ class EntitlementsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'show_tokens', 'data']
+        all_params = ['owner', 'repo', 'identifier', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -916,6 +925,9 @@ class EntitlementsApi(object):
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
             raise ValueError("Missing the required parameter `repo` when calling `entitlements_refresh`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `entitlements_refresh`")
 
 
         collection_formats = {}
@@ -925,6 +937,8 @@ class EntitlementsApi(object):
             path_params['owner'] = params['owner']
         if 'repo' in params:
             path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
         if 'show_tokens' in params:

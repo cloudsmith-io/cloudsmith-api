@@ -70,3 +70,4 @@ from .user_token_create import UserTokenCreate
 from .vagrant_package_upload import VagrantPackageUpload
 from .webhooks_create import WebhooksCreate
 from .webhooks_partial_update import WebhooksPartialUpdate
+from .webhooksownerrepo_templates import WebhooksownerrepoTemplates

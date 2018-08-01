@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_partial_update**
-> RepositoryToken entitlements_partial_update(owner, repo, show_tokens=show_tokens, data=data)
+> RepositoryToken entitlements_partial_update(owner, repo, identifier, show_tokens=show_tokens, data=data)
 
 Update a specific entitlement in a repository.
 
@@ -370,12 +370,13 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
+identifier = 'identifier_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsPartialUpdate() # EntitlementsPartialUpdate |  (optional)
 
 try: 
     # Update a specific entitlement in a repository.
-    api_response = api_instance.entitlements_partial_update(owner, repo, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_partial_update(owner, repo, identifier, show_tokens=show_tokens, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_partial_update: %s\n" % e)
@@ -387,6 +388,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
+ **identifier** | **str**|  | 
  **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
 
@@ -472,7 +474,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_refresh**
-> RepositoryTokenRefresh entitlements_refresh(owner, repo, show_tokens=show_tokens, data=data)
+> RepositoryTokenRefresh entitlements_refresh(owner, repo, identifier, show_tokens=show_tokens, data=data)
 
 Refresh an entitlement token in a repository.
 
@@ -502,12 +504,13 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
+identifier = 'identifier_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsRefresh() # EntitlementsRefresh |  (optional)
 
 try: 
     # Refresh an entitlement token in a repository.
-    api_response = api_instance.entitlements_refresh(owner, repo, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_refresh(owner, repo, identifier, show_tokens=show_tokens, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_refresh: %s\n" % e)
@@ -519,6 +522,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
+ **identifier** | **str**|  | 
  **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
 
