@@ -15,7 +15,7 @@ full_deploy() {
 }
 
 test -z "$language" && {
-  for I in $root_dir/bindings/*; do
+  for I in $root_dir/bindings; do
     full_deploy $(basename $I)
   done
 } || {
