@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_partial_update**
-> RepositoryWebhook webhooks_partial_update(owner, repo, opts)
+> RepositoryWebhook webhooks_partial_update(owner, repo, identifier, opts)
 
 Update a specific webhook in a repository.
 
@@ -255,13 +255,15 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
+identifier = "identifier_example" # String | 
+
 opts = { 
   data: CloudsmithApi::WebhooksPartialUpdate.new # WebhooksPartialUpdate | 
 }
 
 begin
   #Update a specific webhook in a repository.
-  result = api_instance.webhooks_partial_update(owner, repo, opts)
+  result = api_instance.webhooks_partial_update(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling WebhooksApi->webhooks_partial_update: #{e}"
@@ -274,6 +276,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
+ **identifier** | **String**|  | 
  **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional] 
 
 ### Return type

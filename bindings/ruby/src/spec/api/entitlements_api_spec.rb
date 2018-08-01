@@ -110,6 +110,7 @@ describe 'EntitlementsApi' do
   # Update a specific entitlement in a repository.
   # @param owner 
   # @param repo 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsPartialUpdate] :data 
@@ -140,6 +141,7 @@ describe 'EntitlementsApi' do
   # Refresh an entitlement token in a repository.
   # @param owner 
   # @param repo 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsRefresh] :data 

@@ -14,67 +14,27 @@ require 'date'
 
 module CloudsmithApi
 
-  class EntitlementsCreate
-    # If enabled, the token will allow downloads based on configured restrictions (if any).
-    attr_accessor :is_active
+  class WebhooksownerrepoTemplates
+    # 
+    attr_accessor :event
 
-    # The starting date/time the token is allowed to be used from.
-    attr_accessor :limit_date_range_from
-
-    # The ending date/time the token is allowed to be used until.
-    attr_accessor :limit_date_range_to
-
-    # The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
-    attr_accessor :limit_num_clients
-
-    # The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
-    attr_accessor :limit_num_downloads
-
-    # The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
-    attr_accessor :limit_package_query
-
-    # The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
-    attr_accessor :limit_path_query
-
-    # None
-    attr_accessor :metadata
-
-    # None
-    attr_accessor :name
-
-    # None
-    attr_accessor :token
+    # 
+    attr_accessor :template
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'is_active' => :'is_active',
-        :'limit_date_range_from' => :'limit_date_range_from',
-        :'limit_date_range_to' => :'limit_date_range_to',
-        :'limit_num_clients' => :'limit_num_clients',
-        :'limit_num_downloads' => :'limit_num_downloads',
-        :'limit_package_query' => :'limit_package_query',
-        :'limit_path_query' => :'limit_path_query',
-        :'metadata' => :'metadata',
-        :'name' => :'name',
-        :'token' => :'token'
+        :'event' => :'event',
+        :'template' => :'template'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'is_active' => :'BOOLEAN',
-        :'limit_date_range_from' => :'String',
-        :'limit_date_range_to' => :'String',
-        :'limit_num_clients' => :'Integer',
-        :'limit_num_downloads' => :'Integer',
-        :'limit_package_query' => :'String',
-        :'limit_path_query' => :'String',
-        :'metadata' => :'Object',
-        :'name' => :'String',
-        :'token' => :'String'
+        :'event' => :'String',
+        :'template' => :'String'
       }
     end
 
@@ -86,44 +46,12 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'is_active')
-        self.is_active = attributes[:'is_active']
+      if attributes.has_key?(:'event')
+        self.event = attributes[:'event']
       end
 
-      if attributes.has_key?(:'limit_date_range_from')
-        self.limit_date_range_from = attributes[:'limit_date_range_from']
-      end
-
-      if attributes.has_key?(:'limit_date_range_to')
-        self.limit_date_range_to = attributes[:'limit_date_range_to']
-      end
-
-      if attributes.has_key?(:'limit_num_clients')
-        self.limit_num_clients = attributes[:'limit_num_clients']
-      end
-
-      if attributes.has_key?(:'limit_num_downloads')
-        self.limit_num_downloads = attributes[:'limit_num_downloads']
-      end
-
-      if attributes.has_key?(:'limit_package_query')
-        self.limit_package_query = attributes[:'limit_package_query']
-      end
-
-      if attributes.has_key?(:'limit_path_query')
-        self.limit_path_query = attributes[:'limit_path_query']
-      end
-
-      if attributes.has_key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'token')
-        self.token = attributes[:'token']
+      if attributes.has_key?(:'template')
+        self.template = attributes[:'template']
       end
 
     end
@@ -132,22 +60,12 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @metadata.nil?
-        invalid_properties.push("invalid value for 'metadata', metadata cannot be nil.")
-      end
-
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @metadata.nil?
-      return false if @name.nil?
       return true
     end
 
@@ -156,16 +74,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          is_active == o.is_active &&
-          limit_date_range_from == o.limit_date_range_from &&
-          limit_date_range_to == o.limit_date_range_to &&
-          limit_num_clients == o.limit_num_clients &&
-          limit_num_downloads == o.limit_num_downloads &&
-          limit_package_query == o.limit_package_query &&
-          limit_path_query == o.limit_path_query &&
-          metadata == o.metadata &&
-          name == o.name &&
-          token == o.token
+          event == o.event &&
+          template == o.template
     end
 
     # @see the `==` method
@@ -177,7 +87,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [is_active, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, token].hash
+      [event, template].hash
     end
 
     # Builds the object from hash

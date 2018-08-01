@@ -18,14 +18,17 @@ module CloudsmithApi
     # None
     attr_accessor :events
 
-    # None
-    attr_accessor :identifier
-
     # If enabled, the webhook will trigger on events and send payloads to the configured target URL.
     attr_accessor :is_active
 
     # The format of the payloads for webhook requests.
     attr_accessor :request_body_format
+
+    # The format of the payloads for webhook requests.
+    attr_accessor :request_body_template_format
+
+    # The value that will be sent for the 'Content Type' header. 
+    attr_accessor :request_content_type
 
     # The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
     attr_accessor :secret_header
@@ -39,6 +42,9 @@ module CloudsmithApi
     # The destination URL that webhook payloads will be POST'ed to.
     attr_accessor :target_url
 
+    # None
+    attr_accessor :templates
+
     # If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
     attr_accessor :verify_ssl
 
@@ -47,13 +53,15 @@ module CloudsmithApi
     def self.attribute_map
       {
         :'events' => :'events',
-        :'identifier' => :'identifier',
         :'is_active' => :'is_active',
         :'request_body_format' => :'request_body_format',
+        :'request_body_template_format' => :'request_body_template_format',
+        :'request_content_type' => :'request_content_type',
         :'secret_header' => :'secret_header',
         :'secret_value' => :'secret_value',
         :'signature_key' => :'signature_key',
         :'target_url' => :'target_url',
+        :'templates' => :'templates',
         :'verify_ssl' => :'verify_ssl'
       }
     end
@@ -62,13 +70,15 @@ module CloudsmithApi
     def self.swagger_types
       {
         :'events' => :'Array<String>',
-        :'identifier' => :'Integer',
         :'is_active' => :'BOOLEAN',
         :'request_body_format' => :'String',
+        :'request_body_template_format' => :'String',
+        :'request_content_type' => :'String',
         :'secret_header' => :'String',
         :'secret_value' => :'String',
         :'signature_key' => :'String',
         :'target_url' => :'String',
+        :'templates' => :'Array<WebhooksownerrepoTemplates>',
         :'verify_ssl' => :'BOOLEAN'
       }
     end
@@ -87,16 +97,20 @@ module CloudsmithApi
         end
       end
 
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
-
       if attributes.has_key?(:'is_active')
         self.is_active = attributes[:'is_active']
       end
 
       if attributes.has_key?(:'request_body_format')
         self.request_body_format = attributes[:'request_body_format']
+      end
+
+      if attributes.has_key?(:'request_body_template_format')
+        self.request_body_template_format = attributes[:'request_body_template_format']
+      end
+
+      if attributes.has_key?(:'request_content_type')
+        self.request_content_type = attributes[:'request_content_type']
       end
 
       if attributes.has_key?(:'secret_header')
@@ -115,6 +129,12 @@ module CloudsmithApi
         self.target_url = attributes[:'target_url']
       end
 
+      if attributes.has_key?(:'templates')
+        if (value = attributes[:'templates']).is_a?(Array)
+          self.templates = value
+        end
+      end
+
       if attributes.has_key?(:'verify_ssl')
         self.verify_ssl = attributes[:'verify_ssl']
       end
@@ -129,12 +149,12 @@ module CloudsmithApi
         invalid_properties.push("invalid value for 'events', events cannot be nil.")
       end
 
-      if @identifier.nil?
-        invalid_properties.push("invalid value for 'identifier', identifier cannot be nil.")
-      end
-
       if @target_url.nil?
         invalid_properties.push("invalid value for 'target_url', target_url cannot be nil.")
+      end
+
+      if @templates.nil?
+        invalid_properties.push("invalid value for 'templates', templates cannot be nil.")
       end
 
       return invalid_properties
@@ -144,8 +164,8 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       return false if @events.nil?
-      return false if @identifier.nil?
       return false if @target_url.nil?
+      return false if @templates.nil?
       return true
     end
 
@@ -155,13 +175,15 @@ module CloudsmithApi
       return true if self.equal?(o)
       self.class == o.class &&
           events == o.events &&
-          identifier == o.identifier &&
           is_active == o.is_active &&
           request_body_format == o.request_body_format &&
+          request_body_template_format == o.request_body_template_format &&
+          request_content_type == o.request_content_type &&
           secret_header == o.secret_header &&
           secret_value == o.secret_value &&
           signature_key == o.signature_key &&
           target_url == o.target_url &&
+          templates == o.templates &&
           verify_ssl == o.verify_ssl
     end
 
@@ -174,7 +196,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [events, identifier, is_active, request_body_format, secret_header, secret_value, signature_key, target_url, verify_ssl].hash
+      [events, is_active, request_body_format, request_body_template_format, request_content_type, secret_header, secret_value, signature_key, target_url, templates, verify_ssl].hash
     end
 
     # Builds the object from hash

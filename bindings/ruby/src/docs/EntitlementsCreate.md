@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | **Integer** | None | 
 **is_active** | **BOOLEAN** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] 
 **limit_date_range_from** | **String** | The starting date/time the token is allowed to be used from. | [optional] 
 **limit_date_range_to** | **String** | The ending date/time the token is allowed to be used until. | [optional] 

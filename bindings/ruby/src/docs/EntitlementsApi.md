@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_partial_update**
-> RepositoryToken entitlements_partial_update(owner, repo, opts)
+> RepositoryToken entitlements_partial_update(owner, repo, identifier, opts)
 
 Update a specific entitlement in a repository.
 
@@ -400,6 +400,8 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
+identifier = "identifier_example" # String | 
+
 opts = { 
   show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsPartialUpdate.new # EntitlementsPartialUpdate | 
@@ -407,7 +409,7 @@ opts = {
 
 begin
   #Update a specific entitlement in a repository.
-  result = api_instance.entitlements_partial_update(owner, repo, opts)
+  result = api_instance.entitlements_partial_update(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_partial_update: #{e}"
@@ -420,6 +422,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
+ **identifier** | **String**|  | 
  **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
 
@@ -512,7 +515,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_refresh**
-> RepositoryTokenRefresh entitlements_refresh(owner, repo, opts)
+> RepositoryTokenRefresh entitlements_refresh(owner, repo, identifier, opts)
 
 Refresh an entitlement token in a repository.
 
@@ -545,6 +548,8 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
+identifier = "identifier_example" # String | 
+
 opts = { 
   show_tokens: true, # BOOLEAN | Show entitlement token strings in results
   data: CloudsmithApi::EntitlementsRefresh.new # EntitlementsRefresh | 
@@ -552,7 +557,7 @@ opts = {
 
 begin
   #Refresh an entitlement token in a repository.
-  result = api_instance.entitlements_refresh(owner, repo, opts)
+  result = api_instance.entitlements_refresh(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_refresh: #{e}"
@@ -565,6 +570,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
+ **identifier** | **String**|  | 
  **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
 

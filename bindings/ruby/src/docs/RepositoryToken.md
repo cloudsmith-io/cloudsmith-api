@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created_by_url** | **String** |  | [optional] 
 **default** | **BOOLEAN** | If selected this is the default token for this repository. | [optional] 
 **has_limits** | **String** |  | [optional] 
-**identifier** | **Integer** |  | 
+**identifier** | **Integer** |  | [optional] 
 **is_active** | **BOOLEAN** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] 
 **is_limited** | **String** |  | [optional] 
 **limit_date_range_from** | **String** | The starting date/time the token is allowed to be used from. | [optional] 

@@ -80,6 +80,7 @@ describe 'WebhooksApi' do
   # Update a specific webhook in a repository.
   # @param owner 
   # @param repo 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [WebhooksPartialUpdate] :data 
   # @return [RepositoryWebhook]

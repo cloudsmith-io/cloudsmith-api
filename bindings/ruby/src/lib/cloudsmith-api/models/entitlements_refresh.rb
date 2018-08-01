@@ -15,9 +15,6 @@ require 'date'
 module CloudsmithApi
 
   class EntitlementsRefresh
-    # None
-    attr_accessor :identifier
-
     # If enabled, the token will allow downloads based on configured restrictions (if any).
     attr_accessor :is_active
 
@@ -49,7 +46,6 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'identifier' => :'identifier',
         :'is_active' => :'is_active',
         :'limit_date_range_from' => :'limit_date_range_from',
         :'limit_date_range_to' => :'limit_date_range_to',
@@ -65,7 +61,6 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'identifier' => :'Integer',
         :'is_active' => :'BOOLEAN',
         :'limit_date_range_from' => :'String',
         :'limit_date_range_to' => :'String',
@@ -85,10 +80,6 @@ module CloudsmithApi
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
-
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
 
       if attributes.has_key?(:'is_active')
         self.is_active = attributes[:'is_active']
@@ -132,10 +123,6 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @identifier.nil?
-        invalid_properties.push("invalid value for 'identifier', identifier cannot be nil.")
-      end
-
       if @metadata.nil?
         invalid_properties.push("invalid value for 'metadata', metadata cannot be nil.")
       end
@@ -146,7 +133,6 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @identifier.nil?
       return false if @metadata.nil?
       return true
     end
@@ -156,7 +142,6 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          identifier == o.identifier &&
           is_active == o.is_active &&
           limit_date_range_from == o.limit_date_range_from &&
           limit_date_range_to == o.limit_date_range_to &&
@@ -177,7 +162,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [identifier, is_active, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, token].hash
+      [is_active, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, token].hash
     end
 
     # Builds the object from hash

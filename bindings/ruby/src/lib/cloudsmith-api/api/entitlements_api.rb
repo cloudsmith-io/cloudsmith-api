@@ -340,12 +340,13 @@ module CloudsmithApi
     # Update a specific entitlement in a repository.
     # @param owner 
     # @param repo 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsPartialUpdate] :data 
     # @return [RepositoryToken]
-    def entitlements_partial_update(owner, repo, opts = {})
-      data, _status_code, _headers = entitlements_partial_update_with_http_info(owner, repo, opts)
+    def entitlements_partial_update(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = entitlements_partial_update_with_http_info(owner, repo, identifier, opts)
       return data
     end
 
@@ -353,11 +354,12 @@ module CloudsmithApi
     # Update a specific entitlement in a repository.
     # @param owner 
     # @param repo 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsPartialUpdate] :data 
     # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
-    def entitlements_partial_update_with_http_info(owner, repo, opts = {})
+    def entitlements_partial_update_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EntitlementsApi.entitlements_partial_update ..."
       end
@@ -369,8 +371,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling EntitlementsApi.entitlements_partial_update"
       end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling EntitlementsApi.entitlements_partial_update"
+      end
       # resource path
-      local_var_path = "/entitlements/{owner}/{repo}/{identifier}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+      local_var_path = "/entitlements/{owner}/{repo}/{identifier}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -470,12 +476,13 @@ module CloudsmithApi
     # Refresh an entitlement token in a repository.
     # @param owner 
     # @param repo 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsRefresh] :data 
     # @return [RepositoryTokenRefresh]
-    def entitlements_refresh(owner, repo, opts = {})
-      data, _status_code, _headers = entitlements_refresh_with_http_info(owner, repo, opts)
+    def entitlements_refresh(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = entitlements_refresh_with_http_info(owner, repo, identifier, opts)
       return data
     end
 
@@ -483,11 +490,12 @@ module CloudsmithApi
     # Refresh an entitlement token in a repository.
     # @param owner 
     # @param repo 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsRefresh] :data 
     # @return [Array<(RepositoryTokenRefresh, Fixnum, Hash)>] RepositoryTokenRefresh data, response status code and response headers
-    def entitlements_refresh_with_http_info(owner, repo, opts = {})
+    def entitlements_refresh_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EntitlementsApi.entitlements_refresh ..."
       end
@@ -499,8 +507,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && repo.nil?
         fail ArgumentError, "Missing the required parameter 'repo' when calling EntitlementsApi.entitlements_refresh"
       end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling EntitlementsApi.entitlements_refresh"
+      end
       # resource path
-      local_var_path = "/entitlements/{owner}/{repo}/{identifier}/refresh/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+      local_var_path = "/entitlements/{owner}/{repo}/{identifier}/refresh/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}

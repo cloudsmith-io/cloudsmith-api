@@ -73,6 +73,7 @@ require 'cloudsmith-api/models/user_token_create'
 require 'cloudsmith-api/models/vagrant_package_upload'
 require 'cloudsmith-api/models/webhooks_create'
 require 'cloudsmith-api/models/webhooks_partial_update'
+require 'cloudsmith-api/models/webhooksownerrepo_templates'
 
 # APIs
 require 'cloudsmith-api/api/distros_api'

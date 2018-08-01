@@ -57,6 +57,15 @@ module CloudsmithApi
     # 
     attr_accessor :request_body_format_str
 
+    # The format of the payloads for webhook requests.
+    attr_accessor :request_body_template_format
+
+    # 
+    attr_accessor :request_body_template_format_str
+
+    # The value that will be sent for the 'Content Type' header. 
+    attr_accessor :request_content_type
+
     # The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
     attr_accessor :secret_header
 
@@ -68,6 +77,9 @@ module CloudsmithApi
 
     # The destination URL that webhook payloads will be POST'ed to.
     attr_accessor :target_url
+
+    # 
+    attr_accessor :templates
 
     # 
     attr_accessor :updated_at
@@ -99,10 +111,14 @@ module CloudsmithApi
         :'num_sent' => :'num_sent',
         :'request_body_format' => :'request_body_format',
         :'request_body_format_str' => :'request_body_format_str',
+        :'request_body_template_format' => :'request_body_template_format',
+        :'request_body_template_format_str' => :'request_body_template_format_str',
+        :'request_content_type' => :'request_content_type',
         :'secret_header' => :'secret_header',
         :'self_url' => :'self_url',
         :'slug_perm' => :'slug_perm',
         :'target_url' => :'target_url',
+        :'templates' => :'templates',
         :'updated_at' => :'updated_at',
         :'updated_by' => :'updated_by',
         :'updated_by_url' => :'updated_by_url',
@@ -127,10 +143,14 @@ module CloudsmithApi
         :'num_sent' => :'Integer',
         :'request_body_format' => :'String',
         :'request_body_format_str' => :'String',
+        :'request_body_template_format' => :'String',
+        :'request_body_template_format_str' => :'String',
+        :'request_content_type' => :'String',
         :'secret_header' => :'String',
         :'self_url' => :'String',
         :'slug_perm' => :'String',
         :'target_url' => :'String',
+        :'templates' => :'Array<WebhooksownerrepoTemplates>',
         :'updated_at' => :'String',
         :'updated_by' => :'String',
         :'updated_by_url' => :'String',
@@ -204,6 +224,18 @@ module CloudsmithApi
         self.request_body_format_str = attributes[:'request_body_format_str']
       end
 
+      if attributes.has_key?(:'request_body_template_format')
+        self.request_body_template_format = attributes[:'request_body_template_format']
+      end
+
+      if attributes.has_key?(:'request_body_template_format_str')
+        self.request_body_template_format_str = attributes[:'request_body_template_format_str']
+      end
+
+      if attributes.has_key?(:'request_content_type')
+        self.request_content_type = attributes[:'request_content_type']
+      end
+
       if attributes.has_key?(:'secret_header')
         self.secret_header = attributes[:'secret_header']
       end
@@ -218,6 +250,12 @@ module CloudsmithApi
 
       if attributes.has_key?(:'target_url')
         self.target_url = attributes[:'target_url']
+      end
+
+      if attributes.has_key?(:'templates')
+        if (value = attributes[:'templates']).is_a?(Array)
+          self.templates = value
+        end
       end
 
       if attributes.has_key?(:'updated_at')
@@ -246,12 +284,12 @@ module CloudsmithApi
         invalid_properties.push("invalid value for 'events', events cannot be nil.")
       end
 
-      if @identifier.nil?
-        invalid_properties.push("invalid value for 'identifier', identifier cannot be nil.")
-      end
-
       if @target_url.nil?
         invalid_properties.push("invalid value for 'target_url', target_url cannot be nil.")
+      end
+
+      if @templates.nil?
+        invalid_properties.push("invalid value for 'templates', templates cannot be nil.")
       end
 
       return invalid_properties
@@ -261,8 +299,8 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       return false if @events.nil?
-      return false if @identifier.nil?
       return false if @target_url.nil?
+      return false if @templates.nil?
       return true
     end
 
@@ -285,10 +323,14 @@ module CloudsmithApi
           num_sent == o.num_sent &&
           request_body_format == o.request_body_format &&
           request_body_format_str == o.request_body_format_str &&
+          request_body_template_format == o.request_body_template_format &&
+          request_body_template_format_str == o.request_body_template_format_str &&
+          request_content_type == o.request_content_type &&
           secret_header == o.secret_header &&
           self_url == o.self_url &&
           slug_perm == o.slug_perm &&
           target_url == o.target_url &&
+          templates == o.templates &&
           updated_at == o.updated_at &&
           updated_by == o.updated_by &&
           updated_by_url == o.updated_by_url &&
@@ -304,7 +346,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created_at, created_by, created_by_url, disable_reason, disable_reason_str, events, identifier, is_active, is_last_response_bad, last_response_status, last_response_status_str, num_sent, request_body_format, request_body_format_str, secret_header, self_url, slug_perm, target_url, updated_at, updated_by, updated_by_url, verify_ssl].hash
+      [created_at, created_by, created_by_url, disable_reason, disable_reason_str, events, identifier, is_active, is_last_response_bad, last_response_status, last_response_status_str, num_sent, request_body_format, request_body_format_str, request_body_template_format, request_body_template_format_str, request_content_type, secret_header, self_url, slug_perm, target_url, templates, updated_at, updated_by, updated_by_url, verify_ssl].hash
     end
 
     # Builds the object from hash

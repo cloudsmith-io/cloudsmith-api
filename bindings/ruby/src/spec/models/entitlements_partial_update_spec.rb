@@ -32,12 +32,6 @@ describe 'EntitlementsPartialUpdate' do
       expect(@instance).to be_instance_of(CloudsmithApi::EntitlementsPartialUpdate)
     end
   end
-  describe 'test attribute "identifier"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "is_active"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
