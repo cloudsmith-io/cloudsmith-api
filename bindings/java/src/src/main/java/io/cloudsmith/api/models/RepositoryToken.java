@@ -207,8 +207,7 @@ public class RepositoryToken implements Serializable {
    * 
    * @return identifier
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getIdentifier() {
     return identifier;
   }

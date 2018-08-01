@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebhooksownerrepoTemplates;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -77,6 +78,15 @@ public class RepositoryWebhook implements Serializable {
   @SerializedName("request_body_format_str")
   private String requestBodyFormatStr = null;
 
+  @SerializedName("request_body_template_format")
+  private String requestBodyTemplateFormat = null;
+
+  @SerializedName("request_body_template_format_str")
+  private String requestBodyTemplateFormatStr = null;
+
+  @SerializedName("request_content_type")
+  private String requestContentType = null;
+
   @SerializedName("secret_header")
   private String secretHeader = null;
 
@@ -88,6 +98,9 @@ public class RepositoryWebhook implements Serializable {
 
   @SerializedName("target_url")
   private String targetUrl = null;
+
+  @SerializedName("templates")
+  private List<WebhooksownerrepoTemplates> templates = new ArrayList<WebhooksownerrepoTemplates>();
 
   @SerializedName("updated_at")
   private String updatedAt = null;
@@ -224,8 +237,7 @@ public class RepositoryWebhook implements Serializable {
    * 
    * @return identifier
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Integer getIdentifier() {
     return identifier;
   }
@@ -360,6 +372,60 @@ public class RepositoryWebhook implements Serializable {
     this.requestBodyFormatStr = requestBodyFormatStr;
   }
 
+  public RepositoryWebhook requestBodyTemplateFormat(String requestBodyTemplateFormat) {
+    this.requestBodyTemplateFormat = requestBodyTemplateFormat;
+    return this;
+  }
+
+   /**
+   * The format of the payloads for webhook requests.
+   * @return requestBodyTemplateFormat
+  **/
+  @ApiModelProperty(value = "The format of the payloads for webhook requests.")
+  public String getRequestBodyTemplateFormat() {
+    return requestBodyTemplateFormat;
+  }
+
+  public void setRequestBodyTemplateFormat(String requestBodyTemplateFormat) {
+    this.requestBodyTemplateFormat = requestBodyTemplateFormat;
+  }
+
+  public RepositoryWebhook requestBodyTemplateFormatStr(String requestBodyTemplateFormatStr) {
+    this.requestBodyTemplateFormatStr = requestBodyTemplateFormatStr;
+    return this;
+  }
+
+   /**
+   * 
+   * @return requestBodyTemplateFormatStr
+  **/
+  @ApiModelProperty(value = "")
+  public String getRequestBodyTemplateFormatStr() {
+    return requestBodyTemplateFormatStr;
+  }
+
+  public void setRequestBodyTemplateFormatStr(String requestBodyTemplateFormatStr) {
+    this.requestBodyTemplateFormatStr = requestBodyTemplateFormatStr;
+  }
+
+  public RepositoryWebhook requestContentType(String requestContentType) {
+    this.requestContentType = requestContentType;
+    return this;
+  }
+
+   /**
+   * The value that will be sent for the &#39;Content Type&#39; header. 
+   * @return requestContentType
+  **/
+  @ApiModelProperty(value = "The value that will be sent for the 'Content Type' header. ")
+  public String getRequestContentType() {
+    return requestContentType;
+  }
+
+  public void setRequestContentType(String requestContentType) {
+    this.requestContentType = requestContentType;
+  }
+
   public RepositoryWebhook secretHeader(String secretHeader) {
     this.secretHeader = secretHeader;
     return this;
@@ -431,6 +497,31 @@ public class RepositoryWebhook implements Serializable {
 
   public void setTargetUrl(String targetUrl) {
     this.targetUrl = targetUrl;
+  }
+
+  public RepositoryWebhook templates(List<WebhooksownerrepoTemplates> templates) {
+    this.templates = templates;
+    return this;
+  }
+
+  public RepositoryWebhook addTemplatesItem(WebhooksownerrepoTemplates templatesItem) {
+    this.templates.add(templatesItem);
+    return this;
+  }
+
+   /**
+   * 
+   * @return templates
+  **/
+  @NotNull
+  @Valid
+  @ApiModelProperty(required = true, value = "")
+  public List<WebhooksownerrepoTemplates> getTemplates() {
+    return templates;
+  }
+
+  public void setTemplates(List<WebhooksownerrepoTemplates> templates) {
+    this.templates = templates;
   }
 
   public RepositoryWebhook updatedAt(String updatedAt) {
@@ -529,10 +620,14 @@ public class RepositoryWebhook implements Serializable {
         Objects.equals(this.numSent, repositoryWebhook.numSent) &&
         Objects.equals(this.requestBodyFormat, repositoryWebhook.requestBodyFormat) &&
         Objects.equals(this.requestBodyFormatStr, repositoryWebhook.requestBodyFormatStr) &&
+        Objects.equals(this.requestBodyTemplateFormat, repositoryWebhook.requestBodyTemplateFormat) &&
+        Objects.equals(this.requestBodyTemplateFormatStr, repositoryWebhook.requestBodyTemplateFormatStr) &&
+        Objects.equals(this.requestContentType, repositoryWebhook.requestContentType) &&
         Objects.equals(this.secretHeader, repositoryWebhook.secretHeader) &&
         Objects.equals(this.selfUrl, repositoryWebhook.selfUrl) &&
         Objects.equals(this.slugPerm, repositoryWebhook.slugPerm) &&
         Objects.equals(this.targetUrl, repositoryWebhook.targetUrl) &&
+        Objects.equals(this.templates, repositoryWebhook.templates) &&
         Objects.equals(this.updatedAt, repositoryWebhook.updatedAt) &&
         Objects.equals(this.updatedBy, repositoryWebhook.updatedBy) &&
         Objects.equals(this.updatedByUrl, repositoryWebhook.updatedByUrl) &&
@@ -541,7 +636,7 @@ public class RepositoryWebhook implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdBy, createdByUrl, disableReason, disableReasonStr, events, identifier, isActive, isLastResponseBad, lastResponseStatus, lastResponseStatusStr, numSent, requestBodyFormat, requestBodyFormatStr, secretHeader, selfUrl, slugPerm, targetUrl, updatedAt, updatedBy, updatedByUrl, verifySsl);
+    return Objects.hash(createdAt, createdBy, createdByUrl, disableReason, disableReasonStr, events, identifier, isActive, isLastResponseBad, lastResponseStatus, lastResponseStatusStr, numSent, requestBodyFormat, requestBodyFormatStr, requestBodyTemplateFormat, requestBodyTemplateFormatStr, requestContentType, secretHeader, selfUrl, slugPerm, targetUrl, templates, updatedAt, updatedBy, updatedByUrl, verifySsl);
   }
 
 
@@ -564,10 +659,14 @@ public class RepositoryWebhook implements Serializable {
     sb.append("    numSent: ").append(toIndentedString(numSent)).append("\n");
     sb.append("    requestBodyFormat: ").append(toIndentedString(requestBodyFormat)).append("\n");
     sb.append("    requestBodyFormatStr: ").append(toIndentedString(requestBodyFormatStr)).append("\n");
+    sb.append("    requestBodyTemplateFormat: ").append(toIndentedString(requestBodyTemplateFormat)).append("\n");
+    sb.append("    requestBodyTemplateFormatStr: ").append(toIndentedString(requestBodyTemplateFormatStr)).append("\n");
+    sb.append("    requestContentType: ").append(toIndentedString(requestContentType)).append("\n");
     sb.append("    secretHeader: ").append(toIndentedString(secretHeader)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    targetUrl: ").append(toIndentedString(targetUrl)).append("\n");
+    sb.append("    templates: ").append(toIndentedString(templates)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
     sb.append("    updatedByUrl: ").append(toIndentedString(updatedByUrl)).append("\n");

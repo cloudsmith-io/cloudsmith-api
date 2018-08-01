@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | **Integer** | None | 
 **isActive** | **Boolean** | If enabled, the token will allow downloads based on configured restrictions (if any). |  [optional]
 **limitDateRangeFrom** | **String** | The starting date/time the token is allowed to be used from. |  [optional]
 **limitDateRangeTo** | **String** | The ending date/time the token is allowed to be used until. |  [optional]

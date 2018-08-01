@@ -144,9 +144,10 @@ public class EntitlementsApiTest {
     public void entitlementsPartialUpdateTest() throws ApiException {
         String owner = null;
         String repo = null;
+        String identifier = null;
         Boolean showTokens = null;
         EntitlementsPartialUpdate data = null;
-        RepositoryToken response = api.entitlementsPartialUpdate(owner, repo, showTokens, data);
+        RepositoryToken response = api.entitlementsPartialUpdate(owner, repo, identifier, showTokens, data);
 
         // TODO: test validations
     }
@@ -182,9 +183,10 @@ public class EntitlementsApiTest {
     public void entitlementsRefreshTest() throws ApiException {
         String owner = null;
         String repo = null;
+        String identifier = null;
         Boolean showTokens = null;
         EntitlementsRefresh data = null;
-        RepositoryTokenRefresh response = api.entitlementsRefresh(owner, repo, showTokens, data);
+        RepositoryTokenRefresh response = api.entitlementsRefresh(owner, repo, identifier, showTokens, data);
 
         // TODO: test validations
     }

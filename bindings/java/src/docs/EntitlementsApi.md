@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsPartialUpdate"></a>
 # **entitlementsPartialUpdate**
-> RepositoryToken entitlementsPartialUpdate(owner, repo, showTokens, data)
+> RepositoryToken entitlementsPartialUpdate(owner, repo, identifier, showTokens, data)
 
 Update a specific entitlement in a repository.
 
@@ -408,10 +408,11 @@ csrf_token.setApiKey("YOUR API KEY");
 EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
+String identifier = "identifier_example"; // String | 
 Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 EntitlementsPartialUpdate data = new EntitlementsPartialUpdate(); // EntitlementsPartialUpdate | 
 try {
-    RepositoryToken result = apiInstance.entitlementsPartialUpdate(owner, repo, showTokens, data);
+    RepositoryToken result = apiInstance.entitlementsPartialUpdate(owner, repo, identifier, showTokens, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsPartialUpdate");
@@ -425,6 +426,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
+ **identifier** | **String**|  |
  **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
  **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional]
 
@@ -515,7 +517,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsRefresh"></a>
 # **entitlementsRefresh**
-> RepositoryTokenRefresh entitlementsRefresh(owner, repo, showTokens, data)
+> RepositoryTokenRefresh entitlementsRefresh(owner, repo, identifier, showTokens, data)
 
 Refresh an entitlement token in a repository.
 
@@ -552,10 +554,11 @@ csrf_token.setApiKey("YOUR API KEY");
 EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
+String identifier = "identifier_example"; // String | 
 Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 EntitlementsRefresh data = new EntitlementsRefresh(); // EntitlementsRefresh | 
 try {
-    RepositoryTokenRefresh result = apiInstance.entitlementsRefresh(owner, repo, showTokens, data);
+    RepositoryTokenRefresh result = apiInstance.entitlementsRefresh(owner, repo, identifier, showTokens, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsRefresh");
@@ -569,6 +572,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
+ **identifier** | **String**|  |
  **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
  **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional]
 

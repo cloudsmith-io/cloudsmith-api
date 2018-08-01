@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **createdByUrl** | **String** |  |  [optional]
 **_default** | **Boolean** | If selected this is the default token for this repository. |  [optional]
 **hasLimits** | **String** |  |  [optional]
-**identifier** | **Integer** |  | 
+**identifier** | **Integer** |  |  [optional]
 **isActive** | **Boolean** | If enabled, the token will allow downloads based on configured restrictions (if any). |  [optional]
 **isLimited** | **String** |  |  [optional]
 **limitDateRangeFrom** | **String** | The starting date/time the token is allowed to be used from. |  [optional]

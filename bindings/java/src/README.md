@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.30.3</version>
+    <version>0.30.7</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.30.3"
+compile "io.cloudsmith.api:cloudsmith-api:0.30.7"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.30.3.jar
+* target/cloudsmith-api-0.30.7.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -223,6 +223,7 @@ Class | Method | HTTP request | Description
  - [VagrantPackageUpload](docs/VagrantPackageUpload.md)
  - [WebhooksCreate](docs/WebhooksCreate.md)
  - [WebhooksPartialUpdate](docs/WebhooksPartialUpdate.md)
+ - [WebhooksownerrepoTemplates](docs/WebhooksownerrepoTemplates.md)
 
 
 ## Documentation for Authorization

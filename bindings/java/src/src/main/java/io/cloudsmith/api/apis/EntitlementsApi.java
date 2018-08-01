@@ -830,6 +830,7 @@ public class EntitlementsApi {
      * Build call for entitlementsPartialUpdate
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @param progressListener Progress listener
@@ -837,13 +838,14 @@ public class EntitlementsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call entitlementsPartialUpdateCall(String owner, String repo, Boolean showTokens, EntitlementsPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsPartialUpdateCall(String owner, String repo, String identifier, Boolean showTokens, EntitlementsPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
         
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (showTokens != null)
@@ -882,18 +884,18 @@ public class EntitlementsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call entitlementsPartialUpdateValidateBeforeCall(String owner, String repo, Boolean showTokens, EntitlementsPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call entitlementsPartialUpdateValidateBeforeCall(String owner, String repo, String identifier, Boolean showTokens, EntitlementsPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, showTokens, data };
-            Method method = this.getClass().getMethod("entitlementsPartialUpdateWithHttpInfo", String.class, String.class, Boolean.class, EntitlementsPartialUpdate.class);
+            Object[] parameterValues = { owner, repo, identifier, showTokens, data };
+            Method method = this.getClass().getMethod("entitlementsPartialUpdateWithHttpInfo", String.class, String.class, String.class, Boolean.class, EntitlementsPartialUpdate.class);
             Set<ConstraintViolation<EntitlementsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = entitlementsPartialUpdateCall(owner, repo, showTokens, data, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = entitlementsPartialUpdateCall(owner, repo, identifier, showTokens, data, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -918,13 +920,14 @@ public class EntitlementsApi {
      * Update a specific entitlement in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @return RepositoryToken
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryToken entitlementsPartialUpdate(String owner, String repo, Boolean showTokens, EntitlementsPartialUpdate data) throws ApiException {
-        ApiResponse<RepositoryToken> resp = entitlementsPartialUpdateWithHttpInfo(owner, repo, showTokens, data);
+    public RepositoryToken entitlementsPartialUpdate(String owner, String repo, String identifier, Boolean showTokens, EntitlementsPartialUpdate data) throws ApiException {
+        ApiResponse<RepositoryToken> resp = entitlementsPartialUpdateWithHttpInfo(owner, repo, identifier, showTokens, data);
         return resp.getData();
     }
 
@@ -933,13 +936,14 @@ public class EntitlementsApi {
      * Update a specific entitlement in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @return ApiResponse&lt;RepositoryToken&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryToken> entitlementsPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Boolean showTokens,  EntitlementsPartialUpdate data) throws ApiException {
-        com.squareup.okhttp.Call call = entitlementsPartialUpdateValidateBeforeCall(owner, repo, showTokens, data, null, null);
+    public ApiResponse<RepositoryToken> entitlementsPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean showTokens,  EntitlementsPartialUpdate data) throws ApiException {
+        com.squareup.okhttp.Call call = entitlementsPartialUpdateValidateBeforeCall(owner, repo, identifier, showTokens, data, null, null);
         Type localVarReturnType = new TypeToken<RepositoryToken>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -949,13 +953,14 @@ public class EntitlementsApi {
      * Update a specific entitlement in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call entitlementsPartialUpdateAsync(String owner, String repo, Boolean showTokens, EntitlementsPartialUpdate data, final ApiCallback<RepositoryToken> callback) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsPartialUpdateAsync(String owner, String repo, String identifier, Boolean showTokens, EntitlementsPartialUpdate data, final ApiCallback<RepositoryToken> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -976,7 +981,7 @@ public class EntitlementsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = entitlementsPartialUpdateValidateBeforeCall(owner, repo, showTokens, data, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = entitlementsPartialUpdateValidateBeforeCall(owner, repo, identifier, showTokens, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RepositoryToken>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1141,6 +1146,7 @@ public class EntitlementsApi {
      * Build call for entitlementsRefresh
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @param progressListener Progress listener
@@ -1148,13 +1154,14 @@ public class EntitlementsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call entitlementsRefreshCall(String owner, String repo, Boolean showTokens, EntitlementsRefresh data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsRefreshCall(String owner, String repo, String identifier, Boolean showTokens, EntitlementsRefresh data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
         
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/refresh/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (showTokens != null)
@@ -1193,18 +1200,18 @@ public class EntitlementsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call entitlementsRefreshValidateBeforeCall(String owner, String repo, Boolean showTokens, EntitlementsRefresh data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call entitlementsRefreshValidateBeforeCall(String owner, String repo, String identifier, Boolean showTokens, EntitlementsRefresh data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, showTokens, data };
-            Method method = this.getClass().getMethod("entitlementsRefreshWithHttpInfo", String.class, String.class, Boolean.class, EntitlementsRefresh.class);
+            Object[] parameterValues = { owner, repo, identifier, showTokens, data };
+            Method method = this.getClass().getMethod("entitlementsRefreshWithHttpInfo", String.class, String.class, String.class, Boolean.class, EntitlementsRefresh.class);
             Set<ConstraintViolation<EntitlementsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = entitlementsRefreshCall(owner, repo, showTokens, data, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = entitlementsRefreshCall(owner, repo, identifier, showTokens, data, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -1229,13 +1236,14 @@ public class EntitlementsApi {
      * Refresh an entitlement token in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @return RepositoryTokenRefresh
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryTokenRefresh entitlementsRefresh(String owner, String repo, Boolean showTokens, EntitlementsRefresh data) throws ApiException {
-        ApiResponse<RepositoryTokenRefresh> resp = entitlementsRefreshWithHttpInfo(owner, repo, showTokens, data);
+    public RepositoryTokenRefresh entitlementsRefresh(String owner, String repo, String identifier, Boolean showTokens, EntitlementsRefresh data) throws ApiException {
+        ApiResponse<RepositoryTokenRefresh> resp = entitlementsRefreshWithHttpInfo(owner, repo, identifier, showTokens, data);
         return resp.getData();
     }
 
@@ -1244,13 +1252,14 @@ public class EntitlementsApi {
      * Refresh an entitlement token in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @return ApiResponse&lt;RepositoryTokenRefresh&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryTokenRefresh> entitlementsRefreshWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Boolean showTokens,  EntitlementsRefresh data) throws ApiException {
-        com.squareup.okhttp.Call call = entitlementsRefreshValidateBeforeCall(owner, repo, showTokens, data, null, null);
+    public ApiResponse<RepositoryTokenRefresh> entitlementsRefreshWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean showTokens,  EntitlementsRefresh data) throws ApiException {
+        com.squareup.okhttp.Call call = entitlementsRefreshValidateBeforeCall(owner, repo, identifier, showTokens, data, null, null);
         Type localVarReturnType = new TypeToken<RepositoryTokenRefresh>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1260,13 +1269,14 @@ public class EntitlementsApi {
      * Refresh an entitlement token in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call entitlementsRefreshAsync(String owner, String repo, Boolean showTokens, EntitlementsRefresh data, final ApiCallback<RepositoryTokenRefresh> callback) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsRefreshAsync(String owner, String repo, String identifier, Boolean showTokens, EntitlementsRefresh data, final ApiCallback<RepositoryTokenRefresh> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1287,7 +1297,7 @@ public class EntitlementsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = entitlementsRefreshValidateBeforeCall(owner, repo, showTokens, data, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = entitlementsRefreshValidateBeforeCall(owner, repo, identifier, showTokens, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RepositoryTokenRefresh>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

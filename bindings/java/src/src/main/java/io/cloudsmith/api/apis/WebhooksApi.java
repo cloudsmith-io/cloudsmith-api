@@ -522,19 +522,21 @@ public class WebhooksApi {
      * Build call for webhooksPartialUpdate
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param data  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call webhooksPartialUpdateCall(String owner, String repo, WebhooksPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call webhooksPartialUpdateCall(String owner, String repo, String identifier, WebhooksPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
         
         // create path and map variables
         String localVarPath = "/webhooks/{owner}/{repo}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -571,18 +573,18 @@ public class WebhooksApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call webhooksPartialUpdateValidateBeforeCall(String owner, String repo, WebhooksPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhooksPartialUpdateValidateBeforeCall(String owner, String repo, String identifier, WebhooksPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("webhooksPartialUpdateWithHttpInfo", String.class, String.class, WebhooksPartialUpdate.class);
+            Object[] parameterValues = { owner, repo, identifier, data };
+            Method method = this.getClass().getMethod("webhooksPartialUpdateWithHttpInfo", String.class, String.class, String.class, WebhooksPartialUpdate.class);
             Set<ConstraintViolation<WebhooksApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = webhooksPartialUpdateCall(owner, repo, data, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = webhooksPartialUpdateCall(owner, repo, identifier, data, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -607,12 +609,13 @@ public class WebhooksApi {
      * Update a specific webhook in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param data  (optional)
      * @return RepositoryWebhook
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryWebhook webhooksPartialUpdate(String owner, String repo, WebhooksPartialUpdate data) throws ApiException {
-        ApiResponse<RepositoryWebhook> resp = webhooksPartialUpdateWithHttpInfo(owner, repo, data);
+    public RepositoryWebhook webhooksPartialUpdate(String owner, String repo, String identifier, WebhooksPartialUpdate data) throws ApiException {
+        ApiResponse<RepositoryWebhook> resp = webhooksPartialUpdateWithHttpInfo(owner, repo, identifier, data);
         return resp.getData();
     }
 
@@ -621,12 +624,13 @@ public class WebhooksApi {
      * Update a specific webhook in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param data  (optional)
      * @return ApiResponse&lt;RepositoryWebhook&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryWebhook> webhooksPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String repo,  WebhooksPartialUpdate data) throws ApiException {
-        com.squareup.okhttp.Call call = webhooksPartialUpdateValidateBeforeCall(owner, repo, data, null, null);
+    public ApiResponse<RepositoryWebhook> webhooksPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  WebhooksPartialUpdate data) throws ApiException {
+        com.squareup.okhttp.Call call = webhooksPartialUpdateValidateBeforeCall(owner, repo, identifier, data, null, null);
         Type localVarReturnType = new TypeToken<RepositoryWebhook>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -636,12 +640,13 @@ public class WebhooksApi {
      * Update a specific webhook in a repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param identifier  (required)
      * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhooksPartialUpdateAsync(String owner, String repo, WebhooksPartialUpdate data, final ApiCallback<RepositoryWebhook> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhooksPartialUpdateAsync(String owner, String repo, String identifier, WebhooksPartialUpdate data, final ApiCallback<RepositoryWebhook> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -662,7 +667,7 @@ public class WebhooksApi {
             };
         }
 
-        com.squareup.okhttp.Call call = webhooksPartialUpdateValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = webhooksPartialUpdateValidateBeforeCall(owner, repo, identifier, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RepositoryWebhook>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

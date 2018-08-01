@@ -27,52 +27,52 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * StatusBasic
+ * WebhooksownerrepoTemplates
  */
 
-public class StatusBasic implements Serializable {
+public class WebhooksownerrepoTemplates implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("detail")
-  private String detail = null;
+  @SerializedName("event")
+  private String event = null;
 
-  @SerializedName("version")
-  private String version = null;
+  @SerializedName("template")
+  private String template = null;
 
-  public StatusBasic detail(String detail) {
-    this.detail = detail;
+  public WebhooksownerrepoTemplates event(String event) {
+    this.event = event;
     return this;
   }
 
    /**
-   * The message describing the state of the API.
-   * @return detail
+   * 
+   * @return event
   **/
-  @ApiModelProperty(example = "Cloudsmith API is operational.", value = "The message describing the state of the API.")
-  public String getDetail() {
-    return detail;
+  @ApiModelProperty(value = "")
+  public String getEvent() {
+    return event;
   }
 
-  public void setDetail(String detail) {
-    this.detail = detail;
+  public void setEvent(String event) {
+    this.event = event;
   }
 
-  public StatusBasic version(String version) {
-    this.version = version;
+  public WebhooksownerrepoTemplates template(String template) {
+    this.template = template;
     return this;
   }
 
    /**
-   * The current version for the Cloudsmith service.
-   * @return version
+   * 
+   * @return template
   **/
-  @ApiModelProperty(example = "0.30.7", value = "The current version for the Cloudsmith service.")
-  public String getVersion() {
-    return version;
+  @ApiModelProperty(value = "")
+  public String getTemplate() {
+    return template;
   }
 
-  public void setVersion(String version) {
-    this.version = version;
+  public void setTemplate(String template) {
+    this.template = template;
   }
 
 
@@ -84,24 +84,24 @@ public class StatusBasic implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusBasic statusBasic = (StatusBasic) o;
-    return Objects.equals(this.detail, statusBasic.detail) &&
-        Objects.equals(this.version, statusBasic.version);
+    WebhooksownerrepoTemplates webhooksownerrepoTemplates = (WebhooksownerrepoTemplates) o;
+    return Objects.equals(this.event, webhooksownerrepoTemplates.event) &&
+        Objects.equals(this.template, webhooksownerrepoTemplates.template);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, version);
+    return Objects.hash(event, template);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusBasic {\n");
+    sb.append("class WebhooksownerrepoTemplates {\n");
     
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("}");
     return sb.toString();
   }

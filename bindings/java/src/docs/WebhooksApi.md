@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 <a name="webhooksPartialUpdate"></a>
 # **webhooksPartialUpdate**
-> RepositoryWebhook webhooksPartialUpdate(owner, repo, data)
+> RepositoryWebhook webhooksPartialUpdate(owner, repo, identifier, data)
 
 Update a specific webhook in a repository.
 
@@ -261,9 +261,10 @@ csrf_token.setApiKey("YOUR API KEY");
 WebhooksApi apiInstance = new WebhooksApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
+String identifier = "identifier_example"; // String | 
 WebhooksPartialUpdate data = new WebhooksPartialUpdate(); // WebhooksPartialUpdate | 
 try {
-    RepositoryWebhook result = apiInstance.webhooksPartialUpdate(owner, repo, data);
+    RepositoryWebhook result = apiInstance.webhooksPartialUpdate(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksPartialUpdate");
@@ -277,6 +278,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
+ **identifier** | **String**|  |
  **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional]
 
 ### Return type

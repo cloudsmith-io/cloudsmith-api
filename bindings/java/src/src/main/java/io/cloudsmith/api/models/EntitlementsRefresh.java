@@ -33,9 +33,6 @@ import javax.validation.Valid;
 public class EntitlementsRefresh implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("identifier")
-  private Integer identifier = null;
-
   @SerializedName("is_active")
   private Boolean isActive = null;
 
@@ -62,25 +59,6 @@ public class EntitlementsRefresh implements Serializable {
 
   @SerializedName("token")
   private String token = null;
-
-  public EntitlementsRefresh identifier(Integer identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * None
-   * @return identifier
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "None")
-  public Integer getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(Integer identifier) {
-    this.identifier = identifier;
-  }
 
   public EntitlementsRefresh isActive(Boolean isActive) {
     this.isActive = isActive;
@@ -255,8 +233,7 @@ public class EntitlementsRefresh implements Serializable {
       return false;
     }
     EntitlementsRefresh entitlementsRefresh = (EntitlementsRefresh) o;
-    return Objects.equals(this.identifier, entitlementsRefresh.identifier) &&
-        Objects.equals(this.isActive, entitlementsRefresh.isActive) &&
+    return Objects.equals(this.isActive, entitlementsRefresh.isActive) &&
         Objects.equals(this.limitDateRangeFrom, entitlementsRefresh.limitDateRangeFrom) &&
         Objects.equals(this.limitDateRangeTo, entitlementsRefresh.limitDateRangeTo) &&
         Objects.equals(this.limitNumClients, entitlementsRefresh.limitNumClients) &&
@@ -269,7 +246,7 @@ public class EntitlementsRefresh implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, isActive, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, token);
+    return Objects.hash(isActive, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, token);
   }
 
 
@@ -278,7 +255,6 @@ public class EntitlementsRefresh implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class EntitlementsRefresh {\n");
     
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    limitDateRangeFrom: ").append(toIndentedString(limitDateRangeFrom)).append("\n");
     sb.append("    limitDateRangeTo: ").append(toIndentedString(limitDateRangeTo)).append("\n");

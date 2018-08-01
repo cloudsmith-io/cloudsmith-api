@@ -102,8 +102,9 @@ public class WebhooksApiTest {
     public void webhooksPartialUpdateTest() throws ApiException {
         String owner = null;
         String repo = null;
+        String identifier = null;
         WebhooksPartialUpdate data = null;
-        RepositoryWebhook response = api.webhooksPartialUpdate(owner, repo, data);
+        RepositoryWebhook response = api.webhooksPartialUpdate(owner, repo, identifier, data);
 
         // TODO: test validations
     }

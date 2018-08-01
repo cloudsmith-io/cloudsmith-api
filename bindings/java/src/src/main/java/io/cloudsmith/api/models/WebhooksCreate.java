@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebhooksownerrepoTemplates;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,14 +39,17 @@ public class WebhooksCreate implements Serializable {
   @SerializedName("events")
   private List<String> events = new ArrayList<String>();
 
-  @SerializedName("identifier")
-  private Integer identifier = null;
-
   @SerializedName("is_active")
   private Boolean isActive = null;
 
   @SerializedName("request_body_format")
   private String requestBodyFormat = null;
+
+  @SerializedName("request_body_template_format")
+  private String requestBodyTemplateFormat = null;
+
+  @SerializedName("request_content_type")
+  private String requestContentType = null;
 
   @SerializedName("secret_header")
   private String secretHeader = null;
@@ -58,6 +62,9 @@ public class WebhooksCreate implements Serializable {
 
   @SerializedName("target_url")
   private String targetUrl = null;
+
+  @SerializedName("templates")
+  private List<WebhooksownerrepoTemplates> templates = new ArrayList<WebhooksownerrepoTemplates>();
 
   @SerializedName("verify_ssl")
   private Boolean verifySsl = null;
@@ -84,25 +91,6 @@ public class WebhooksCreate implements Serializable {
 
   public void setEvents(List<String> events) {
     this.events = events;
-  }
-
-  public WebhooksCreate identifier(Integer identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * None
-   * @return identifier
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "None")
-  public Integer getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(Integer identifier) {
-    this.identifier = identifier;
   }
 
   public WebhooksCreate isActive(Boolean isActive) {
@@ -139,6 +127,42 @@ public class WebhooksCreate implements Serializable {
 
   public void setRequestBodyFormat(String requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
+  }
+
+  public WebhooksCreate requestBodyTemplateFormat(String requestBodyTemplateFormat) {
+    this.requestBodyTemplateFormat = requestBodyTemplateFormat;
+    return this;
+  }
+
+   /**
+   * The format of the payloads for webhook requests.
+   * @return requestBodyTemplateFormat
+  **/
+  @ApiModelProperty(value = "The format of the payloads for webhook requests.")
+  public String getRequestBodyTemplateFormat() {
+    return requestBodyTemplateFormat;
+  }
+
+  public void setRequestBodyTemplateFormat(String requestBodyTemplateFormat) {
+    this.requestBodyTemplateFormat = requestBodyTemplateFormat;
+  }
+
+  public WebhooksCreate requestContentType(String requestContentType) {
+    this.requestContentType = requestContentType;
+    return this;
+  }
+
+   /**
+   * The value that will be sent for the &#39;Content Type&#39; header. 
+   * @return requestContentType
+  **/
+  @ApiModelProperty(value = "The value that will be sent for the 'Content Type' header. ")
+  public String getRequestContentType() {
+    return requestContentType;
+  }
+
+  public void setRequestContentType(String requestContentType) {
+    this.requestContentType = requestContentType;
   }
 
   public WebhooksCreate secretHeader(String secretHeader) {
@@ -214,6 +238,31 @@ public class WebhooksCreate implements Serializable {
     this.targetUrl = targetUrl;
   }
 
+  public WebhooksCreate templates(List<WebhooksownerrepoTemplates> templates) {
+    this.templates = templates;
+    return this;
+  }
+
+  public WebhooksCreate addTemplatesItem(WebhooksownerrepoTemplates templatesItem) {
+    this.templates.add(templatesItem);
+    return this;
+  }
+
+   /**
+   * None
+   * @return templates
+  **/
+  @NotNull
+  @Valid
+  @ApiModelProperty(required = true, value = "None")
+  public List<WebhooksownerrepoTemplates> getTemplates() {
+    return templates;
+  }
+
+  public void setTemplates(List<WebhooksownerrepoTemplates> templates) {
+    this.templates = templates;
+  }
+
   public WebhooksCreate verifySsl(Boolean verifySsl) {
     this.verifySsl = verifySsl;
     return this;
@@ -243,19 +292,21 @@ public class WebhooksCreate implements Serializable {
     }
     WebhooksCreate webhooksCreate = (WebhooksCreate) o;
     return Objects.equals(this.events, webhooksCreate.events) &&
-        Objects.equals(this.identifier, webhooksCreate.identifier) &&
         Objects.equals(this.isActive, webhooksCreate.isActive) &&
         Objects.equals(this.requestBodyFormat, webhooksCreate.requestBodyFormat) &&
+        Objects.equals(this.requestBodyTemplateFormat, webhooksCreate.requestBodyTemplateFormat) &&
+        Objects.equals(this.requestContentType, webhooksCreate.requestContentType) &&
         Objects.equals(this.secretHeader, webhooksCreate.secretHeader) &&
         Objects.equals(this.secretValue, webhooksCreate.secretValue) &&
         Objects.equals(this.signatureKey, webhooksCreate.signatureKey) &&
         Objects.equals(this.targetUrl, webhooksCreate.targetUrl) &&
+        Objects.equals(this.templates, webhooksCreate.templates) &&
         Objects.equals(this.verifySsl, webhooksCreate.verifySsl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, identifier, isActive, requestBodyFormat, secretHeader, secretValue, signatureKey, targetUrl, verifySsl);
+    return Objects.hash(events, isActive, requestBodyFormat, requestBodyTemplateFormat, requestContentType, secretHeader, secretValue, signatureKey, targetUrl, templates, verifySsl);
   }
 
 
@@ -265,13 +316,15 @@ public class WebhooksCreate implements Serializable {
     sb.append("class WebhooksCreate {\n");
     
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    requestBodyFormat: ").append(toIndentedString(requestBodyFormat)).append("\n");
+    sb.append("    requestBodyTemplateFormat: ").append(toIndentedString(requestBodyTemplateFormat)).append("\n");
+    sb.append("    requestContentType: ").append(toIndentedString(requestContentType)).append("\n");
     sb.append("    secretHeader: ").append(toIndentedString(secretHeader)).append("\n");
     sb.append("    secretValue: ").append(toIndentedString(secretValue)).append("\n");
     sb.append("    signatureKey: ").append(toIndentedString(signatureKey)).append("\n");
     sb.append("    targetUrl: ").append(toIndentedString(targetUrl)).append("\n");
+    sb.append("    templates: ").append(toIndentedString(templates)).append("\n");
     sb.append("    verifySsl: ").append(toIndentedString(verifySsl)).append("\n");
     sb.append("}");
     return sb.toString();
