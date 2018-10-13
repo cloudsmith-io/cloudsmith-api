@@ -87,6 +87,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_alpine(self):
+        """
+        Test case for packages_upload_alpine
+
+        Create a new Alpine package
+        """
+        pass
+
     def test_packages_upload_composer(self):
         """
         Test case for packages_upload_composer
@@ -108,6 +116,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_upload_maven
 
         Create a new Maven package
+        """
+        pass
+
+    def test_packages_upload_npm(self):
+        """
+        Test case for packages_upload_npm
+
+        Create a new Npm package
         """
         pass
 
@@ -151,6 +167,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_validate_upload_alpine(self):
+        """
+        Test case for packages_validate_upload_alpine
+
+        Validate parameters for create Alpine package
+        """
+        pass
+
     def test_packages_validate_upload_composer(self):
         """
         Test case for packages_validate_upload_composer
@@ -172,6 +196,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_maven
 
         Validate parameters for create Maven package
+        """
+        pass
+
+    def test_packages_validate_upload_npm(self):
+        """
+        Test case for packages_validate_upload_npm
+
+        Validate parameters for create Npm package
         """
         pass
 

@@ -86,7 +86,8 @@ class EntitlementsCreate(object):
           self.limit_package_query = limit_package_query
         if limit_path_query is not None:
           self.limit_path_query = limit_path_query
-        self.metadata = metadata
+        if metadata is not None:
+          self.metadata = metadata
         self.name = name
         if token is not None:
           self.token = token
@@ -272,8 +273,6 @@ class EntitlementsCreate(object):
         :param metadata: The metadata of this EntitlementsCreate.
         :type: object
         """
-        if metadata is None:
-            raise ValueError("Invalid value for `metadata`, must not be `None`")
 
         self._metadata = metadata
 

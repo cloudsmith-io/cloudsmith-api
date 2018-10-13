@@ -31,17 +31,17 @@ class TestReposApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_repos_list(self):
+    def test_repos_all_list(self):
         """
-        Test case for repos_list
+        Test case for repos_all_list
 
         Get a list of all repositories associated with current user.
         """
         pass
 
-    def test_repos_list0(self):
+    def test_repos_list(self):
         """
-        Test case for repos_list0
+        Test case for repos_list
 
         Get a list of all repositories within a namespace.
         """

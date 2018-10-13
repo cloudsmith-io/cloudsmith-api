@@ -83,7 +83,8 @@ class EntitlementsRefresh(object):
           self.limit_package_query = limit_package_query
         if limit_path_query is not None:
           self.limit_path_query = limit_path_query
-        self.metadata = metadata
+        if metadata is not None:
+          self.metadata = metadata
         if token is not None:
           self.token = token
 
@@ -268,8 +269,6 @@ class EntitlementsRefresh(object):
         :param metadata: The metadata of this EntitlementsRefresh.
         :type: object
         """
-        if metadata is None:
-            raise ValueError("Invalid value for `metadata`, must not be `None`")
 
         self._metadata = metadata
 

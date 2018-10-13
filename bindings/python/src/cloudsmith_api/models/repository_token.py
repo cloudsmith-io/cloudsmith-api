@@ -145,7 +145,8 @@ class RepositoryToken(object):
           self.limit_package_query = limit_package_query
         if limit_path_query is not None:
           self.limit_path_query = limit_path_query
-        self.metadata = metadata
+        if metadata is not None:
+          self.metadata = metadata
         self.name = name
         if refresh_url is not None:
           self.refresh_url = refresh_url
@@ -508,8 +509,6 @@ class RepositoryToken(object):
         :param metadata: The metadata of this RepositoryToken.
         :type: object
         """
-        if metadata is None:
-            raise ValueError("Invalid value for `metadata`, must not be `None`")
 
         self._metadata = metadata
 

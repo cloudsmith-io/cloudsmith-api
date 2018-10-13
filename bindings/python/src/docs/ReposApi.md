@@ -1,16 +1,16 @@
 # cloudsmith_api.ReposApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**repos_list**](ReposApi.md#repos_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
-[**repos_list0**](ReposApi.md#repos_list0) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**repos_all_list**](ReposApi.md#repos_all_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{slug}/ | Views for working with repositories.
 
 
-# **repos_list**
-> list[Repository] repos_list(page=page, page_size=page_size)
+# **repos_all_list**
+> list[Repository] repos_all_list(page=page, page_size=page_size)
 
 Get a list of all repositories associated with current user.
 
@@ -43,10 +43,10 @@ page_size = 56 # int | Number of results to return per page. (optional)
 
 try: 
     # Get a list of all repositories associated with current user.
-    api_response = api_instance.repos_list(page=page, page_size=page_size)
+    api_response = api_instance.repos_all_list(page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ReposApi->repos_list: %s\n" % e)
+    print("Exception when calling ReposApi->repos_all_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -71,8 +71,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **repos_list0**
-> list[Repository] repos_list0(owner, page=page, page_size=page_size)
+# **repos_list**
+> list[Repository] repos_list(owner, page=page, page_size=page_size)
 
 Get a list of all repositories within a namespace.
 
@@ -106,10 +106,10 @@ page_size = 56 # int | Number of results to return per page. (optional)
 
 try: 
     # Get a list of all repositories within a namespace.
-    api_response = api_instance.repos_list0(owner, page=page, page_size=page_size)
+    api_response = api_instance.repos_list(owner, page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ReposApi->repos_list0: %s\n" % e)
+    print("Exception when calling ReposApi->repos_list: %s\n" % e)
 ```
 
 ### Parameters
