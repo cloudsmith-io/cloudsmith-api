@@ -32,20 +32,20 @@ describe 'ReposApi' do
     end
   end
 
-  # unit tests for repos_list
+  # unit tests for repos_all_list
   # Get a list of all repositories associated with current user.
   # Get a list of all repositories associated with current user.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @return [Array<Repository>]
-  describe 'repos_list test' do
+  describe 'repos_all_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for repos_list0
+  # unit tests for repos_list
   # Get a list of all repositories within a namespace.
   # Get a list of all repositories within a namespace.
   # @param owner 
@@ -53,7 +53,7 @@ describe 'ReposApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @return [Array<Repository>]
-  describe 'repos_list0 test' do
+  describe 'repos_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

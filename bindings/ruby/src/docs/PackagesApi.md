@@ -1,6 +1,6 @@
 # CloudsmithApi::PackagesApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,17 +11,21 @@ Method | HTTP request | Description
 [**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 [**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+[**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**packages_upload_composer**](PackagesApi.md#packages_upload_composer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**packages_upload_deb**](PackagesApi.md#packages_upload_deb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
+[**packages_upload_npm**](PackagesApi.md#packages_upload_npm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new Npm package
 [**packages_upload_python**](PackagesApi.md#packages_upload_python) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
 [**packages_upload_raw**](PackagesApi.md#packages_upload_raw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 [**packages_upload_rpm**](PackagesApi.md#packages_upload_rpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 [**packages_upload_ruby**](PackagesApi.md#packages_upload_ruby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
 [**packages_upload_vagrant**](PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
+[**packages_validate_upload_alpine**](PackagesApi.md#packages_validate_upload_alpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 [**packages_validate_upload_composer**](PackagesApi.md#packages_validate_upload_composer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**packages_validate_upload_deb**](PackagesApi.md#packages_validate_upload_deb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**packages_validate_upload_maven**](PackagesApi.md#packages_validate_upload_maven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
+[**packages_validate_upload_npm**](PackagesApi.md#packages_validate_upload_npm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create Npm package
 [**packages_validate_upload_python**](PackagesApi.md#packages_validate_upload_python) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
 [**packages_validate_upload_raw**](PackagesApi.md#packages_validate_upload_raw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 [**packages_validate_upload_rpm**](PackagesApi.md#packages_validate_upload_rpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
@@ -524,6 +528,76 @@ Name | Type | Description  | Notes
 
 
 
+# **packages_upload_alpine**
+> Package packages_upload_alpine(owner, repo, opts)
+
+Create a new Alpine package
+
+Create a new Alpine package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadAlpine.new # PackagesUploadAlpine | 
+}
+
+begin
+  #Create a new Alpine package
+  result = api_instance.packages_upload_alpine(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_alpine: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadAlpine**](PackagesUploadAlpine.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_upload_composer**
 > Package packages_upload_composer(owner, repo, opts)
 
@@ -722,6 +796,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MavenPackageUpload**](MavenPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_upload_npm**
+> Package packages_upload_npm(owner, repo, opts)
+
+Create a new Npm package
+
+Create a new Npm package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadNpm.new # PackagesUploadNpm | 
+}
+
+begin
+  #Create a new Npm package
+  result = api_instance.packages_upload_npm(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_npm: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadNpm**](PackagesUploadNpm.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -1084,6 +1228,75 @@ Name | Type | Description  | Notes
 
 
 
+# **packages_validate_upload_alpine**
+> packages_validate_upload_alpine(owner, repo, opts)
+
+Validate parameters for create Alpine package
+
+Validate parameters for create Alpine package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadAlpine.new # PackagesValidateuploadAlpine | 
+}
+
+begin
+  #Validate parameters for create Alpine package
+  api_instance.packages_validate_upload_alpine(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_alpine: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadAlpine**](PackagesValidateuploadAlpine.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_validate_upload_composer**
 > packages_validate_upload_composer(owner, repo, opts)
 
@@ -1275,6 +1488,75 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesValidateuploadMaven**](PackagesValidateuploadMaven.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_validate_upload_npm**
+> packages_validate_upload_npm(owner, repo, opts)
+
+Validate parameters for create Npm package
+
+Validate parameters for create Npm package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadNpm.new # PackagesValidateuploadNpm | 
+}
+
+begin
+  #Validate parameters for create Npm package
+  api_instance.packages_validate_upload_npm(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_npm: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadNpm**](PackagesValidateuploadNpm.md)|  | [optional] 
 
 ### Return type
 

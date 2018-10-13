@@ -1,16 +1,16 @@
 # CloudsmithApi::ReposApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**repos_list**](ReposApi.md#repos_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
-[**repos_list0**](ReposApi.md#repos_list0) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**repos_all_list**](ReposApi.md#repos_all_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{slug}/ | Views for working with repositories.
 
 
-# **repos_list**
-> Array&lt;Repository&gt; repos_list(opts)
+# **repos_all_list**
+> Array&lt;Repository&gt; repos_all_list(opts)
 
 Get a list of all repositories associated with current user.
 
@@ -46,10 +46,10 @@ opts = {
 
 begin
   #Get a list of all repositories associated with current user.
-  result = api_instance.repos_list(opts)
+  result = api_instance.repos_all_list(opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_list: #{e}"
+  puts "Exception when calling ReposApi->repos_all_list: #{e}"
 end
 ```
 
@@ -75,8 +75,8 @@ Name | Type | Description  | Notes
 
 
 
-# **repos_list0**
-> Array&lt;Repository&gt; repos_list0(owner, opts)
+# **repos_list**
+> Array&lt;Repository&gt; repos_list(owner, opts)
 
 Get a list of all repositories within a namespace.
 
@@ -114,10 +114,10 @@ opts = {
 
 begin
   #Get a list of all repositories within a namespace.
-  result = api_instance.repos_list0(owner, opts)
+  result = api_instance.repos_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_list0: #{e}"
+  puts "Exception when calling ReposApi->repos_list: #{e}"
 end
 ```
 

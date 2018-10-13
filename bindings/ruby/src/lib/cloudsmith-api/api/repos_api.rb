@@ -26,8 +26,8 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @return [Array<Repository>]
-    def repos_list(opts = {})
-      data, _status_code, _headers = repos_list_with_http_info(opts)
+    def repos_all_list(opts = {})
+      data, _status_code, _headers = repos_all_list_with_http_info(opts)
       return data
     end
 
@@ -37,9 +37,9 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
-    def repos_list_with_http_info(opts = {})
+    def repos_all_list_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ReposApi.repos_list ..."
+        @api_client.config.logger.debug "Calling API: ReposApi.repos_all_list ..."
       end
       # resource path
       local_var_path = "/repos/"
@@ -66,7 +66,7 @@ module CloudsmithApi
         :auth_names => auth_names,
         :return_type => 'Array<Repository>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReposApi#repos_all_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -78,8 +78,8 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @return [Array<Repository>]
-    def repos_list0(owner, opts = {})
-      data, _status_code, _headers = repos_list0_with_http_info(owner, opts)
+    def repos_list(owner, opts = {})
+      data, _status_code, _headers = repos_list_with_http_info(owner, opts)
       return data
     end
 
@@ -90,13 +90,13 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
-    def repos_list0_with_http_info(owner, opts = {})
+    def repos_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ReposApi.repos_list0 ..."
+        @api_client.config.logger.debug "Calling API: ReposApi.repos_list ..."
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_list0"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_list"
       end
       # resource path
       local_var_path = "/repos/{owner}/".sub('{' + 'owner' + '}', owner.to_s)
@@ -123,7 +123,7 @@ module CloudsmithApi
         :auth_names => auth_names,
         :return_type => 'Array<Repository>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_list0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReposApi#repos_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

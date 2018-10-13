@@ -134,6 +134,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_alpine
+  # Create a new Alpine package
+  # Create a new Alpine package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadAlpine] :data 
+  # @return [Package]
+  describe 'packages_upload_alpine test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_composer
   # Create a new Composer package
   # Create a new Composer package
@@ -171,6 +185,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesUploadMaven] :data 
   # @return [MavenPackageUpload]
   describe 'packages_upload_maven test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_upload_npm
+  # Create a new Npm package
+  # Create a new Npm package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadNpm] :data 
+  # @return [Package]
+  describe 'packages_upload_npm test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -246,6 +274,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_validate_upload_alpine
+  # Validate parameters for create Alpine package
+  # Validate parameters for create Alpine package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadAlpine] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_alpine test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_validate_upload_composer
   # Validate parameters for create Composer package
   # Validate parameters for create Composer package
@@ -283,6 +325,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadMaven] :data 
   # @return [nil]
   describe 'packages_validate_upload_maven test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_npm
+  # Validate parameters for create Npm package
+  # Validate parameters for create Npm package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadNpm] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_npm test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
