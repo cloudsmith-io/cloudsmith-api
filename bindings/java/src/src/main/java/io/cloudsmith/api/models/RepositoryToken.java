@@ -369,8 +369,7 @@ public class RepositoryToken implements Serializable {
    * 
    * @return metadata
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Object getMetadata() {
     return metadata;
   }

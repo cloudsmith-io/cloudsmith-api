@@ -1,17 +1,17 @@
 # ReposApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reposList**](ReposApi.md#reposList) | **GET** /repos/ | Get a list of all repositories associated with current user.
-[**reposList0**](ReposApi.md#reposList0) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**reposAllList**](ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**reposList**](ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**reposRead**](ReposApi.md#reposRead) | **GET** /repos/{owner}/{slug}/ | Views for working with repositories.
 
 
-<a name="reposList"></a>
-# **reposList**
-> List&lt;Repository&gt; reposList(page, pageSize)
+<a name="reposAllList"></a>
+# **reposAllList**
+> List&lt;Repository&gt; reposAllList(page, pageSize)
 
 Get a list of all repositories associated with current user.
 
@@ -49,10 +49,10 @@ ReposApi apiInstance = new ReposApi();
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<Repository> result = apiInstance.reposList(page, pageSize);
+    List<Repository> result = apiInstance.reposAllList(page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReposApi#reposList");
+    System.err.println("Exception when calling ReposApi#reposAllList");
     e.printStackTrace();
 }
 ```
@@ -77,9 +77,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="reposList0"></a>
-# **reposList0**
-> List&lt;Repository&gt; reposList0(owner, page, pageSize)
+<a name="reposList"></a>
+# **reposList**
+> List&lt;Repository&gt; reposList(owner, page, pageSize)
 
 Get a list of all repositories within a namespace.
 
@@ -118,10 +118,10 @@ String owner = "owner_example"; // String |
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<Repository> result = apiInstance.reposList0(owner, page, pageSize);
+    List<Repository> result = apiInstance.reposList(owner, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReposApi#reposList0");
+    System.err.println("Exception when calling ReposApi#reposList");
     e.printStackTrace();
 }
 ```

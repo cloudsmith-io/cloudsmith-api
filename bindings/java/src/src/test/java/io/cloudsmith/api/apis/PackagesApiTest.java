@@ -21,17 +21,21 @@ import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackagesCopy;
 import io.cloudsmith.api.models.PackagesMove;
+import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadDeb;
 import io.cloudsmith.api.models.PackagesUploadMaven;
+import io.cloudsmith.api.models.PackagesUploadNpm;
 import io.cloudsmith.api.models.PackagesUploadPython;
 import io.cloudsmith.api.models.PackagesUploadRaw;
 import io.cloudsmith.api.models.PackagesUploadRpm;
 import io.cloudsmith.api.models.PackagesUploadRuby;
 import io.cloudsmith.api.models.PackagesUploadVagrant;
+import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
 import io.cloudsmith.api.models.PackagesValidateuploadMaven;
+import io.cloudsmith.api.models.PackagesValidateuploadNpm;
 import io.cloudsmith.api.models.PackagesValidateuploadPython;
 import io.cloudsmith.api.models.PackagesValidateuploadRaw;
 import io.cloudsmith.api.models.PackagesValidateuploadRpm;
@@ -188,6 +192,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new Alpine package
+     *
+     * Create a new Alpine package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadAlpineTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadAlpine data = null;
+        ModelPackage response = api.packagesUploadAlpine(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Composer package
      *
      * Create a new Composer package
@@ -237,6 +259,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesUploadMaven data = null;
         MavenPackageUpload response = api.packagesUploadMaven(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Npm package
+     *
+     * Create a new Npm package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadNpmTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadNpm data = null;
+        ModelPackage response = api.packagesUploadNpm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -332,6 +372,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Validate parameters for create Alpine package
+     *
+     * Validate parameters for create Alpine package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadAlpineTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadAlpine data = null;
+        api.packagesValidateUploadAlpine(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate parameters for create Composer package
      *
      * Validate parameters for create Composer package
@@ -381,6 +439,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadMaven data = null;
         api.packagesValidateUploadMaven(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Npm package
+     *
+     * Validate parameters for create Npm package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadNpmTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadNpm data = null;
+        api.packagesValidateUploadNpm(owner, repo, data);
 
         // TODO: test validations
     }

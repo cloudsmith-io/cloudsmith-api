@@ -195,8 +195,7 @@ public class EntitlementsRefresh implements Serializable {
    * None
    * @return metadata
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "None")
+  @ApiModelProperty(value = "None")
   public Object getMetadata() {
     return metadata;
   }

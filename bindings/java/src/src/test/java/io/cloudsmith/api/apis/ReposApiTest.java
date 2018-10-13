@@ -42,10 +42,10 @@ public class ReposApiTest {
      *          if the Api call fails
      */
     @Test
-    public void reposListTest() throws ApiException {
+    public void reposAllListTest() throws ApiException {
         Integer page = null;
         Integer pageSize = null;
-        List<Repository> response = api.reposList(page, pageSize);
+        List<Repository> response = api.reposAllList(page, pageSize);
 
         // TODO: test validations
     }
@@ -59,11 +59,11 @@ public class ReposApiTest {
      *          if the Api call fails
      */
     @Test
-    public void reposList0Test() throws ApiException {
+    public void reposListTest() throws ApiException {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
-        List<Repository> response = api.reposList0(owner, page, pageSize);
+        List<Repository> response = api.reposList(owner, page, pageSize);
 
         // TODO: test validations
     }

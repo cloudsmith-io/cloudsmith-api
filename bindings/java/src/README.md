@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.30.7</version>
+    <version>0.32.11</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.30.7"
+compile "io.cloudsmith.api:cloudsmith-api:0.32.11"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.30.7.jar
+* target/cloudsmith-api-0.32.11.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -103,7 +103,7 @@ public class DistrosApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -134,25 +134,29 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 *PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 *PackagesApi* | [**packagesStatus**](docs/PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+*PackagesApi* | [**packagesUploadAlpine**](docs/PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 *PackagesApi* | [**packagesUploadComposer**](docs/PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 *PackagesApi* | [**packagesUploadMaven**](docs/PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
+*PackagesApi* | [**packagesUploadNpm**](docs/PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new Npm package
 *PackagesApi* | [**packagesUploadPython**](docs/PackagesApi.md#packagesUploadPython) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
 *PackagesApi* | [**packagesUploadRaw**](docs/PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 *PackagesApi* | [**packagesUploadRpm**](docs/PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 *PackagesApi* | [**packagesUploadRuby**](docs/PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
 *PackagesApi* | [**packagesUploadVagrant**](docs/PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
+*PackagesApi* | [**packagesValidateUploadAlpine**](docs/PackagesApi.md#packagesValidateUploadAlpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 *PackagesApi* | [**packagesValidateUploadComposer**](docs/PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 *PackagesApi* | [**packagesValidateUploadMaven**](docs/PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
+*PackagesApi* | [**packagesValidateUploadNpm**](docs/PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create Npm package
 *PackagesApi* | [**packagesValidateUploadPython**](docs/PackagesApi.md#packagesValidateUploadPython) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
 *PackagesApi* | [**packagesValidateUploadRaw**](docs/PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 *PackagesApi* | [**packagesValidateUploadRpm**](docs/PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 *PackagesApi* | [**packagesValidateUploadRuby**](docs/PackagesApi.md#packagesValidateUploadRuby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
 *PackagesApi* | [**packagesValidateUploadVagrant**](docs/PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
-*ReposApi* | [**reposList**](docs/ReposApi.md#reposList) | **GET** /repos/ | Get a list of all repositories associated with current user.
-*ReposApi* | [**reposList0**](docs/ReposApi.md#reposList0) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+*ReposApi* | [**reposAllList**](docs/ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
+*ReposApi* | [**reposList**](docs/ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 *ReposApi* | [**reposRead**](docs/ReposApi.md#reposRead) | **GET** /repos/{owner}/{slug}/ | Views for working with repositories.
 *StatusApi* | [**statusCheckBasic**](docs/StatusApi.md#statusCheckBasic) | **GET** /status/check/basic/ | Endpoint to check basic API connectivity.
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
@@ -187,17 +191,21 @@ Class | Method | HTTP request | Description
  - [PackageStatus](docs/PackageStatus.md)
  - [PackagesCopy](docs/PackagesCopy.md)
  - [PackagesMove](docs/PackagesMove.md)
+ - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
  - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
  - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
  - [PackagesUploadMaven](docs/PackagesUploadMaven.md)
+ - [PackagesUploadNpm](docs/PackagesUploadNpm.md)
  - [PackagesUploadPython](docs/PackagesUploadPython.md)
  - [PackagesUploadRaw](docs/PackagesUploadRaw.md)
  - [PackagesUploadRpm](docs/PackagesUploadRpm.md)
  - [PackagesUploadRuby](docs/PackagesUploadRuby.md)
  - [PackagesUploadVagrant](docs/PackagesUploadVagrant.md)
+ - [PackagesValidateuploadAlpine](docs/PackagesValidateuploadAlpine.md)
  - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
  - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)
  - [PackagesValidateuploadMaven](docs/PackagesValidateuploadMaven.md)
+ - [PackagesValidateuploadNpm](docs/PackagesValidateuploadNpm.md)
  - [PackagesValidateuploadPython](docs/PackagesValidateuploadPython.md)
  - [PackagesValidateuploadRaw](docs/PackagesValidateuploadRaw.md)
  - [PackagesValidateuploadRpm](docs/PackagesValidateuploadRpm.md)
