@@ -34,7 +34,7 @@ type EntitlementsRefresh struct {
 	LimitPathQuery string `json:"limit_path_query,omitempty"`
 
 	// None
-	Metadata interface{} `json:"metadata"`
+	Metadata interface{} `json:"metadata,omitempty"`
 
 	// None
 	Token string `json:"token,omitempty"`

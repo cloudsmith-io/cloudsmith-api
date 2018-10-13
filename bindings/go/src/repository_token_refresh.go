@@ -55,7 +55,7 @@ type RepositoryTokenRefresh struct {
 	LimitPathQuery string `json:"limit_path_query,omitempty"`
 
 	// 
-	Metadata interface{} `json:"metadata"`
+	Metadata interface{} `json:"metadata,omitempty"`
 
 	// 
 	Name string `json:"name,omitempty"`

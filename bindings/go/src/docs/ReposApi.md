@@ -1,16 +1,16 @@
 # \ReposApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ReposList**](ReposApi.md#ReposList) | **Get** /repos/ | Get a list of all repositories associated with current user.
-[**ReposList0**](ReposApi.md#ReposList0) | **Get** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**ReposAllList**](ReposApi.md#ReposAllList) | **Get** /repos/ | Get a list of all repositories associated with current user.
+[**ReposList**](ReposApi.md#ReposList) | **Get** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**ReposRead**](ReposApi.md#ReposRead) | **Get** /repos/{owner}/{slug}/ | Views for working with repositories.
 
 
-# **ReposList**
-> []Repository ReposList($page, $pageSize)
+# **ReposAllList**
+> []Repository ReposAllList($page, $pageSize)
 
 Get a list of all repositories associated with current user.
 
@@ -39,8 +39,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ReposList0**
-> []Repository ReposList0($owner, $page, $pageSize)
+# **ReposList**
+> []Repository ReposList($owner, $page, $pageSize)
 
 Get a list of all repositories within a namespace.
 

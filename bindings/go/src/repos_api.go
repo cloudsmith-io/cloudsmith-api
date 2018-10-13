@@ -45,7 +45,7 @@ func NewReposApiWithBasePath(basePath string) *ReposApi {
  * @param pageSize Number of results to return per page.
  * @return []Repository
  */
-func (a ReposApi) ReposList(page int32, pageSize int32) ([]Repository, *APIResponse, error) {
+func (a ReposApi) ReposAllList(page int32, pageSize int32) ([]Repository, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -97,7 +97,7 @@ func (a ReposApi) ReposList(page int32, pageSize int32) ([]Repository, *APIRespo
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "ReposList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	var localVarAPIResponse = &APIResponse{Operation: "ReposAllList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
@@ -119,7 +119,7 @@ func (a ReposApi) ReposList(page int32, pageSize int32) ([]Repository, *APIRespo
  * @param pageSize Number of results to return per page.
  * @return []Repository
  */
-func (a ReposApi) ReposList0(owner string, page int32, pageSize int32) ([]Repository, *APIResponse, error) {
+func (a ReposApi) ReposList(owner string, page int32, pageSize int32) ([]Repository, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -172,7 +172,7 @@ func (a ReposApi) ReposList0(owner string, page int32, pageSize int32) ([]Reposi
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "ReposList0", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	var localVarAPIResponse = &APIResponse{Operation: "ReposList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
