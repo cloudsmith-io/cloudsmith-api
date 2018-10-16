@@ -13,16 +13,16 @@ package cloudsmith_api
 type WebhooksCreate struct {
 
 	// None
-	Events []string `json:"events"`
+	Events []int32 `json:"events"`
 
 	// If enabled, the webhook will trigger on events and send payloads to the configured target URL.
 	IsActive bool `json:"is_active,omitempty"`
 
 	// The format of the payloads for webhook requests.
-	RequestBodyFormat string `json:"request_body_format,omitempty"`
+	RequestBodyFormat int32 `json:"request_body_format,omitempty"`
 
 	// The format of the payloads for webhook requests.
-	RequestBodyTemplateFormat string `json:"request_body_template_format,omitempty"`
+	RequestBodyTemplateFormat int32 `json:"request_body_template_format,omitempty"`
 
 	// The value that will be sent for the 'Content Type' header. 
 	RequestContentType string `json:"request_content_type,omitempty"`

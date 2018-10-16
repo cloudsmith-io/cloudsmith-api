@@ -58,7 +58,7 @@ type Repository struct {
 	PackageGroupCount int32 `json:"package_group_count,omitempty"`
 
 	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
-	RepositoryType string `json:"repository_type,omitempty"`
+	RepositoryType int32 `json:"repository_type,omitempty"`
 
 	// 
 	RepositoryTypeStr string `json:"repository_type_str,omitempty"`

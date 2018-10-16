@@ -13,7 +13,7 @@ package cloudsmith_api
 type Organization struct {
 
 	// The country your organization is based in.
-	Country string `json:"country,omitempty"`
+	Country int32 `json:"country,omitempty"`
 
 	// 
 	CreatedAt string `json:"created_at,omitempty"`
