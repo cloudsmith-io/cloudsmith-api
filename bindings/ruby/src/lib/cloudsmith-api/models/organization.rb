@@ -53,7 +53,7 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'country' => :'String',
+        :'country' => :'Integer',
         :'created_at' => :'String',
         :'location' => :'String',
         :'name' => :'String',

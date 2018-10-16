@@ -69,10 +69,10 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'events' => :'Array<String>',
+        :'events' => :'Array<Integer>',
         :'is_active' => :'BOOLEAN',
-        :'request_body_format' => :'String',
-        :'request_body_template_format' => :'String',
+        :'request_body_format' => :'Integer',
+        :'request_body_template_format' => :'Integer',
         :'request_content_type' => :'String',
         :'secret_header' => :'String',
         :'secret_value' => :'String',
