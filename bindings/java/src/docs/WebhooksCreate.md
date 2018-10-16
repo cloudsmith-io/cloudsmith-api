@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**events** | **List&lt;String&gt;** | None | 
+**events** | **List&lt;Integer&gt;** | None | 
 **isActive** | **Boolean** | If enabled, the webhook will trigger on events and send payloads to the configured target URL. |  [optional]
-**requestBodyFormat** | **String** | The format of the payloads for webhook requests. |  [optional]
-**requestBodyTemplateFormat** | **String** | The format of the payloads for webhook requests. |  [optional]
+**requestBodyFormat** | **Integer** | The format of the payloads for webhook requests. |  [optional]
+**requestBodyTemplateFormat** | **Integer** | The format of the payloads for webhook requests. |  [optional]
 **requestContentType** | **String** | The value that will be sent for the &#39;Content Type&#39; header.  |  [optional]
 **secretHeader** | **String** | The header to send the predefined secret in. This must be unique from existing headers or it won&#39;t be sent. You can use this as a form of authentication on the endpoint side. |  [optional]
 **secretValue** | **String** | The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side. |  [optional]

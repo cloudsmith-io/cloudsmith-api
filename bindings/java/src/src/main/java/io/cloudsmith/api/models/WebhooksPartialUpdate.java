@@ -37,16 +37,16 @@ public class WebhooksPartialUpdate implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("events")
-  private List<String> events = null;
+  private List<Integer> events = null;
 
   @SerializedName("is_active")
   private Boolean isActive = null;
 
   @SerializedName("request_body_format")
-  private String requestBodyFormat = null;
+  private Integer requestBodyFormat = null;
 
   @SerializedName("request_body_template_format")
-  private String requestBodyTemplateFormat = null;
+  private Integer requestBodyTemplateFormat = null;
 
   @SerializedName("request_content_type")
   private String requestContentType = null;
@@ -69,14 +69,14 @@ public class WebhooksPartialUpdate implements Serializable {
   @SerializedName("verify_ssl")
   private Boolean verifySsl = null;
 
-  public WebhooksPartialUpdate events(List<String> events) {
+  public WebhooksPartialUpdate events(List<Integer> events) {
     this.events = events;
     return this;
   }
 
-  public WebhooksPartialUpdate addEventsItem(String eventsItem) {
+  public WebhooksPartialUpdate addEventsItem(Integer eventsItem) {
     if (this.events == null) {
-      this.events = new ArrayList<String>();
+      this.events = new ArrayList<Integer>();
     }
     this.events.add(eventsItem);
     return this;
@@ -87,11 +87,11 @@ public class WebhooksPartialUpdate implements Serializable {
    * @return events
   **/
   @ApiModelProperty(value = "None")
-  public List<String> getEvents() {
+  public List<Integer> getEvents() {
     return events;
   }
 
-  public void setEvents(List<String> events) {
+  public void setEvents(List<Integer> events) {
     this.events = events;
   }
 
@@ -113,7 +113,7 @@ public class WebhooksPartialUpdate implements Serializable {
     this.isActive = isActive;
   }
 
-  public WebhooksPartialUpdate requestBodyFormat(String requestBodyFormat) {
+  public WebhooksPartialUpdate requestBodyFormat(Integer requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
     return this;
   }
@@ -123,15 +123,15 @@ public class WebhooksPartialUpdate implements Serializable {
    * @return requestBodyFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public String getRequestBodyFormat() {
+  public Integer getRequestBodyFormat() {
     return requestBodyFormat;
   }
 
-  public void setRequestBodyFormat(String requestBodyFormat) {
+  public void setRequestBodyFormat(Integer requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
   }
 
-  public WebhooksPartialUpdate requestBodyTemplateFormat(String requestBodyTemplateFormat) {
+  public WebhooksPartialUpdate requestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
     return this;
   }
@@ -141,11 +141,11 @@ public class WebhooksPartialUpdate implements Serializable {
    * @return requestBodyTemplateFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public String getRequestBodyTemplateFormat() {
+  public Integer getRequestBodyTemplateFormat() {
     return requestBodyTemplateFormat;
   }
 
-  public void setRequestBodyTemplateFormat(String requestBodyTemplateFormat) {
+  public void setRequestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
   }
 

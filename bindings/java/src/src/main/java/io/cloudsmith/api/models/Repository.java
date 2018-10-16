@@ -82,7 +82,7 @@ public class Repository implements Serializable {
   private Integer packageGroupCount = null;
 
   @SerializedName("repository_type")
-  private String repositoryType = null;
+  private Integer repositoryType = null;
 
   @SerializedName("repository_type_str")
   private String repositoryTypeStr = null;
@@ -389,7 +389,7 @@ public class Repository implements Serializable {
     this.packageGroupCount = packageGroupCount;
   }
 
-  public Repository repositoryType(String repositoryType) {
+  public Repository repositoryType(Integer repositoryType) {
     this.repositoryType = repositoryType;
     return this;
   }
@@ -399,11 +399,11 @@ public class Repository implements Serializable {
    * @return repositoryType
   **/
   @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.")
-  public String getRepositoryType() {
+  public Integer getRepositoryType() {
     return repositoryType;
   }
 
-  public void setRepositoryType(String repositoryType) {
+  public void setRepositoryType(Integer repositoryType) {
     this.repositoryType = repositoryType;
   }
 
