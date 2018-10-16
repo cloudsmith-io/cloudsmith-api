@@ -34,18 +34,18 @@ class RepositoryWebhook(object):
         'created_at': 'str',
         'created_by': 'str',
         'created_by_url': 'str',
-        'disable_reason': 'str',
+        'disable_reason': 'int',
         'disable_reason_str': 'str',
-        'events': 'list[str]',
+        'events': 'list[int]',
         'identifier': 'int',
         'is_active': 'bool',
         'is_last_response_bad': 'bool',
         'last_response_status': 'int',
         'last_response_status_str': 'str',
         'num_sent': 'int',
-        'request_body_format': 'str',
+        'request_body_format': 'int',
         'request_body_format_str': 'str',
-        'request_body_template_format': 'str',
+        'request_body_template_format': 'int',
         'request_body_template_format_str': 'str',
         'request_content_type': 'str',
         'secret_header': 'str',
@@ -246,7 +246,7 @@ class RepositoryWebhook(object):
         
 
         :return: The disable_reason of this RepositoryWebhook.
-        :rtype: str
+        :rtype: int
         """
         return self._disable_reason
 
@@ -257,7 +257,7 @@ class RepositoryWebhook(object):
         
 
         :param disable_reason: The disable_reason of this RepositoryWebhook.
-        :type: str
+        :type: int
         """
 
         self._disable_reason = disable_reason
@@ -292,7 +292,7 @@ class RepositoryWebhook(object):
         
 
         :return: The events of this RepositoryWebhook.
-        :rtype: list[str]
+        :rtype: list[int]
         """
         return self._events
 
@@ -303,7 +303,7 @@ class RepositoryWebhook(object):
         
 
         :param events: The events of this RepositoryWebhook.
-        :type: list[str]
+        :type: list[int]
         """
         if events is None:
             raise ValueError("Invalid value for `events`, must not be `None`")
@@ -455,7 +455,7 @@ class RepositoryWebhook(object):
         The format of the payloads for webhook requests.
 
         :return: The request_body_format of this RepositoryWebhook.
-        :rtype: str
+        :rtype: int
         """
         return self._request_body_format
 
@@ -466,7 +466,7 @@ class RepositoryWebhook(object):
         The format of the payloads for webhook requests.
 
         :param request_body_format: The request_body_format of this RepositoryWebhook.
-        :type: str
+        :type: int
         """
 
         self._request_body_format = request_body_format
@@ -501,7 +501,7 @@ class RepositoryWebhook(object):
         The format of the payloads for webhook requests.
 
         :return: The request_body_template_format of this RepositoryWebhook.
-        :rtype: str
+        :rtype: int
         """
         return self._request_body_template_format
 
@@ -512,7 +512,7 @@ class RepositoryWebhook(object):
         The format of the payloads for webhook requests.
 
         :param request_body_template_format: The request_body_template_format of this RepositoryWebhook.
-        :type: str
+        :type: int
         """
 
         self._request_body_template_format = request_body_template_format

@@ -37,10 +37,10 @@ class PackageStatus(object):
         'is_sync_in_flight': 'bool',
         'is_sync_in_progress': 'bool',
         'self_url': 'str',
-        'stage': 'str',
+        'stage': 'int',
         'stage_str': 'str',
         'stage_updated_at': 'str',
-        'status': 'str',
+        'status': 'int',
         'status_reason': 'str',
         'status_str': 'str',
         'status_updated_at': 'str',
@@ -263,7 +263,7 @@ class PackageStatus(object):
         The synchronisation (in progress) stage of the package.
 
         :return: The stage of this PackageStatus.
-        :rtype: str
+        :rtype: int
         """
         return self._stage
 
@@ -274,7 +274,7 @@ class PackageStatus(object):
         The synchronisation (in progress) stage of the package.
 
         :param stage: The stage of this PackageStatus.
-        :type: str
+        :type: int
         """
 
         self._stage = stage
@@ -332,7 +332,7 @@ class PackageStatus(object):
         The synchronisation status of the package.
 
         :return: The status of this PackageStatus.
-        :rtype: str
+        :rtype: int
         """
         return self._status
 
@@ -343,7 +343,7 @@ class PackageStatus(object):
         The synchronisation status of the package.
 
         :param status: The status of this PackageStatus.
-        :type: str
+        :type: int
         """
 
         self._status = status
