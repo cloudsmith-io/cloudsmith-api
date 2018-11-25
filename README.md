@@ -1,5 +1,7 @@
 # Cloudsmith API Bindings
 
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/badges/version/cloudsmith/api/python/cloudsmith-api/latest/xf=bdist_wheel;xn=cloudsmith-api;xv=py2.py3/?render=true)](https://cloudsmith.io/~cloudsmith/repos/api/packages/detail/python/cloudsmith-api/latest/xf=bdist_wheel;xn=cloudsmith-api;xv=py2.py3/)
+
 The [Cloudsmith](https://cloudsmith.io) API (Application Programmatic Interface) bindings provide libraries in different languages for accessing the service programmatically. The API is fully compliant with the [OpenAPI 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) and the clients are *generated* using [swagger-codegen-cli](https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-cli) from the [Swagger Project](https://swagger.io/).
 
 **Please note** that the generated client APIs are intended for developers, and are subject to change as the upstream API evolves over time (especially pre-1.0 releases). If you're looking for something a little more user-friendly, please see the [Cloudsmith CLI](https://github.com/cloudsmith-io/cloudsmith-cli/) application for something that comes pre-baked.
