@@ -19,31 +19,23 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.distros_api import DistrosApi
+from cloudsmith_api.apis.badges_api import BadgesApi
 
 
-class TestDistrosApi(unittest.TestCase):
-    """ DistrosApi unit test stubs """
+class TestBadgesApi(unittest.TestCase):
+    """ BadgesApi unit test stubs """
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.distros_api.DistrosApi()
+        self.api = cloudsmith_api.apis.badges_api.BadgesApi()
 
     def tearDown(self):
         pass
 
-    def test_distros_list(self):
+    def test_badges_version_list(self):
         """
-        Test case for distros_list
+        Test case for badges_version_list
 
-        Get a list of all supported distributions.
-        """
-        pass
-
-    def test_distros_read(self):
-        """
-        Test case for distros_read
-
-        View for viewing/listing distributions.
+        Get latest package version for a package or package group.
         """
         pass
 

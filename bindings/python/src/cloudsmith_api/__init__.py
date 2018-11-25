@@ -77,6 +77,7 @@ from .models.webhooks_partial_update import WebhooksPartialUpdate
 from .models.webhooksownerrepo_templates import WebhooksownerrepoTemplates
 
 # import apis into sdk package
+from .apis.badges_api import BadgesApi
 from .apis.distros_api import DistrosApi
 from .apis.entitlements_api import EntitlementsApi
 from .apis.files_api import FilesApi

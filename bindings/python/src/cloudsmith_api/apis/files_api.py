@@ -136,7 +136,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/files/{owner}/{repo}/', 'POST',
                                         path_params,
@@ -249,7 +249,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/files/{owner}/{repo}/validate/', 'POST',
                                         path_params,

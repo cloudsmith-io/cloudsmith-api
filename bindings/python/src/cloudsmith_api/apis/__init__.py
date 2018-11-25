@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 
 # import apis into api package
+from .badges_api import BadgesApi
 from .distros_api import DistrosApi
 from .entitlements_api import EntitlementsApi
 from .files_api import FilesApi

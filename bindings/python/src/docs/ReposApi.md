@@ -28,9 +28,6 @@ from pprint import pprint
 cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-cloudsmith_api.configuration.username = 'YOUR_USERNAME'
-cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: csrf_token
 cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -62,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -90,9 +87,6 @@ from pprint import pprint
 cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-cloudsmith_api.configuration.username = 'YOUR_USERNAME'
-cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: csrf_token
 cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -126,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -154,9 +148,6 @@ from pprint import pprint
 cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-cloudsmith_api.configuration.username = 'YOUR_USERNAME'
-cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: csrf_token
 cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -188,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

@@ -113,7 +113,7 @@ class DistrosApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/distros/', 'GET',
                                         path_params,
@@ -132,8 +132,8 @@ class DistrosApi(object):
 
     def distros_read(self, slug, **kwargs):
         """
-        View for viewing/listing package formats.
-        View for viewing/listing package formats.
+        View for viewing/listing distributions.
+        View for viewing/listing distributions.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -158,8 +158,8 @@ class DistrosApi(object):
 
     def distros_read_with_http_info(self, slug, **kwargs):
         """
-        View for viewing/listing package formats.
-        View for viewing/listing package formats.
+        View for viewing/listing distributions.
+        View for viewing/listing distributions.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -211,7 +211,7 @@ class DistrosApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/distros/{slug}/', 'GET',
                                         path_params,
