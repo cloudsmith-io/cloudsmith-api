@@ -107,7 +107,7 @@ public class DistrosApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -244,7 +244,7 @@ public class DistrosApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -281,8 +281,8 @@ public class DistrosApi {
     }
 
     /**
-     * View for viewing/listing package formats.
-     * View for viewing/listing package formats.
+     * View for viewing/listing distributions.
+     * View for viewing/listing distributions.
      * @param slug  (required)
      * @return Distribution
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -293,8 +293,8 @@ public class DistrosApi {
     }
 
     /**
-     * View for viewing/listing package formats.
-     * View for viewing/listing package formats.
+     * View for viewing/listing distributions.
+     * View for viewing/listing distributions.
      * @param slug  (required)
      * @return ApiResponse&lt;Distribution&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -306,8 +306,8 @@ public class DistrosApi {
     }
 
     /**
-     * View for viewing/listing package formats. (asynchronously)
-     * View for viewing/listing package formats.
+     * View for viewing/listing distributions. (asynchronously)
+     * View for viewing/listing distributions.
      * @param slug  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

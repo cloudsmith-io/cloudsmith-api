@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.32.13</version>
+    <version>0.33.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.32.13"
+compile "io.cloudsmith.api:cloudsmith-api:0.33.0"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.32.13.jar
+* target/cloudsmith-api-0.33.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -61,12 +61,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 import io.cloudsmith.api.*;
 import io.cloudsmith.api.auth.*;
 import io.cloudsmith.api.models.*;
-import io.cloudsmith.api.apis.DistrosApi;
+import io.cloudsmith.api.apis.BadgesApi;
 
 import java.io.File;
 import java.util.*;
 
-public class DistrosApiExample {
+public class BadgesApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -77,23 +77,25 @@ public class DistrosApiExample {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //apikey.setApiKeyPrefix("Token");
 
-        // Configure HTTP basic authorization: basic
-        HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-        basic.setUsername("YOUR USERNAME");
-        basic.setPassword("YOUR PASSWORD");
-
         // Configure API key authorization: csrf_token
         ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
         csrf_token.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //csrf_token.setApiKeyPrefix("Token");
 
-        DistrosApi apiInstance = new DistrosApi();
+        BadgesApi apiInstance = new BadgesApi();
+        String owner = "owner_example"; // String | 
+        String repo = "repo_example"; // String | 
+        String packageFormat = "packageFormat_example"; // String | 
+        String packageName = "packageName_example"; // String | 
+        String packageVersion = "packageVersion_example"; // String | 
+        String packageIdentifiers = "packageIdentifiers_example"; // String | 
+        String badgeToken = "badgeToken_example"; // String | Badge token to authenticate for private packages
+        Boolean render = true; // Boolean | If true, badge will be rendered
         try {
-            List<Distribution> result = apiInstance.distrosList();
-            System.out.println(result);
+            apiInstance.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, render);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DistrosApi#distrosList");
+            System.err.println("Exception when calling BadgesApi#badgesVersionList");
             e.printStackTrace();
         }
     }
@@ -107,8 +109,9 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BadgesApi* | [**badgesVersionList**](docs/BadgesApi.md#badgesVersionList) | **GET** /badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/ | Get latest package version for a package or package group.
 *DistrosApi* | [**distrosList**](docs/DistrosApi.md#distrosList) | **GET** /distros/ | Get a list of all supported distributions.
-*DistrosApi* | [**distrosRead**](docs/DistrosApi.md#distrosRead) | **GET** /distros/{slug}/ | View for viewing/listing package formats.
+*DistrosApi* | [**distrosRead**](docs/DistrosApi.md#distrosRead) | **GET** /distros/{slug}/ | View for viewing/listing distributions.
 *EntitlementsApi* | [**entitlementsCreate**](docs/EntitlementsApi.md#entitlementsCreate) | **POST** /entitlements/{owner}/{repo}/ | Create a specific entitlement in a repository.
 *EntitlementsApi* | [**entitlementsDelete**](docs/EntitlementsApi.md#entitlementsDelete) | **DELETE** /entitlements/{owner}/{repo}/{identifier}/ | Delete a specific entitlement in a repository.
 *EntitlementsApi* | [**entitlementsDisable**](docs/EntitlementsApi.md#entitlementsDisable) | **POST** /entitlements/{owner}/{repo}/{identifier}/disable/ | Disable an entitlement token in a repository.

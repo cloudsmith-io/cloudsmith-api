@@ -49,9 +49,9 @@ public class DistrosApiTest {
     }
     
     /**
-     * View for viewing/listing package formats.
+     * View for viewing/listing distributions.
      *
-     * View for viewing/listing package formats.
+     * View for viewing/listing distributions.
      *
      * @throws ApiException
      *          if the Api call fails
