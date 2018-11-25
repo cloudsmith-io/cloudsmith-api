@@ -9,7 +9,7 @@ The [Cloudsmith](https://cloudsmith.io) API (Application Programmatic Interface)
 
 ## Releases
 
-Releases for each language (where supported) are uploaded to the [Cloudsmith API repository](https://cloudsmith.io/package/ns/cloudsmith/repos/cli/packages/). Support currently exists for the following languages:
+Releases for each language (where supported) are uploaded to the [Cloudsmith API repository](https://cloudsmith.io/~cloudsmith/repos/cli/packages/). Support currently exists for the following languages:
 
 - Go
 - Java (maven, sbt, gradle, ivy, ant, etc.)
@@ -57,7 +57,7 @@ Yes! Please do contribute, this is why we love open source.  Please see `CONTRIB
 
 ## License
 
-Copyright 2017 Cloudsmith Ltd
+Copyright 2018 Cloudsmith Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
