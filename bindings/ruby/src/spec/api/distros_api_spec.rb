@@ -44,8 +44,8 @@ describe 'DistrosApi' do
   end
 
   # unit tests for distros_read
-  # View for viewing/listing package formats.
-  # View for viewing/listing package formats.
+  # View for viewing/listing distributions.
+  # View for viewing/listing distributions.
   # @param slug 
   # @param [Hash] opts the optional parameters
   # @return [Distribution]

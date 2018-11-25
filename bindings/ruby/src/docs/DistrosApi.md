@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudsmith.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**distros_list**](DistrosApi.md#distros_list) | **GET** /distros/ | Get a list of all supported distributions.
-[**distros_read**](DistrosApi.md#distros_read) | **GET** /distros/{slug}/ | View for viewing/listing package formats.
+[**distros_read**](DistrosApi.md#distros_read) | **GET** /distros/{slug}/ | View for viewing/listing distributions.
 
 
 # **distros_list**
@@ -25,10 +25,6 @@ CloudsmithApi.configure do |config|
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-  # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
 
   # Configure API key authorization: csrf_token
   config.api_key['X-CSRFToken'] = 'YOUR API KEY'
@@ -56,7 +52,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -68,9 +64,9 @@ This endpoint does not need any parameter.
 # **distros_read**
 > Distribution distros_read(slug)
 
-View for viewing/listing package formats.
+View for viewing/listing distributions.
 
-View for viewing/listing package formats.
+View for viewing/listing distributions.
 
 ### Example
 ```ruby
@@ -82,10 +78,6 @@ CloudsmithApi.configure do |config|
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-  # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
 
   # Configure API key authorization: csrf_token
   config.api_key['X-CSRFToken'] = 'YOUR API KEY'
@@ -99,7 +91,7 @@ slug = "slug_example" # String |
 
 
 begin
-  #View for viewing/listing package formats.
+  #View for viewing/listing distributions.
   result = api_instance.distros_read(slug)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -119,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

@@ -80,6 +80,7 @@ require 'cloudsmith-api/models/webhooks_partial_update'
 require 'cloudsmith-api/models/webhooksownerrepo_templates'
 
 # APIs
+require 'cloudsmith-api/api/badges_api'
 require 'cloudsmith-api/api/distros_api'
 require 'cloudsmith-api/api/entitlements_api'
 require 'cloudsmith-api/api/files_api'

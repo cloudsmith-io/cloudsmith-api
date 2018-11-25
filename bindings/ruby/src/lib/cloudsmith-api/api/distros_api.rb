@@ -51,7 +51,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -65,8 +65,8 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # View for viewing/listing package formats.
-    # View for viewing/listing package formats.
+    # View for viewing/listing distributions.
+    # View for viewing/listing distributions.
     # @param slug 
     # @param [Hash] opts the optional parameters
     # @return [Distribution]
@@ -75,8 +75,8 @@ module CloudsmithApi
       return data
     end
 
-    # View for viewing/listing package formats.
-    # View for viewing/listing package formats.
+    # View for viewing/listing distributions.
+    # View for viewing/listing distributions.
     # @param slug 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Distribution, Fixnum, Hash)>] Distribution data, response status code and response headers
@@ -102,7 +102,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
