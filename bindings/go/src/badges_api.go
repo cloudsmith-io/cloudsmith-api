@@ -13,40 +13,54 @@ package cloudsmith_api
 import (
 	"net/url"
 	"strings"
-	"encoding/json"
+	"fmt"
 )
 
-type RatesApi struct {
+type BadgesApi struct {
 	Configuration *Configuration
 }
 
-func NewRatesApi() *RatesApi {
+func NewBadgesApi() *BadgesApi {
 	configuration := NewConfiguration()
-	return &RatesApi{
+	return &BadgesApi{
 		Configuration: configuration,
 	}
 }
 
-func NewRatesApiWithBasePath(basePath string) *RatesApi {
+func NewBadgesApiWithBasePath(basePath string) *BadgesApi {
 	configuration := NewConfiguration()
 	configuration.BasePath = basePath
 
-	return &RatesApi{
+	return &BadgesApi{
 		Configuration: configuration,
 	}
 }
 
 /**
- * Endpoint to check rate limits for current user.
- * Endpoint to check rate limits for current user.
+ * Get latest package version for a package or package group.
+ * Get latest package version for a package or package group.
  *
- * @return *ResourcesRateCheck
+ * @param owner 
+ * @param repo 
+ * @param packageFormat 
+ * @param packageName 
+ * @param packageVersion 
+ * @param packageIdentifiers 
+ * @param badgeToken Badge token to authenticate for private packages
+ * @param render If true, badge will be rendered
+ * @return void
  */
-func (a RatesApi) RatesLimitsList() (*ResourcesRateCheck, *APIResponse, error) {
+func (a BadgesApi) BadgesVersionList(owner string, repo string, packageFormat string, packageName string, packageVersion string, packageIdentifiers string, badgeToken string, render bool) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/rates/limits/"
+	localVarPath := a.Configuration.BasePath + "/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"package_format"+"}", fmt.Sprintf("%v", packageFormat), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"package_name"+"}", fmt.Sprintf("%v", packageName), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"package_version"+"}", fmt.Sprintf("%v", packageVersion), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"package_identifiers"+"}", fmt.Sprintf("%v", packageIdentifiers), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -64,6 +78,8 @@ func (a RatesApi) RatesLimitsList() (*ResourcesRateCheck, *APIResponse, error) {
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("badge_token", a.Configuration.APIClient.ParameterToString(badgeToken, ""))
+	localVarQueryParams.Add("render", a.Configuration.APIClient.ParameterToString(render, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{  }
@@ -82,21 +98,19 @@ func (a RatesApi) RatesLimitsList() (*ResourcesRateCheck, *APIResponse, error) {
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(ResourcesRateCheck)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "RatesLimitsList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	var localVarAPIResponse = &APIResponse{Operation: "BadgesVersionList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
 	}
 
 	if err != nil {
-		return successPayload, localVarAPIResponse, err
+		return localVarAPIResponse, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return successPayload, localVarAPIResponse, err
+	return localVarAPIResponse, err
 }
 

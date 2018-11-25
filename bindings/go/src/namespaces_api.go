@@ -60,11 +60,6 @@ func (a NamespacesApi) NamespacesList(page int32, pageSize int32) ([]Namespace, 
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -133,11 +128,6 @@ func (a NamespacesApi) NamespacesRead(slug string) (*Namespace, *APIResponse, er
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")

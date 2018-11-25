@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudsmith.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DistrosList**](DistrosApi.md#DistrosList) | **Get** /distros/ | Get a list of all supported distributions.
-[**DistrosRead**](DistrosApi.md#DistrosRead) | **Get** /distros/{slug}/ | View for viewing/listing package formats.
+[**DistrosRead**](DistrosApi.md#DistrosRead) | **Get** /distros/{slug}/ | View for viewing/listing distributions.
 
 
 # **DistrosList**
@@ -25,7 +25,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -37,9 +37,9 @@ This endpoint does not need any parameter.
 # **DistrosRead**
 > Distribution DistrosRead($slug)
 
-View for viewing/listing package formats.
+View for viewing/listing distributions.
 
-View for viewing/listing package formats.
+View for viewing/listing distributions.
 
 
 ### Parameters
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
