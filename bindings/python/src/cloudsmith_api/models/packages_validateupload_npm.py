@@ -32,31 +32,36 @@ class PackagesValidateuploadNpm(object):
     """
     swagger_types = {
         'npm_dist_tag': 'str',
-        'package_file': 'str'
+        'package_file': 'str',
+        'republish': 'bool'
     }
 
     attribute_map = {
         'npm_dist_tag': 'npm_dist_tag',
-        'package_file': 'package_file'
+        'package_file': 'package_file',
+        'republish': 'republish'
     }
 
-    def __init__(self, npm_dist_tag=None, package_file=None):
+    def __init__(self, npm_dist_tag=None, package_file=None, republish=None):
         """
         PackagesValidateuploadNpm - a model defined in Swagger
         """
 
         self._npm_dist_tag = None
         self._package_file = None
+        self._republish = None
 
         if npm_dist_tag is not None:
           self.npm_dist_tag = npm_dist_tag
         self.package_file = package_file
+        if republish is not None:
+          self.republish = republish
 
     @property
     def npm_dist_tag(self):
         """
         Gets the npm_dist_tag of this PackagesValidateuploadNpm.
-        The default NPM dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
+        The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
 
         :return: The npm_dist_tag of this PackagesValidateuploadNpm.
         :rtype: str
@@ -67,7 +72,7 @@ class PackagesValidateuploadNpm(object):
     def npm_dist_tag(self, npm_dist_tag):
         """
         Sets the npm_dist_tag of this PackagesValidateuploadNpm.
-        The default NPM dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
+        The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
 
         :param npm_dist_tag: The npm_dist_tag of this PackagesValidateuploadNpm.
         :type: str
@@ -99,6 +104,29 @@ class PackagesValidateuploadNpm(object):
             raise ValueError("Invalid value for `package_file`, must not be `None`")
 
         self._package_file = package_file
+
+    @property
+    def republish(self):
+        """
+        Gets the republish of this PackagesValidateuploadNpm.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :return: The republish of this PackagesValidateuploadNpm.
+        :rtype: bool
+        """
+        return self._republish
+
+    @republish.setter
+    def republish(self, republish):
+        """
+        Sets the republish of this PackagesValidateuploadNpm.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :param republish: The republish of this PackagesValidateuploadNpm.
+        :type: bool
+        """
+
+        self._republish = republish
 
     def to_dict(self):
         """

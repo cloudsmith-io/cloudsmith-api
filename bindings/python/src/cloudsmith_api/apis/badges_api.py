@@ -164,7 +164,7 @@ class BadgesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/', 'GET',
                                         path_params,

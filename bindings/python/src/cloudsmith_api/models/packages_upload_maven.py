@@ -37,6 +37,7 @@ class PackagesUploadMaven(object):
         'package_file': 'str',
         'packaging': 'str',
         'pom_file': 'str',
+        'republish': 'bool',
         'sources_file': 'str',
         'version': 'str'
     }
@@ -48,11 +49,12 @@ class PackagesUploadMaven(object):
         'package_file': 'package_file',
         'packaging': 'packaging',
         'pom_file': 'pom_file',
+        'republish': 'republish',
         'sources_file': 'sources_file',
         'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, sources_file=None, version=None):
+    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, version=None):
         """
         PackagesUploadMaven - a model defined in Swagger
         """
@@ -63,6 +65,7 @@ class PackagesUploadMaven(object):
         self._package_file = None
         self._packaging = None
         self._pom_file = None
+        self._republish = None
         self._sources_file = None
         self._version = None
 
@@ -77,6 +80,8 @@ class PackagesUploadMaven(object):
           self.packaging = packaging
         if pom_file is not None:
           self.pom_file = pom_file
+        if republish is not None:
+          self.republish = republish
         if sources_file is not None:
           self.sources_file = sources_file
         if version is not None:
@@ -221,6 +226,29 @@ class PackagesUploadMaven(object):
         """
 
         self._pom_file = pom_file
+
+    @property
+    def republish(self):
+        """
+        Gets the republish of this PackagesUploadMaven.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :return: The republish of this PackagesUploadMaven.
+        :rtype: bool
+        """
+        return self._republish
+
+    @republish.setter
+    def republish(self, republish):
+        """
+        Sets the republish of this PackagesUploadMaven.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :param republish: The republish of this PackagesUploadMaven.
+        :type: bool
+        """
+
+        self._republish = republish
 
     @property
     def sources_file(self):

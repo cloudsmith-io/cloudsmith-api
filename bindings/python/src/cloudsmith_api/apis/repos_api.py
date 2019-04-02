@@ -122,7 +122,7 @@ class ReposApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/repos/', 'GET',
                                         path_params,
@@ -228,7 +228,7 @@ class ReposApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/repos/{owner}/', 'GET',
                                         path_params,
@@ -333,7 +333,7 @@ class ReposApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/repos/{owner}/{slug}/', 'GET',
                                         path_params,

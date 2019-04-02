@@ -34,6 +34,7 @@ class PackagesValidateuploadVagrant(object):
         'name': 'str',
         'package_file': 'str',
         'provider': 'str',
+        'republish': 'bool',
         'version': 'str'
     }
 
@@ -41,10 +42,11 @@ class PackagesValidateuploadVagrant(object):
         'name': 'name',
         'package_file': 'package_file',
         'provider': 'provider',
+        'republish': 'republish',
         'version': 'version'
     }
 
-    def __init__(self, name=None, package_file=None, provider=None, version=None):
+    def __init__(self, name=None, package_file=None, provider=None, republish=None, version=None):
         """
         PackagesValidateuploadVagrant - a model defined in Swagger
         """
@@ -52,11 +54,14 @@ class PackagesValidateuploadVagrant(object):
         self._name = None
         self._package_file = None
         self._provider = None
+        self._republish = None
         self._version = None
 
         self.name = name
         self.package_file = package_file
         self.provider = provider
+        if republish is not None:
+          self.republish = republish
         self.version = version
 
     @property
@@ -133,6 +138,29 @@ class PackagesValidateuploadVagrant(object):
             raise ValueError("Invalid value for `provider`, must not be `None`")
 
         self._provider = provider
+
+    @property
+    def republish(self):
+        """
+        Gets the republish of this PackagesValidateuploadVagrant.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :return: The republish of this PackagesValidateuploadVagrant.
+        :rtype: bool
+        """
+        return self._republish
+
+    @republish.setter
+    def republish(self, republish):
+        """
+        Sets the republish of this PackagesValidateuploadVagrant.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :param republish: The republish of this PackagesValidateuploadVagrant.
+        :type: bool
+        """
+
+        self._republish = republish
 
     @property
     def version(self):

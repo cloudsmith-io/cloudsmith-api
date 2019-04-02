@@ -32,24 +32,35 @@ class FilesValidate(object):
     """
     swagger_types = {
         'filename': 'str',
-        'md5_checksum': 'str'
+        'md5_checksum': 'str',
+        'method': 'str',
+        'sha256_checksum': 'str'
     }
 
     attribute_map = {
         'filename': 'filename',
-        'md5_checksum': 'md5_checksum'
+        'md5_checksum': 'md5_checksum',
+        'method': 'method',
+        'sha256_checksum': 'sha256_checksum'
     }
 
-    def __init__(self, filename=None, md5_checksum=None):
+    def __init__(self, filename=None, md5_checksum=None, method=None, sha256_checksum=None):
         """
         FilesValidate - a model defined in Swagger
         """
 
         self._filename = None
         self._md5_checksum = None
+        self._method = None
+        self._sha256_checksum = None
 
         self.filename = filename
-        self.md5_checksum = md5_checksum
+        if md5_checksum is not None:
+          self.md5_checksum = md5_checksum
+        if method is not None:
+          self.method = method
+        if sha256_checksum is not None:
+          self.sha256_checksum = sha256_checksum
 
     @property
     def filename(self):
@@ -80,7 +91,7 @@ class FilesValidate(object):
     def md5_checksum(self):
         """
         Gets the md5_checksum of this FilesValidate.
-        MD5 checksum for the package file upload.
+        MD5 checksum for a POST-based package file upload.
 
         :return: The md5_checksum of this FilesValidate.
         :rtype: str
@@ -91,15 +102,59 @@ class FilesValidate(object):
     def md5_checksum(self, md5_checksum):
         """
         Sets the md5_checksum of this FilesValidate.
-        MD5 checksum for the package file upload.
+        MD5 checksum for a POST-based package file upload.
 
         :param md5_checksum: The md5_checksum of this FilesValidate.
         :type: str
         """
-        if md5_checksum is None:
-            raise ValueError("Invalid value for `md5_checksum`, must not be `None`")
 
         self._md5_checksum = md5_checksum
+
+    @property
+    def method(self):
+        """
+        Gets the method of this FilesValidate.
+        The method to use for package file upload.
+
+        :return: The method of this FilesValidate.
+        :rtype: str
+        """
+        return self._method
+
+    @method.setter
+    def method(self, method):
+        """
+        Sets the method of this FilesValidate.
+        The method to use for package file upload.
+
+        :param method: The method of this FilesValidate.
+        :type: str
+        """
+
+        self._method = method
+
+    @property
+    def sha256_checksum(self):
+        """
+        Gets the sha256_checksum of this FilesValidate.
+        SHA256 checksum for a PUT-based package file upload.
+
+        :return: The sha256_checksum of this FilesValidate.
+        :rtype: str
+        """
+        return self._sha256_checksum
+
+    @sha256_checksum.setter
+    def sha256_checksum(self, sha256_checksum):
+        """
+        Sets the sha256_checksum of this FilesValidate.
+        SHA256 checksum for a PUT-based package file upload.
+
+        :param sha256_checksum: The sha256_checksum of this FilesValidate.
+        :type: str
+        """
+
+        self._sha256_checksum = sha256_checksum
 
     def to_dict(self):
         """

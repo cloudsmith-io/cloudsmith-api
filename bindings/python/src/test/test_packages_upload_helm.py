@@ -19,32 +19,24 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.files_api import FilesApi
+from cloudsmith_api.models.packages_upload_helm import PackagesUploadHelm
 
 
-class TestFilesApi(unittest.TestCase):
-    """ FilesApi unit test stubs """
+class TestPackagesUploadHelm(unittest.TestCase):
+    """ PackagesUploadHelm unit test stubs """
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.files_api.FilesApi()
+        pass
 
     def tearDown(self):
         pass
 
-    def test_files_create(self):
+    def testPackagesUploadHelm(self):
         """
-        Test case for files_create
-
-        Request URL(s) to upload new package file upload(s) to.
+        Test PackagesUploadHelm
         """
-        pass
-
-    def test_files_validate(self):
-        """
-        Test case for files_validate
-
-        Validate parameters used for create.
-        """
+        # FIXME: construct object with mandatory attributes with example values
+        #model = cloudsmith_api.models.packages_upload_helm.PackagesUploadHelm()
         pass
 
 

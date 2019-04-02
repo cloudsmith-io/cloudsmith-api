@@ -33,28 +33,33 @@ class PackageFileUpload(object):
     swagger_types = {
         'identifier': 'str',
         'upload_fields': 'object',
+        'upload_headers': 'object',
         'upload_url': 'str'
     }
 
     attribute_map = {
         'identifier': 'identifier',
         'upload_fields': 'upload_fields',
+        'upload_headers': 'upload_headers',
         'upload_url': 'upload_url'
     }
 
-    def __init__(self, identifier=None, upload_fields=None, upload_url=None):
+    def __init__(self, identifier=None, upload_fields=None, upload_headers=None, upload_url=None):
         """
         PackageFileUpload - a model defined in Swagger
         """
 
         self._identifier = None
         self._upload_fields = None
+        self._upload_headers = None
         self._upload_url = None
 
         if identifier is not None:
           self.identifier = identifier
         if upload_fields is not None:
           self.upload_fields = upload_fields
+        if upload_headers is not None:
+          self.upload_headers = upload_headers
         if upload_url is not None:
           self.upload_url = upload_url
 
@@ -105,10 +110,33 @@ class PackageFileUpload(object):
         self._upload_fields = upload_fields
 
     @property
+    def upload_headers(self):
+        """
+        Gets the upload_headers of this PackageFileUpload.
+        The dictionary of headers that must be sent with uploads
+
+        :return: The upload_headers of this PackageFileUpload.
+        :rtype: object
+        """
+        return self._upload_headers
+
+    @upload_headers.setter
+    def upload_headers(self, upload_headers):
+        """
+        Sets the upload_headers of this PackageFileUpload.
+        The dictionary of headers that must be sent with uploads
+
+        :param upload_headers: The upload_headers of this PackageFileUpload.
+        :type: object
+        """
+
+        self._upload_headers = upload_headers
+
+    @property
     def upload_url(self):
         """
         Gets the upload_url of this PackageFileUpload.
-        The URL to use for the next-step POST upload
+        The URL to use for the next-step POST or PUT upload
 
         :return: The upload_url of this PackageFileUpload.
         :rtype: str
@@ -119,7 +147,7 @@ class PackageFileUpload(object):
     def upload_url(self, upload_url):
         """
         Sets the upload_url of this PackageFileUpload.
-        The URL to use for the next-step POST upload
+        The URL to use for the next-step POST or PUT upload
 
         :param upload_url: The upload_url of this PackageFileUpload.
         :type: str

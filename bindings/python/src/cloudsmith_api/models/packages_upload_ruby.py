@@ -31,21 +31,26 @@ class PackagesUploadRuby(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'package_file': 'str'
+        'package_file': 'str',
+        'republish': 'bool'
     }
 
     attribute_map = {
-        'package_file': 'package_file'
+        'package_file': 'package_file',
+        'republish': 'republish'
     }
 
-    def __init__(self, package_file=None):
+    def __init__(self, package_file=None, republish=None):
         """
         PackagesUploadRuby - a model defined in Swagger
         """
 
         self._package_file = None
+        self._republish = None
 
         self.package_file = package_file
+        if republish is not None:
+          self.republish = republish
 
     @property
     def package_file(self):
@@ -71,6 +76,29 @@ class PackagesUploadRuby(object):
             raise ValueError("Invalid value for `package_file`, must not be `None`")
 
         self._package_file = package_file
+
+    @property
+    def republish(self):
+        """
+        Gets the republish of this PackagesUploadRuby.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :return: The republish of this PackagesUploadRuby.
+        :rtype: bool
+        """
+        return self._republish
+
+    @republish.setter
+    def republish(self, republish):
+        """
+        Sets the republish of this PackagesUploadRuby.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :param republish: The republish of this PackagesUploadRuby.
+        :type: bool
+        """
+
+        self._republish = republish
 
     def to_dict(self):
         """

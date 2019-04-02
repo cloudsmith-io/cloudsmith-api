@@ -31,10 +31,10 @@ class WebhooksPartialUpdate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'events': 'list[int]',
+        'events': 'list[str]',
         'is_active': 'bool',
-        'request_body_format': 'int',
-        'request_body_template_format': 'int',
+        'request_body_format': 'str',
+        'request_body_template_format': 'str',
         'request_content_type': 'str',
         'secret_header': 'str',
         'secret_value': 'str',
@@ -105,7 +105,7 @@ class WebhooksPartialUpdate(object):
         None
 
         :return: The events of this WebhooksPartialUpdate.
-        :rtype: list[int]
+        :rtype: list[str]
         """
         return self._events
 
@@ -116,7 +116,7 @@ class WebhooksPartialUpdate(object):
         None
 
         :param events: The events of this WebhooksPartialUpdate.
-        :type: list[int]
+        :type: list[str]
         """
 
         self._events = events
@@ -151,7 +151,7 @@ class WebhooksPartialUpdate(object):
         The format of the payloads for webhook requests.
 
         :return: The request_body_format of this WebhooksPartialUpdate.
-        :rtype: int
+        :rtype: str
         """
         return self._request_body_format
 
@@ -162,7 +162,7 @@ class WebhooksPartialUpdate(object):
         The format of the payloads for webhook requests.
 
         :param request_body_format: The request_body_format of this WebhooksPartialUpdate.
-        :type: int
+        :type: str
         """
 
         self._request_body_format = request_body_format
@@ -174,7 +174,7 @@ class WebhooksPartialUpdate(object):
         The format of the payloads for webhook requests.
 
         :return: The request_body_template_format of this WebhooksPartialUpdate.
-        :rtype: int
+        :rtype: str
         """
         return self._request_body_template_format
 
@@ -185,7 +185,7 @@ class WebhooksPartialUpdate(object):
         The format of the payloads for webhook requests.
 
         :param request_body_template_format: The request_body_template_format of this WebhooksPartialUpdate.
-        :type: int
+        :type: str
         """
 
         self._request_body_template_format = request_body_template_format

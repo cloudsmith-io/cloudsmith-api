@@ -42,8 +42,8 @@ class FilesApi(object):
 
     def files_create(self, owner, repo, **kwargs):
         """
-        Request URL(s) to POST new package file upload(s) to.
-        Request URL(s) to POST new package file upload(s) to.
+        Request URL(s) to upload new package file upload(s) to.
+        Request URL(s) to upload new package file upload(s) to.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -70,8 +70,8 @@ class FilesApi(object):
 
     def files_create_with_http_info(self, owner, repo, **kwargs):
         """
-        Request URL(s) to POST new package file upload(s) to.
-        Request URL(s) to POST new package file upload(s) to.
+        Request URL(s) to upload new package file upload(s) to.
+        Request URL(s) to upload new package file upload(s) to.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -136,7 +136,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/files/{owner}/{repo}/', 'POST',
                                         path_params,
@@ -249,7 +249,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/files/{owner}/{repo}/validate/', 'POST',
                                         path_params,

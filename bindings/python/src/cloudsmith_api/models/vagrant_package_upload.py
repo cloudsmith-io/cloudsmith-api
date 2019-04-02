@@ -59,7 +59,7 @@ class VagrantPackageUpload(object):
         'namespace': 'str',
         'namespace_url': 'str',
         'num_files': 'int',
-        'package_type': 'int',
+        'package_type': 'str',
         'provider': 'str',
         'release': 'str',
         'repository': 'str',
@@ -69,10 +69,10 @@ class VagrantPackageUpload(object):
         'size': 'int',
         'slug': 'str',
         'slug_perm': 'str',
-        'stage': 'int',
+        'stage': 'str',
         'stage_str': 'str',
         'stage_updated_at': 'str',
-        'status': 'int',
+        'status': 'str',
         'status_reason': 'str',
         'status_str': 'str',
         'status_updated_at': 'str',
@@ -973,7 +973,7 @@ class VagrantPackageUpload(object):
         The type of package contents.
 
         :return: The package_type of this VagrantPackageUpload.
-        :rtype: int
+        :rtype: str
         """
         return self._package_type
 
@@ -984,7 +984,7 @@ class VagrantPackageUpload(object):
         The type of package contents.
 
         :param package_type: The package_type of this VagrantPackageUpload.
-        :type: int
+        :type: str
         """
 
         self._package_type = package_type
@@ -1205,7 +1205,7 @@ class VagrantPackageUpload(object):
         The synchronisation (in progress) stage of the package.
 
         :return: The stage of this VagrantPackageUpload.
-        :rtype: int
+        :rtype: str
         """
         return self._stage
 
@@ -1216,7 +1216,7 @@ class VagrantPackageUpload(object):
         The synchronisation (in progress) stage of the package.
 
         :param stage: The stage of this VagrantPackageUpload.
-        :type: int
+        :type: str
         """
 
         self._stage = stage
@@ -1274,7 +1274,7 @@ class VagrantPackageUpload(object):
         The synchronisation status of the package.
 
         :return: The status of this VagrantPackageUpload.
-        :rtype: int
+        :rtype: str
         """
         return self._status
 
@@ -1285,7 +1285,7 @@ class VagrantPackageUpload(object):
         The synchronisation status of the package.
 
         :param status: The status of this VagrantPackageUpload.
-        :type: int
+        :type: str
         """
 
         self._status = status

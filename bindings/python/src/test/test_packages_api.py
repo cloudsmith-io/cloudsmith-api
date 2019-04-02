@@ -111,6 +111,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_helm(self):
+        """
+        Test case for packages_upload_helm
+
+        Create a new Helm package
+        """
+        pass
+
     def test_packages_upload_maven(self):
         """
         Test case for packages_upload_maven
@@ -123,7 +131,7 @@ class TestPackagesApi(unittest.TestCase):
         """
         Test case for packages_upload_npm
 
-        Create a new Npm package
+        Create a new npm package
         """
         pass
 
@@ -191,6 +199,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_validate_upload_helm(self):
+        """
+        Test case for packages_validate_upload_helm
+
+        Validate parameters for create Helm package
+        """
+        pass
+
     def test_packages_validate_upload_maven(self):
         """
         Test case for packages_validate_upload_maven
@@ -203,7 +219,7 @@ class TestPackagesApi(unittest.TestCase):
         """
         Test case for packages_validate_upload_npm
 
-        Validate parameters for create Npm package
+        Validate parameters for create npm package
         """
         pass
 

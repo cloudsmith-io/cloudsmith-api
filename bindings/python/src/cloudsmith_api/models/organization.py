@@ -31,7 +31,7 @@ class Organization(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'country': 'int',
+        'country': 'str',
         'created_at': 'str',
         'location': 'str',
         'name': 'str',
@@ -85,7 +85,7 @@ class Organization(object):
         The country your organization is based in.
 
         :return: The country of this Organization.
-        :rtype: int
+        :rtype: str
         """
         return self._country
 
@@ -96,7 +96,7 @@ class Organization(object):
         The country your organization is based in.
 
         :param country: The country of this Organization.
-        :type: int
+        :type: str
         """
 
         self._country = country

@@ -113,7 +113,7 @@ class UserApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/user/self/', 'GET',
                                         path_params,
@@ -212,7 +212,7 @@ class UserApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/user/token/', 'POST',
                                         path_params,

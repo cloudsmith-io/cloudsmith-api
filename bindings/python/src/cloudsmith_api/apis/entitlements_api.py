@@ -140,7 +140,7 @@ class EntitlementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/', 'POST',
                                         path_params,
@@ -252,7 +252,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'DELETE',
                                         path_params,
@@ -364,7 +364,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/disable/', 'POST',
                                         path_params,
@@ -476,7 +476,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/enable/', 'POST',
                                         path_params,
@@ -593,7 +593,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/', 'GET',
                                         path_params,
@@ -717,7 +717,7 @@ class EntitlementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'PATCH',
                                         path_params,
@@ -833,7 +833,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'GET',
                                         path_params,
@@ -957,7 +957,7 @@ class EntitlementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/refresh/', 'POST',
                                         path_params,
@@ -1069,7 +1069,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/reset/', 'POST',
                                         path_params,
@@ -1182,7 +1182,7 @@ class EntitlementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/sync/', 'POST',
                                         path_params,

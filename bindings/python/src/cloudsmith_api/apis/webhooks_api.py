@@ -136,7 +136,7 @@ class WebhooksApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/webhooks/{owner}/{repo}/', 'POST',
                                         path_params,
@@ -248,7 +248,7 @@ class WebhooksApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/webhooks/{owner}/{repo}/{identifier}/', 'DELETE',
                                         path_params,
@@ -361,7 +361,7 @@ class WebhooksApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/webhooks/{owner}/{repo}/', 'GET',
                                         path_params,
@@ -481,7 +481,7 @@ class WebhooksApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/webhooks/{owner}/{repo}/{identifier}/', 'PATCH',
                                         path_params,
@@ -593,7 +593,7 @@ class WebhooksApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/webhooks/{owner}/{repo}/{identifier}/', 'GET',
                                         path_params,

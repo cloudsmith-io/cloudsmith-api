@@ -4,16 +4,16 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**files_create**](FilesApi.md#files_create) | **POST** /files/{owner}/{repo}/ | Request URL(s) to POST new package file upload(s) to.
+[**files_create**](FilesApi.md#files_create) | **POST** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
 [**files_validate**](FilesApi.md#files_validate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 
 
 # **files_create**
 > PackageFileUpload files_create(owner, repo, data=data)
 
-Request URL(s) to POST new package file upload(s) to.
+Request URL(s) to upload new package file upload(s) to.
 
-Request URL(s) to POST new package file upload(s) to.
+Request URL(s) to upload new package file upload(s) to.
 
 ### Example 
 ```python
@@ -27,6 +27,9 @@ from pprint import pprint
 cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: csrf_token
 cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -39,7 +42,7 @@ repo = 'repo_example' # str |
 data = cloudsmith_api.FilesCreate() # FilesCreate |  (optional)
 
 try: 
-    # Request URL(s) to POST new package file upload(s) to.
+    # Request URL(s) to upload new package file upload(s) to.
     api_response = api_instance.files_create(owner, repo, data=data)
     pprint(api_response)
 except ApiException as e:
@@ -60,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -88,6 +91,9 @@ from pprint import pprint
 cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+cloudsmith_api.configuration.username = 'YOUR_USERNAME'
+cloudsmith_api.configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: csrf_token
 cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -120,7 +126,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

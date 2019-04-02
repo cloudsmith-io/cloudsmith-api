@@ -143,7 +143,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/copy/', 'POST',
                                         path_params,
@@ -255,7 +255,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/', 'DELETE',
                                         path_params,
@@ -372,7 +372,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/', 'GET',
                                         path_params,
@@ -492,7 +492,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/move/', 'POST',
                                         path_params,
@@ -604,7 +604,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/', 'GET',
                                         path_params,
@@ -638,6 +638,7 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
+        :param PackagesResync data:
         :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
@@ -666,12 +667,13 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
+        :param PackagesResync data:
         :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier']
+        all_params = ['owner', 'repo', 'identifier', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -715,8 +717,14 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/resync/', 'POST',
                                         path_params,
@@ -828,7 +836,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/status/', 'GET',
                                         path_params,
@@ -941,7 +949,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/alpine/', 'POST',
                                         path_params,
@@ -1054,7 +1062,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/composer/', 'POST',
                                         path_params,
@@ -1167,9 +1175,122 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/deb/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='Package',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def packages_upload_helm(self, owner, repo, **kwargs):
+        """
+        Create a new Helm package
+        Create a new Helm package
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_upload_helm(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param PackagesUploadHelm data:
+        :return: Package
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.packages_upload_helm_with_http_info(owner, repo, **kwargs)
+        else:
+            (data) = self.packages_upload_helm_with_http_info(owner, repo, **kwargs)
+            return data
+
+    def packages_upload_helm_with_http_info(self, owner, repo, **kwargs):
+        """
+        Create a new Helm package
+        Create a new Helm package
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_upload_helm_with_http_info(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param PackagesUploadHelm data:
+        :return: Package
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_upload_helm" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_upload_helm`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `packages_upload_helm`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/packages/{owner}/{repo}/upload/helm/', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1280,7 +1401,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/maven/', 'POST',
                                         path_params,
@@ -1299,8 +1420,8 @@ class PackagesApi(object):
 
     def packages_upload_npm(self, owner, repo, **kwargs):
         """
-        Create a new Npm package
-        Create a new Npm package
+        Create a new npm package
+        Create a new npm package
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -1327,8 +1448,8 @@ class PackagesApi(object):
 
     def packages_upload_npm_with_http_info(self, owner, repo, **kwargs):
         """
-        Create a new Npm package
-        Create a new Npm package
+        Create a new npm package
+        Create a new npm package
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -1393,7 +1514,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/npm/', 'POST',
                                         path_params,
@@ -1506,7 +1627,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/python/', 'POST',
                                         path_params,
@@ -1619,7 +1740,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/raw/', 'POST',
                                         path_params,
@@ -1732,7 +1853,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/rpm/', 'POST',
                                         path_params,
@@ -1845,7 +1966,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/ruby/', 'POST',
                                         path_params,
@@ -1958,7 +2079,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/vagrant/', 'POST',
                                         path_params,
@@ -2071,7 +2192,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/alpine/', 'POST',
                                         path_params,
@@ -2184,7 +2305,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/composer/', 'POST',
                                         path_params,
@@ -2297,9 +2418,122 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/deb/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def packages_validate_upload_helm(self, owner, repo, **kwargs):
+        """
+        Validate parameters for create Helm package
+        Validate parameters for create Helm package
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_validate_upload_helm(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param PackagesValidateuploadHelm data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.packages_validate_upload_helm_with_http_info(owner, repo, **kwargs)
+        else:
+            (data) = self.packages_validate_upload_helm_with_http_info(owner, repo, **kwargs)
+            return data
+
+    def packages_validate_upload_helm_with_http_info(self, owner, repo, **kwargs):
+        """
+        Validate parameters for create Helm package
+        Validate parameters for create Helm package
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.packages_validate_upload_helm_with_http_info(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param PackagesValidateuploadHelm data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_validate_upload_helm" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `packages_validate_upload_helm`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `packages_validate_upload_helm`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic', 'csrf_token']
+
+        return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/helm/', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2410,7 +2644,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/maven/', 'POST',
                                         path_params,
@@ -2429,8 +2663,8 @@ class PackagesApi(object):
 
     def packages_validate_upload_npm(self, owner, repo, **kwargs):
         """
-        Validate parameters for create Npm package
-        Validate parameters for create Npm package
+        Validate parameters for create npm package
+        Validate parameters for create npm package
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -2457,8 +2691,8 @@ class PackagesApi(object):
 
     def packages_validate_upload_npm_with_http_info(self, owner, repo, **kwargs):
         """
-        Validate parameters for create Npm package
-        Validate parameters for create Npm package
+        Validate parameters for create npm package
+        Validate parameters for create npm package
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -2523,7 +2757,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/npm/', 'POST',
                                         path_params,
@@ -2636,7 +2870,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/python/', 'POST',
                                         path_params,
@@ -2749,7 +2983,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/raw/', 'POST',
                                         path_params,
@@ -2862,7 +3096,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/rpm/', 'POST',
                                         path_params,
@@ -2975,7 +3209,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/ruby/', 'POST',
                                         path_params,
@@ -3088,7 +3322,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey', 'basic', 'csrf_token']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/vagrant/', 'POST',
                                         path_params,

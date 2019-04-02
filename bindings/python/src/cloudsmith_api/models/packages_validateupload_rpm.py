@@ -32,24 +32,29 @@ class PackagesValidateuploadRpm(object):
     """
     swagger_types = {
         'distribution': 'str',
-        'package_file': 'str'
+        'package_file': 'str',
+        'republish': 'bool'
     }
 
     attribute_map = {
         'distribution': 'distribution',
-        'package_file': 'package_file'
+        'package_file': 'package_file',
+        'republish': 'republish'
     }
 
-    def __init__(self, distribution=None, package_file=None):
+    def __init__(self, distribution=None, package_file=None, republish=None):
         """
         PackagesValidateuploadRpm - a model defined in Swagger
         """
 
         self._distribution = None
         self._package_file = None
+        self._republish = None
 
         self.distribution = distribution
         self.package_file = package_file
+        if republish is not None:
+          self.republish = republish
 
     @property
     def distribution(self):
@@ -100,6 +105,29 @@ class PackagesValidateuploadRpm(object):
             raise ValueError("Invalid value for `package_file`, must not be `None`")
 
         self._package_file = package_file
+
+    @property
+    def republish(self):
+        """
+        Gets the republish of this PackagesValidateuploadRpm.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :return: The republish of this PackagesValidateuploadRpm.
+        :rtype: bool
+        """
+        return self._republish
+
+    @republish.setter
+    def republish(self, republish):
+        """
+        Sets the republish of this PackagesValidateuploadRpm.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :param republish: The republish of this PackagesValidateuploadRpm.
+        :type: bool
+        """
+
+        self._republish = republish
 
     def to_dict(self):
         """

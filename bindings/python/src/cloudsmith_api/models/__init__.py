@@ -34,9 +34,11 @@ from .package_move import PackageMove
 from .package_status import PackageStatus
 from .packages_copy import PackagesCopy
 from .packages_move import PackagesMove
+from .packages_resync import PackagesResync
 from .packages_upload_alpine import PackagesUploadAlpine
 from .packages_upload_composer import PackagesUploadComposer
 from .packages_upload_deb import PackagesUploadDeb
+from .packages_upload_helm import PackagesUploadHelm
 from .packages_upload_maven import PackagesUploadMaven
 from .packages_upload_npm import PackagesUploadNpm
 from .packages_upload_python import PackagesUploadPython
@@ -47,6 +49,7 @@ from .packages_upload_vagrant import PackagesUploadVagrant
 from .packages_validateupload_alpine import PackagesValidateuploadAlpine
 from .packages_validateupload_composer import PackagesValidateuploadComposer
 from .packages_validateupload_deb import PackagesValidateuploadDeb
+from .packages_validateupload_helm import PackagesValidateuploadHelm
 from .packages_validateupload_maven import PackagesValidateuploadMaven
 from .packages_validateupload_npm import PackagesValidateuploadNpm
 from .packages_validateupload_python import PackagesValidateuploadPython

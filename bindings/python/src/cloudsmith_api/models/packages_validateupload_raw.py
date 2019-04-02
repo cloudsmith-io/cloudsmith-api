@@ -33,6 +33,7 @@ class PackagesValidateuploadRaw(object):
     swagger_types = {
         'description': 'str',
         'package_file': 'str',
+        'republish': 'bool',
         'summary': 'str',
         'version': 'str'
     }
@@ -40,23 +41,27 @@ class PackagesValidateuploadRaw(object):
     attribute_map = {
         'description': 'description',
         'package_file': 'package_file',
+        'republish': 'republish',
         'summary': 'summary',
         'version': 'version'
     }
 
-    def __init__(self, description=None, package_file=None, summary=None, version=None):
+    def __init__(self, description=None, package_file=None, republish=None, summary=None, version=None):
         """
         PackagesValidateuploadRaw - a model defined in Swagger
         """
 
         self._description = None
         self._package_file = None
+        self._republish = None
         self._summary = None
         self._version = None
 
         if description is not None:
           self.description = description
         self.package_file = package_file
+        if republish is not None:
+          self.republish = republish
         if summary is not None:
           self.summary = summary
         if version is not None:
@@ -109,6 +114,29 @@ class PackagesValidateuploadRaw(object):
             raise ValueError("Invalid value for `package_file`, must not be `None`")
 
         self._package_file = package_file
+
+    @property
+    def republish(self):
+        """
+        Gets the republish of this PackagesValidateuploadRaw.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :return: The republish of this PackagesValidateuploadRaw.
+        :rtype: bool
+        """
+        return self._republish
+
+    @republish.setter
+    def republish(self, republish):
+        """
+        Sets the republish of this PackagesValidateuploadRaw.
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+
+        :param republish: The republish of this PackagesValidateuploadRaw.
+        :type: bool
+        """
+
+        self._republish = republish
 
     @property
     def summary(self):

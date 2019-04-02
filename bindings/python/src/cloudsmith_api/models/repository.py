@@ -46,7 +46,7 @@ class Repository(object):
         'num_downloads': 'int',
         'package_count': 'int',
         'package_group_count': 'int',
-        'repository_type': 'int',
+        'repository_type': 'str',
         'repository_type_str': 'str',
         'self_html_url': 'str',
         'self_url': 'str',
@@ -515,7 +515,7 @@ class Repository(object):
         The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
 
         :return: The repository_type of this Repository.
-        :rtype: int
+        :rtype: str
         """
         return self._repository_type
 
@@ -526,7 +526,7 @@ class Repository(object):
         The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
 
         :param repository_type: The repository_type of this Repository.
-        :type: int
+        :type: str
         """
 
         self._repository_type = repository_type

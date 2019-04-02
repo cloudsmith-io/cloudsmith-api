@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **num_downloads** | **int** | The number of downloads for packages in the repository. | [optional] 
 **package_count** | **int** | The number of packages in the repository. | [optional] 
 **package_group_count** | **int** | The number of groups in the repository. | [optional] 
-**repository_type** | **int** | The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time. | [optional] 
+**repository_type** | **str** | The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time. | [optional] 
 **repository_type_str** | **str** |  | [optional] 
 **self_html_url** | **str** |  | [optional] 
 **self_url** | **str** |  | [optional] 
