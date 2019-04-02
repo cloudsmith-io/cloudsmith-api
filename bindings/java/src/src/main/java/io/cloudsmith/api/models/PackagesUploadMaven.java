@@ -51,6 +51,9 @@ public class PackagesUploadMaven implements Serializable {
   @SerializedName("pom_file")
   private String pomFile = null;
 
+  @SerializedName("republish")
+  private Boolean republish = null;
+
   @SerializedName("sources_file")
   private String sourcesFile = null;
 
@@ -166,6 +169,24 @@ public class PackagesUploadMaven implements Serializable {
     this.pomFile = pomFile;
   }
 
+  public PackagesUploadMaven republish(Boolean republish) {
+    this.republish = republish;
+    return this;
+  }
+
+   /**
+   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+   * @return republish
+  **/
+  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
+  public Boolean getRepublish() {
+    return republish;
+  }
+
+  public void setRepublish(Boolean republish) {
+    this.republish = republish;
+  }
+
   public PackagesUploadMaven sourcesFile(String sourcesFile) {
     this.sourcesFile = sourcesFile;
     return this;
@@ -218,13 +239,14 @@ public class PackagesUploadMaven implements Serializable {
         Objects.equals(this.packageFile, packagesUploadMaven.packageFile) &&
         Objects.equals(this.packaging, packagesUploadMaven.packaging) &&
         Objects.equals(this.pomFile, packagesUploadMaven.pomFile) &&
+        Objects.equals(this.republish, packagesUploadMaven.republish) &&
         Objects.equals(this.sourcesFile, packagesUploadMaven.sourcesFile) &&
         Objects.equals(this.version, packagesUploadMaven.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, sourcesFile, version);
+    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, version);
   }
 
 
@@ -239,6 +261,7 @@ public class PackagesUploadMaven implements Serializable {
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
     sb.append("    pomFile: ").append(toIndentedString(pomFile)).append("\n");
+    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

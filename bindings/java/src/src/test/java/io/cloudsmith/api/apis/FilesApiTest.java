@@ -36,9 +36,9 @@ public class FilesApiTest {
 
     
     /**
-     * Request URL(s) to POST new package file upload(s) to.
+     * Request URL(s) to upload new package file upload(s) to.
      *
-     * Request URL(s) to POST new package file upload(s) to.
+     * Request URL(s) to upload new package file upload(s) to.
      *
      * @throws ApiException
      *          if the Api call fails

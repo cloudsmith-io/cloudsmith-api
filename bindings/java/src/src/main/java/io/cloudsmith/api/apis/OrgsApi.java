@@ -113,7 +113,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -256,7 +256,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

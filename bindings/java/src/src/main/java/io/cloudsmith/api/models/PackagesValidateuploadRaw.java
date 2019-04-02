@@ -39,6 +39,9 @@ public class PackagesValidateuploadRaw implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("republish")
+  private Boolean republish = null;
+
   @SerializedName("summary")
   private String summary = null;
 
@@ -80,6 +83,24 @@ public class PackagesValidateuploadRaw implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public PackagesValidateuploadRaw republish(Boolean republish) {
+    this.republish = republish;
+    return this;
+  }
+
+   /**
+   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+   * @return republish
+  **/
+  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
+  public Boolean getRepublish() {
+    return republish;
+  }
+
+  public void setRepublish(Boolean republish) {
+    this.republish = republish;
   }
 
   public PackagesValidateuploadRaw summary(String summary) {
@@ -130,13 +151,14 @@ public class PackagesValidateuploadRaw implements Serializable {
     PackagesValidateuploadRaw packagesValidateuploadRaw = (PackagesValidateuploadRaw) o;
     return Objects.equals(this.description, packagesValidateuploadRaw.description) &&
         Objects.equals(this.packageFile, packagesValidateuploadRaw.packageFile) &&
+        Objects.equals(this.republish, packagesValidateuploadRaw.republish) &&
         Objects.equals(this.summary, packagesValidateuploadRaw.summary) &&
         Objects.equals(this.version, packagesValidateuploadRaw.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, packageFile, summary, version);
+    return Objects.hash(description, packageFile, republish, summary, version);
   }
 
 
@@ -147,6 +169,7 @@ public class PackagesValidateuploadRaw implements Serializable {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

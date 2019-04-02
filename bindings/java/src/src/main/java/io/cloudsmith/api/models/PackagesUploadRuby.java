@@ -36,6 +36,9 @@ public class PackagesUploadRuby implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("republish")
+  private Boolean republish = null;
+
   public PackagesUploadRuby packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
@@ -55,6 +58,24 @@ public class PackagesUploadRuby implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public PackagesUploadRuby republish(Boolean republish) {
+    this.republish = republish;
+    return this;
+  }
+
+   /**
+   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+   * @return republish
+  **/
+  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
+  public Boolean getRepublish() {
+    return republish;
+  }
+
+  public void setRepublish(Boolean republish) {
+    this.republish = republish;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -65,12 +86,13 @@ public class PackagesUploadRuby implements Serializable {
       return false;
     }
     PackagesUploadRuby packagesUploadRuby = (PackagesUploadRuby) o;
-    return Objects.equals(this.packageFile, packagesUploadRuby.packageFile);
+    return Objects.equals(this.packageFile, packagesUploadRuby.packageFile) &&
+        Objects.equals(this.republish, packagesUploadRuby.republish);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile);
+    return Objects.hash(packageFile, republish);
   }
 
 
@@ -80,6 +102,7 @@ public class PackagesUploadRuby implements Serializable {
     sb.append("class PackagesUploadRuby {\n");
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("}");
     return sb.toString();
   }

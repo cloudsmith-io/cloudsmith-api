@@ -39,6 +39,12 @@ public class FilesCreate implements Serializable {
   @SerializedName("md5_checksum")
   private String md5Checksum = null;
 
+  @SerializedName("method")
+  private String method = null;
+
+  @SerializedName("sha256_checksum")
+  private String sha256Checksum = null;
+
   public FilesCreate filename(String filename) {
     this.filename = filename;
     return this;
@@ -64,17 +70,52 @@ public class FilesCreate implements Serializable {
   }
 
    /**
-   * MD5 checksum for the package file upload.
+   * MD5 checksum for a POST-based package file upload.
    * @return md5Checksum
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "MD5 checksum for the package file upload.")
+  @ApiModelProperty(value = "MD5 checksum for a POST-based package file upload.")
   public String getMd5Checksum() {
     return md5Checksum;
   }
 
   public void setMd5Checksum(String md5Checksum) {
     this.md5Checksum = md5Checksum;
+  }
+
+  public FilesCreate method(String method) {
+    this.method = method;
+    return this;
+  }
+
+   /**
+   * The method to use for package file upload.
+   * @return method
+  **/
+  @ApiModelProperty(value = "The method to use for package file upload.")
+  public String getMethod() {
+    return method;
+  }
+
+  public void setMethod(String method) {
+    this.method = method;
+  }
+
+  public FilesCreate sha256Checksum(String sha256Checksum) {
+    this.sha256Checksum = sha256Checksum;
+    return this;
+  }
+
+   /**
+   * SHA256 checksum for a PUT-based package file upload.
+   * @return sha256Checksum
+  **/
+  @ApiModelProperty(value = "SHA256 checksum for a PUT-based package file upload.")
+  public String getSha256Checksum() {
+    return sha256Checksum;
+  }
+
+  public void setSha256Checksum(String sha256Checksum) {
+    this.sha256Checksum = sha256Checksum;
   }
 
 
@@ -88,12 +129,14 @@ public class FilesCreate implements Serializable {
     }
     FilesCreate filesCreate = (FilesCreate) o;
     return Objects.equals(this.filename, filesCreate.filename) &&
-        Objects.equals(this.md5Checksum, filesCreate.md5Checksum);
+        Objects.equals(this.md5Checksum, filesCreate.md5Checksum) &&
+        Objects.equals(this.method, filesCreate.method) &&
+        Objects.equals(this.sha256Checksum, filesCreate.sha256Checksum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filename, md5Checksum);
+    return Objects.hash(filename, md5Checksum, method, sha256Checksum);
   }
 
 
@@ -104,6 +147,8 @@ public class FilesCreate implements Serializable {
     
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("    md5Checksum: ").append(toIndentedString(md5Checksum)).append("\n");
+    sb.append("    method: ").append(toIndentedString(method)).append("\n");
+    sb.append("    sha256Checksum: ").append(toIndentedString(sha256Checksum)).append("\n");
     sb.append("}");
     return sb.toString();
   }

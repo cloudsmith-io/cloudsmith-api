@@ -109,7 +109,7 @@ public class UserApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -245,7 +245,7 @@ public class UserApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

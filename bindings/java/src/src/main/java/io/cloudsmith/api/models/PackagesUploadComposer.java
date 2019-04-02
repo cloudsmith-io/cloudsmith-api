@@ -36,6 +36,9 @@ public class PackagesUploadComposer implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("republish")
+  private Boolean republish = null;
+
   public PackagesUploadComposer packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
@@ -55,6 +58,24 @@ public class PackagesUploadComposer implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public PackagesUploadComposer republish(Boolean republish) {
+    this.republish = republish;
+    return this;
+  }
+
+   /**
+   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+   * @return republish
+  **/
+  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
+  public Boolean getRepublish() {
+    return republish;
+  }
+
+  public void setRepublish(Boolean republish) {
+    this.republish = republish;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -65,12 +86,13 @@ public class PackagesUploadComposer implements Serializable {
       return false;
     }
     PackagesUploadComposer packagesUploadComposer = (PackagesUploadComposer) o;
-    return Objects.equals(this.packageFile, packagesUploadComposer.packageFile);
+    return Objects.equals(this.packageFile, packagesUploadComposer.packageFile) &&
+        Objects.equals(this.republish, packagesUploadComposer.republish);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile);
+    return Objects.hash(packageFile, republish);
   }
 
 
@@ -80,6 +102,7 @@ public class PackagesUploadComposer implements Serializable {
     sb.append("class PackagesUploadComposer {\n");
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("}");
     return sb.toString();
   }

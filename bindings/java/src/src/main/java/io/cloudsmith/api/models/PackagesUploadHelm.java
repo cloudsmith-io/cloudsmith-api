@@ -27,14 +27,11 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * PackagesValidateuploadRpm
+ * PackagesUploadHelm
  */
 
-public class PackagesValidateuploadRpm implements Serializable {
+public class PackagesUploadHelm implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  @SerializedName("distribution")
-  private String distribution = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
@@ -42,26 +39,7 @@ public class PackagesValidateuploadRpm implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
-  public PackagesValidateuploadRpm distribution(String distribution) {
-    this.distribution = distribution;
-    return this;
-  }
-
-   /**
-   * The distribution to store the package for.
-   * @return distribution
-  **/
-  @NotNull
-  @ApiModelProperty(example = "el/7", required = true, value = "The distribution to store the package for.")
-  public String getDistribution() {
-    return distribution;
-  }
-
-  public void setDistribution(String distribution) {
-    this.distribution = distribution;
-  }
-
-  public PackagesValidateuploadRpm packageFile(String packageFile) {
+  public PackagesUploadHelm packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -71,7 +49,7 @@ public class PackagesValidateuploadRpm implements Serializable {
    * @return packageFile
   **/
   @NotNull
-  @ApiModelProperty(example = "y123456789", required = true, value = "The primary file for the package.")
+  @ApiModelProperty(example = "x123456789a", required = true, value = "The primary file for the package.")
   public String getPackageFile() {
     return packageFile;
   }
@@ -80,7 +58,7 @@ public class PackagesValidateuploadRpm implements Serializable {
     this.packageFile = packageFile;
   }
 
-  public PackagesValidateuploadRpm republish(Boolean republish) {
+  public PackagesUploadHelm republish(Boolean republish) {
     this.republish = republish;
     return this;
   }
@@ -107,24 +85,22 @@ public class PackagesValidateuploadRpm implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PackagesValidateuploadRpm packagesValidateuploadRpm = (PackagesValidateuploadRpm) o;
-    return Objects.equals(this.distribution, packagesValidateuploadRpm.distribution) &&
-        Objects.equals(this.packageFile, packagesValidateuploadRpm.packageFile) &&
-        Objects.equals(this.republish, packagesValidateuploadRpm.republish);
+    PackagesUploadHelm packagesUploadHelm = (PackagesUploadHelm) o;
+    return Objects.equals(this.packageFile, packagesUploadHelm.packageFile) &&
+        Objects.equals(this.republish, packagesUploadHelm.republish);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(distribution, packageFile, republish);
+    return Objects.hash(packageFile, republish);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PackagesValidateuploadRpm {\n");
+    sb.append("class PackagesUploadHelm {\n");
     
-    sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("}");

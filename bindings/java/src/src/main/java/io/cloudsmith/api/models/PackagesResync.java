@@ -27,31 +27,31 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * ResourcesRateCheck
+ * PackagesResync
  */
 
-public class ResourcesRateCheck implements Serializable {
+public class PackagesResync implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("resources")
-  private Object resources = null;
+  @SerializedName("republish")
+  private Boolean republish = null;
 
-  public ResourcesRateCheck resources(Object resources) {
-    this.resources = resources;
+  public PackagesResync republish(Boolean republish) {
+    this.republish = republish;
     return this;
   }
 
    /**
-   * Rate limit values per resource
-   * @return resources
+   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+   * @return republish
   **/
-  @ApiModelProperty(example = "{\"core\":{\"interval\":5.123456789,\"limit\":3600,\"remaining\":3595,\"reset\":1554219140,\"reset_iso_8601\":\"2019-04-02T15:32:20.243005+00:00\",\"throttled\":false}}", value = "Rate limit values per resource")
-  public Object getResources() {
-    return resources;
+  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
+  public Boolean getRepublish() {
+    return republish;
   }
 
-  public void setResources(Object resources) {
-    this.resources = resources;
+  public void setRepublish(Boolean republish) {
+    this.republish = republish;
   }
 
 
@@ -63,22 +63,22 @@ public class ResourcesRateCheck implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResourcesRateCheck resourcesRateCheck = (ResourcesRateCheck) o;
-    return Objects.equals(this.resources, resourcesRateCheck.resources);
+    PackagesResync packagesResync = (PackagesResync) o;
+    return Objects.equals(this.republish, packagesResync.republish);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resources);
+    return Objects.hash(republish);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResourcesRateCheck {\n");
+    sb.append("class PackagesResync {\n");
     
-    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("}");
     return sb.toString();
   }

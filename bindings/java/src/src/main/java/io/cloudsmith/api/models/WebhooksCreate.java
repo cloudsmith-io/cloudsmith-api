@@ -37,16 +37,16 @@ public class WebhooksCreate implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("events")
-  private List<Integer> events = new ArrayList<Integer>();
+  private List<String> events = new ArrayList<String>();
 
   @SerializedName("is_active")
   private Boolean isActive = null;
 
   @SerializedName("request_body_format")
-  private Integer requestBodyFormat = null;
+  private String requestBodyFormat = null;
 
   @SerializedName("request_body_template_format")
-  private Integer requestBodyTemplateFormat = null;
+  private String requestBodyTemplateFormat = null;
 
   @SerializedName("request_content_type")
   private String requestContentType = null;
@@ -69,12 +69,12 @@ public class WebhooksCreate implements Serializable {
   @SerializedName("verify_ssl")
   private Boolean verifySsl = null;
 
-  public WebhooksCreate events(List<Integer> events) {
+  public WebhooksCreate events(List<String> events) {
     this.events = events;
     return this;
   }
 
-  public WebhooksCreate addEventsItem(Integer eventsItem) {
+  public WebhooksCreate addEventsItem(String eventsItem) {
     this.events.add(eventsItem);
     return this;
   }
@@ -85,11 +85,11 @@ public class WebhooksCreate implements Serializable {
   **/
   @NotNull
   @ApiModelProperty(required = true, value = "None")
-  public List<Integer> getEvents() {
+  public List<String> getEvents() {
     return events;
   }
 
-  public void setEvents(List<Integer> events) {
+  public void setEvents(List<String> events) {
     this.events = events;
   }
 
@@ -111,7 +111,7 @@ public class WebhooksCreate implements Serializable {
     this.isActive = isActive;
   }
 
-  public WebhooksCreate requestBodyFormat(Integer requestBodyFormat) {
+  public WebhooksCreate requestBodyFormat(String requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
     return this;
   }
@@ -121,15 +121,15 @@ public class WebhooksCreate implements Serializable {
    * @return requestBodyFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public Integer getRequestBodyFormat() {
+  public String getRequestBodyFormat() {
     return requestBodyFormat;
   }
 
-  public void setRequestBodyFormat(Integer requestBodyFormat) {
+  public void setRequestBodyFormat(String requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
   }
 
-  public WebhooksCreate requestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
+  public WebhooksCreate requestBodyTemplateFormat(String requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
     return this;
   }
@@ -139,11 +139,11 @@ public class WebhooksCreate implements Serializable {
    * @return requestBodyTemplateFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public Integer getRequestBodyTemplateFormat() {
+  public String getRequestBodyTemplateFormat() {
     return requestBodyTemplateFormat;
   }
 
-  public void setRequestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
+  public void setRequestBodyTemplateFormat(String requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
   }
 

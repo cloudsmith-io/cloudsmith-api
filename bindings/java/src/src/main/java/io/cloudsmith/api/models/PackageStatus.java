@@ -52,7 +52,7 @@ public class PackageStatus implements Serializable {
   private String selfUrl = null;
 
   @SerializedName("stage")
-  private Integer stage = null;
+  private String stage = null;
 
   @SerializedName("stage_str")
   private String stageStr = null;
@@ -61,7 +61,7 @@ public class PackageStatus implements Serializable {
   private String stageUpdatedAt = null;
 
   @SerializedName("status")
-  private Integer status = null;
+  private String status = null;
 
   @SerializedName("status_reason")
   private String statusReason = null;
@@ -186,7 +186,7 @@ public class PackageStatus implements Serializable {
     this.selfUrl = selfUrl;
   }
 
-  public PackageStatus stage(Integer stage) {
+  public PackageStatus stage(String stage) {
     this.stage = stage;
     return this;
   }
@@ -196,11 +196,11 @@ public class PackageStatus implements Serializable {
    * @return stage
   **/
   @ApiModelProperty(value = "The synchronisation (in progress) stage of the package.")
-  public Integer getStage() {
+  public String getStage() {
     return stage;
   }
 
-  public void setStage(Integer stage) {
+  public void setStage(String stage) {
     this.stage = stage;
   }
 
@@ -240,7 +240,7 @@ public class PackageStatus implements Serializable {
     this.stageUpdatedAt = stageUpdatedAt;
   }
 
-  public PackageStatus status(Integer status) {
+  public PackageStatus status(String status) {
     this.status = status;
     return this;
   }
@@ -250,11 +250,11 @@ public class PackageStatus implements Serializable {
    * @return status
   **/
   @ApiModelProperty(value = "The synchronisation status of the package.")
-  public Integer getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 

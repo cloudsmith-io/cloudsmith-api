@@ -42,6 +42,9 @@ public class PackagesValidateuploadVagrant implements Serializable {
   @SerializedName("provider")
   private String provider = null;
 
+  @SerializedName("republish")
+  private Boolean republish = null;
+
   @SerializedName("version")
   private String version = null;
 
@@ -102,6 +105,24 @@ public class PackagesValidateuploadVagrant implements Serializable {
     this.provider = provider;
   }
 
+  public PackagesValidateuploadVagrant republish(Boolean republish) {
+    this.republish = republish;
+    return this;
+  }
+
+   /**
+   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+   * @return republish
+  **/
+  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
+  public Boolean getRepublish() {
+    return republish;
+  }
+
+  public void setRepublish(Boolean republish) {
+    this.republish = republish;
+  }
+
   public PackagesValidateuploadVagrant version(String version) {
     this.version = version;
     return this;
@@ -134,12 +155,13 @@ public class PackagesValidateuploadVagrant implements Serializable {
     return Objects.equals(this.name, packagesValidateuploadVagrant.name) &&
         Objects.equals(this.packageFile, packagesValidateuploadVagrant.packageFile) &&
         Objects.equals(this.provider, packagesValidateuploadVagrant.provider) &&
+        Objects.equals(this.republish, packagesValidateuploadVagrant.republish) &&
         Objects.equals(this.version, packagesValidateuploadVagrant.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, packageFile, provider, version);
+    return Objects.hash(name, packageFile, provider, republish, version);
   }
 
 
@@ -151,6 +173,7 @@ public class PackagesValidateuploadVagrant implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

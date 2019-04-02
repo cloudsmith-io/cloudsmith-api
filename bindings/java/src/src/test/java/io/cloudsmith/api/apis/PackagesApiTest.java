@@ -21,9 +21,11 @@ import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackagesCopy;
 import io.cloudsmith.api.models.PackagesMove;
+import io.cloudsmith.api.models.PackagesResync;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadDeb;
+import io.cloudsmith.api.models.PackagesUploadHelm;
 import io.cloudsmith.api.models.PackagesUploadMaven;
 import io.cloudsmith.api.models.PackagesUploadNpm;
 import io.cloudsmith.api.models.PackagesUploadPython;
@@ -34,6 +36,7 @@ import io.cloudsmith.api.models.PackagesUploadVagrant;
 import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
+import io.cloudsmith.api.models.PackagesValidateuploadHelm;
 import io.cloudsmith.api.models.PackagesValidateuploadMaven;
 import io.cloudsmith.api.models.PackagesValidateuploadNpm;
 import io.cloudsmith.api.models.PackagesValidateuploadPython;
@@ -168,7 +171,8 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        ModelPackage response = api.packagesResync(owner, repo, identifier);
+        PackagesResync data = null;
+        ModelPackage response = api.packagesResync(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -246,6 +250,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new Helm package
+     *
+     * Create a new Helm package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadHelmTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadHelm data = null;
+        ModelPackage response = api.packagesUploadHelm(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Maven package
      *
      * Create a new Maven package
@@ -264,9 +286,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Create a new Npm package
+     * Create a new npm package
      *
-     * Create a new Npm package
+     * Create a new npm package
      *
      * @throws ApiException
      *          if the Api call fails
@@ -426,6 +448,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Validate parameters for create Helm package
+     *
+     * Validate parameters for create Helm package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadHelmTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadHelm data = null;
+        api.packagesValidateUploadHelm(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate parameters for create Maven package
      *
      * Validate parameters for create Maven package
@@ -444,9 +484,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Validate parameters for create Npm package
+     * Validate parameters for create npm package
      *
-     * Validate parameters for create Npm package
+     * Validate parameters for create npm package
      *
      * @throws ApiException
      *          if the Api call fails

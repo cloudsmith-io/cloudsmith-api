@@ -39,6 +39,9 @@ public class PackageFileUpload implements Serializable {
   @SerializedName("upload_fields")
   private Object uploadFields = null;
 
+  @SerializedName("upload_headers")
+  private Object uploadHeaders = null;
+
   @SerializedName("upload_url")
   private String uploadUrl = null;
 
@@ -78,16 +81,34 @@ public class PackageFileUpload implements Serializable {
     this.uploadFields = uploadFields;
   }
 
+  public PackageFileUpload uploadHeaders(Object uploadHeaders) {
+    this.uploadHeaders = uploadHeaders;
+    return this;
+  }
+
+   /**
+   * The dictionary of headers that must be sent with uploads
+   * @return uploadHeaders
+  **/
+  @ApiModelProperty(value = "The dictionary of headers that must be sent with uploads")
+  public Object getUploadHeaders() {
+    return uploadHeaders;
+  }
+
+  public void setUploadHeaders(Object uploadHeaders) {
+    this.uploadHeaders = uploadHeaders;
+  }
+
   public PackageFileUpload uploadUrl(String uploadUrl) {
     this.uploadUrl = uploadUrl;
     return this;
   }
 
    /**
-   * The URL to use for the next-step POST upload
+   * The URL to use for the next-step POST or PUT upload
    * @return uploadUrl
   **/
-  @ApiModelProperty(value = "The URL to use for the next-step POST upload")
+  @ApiModelProperty(value = "The URL to use for the next-step POST or PUT upload")
   public String getUploadUrl() {
     return uploadUrl;
   }
@@ -108,12 +129,13 @@ public class PackageFileUpload implements Serializable {
     PackageFileUpload packageFileUpload = (PackageFileUpload) o;
     return Objects.equals(this.identifier, packageFileUpload.identifier) &&
         Objects.equals(this.uploadFields, packageFileUpload.uploadFields) &&
+        Objects.equals(this.uploadHeaders, packageFileUpload.uploadHeaders) &&
         Objects.equals(this.uploadUrl, packageFileUpload.uploadUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, uploadFields, uploadUrl);
+    return Objects.hash(identifier, uploadFields, uploadHeaders, uploadUrl);
   }
 
 
@@ -124,6 +146,7 @@ public class PackageFileUpload implements Serializable {
     
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    uploadFields: ").append(toIndentedString(uploadFields)).append("\n");
+    sb.append("    uploadHeaders: ").append(toIndentedString(uploadHeaders)).append("\n");
     sb.append("    uploadUrl: ").append(toIndentedString(uploadUrl)).append("\n");
     sb.append("}");
     return sb.toString();

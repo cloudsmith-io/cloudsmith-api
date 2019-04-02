@@ -114,7 +114,7 @@ public class FilesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -151,8 +151,8 @@ public class FilesApi {
     }
 
     /**
-     * Request URL(s) to POST new package file upload(s) to.
-     * Request URL(s) to POST new package file upload(s) to.
+     * Request URL(s) to upload new package file upload(s) to.
+     * Request URL(s) to upload new package file upload(s) to.
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
@@ -165,8 +165,8 @@ public class FilesApi {
     }
 
     /**
-     * Request URL(s) to POST new package file upload(s) to.
-     * Request URL(s) to POST new package file upload(s) to.
+     * Request URL(s) to upload new package file upload(s) to.
+     * Request URL(s) to upload new package file upload(s) to.
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
@@ -180,8 +180,8 @@ public class FilesApi {
     }
 
     /**
-     * Request URL(s) to POST new package file upload(s) to. (asynchronously)
-     * Request URL(s) to POST new package file upload(s) to.
+     * Request URL(s) to upload new package file upload(s) to. (asynchronously)
+     * Request URL(s) to upload new package file upload(s) to.
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
@@ -263,7 +263,7 @@ public class FilesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

@@ -34,7 +34,7 @@ public class Organization implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("country")
-  private Integer country = null;
+  private String country = null;
 
   @SerializedName("created_at")
   private String createdAt = null;
@@ -54,7 +54,7 @@ public class Organization implements Serializable {
   @SerializedName("tagline")
   private String tagline = null;
 
-  public Organization country(Integer country) {
+  public Organization country(String country) {
     this.country = country;
     return this;
   }
@@ -64,11 +64,11 @@ public class Organization implements Serializable {
    * @return country
   **/
   @ApiModelProperty(value = "The country your organization is based in.")
-  public Integer getCountry() {
+  public String getCountry() {
     return country;
   }
 
-  public void setCountry(Integer country) {
+  public void setCountry(String country) {
     this.country = country;
   }
 

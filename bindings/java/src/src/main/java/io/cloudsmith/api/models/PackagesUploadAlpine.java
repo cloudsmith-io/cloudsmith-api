@@ -39,6 +39,9 @@ public class PackagesUploadAlpine implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("republish")
+  private Boolean republish = null;
+
   public PackagesUploadAlpine distribution(String distribution) {
     this.distribution = distribution;
     return this;
@@ -77,6 +80,24 @@ public class PackagesUploadAlpine implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public PackagesUploadAlpine republish(Boolean republish) {
+    this.republish = republish;
+    return this;
+  }
+
+   /**
+   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+   * @return republish
+  **/
+  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
+  public Boolean getRepublish() {
+    return republish;
+  }
+
+  public void setRepublish(Boolean republish) {
+    this.republish = republish;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -88,12 +109,13 @@ public class PackagesUploadAlpine implements Serializable {
     }
     PackagesUploadAlpine packagesUploadAlpine = (PackagesUploadAlpine) o;
     return Objects.equals(this.distribution, packagesUploadAlpine.distribution) &&
-        Objects.equals(this.packageFile, packagesUploadAlpine.packageFile);
+        Objects.equals(this.packageFile, packagesUploadAlpine.packageFile) &&
+        Objects.equals(this.republish, packagesUploadAlpine.republish);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(distribution, packageFile);
+    return Objects.hash(distribution, packageFile, republish);
   }
 
 
@@ -104,6 +126,7 @@ public class PackagesUploadAlpine implements Serializable {
     
     sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("}");
     return sb.toString();
   }

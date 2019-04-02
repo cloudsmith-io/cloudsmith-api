@@ -39,16 +39,19 @@ public class PackagesUploadNpm implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("republish")
+  private Boolean republish = null;
+
   public PackagesUploadNpm npmDistTag(String npmDistTag) {
     this.npmDistTag = npmDistTag;
     return this;
   }
 
    /**
-   * The default NPM dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
+   * The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
    * @return npmDistTag
   **/
-  @ApiModelProperty(example = "latest", value = "The default NPM dist-tag for this package/version - This will replace any other package/version if they are using the same tag.")
+  @ApiModelProperty(example = "latest", value = "The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.")
   public String getNpmDistTag() {
     return npmDistTag;
   }
@@ -76,6 +79,24 @@ public class PackagesUploadNpm implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public PackagesUploadNpm republish(Boolean republish) {
+    this.republish = republish;
+    return this;
+  }
+
+   /**
+   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+   * @return republish
+  **/
+  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
+  public Boolean getRepublish() {
+    return republish;
+  }
+
+  public void setRepublish(Boolean republish) {
+    this.republish = republish;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,12 +108,13 @@ public class PackagesUploadNpm implements Serializable {
     }
     PackagesUploadNpm packagesUploadNpm = (PackagesUploadNpm) o;
     return Objects.equals(this.npmDistTag, packagesUploadNpm.npmDistTag) &&
-        Objects.equals(this.packageFile, packagesUploadNpm.packageFile);
+        Objects.equals(this.packageFile, packagesUploadNpm.packageFile) &&
+        Objects.equals(this.republish, packagesUploadNpm.republish);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(npmDistTag, packageFile);
+    return Objects.hash(npmDistTag, packageFile, republish);
   }
 
 
@@ -103,6 +125,7 @@ public class PackagesUploadNpm implements Serializable {
     
     sb.append("    npmDistTag: ").append(toIndentedString(npmDistTag)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("}");
     return sb.toString();
   }
