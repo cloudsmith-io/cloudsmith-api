@@ -21,6 +21,9 @@ module CloudsmithApi
     # The primary file for the package.
     attr_accessor :package_file
 
+    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+    attr_accessor :republish
+
     # A one-liner synopsis of this package.
     attr_accessor :summary
 
@@ -33,6 +36,7 @@ module CloudsmithApi
       {
         :'description' => :'description',
         :'package_file' => :'package_file',
+        :'republish' => :'republish',
         :'summary' => :'summary',
         :'version' => :'version'
       }
@@ -43,6 +47,7 @@ module CloudsmithApi
       {
         :'description' => :'String',
         :'package_file' => :'String',
+        :'republish' => :'BOOLEAN',
         :'summary' => :'String',
         :'version' => :'String'
       }
@@ -62,6 +67,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'package_file')
         self.package_file = attributes[:'package_file']
+      end
+
+      if attributes.has_key?(:'republish')
+        self.republish = attributes[:'republish']
       end
 
       if attributes.has_key?(:'summary')
@@ -99,6 +108,7 @@ module CloudsmithApi
       self.class == o.class &&
           description == o.description &&
           package_file == o.package_file &&
+          republish == o.republish &&
           summary == o.summary &&
           version == o.version
     end
@@ -112,7 +122,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, package_file, summary, version].hash
+      [description, package_file, republish, summary, version].hash
     end
 
     # Builds the object from hash

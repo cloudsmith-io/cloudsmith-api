@@ -21,7 +21,10 @@ module CloudsmithApi
     # The dictionary of fields that must be sent with POST uploads
     attr_accessor :upload_fields
 
-    # The URL to use for the next-step POST upload
+    # The dictionary of headers that must be sent with uploads
+    attr_accessor :upload_headers
+
+    # The URL to use for the next-step POST or PUT upload
     attr_accessor :upload_url
 
 
@@ -30,6 +33,7 @@ module CloudsmithApi
       {
         :'identifier' => :'identifier',
         :'upload_fields' => :'upload_fields',
+        :'upload_headers' => :'upload_headers',
         :'upload_url' => :'upload_url'
       }
     end
@@ -39,6 +43,7 @@ module CloudsmithApi
       {
         :'identifier' => :'String',
         :'upload_fields' => :'Object',
+        :'upload_headers' => :'Object',
         :'upload_url' => :'String'
       }
     end
@@ -57,6 +62,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'upload_fields')
         self.upload_fields = attributes[:'upload_fields']
+      end
+
+      if attributes.has_key?(:'upload_headers')
+        self.upload_headers = attributes[:'upload_headers']
       end
 
       if attributes.has_key?(:'upload_url')
@@ -85,6 +94,7 @@ module CloudsmithApi
       self.class == o.class &&
           identifier == o.identifier &&
           upload_fields == o.upload_fields &&
+          upload_headers == o.upload_headers &&
           upload_url == o.upload_url
     end
 
@@ -97,7 +107,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [identifier, upload_fields, upload_url].hash
+      [identifier, upload_fields, upload_headers, upload_url].hash
     end
 
     # Builds the object from hash

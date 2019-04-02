@@ -113,6 +113,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [PackagesResync] :data 
   # @return [Package]
   describe 'packages_resync test' do
     it "should work" do
@@ -176,6 +177,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_helm
+  # Create a new Helm package
+  # Create a new Helm package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadHelm] :data 
+  # @return [Package]
+  describe 'packages_upload_helm test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_maven
   # Create a new Maven package
   # Create a new Maven package
@@ -191,8 +206,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_upload_npm
-  # Create a new Npm package
-  # Create a new Npm package
+  # Create a new npm package
+  # Create a new npm package
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
@@ -316,6 +331,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_validate_upload_helm
+  # Validate parameters for create Helm package
+  # Validate parameters for create Helm package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadHelm] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_helm test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_validate_upload_maven
   # Validate parameters for create Maven package
   # Validate parameters for create Maven package
@@ -331,8 +360,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_validate_upload_npm
-  # Validate parameters for create Npm package
-  # Validate parameters for create Npm package
+  # Validate parameters for create npm package
+  # Validate parameters for create npm package
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters

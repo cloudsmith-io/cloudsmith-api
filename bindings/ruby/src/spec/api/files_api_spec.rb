@@ -33,8 +33,8 @@ describe 'FilesApi' do
   end
 
   # unit tests for files_create
-  # Request URL(s) to POST new package file upload(s) to.
-  # Request URL(s) to POST new package file upload(s) to.
+  # Request URL(s) to upload new package file upload(s) to.
+  # Request URL(s) to upload new package file upload(s) to.
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters

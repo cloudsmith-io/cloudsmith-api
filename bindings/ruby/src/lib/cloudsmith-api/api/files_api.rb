@@ -20,8 +20,8 @@ module CloudsmithApi
       @api_client = api_client
     end
 
-    # Request URL(s) to POST new package file upload(s) to.
-    # Request URL(s) to POST new package file upload(s) to.
+    # Request URL(s) to upload new package file upload(s) to.
+    # Request URL(s) to upload new package file upload(s) to.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -32,8 +32,8 @@ module CloudsmithApi
       return data
     end
 
-    # Request URL(s) to POST new package file upload(s) to.
-    # Request URL(s) to POST new package file upload(s) to.
+    # Request URL(s) to upload new package file upload(s) to.
+    # Request URL(s) to upload new package file upload(s) to.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -67,7 +67,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'csrf_token']
+      auth_names = ['apikey', 'basic', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -128,7 +128,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'csrf_token']
+      auth_names = ['apikey', 'basic', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

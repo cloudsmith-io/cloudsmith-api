@@ -4,16 +4,16 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**files_create**](FilesApi.md#files_create) | **POST** /files/{owner}/{repo}/ | Request URL(s) to POST new package file upload(s) to.
+[**files_create**](FilesApi.md#files_create) | **POST** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
 [**files_validate**](FilesApi.md#files_validate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 
 
 # **files_create**
 > PackageFileUpload files_create(owner, repo, opts)
 
-Request URL(s) to POST new package file upload(s) to.
+Request URL(s) to upload new package file upload(s) to.
 
-Request URL(s) to POST new package file upload(s) to.
+Request URL(s) to upload new package file upload(s) to.
 
 ### Example
 ```ruby
@@ -25,6 +25,10 @@ CloudsmithApi.configure do |config|
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
 
   # Configure API key authorization: csrf_token
   config.api_key['X-CSRFToken'] = 'YOUR API KEY'
@@ -43,7 +47,7 @@ opts = {
 }
 
 begin
-  #Request URL(s) to POST new package file upload(s) to.
+  #Request URL(s) to upload new package file upload(s) to.
   result = api_instance.files_create(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -65,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -91,6 +95,10 @@ CloudsmithApi.configure do |config|
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
 
   # Configure API key authorization: csrf_token
   config.api_key['X-CSRFToken'] = 'YOUR API KEY'
@@ -130,7 +138,7 @@ nil (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

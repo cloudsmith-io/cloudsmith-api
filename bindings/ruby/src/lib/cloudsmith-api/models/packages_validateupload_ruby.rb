@@ -18,18 +18,23 @@ module CloudsmithApi
     # The primary file for the package.
     attr_accessor :package_file
 
+    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+    attr_accessor :republish
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'package_file' => :'package_file'
+        :'package_file' => :'package_file',
+        :'republish' => :'republish'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'package_file' => :'String'
+        :'package_file' => :'String',
+        :'republish' => :'BOOLEAN'
       }
     end
 
@@ -43,6 +48,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'package_file')
         self.package_file = attributes[:'package_file']
+      end
+
+      if attributes.has_key?(:'republish')
+        self.republish = attributes[:'republish']
       end
 
     end
@@ -70,7 +79,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          package_file == o.package_file
+          package_file == o.package_file &&
+          republish == o.republish
     end
 
     # @see the `==` method
@@ -82,7 +92,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [package_file].hash
+      [package_file, republish].hash
     end
 
     # Builds the object from hash

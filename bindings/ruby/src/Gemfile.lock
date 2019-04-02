@@ -1,15 +1,15 @@
 PATH
   remote: .
   specs:
-    cloudsmith-api (0.33.0)
+    cloudsmith-api (0.35.1)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    ZenTest (4.11.1)
-    addressable (2.5.2)
+    ZenTest (4.11.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
@@ -20,11 +20,11 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.3)
-    ethon (0.11.0)
+    ethon (0.12.0)
       ffi (>= 1.3.0)
-    ffi (1.9.25)
-    hashdiff (0.3.7)
-    json (2.1.0)
+    ffi (1.10.0)
+    hashdiff (0.3.8)
+    json (2.2.0)
     public_suffix (3.0.3)
     rake (12.0.0)
     rspec (3.8.0)
@@ -40,7 +40,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    safe_yaml (1.0.4)
+    safe_yaml (1.0.5)
     sys-uname (1.0.4)
       ffi (>= 1.0.0)
     typhoeus (1.3.1)
@@ -66,4 +66,4 @@ DEPENDENCIES
   webmock (~> 1.24, >= 1.24.3)
 
 BUNDLED WITH
-   1.16.6
+   1.16.0

@@ -24,6 +24,9 @@ module CloudsmithApi
     # The virtual machine provider for the box.
     attr_accessor :provider
 
+    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+    attr_accessor :republish
+
     # The version of this package.
     attr_accessor :version
 
@@ -34,6 +37,7 @@ module CloudsmithApi
         :'name' => :'name',
         :'package_file' => :'package_file',
         :'provider' => :'provider',
+        :'republish' => :'republish',
         :'version' => :'version'
       }
     end
@@ -44,6 +48,7 @@ module CloudsmithApi
         :'name' => :'String',
         :'package_file' => :'String',
         :'provider' => :'String',
+        :'republish' => :'BOOLEAN',
         :'version' => :'String'
       }
     end
@@ -66,6 +71,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'provider')
         self.provider = attributes[:'provider']
+      end
+
+      if attributes.has_key?(:'republish')
+        self.republish = attributes[:'republish']
       end
 
       if attributes.has_key?(:'version')
@@ -115,6 +124,7 @@ module CloudsmithApi
           name == o.name &&
           package_file == o.package_file &&
           provider == o.provider &&
+          republish == o.republish &&
           version == o.version
     end
 
@@ -127,7 +137,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, package_file, provider, version].hash
+      [name, package_file, provider, republish, version].hash
     end
 
     # Builds the object from hash

@@ -33,6 +33,9 @@ module CloudsmithApi
     # The POM file is an XML file containing the Maven coordinates.
     attr_accessor :pom_file
 
+    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+    attr_accessor :republish
+
     # Adds bundled Java source code to the Maven package.
     attr_accessor :sources_file
 
@@ -49,6 +52,7 @@ module CloudsmithApi
         :'package_file' => :'package_file',
         :'packaging' => :'packaging',
         :'pom_file' => :'pom_file',
+        :'republish' => :'republish',
         :'sources_file' => :'sources_file',
         :'version' => :'version'
       }
@@ -63,6 +67,7 @@ module CloudsmithApi
         :'package_file' => :'String',
         :'packaging' => :'String',
         :'pom_file' => :'String',
+        :'republish' => :'BOOLEAN',
         :'sources_file' => :'String',
         :'version' => :'String'
       }
@@ -98,6 +103,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'pom_file')
         self.pom_file = attributes[:'pom_file']
+      end
+
+      if attributes.has_key?(:'republish')
+        self.republish = attributes[:'republish']
       end
 
       if attributes.has_key?(:'sources_file')
@@ -139,6 +148,7 @@ module CloudsmithApi
           package_file == o.package_file &&
           packaging == o.packaging &&
           pom_file == o.pom_file &&
+          republish == o.republish &&
           sources_file == o.sources_file &&
           version == o.version
     end
@@ -152,7 +162,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, sources_file, version].hash
+      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, sources_file, version].hash
     end
 
     # Builds the object from hash
