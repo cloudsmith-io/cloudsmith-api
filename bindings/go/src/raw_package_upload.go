@@ -97,7 +97,7 @@ type RawPackageUpload struct {
 	NumFiles int32 `json:"num_files,omitempty"`
 
 	// The type of package contents.
-	PackageType int32 `json:"package_type,omitempty"`
+	PackageType string `json:"package_type,omitempty"`
 
 	// The release of the package version (if any).
 	Release string `json:"release,omitempty"`
@@ -124,7 +124,7 @@ type RawPackageUpload struct {
 	SlugPerm string `json:"slug_perm,omitempty"`
 
 	// The synchronisation (in progress) stage of the package.
-	Stage int32 `json:"stage,omitempty"`
+	Stage string `json:"stage,omitempty"`
 
 	// 
 	StageStr string `json:"stage_str,omitempty"`
@@ -133,7 +133,7 @@ type RawPackageUpload struct {
 	StageUpdatedAt string `json:"stage_updated_at,omitempty"`
 
 	// The synchronisation status of the package.
-	Status int32 `json:"status,omitempty"`
+	Status string `json:"status,omitempty"`
 
 	// A textual description for the synchronous status reason (if any
 	StatusReason string `json:"status_reason,omitempty"`

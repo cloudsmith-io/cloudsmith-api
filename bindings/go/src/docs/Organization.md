@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Country** | **int32** | The country your organization is based in. | [optional] [default to null]
+**Country** | **string** | The country your organization is based in. | [optional] [default to null]
 **CreatedAt** | **string** |  | [optional] [default to null]
 **Location** | **string** | The city/town/area your organization is based in. | [optional] [default to null]
 **Name** | **string** | A descriptive name for your organization. | [optional] [default to null]

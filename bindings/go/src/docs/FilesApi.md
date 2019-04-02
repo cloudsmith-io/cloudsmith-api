@@ -4,16 +4,16 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FilesCreate**](FilesApi.md#FilesCreate) | **Post** /files/{owner}/{repo}/ | Request URL(s) to POST new package file upload(s) to.
+[**FilesCreate**](FilesApi.md#FilesCreate) | **Post** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
 [**FilesValidate**](FilesApi.md#FilesValidate) | **Post** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 
 
 # **FilesCreate**
 > PackageFileUpload FilesCreate($owner, $repo, $data)
 
-Request URL(s) to POST new package file upload(s) to.
+Request URL(s) to upload new package file upload(s) to.
 
-Request URL(s) to POST new package file upload(s) to.
+Request URL(s) to upload new package file upload(s) to.
 
 
 ### Parameters
@@ -30,7 +30,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -61,7 +61,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

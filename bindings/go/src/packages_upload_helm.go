@@ -10,10 +10,7 @@
 
 package cloudsmith_api
 
-type PackagesValidateuploadNpm struct {
-
-	// The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
-	NpmDistTag string `json:"npm_dist_tag,omitempty"`
+type PackagesUploadHelm struct {
 
 	// The primary file for the package.
 	PackageFile string `json:"package_file"`

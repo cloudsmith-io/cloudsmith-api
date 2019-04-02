@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | **string** | A textual description of this package. | [optional] [default to null]
 **PackageFile** | **string** | The primary file for the package. | [default to null]
+**Republish** | **bool** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] [default to null]
 **Summary** | **string** | A one-liner synopsis of this package. | [optional] [default to null]
 **Version** | **string** | The version of this package. | [optional] [default to null]
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **PackageFile** | **string** | The primary file for the package. | [default to null]
 **Packaging** | **string** | Artifact&#39;s Maven packaging type. | [optional] [default to null]
 **PomFile** | **string** | The POM file is an XML file containing the Maven coordinates. | [optional] [default to null]
+**Republish** | **bool** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] [default to null]
 **SourcesFile** | **string** | Adds bundled Java source code to the Maven package. | [optional] [default to null]
 **Version** | **string** | The version of this package. | [optional] [default to null]
 

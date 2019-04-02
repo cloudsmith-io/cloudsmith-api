@@ -10,13 +10,7 @@
 
 package cloudsmith_api
 
-type PackagesValidateuploadNpm struct {
-
-	// The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
-	NpmDistTag string `json:"npm_dist_tag,omitempty"`
-
-	// The primary file for the package.
-	PackageFile string `json:"package_file"`
+type PackagesResync struct {
 
 	// If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 	Republish bool `json:"republish,omitempty"`

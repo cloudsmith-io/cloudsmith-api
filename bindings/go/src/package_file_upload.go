@@ -18,6 +18,9 @@ type PackageFileUpload struct {
 	// The dictionary of fields that must be sent with POST uploads
 	UploadFields interface{} `json:"upload_fields,omitempty"`
 
-	// The URL to use for the next-step POST upload
+	// The dictionary of headers that must be sent with uploads
+	UploadHeaders interface{} `json:"upload_headers,omitempty"`
+
+	// The URL to use for the next-step POST or PUT upload
 	UploadUrl string `json:"upload_url,omitempty"`
 }

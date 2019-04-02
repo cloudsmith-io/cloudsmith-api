@@ -38,8 +38,8 @@ func NewFilesApiWithBasePath(basePath string) *FilesApi {
 }
 
 /**
- * Request URL(s) to POST new package file upload(s) to.
- * Request URL(s) to POST new package file upload(s) to.
+ * Request URL(s) to upload new package file upload(s) to.
+ * Request URL(s) to upload new package file upload(s) to.
  *
  * @param owner 
  * @param repo 
@@ -63,6 +63,11 @@ func (a FilesApi) FilesCreate(owner string, repo string, data FilesCreate) (*Pac
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(basic)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -134,6 +139,11 @@ func (a FilesApi) FilesValidate(owner string, repo string, data FilesValidate) (
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(basic)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")

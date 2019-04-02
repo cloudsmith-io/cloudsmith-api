@@ -22,13 +22,13 @@ type RepositoryWebhook struct {
 	CreatedByUrl string `json:"created_by_url,omitempty"`
 
 	// 
-	DisableReason int32 `json:"disable_reason,omitempty"`
+	DisableReason string `json:"disable_reason,omitempty"`
 
 	// 
 	DisableReasonStr string `json:"disable_reason_str,omitempty"`
 
 	// 
-	Events []int32 `json:"events"`
+	Events []string `json:"events"`
 
 	// 
 	Identifier int32 `json:"identifier,omitempty"`
@@ -49,13 +49,13 @@ type RepositoryWebhook struct {
 	NumSent int32 `json:"num_sent,omitempty"`
 
 	// The format of the payloads for webhook requests.
-	RequestBodyFormat int32 `json:"request_body_format,omitempty"`
+	RequestBodyFormat string `json:"request_body_format,omitempty"`
 
 	// 
 	RequestBodyFormatStr string `json:"request_body_format_str,omitempty"`
 
 	// The format of the payloads for webhook requests.
-	RequestBodyTemplateFormat int32 `json:"request_body_template_format,omitempty"`
+	RequestBodyTemplateFormat string `json:"request_body_template_format,omitempty"`
 
 	// 
 	RequestBodyTemplateFormatStr string `json:"request_body_template_format_str,omitempty"`

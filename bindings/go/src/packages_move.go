@@ -14,4 +14,7 @@ type PackagesMove struct {
 
 	// None
 	Destination string `json:"destination"`
+
+	// If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+	Republish bool `json:"republish,omitempty"`
 }

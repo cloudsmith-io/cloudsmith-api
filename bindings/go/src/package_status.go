@@ -31,7 +31,7 @@ type PackageStatus struct {
 	SelfUrl string `json:"self_url,omitempty"`
 
 	// The synchronisation (in progress) stage of the package.
-	Stage int32 `json:"stage,omitempty"`
+	Stage string `json:"stage,omitempty"`
 
 	// 
 	StageStr string `json:"stage_str,omitempty"`
@@ -40,7 +40,7 @@ type PackageStatus struct {
 	StageUpdatedAt string `json:"stage_updated_at,omitempty"`
 
 	// The synchronisation status of the package.
-	Status int32 `json:"status,omitempty"`
+	Status string `json:"status,omitempty"`
 
 	// A textual description for the synchronous status reason (if any
 	StatusReason string `json:"status_reason,omitempty"`
