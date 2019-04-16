@@ -121,7 +121,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -274,7 +274,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -420,7 +420,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -566,7 +566,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -719,7 +719,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -879,7 +879,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1038,7 +1038,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1195,7 +1195,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1351,7 +1351,7 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1452,13 +1452,14 @@ public class EntitlementsApi {
      * Build call for entitlementsSync
      * @param owner  (required)
      * @param repo  (required)
+     * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call entitlementsSyncCall(String owner, String repo, EntitlementsSync data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsSyncCall(String owner, String repo, Boolean showTokens, EntitlementsSync data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
         
         // create path and map variables
@@ -1467,6 +1468,8 @@ public class EntitlementsApi {
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (showTokens != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_tokens", showTokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1496,23 +1499,23 @@ public class EntitlementsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call entitlementsSyncValidateBeforeCall(String owner, String repo, EntitlementsSync data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call entitlementsSyncValidateBeforeCall(String owner, String repo, Boolean showTokens, EntitlementsSync data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("entitlementsSyncWithHttpInfo", String.class, String.class, EntitlementsSync.class);
+            Object[] parameterValues = { owner, repo, showTokens, data };
+            Method method = this.getClass().getMethod("entitlementsSyncWithHttpInfo", String.class, String.class, Boolean.class, EntitlementsSync.class);
             Set<ConstraintViolation<EntitlementsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = entitlementsSyncCall(owner, repo, data, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = entitlementsSyncCall(owner, repo, showTokens, data, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -1537,12 +1540,13 @@ public class EntitlementsApi {
      * Synchronise tokens from a source repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @return RepositoryTokenSync
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryTokenSync entitlementsSync(String owner, String repo, EntitlementsSync data) throws ApiException {
-        ApiResponse<RepositoryTokenSync> resp = entitlementsSyncWithHttpInfo(owner, repo, data);
+    public RepositoryTokenSync entitlementsSync(String owner, String repo, Boolean showTokens, EntitlementsSync data) throws ApiException {
+        ApiResponse<RepositoryTokenSync> resp = entitlementsSyncWithHttpInfo(owner, repo, showTokens, data);
         return resp.getData();
     }
 
@@ -1551,12 +1555,13 @@ public class EntitlementsApi {
      * Synchronise tokens from a source repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @return ApiResponse&lt;RepositoryTokenSync&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryTokenSync> entitlementsSyncWithHttpInfo( @NotNull String owner,  @NotNull String repo,  EntitlementsSync data) throws ApiException {
-        com.squareup.okhttp.Call call = entitlementsSyncValidateBeforeCall(owner, repo, data, null, null);
+    public ApiResponse<RepositoryTokenSync> entitlementsSyncWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Boolean showTokens,  EntitlementsSync data) throws ApiException {
+        com.squareup.okhttp.Call call = entitlementsSyncValidateBeforeCall(owner, repo, showTokens, data, null, null);
         Type localVarReturnType = new TypeToken<RepositoryTokenSync>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1566,12 +1571,13 @@ public class EntitlementsApi {
      * Synchronise tokens from a source repository.
      * @param owner  (required)
      * @param repo  (required)
+     * @param showTokens Show entitlement token strings in results (optional)
      * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call entitlementsSyncAsync(String owner, String repo, EntitlementsSync data, final ApiCallback<RepositoryTokenSync> callback) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsSyncAsync(String owner, String repo, Boolean showTokens, EntitlementsSync data, final ApiCallback<RepositoryTokenSync> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1592,7 +1598,7 @@ public class EntitlementsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = entitlementsSyncValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = entitlementsSyncValidateBeforeCall(owner, repo, showTokens, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RepositoryTokenSync>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

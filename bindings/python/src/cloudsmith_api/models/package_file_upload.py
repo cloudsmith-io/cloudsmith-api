@@ -34,6 +34,7 @@ class PackageFileUpload(object):
         'identifier': 'str',
         'upload_fields': 'object',
         'upload_headers': 'object',
+        'upload_querystring': 'str',
         'upload_url': 'str'
     }
 
@@ -41,10 +42,11 @@ class PackageFileUpload(object):
         'identifier': 'identifier',
         'upload_fields': 'upload_fields',
         'upload_headers': 'upload_headers',
+        'upload_querystring': 'upload_querystring',
         'upload_url': 'upload_url'
     }
 
-    def __init__(self, identifier=None, upload_fields=None, upload_headers=None, upload_url=None):
+    def __init__(self, identifier=None, upload_fields=None, upload_headers=None, upload_querystring=None, upload_url=None):
         """
         PackageFileUpload - a model defined in Swagger
         """
@@ -52,6 +54,7 @@ class PackageFileUpload(object):
         self._identifier = None
         self._upload_fields = None
         self._upload_headers = None
+        self._upload_querystring = None
         self._upload_url = None
 
         if identifier is not None:
@@ -60,6 +63,8 @@ class PackageFileUpload(object):
           self.upload_fields = upload_fields
         if upload_headers is not None:
           self.upload_headers = upload_headers
+        if upload_querystring is not None:
+          self.upload_querystring = upload_querystring
         if upload_url is not None:
           self.upload_url = upload_url
 
@@ -131,6 +136,29 @@ class PackageFileUpload(object):
         """
 
         self._upload_headers = upload_headers
+
+    @property
+    def upload_querystring(self):
+        """
+        Gets the upload_querystring of this PackageFileUpload.
+        The querystring to use for the next-step POST or PUT upload
+
+        :return: The upload_querystring of this PackageFileUpload.
+        :rtype: str
+        """
+        return self._upload_querystring
+
+    @upload_querystring.setter
+    def upload_querystring(self, upload_querystring):
+        """
+        Sets the upload_querystring of this PackageFileUpload.
+        The querystring to use for the next-step POST or PUT upload
+
+        :param upload_querystring: The upload_querystring of this PackageFileUpload.
+        :type: str
+        """
+
+        self._upload_querystring = upload_querystring
 
     @property
     def upload_url(self):

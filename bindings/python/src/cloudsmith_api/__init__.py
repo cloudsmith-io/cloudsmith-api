@@ -20,6 +20,8 @@ from .models.entitlements_create import EntitlementsCreate
 from .models.entitlements_partial_update import EntitlementsPartialUpdate
 from .models.entitlements_refresh import EntitlementsRefresh
 from .models.entitlements_sync import EntitlementsSync
+from .models.files_abort import FilesAbort
+from .models.files_complete import FilesComplete
 from .models.files_create import FilesCreate
 from .models.files_validate import FilesValidate
 from .models.format import Format
@@ -29,6 +31,7 @@ from .models.namespace import Namespace
 from .models.organization import Organization
 from .models.package import Package
 from .models.package_copy import PackageCopy
+from .models.package_file_parts_upload import PackageFilePartsUpload
 from .models.package_file_upload import PackageFileUpload
 from .models.package_move import PackageMove
 from .models.package_status import PackageStatus
@@ -38,6 +41,7 @@ from .models.packages_resync import PackagesResync
 from .models.packages_upload_alpine import PackagesUploadAlpine
 from .models.packages_upload_composer import PackagesUploadComposer
 from .models.packages_upload_deb import PackagesUploadDeb
+from .models.packages_upload_docker import PackagesUploadDocker
 from .models.packages_upload_helm import PackagesUploadHelm
 from .models.packages_upload_maven import PackagesUploadMaven
 from .models.packages_upload_npm import PackagesUploadNpm
@@ -49,6 +53,7 @@ from .models.packages_upload_vagrant import PackagesUploadVagrant
 from .models.packages_validateupload_alpine import PackagesValidateuploadAlpine
 from .models.packages_validateupload_composer import PackagesValidateuploadComposer
 from .models.packages_validateupload_deb import PackagesValidateuploadDeb
+from .models.packages_validateupload_docker import PackagesValidateuploadDocker
 from .models.packages_validateupload_helm import PackagesValidateuploadHelm
 from .models.packages_validateupload_maven import PackagesValidateuploadMaven
 from .models.packages_validateupload_npm import PackagesValidateuploadNpm

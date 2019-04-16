@@ -25,6 +25,7 @@ import io.cloudsmith.api.models.PackagesResync;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadDeb;
+import io.cloudsmith.api.models.PackagesUploadDocker;
 import io.cloudsmith.api.models.PackagesUploadHelm;
 import io.cloudsmith.api.models.PackagesUploadMaven;
 import io.cloudsmith.api.models.PackagesUploadNpm;
@@ -36,6 +37,7 @@ import io.cloudsmith.api.models.PackagesUploadVagrant;
 import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
+import io.cloudsmith.api.models.PackagesValidateuploadDocker;
 import io.cloudsmith.api.models.PackagesValidateuploadHelm;
 import io.cloudsmith.api.models.PackagesValidateuploadMaven;
 import io.cloudsmith.api.models.PackagesValidateuploadNpm;
@@ -250,6 +252,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new Docker package
+     *
+     * Create a new Docker package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadDockerTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadDocker data = null;
+        ModelPackage response = api.packagesUploadDocker(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Helm package
      *
      * Create a new Helm package
@@ -443,6 +463,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadDeb data = null;
         api.packagesValidateUploadDeb(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Docker package
+     *
+     * Validate parameters for create Docker package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadDockerTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadDocker data = null;
+        api.packagesValidateUploadDocker(owner, repo, data);
 
         // TODO: test validations
     }

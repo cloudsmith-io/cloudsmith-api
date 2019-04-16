@@ -70,7 +70,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -133,7 +133,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -195,7 +195,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -257,7 +257,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -322,7 +322,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -392,7 +392,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -458,7 +458,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -528,7 +528,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -591,7 +591,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -609,6 +609,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsSync] :data 
     # @return [RepositoryTokenSync]
     def entitlements_sync(owner, repo, opts = {})
@@ -621,6 +622,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [EntitlementsSync] :data 
     # @return [Array<(RepositoryTokenSync, Fixnum, Hash)>] RepositoryTokenSync data, response status code and response headers
     def entitlements_sync_with_http_info(owner, repo, opts = {})
@@ -640,6 +642,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
@@ -651,7 +654,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

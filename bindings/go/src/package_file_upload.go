@@ -21,6 +21,9 @@ type PackageFileUpload struct {
 	// The dictionary of headers that must be sent with uploads
 	UploadHeaders interface{} `json:"upload_headers,omitempty"`
 
+	// The querystring to use for the next-step POST or PUT upload
+	UploadQuerystring string `json:"upload_querystring,omitempty"`
+
 	// The URL to use for the next-step POST or PUT upload
 	UploadUrl string `json:"upload_url,omitempty"`
 }

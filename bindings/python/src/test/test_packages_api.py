@@ -111,6 +111,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_docker(self):
+        """
+        Test case for packages_upload_docker
+
+        Create a new Docker package
+        """
+        pass
+
     def test_packages_upload_helm(self):
         """
         Test case for packages_upload_helm
@@ -196,6 +204,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_deb
 
         Validate parameters for create Debian package
+        """
+        pass
+
+    def test_packages_validate_upload_docker(self):
+        """
+        Test case for packages_validate_upload_docker
+
+        Validate parameters for create Docker package
         """
         pass
 

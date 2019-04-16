@@ -31,11 +31,35 @@ class TestFilesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_files_abort(self):
+        """
+        Test case for files_abort
+
+        Abort a multipart file upload.
+        """
+        pass
+
+    def test_files_complete(self):
+        """
+        Test case for files_complete
+
+        Complete a multipart file upload.
+        """
+        pass
+
     def test_files_create(self):
         """
         Test case for files_create
 
         Request URL(s) to upload new package file upload(s) to.
+        """
+        pass
+
+    def test_files_info(self):
+        """
+        Test case for files_info
+
+        Get upload information for a multipart file upload.
         """
         pass
 

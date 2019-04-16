@@ -32,6 +32,36 @@ describe 'FilesApi' do
     end
   end
 
+  # unit tests for files_abort
+  # Abort a multipart file upload.
+  # Abort a multipart file upload.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [FilesAbort] :data 
+  # @return [nil]
+  describe 'files_abort test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for files_complete
+  # Complete a multipart file upload.
+  # Complete a multipart file upload.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [FilesComplete] :data 
+  # @return [PackageFileUpload]
+  describe 'files_complete test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for files_create
   # Request URL(s) to upload new package file upload(s) to.
   # Request URL(s) to upload new package file upload(s) to.
@@ -41,6 +71,20 @@ describe 'FilesApi' do
   # @option opts [FilesCreate] :data 
   # @return [PackageFileUpload]
   describe 'files_create test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for files_info
+  # Get upload information for a multipart file upload.
+  # Get upload information for a multipart file upload.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [PackageFilePartsUpload]
+  describe 'files_info test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

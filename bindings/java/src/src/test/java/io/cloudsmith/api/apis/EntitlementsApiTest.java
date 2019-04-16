@@ -221,8 +221,9 @@ public class EntitlementsApiTest {
     public void entitlementsSyncTest() throws ApiException {
         String owner = null;
         String repo = null;
+        Boolean showTokens = null;
         EntitlementsSync data = null;
-        RepositoryTokenSync response = api.entitlementsSync(owner, repo, data);
+        RepositoryTokenSync response = api.entitlementsSync(owner, repo, showTokens, data);
 
         // TODO: test validations
     }

@@ -177,6 +177,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_docker
+  # Create a new Docker package
+  # Create a new Docker package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadDocker] :data 
+  # @return [Package]
+  describe 'packages_upload_docker test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_helm
   # Create a new Helm package
   # Create a new Helm package
@@ -326,6 +340,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadDeb] :data 
   # @return [nil]
   describe 'packages_validate_upload_deb test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_docker
+  # Validate parameters for create Docker package
+  # Validate parameters for create Docker package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadDocker] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_docker test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

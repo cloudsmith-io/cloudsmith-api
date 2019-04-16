@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**PackagesUploadAlpine**](PackagesApi.md#PackagesUploadAlpine) | **Post** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**PackagesUploadComposer**](PackagesApi.md#PackagesUploadComposer) | **Post** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**PackagesUploadDeb**](PackagesApi.md#PackagesUploadDeb) | **Post** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
+[**PackagesUploadDocker**](PackagesApi.md#PackagesUploadDocker) | **Post** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
 [**PackagesUploadHelm**](PackagesApi.md#PackagesUploadHelm) | **Post** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 [**PackagesUploadMaven**](PackagesApi.md#PackagesUploadMaven) | **Post** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**PackagesUploadNpm**](PackagesApi.md#PackagesUploadNpm) | **Post** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
@@ -25,6 +26,7 @@ Method | HTTP request | Description
 [**PackagesValidateUploadAlpine**](PackagesApi.md#PackagesValidateUploadAlpine) | **Post** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 [**PackagesValidateUploadComposer**](PackagesApi.md#PackagesValidateUploadComposer) | **Post** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**PackagesValidateUploadDeb**](PackagesApi.md#PackagesValidateUploadDeb) | **Post** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
+[**PackagesValidateUploadDocker**](PackagesApi.md#PackagesValidateUploadDocker) | **Post** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
 [**PackagesValidateUploadHelm**](PackagesApi.md#PackagesValidateUploadHelm) | **Post** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 [**PackagesValidateUploadMaven**](PackagesApi.md#PackagesValidateUploadMaven) | **Post** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**PackagesValidateUploadNpm**](PackagesApi.md#PackagesValidateUploadNpm) | **Post** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
@@ -58,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -89,7 +91,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -122,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -154,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -185,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -217,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -248,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -279,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -310,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -341,7 +343,38 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PackagesUploadDocker**
+> ModelPackage PackagesUploadDocker($owner, $repo, $data)
+
+Create a new Docker package
+
+Create a new Docker package
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **data** | [**PackagesUploadDocker**](PackagesUploadDocker.md)|  | [optional] 
+
+### Return type
+
+[**ModelPackage**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -372,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -403,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -434,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -465,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -496,7 +529,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -527,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -558,7 +591,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -589,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -620,7 +653,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -651,7 +684,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -682,7 +715,38 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PackagesValidateUploadDocker**
+> PackagesValidateUploadDocker($owner, $repo, $data)
+
+Validate parameters for create Docker package
+
+Validate parameters for create Docker package
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **data** | [**PackagesValidateuploadDocker**](PackagesValidateuploadDocker.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -713,7 +777,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -744,7 +808,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -775,7 +839,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -806,7 +870,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -837,7 +901,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -868,7 +932,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -899,7 +963,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -930,7 +994,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

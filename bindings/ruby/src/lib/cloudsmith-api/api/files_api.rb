@@ -20,6 +20,139 @@ module CloudsmithApi
       @api_client = api_client
     end
 
+    # Abort a multipart file upload.
+    # Abort a multipart file upload.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [FilesAbort] :data 
+    # @return [nil]
+    def files_abort(owner, repo, identifier, opts = {})
+      files_abort_with_http_info(owner, repo, identifier, opts)
+      return nil
+    end
+
+    # Abort a multipart file upload.
+    # Abort a multipart file upload.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [FilesAbort] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def files_abort_with_http_info(owner, repo, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: FilesApi.files_abort ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling FilesApi.files_abort"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling FilesApi.files_abort"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling FilesApi.files_abort"
+      end
+      # resource path
+      local_var_path = "/files/{owner}/{repo}/{identifier}/abort/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilesApi#files_abort\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Complete a multipart file upload.
+    # Complete a multipart file upload.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [FilesComplete] :data 
+    # @return [PackageFileUpload]
+    def files_complete(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = files_complete_with_http_info(owner, repo, identifier, opts)
+      return data
+    end
+
+    # Complete a multipart file upload.
+    # Complete a multipart file upload.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [FilesComplete] :data 
+    # @return [Array<(PackageFileUpload, Fixnum, Hash)>] PackageFileUpload data, response status code and response headers
+    def files_complete_with_http_info(owner, repo, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: FilesApi.files_complete ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling FilesApi.files_complete"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling FilesApi.files_complete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling FilesApi.files_complete"
+      end
+      # resource path
+      local_var_path = "/files/{owner}/{repo}/{identifier}/complete/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageFileUpload')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilesApi#files_complete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Request URL(s) to upload new package file upload(s) to.
     # Request URL(s) to upload new package file upload(s) to.
     # @param owner 
@@ -67,7 +200,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -77,6 +210,69 @@ module CloudsmithApi
         :return_type => 'PackageFileUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#files_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get upload information for a multipart file upload.
+    # Get upload information for a multipart file upload.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [PackageFilePartsUpload]
+    def files_info(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = files_info_with_http_info(owner, repo, identifier, opts)
+      return data
+    end
+
+    # Get upload information for a multipart file upload.
+    # Get upload information for a multipart file upload.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PackageFilePartsUpload, Fixnum, Hash)>] PackageFilePartsUpload data, response status code and response headers
+    def files_info_with_http_info(owner, repo, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: FilesApi.files_info ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling FilesApi.files_info"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling FilesApi.files_info"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling FilesApi.files_info"
+      end
+      # resource path
+      local_var_path = "/files/{owner}/{repo}/{identifier}/info/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageFilePartsUpload')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilesApi#files_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -128,7 +324,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'csrf_token']
+      auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

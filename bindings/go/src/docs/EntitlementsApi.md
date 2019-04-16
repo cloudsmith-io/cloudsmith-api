@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -70,7 +70,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -101,7 +101,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -132,7 +132,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -294,7 +294,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -304,7 +304,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsSync**
-> RepositoryTokenSync EntitlementsSync($owner, $repo, $data)
+> RepositoryTokenSync EntitlementsSync($owner, $repo, $showTokens, $data)
 
 Synchronise tokens from a source repository.
 
@@ -317,6 +317,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
  **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional] 
 
 ### Return type
@@ -325,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

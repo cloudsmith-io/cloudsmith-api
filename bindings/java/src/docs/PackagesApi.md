@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**packagesUploadAlpine**](PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**packagesUploadComposer**](PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**packagesUploadDeb**](PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
+[**packagesUploadDocker**](PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
 [**packagesUploadHelm**](PackagesApi.md#packagesUploadHelm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 [**packagesUploadMaven**](PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packagesUploadNpm**](PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
@@ -25,6 +26,7 @@ Method | HTTP request | Description
 [**packagesValidateUploadAlpine**](PackagesApi.md#packagesValidateUploadAlpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 [**packagesValidateUploadComposer**](PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**packagesValidateUploadDeb**](PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
+[**packagesValidateUploadDocker**](PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
 [**packagesValidateUploadHelm**](PackagesApi.md#packagesValidateUploadHelm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 [**packagesValidateUploadMaven**](PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packagesValidateUploadNpm**](PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
@@ -59,11 +61,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -100,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -131,11 +128,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -169,7 +161,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -200,11 +192,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -243,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -274,11 +261,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -315,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -346,11 +328,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -385,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -416,11 +393,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -457,7 +429,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -488,11 +460,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -527,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -558,11 +525,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -597,7 +559,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -628,11 +590,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -667,7 +624,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -698,11 +655,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -737,7 +689,72 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="packagesUploadDocker"></a>
+# **packagesUploadDocker**
+> ModelPackage packagesUploadDocker(owner, repo, data)
+
+Create a new Docker package
+
+Create a new Docker package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: csrf_token
+ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
+csrf_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//csrf_token.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+PackagesUploadDocker data = new PackagesUploadDocker(); // PackagesUploadDocker | 
+try {
+    ModelPackage result = apiInstance.packagesUploadDocker(owner, repo, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesUploadDocker");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**PackagesUploadDocker**](PackagesUploadDocker.md)|  | [optional]
+
+### Return type
+
+[**ModelPackage**](ModelPackage.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -768,11 +785,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -807,7 +819,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -838,11 +850,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -877,7 +884,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -908,11 +915,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -947,7 +949,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -978,11 +980,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1017,7 +1014,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1048,11 +1045,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1087,7 +1079,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1118,11 +1110,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1157,7 +1144,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1188,11 +1175,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1227,7 +1209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1258,11 +1240,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1297,7 +1274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1328,11 +1305,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1366,7 +1338,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1397,11 +1369,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1435,7 +1402,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1466,11 +1433,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1504,7 +1466,71 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="packagesValidateUploadDocker"></a>
+# **packagesValidateUploadDocker**
+> packagesValidateUploadDocker(owner, repo, data)
+
+Validate parameters for create Docker package
+
+Validate parameters for create Docker package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: csrf_token
+ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
+csrf_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//csrf_token.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+PackagesValidateuploadDocker data = new PackagesValidateuploadDocker(); // PackagesValidateuploadDocker | 
+try {
+    apiInstance.packagesValidateUploadDocker(owner, repo, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesValidateUploadDocker");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**PackagesValidateuploadDocker**](PackagesValidateuploadDocker.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1535,11 +1561,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1573,7 +1594,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1604,11 +1625,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1642,7 +1658,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1673,11 +1689,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1711,7 +1722,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1742,11 +1753,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1780,7 +1786,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1811,11 +1817,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1849,7 +1850,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1880,11 +1881,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1918,7 +1914,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -1949,11 +1945,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -1987,7 +1978,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 
@@ -2018,11 +2009,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
 
 // Configure API key authorization: csrf_token
 ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -2056,7 +2042,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
 
 ### HTTP request headers
 

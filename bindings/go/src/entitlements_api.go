@@ -64,11 +64,6 @@ func (a EntitlementsApi) EntitlementsCreate(owner string, repo string, showToken
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -142,11 +137,6 @@ func (a EntitlementsApi) EntitlementsDelete(owner string, repo string, identifie
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -215,11 +205,6 @@ func (a EntitlementsApi) EntitlementsDisable(owner string, repo string, identifi
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -288,11 +273,6 @@ func (a EntitlementsApi) EntitlementsEnable(owner string, repo string, identifie
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -362,11 +342,6 @@ func (a EntitlementsApi) EntitlementsList(owner string, repo string, page int32,
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -442,11 +417,6 @@ func (a EntitlementsApi) EntitlementsPartialUpdate(owner string, repo string, id
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -521,11 +491,6 @@ func (a EntitlementsApi) EntitlementsRead(owner string, repo string, identifier 
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -599,11 +564,6 @@ func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, identifi
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -677,11 +637,6 @@ func (a EntitlementsApi) EntitlementsReset(owner string, repo string, identifier
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -729,10 +684,11 @@ func (a EntitlementsApi) EntitlementsReset(owner string, repo string, identifier
  *
  * @param owner 
  * @param repo 
+ * @param showTokens Show entitlement token strings in results
  * @param data 
  * @return *RepositoryTokenSync
  */
-func (a EntitlementsApi) EntitlementsSync(owner string, repo string, data EntitlementsSync) (*RepositoryTokenSync, *APIResponse, error) {
+func (a EntitlementsApi) EntitlementsSync(owner string, repo string, showTokens bool, data EntitlementsSync) (*RepositoryTokenSync, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -749,11 +705,6 @@ func (a EntitlementsApi) EntitlementsSync(owner string, repo string, data Entitl
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -761,6 +712,7 @@ func (a EntitlementsApi) EntitlementsSync(owner string, repo string, data Entitl
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }

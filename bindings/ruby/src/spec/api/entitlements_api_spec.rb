@@ -172,6 +172,7 @@ describe 'EntitlementsApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [EntitlementsSync] :data 
   # @return [RepositoryTokenSync]
   describe 'entitlements_sync test' do

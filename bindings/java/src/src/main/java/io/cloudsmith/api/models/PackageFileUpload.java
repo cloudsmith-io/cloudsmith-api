@@ -42,6 +42,9 @@ public class PackageFileUpload implements Serializable {
   @SerializedName("upload_headers")
   private Object uploadHeaders = null;
 
+  @SerializedName("upload_querystring")
+  private String uploadQuerystring = null;
+
   @SerializedName("upload_url")
   private String uploadUrl = null;
 
@@ -99,6 +102,24 @@ public class PackageFileUpload implements Serializable {
     this.uploadHeaders = uploadHeaders;
   }
 
+  public PackageFileUpload uploadQuerystring(String uploadQuerystring) {
+    this.uploadQuerystring = uploadQuerystring;
+    return this;
+  }
+
+   /**
+   * The querystring to use for the next-step POST or PUT upload
+   * @return uploadQuerystring
+  **/
+  @ApiModelProperty(value = "The querystring to use for the next-step POST or PUT upload")
+  public String getUploadQuerystring() {
+    return uploadQuerystring;
+  }
+
+  public void setUploadQuerystring(String uploadQuerystring) {
+    this.uploadQuerystring = uploadQuerystring;
+  }
+
   public PackageFileUpload uploadUrl(String uploadUrl) {
     this.uploadUrl = uploadUrl;
     return this;
@@ -130,12 +151,13 @@ public class PackageFileUpload implements Serializable {
     return Objects.equals(this.identifier, packageFileUpload.identifier) &&
         Objects.equals(this.uploadFields, packageFileUpload.uploadFields) &&
         Objects.equals(this.uploadHeaders, packageFileUpload.uploadHeaders) &&
+        Objects.equals(this.uploadQuerystring, packageFileUpload.uploadQuerystring) &&
         Objects.equals(this.uploadUrl, packageFileUpload.uploadUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, uploadFields, uploadHeaders, uploadUrl);
+    return Objects.hash(identifier, uploadFields, uploadHeaders, uploadQuerystring, uploadUrl);
   }
 
 
@@ -147,6 +169,7 @@ public class PackageFileUpload implements Serializable {
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    uploadFields: ").append(toIndentedString(uploadFields)).append("\n");
     sb.append("    uploadHeaders: ").append(toIndentedString(uploadHeaders)).append("\n");
+    sb.append("    uploadQuerystring: ").append(toIndentedString(uploadQuerystring)).append("\n");
     sb.append("    uploadUrl: ").append(toIndentedString(uploadUrl)).append("\n");
     sb.append("}");
     return sb.toString();

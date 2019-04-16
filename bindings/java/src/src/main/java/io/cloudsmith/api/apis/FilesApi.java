@@ -36,8 +36,11 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import io.cloudsmith.api.models.FilesAbort;
+import io.cloudsmith.api.models.FilesComplete;
 import io.cloudsmith.api.models.FilesCreate;
 import io.cloudsmith.api.models.FilesValidate;
+import io.cloudsmith.api.models.PackageFilePartsUpload;
 import io.cloudsmith.api.models.PackageFileUpload;
 import io.cloudsmith.api.models.Status;
 
@@ -66,6 +69,310 @@ public class FilesApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for filesAbort
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call filesAbortCall(String owner, String repo, String identifier, FilesAbort data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+        
+        // create path and map variables
+        String localVarPath = "/files/{owner}/{repo}/{identifier}/abort/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call filesAbortValidateBeforeCall(String owner, String repo, String identifier, FilesAbort data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, identifier, data };
+            Method method = this.getClass().getMethod("filesAbortWithHttpInfo", String.class, String.class, String.class, FilesAbort.class);
+            Set<ConstraintViolation<FilesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = filesAbortCall(owner, repo, identifier, data, progressListener, progressRequestListener);
+                return call;
+            
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+            
+        
+        
+        
+        
+    }
+
+    /**
+     * Abort a multipart file upload.
+     * Abort a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void filesAbort(String owner, String repo, String identifier, FilesAbort data) throws ApiException {
+        filesAbortWithHttpInfo(owner, repo, identifier, data);
+    }
+
+    /**
+     * Abort a multipart file upload.
+     * Abort a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> filesAbortWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  FilesAbort data) throws ApiException {
+        com.squareup.okhttp.Call call = filesAbortValidateBeforeCall(owner, repo, identifier, data, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Abort a multipart file upload. (asynchronously)
+     * Abort a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call filesAbortAsync(String owner, String repo, String identifier, FilesAbort data, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = filesAbortValidateBeforeCall(owner, repo, identifier, data, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for filesComplete
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call filesCompleteCall(String owner, String repo, String identifier, FilesComplete data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+        
+        // create path and map variables
+        String localVarPath = "/files/{owner}/{repo}/{identifier}/complete/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call filesCompleteValidateBeforeCall(String owner, String repo, String identifier, FilesComplete data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, identifier, data };
+            Method method = this.getClass().getMethod("filesCompleteWithHttpInfo", String.class, String.class, String.class, FilesComplete.class);
+            Set<ConstraintViolation<FilesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = filesCompleteCall(owner, repo, identifier, data, progressListener, progressRequestListener);
+                return call;
+            
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+            
+        
+        
+        
+        
+    }
+
+    /**
+     * Complete a multipart file upload.
+     * Complete a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return PackageFileUpload
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageFileUpload filesComplete(String owner, String repo, String identifier, FilesComplete data) throws ApiException {
+        ApiResponse<PackageFileUpload> resp = filesCompleteWithHttpInfo(owner, repo, identifier, data);
+        return resp.getData();
+    }
+
+    /**
+     * Complete a multipart file upload.
+     * Complete a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;PackageFileUpload&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageFileUpload> filesCompleteWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  FilesComplete data) throws ApiException {
+        com.squareup.okhttp.Call call = filesCompleteValidateBeforeCall(owner, repo, identifier, data, null, null);
+        Type localVarReturnType = new TypeToken<PackageFileUpload>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Complete a multipart file upload. (asynchronously)
+     * Complete a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call filesCompleteAsync(String owner, String repo, String identifier, FilesComplete data, final ApiCallback<PackageFileUpload> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = filesCompleteValidateBeforeCall(owner, repo, identifier, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageFileUpload>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for filesCreate
      * @param owner  (required)
@@ -114,7 +421,7 @@ public class FilesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -216,6 +523,156 @@ public class FilesApi {
         return call;
     }
     /**
+     * Build call for filesInfo
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call filesInfoCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/files/{owner}/{repo}/{identifier}/info/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call filesInfoValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, identifier };
+            Method method = this.getClass().getMethod("filesInfoWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<FilesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = filesInfoCall(owner, repo, identifier, progressListener, progressRequestListener);
+                return call;
+            
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+            
+        
+        
+        
+        
+    }
+
+    /**
+     * Get upload information for a multipart file upload.
+     * Get upload information for a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @return PackageFilePartsUpload
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageFilePartsUpload filesInfo(String owner, String repo, String identifier) throws ApiException {
+        ApiResponse<PackageFilePartsUpload> resp = filesInfoWithHttpInfo(owner, repo, identifier);
+        return resp.getData();
+    }
+
+    /**
+     * Get upload information for a multipart file upload.
+     * Get upload information for a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @return ApiResponse&lt;PackageFilePartsUpload&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageFilePartsUpload> filesInfoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
+        com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, null, null);
+        Type localVarReturnType = new TypeToken<PackageFilePartsUpload>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get upload information for a multipart file upload. (asynchronously)
+     * Get upload information for a multipart file upload.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param identifier  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call filesInfoAsync(String owner, String repo, String identifier, final ApiCallback<PackageFilePartsUpload> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageFilePartsUpload>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for filesValidate
      * @param owner  (required)
      * @param repo  (required)
@@ -263,7 +720,7 @@ public class FilesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

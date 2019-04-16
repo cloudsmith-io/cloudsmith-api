@@ -40,6 +40,246 @@ class FilesApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
+    def files_abort(self, owner, repo, identifier, **kwargs):
+        """
+        Abort a multipart file upload.
+        Abort a multipart file upload.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.files_abort(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :param FilesAbort data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.files_abort_with_http_info(owner, repo, identifier, **kwargs)
+        else:
+            (data) = self.files_abort_with_http_info(owner, repo, identifier, **kwargs)
+            return data
+
+    def files_abort_with_http_info(self, owner, repo, identifier, **kwargs):
+        """
+        Abort a multipart file upload.
+        Abort a multipart file upload.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.files_abort_with_http_info(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :param FilesAbort data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'identifier', 'data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method files_abort" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `files_abort`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `files_abort`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `files_abort`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['apikey', 'csrf_token']
+
+        return self.api_client.call_api('/files/{owner}/{repo}/{identifier}/abort/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def files_complete(self, owner, repo, identifier, **kwargs):
+        """
+        Complete a multipart file upload.
+        Complete a multipart file upload.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.files_complete(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :param FilesComplete data:
+        :return: PackageFileUpload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.files_complete_with_http_info(owner, repo, identifier, **kwargs)
+        else:
+            (data) = self.files_complete_with_http_info(owner, repo, identifier, **kwargs)
+            return data
+
+    def files_complete_with_http_info(self, owner, repo, identifier, **kwargs):
+        """
+        Complete a multipart file upload.
+        Complete a multipart file upload.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.files_complete_with_http_info(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :param FilesComplete data:
+        :return: PackageFileUpload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'identifier', 'data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method files_complete" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `files_complete`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `files_complete`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `files_complete`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['apikey', 'csrf_token']
+
+        return self.api_client.call_api('/files/{owner}/{repo}/{identifier}/complete/', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PackageFileUpload',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def files_create(self, owner, repo, **kwargs):
         """
         Request URL(s) to upload new package file upload(s) to.
@@ -136,7 +376,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/files/{owner}/{repo}/', 'POST',
                                         path_params,
@@ -146,6 +386,118 @@ class FilesApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='PackageFileUpload',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def files_info(self, owner, repo, identifier, **kwargs):
+        """
+        Get upload information for a multipart file upload.
+        Get upload information for a multipart file upload.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.files_info(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :return: PackageFilePartsUpload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.files_info_with_http_info(owner, repo, identifier, **kwargs)
+        else:
+            (data) = self.files_info_with_http_info(owner, repo, identifier, **kwargs)
+            return data
+
+    def files_info_with_http_info(self, owner, repo, identifier, **kwargs):
+        """
+        Get upload information for a multipart file upload.
+        Get upload information for a multipart file upload.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.files_info_with_http_info(owner, repo, identifier, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :return: PackageFilePartsUpload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'identifier']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method files_info" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `files_info`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `files_info`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `files_info`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'csrf_token']
+
+        return self.api_client.call_api('/files/{owner}/{repo}/{identifier}/info/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PackageFilePartsUpload',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -249,7 +601,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/files/{owner}/{repo}/validate/', 'POST',
                                         path_params,

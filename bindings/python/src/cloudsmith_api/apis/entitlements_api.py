@@ -140,7 +140,7 @@ class EntitlementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/', 'POST',
                                         path_params,
@@ -252,7 +252,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'DELETE',
                                         path_params,
@@ -364,7 +364,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/disable/', 'POST',
                                         path_params,
@@ -476,7 +476,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/enable/', 'POST',
                                         path_params,
@@ -593,7 +593,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/', 'GET',
                                         path_params,
@@ -717,7 +717,7 @@ class EntitlementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'PATCH',
                                         path_params,
@@ -833,7 +833,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/', 'GET',
                                         path_params,
@@ -957,7 +957,7 @@ class EntitlementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/refresh/', 'POST',
                                         path_params,
@@ -1069,7 +1069,7 @@ class EntitlementsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/{identifier}/reset/', 'POST',
                                         path_params,
@@ -1102,6 +1102,7 @@ class EntitlementsApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsSync data:
         :return: RepositoryTokenSync
                  If the method is called asynchronously,
@@ -1130,13 +1131,14 @@ class EntitlementsApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :param EntitlementsSync data:
         :return: RepositoryTokenSync
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'data']
+        all_params = ['owner', 'repo', 'show_tokens', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1168,6 +1170,8 @@ class EntitlementsApi(object):
             path_params['repo'] = params['repo']
 
         query_params = []
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 
@@ -1182,7 +1186,7 @@ class EntitlementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/entitlements/{owner}/{repo}/sync/', 'POST',
                                         path_params,

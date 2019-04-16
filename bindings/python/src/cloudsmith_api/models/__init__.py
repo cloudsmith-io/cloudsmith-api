@@ -20,6 +20,8 @@ from .entitlements_create import EntitlementsCreate
 from .entitlements_partial_update import EntitlementsPartialUpdate
 from .entitlements_refresh import EntitlementsRefresh
 from .entitlements_sync import EntitlementsSync
+from .files_abort import FilesAbort
+from .files_complete import FilesComplete
 from .files_create import FilesCreate
 from .files_validate import FilesValidate
 from .format import Format
@@ -29,6 +31,7 @@ from .namespace import Namespace
 from .organization import Organization
 from .package import Package
 from .package_copy import PackageCopy
+from .package_file_parts_upload import PackageFilePartsUpload
 from .package_file_upload import PackageFileUpload
 from .package_move import PackageMove
 from .package_status import PackageStatus
@@ -38,6 +41,7 @@ from .packages_resync import PackagesResync
 from .packages_upload_alpine import PackagesUploadAlpine
 from .packages_upload_composer import PackagesUploadComposer
 from .packages_upload_deb import PackagesUploadDeb
+from .packages_upload_docker import PackagesUploadDocker
 from .packages_upload_helm import PackagesUploadHelm
 from .packages_upload_maven import PackagesUploadMaven
 from .packages_upload_npm import PackagesUploadNpm
@@ -49,6 +53,7 @@ from .packages_upload_vagrant import PackagesUploadVagrant
 from .packages_validateupload_alpine import PackagesValidateuploadAlpine
 from .packages_validateupload_composer import PackagesValidateuploadComposer
 from .packages_validateupload_deb import PackagesValidateuploadDeb
+from .packages_validateupload_docker import PackagesValidateuploadDocker
 from .packages_validateupload_helm import PackagesValidateuploadHelm
 from .packages_validateupload_maven import PackagesValidateuploadMaven
 from .packages_validateupload_npm import PackagesValidateuploadNpm

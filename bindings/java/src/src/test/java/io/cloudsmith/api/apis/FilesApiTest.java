@@ -14,8 +14,11 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.models.FilesAbort;
+import io.cloudsmith.api.models.FilesComplete;
 import io.cloudsmith.api.models.FilesCreate;
 import io.cloudsmith.api.models.FilesValidate;
+import io.cloudsmith.api.models.PackageFilePartsUpload;
 import io.cloudsmith.api.models.PackageFileUpload;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
@@ -36,6 +39,44 @@ public class FilesApiTest {
 
     
     /**
+     * Abort a multipart file upload.
+     *
+     * Abort a multipart file upload.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void filesAbortTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        FilesAbort data = null;
+        api.filesAbort(owner, repo, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Complete a multipart file upload.
+     *
+     * Complete a multipart file upload.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void filesCompleteTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        FilesComplete data = null;
+        PackageFileUpload response = api.filesComplete(owner, repo, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Request URL(s) to upload new package file upload(s) to.
      *
      * Request URL(s) to upload new package file upload(s) to.
@@ -49,6 +90,24 @@ public class FilesApiTest {
         String repo = null;
         FilesCreate data = null;
         PackageFileUpload response = api.filesCreate(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get upload information for a multipart file upload.
+     *
+     * Get upload information for a multipart file upload.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void filesInfoTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        PackageFilePartsUpload response = api.filesInfo(owner, repo, identifier);
 
         // TODO: test validations
     }

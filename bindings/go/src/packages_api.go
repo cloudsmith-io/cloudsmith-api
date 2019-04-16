@@ -65,11 +65,6 @@ func (a PackagesApi) PackagesCopy(owner string, repo string, identifier string, 
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -142,11 +137,6 @@ func (a PackagesApi) PackagesDelete(owner string, repo string, identifier string
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -216,11 +206,6 @@ func (a PackagesApi) PackagesList(owner string, repo string, page int32, pageSiz
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -295,11 +280,6 @@ func (a PackagesApi) PackagesMove(owner string, repo string, identifier string, 
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -372,11 +352,6 @@ func (a PackagesApi) PackagesRead(owner string, repo string, identifier string) 
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -448,11 +423,6 @@ func (a PackagesApi) PackagesResync(owner string, repo string, identifier string
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -525,11 +495,6 @@ func (a PackagesApi) PackagesStatus(owner string, repo string, identifier string
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -599,11 +564,6 @@ func (a PackagesApi) PackagesUploadAlpine(owner string, repo string, data Packag
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -675,11 +635,6 @@ func (a PackagesApi) PackagesUploadComposer(owner string, repo string, data Pack
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -751,11 +706,6 @@ func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesU
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -802,6 +752,77 @@ func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesU
 }
 
 /**
+ * Create a new Docker package
+ * Create a new Docker package
+ *
+ * @param owner 
+ * @param repo 
+ * @param data 
+ * @return *ModelPackage
+ */
+func (a PackagesApi) PackagesUploadDocker(owner string, repo string, data PackagesUploadDocker) (*ModelPackage, *APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/upload/docker/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &data
+	var successPayload = new(ModelPackage)
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "PackagesUploadDocker", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return successPayload, localVarAPIResponse, err
+	}
+	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
+	return successPayload, localVarAPIResponse, err
+}
+
+/**
  * Create a new Helm package
  * Create a new Helm package
  *
@@ -827,11 +848,6 @@ func (a PackagesApi) PackagesUploadHelm(owner string, repo string, data Packages
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -903,11 +919,6 @@ func (a PackagesApi) PackagesUploadMaven(owner string, repo string, data Package
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -979,11 +990,6 @@ func (a PackagesApi) PackagesUploadNpm(owner string, repo string, data PackagesU
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1055,11 +1061,6 @@ func (a PackagesApi) PackagesUploadPython(owner string, repo string, data Packag
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1131,11 +1132,6 @@ func (a PackagesApi) PackagesUploadRaw(owner string, repo string, data PackagesU
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1207,11 +1203,6 @@ func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesU
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1283,11 +1274,6 @@ func (a PackagesApi) PackagesUploadRuby(owner string, repo string, data Packages
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1359,11 +1345,6 @@ func (a PackagesApi) PackagesUploadVagrant(owner string, repo string, data Packa
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1435,11 +1416,6 @@ func (a PackagesApi) PackagesValidateUploadAlpine(owner string, repo string, dat
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1509,11 +1485,6 @@ func (a PackagesApi) PackagesValidateUploadComposer(owner string, repo string, d
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1583,11 +1554,6 @@ func (a PackagesApi) PackagesValidateUploadDeb(owner string, repo string, data P
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1632,6 +1598,75 @@ func (a PackagesApi) PackagesValidateUploadDeb(owner string, repo string, data P
 }
 
 /**
+ * Validate parameters for create Docker package
+ * Validate parameters for create Docker package
+ *
+ * @param owner 
+ * @param repo 
+ * @param data 
+ * @return void
+ */
+func (a PackagesApi) PackagesValidateUploadDocker(owner string, repo string, data PackagesValidateuploadDocker) (*APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/validate-upload/docker/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &data
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "PackagesValidateUploadDocker", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return localVarAPIResponse, err
+	}
+	return localVarAPIResponse, err
+}
+
+/**
  * Validate parameters for create Helm package
  * Validate parameters for create Helm package
  *
@@ -1657,11 +1692,6 @@ func (a PackagesApi) PackagesValidateUploadHelm(owner string, repo string, data 
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1731,11 +1761,6 @@ func (a PackagesApi) PackagesValidateUploadMaven(owner string, repo string, data
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1805,11 +1830,6 @@ func (a PackagesApi) PackagesValidateUploadNpm(owner string, repo string, data P
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1879,11 +1899,6 @@ func (a PackagesApi) PackagesValidateUploadPython(owner string, repo string, dat
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -1953,11 +1968,6 @@ func (a PackagesApi) PackagesValidateUploadRaw(owner string, repo string, data P
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -2027,11 +2037,6 @@ func (a PackagesApi) PackagesValidateUploadRpm(owner string, repo string, data P
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -2101,11 +2106,6 @@ func (a PackagesApi) PackagesValidateUploadRuby(owner string, repo string, data 
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
@@ -2175,11 +2175,6 @@ func (a PackagesApi) PackagesValidateUploadVagrant(owner string, repo string, da
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(basic)' required
-	// http basic authentication required
-	if a.Configuration.Username != "" || a.Configuration.Password != ""{
-		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
-	}
 	// authentication '(csrf_token)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")

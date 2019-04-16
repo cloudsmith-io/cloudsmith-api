@@ -113,7 +113,7 @@ class RatesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'csrf_token']
+        auth_settings = ['apikey', 'csrf_token']
 
         return self.api_client.call_api('/rates/limits/', 'GET',
                                         path_params,

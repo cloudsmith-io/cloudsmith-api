@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.35.1</version>
+    <version>0.36.25</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.35.1"
+compile "io.cloudsmith.api:cloudsmith-api:0.36.25"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.35.1.jar
+* target/cloudsmith-api-0.36.25.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -76,11 +76,6 @@ public class BadgesApiExample {
         apikey.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //apikey.setApiKeyPrefix("Token");
-
-        // Configure HTTP basic authorization: basic
-        HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-        basic.setUsername("YOUR USERNAME");
-        basic.setPassword("YOUR PASSWORD");
 
         // Configure API key authorization: csrf_token
         ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
@@ -127,7 +122,10 @@ Class | Method | HTTP request | Description
 *EntitlementsApi* | [**entitlementsRefresh**](docs/EntitlementsApi.md#entitlementsRefresh) | **POST** /entitlements/{owner}/{repo}/{identifier}/refresh/ | Refresh an entitlement token in a repository.
 *EntitlementsApi* | [**entitlementsReset**](docs/EntitlementsApi.md#entitlementsReset) | **POST** /entitlements/{owner}/{repo}/{identifier}/reset/ | Reset the statistics for an entitlement token in a repository.
 *EntitlementsApi* | [**entitlementsSync**](docs/EntitlementsApi.md#entitlementsSync) | **POST** /entitlements/{owner}/{repo}/sync/ | Synchronise tokens from a source repository.
+*FilesApi* | [**filesAbort**](docs/FilesApi.md#filesAbort) | **POST** /files/{owner}/{repo}/{identifier}/abort/ | Abort a multipart file upload.
+*FilesApi* | [**filesComplete**](docs/FilesApi.md#filesComplete) | **POST** /files/{owner}/{repo}/{identifier}/complete/ | Complete a multipart file upload.
 *FilesApi* | [**filesCreate**](docs/FilesApi.md#filesCreate) | **POST** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
+*FilesApi* | [**filesInfo**](docs/FilesApi.md#filesInfo) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information for a multipart file upload.
 *FilesApi* | [**filesValidate**](docs/FilesApi.md#filesValidate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 *FormatsApi* | [**formatsList**](docs/FormatsApi.md#formatsList) | **GET** /formats/ | Get a list of all supported package formats.
 *FormatsApi* | [**formatsRead**](docs/FormatsApi.md#formatsRead) | **GET** /formats/{slug}/ | Get a specific supported package format.
@@ -145,6 +143,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadAlpine**](docs/PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 *PackagesApi* | [**packagesUploadComposer**](docs/PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
+*PackagesApi* | [**packagesUploadDocker**](docs/PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
 *PackagesApi* | [**packagesUploadHelm**](docs/PackagesApi.md#packagesUploadHelm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 *PackagesApi* | [**packagesUploadMaven**](docs/PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 *PackagesApi* | [**packagesUploadNpm**](docs/PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
@@ -156,6 +155,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadAlpine**](docs/PackagesApi.md#packagesValidateUploadAlpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 *PackagesApi* | [**packagesValidateUploadComposer**](docs/PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
+*PackagesApi* | [**packagesValidateUploadDocker**](docs/PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
 *PackagesApi* | [**packagesValidateUploadHelm**](docs/PackagesApi.md#packagesValidateUploadHelm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 *PackagesApi* | [**packagesValidateUploadMaven**](docs/PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 *PackagesApi* | [**packagesValidateUploadNpm**](docs/PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
@@ -187,6 +187,8 @@ Class | Method | HTTP request | Description
  - [EntitlementsPartialUpdate](docs/EntitlementsPartialUpdate.md)
  - [EntitlementsRefresh](docs/EntitlementsRefresh.md)
  - [EntitlementsSync](docs/EntitlementsSync.md)
+ - [FilesAbort](docs/FilesAbort.md)
+ - [FilesComplete](docs/FilesComplete.md)
  - [FilesCreate](docs/FilesCreate.md)
  - [FilesValidate](docs/FilesValidate.md)
  - [Format](docs/Format.md)
@@ -196,6 +198,7 @@ Class | Method | HTTP request | Description
  - [Namespace](docs/Namespace.md)
  - [Organization](docs/Organization.md)
  - [PackageCopy](docs/PackageCopy.md)
+ - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
  - [PackageMove](docs/PackageMove.md)
  - [PackageStatus](docs/PackageStatus.md)
@@ -205,6 +208,7 @@ Class | Method | HTTP request | Description
  - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
  - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
  - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
+ - [PackagesUploadDocker](docs/PackagesUploadDocker.md)
  - [PackagesUploadHelm](docs/PackagesUploadHelm.md)
  - [PackagesUploadMaven](docs/PackagesUploadMaven.md)
  - [PackagesUploadNpm](docs/PackagesUploadNpm.md)
@@ -216,6 +220,7 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadAlpine](docs/PackagesValidateuploadAlpine.md)
  - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
  - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)
+ - [PackagesValidateuploadDocker](docs/PackagesValidateuploadDocker.md)
  - [PackagesValidateuploadHelm](docs/PackagesValidateuploadHelm.md)
  - [PackagesValidateuploadMaven](docs/PackagesValidateuploadMaven.md)
  - [PackagesValidateuploadNpm](docs/PackagesValidateuploadNpm.md)
