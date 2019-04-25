@@ -23,6 +23,7 @@ import io.cloudsmith.api.models.PackagesCopy;
 import io.cloudsmith.api.models.PackagesMove;
 import io.cloudsmith.api.models.PackagesResync;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
+import io.cloudsmith.api.models.PackagesUploadCargo;
 import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadDeb;
 import io.cloudsmith.api.models.PackagesUploadDocker;
@@ -35,6 +36,7 @@ import io.cloudsmith.api.models.PackagesUploadRpm;
 import io.cloudsmith.api.models.PackagesUploadRuby;
 import io.cloudsmith.api.models.PackagesUploadVagrant;
 import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
+import io.cloudsmith.api.models.PackagesValidateuploadCargo;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
 import io.cloudsmith.api.models.PackagesValidateuploadDocker;
@@ -211,6 +213,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesUploadAlpine data = null;
         ModelPackage response = api.packagesUploadAlpine(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Cargo package
+     *
+     * Create a new Cargo package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadCargoTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadCargo data = null;
+        ModelPackage response = api.packagesUploadCargo(owner, repo, data);
 
         // TODO: test validations
     }
@@ -427,6 +447,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadAlpine data = null;
         api.packagesValidateUploadAlpine(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Cargo package
+     *
+     * Validate parameters for create Cargo package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadCargoTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadCargo data = null;
+        api.packagesValidateUploadCargo(owner, repo, data);
 
         // TODO: test validations
     }

@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "io.cloudsmith.api",
     name := "cloudsmith-api",
-    version := "0.36.25",
+    version := "0.36.31",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

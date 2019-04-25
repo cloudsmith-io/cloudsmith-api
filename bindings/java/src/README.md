@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.36.25</version>
+    <version>0.36.31</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.36.25"
+compile "io.cloudsmith.api:cloudsmith-api:0.36.31"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.36.25.jar
+* target/cloudsmith-api-0.36.31.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -141,6 +141,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 *PackagesApi* | [**packagesStatus**](docs/PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
 *PackagesApi* | [**packagesUploadAlpine**](docs/PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
+*PackagesApi* | [**packagesUploadCargo**](docs/PackagesApi.md#packagesUploadCargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 *PackagesApi* | [**packagesUploadComposer**](docs/PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 *PackagesApi* | [**packagesUploadDocker**](docs/PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
@@ -153,6 +154,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadRuby**](docs/PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
 *PackagesApi* | [**packagesUploadVagrant**](docs/PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
 *PackagesApi* | [**packagesValidateUploadAlpine**](docs/PackagesApi.md#packagesValidateUploadAlpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
+*PackagesApi* | [**packagesValidateUploadCargo**](docs/PackagesApi.md#packagesValidateUploadCargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 *PackagesApi* | [**packagesValidateUploadComposer**](docs/PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 *PackagesApi* | [**packagesValidateUploadDocker**](docs/PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
@@ -206,6 +208,7 @@ Class | Method | HTTP request | Description
  - [PackagesMove](docs/PackagesMove.md)
  - [PackagesResync](docs/PackagesResync.md)
  - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
+ - [PackagesUploadCargo](docs/PackagesUploadCargo.md)
  - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
  - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
  - [PackagesUploadDocker](docs/PackagesUploadDocker.md)
@@ -218,6 +221,7 @@ Class | Method | HTTP request | Description
  - [PackagesUploadRuby](docs/PackagesUploadRuby.md)
  - [PackagesUploadVagrant](docs/PackagesUploadVagrant.md)
  - [PackagesValidateuploadAlpine](docs/PackagesValidateuploadAlpine.md)
+ - [PackagesValidateuploadCargo](docs/PackagesValidateuploadCargo.md)
  - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
  - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)
  - [PackagesValidateuploadDocker](docs/PackagesValidateuploadDocker.md)
