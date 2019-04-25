@@ -39,6 +39,7 @@ from .packages_copy import PackagesCopy
 from .packages_move import PackagesMove
 from .packages_resync import PackagesResync
 from .packages_upload_alpine import PackagesUploadAlpine
+from .packages_upload_cargo import PackagesUploadCargo
 from .packages_upload_composer import PackagesUploadComposer
 from .packages_upload_deb import PackagesUploadDeb
 from .packages_upload_docker import PackagesUploadDocker
@@ -51,6 +52,7 @@ from .packages_upload_rpm import PackagesUploadRpm
 from .packages_upload_ruby import PackagesUploadRuby
 from .packages_upload_vagrant import PackagesUploadVagrant
 from .packages_validateupload_alpine import PackagesValidateuploadAlpine
+from .packages_validateupload_cargo import PackagesValidateuploadCargo
 from .packages_validateupload_composer import PackagesValidateuploadComposer
 from .packages_validateupload_deb import PackagesValidateuploadDeb
 from .packages_validateupload_docker import PackagesValidateuploadDocker

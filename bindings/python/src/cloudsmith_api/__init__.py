@@ -39,6 +39,7 @@ from .models.packages_copy import PackagesCopy
 from .models.packages_move import PackagesMove
 from .models.packages_resync import PackagesResync
 from .models.packages_upload_alpine import PackagesUploadAlpine
+from .models.packages_upload_cargo import PackagesUploadCargo
 from .models.packages_upload_composer import PackagesUploadComposer
 from .models.packages_upload_deb import PackagesUploadDeb
 from .models.packages_upload_docker import PackagesUploadDocker
@@ -51,6 +52,7 @@ from .models.packages_upload_rpm import PackagesUploadRpm
 from .models.packages_upload_ruby import PackagesUploadRuby
 from .models.packages_upload_vagrant import PackagesUploadVagrant
 from .models.packages_validateupload_alpine import PackagesValidateuploadAlpine
+from .models.packages_validateupload_cargo import PackagesValidateuploadCargo
 from .models.packages_validateupload_composer import PackagesValidateuploadComposer
 from .models.packages_validateupload_deb import PackagesValidateuploadDeb
 from .models.packages_validateupload_docker import PackagesValidateuploadDocker

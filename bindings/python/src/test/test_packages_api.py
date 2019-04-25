@@ -95,6 +95,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_cargo(self):
+        """
+        Test case for packages_upload_cargo
+
+        Create a new Cargo package
+        """
+        pass
+
     def test_packages_upload_composer(self):
         """
         Test case for packages_upload_composer
@@ -188,6 +196,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_alpine
 
         Validate parameters for create Alpine package
+        """
+        pass
+
+    def test_packages_validate_upload_cargo(self):
+        """
+        Test case for packages_validate_upload_cargo
+
+        Validate parameters for create Cargo package
         """
         pass
 
