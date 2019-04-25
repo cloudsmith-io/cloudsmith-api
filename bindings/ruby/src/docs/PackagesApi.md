@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 [**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
 [**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
+[**packages_upload_cargo**](PackagesApi.md#packages_upload_cargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 [**packages_upload_composer**](PackagesApi.md#packages_upload_composer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**packages_upload_deb**](PackagesApi.md#packages_upload_deb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packages_upload_docker**](PackagesApi.md#packages_upload_docker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
@@ -24,6 +25,7 @@ Method | HTTP request | Description
 [**packages_upload_ruby**](PackagesApi.md#packages_upload_ruby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
 [**packages_upload_vagrant**](PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
 [**packages_validate_upload_alpine**](PackagesApi.md#packages_validate_upload_alpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
+[**packages_validate_upload_cargo**](PackagesApi.md#packages_validate_upload_cargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 [**packages_validate_upload_composer**](PackagesApi.md#packages_validate_upload_composer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**packages_validate_upload_deb**](PackagesApi.md#packages_validate_upload_deb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**packages_validate_upload_docker**](PackagesApi.md#packages_validate_upload_docker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
@@ -558,6 +560,72 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesUploadAlpine**](PackagesUploadAlpine.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_upload_cargo**
+> Package packages_upload_cargo(owner, repo, opts)
+
+Create a new Cargo package
+
+Create a new Cargo package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadCargo.new # PackagesUploadCargo | 
+}
+
+begin
+  #Create a new Cargo package
+  result = api_instance.packages_upload_cargo(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_cargo: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadCargo**](PackagesUploadCargo.md)|  | [optional] 
 
 ### Return type
 
@@ -1349,6 +1417,71 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesValidateuploadAlpine**](PackagesValidateuploadAlpine.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_validate_upload_cargo**
+> packages_validate_upload_cargo(owner, repo, opts)
+
+Validate parameters for create Cargo package
+
+Validate parameters for create Cargo package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadCargo.new # PackagesValidateuploadCargo | 
+}
+
+begin
+  #Validate parameters for create Cargo package
+  api_instance.packages_validate_upload_cargo(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_cargo: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadCargo**](PackagesValidateuploadCargo.md)|  | [optional] 
 
 ### Return type
 

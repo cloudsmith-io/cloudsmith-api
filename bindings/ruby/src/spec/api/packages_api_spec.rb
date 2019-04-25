@@ -149,6 +149,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_cargo
+  # Create a new Cargo package
+  # Create a new Cargo package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadCargo] :data 
+  # @return [Package]
+  describe 'packages_upload_cargo test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_composer
   # Create a new Composer package
   # Create a new Composer package
@@ -312,6 +326,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadAlpine] :data 
   # @return [nil]
   describe 'packages_validate_upload_alpine test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_cargo
+  # Validate parameters for create Cargo package
+  # Validate parameters for create Cargo package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadCargo] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_cargo test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

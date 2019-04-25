@@ -536,6 +536,67 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Create a new Cargo package
+    # Create a new Cargo package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadCargo] :data 
+    # @return [Package]
+    def packages_upload_cargo(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_cargo_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # Create a new Cargo package
+    # Create a new Cargo package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadCargo] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_upload_cargo_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_cargo ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_cargo"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_cargo"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/upload/cargo/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_cargo\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new Composer package
     # Create a new Composer package
     # @param owner 
@@ -1263,6 +1324,66 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_alpine\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate parameters for create Cargo package
+    # Validate parameters for create Cargo package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadCargo] :data 
+    # @return [nil]
+    def packages_validate_upload_cargo(owner, repo, opts = {})
+      packages_validate_upload_cargo_with_http_info(owner, repo, opts)
+      return nil
+    end
+
+    # Validate parameters for create Cargo package
+    # Validate parameters for create Cargo package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadCargo] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_cargo_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_cargo ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_cargo"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_cargo"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/cargo/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_cargo\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
