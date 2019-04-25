@@ -8,14 +8,14 @@ api_url=$2
 
 full_deploy() {
   local language=$1
-  $root_dir/scripts/build.sh || die "Could not build"
-  $root_dir/scripts/test.sh || die "Could not test"
-  $root_dir/scripts/push.sh || die "Could not push"
-  $root_dir/scripts/deploy.sh || die "Could not deploy"
+  $root_dir/scripts/build.sh $language || die "Could not build"
+  $root_dir/scripts/test.sh $language || die "Could not test"
+  $root_dir/scripts/push.sh $language || die "Could not push"
+  $root_dir/scripts/deploy.sh $language || die "Could not deploy"
 }
 
 test -z "$language" && {
-  for I in `ls -1 $root_dir/bindings`; do
+  for I in $root_dir/bindings/*; do
     full_deploy $(basename $I)
   done
 } || {
