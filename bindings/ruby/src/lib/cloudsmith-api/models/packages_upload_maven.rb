@@ -39,7 +39,7 @@ module CloudsmithApi
     # Adds bundled Java source code to the Maven package.
     attr_accessor :sources_file
 
-    # The version of this package.
+    # The raw version for this package.
     attr_accessor :version
 
 

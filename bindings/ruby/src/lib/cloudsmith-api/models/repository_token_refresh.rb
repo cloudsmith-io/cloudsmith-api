@@ -15,7 +15,7 @@ require 'date'
 module CloudsmithApi
 
   class RepositoryTokenRefresh
-    # 
+    # The datetime the token was updated at.
     attr_accessor :created_at
 
     # 
@@ -75,7 +75,7 @@ module CloudsmithApi
     # 
     attr_accessor :token
 
-    # 
+    # The datetime the token was updated at.
     attr_accessor :updated_at
 
     # 

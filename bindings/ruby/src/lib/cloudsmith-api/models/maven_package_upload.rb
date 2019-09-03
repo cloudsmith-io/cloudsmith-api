@@ -183,7 +183,7 @@ module CloudsmithApi
     # 
     attr_accessor :uploader_url
 
-    # The version of this package.
+    # The raw version for this package.
     attr_accessor :version
 
     # 

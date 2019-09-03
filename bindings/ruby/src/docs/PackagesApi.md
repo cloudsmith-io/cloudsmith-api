@@ -14,11 +14,15 @@ Method | HTTP request | Description
 [**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**packages_upload_cargo**](PackagesApi.md#packages_upload_cargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 [**packages_upload_composer**](PackagesApi.md#packages_upload_composer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
+[**packages_upload_cran**](PackagesApi.md#packages_upload_cran) | **POST** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
 [**packages_upload_deb**](PackagesApi.md#packages_upload_deb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packages_upload_docker**](PackagesApi.md#packages_upload_docker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
+[**packages_upload_go**](PackagesApi.md#packages_upload_go) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 [**packages_upload_helm**](PackagesApi.md#packages_upload_helm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
+[**packages_upload_luarocks**](PackagesApi.md#packages_upload_luarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packages_upload_npm**](PackagesApi.md#packages_upload_npm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
+[**packages_upload_nuget**](PackagesApi.md#packages_upload_nuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
 [**packages_upload_python**](PackagesApi.md#packages_upload_python) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
 [**packages_upload_raw**](PackagesApi.md#packages_upload_raw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 [**packages_upload_rpm**](PackagesApi.md#packages_upload_rpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
@@ -27,11 +31,15 @@ Method | HTTP request | Description
 [**packages_validate_upload_alpine**](PackagesApi.md#packages_validate_upload_alpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 [**packages_validate_upload_cargo**](PackagesApi.md#packages_validate_upload_cargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 [**packages_validate_upload_composer**](PackagesApi.md#packages_validate_upload_composer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
+[**packages_validate_upload_cran**](PackagesApi.md#packages_validate_upload_cran) | **POST** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
 [**packages_validate_upload_deb**](PackagesApi.md#packages_validate_upload_deb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**packages_validate_upload_docker**](PackagesApi.md#packages_validate_upload_docker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
+[**packages_validate_upload_go**](PackagesApi.md#packages_validate_upload_go) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 [**packages_validate_upload_helm**](PackagesApi.md#packages_validate_upload_helm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
+[**packages_validate_upload_luarocks**](PackagesApi.md#packages_validate_upload_luarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 [**packages_validate_upload_maven**](PackagesApi.md#packages_validate_upload_maven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packages_validate_upload_npm**](PackagesApi.md#packages_validate_upload_npm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
+[**packages_validate_upload_nuget**](PackagesApi.md#packages_validate_upload_nuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
 [**packages_validate_upload_python**](PackagesApi.md#packages_validate_upload_python) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
 [**packages_validate_upload_raw**](PackagesApi.md#packages_validate_upload_raw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 [**packages_validate_upload_rpm**](PackagesApi.md#packages_validate_upload_rpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
@@ -708,6 +716,72 @@ Name | Type | Description  | Notes
 
 
 
+# **packages_upload_cran**
+> Package packages_upload_cran(owner, repo, opts)
+
+Create a new CRAN package
+
+Create a new CRAN package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadCran.new # PackagesUploadCran | 
+}
+
+begin
+  #Create a new CRAN package
+  result = api_instance.packages_upload_cran(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_cran: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadCran**](PackagesUploadCran.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_upload_deb**
 > Package packages_upload_deb(owner, repo, opts)
 
@@ -840,6 +914,72 @@ Name | Type | Description  | Notes
 
 
 
+# **packages_upload_go**
+> Package packages_upload_go(owner, repo, opts)
+
+Create a new Go package
+
+Create a new Go package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadGo.new # PackagesUploadGo | 
+}
+
+begin
+  #Create a new Go package
+  result = api_instance.packages_upload_go(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_go: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadGo**](PackagesUploadGo.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_upload_helm**
 > Package packages_upload_helm(owner, repo, opts)
 
@@ -890,6 +1030,72 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesUploadHelm**](PackagesUploadHelm.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_upload_luarocks**
+> Package packages_upload_luarocks(owner, repo, opts)
+
+Create a new LuaRocks package
+
+Create a new LuaRocks package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadLuarocks.new # PackagesUploadLuarocks | 
+}
+
+begin
+  #Create a new LuaRocks package
+  result = api_instance.packages_upload_luarocks(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_luarocks: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadLuarocks**](PackagesUploadLuarocks.md)|  | [optional] 
 
 ### Return type
 
@@ -1022,6 +1228,72 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesUploadNpm**](PackagesUploadNpm.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_upload_nuget**
+> Package packages_upload_nuget(owner, repo, opts)
+
+Create a new NuGet package
+
+Create a new NuGet package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadNuget.new # PackagesUploadNuget | 
+}
+
+begin
+  #Create a new NuGet package
+  result = api_instance.packages_upload_nuget(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_nuget: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadNuget**](PackagesUploadNuget.md)|  | [optional] 
 
 ### Return type
 
@@ -1563,6 +1835,71 @@ nil (empty response body)
 
 
 
+# **packages_validate_upload_cran**
+> packages_validate_upload_cran(owner, repo, opts)
+
+Validate parameters for create CRAN package
+
+Validate parameters for create CRAN package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadCran.new # PackagesValidateuploadCran | 
+}
+
+begin
+  #Validate parameters for create CRAN package
+  api_instance.packages_validate_upload_cran(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_cran: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadCran**](PackagesValidateuploadCran.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_validate_upload_deb**
 > packages_validate_upload_deb(owner, repo, opts)
 
@@ -1693,6 +2030,71 @@ nil (empty response body)
 
 
 
+# **packages_validate_upload_go**
+> packages_validate_upload_go(owner, repo, opts)
+
+Validate parameters for create Go package
+
+Validate parameters for create Go package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadGo.new # PackagesValidateuploadGo | 
+}
+
+begin
+  #Validate parameters for create Go package
+  api_instance.packages_validate_upload_go(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_go: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadGo**](PackagesValidateuploadGo.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_validate_upload_helm**
 > packages_validate_upload_helm(owner, repo, opts)
 
@@ -1742,6 +2144,71 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesValidateuploadHelm**](PackagesValidateuploadHelm.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_validate_upload_luarocks**
+> packages_validate_upload_luarocks(owner, repo, opts)
+
+Validate parameters for create LuaRocks package
+
+Validate parameters for create LuaRocks package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadLuarocks.new # PackagesValidateuploadLuarocks | 
+}
+
+begin
+  #Validate parameters for create LuaRocks package
+  api_instance.packages_validate_upload_luarocks(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_luarocks: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadLuarocks**](PackagesValidateuploadLuarocks.md)|  | [optional] 
 
 ### Return type
 
@@ -1872,6 +2339,71 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesValidateuploadNpm**](PackagesValidateuploadNpm.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_validate_upload_nuget**
+> packages_validate_upload_nuget(owner, repo, opts)
+
+Validate parameters for create NuGet package
+
+Validate parameters for create NuGet package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadNuget.new # PackagesValidateuploadNuget | 
+}
+
+begin
+  #Validate parameters for create NuGet package
+  api_instance.packages_validate_upload_nuget(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_nuget: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadNuget**](PackagesValidateuploadNuget.md)|  | [optional] 
 
 ### Return type
 

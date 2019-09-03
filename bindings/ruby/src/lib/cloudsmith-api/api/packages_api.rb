@@ -658,6 +658,67 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Create a new CRAN package
+    # Create a new CRAN package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadCran] :data 
+    # @return [Package]
+    def packages_upload_cran(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_cran_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # Create a new CRAN package
+    # Create a new CRAN package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadCran] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_upload_cran_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_cran ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_cran"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_cran"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/upload/cran/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_cran\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new Debian package
     # Create a new Debian package
     # @param owner 
@@ -780,6 +841,67 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Create a new Go package
+    # Create a new Go package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadGo] :data 
+    # @return [Package]
+    def packages_upload_go(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_go_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # Create a new Go package
+    # Create a new Go package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadGo] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_upload_go_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_go ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_go"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_go"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/upload/go/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_go\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new Helm package
     # Create a new Helm package
     # @param owner 
@@ -837,6 +959,67 @@ module CloudsmithApi
         :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_helm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a new LuaRocks package
+    # Create a new LuaRocks package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadLuarocks] :data 
+    # @return [Package]
+    def packages_upload_luarocks(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_luarocks_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # Create a new LuaRocks package
+    # Create a new LuaRocks package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadLuarocks] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_upload_luarocks_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_luarocks ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_luarocks"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_luarocks"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/upload/luarocks/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_luarocks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -959,6 +1142,67 @@ module CloudsmithApi
         :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_npm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a new NuGet package
+    # Create a new NuGet package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadNuget] :data 
+    # @return [Package]
+    def packages_upload_nuget(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_nuget_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # Create a new NuGet package
+    # Create a new NuGet package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadNuget] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_upload_nuget_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_nuget ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_nuget"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_nuget"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/upload/nuget/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_nuget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1448,6 +1692,66 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Validate parameters for create CRAN package
+    # Validate parameters for create CRAN package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadCran] :data 
+    # @return [nil]
+    def packages_validate_upload_cran(owner, repo, opts = {})
+      packages_validate_upload_cran_with_http_info(owner, repo, opts)
+      return nil
+    end
+
+    # Validate parameters for create CRAN package
+    # Validate parameters for create CRAN package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadCran] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_cran_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_cran ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_cran"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_cran"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/cran/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_cran\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Validate parameters for create Debian package
     # Validate parameters for create Debian package
     # @param owner 
@@ -1568,6 +1872,66 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Validate parameters for create Go package
+    # Validate parameters for create Go package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadGo] :data 
+    # @return [nil]
+    def packages_validate_upload_go(owner, repo, opts = {})
+      packages_validate_upload_go_with_http_info(owner, repo, opts)
+      return nil
+    end
+
+    # Validate parameters for create Go package
+    # Validate parameters for create Go package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadGo] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_go_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_go ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_go"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_go"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/go/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_go\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Validate parameters for create Helm package
     # Validate parameters for create Helm package
     # @param owner 
@@ -1624,6 +1988,66 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_helm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate parameters for create LuaRocks package
+    # Validate parameters for create LuaRocks package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadLuarocks] :data 
+    # @return [nil]
+    def packages_validate_upload_luarocks(owner, repo, opts = {})
+      packages_validate_upload_luarocks_with_http_info(owner, repo, opts)
+      return nil
+    end
+
+    # Validate parameters for create LuaRocks package
+    # Validate parameters for create LuaRocks package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadLuarocks] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_luarocks_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_luarocks ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_luarocks"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_luarocks"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/luarocks/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_luarocks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1744,6 +2168,66 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_npm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate parameters for create NuGet package
+    # Validate parameters for create NuGet package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadNuget] :data 
+    # @return [nil]
+    def packages_validate_upload_nuget(owner, repo, opts = {})
+      packages_validate_upload_nuget_with_http_info(owner, repo, opts)
+      return nil
+    end
+
+    # Validate parameters for create NuGet package
+    # Validate parameters for create NuGet package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadNuget] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_nuget_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_nuget ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_nuget"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_nuget"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/nuget/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_nuget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

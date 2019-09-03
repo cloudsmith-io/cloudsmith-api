@@ -177,6 +177,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_cran
+  # Create a new CRAN package
+  # Create a new CRAN package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadCran] :data 
+  # @return [Package]
+  describe 'packages_upload_cran test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_deb
   # Create a new Debian package
   # Create a new Debian package
@@ -205,6 +219,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_go
+  # Create a new Go package
+  # Create a new Go package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadGo] :data 
+  # @return [Package]
+  describe 'packages_upload_go test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_helm
   # Create a new Helm package
   # Create a new Helm package
@@ -214,6 +242,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesUploadHelm] :data 
   # @return [Package]
   describe 'packages_upload_helm test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_upload_luarocks
+  # Create a new LuaRocks package
+  # Create a new LuaRocks package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadLuarocks] :data 
+  # @return [Package]
+  describe 'packages_upload_luarocks test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -242,6 +284,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesUploadNpm] :data 
   # @return [Package]
   describe 'packages_upload_npm test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_upload_nuget
+  # Create a new NuGet package
+  # Create a new NuGet package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadNuget] :data 
+  # @return [Package]
+  describe 'packages_upload_nuget test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -359,6 +415,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_validate_upload_cran
+  # Validate parameters for create CRAN package
+  # Validate parameters for create CRAN package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadCran] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_cran test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_validate_upload_deb
   # Validate parameters for create Debian package
   # Validate parameters for create Debian package
@@ -387,6 +457,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_validate_upload_go
+  # Validate parameters for create Go package
+  # Validate parameters for create Go package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadGo] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_go test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_validate_upload_helm
   # Validate parameters for create Helm package
   # Validate parameters for create Helm package
@@ -396,6 +480,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadHelm] :data 
   # @return [nil]
   describe 'packages_validate_upload_helm test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_luarocks
+  # Validate parameters for create LuaRocks package
+  # Validate parameters for create LuaRocks package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadLuarocks] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_luarocks test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -424,6 +522,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadNpm] :data 
   # @return [nil]
   describe 'packages_validate_upload_npm test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_nuget
+  # Validate parameters for create NuGet package
+  # Validate parameters for create NuGet package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadNuget] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_nuget test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

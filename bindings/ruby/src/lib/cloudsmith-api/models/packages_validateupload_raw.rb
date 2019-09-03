@@ -18,6 +18,9 @@ module CloudsmithApi
     # A textual description of this package.
     attr_accessor :description
 
+    # The name of this package.
+    attr_accessor :name
+
     # The primary file for the package.
     attr_accessor :package_file
 
@@ -27,7 +30,7 @@ module CloudsmithApi
     # A one-liner synopsis of this package.
     attr_accessor :summary
 
-    # The version of this package.
+    # The raw version for this package.
     attr_accessor :version
 
 
@@ -35,6 +38,7 @@ module CloudsmithApi
     def self.attribute_map
       {
         :'description' => :'description',
+        :'name' => :'name',
         :'package_file' => :'package_file',
         :'republish' => :'republish',
         :'summary' => :'summary',
@@ -46,6 +50,7 @@ module CloudsmithApi
     def self.swagger_types
       {
         :'description' => :'String',
+        :'name' => :'String',
         :'package_file' => :'String',
         :'republish' => :'BOOLEAN',
         :'summary' => :'String',
@@ -63,6 +68,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'package_file')
@@ -107,6 +116,7 @@ module CloudsmithApi
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
+          name == o.name &&
           package_file == o.package_file &&
           republish == o.republish &&
           summary == o.summary &&
@@ -122,7 +132,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, package_file, republish, summary, version].hash
+      [description, name, package_file, republish, summary, version].hash
     end
 
     # Builds the object from hash
