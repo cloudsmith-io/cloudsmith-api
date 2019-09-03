@@ -27,47 +27,19 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * PackagesValidateuploadVagrant
+ * PackagesValidateuploadLuarocks
  */
 
-public class PackagesValidateuploadVagrant implements Serializable {
+public class PackagesValidateuploadLuarocks implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  @SerializedName("name")
-  private String name = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
 
-  @SerializedName("provider")
-  private String provider = null;
-
   @SerializedName("republish")
   private Boolean republish = null;
 
-  @SerializedName("version")
-  private String version = null;
-
-  public PackagesValidateuploadVagrant name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The name of this package.
-   * @return name
-  **/
-  @NotNull
-  @ApiModelProperty(example = "tcl", required = true, value = "The name of this package.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public PackagesValidateuploadVagrant packageFile(String packageFile) {
+  public PackagesValidateuploadLuarocks packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -77,7 +49,7 @@ public class PackagesValidateuploadVagrant implements Serializable {
    * @return packageFile
   **/
   @NotNull
-  @ApiModelProperty(example = "y123456789x", required = true, value = "The primary file for the package.")
+  @ApiModelProperty(example = "x123456789a", required = true, value = "The primary file for the package.")
   public String getPackageFile() {
     return packageFile;
   }
@@ -86,26 +58,7 @@ public class PackagesValidateuploadVagrant implements Serializable {
     this.packageFile = packageFile;
   }
 
-  public PackagesValidateuploadVagrant provider(String provider) {
-    this.provider = provider;
-    return this;
-  }
-
-   /**
-   * The virtual machine provider for the box.
-   * @return provider
-  **/
-  @NotNull
-  @ApiModelProperty(example = "virtualbox", required = true, value = "The virtual machine provider for the box.")
-  public String getProvider() {
-    return provider;
-  }
-
-  public void setProvider(String provider) {
-    this.provider = provider;
-  }
-
-  public PackagesValidateuploadVagrant republish(Boolean republish) {
+  public PackagesValidateuploadLuarocks republish(Boolean republish) {
     this.republish = republish;
     return this;
   }
@@ -123,25 +76,6 @@ public class PackagesValidateuploadVagrant implements Serializable {
     this.republish = republish;
   }
 
-  public PackagesValidateuploadVagrant version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The raw version for this package.
-   * @return version
-  **/
-  @NotNull
-  @ApiModelProperty(example = "1.0", required = true, value = "The raw version for this package.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,30 +85,24 @@ public class PackagesValidateuploadVagrant implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PackagesValidateuploadVagrant packagesValidateuploadVagrant = (PackagesValidateuploadVagrant) o;
-    return Objects.equals(this.name, packagesValidateuploadVagrant.name) &&
-        Objects.equals(this.packageFile, packagesValidateuploadVagrant.packageFile) &&
-        Objects.equals(this.provider, packagesValidateuploadVagrant.provider) &&
-        Objects.equals(this.republish, packagesValidateuploadVagrant.republish) &&
-        Objects.equals(this.version, packagesValidateuploadVagrant.version);
+    PackagesValidateuploadLuarocks packagesValidateuploadLuarocks = (PackagesValidateuploadLuarocks) o;
+    return Objects.equals(this.packageFile, packagesValidateuploadLuarocks.packageFile) &&
+        Objects.equals(this.republish, packagesValidateuploadLuarocks.republish);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, packageFile, provider, republish, version);
+    return Objects.hash(packageFile, republish);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PackagesValidateuploadVagrant {\n");
+    sb.append("class PackagesValidateuploadLuarocks {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
-    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

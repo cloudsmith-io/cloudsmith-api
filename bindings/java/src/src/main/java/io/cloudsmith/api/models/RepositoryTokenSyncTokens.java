@@ -114,10 +114,10 @@ public class RepositoryTokenSyncTokens implements Serializable {
   }
 
    /**
-   * 
+   * The datetime the token was updated at.
    * @return createdAt
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The datetime the token was updated at.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -474,10 +474,10 @@ public class RepositoryTokenSyncTokens implements Serializable {
   }
 
    /**
-   * 
+   * The datetime the token was updated at.
    * @return updatedAt
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The datetime the token was updated at.")
   public String getUpdatedAt() {
     return updatedAt;
   }

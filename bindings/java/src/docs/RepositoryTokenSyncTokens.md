@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createdAt** | **String** |  |  [optional]
+**createdAt** | **String** | The datetime the token was updated at. |  [optional]
 **createdBy** | **String** |  |  [optional]
 **createdByUrl** | **String** |  |  [optional]
 **_default** | **Boolean** | If selected this is the default token for this repository. |  [optional]
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **selfUrl** | **String** |  |  [optional]
 **slugPerm** | **String** |  |  [optional]
 **token** | **String** |  |  [optional]
-**updatedAt** | **String** |  |  [optional]
+**updatedAt** | **String** | The datetime the token was updated at. |  [optional]
 **updatedBy** | **String** |  |  [optional]
 **updatedByUrl** | **String** |  |  [optional]
 **user** | **String** |  |  [optional]

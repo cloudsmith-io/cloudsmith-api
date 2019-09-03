@@ -661,7 +661,7 @@ public class RawPackageUpload implements Serializable {
    * The name of this package.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of this package.")
+  @ApiModelProperty(example = "my-package", value = "The name of this package.")
   public String getName() {
     return name;
   }
@@ -1180,10 +1180,10 @@ public class RawPackageUpload implements Serializable {
   }
 
    /**
-   * The version of this package.
+   * The raw version for this package.
    * @return version
   **/
-  @ApiModelProperty(example = "1.0", value = "The version of this package.")
+  @ApiModelProperty(example = "1.0", value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }

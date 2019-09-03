@@ -1203,11 +1203,11 @@ public class VagrantPackageUpload implements Serializable {
   }
 
    /**
-   * The version of this package.
+   * The raw version for this package.
    * @return version
   **/
   @NotNull
-  @ApiModelProperty(example = "1.0", required = true, value = "The version of this package.")
+  @ApiModelProperty(example = "1.0", required = true, value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }

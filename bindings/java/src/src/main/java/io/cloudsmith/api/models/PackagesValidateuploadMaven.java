@@ -211,10 +211,10 @@ public class PackagesValidateuploadMaven implements Serializable {
   }
 
    /**
-   * The version of this package.
+   * The raw version for this package.
    * @return version
   **/
-  @ApiModelProperty(value = "The version of this package.")
+  @ApiModelProperty(value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }

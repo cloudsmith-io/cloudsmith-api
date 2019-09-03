@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **packageFile** | **String** | The primary file for the package. | 
 **provider** | **String** | The virtual machine provider for the box. | 
 **republish** | **Boolean** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. |  [optional]
-**version** | **String** | The version of this package. | 
+**version** | **String** | The raw version for this package. | 
 
 
 

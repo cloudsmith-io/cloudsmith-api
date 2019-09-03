@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.36.31</version>
+    <version>0.43.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.36.31"
+compile "io.cloudsmith.api:cloudsmith-api:0.43.2"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.36.31.jar
+* target/cloudsmith-api-0.43.2.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -143,11 +143,15 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadAlpine**](docs/PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 *PackagesApi* | [**packagesUploadCargo**](docs/PackagesApi.md#packagesUploadCargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 *PackagesApi* | [**packagesUploadComposer**](docs/PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
+*PackagesApi* | [**packagesUploadCran**](docs/PackagesApi.md#packagesUploadCran) | **POST** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 *PackagesApi* | [**packagesUploadDocker**](docs/PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
+*PackagesApi* | [**packagesUploadGo**](docs/PackagesApi.md#packagesUploadGo) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 *PackagesApi* | [**packagesUploadHelm**](docs/PackagesApi.md#packagesUploadHelm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
+*PackagesApi* | [**packagesUploadLuarocks**](docs/PackagesApi.md#packagesUploadLuarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 *PackagesApi* | [**packagesUploadMaven**](docs/PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 *PackagesApi* | [**packagesUploadNpm**](docs/PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
+*PackagesApi* | [**packagesUploadNuget**](docs/PackagesApi.md#packagesUploadNuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
 *PackagesApi* | [**packagesUploadPython**](docs/PackagesApi.md#packagesUploadPython) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
 *PackagesApi* | [**packagesUploadRaw**](docs/PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 *PackagesApi* | [**packagesUploadRpm**](docs/PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
@@ -156,11 +160,15 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadAlpine**](docs/PackagesApi.md#packagesValidateUploadAlpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 *PackagesApi* | [**packagesValidateUploadCargo**](docs/PackagesApi.md#packagesValidateUploadCargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 *PackagesApi* | [**packagesValidateUploadComposer**](docs/PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
+*PackagesApi* | [**packagesValidateUploadCran**](docs/PackagesApi.md#packagesValidateUploadCran) | **POST** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 *PackagesApi* | [**packagesValidateUploadDocker**](docs/PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
+*PackagesApi* | [**packagesValidateUploadGo**](docs/PackagesApi.md#packagesValidateUploadGo) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 *PackagesApi* | [**packagesValidateUploadHelm**](docs/PackagesApi.md#packagesValidateUploadHelm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
+*PackagesApi* | [**packagesValidateUploadLuarocks**](docs/PackagesApi.md#packagesValidateUploadLuarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 *PackagesApi* | [**packagesValidateUploadMaven**](docs/PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 *PackagesApi* | [**packagesValidateUploadNpm**](docs/PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
+*PackagesApi* | [**packagesValidateUploadNuget**](docs/PackagesApi.md#packagesValidateUploadNuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
 *PackagesApi* | [**packagesValidateUploadPython**](docs/PackagesApi.md#packagesValidateUploadPython) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
 *PackagesApi* | [**packagesValidateUploadRaw**](docs/PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 *PackagesApi* | [**packagesValidateUploadRpm**](docs/PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
@@ -210,11 +218,15 @@ Class | Method | HTTP request | Description
  - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
  - [PackagesUploadCargo](docs/PackagesUploadCargo.md)
  - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
+ - [PackagesUploadCran](docs/PackagesUploadCran.md)
  - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
  - [PackagesUploadDocker](docs/PackagesUploadDocker.md)
+ - [PackagesUploadGo](docs/PackagesUploadGo.md)
  - [PackagesUploadHelm](docs/PackagesUploadHelm.md)
+ - [PackagesUploadLuarocks](docs/PackagesUploadLuarocks.md)
  - [PackagesUploadMaven](docs/PackagesUploadMaven.md)
  - [PackagesUploadNpm](docs/PackagesUploadNpm.md)
+ - [PackagesUploadNuget](docs/PackagesUploadNuget.md)
  - [PackagesUploadPython](docs/PackagesUploadPython.md)
  - [PackagesUploadRaw](docs/PackagesUploadRaw.md)
  - [PackagesUploadRpm](docs/PackagesUploadRpm.md)
@@ -223,11 +235,15 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadAlpine](docs/PackagesValidateuploadAlpine.md)
  - [PackagesValidateuploadCargo](docs/PackagesValidateuploadCargo.md)
  - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
+ - [PackagesValidateuploadCran](docs/PackagesValidateuploadCran.md)
  - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)
  - [PackagesValidateuploadDocker](docs/PackagesValidateuploadDocker.md)
+ - [PackagesValidateuploadGo](docs/PackagesValidateuploadGo.md)
  - [PackagesValidateuploadHelm](docs/PackagesValidateuploadHelm.md)
+ - [PackagesValidateuploadLuarocks](docs/PackagesValidateuploadLuarocks.md)
  - [PackagesValidateuploadMaven](docs/PackagesValidateuploadMaven.md)
  - [PackagesValidateuploadNpm](docs/PackagesValidateuploadNpm.md)
+ - [PackagesValidateuploadNuget](docs/PackagesValidateuploadNuget.md)
  - [PackagesValidateuploadPython](docs/PackagesValidateuploadPython.md)
  - [PackagesValidateuploadRaw](docs/PackagesValidateuploadRaw.md)
  - [PackagesValidateuploadRpm](docs/PackagesValidateuploadRpm.md)

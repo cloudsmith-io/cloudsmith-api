@@ -36,6 +36,9 @@ public class PackagesUploadRaw implements Serializable {
   @SerializedName("description")
   private String description = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -64,6 +67,24 @@ public class PackagesUploadRaw implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public PackagesUploadRaw name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name of this package.
+   * @return name
+  **/
+  @ApiModelProperty(example = "my-package", value = "The name of this package.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public PackagesUploadRaw packageFile(String packageFile) {
@@ -127,10 +148,10 @@ public class PackagesUploadRaw implements Serializable {
   }
 
    /**
-   * The version of this package.
+   * The raw version for this package.
    * @return version
   **/
-  @ApiModelProperty(example = "1.0", value = "The version of this package.")
+  @ApiModelProperty(example = "1.0", value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }
@@ -150,6 +171,7 @@ public class PackagesUploadRaw implements Serializable {
     }
     PackagesUploadRaw packagesUploadRaw = (PackagesUploadRaw) o;
     return Objects.equals(this.description, packagesUploadRaw.description) &&
+        Objects.equals(this.name, packagesUploadRaw.name) &&
         Objects.equals(this.packageFile, packagesUploadRaw.packageFile) &&
         Objects.equals(this.republish, packagesUploadRaw.republish) &&
         Objects.equals(this.summary, packagesUploadRaw.summary) &&
@@ -158,7 +180,7 @@ public class PackagesUploadRaw implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, packageFile, republish, summary, version);
+    return Objects.hash(description, name, packageFile, republish, summary, version);
   }
 
 
@@ -168,6 +190,7 @@ public class PackagesUploadRaw implements Serializable {
     sb.append("class PackagesUploadRaw {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");

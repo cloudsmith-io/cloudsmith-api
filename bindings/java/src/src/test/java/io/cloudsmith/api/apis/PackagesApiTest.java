@@ -25,11 +25,15 @@ import io.cloudsmith.api.models.PackagesResync;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadCargo;
 import io.cloudsmith.api.models.PackagesUploadComposer;
+import io.cloudsmith.api.models.PackagesUploadCran;
 import io.cloudsmith.api.models.PackagesUploadDeb;
 import io.cloudsmith.api.models.PackagesUploadDocker;
+import io.cloudsmith.api.models.PackagesUploadGo;
 import io.cloudsmith.api.models.PackagesUploadHelm;
+import io.cloudsmith.api.models.PackagesUploadLuarocks;
 import io.cloudsmith.api.models.PackagesUploadMaven;
 import io.cloudsmith.api.models.PackagesUploadNpm;
+import io.cloudsmith.api.models.PackagesUploadNuget;
 import io.cloudsmith.api.models.PackagesUploadPython;
 import io.cloudsmith.api.models.PackagesUploadRaw;
 import io.cloudsmith.api.models.PackagesUploadRpm;
@@ -38,11 +42,15 @@ import io.cloudsmith.api.models.PackagesUploadVagrant;
 import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
 import io.cloudsmith.api.models.PackagesValidateuploadCargo;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
+import io.cloudsmith.api.models.PackagesValidateuploadCran;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
 import io.cloudsmith.api.models.PackagesValidateuploadDocker;
+import io.cloudsmith.api.models.PackagesValidateuploadGo;
 import io.cloudsmith.api.models.PackagesValidateuploadHelm;
+import io.cloudsmith.api.models.PackagesValidateuploadLuarocks;
 import io.cloudsmith.api.models.PackagesValidateuploadMaven;
 import io.cloudsmith.api.models.PackagesValidateuploadNpm;
+import io.cloudsmith.api.models.PackagesValidateuploadNuget;
 import io.cloudsmith.api.models.PackagesValidateuploadPython;
 import io.cloudsmith.api.models.PackagesValidateuploadRaw;
 import io.cloudsmith.api.models.PackagesValidateuploadRpm;
@@ -254,6 +262,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new CRAN package
+     *
+     * Create a new CRAN package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadCranTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadCran data = null;
+        ModelPackage response = api.packagesUploadCran(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Debian package
      *
      * Create a new Debian package
@@ -290,6 +316,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new Go package
+     *
+     * Create a new Go package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadGoTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadGo data = null;
+        ModelPackage response = api.packagesUploadGo(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Helm package
      *
      * Create a new Helm package
@@ -303,6 +347,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesUploadHelm data = null;
         ModelPackage response = api.packagesUploadHelm(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new LuaRocks package
+     *
+     * Create a new LuaRocks package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadLuarocksTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadLuarocks data = null;
+        ModelPackage response = api.packagesUploadLuarocks(owner, repo, data);
 
         // TODO: test validations
     }
@@ -339,6 +401,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesUploadNpm data = null;
         ModelPackage response = api.packagesUploadNpm(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new NuGet package
+     *
+     * Create a new NuGet package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadNugetTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadNuget data = null;
+        ModelPackage response = api.packagesUploadNuget(owner, repo, data);
 
         // TODO: test validations
     }
@@ -488,6 +568,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Validate parameters for create CRAN package
+     *
+     * Validate parameters for create CRAN package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadCranTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadCran data = null;
+        api.packagesValidateUploadCran(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate parameters for create Debian package
      *
      * Validate parameters for create Debian package
@@ -524,6 +622,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Validate parameters for create Go package
+     *
+     * Validate parameters for create Go package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadGoTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadGo data = null;
+        api.packagesValidateUploadGo(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate parameters for create Helm package
      *
      * Validate parameters for create Helm package
@@ -537,6 +653,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadHelm data = null;
         api.packagesValidateUploadHelm(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create LuaRocks package
+     *
+     * Validate parameters for create LuaRocks package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadLuarocksTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadLuarocks data = null;
+        api.packagesValidateUploadLuarocks(owner, repo, data);
 
         // TODO: test validations
     }
@@ -573,6 +707,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadNpm data = null;
         api.packagesValidateUploadNpm(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create NuGet package
+     *
+     * Validate parameters for create NuGet package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadNugetTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadNuget data = null;
+        api.packagesValidateUploadNuget(owner, repo, data);
 
         // TODO: test validations
     }

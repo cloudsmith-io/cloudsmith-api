@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **uploadedAt** | **String** | The date this package was uploaded. |  [optional]
 **uploader** | **String** |  |  [optional]
 **uploaderUrl** | **String** |  |  [optional]
-**version** | **String** | The version of this package. |  [optional]
+**version** | **String** | The raw version for this package. |  [optional]
 **versionOrig** | **String** |  |  [optional]
 
 

@@ -36,6 +36,9 @@ public class PackagesValidateuploadRaw implements Serializable {
   @SerializedName("description")
   private String description = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -64,6 +67,24 @@ public class PackagesValidateuploadRaw implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public PackagesValidateuploadRaw name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name of this package.
+   * @return name
+  **/
+  @ApiModelProperty(example = "my-package", value = "The name of this package.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public PackagesValidateuploadRaw packageFile(String packageFile) {
@@ -127,10 +148,10 @@ public class PackagesValidateuploadRaw implements Serializable {
   }
 
    /**
-   * The version of this package.
+   * The raw version for this package.
    * @return version
   **/
-  @ApiModelProperty(example = "1.0", value = "The version of this package.")
+  @ApiModelProperty(example = "1.0", value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }
@@ -150,6 +171,7 @@ public class PackagesValidateuploadRaw implements Serializable {
     }
     PackagesValidateuploadRaw packagesValidateuploadRaw = (PackagesValidateuploadRaw) o;
     return Objects.equals(this.description, packagesValidateuploadRaw.description) &&
+        Objects.equals(this.name, packagesValidateuploadRaw.name) &&
         Objects.equals(this.packageFile, packagesValidateuploadRaw.packageFile) &&
         Objects.equals(this.republish, packagesValidateuploadRaw.republish) &&
         Objects.equals(this.summary, packagesValidateuploadRaw.summary) &&
@@ -158,7 +180,7 @@ public class PackagesValidateuploadRaw implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, packageFile, republish, summary, version);
+    return Objects.hash(description, name, packageFile, republish, summary, version);
   }
 
 
@@ -168,6 +190,7 @@ public class PackagesValidateuploadRaw implements Serializable {
     sb.append("class PackagesValidateuploadRaw {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
