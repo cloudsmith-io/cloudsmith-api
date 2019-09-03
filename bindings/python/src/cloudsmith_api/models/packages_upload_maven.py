@@ -277,7 +277,7 @@ class PackagesUploadMaven(object):
     def version(self):
         """
         Gets the version of this PackagesUploadMaven.
-        The version of this package.
+        The raw version for this package.
 
         :return: The version of this PackagesUploadMaven.
         :rtype: str
@@ -288,7 +288,7 @@ class PackagesUploadMaven(object):
     def version(self, version):
         """
         Sets the version of this PackagesUploadMaven.
-        The version of this package.
+        The raw version for this package.
 
         :param version: The version of this PackagesUploadMaven.
         :type: str

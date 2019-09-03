@@ -32,6 +32,7 @@ class PackagesUploadRaw(object):
     """
     swagger_types = {
         'description': 'str',
+        'name': 'str',
         'package_file': 'str',
         'republish': 'bool',
         'summary': 'str',
@@ -40,18 +41,20 @@ class PackagesUploadRaw(object):
 
     attribute_map = {
         'description': 'description',
+        'name': 'name',
         'package_file': 'package_file',
         'republish': 'republish',
         'summary': 'summary',
         'version': 'version'
     }
 
-    def __init__(self, description=None, package_file=None, republish=None, summary=None, version=None):
+    def __init__(self, description=None, name=None, package_file=None, republish=None, summary=None, version=None):
         """
         PackagesUploadRaw - a model defined in Swagger
         """
 
         self._description = None
+        self._name = None
         self._package_file = None
         self._republish = None
         self._summary = None
@@ -59,6 +62,8 @@ class PackagesUploadRaw(object):
 
         if description is not None:
           self.description = description
+        if name is not None:
+          self.name = name
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
@@ -89,6 +94,29 @@ class PackagesUploadRaw(object):
         """
 
         self._description = description
+
+    @property
+    def name(self):
+        """
+        Gets the name of this PackagesUploadRaw.
+        The name of this package.
+
+        :return: The name of this PackagesUploadRaw.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this PackagesUploadRaw.
+        The name of this package.
+
+        :param name: The name of this PackagesUploadRaw.
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def package_file(self):
@@ -165,7 +193,7 @@ class PackagesUploadRaw(object):
     def version(self):
         """
         Gets the version of this PackagesUploadRaw.
-        The version of this package.
+        The raw version for this package.
 
         :return: The version of this PackagesUploadRaw.
         :rtype: str
@@ -176,7 +204,7 @@ class PackagesUploadRaw(object):
     def version(self, version):
         """
         Sets the version of this PackagesUploadRaw.
-        The version of this package.
+        The raw version for this package.
 
         :param version: The version of this PackagesUploadRaw.
         :type: str

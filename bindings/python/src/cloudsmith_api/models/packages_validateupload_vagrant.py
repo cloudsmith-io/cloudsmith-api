@@ -166,7 +166,7 @@ class PackagesValidateuploadVagrant(object):
     def version(self):
         """
         Gets the version of this PackagesValidateuploadVagrant.
-        The version of this package.
+        The raw version for this package.
 
         :return: The version of this PackagesValidateuploadVagrant.
         :rtype: str
@@ -177,7 +177,7 @@ class PackagesValidateuploadVagrant(object):
     def version(self, version):
         """
         Sets the version of this PackagesValidateuploadVagrant.
-        The version of this package.
+        The raw version for this package.
 
         :param version: The version of this PackagesValidateuploadVagrant.
         :type: str

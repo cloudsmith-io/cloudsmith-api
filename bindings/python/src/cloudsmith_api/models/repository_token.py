@@ -171,7 +171,7 @@ class RepositoryToken(object):
     def created_at(self):
         """
         Gets the created_at of this RepositoryToken.
-        
+        The datetime the token was updated at.
 
         :return: The created_at of this RepositoryToken.
         :rtype: str
@@ -182,7 +182,7 @@ class RepositoryToken(object):
     def created_at(self, created_at):
         """
         Sets the created_at of this RepositoryToken.
-        
+        The datetime the token was updated at.
 
         :param created_at: The created_at of this RepositoryToken.
         :type: str
@@ -633,7 +633,7 @@ class RepositoryToken(object):
     def updated_at(self):
         """
         Gets the updated_at of this RepositoryToken.
-        
+        The datetime the token was updated at.
 
         :return: The updated_at of this RepositoryToken.
         :rtype: str
@@ -644,7 +644,7 @@ class RepositoryToken(object):
     def updated_at(self, updated_at):
         """
         Sets the updated_at of this RepositoryToken.
-        
+        The datetime the token was updated at.
 
         :param updated_at: The updated_at of this RepositoryToken.
         :type: str

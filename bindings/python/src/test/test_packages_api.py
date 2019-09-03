@@ -111,6 +111,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_cran(self):
+        """
+        Test case for packages_upload_cran
+
+        Create a new CRAN package
+        """
+        pass
+
     def test_packages_upload_deb(self):
         """
         Test case for packages_upload_deb
@@ -127,11 +135,27 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_go(self):
+        """
+        Test case for packages_upload_go
+
+        Create a new Go package
+        """
+        pass
+
     def test_packages_upload_helm(self):
         """
         Test case for packages_upload_helm
 
         Create a new Helm package
+        """
+        pass
+
+    def test_packages_upload_luarocks(self):
+        """
+        Test case for packages_upload_luarocks
+
+        Create a new LuaRocks package
         """
         pass
 
@@ -148,6 +172,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_upload_npm
 
         Create a new npm package
+        """
+        pass
+
+    def test_packages_upload_nuget(self):
+        """
+        Test case for packages_upload_nuget
+
+        Create a new NuGet package
         """
         pass
 
@@ -215,6 +247,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_validate_upload_cran(self):
+        """
+        Test case for packages_validate_upload_cran
+
+        Validate parameters for create CRAN package
+        """
+        pass
+
     def test_packages_validate_upload_deb(self):
         """
         Test case for packages_validate_upload_deb
@@ -231,11 +271,27 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_validate_upload_go(self):
+        """
+        Test case for packages_validate_upload_go
+
+        Validate parameters for create Go package
+        """
+        pass
+
     def test_packages_validate_upload_helm(self):
         """
         Test case for packages_validate_upload_helm
 
         Validate parameters for create Helm package
+        """
+        pass
+
+    def test_packages_validate_upload_luarocks(self):
+        """
+        Test case for packages_validate_upload_luarocks
+
+        Validate parameters for create LuaRocks package
         """
         pass
 
@@ -252,6 +308,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_npm
 
         Validate parameters for create npm package
+        """
+        pass
+
+    def test_packages_validate_upload_nuget(self):
+        """
+        Test case for packages_validate_upload_nuget
+
+        Validate parameters for create NuGet package
         """
         pass
 

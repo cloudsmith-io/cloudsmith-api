@@ -1541,7 +1541,7 @@ class PackageMove(object):
     def version(self):
         """
         Gets the version of this PackageMove.
-        The version of this package.
+        The raw version for this package.
 
         :return: The version of this PackageMove.
         :rtype: str
@@ -1552,7 +1552,7 @@ class PackageMove(object):
     def version(self, version):
         """
         Sets the version of this PackageMove.
-        The version of this package.
+        The raw version for this package.
 
         :param version: The version of this PackageMove.
         :type: str
