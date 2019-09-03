@@ -15,6 +15,9 @@ type PackagesValidateuploadRaw struct {
 	// A textual description of this package.
 	Description string `json:"description,omitempty"`
 
+	// The name of this package.
+	Name string `json:"name,omitempty"`
+
 	// The primary file for the package.
 	PackageFile string `json:"package_file"`
 
@@ -24,6 +27,6 @@ type PackagesValidateuploadRaw struct {
 	// A one-liner synopsis of this package.
 	Summary string `json:"summary,omitempty"`
 
-	// The version of this package.
+	// The raw version for this package.
 	Version string `json:"version,omitempty"`
 }

@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **UploadedAt** | **string** | The date this package was uploaded. | [optional] [default to null]
 **Uploader** | **string** |  | [optional] [default to null]
 **UploaderUrl** | **string** |  | [optional] [default to null]
-**Version** | **string** | The version of this package. | [default to null]
+**Version** | **string** | The raw version for this package. | [default to null]
 **VersionOrig** | **string** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

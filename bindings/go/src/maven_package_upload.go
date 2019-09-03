@@ -180,7 +180,7 @@ type MavenPackageUpload struct {
 	// 
 	UploaderUrl string `json:"uploader_url,omitempty"`
 
-	// The version of this package.
+	// The raw version for this package.
 	Version string `json:"version,omitempty"`
 
 	// 

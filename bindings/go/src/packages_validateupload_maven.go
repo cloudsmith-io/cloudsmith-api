@@ -36,6 +36,6 @@ type PackagesValidateuploadMaven struct {
 	// Adds bundled Java source code to the Maven package.
 	SourcesFile string `json:"sources_file,omitempty"`
 
-	// The version of this package.
+	// The raw version for this package.
 	Version string `json:"version,omitempty"`
 }

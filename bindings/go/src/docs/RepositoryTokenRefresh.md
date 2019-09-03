@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt** | **string** |  | [optional] [default to null]
+**CreatedAt** | **string** | The datetime the token was updated at. | [optional] [default to null]
 **CreatedBy** | **string** |  | [optional] [default to null]
 **CreatedByUrl** | **string** |  | [optional] [default to null]
 **Default_** | **bool** | If selected this is the default token for this repository. | [optional] [default to null]
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **SelfUrl** | **string** |  | [optional] [default to null]
 **SlugPerm** | **string** |  | [optional] [default to null]
 **Token** | **string** |  | [optional] [default to null]
-**UpdatedAt** | **string** |  | [optional] [default to null]
+**UpdatedAt** | **string** | The datetime the token was updated at. | [optional] [default to null]
 **UpdatedBy** | **string** |  | [optional] [default to null]
 **UpdatedByUrl** | **string** |  | [optional] [default to null]
 **User** | **string** |  | [optional] [default to null]

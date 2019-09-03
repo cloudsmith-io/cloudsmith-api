@@ -12,7 +12,7 @@ package cloudsmith_api
 
 type RepositoryTokenSyncTokens struct {
 
-	// 
+	// The datetime the token was updated at.
 	CreatedAt string `json:"created_at,omitempty"`
 
 	// 
@@ -72,7 +72,7 @@ type RepositoryTokenSyncTokens struct {
 	// 
 	Token string `json:"token,omitempty"`
 
-	// 
+	// The datetime the token was updated at.
 	UpdatedAt string `json:"updated_at,omitempty"`
 
 	// 
