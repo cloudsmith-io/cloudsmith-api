@@ -500,8 +500,8 @@ public class PackagesApi {
     }
 
     /**
-     * Views for working with repository packages.
-     * Views for working with repository packages.
+     * Get a list of all packages associated with repository.
+     * Get a list of all packages associated with repository.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -516,8 +516,8 @@ public class PackagesApi {
     }
 
     /**
-     * Views for working with repository packages.
-     * Views for working with repository packages.
+     * Get a list of all packages associated with repository.
+     * Get a list of all packages associated with repository.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -533,8 +533,8 @@ public class PackagesApi {
     }
 
     /**
-     * Views for working with repository packages. (asynchronously)
-     * Views for working with repository packages.
+     * Get a list of all packages associated with repository. (asynchronously)
+     * Get a list of all packages associated with repository.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)

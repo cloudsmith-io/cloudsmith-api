@@ -5,7 +5,7 @@
   <artifactId>cloudsmith-api</artifactId>
   <packaging>jar</packaging>
   <name>cloudsmith-api</name>
-  <version>0.43.2</version>
+  <version>0.44.4</version>
   <url>https://api.cloudsmith.io/</url>
   <description>Cloudsmith API</description>
   <scm>

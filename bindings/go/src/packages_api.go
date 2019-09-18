@@ -179,8 +179,8 @@ func (a PackagesApi) PackagesDelete(owner string, repo string, identifier string
 }
 
 /**
- * Views for working with repository packages.
- * Views for working with repository packages.
+ * Get a list of all packages associated with repository.
+ * Get a list of all packages associated with repository.
  *
  * @param owner 
  * @param repo 

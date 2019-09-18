@@ -51,7 +51,7 @@ class TestPackagesApi(unittest.TestCase):
         """
         Test case for packages_list
 
-        Views for working with repository packages.
+        Get a list of all packages associated with repository.
         """
         pass
 

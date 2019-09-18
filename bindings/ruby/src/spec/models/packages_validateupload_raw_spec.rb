@@ -32,6 +32,12 @@ describe 'PackagesValidateuploadRaw' do
       expect(@instance).to be_instance_of(CloudsmithApi::PackagesValidateuploadRaw)
     end
   end
+  describe 'test attribute "content_type"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "description"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

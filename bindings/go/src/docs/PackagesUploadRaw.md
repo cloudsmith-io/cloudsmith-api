@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ContentType** | **string** | A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here. | [optional] [default to null]
 **Description** | **string** | A textual description of this package. | [optional] [default to null]
 **Name** | **string** | The name of this package. | [optional] [default to null]
 **PackageFile** | **string** | The primary file for the package. | [default to null]

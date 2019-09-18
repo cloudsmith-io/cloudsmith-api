@@ -114,9 +114,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Views for working with repository packages.
+     * Get a list of all packages associated with repository.
      *
-     * Views for working with repository packages.
+     * Get a list of all packages associated with repository.
      *
      * @throws ApiException
      *          if the Api call fails

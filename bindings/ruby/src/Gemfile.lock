@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cloudsmith-api (0.43.2)
+    cloudsmith-api (0.44.4)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 

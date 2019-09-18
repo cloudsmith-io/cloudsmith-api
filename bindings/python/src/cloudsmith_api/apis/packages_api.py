@@ -274,8 +274,8 @@ class PackagesApi(object):
 
     def packages_list(self, owner, repo, **kwargs):
         """
-        Views for working with repository packages.
-        Views for working with repository packages.
+        Get a list of all packages associated with repository.
+        Get a list of all packages associated with repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -304,8 +304,8 @@ class PackagesApi(object):
 
     def packages_list_with_http_info(self, owner, repo, **kwargs):
         """
-        Views for working with repository packages.
-        Views for working with repository packages.
+        Get a list of all packages associated with repository.
+        Get a list of all packages associated with repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.

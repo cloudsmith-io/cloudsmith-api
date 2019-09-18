@@ -31,6 +31,7 @@ class PackagesUploadRaw(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'content_type': 'str',
         'description': 'str',
         'name': 'str',
         'package_file': 'str',
@@ -40,6 +41,7 @@ class PackagesUploadRaw(object):
     }
 
     attribute_map = {
+        'content_type': 'content_type',
         'description': 'description',
         'name': 'name',
         'package_file': 'package_file',
@@ -48,11 +50,12 @@ class PackagesUploadRaw(object):
         'version': 'version'
     }
 
-    def __init__(self, description=None, name=None, package_file=None, republish=None, summary=None, version=None):
+    def __init__(self, content_type=None, description=None, name=None, package_file=None, republish=None, summary=None, version=None):
         """
         PackagesUploadRaw - a model defined in Swagger
         """
 
+        self._content_type = None
         self._description = None
         self._name = None
         self._package_file = None
@@ -60,6 +63,8 @@ class PackagesUploadRaw(object):
         self._summary = None
         self._version = None
 
+        if content_type is not None:
+          self.content_type = content_type
         if description is not None:
           self.description = description
         if name is not None:
@@ -71,6 +76,29 @@ class PackagesUploadRaw(object):
           self.summary = summary
         if version is not None:
           self.version = version
+
+    @property
+    def content_type(self):
+        """
+        Gets the content_type of this PackagesUploadRaw.
+        A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.
+
+        :return: The content_type of this PackagesUploadRaw.
+        :rtype: str
+        """
+        return self._content_type
+
+    @content_type.setter
+    def content_type(self, content_type):
+        """
+        Sets the content_type of this PackagesUploadRaw.
+        A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.
+
+        :param content_type: The content_type of this PackagesUploadRaw.
+        :type: str
+        """
+
+        self._content_type = content_type
 
     @property
     def description(self):

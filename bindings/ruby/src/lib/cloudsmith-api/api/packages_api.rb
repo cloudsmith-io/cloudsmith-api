@@ -149,8 +149,8 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Views for working with repository packages.
-    # Views for working with repository packages.
+    # Get a list of all packages associated with repository.
+    # Get a list of all packages associated with repository.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -163,8 +163,8 @@ module CloudsmithApi
       return data
     end
 
-    # Views for working with repository packages.
-    # Views for working with repository packages.
+    # Get a list of all packages associated with repository.
+    # Get a list of all packages associated with repository.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters

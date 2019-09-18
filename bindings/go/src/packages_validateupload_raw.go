@@ -12,6 +12,9 @@ package cloudsmith_api
 
 type PackagesValidateuploadRaw struct {
 
+	// A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.
+	ContentType string `json:"content_type,omitempty"`
+
 	// A textual description of this package.
 	Description string `json:"description,omitempty"`
 

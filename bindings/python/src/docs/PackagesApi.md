@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**packages_copy**](PackagesApi.md#packages_copy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 [**packages_delete**](PackagesApi.md#packages_delete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
-[**packages_list**](PackagesApi.md#packages_list) | **GET** /packages/{owner}/{repo}/ | Views for working with repository packages.
+[**packages_list**](PackagesApi.md#packages_list) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**packages_move**](PackagesApi.md#packages_move) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
@@ -173,9 +173,9 @@ void (empty response body)
 # **packages_list**
 > list[Package] packages_list(owner, repo, page=page, page_size=page_size, query=query)
 
-Views for working with repository packages.
+Get a list of all packages associated with repository.
 
-Views for working with repository packages.
+Get a list of all packages associated with repository.
 
 ### Example 
 ```python
@@ -203,7 +203,7 @@ page_size = 56 # int | Number of results to return per page. (optional)
 query = 'query_example' # str | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional)
 
 try: 
-    # Views for working with repository packages.
+    # Get a list of all packages associated with repository.
     api_response = api_instance.packages_list(owner, repo, page=page, page_size=page_size, query=query)
     pprint(api_response)
 except ApiException as e:

@@ -15,6 +15,9 @@ require 'date'
 module CloudsmithApi
 
   class PackagesValidateuploadRaw
+    # A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.
+    attr_accessor :content_type
+
     # A textual description of this package.
     attr_accessor :description
 
@@ -37,6 +40,7 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'content_type' => :'content_type',
         :'description' => :'description',
         :'name' => :'name',
         :'package_file' => :'package_file',
@@ -49,6 +53,7 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'content_type' => :'String',
         :'description' => :'String',
         :'name' => :'String',
         :'package_file' => :'String',
@@ -65,6 +70,10 @@ module CloudsmithApi
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'content_type')
+        self.content_type = attributes[:'content_type']
+      end
 
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
@@ -115,6 +124,7 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          content_type == o.content_type &&
           description == o.description &&
           name == o.name &&
           package_file == o.package_file &&
@@ -132,7 +142,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, name, package_file, republish, summary, version].hash
+      [content_type, description, name, package_file, republish, summary, version].hash
     end
 
     # Builds the object from hash

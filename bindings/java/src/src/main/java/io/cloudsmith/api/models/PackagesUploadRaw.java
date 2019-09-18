@@ -33,6 +33,9 @@ import javax.validation.Valid;
 public class PackagesUploadRaw implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("content_type")
+  private String contentType = null;
+
   @SerializedName("description")
   private String description = null;
 
@@ -50,6 +53,24 @@ public class PackagesUploadRaw implements Serializable {
 
   @SerializedName("version")
   private String version = null;
+
+  public PackagesUploadRaw contentType(String contentType) {
+    this.contentType = contentType;
+    return this;
+  }
+
+   /**
+   * A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.
+   * @return contentType
+  **/
+  @ApiModelProperty(value = "A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.")
+  public String getContentType() {
+    return contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
+  }
 
   public PackagesUploadRaw description(String description) {
     this.description = description;
@@ -170,7 +191,8 @@ public class PackagesUploadRaw implements Serializable {
       return false;
     }
     PackagesUploadRaw packagesUploadRaw = (PackagesUploadRaw) o;
-    return Objects.equals(this.description, packagesUploadRaw.description) &&
+    return Objects.equals(this.contentType, packagesUploadRaw.contentType) &&
+        Objects.equals(this.description, packagesUploadRaw.description) &&
         Objects.equals(this.name, packagesUploadRaw.name) &&
         Objects.equals(this.packageFile, packagesUploadRaw.packageFile) &&
         Objects.equals(this.republish, packagesUploadRaw.republish) &&
@@ -180,7 +202,7 @@ public class PackagesUploadRaw implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, packageFile, republish, summary, version);
+    return Objects.hash(contentType, description, name, packageFile, republish, summary, version);
   }
 
 
@@ -189,6 +211,7 @@ public class PackagesUploadRaw implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagesUploadRaw {\n");
     
+    sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**packages_copy**](PackagesApi.md#packages_copy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 [**packages_delete**](PackagesApi.md#packages_delete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
-[**packages_list**](PackagesApi.md#packages_list) | **GET** /packages/{owner}/{repo}/ | Views for working with repository packages.
+[**packages_list**](PackagesApi.md#packages_list) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**packages_move**](PackagesApi.md#packages_move) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
@@ -183,9 +183,9 @@ nil (empty response body)
 # **packages_list**
 > Array&lt;Package&gt; packages_list(owner, repo, opts)
 
-Views for working with repository packages.
+Get a list of all packages associated with repository.
 
-Views for working with repository packages.
+Get a list of all packages associated with repository.
 
 ### Example
 ```ruby
@@ -217,7 +217,7 @@ opts = {
 }
 
 begin
-  #Views for working with repository packages.
+  #Get a list of all packages associated with repository.
   result = api_instance.packages_list(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
