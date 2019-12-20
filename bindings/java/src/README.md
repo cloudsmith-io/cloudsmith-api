@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.44.4</version>
+    <version>0.48.24</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.44.4"
+compile "io.cloudsmith.api:cloudsmith-api:0.48.24"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.44.4.jar
+* target/cloudsmith-api-0.48.24.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -144,6 +144,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadCargo**](docs/PackagesApi.md#packagesUploadCargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 *PackagesApi* | [**packagesUploadComposer**](docs/PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 *PackagesApi* | [**packagesUploadCran**](docs/PackagesApi.md#packagesUploadCran) | **POST** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
+*PackagesApi* | [**packagesUploadDart**](docs/PackagesApi.md#packagesUploadDart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 *PackagesApi* | [**packagesUploadDocker**](docs/PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
 *PackagesApi* | [**packagesUploadGo**](docs/PackagesApi.md#packagesUploadGo) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
@@ -161,6 +162,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadCargo**](docs/PackagesApi.md#packagesValidateUploadCargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 *PackagesApi* | [**packagesValidateUploadComposer**](docs/PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 *PackagesApi* | [**packagesValidateUploadCran**](docs/PackagesApi.md#packagesValidateUploadCran) | **POST** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
+*PackagesApi* | [**packagesValidateUploadDart**](docs/PackagesApi.md#packagesValidateUploadDart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 *PackagesApi* | [**packagesValidateUploadDocker**](docs/PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
 *PackagesApi* | [**packagesValidateUploadGo**](docs/PackagesApi.md#packagesValidateUploadGo) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
@@ -219,6 +221,7 @@ Class | Method | HTTP request | Description
  - [PackagesUploadCargo](docs/PackagesUploadCargo.md)
  - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
  - [PackagesUploadCran](docs/PackagesUploadCran.md)
+ - [PackagesUploadDart](docs/PackagesUploadDart.md)
  - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
  - [PackagesUploadDocker](docs/PackagesUploadDocker.md)
  - [PackagesUploadGo](docs/PackagesUploadGo.md)
@@ -236,6 +239,7 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadCargo](docs/PackagesValidateuploadCargo.md)
  - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
  - [PackagesValidateuploadCran](docs/PackagesValidateuploadCran.md)
+ - [PackagesValidateuploadDart](docs/PackagesValidateuploadDart.md)
  - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)
  - [PackagesValidateuploadDocker](docs/PackagesValidateuploadDocker.md)
  - [PackagesValidateuploadGo](docs/PackagesValidateuploadGo.md)

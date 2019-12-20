@@ -26,6 +26,7 @@ import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadCargo;
 import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadCran;
+import io.cloudsmith.api.models.PackagesUploadDart;
 import io.cloudsmith.api.models.PackagesUploadDeb;
 import io.cloudsmith.api.models.PackagesUploadDocker;
 import io.cloudsmith.api.models.PackagesUploadGo;
@@ -43,6 +44,7 @@ import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
 import io.cloudsmith.api.models.PackagesValidateuploadCargo;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadCran;
+import io.cloudsmith.api.models.PackagesValidateuploadDart;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
 import io.cloudsmith.api.models.PackagesValidateuploadDocker;
 import io.cloudsmith.api.models.PackagesValidateuploadGo;
@@ -275,6 +277,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesUploadCran data = null;
         ModelPackage response = api.packagesUploadCran(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Dart package
+     *
+     * Create a new Dart package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadDartTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadDart data = null;
+        ModelPackage response = api.packagesUploadDart(owner, repo, data);
 
         // TODO: test validations
     }
@@ -581,6 +601,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadCran data = null;
         api.packagesValidateUploadCran(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Dart package
+     *
+     * Validate parameters for create Dart package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadDartTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadDart data = null;
+        api.packagesValidateUploadDart(owner, repo, data);
 
         // TODO: test validations
     }
