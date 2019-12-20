@@ -119,6 +119,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_dart(self):
+        """
+        Test case for packages_upload_dart
+
+        Create a new Dart package
+        """
+        pass
+
     def test_packages_upload_deb(self):
         """
         Test case for packages_upload_deb
@@ -252,6 +260,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_cran
 
         Validate parameters for create CRAN package
+        """
+        pass
+
+    def test_packages_validate_upload_dart(self):
+        """
+        Test case for packages_validate_upload_dart
+
+        Validate parameters for create Dart package
         """
         pass
 
