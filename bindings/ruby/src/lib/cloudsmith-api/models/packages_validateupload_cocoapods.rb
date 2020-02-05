@@ -14,67 +14,27 @@ require 'date'
 
 module CloudsmithApi
 
-  class PackagesValidateuploadMaven
-    # The ID of the artifact.
-    attr_accessor :artifact_id
-
-    # Artifact's group ID.
-    attr_accessor :group_id
-
-    # Adds bundled Java documentation to the Maven package
-    attr_accessor :javadoc_file
-
+  class PackagesValidateuploadCocoapods
     # The primary file for the package.
     attr_accessor :package_file
 
-    # Artifact's Maven packaging type.
-    attr_accessor :packaging
-
-    # The POM file is an XML file containing the Maven coordinates.
-    attr_accessor :pom_file
-
     # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
     attr_accessor :republish
-
-    # Adds bundled Java source code to the Maven package.
-    attr_accessor :sources_file
-
-    # Adds bundled Java tests to the Maven package.
-    attr_accessor :tests_file
-
-    # The raw version for this package.
-    attr_accessor :version
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'artifact_id' => :'artifact_id',
-        :'group_id' => :'group_id',
-        :'javadoc_file' => :'javadoc_file',
         :'package_file' => :'package_file',
-        :'packaging' => :'packaging',
-        :'pom_file' => :'pom_file',
-        :'republish' => :'republish',
-        :'sources_file' => :'sources_file',
-        :'tests_file' => :'tests_file',
-        :'version' => :'version'
+        :'republish' => :'republish'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'artifact_id' => :'String',
-        :'group_id' => :'String',
-        :'javadoc_file' => :'String',
         :'package_file' => :'String',
-        :'packaging' => :'String',
-        :'pom_file' => :'String',
-        :'republish' => :'BOOLEAN',
-        :'sources_file' => :'String',
-        :'tests_file' => :'String',
-        :'version' => :'String'
+        :'republish' => :'BOOLEAN'
       }
     end
 
@@ -86,44 +46,12 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'artifact_id')
-        self.artifact_id = attributes[:'artifact_id']
-      end
-
-      if attributes.has_key?(:'group_id')
-        self.group_id = attributes[:'group_id']
-      end
-
-      if attributes.has_key?(:'javadoc_file')
-        self.javadoc_file = attributes[:'javadoc_file']
-      end
-
       if attributes.has_key?(:'package_file')
         self.package_file = attributes[:'package_file']
       end
 
-      if attributes.has_key?(:'packaging')
-        self.packaging = attributes[:'packaging']
-      end
-
-      if attributes.has_key?(:'pom_file')
-        self.pom_file = attributes[:'pom_file']
-      end
-
       if attributes.has_key?(:'republish')
         self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'sources_file')
-        self.sources_file = attributes[:'sources_file']
-      end
-
-      if attributes.has_key?(:'tests_file')
-        self.tests_file = attributes[:'tests_file']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
       end
 
     end
@@ -151,16 +79,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          artifact_id == o.artifact_id &&
-          group_id == o.group_id &&
-          javadoc_file == o.javadoc_file &&
           package_file == o.package_file &&
-          packaging == o.packaging &&
-          pom_file == o.pom_file &&
-          republish == o.republish &&
-          sources_file == o.sources_file &&
-          tests_file == o.tests_file &&
-          version == o.version
+          republish == o.republish
     end
 
     # @see the `==` method
@@ -172,7 +92,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tests_file, version].hash
+      [package_file, republish].hash
     end
 
     # Builds the object from hash
