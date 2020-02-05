@@ -103,6 +103,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_cocoapods(self):
+        """
+        Test case for packages_upload_cocoapods
+
+        Create a new CocoaPods package
+        """
+        pass
+
     def test_packages_upload_composer(self):
         """
         Test case for packages_upload_composer
@@ -244,6 +252,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_cargo
 
         Validate parameters for create Cargo package
+        """
+        pass
+
+    def test_packages_validate_upload_cocoapods(self):
+        """
+        Test case for packages_validate_upload_cocoapods
+
+        Validate parameters for create CocoaPods package
         """
         pass
 

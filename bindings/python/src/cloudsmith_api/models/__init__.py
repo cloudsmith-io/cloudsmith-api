@@ -40,6 +40,7 @@ from .packages_move import PackagesMove
 from .packages_resync import PackagesResync
 from .packages_upload_alpine import PackagesUploadAlpine
 from .packages_upload_cargo import PackagesUploadCargo
+from .packages_upload_cocoapods import PackagesUploadCocoapods
 from .packages_upload_composer import PackagesUploadComposer
 from .packages_upload_cran import PackagesUploadCran
 from .packages_upload_dart import PackagesUploadDart
@@ -58,6 +59,7 @@ from .packages_upload_ruby import PackagesUploadRuby
 from .packages_upload_vagrant import PackagesUploadVagrant
 from .packages_validateupload_alpine import PackagesValidateuploadAlpine
 from .packages_validateupload_cargo import PackagesValidateuploadCargo
+from .packages_validateupload_cocoapods import PackagesValidateuploadCocoapods
 from .packages_validateupload_composer import PackagesValidateuploadComposer
 from .packages_validateupload_cran import PackagesValidateuploadCran
 from .packages_validateupload_dart import PackagesValidateuploadDart

@@ -39,6 +39,7 @@ class PackagesValidateuploadMaven(object):
         'pom_file': 'str',
         'republish': 'bool',
         'sources_file': 'str',
+        'tests_file': 'str',
         'version': 'str'
     }
 
@@ -51,10 +52,11 @@ class PackagesValidateuploadMaven(object):
         'pom_file': 'pom_file',
         'republish': 'republish',
         'sources_file': 'sources_file',
+        'tests_file': 'tests_file',
         'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, version=None):
+    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, tests_file=None, version=None):
         """
         PackagesValidateuploadMaven - a model defined in Swagger
         """
@@ -67,6 +69,7 @@ class PackagesValidateuploadMaven(object):
         self._pom_file = None
         self._republish = None
         self._sources_file = None
+        self._tests_file = None
         self._version = None
 
         if artifact_id is not None:
@@ -84,6 +87,8 @@ class PackagesValidateuploadMaven(object):
           self.republish = republish
         if sources_file is not None:
           self.sources_file = sources_file
+        if tests_file is not None:
+          self.tests_file = tests_file
         if version is not None:
           self.version = version
 
@@ -272,6 +277,29 @@ class PackagesValidateuploadMaven(object):
         """
 
         self._sources_file = sources_file
+
+    @property
+    def tests_file(self):
+        """
+        Gets the tests_file of this PackagesValidateuploadMaven.
+        Adds bundled Java tests to the Maven package.
+
+        :return: The tests_file of this PackagesValidateuploadMaven.
+        :rtype: str
+        """
+        return self._tests_file
+
+    @tests_file.setter
+    def tests_file(self, tests_file):
+        """
+        Sets the tests_file of this PackagesValidateuploadMaven.
+        Adds bundled Java tests to the Maven package.
+
+        :param tests_file: The tests_file of this PackagesValidateuploadMaven.
+        :type: str
+        """
+
+        self._tests_file = tests_file
 
     @property
     def version(self):
