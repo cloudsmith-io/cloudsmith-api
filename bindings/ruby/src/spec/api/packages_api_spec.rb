@@ -163,6 +163,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_cocoapods
+  # Create a new CocoaPods package
+  # Create a new CocoaPods package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadCocoapods] :data 
+  # @return [Package]
+  describe 'packages_upload_cocoapods test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_composer
   # Create a new Composer package
   # Create a new Composer package
@@ -186,6 +200,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesUploadCran] :data 
   # @return [Package]
   describe 'packages_upload_cran test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_upload_dart
+  # Create a new Dart package
+  # Create a new Dart package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadDart] :data 
+  # @return [Package]
+  describe 'packages_upload_dart test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -401,6 +429,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_validate_upload_cocoapods
+  # Validate parameters for create CocoaPods package
+  # Validate parameters for create CocoaPods package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadCocoapods] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_cocoapods test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_validate_upload_composer
   # Validate parameters for create Composer package
   # Validate parameters for create Composer package
@@ -424,6 +466,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadCran] :data 
   # @return [nil]
   describe 'packages_validate_upload_cran test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_dart
+  # Validate parameters for create Dart package
+  # Validate parameters for create Dart package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadDart] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_dart test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

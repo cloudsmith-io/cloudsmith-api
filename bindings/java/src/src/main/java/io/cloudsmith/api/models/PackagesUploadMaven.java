@@ -57,6 +57,9 @@ public class PackagesUploadMaven implements Serializable {
   @SerializedName("sources_file")
   private String sourcesFile = null;
 
+  @SerializedName("tests_file")
+  private String testsFile = null;
+
   @SerializedName("version")
   private String version = null;
 
@@ -205,6 +208,24 @@ public class PackagesUploadMaven implements Serializable {
     this.sourcesFile = sourcesFile;
   }
 
+  public PackagesUploadMaven testsFile(String testsFile) {
+    this.testsFile = testsFile;
+    return this;
+  }
+
+   /**
+   * Adds bundled Java tests to the Maven package.
+   * @return testsFile
+  **/
+  @ApiModelProperty(example = "y1234456789e", value = "Adds bundled Java tests to the Maven package.")
+  public String getTestsFile() {
+    return testsFile;
+  }
+
+  public void setTestsFile(String testsFile) {
+    this.testsFile = testsFile;
+  }
+
   public PackagesUploadMaven version(String version) {
     this.version = version;
     return this;
@@ -241,12 +262,13 @@ public class PackagesUploadMaven implements Serializable {
         Objects.equals(this.pomFile, packagesUploadMaven.pomFile) &&
         Objects.equals(this.republish, packagesUploadMaven.republish) &&
         Objects.equals(this.sourcesFile, packagesUploadMaven.sourcesFile) &&
+        Objects.equals(this.testsFile, packagesUploadMaven.testsFile) &&
         Objects.equals(this.version, packagesUploadMaven.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, version);
+    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, testsFile, version);
   }
 
 
@@ -263,6 +285,7 @@ public class PackagesUploadMaven implements Serializable {
     sb.append("    pomFile: ").append(toIndentedString(pomFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
+    sb.append("    testsFile: ").append(toIndentedString(testsFile)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -80,6 +80,12 @@ describe 'PackagesValidateuploadMaven' do
     end
   end
 
+  describe 'test attribute "tests_file"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "version"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**PackagesStatus**](PackagesApi.md#PackagesStatus) | **Get** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
 [**PackagesUploadAlpine**](PackagesApi.md#PackagesUploadAlpine) | **Post** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**PackagesUploadCargo**](PackagesApi.md#PackagesUploadCargo) | **Post** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
+[**PackagesUploadCocoapods**](PackagesApi.md#PackagesUploadCocoapods) | **Post** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
 [**PackagesUploadComposer**](PackagesApi.md#PackagesUploadComposer) | **Post** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**PackagesUploadCran**](PackagesApi.md#PackagesUploadCran) | **Post** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
 [**PackagesUploadDart**](PackagesApi.md#PackagesUploadDart) | **Post** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**PackagesUploadVagrant**](PackagesApi.md#PackagesUploadVagrant) | **Post** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
 [**PackagesValidateUploadAlpine**](PackagesApi.md#PackagesValidateUploadAlpine) | **Post** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 [**PackagesValidateUploadCargo**](PackagesApi.md#PackagesValidateUploadCargo) | **Post** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
+[**PackagesValidateUploadCocoapods**](PackagesApi.md#PackagesValidateUploadCocoapods) | **Post** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
 [**PackagesValidateUploadComposer**](PackagesApi.md#PackagesValidateUploadComposer) | **Post** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**PackagesValidateUploadCran**](PackagesApi.md#PackagesValidateUploadCran) | **Post** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
 [**PackagesValidateUploadDart**](PackagesApi.md#PackagesValidateUploadDart) | **Post** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
@@ -317,6 +319,37 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **data** | [**PackagesUploadCargo**](PackagesUploadCargo.md)|  | [optional] 
+
+### Return type
+
+[**ModelPackage**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PackagesUploadCocoapods**
+> ModelPackage PackagesUploadCocoapods($owner, $repo, $data)
+
+Create a new CocoaPods package
+
+Create a new CocoaPods package
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **data** | [**PackagesUploadCocoapods**](PackagesUploadCocoapods.md)|  | [optional] 
 
 ### Return type
 
@@ -875,6 +908,37 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **data** | [**PackagesValidateuploadCargo**](PackagesValidateuploadCargo.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PackagesValidateUploadCocoapods**
+> PackagesValidateUploadCocoapods($owner, $repo, $data)
+
+Validate parameters for create CocoaPods package
+
+Validate parameters for create CocoaPods package
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **data** | [**PackagesValidateuploadCocoapods**](PackagesValidateuploadCocoapods.md)|  | [optional] 
 
 ### Return type
 

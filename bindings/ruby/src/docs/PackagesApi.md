@@ -13,8 +13,10 @@ Method | HTTP request | Description
 [**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
 [**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**packages_upload_cargo**](PackagesApi.md#packages_upload_cargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
+[**packages_upload_cocoapods**](PackagesApi.md#packages_upload_cocoapods) | **POST** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
 [**packages_upload_composer**](PackagesApi.md#packages_upload_composer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**packages_upload_cran**](PackagesApi.md#packages_upload_cran) | **POST** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
+[**packages_upload_dart**](PackagesApi.md#packages_upload_dart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 [**packages_upload_deb**](PackagesApi.md#packages_upload_deb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packages_upload_docker**](PackagesApi.md#packages_upload_docker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
 [**packages_upload_go**](PackagesApi.md#packages_upload_go) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
@@ -30,8 +32,10 @@ Method | HTTP request | Description
 [**packages_upload_vagrant**](PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
 [**packages_validate_upload_alpine**](PackagesApi.md#packages_validate_upload_alpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 [**packages_validate_upload_cargo**](PackagesApi.md#packages_validate_upload_cargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
+[**packages_validate_upload_cocoapods**](PackagesApi.md#packages_validate_upload_cocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
 [**packages_validate_upload_composer**](PackagesApi.md#packages_validate_upload_composer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**packages_validate_upload_cran**](PackagesApi.md#packages_validate_upload_cran) | **POST** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
+[**packages_validate_upload_dart**](PackagesApi.md#packages_validate_upload_dart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 [**packages_validate_upload_deb**](PackagesApi.md#packages_validate_upload_deb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**packages_validate_upload_docker**](PackagesApi.md#packages_validate_upload_docker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
 [**packages_validate_upload_go**](PackagesApi.md#packages_validate_upload_go) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
@@ -650,6 +654,72 @@ Name | Type | Description  | Notes
 
 
 
+# **packages_upload_cocoapods**
+> Package packages_upload_cocoapods(owner, repo, opts)
+
+Create a new CocoaPods package
+
+Create a new CocoaPods package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadCocoapods.new # PackagesUploadCocoapods | 
+}
+
+begin
+  #Create a new CocoaPods package
+  result = api_instance.packages_upload_cocoapods(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_cocoapods: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadCocoapods**](PackagesUploadCocoapods.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_upload_composer**
 > Package packages_upload_composer(owner, repo, opts)
 
@@ -766,6 +836,72 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesUploadCran**](PackagesUploadCran.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_upload_dart**
+> Package packages_upload_dart(owner, repo, opts)
+
+Create a new Dart package
+
+Create a new Dart package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadDart.new # PackagesUploadDart | 
+}
+
+begin
+  #Create a new Dart package
+  result = api_instance.packages_upload_dart(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_dart: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadDart**](PackagesUploadDart.md)|  | [optional] 
 
 ### Return type
 
@@ -1770,6 +1906,71 @@ nil (empty response body)
 
 
 
+# **packages_validate_upload_cocoapods**
+> packages_validate_upload_cocoapods(owner, repo, opts)
+
+Validate parameters for create CocoaPods package
+
+Validate parameters for create CocoaPods package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadCocoapods.new # PackagesValidateuploadCocoapods | 
+}
+
+begin
+  #Validate parameters for create CocoaPods package
+  api_instance.packages_validate_upload_cocoapods(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_cocoapods: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadCocoapods**](PackagesValidateuploadCocoapods.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_validate_upload_composer**
 > packages_validate_upload_composer(owner, repo, opts)
 
@@ -1884,6 +2085,71 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesValidateuploadCran**](PackagesValidateuploadCran.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_validate_upload_dart**
+> packages_validate_upload_dart(owner, repo, opts)
+
+Validate parameters for create Dart package
+
+Validate parameters for create Dart package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadDart.new # PackagesValidateuploadDart | 
+}
+
+begin
+  #Validate parameters for create Dart package
+  api_instance.packages_validate_upload_dart(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_dart: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadDart**](PackagesValidateuploadDart.md)|  | [optional] 
 
 ### Return type
 

@@ -24,6 +24,7 @@ import io.cloudsmith.api.models.PackagesMove;
 import io.cloudsmith.api.models.PackagesResync;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadCargo;
+import io.cloudsmith.api.models.PackagesUploadCocoapods;
 import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadCran;
 import io.cloudsmith.api.models.PackagesUploadDart;
@@ -42,6 +43,7 @@ import io.cloudsmith.api.models.PackagesUploadRuby;
 import io.cloudsmith.api.models.PackagesUploadVagrant;
 import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
 import io.cloudsmith.api.models.PackagesValidateuploadCargo;
+import io.cloudsmith.api.models.PackagesValidateuploadCocoapods;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadCran;
 import io.cloudsmith.api.models.PackagesValidateuploadDart;
@@ -241,6 +243,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesUploadCargo data = null;
         ModelPackage response = api.packagesUploadCargo(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new CocoaPods package
+     *
+     * Create a new CocoaPods package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadCocoapodsTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadCocoapods data = null;
+        ModelPackage response = api.packagesUploadCocoapods(owner, repo, data);
 
         // TODO: test validations
     }
@@ -565,6 +585,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadCargo data = null;
         api.packagesValidateUploadCargo(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create CocoaPods package
+     *
+     * Validate parameters for create CocoaPods package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadCocoapodsTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadCocoapods data = null;
+        api.packagesValidateUploadCocoapods(owner, repo, data);
 
         // TODO: test validations
     }

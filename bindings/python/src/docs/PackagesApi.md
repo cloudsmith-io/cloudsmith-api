@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
 [**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**packages_upload_cargo**](PackagesApi.md#packages_upload_cargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
+[**packages_upload_cocoapods**](PackagesApi.md#packages_upload_cocoapods) | **POST** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
 [**packages_upload_composer**](PackagesApi.md#packages_upload_composer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**packages_upload_cran**](PackagesApi.md#packages_upload_cran) | **POST** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
 [**packages_upload_dart**](PackagesApi.md#packages_upload_dart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**packages_upload_vagrant**](PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
 [**packages_validate_upload_alpine**](PackagesApi.md#packages_validate_upload_alpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 [**packages_validate_upload_cargo**](PackagesApi.md#packages_validate_upload_cargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
+[**packages_validate_upload_cocoapods**](PackagesApi.md#packages_validate_upload_cocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
 [**packages_validate_upload_composer**](PackagesApi.md#packages_validate_upload_composer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**packages_validate_upload_cran**](PackagesApi.md#packages_validate_upload_cran) | **POST** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
 [**packages_validate_upload_dart**](PackagesApi.md#packages_validate_upload_dart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
@@ -591,6 +593,67 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **data** | [**PackagesUploadCargo**](PackagesUploadCargo.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_upload_cocoapods**
+> Package packages_upload_cocoapods(owner, repo, data=data)
+
+Create a new CocoaPods package
+
+Create a new CocoaPods package
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi()
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.PackagesUploadCocoapods() # PackagesUploadCocoapods |  (optional)
+
+try: 
+    # Create a new CocoaPods package
+    api_response = api_instance.packages_upload_cocoapods(owner, repo, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_upload_cocoapods: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**PackagesUploadCocoapods**](PackagesUploadCocoapods.md)|  | [optional] 
 
 ### Return type
 
@@ -1687,6 +1750,66 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **data** | [**PackagesValidateuploadCargo**](PackagesValidateuploadCargo.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_validate_upload_cocoapods**
+> packages_validate_upload_cocoapods(owner, repo, data=data)
+
+Validate parameters for create CocoaPods package
+
+Validate parameters for create CocoaPods package
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure API key authorization: csrf_token
+cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# cloudsmith_api.configuration.api_key_prefix['X-CSRFToken'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi()
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.PackagesValidateuploadCocoapods() # PackagesValidateuploadCocoapods |  (optional)
+
+try: 
+    # Validate parameters for create CocoaPods package
+    api_instance.packages_validate_upload_cocoapods(owner, repo, data=data)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_validate_upload_cocoapods: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**PackagesValidateuploadCocoapods**](PackagesValidateuploadCocoapods.md)|  | [optional] 
 
 ### Return type
 

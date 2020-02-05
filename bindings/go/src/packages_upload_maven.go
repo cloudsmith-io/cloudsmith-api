@@ -36,6 +36,9 @@ type PackagesUploadMaven struct {
 	// Adds bundled Java source code to the Maven package.
 	SourcesFile string `json:"sources_file,omitempty"`
 
+	// Adds bundled Java tests to the Maven package.
+	TestsFile string `json:"tests_file,omitempty"`
+
 	// The raw version for this package.
 	Version string `json:"version,omitempty"`
 }
