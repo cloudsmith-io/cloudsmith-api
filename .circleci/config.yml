@@ -1,0 +1,164 @@
+version: 2.1
+commands:
+  build:
+    description: "Build the bindings for a language"
+    parameters:
+      language:
+        type: string
+    steps:
+      - run: ./scripts/build.sh <<parameters.language>>
+  cache_bindings:
+    description: "Cache the bindings for a language"
+    parameters:
+      language:
+        type: string
+    steps:
+      - save_cache:
+          paths:
+            - ./bindings/<<parameters.language>>/src
+          key: <<parameters.language>>-bindings-{{ checksum "bindings/<<parameters.language>>/src/build.json" }}
+  restore_bindings:
+    description: "Restore the cached bindings for a language"
+    parameters:
+      language:
+        type: string
+    steps:
+      - restore_cache:
+          key: <<parameters.language>>-bindings-{{ checksum "bindings/<<parameters.language>>/src/build.json" }}
+  test:
+    description: "Test the bindings for a language"
+    parameters:
+      language:
+        type: string
+    steps:
+      - run: ./scripts/test.sh <<parameters.language>>
+  deploy:
+    description: "Deploy the bindings for a language"
+    parameters:
+      language:
+        type: string
+    steps:
+      - run: ./scripts/deploy.sh <<parameters.language>>
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8
+    steps:
+      - checkout
+      - build:
+          language: "java"
+      - build:
+          language: "go"
+      - build:
+          language: "python"
+      - build:
+          language: "ruby"
+      - cache_bindings:
+          language: "java"
+      - cache_bindings:
+          language: "go"
+      - cache_bindings:
+          language: "python"
+      - cache_bindings:
+          language: "ruby"
+  test:
+    description: "Tests the bindings for a language"
+    parameters:
+      docker_image:
+        type: string
+      language:
+        type: string
+    docker:
+      - image: <<parameters.docker_image>>
+    steps:
+      - checkout
+      - restore_bindings:
+          language: <<parameters.language>>
+      - test:
+          language: <<parameters.language>>
+  deploy:
+    description: "Deploys the bindings for a language"
+    parameters:
+      docker_image:
+        type: string
+      language:
+        type: string
+    docker:
+      - image: <<parameters.docker_image>>
+        auth:
+          username: token
+          password: $CLOUDSMITH_PRODUCTION_API_KEY
+    steps:
+      - checkout
+      - restore_bindings:
+          language: <<parameters.language>>
+      - deploy:
+          language: <<parameters.language>>
+
+workflow:
+  version: 2
+
+  commit:
+    jobs:
+      - build
+      - test:
+          name: "Test Java"
+          language: java
+          docker_image: circleci/openjdk:11
+          requires:
+            - build
+      - deploy:
+          name: "Deploy Java"
+          language: java
+          docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/openjdk:11.0.3-jdk-stretch
+          requires:
+            - "Test Java"
+          filters:
+            branches:
+              only: master
+      - test:
+          name: "Test Go"
+          language: go
+          docker_image: circleci/go:1.13
+          requires:
+            - build
+      - deploy:
+          name: "Deploy Go"
+          language: go
+          docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/go:1.13-rc
+          requires:
+            - "Test Go"
+          filters:
+            branches:
+              only: master
+      - test:
+          name: "Test Ruby"
+          language: ruby
+          docker_image: circleci/ruby:2.6
+          requires:
+            - build
+      - deploy:
+          name: "Deploy Ruby"
+          language: ruby
+          docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/ruby:2.6.1
+          requires:
+            - "Test Ruby"
+          filters:
+            branches:
+              only: master
+      - test:
+          name: "Test Python"
+          language: python
+          docker_image: circleci/python:3.7
+          requires:
+            - build
+      - deploy:
+          name: "Deploy Python"
+          language: python
+          docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/python:3.7.2
+          requires:
+            - "Test Python"
+          filters:
+            branches:
+              only: master
