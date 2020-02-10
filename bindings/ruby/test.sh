@@ -8,5 +8,6 @@ src_dir="$self_dir/src"
 
 cd $src_dir
 rm -f *.gem
+gem install bundler
 bundle install --path vendor/bundle --clean
 bundle exec rake spec
