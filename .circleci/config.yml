@@ -50,7 +50,7 @@ commands:
       - run: ./scripts/deploy.sh <<parameters.language>>
 
 jobs:
-  build_bindings:
+  build:
     docker:
       - image: circleci/openjdk:8
     steps:
@@ -71,7 +71,7 @@ jobs:
           language: "python"
       - cache_bindings:
           language: "ruby"
-  test_bindings:
+  test:
     description: "Tests the bindings for a language"
     parameters:
       docker_image:
@@ -86,7 +86,7 @@ jobs:
           language: <<parameters.language>>
       - test_bindings:
           language: <<parameters.language>>
-  deploy_bindings:
+  deploy:
     description: "Deploys the bindings for a language"
     parameters:
       docker_image:
@@ -109,10 +109,10 @@ workflow:
   version: 2
   commit:
     jobs:
-      - build_bindings
-      - test_bindings:
+      - build
+      - test:
           requires:
-            - build_bindings
+            - build
           name: "Test Java"
           language: java
           docker_image: circleci/openjdk:11
@@ -125,9 +125,9 @@ workflow:
           name: "Deploy Java"
           language: java
           docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/openjdk:11.0.3-jdk-stretch
-      - test_bindings:
+      - test:
           requires:
-            - build_bindings
+            - build
           name: "Test Go"
           language: go
           docker_image: circleci/go:1.13
@@ -140,9 +140,9 @@ workflow:
           name: "Deploy Go"
           language: go
           docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/go:1.13-rc
-      - test_bindings:
+      - test:
           requires:
-            - build_bindings
+            - build
           name: "Test Ruby"
           language: ruby
           docker_image: circleci/ruby:2.6
@@ -155,9 +155,9 @@ workflow:
           name: "Deploy Ruby"
           language: ruby
           docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/ruby:2.6.1
-      - test_bindings:
+      - test:
           requires:
-            - build_bindings
+            - build
           name: "Test Python"
           language: python
           docker_image: circleci/python:3.7
