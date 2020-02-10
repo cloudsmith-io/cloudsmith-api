@@ -7,7 +7,7 @@ root_dir=$(readlink -f "$self_dir/../..")
 src_dir="$self_dir/src"
 
 install_dependencies() {
-  pip install --upgrade twine
+  pip install --upgrade --user twine
 }
 
 build_distribution() {
