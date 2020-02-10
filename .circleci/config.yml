@@ -98,7 +98,6 @@ jobs:
 
 workflow:
   version: 2
-
   commit:
     jobs:
       - build
