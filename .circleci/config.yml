@@ -109,9 +109,9 @@ jobs:
       - deploy_bindings:
           language: <<parameters.language>>
 
-workflow:
+workflows:
   version: 2
-  commit:
+  build_test_and_deploy:
     jobs:
       - build
       - test:
