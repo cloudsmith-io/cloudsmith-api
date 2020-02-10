@@ -54,6 +54,7 @@ EOH
 
 upload_to_cloudsmith() {
   echo "Uploading to Cloudsmith ..."
+  export PATH="$HOME/.local/bin:$PATH"
   cloudsmith push ruby \
     ${cloudsmith_repo_api} \
     ${project_dash}-${api_version}.gem \
