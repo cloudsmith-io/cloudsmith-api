@@ -100,7 +100,7 @@ jobs:
     docker:
       - image: <<parameters.docker_image>>
         auth:
-          username: token
+          username: cloudsmith/circleci-images
           password: $CLOUDSMITH_PRODUCTION_API_KEY
     steps:
       - checkout
