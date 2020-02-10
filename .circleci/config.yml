@@ -47,10 +47,7 @@ commands:
       language:
         type: string
     steps:
-      - run:
-          command: |
-            echo "Hello, world!"
-            # ./scripts/deploy.sh <<parameters.language>>
+      - run: ./scripts/deploy.sh <<parameters.language>>
 
 jobs:
   build:
@@ -123,6 +120,10 @@ workflows:
       - deploy_bindings:
           requires:
             - "Test Java"
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
           name: "Deploy Java"
           language: java
           docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/openjdk:11.0.3-jdk-stretch
@@ -135,6 +136,10 @@ workflows:
       - deploy_bindings:
           requires:
             - "Test Go"
+          # filters:
+          #   branches:
+          #    only:
+          #      - master
           name: "Deploy Go"
           language: go
           docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/go:1.13-rc
@@ -147,6 +152,10 @@ workflows:
       - deploy_bindings:
           requires:
             - "Test Ruby"
+          # filters:
+          #   branches:
+          #    only:
+          #      - master
           name: "Deploy Ruby"
           language: ruby
           docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/ruby:2.6.1
@@ -159,6 +168,10 @@ workflows:
       - deploy_bindings:
           requires:
             - "Test Python"
+          # filters:
+          #   branches:
+          #    only:
+          #      - master
           name: "Deploy Python"
           language: python
           docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/python:3.7.2
