@@ -9,6 +9,7 @@ src_dir="$self_dir/src"
 build_distribution() {
   echo "Building distribution ..."
   rm -f *.gem
+  gem update bundler
   bundle install --path vendor/bundle --clean
   gem build ${project_dash}.gemspec
 }
