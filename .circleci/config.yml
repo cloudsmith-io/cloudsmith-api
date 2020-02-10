@@ -55,6 +55,7 @@ jobs:
       - image: circleci/openjdk:8
     steps:
       - checkout
+      - prepare_environment
       - build_bindings:
           language: "java"
       - build_bindings:
