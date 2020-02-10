@@ -6,6 +6,9 @@ commands:
       language:
         type: string
     steps:
+      - run: sudo apt install -y git-lfs
+      - run: git lfs install
+      - run: git lfs pull
       - run: ./scripts/build.sh <<parameters.language>>
   cache_bindings:
     description: "Cache the bindings for a language"
