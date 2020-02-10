@@ -131,7 +131,7 @@ workflows:
             - build
           name: "Test Go"
           language: go
-          docker_image: circleci/go:1.13
+          docker_image: circleci/golang:1.13
       - deploy_bindings:
           requires:
             - "Test Go"
