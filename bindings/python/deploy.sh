@@ -6,6 +6,10 @@ root_dir=$(readlink -f "$self_dir/../..")
 
 src_dir="$self_dir/src"
 
+install_dependencies() {
+  pip install --update twine
+}
+
 build_distribution() {
   echo "Building distribution ..."
   python setup.py bdist_wheel --universal
@@ -41,6 +45,7 @@ upload_to_cloudsmith() {
 
 set -e
 cd $src_dir
+install_dependencies
 build_distribution
 upload_to_pypi
 upload_to_cloudsmith
