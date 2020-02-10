@@ -90,7 +90,7 @@ jobs:
           language: <<parameters.language>>
       - test_bindings:
           language: <<parameters.language>>
-  deploy:
+  deploy_bindings:
     description: "Deploys the bindings for a language"
     parameters:
       docker_image:
