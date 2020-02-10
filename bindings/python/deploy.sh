@@ -8,6 +8,7 @@ src_dir="$self_dir/src"
 
 install_dependencies() {
   pip install --upgrade --user twine
+  export PATH="$HOME/.local/bin:$PATH"
 }
 
 build_distribution() {
