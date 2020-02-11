@@ -126,10 +126,10 @@ workflows:
       - deploy_bindings:
           requires:
             - "Test Java"
-          # filters:
-          #   branches:
-          #     only:
-          #       - master
+          filters:
+            branches:
+              only:
+                - master
           name: "Deploy Java"
           language: java
           docker_image: circleci/openjdk:8
@@ -142,10 +142,10 @@ workflows:
       - deploy_bindings:
           requires:
             - "Test Go"
-          # filters:
-          #   branches:
-          #    only:
-          #      - master
+          filters:
+            branches:
+             only:
+               - master
           name: "Deploy Go"
           language: go
           docker_image: circleci/golang:1.13
@@ -158,10 +158,10 @@ workflows:
       - deploy_bindings:
           requires:
             - "Test Ruby"
-          # filters:
-          #   branches:
-          #    only:
-          #      - master
+          filters:
+            branches:
+             only:
+               - master
           name: "Deploy Ruby"
           language: ruby
           docker_image: circleci/ruby:2.6
@@ -174,10 +174,10 @@ workflows:
       - deploy_bindings:
           requires:
             - "Test Python"
-          # filters:
-          #   branches:
-          #    only:
-          #      - master
+          filters:
+            branches:
+             only:
+               - master
           name: "Deploy Python"
           language: python
           docker_image: circleci/python:3.7
