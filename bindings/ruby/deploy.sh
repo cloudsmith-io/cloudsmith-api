@@ -15,18 +15,8 @@ build_distribution() {
 }
 
 check_if_rubygems_pushed() {
-  local curdir
-  curdir=$(pwd)
-  local tmpdir
-  tmpdir=$(mktemp -d)
-  cd "$tmpdir"
-
-  gem fetch cloudsmith-api -v ${api_version} | grep ERROR &>/dev/null
-  local does_not_exist=$?
-  rm -rf ./*.gem
-  cd "$curdir"
-
-  return $does_not_exist
+  # list all versions for the gem and search for the version we want to upload
+  gem search --remote --all cloudsmith-api | grep ${api_version}
 }
 
 upload_to_rubygems() {
@@ -37,8 +27,7 @@ upload_to_rubygems() {
     return 0
   }
 
-  local gem_args="\
-    ${project_dash}-${api_version}.gem"
+  local gem_args="${project_dash}-${api_version}.gem"
 
   if [[ "$CI" == "true" ]]
   then
@@ -49,6 +38,7 @@ upload_to_rubygems() {
 :rubygems_api_key: $RUBYGEMS_API_KEY
 EOH
       chmod 0600 "$HOME/.gem/credentials"
+
       gem push \
         "$gem_args" \
         -k rubygems
