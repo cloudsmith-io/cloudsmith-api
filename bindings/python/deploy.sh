@@ -32,15 +32,11 @@ upload_to_pypi() {
 upload_to_cloudsmith() {
   echo "Uploading to Cloudsmith ..."
 
-  cloudsmith_args="dist/${project_underscore}-${api_version}-py2.py3-none-any.whl --skip-errors"
+  distribution_filepath="dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
 
-  cloudsmith push python \
-    ${cloudsmith_repo_api} \
-    "${cloudsmith_args}"
+  cloudsmith push python --skip-errors ${cloudsmith_repo_api} "${distribution_filepath}"
 
-  cloudsmith push python \
-    ${cloudsmith_repo_cli} \
-    "${cloudsmith_args}"
+  cloudsmith push python --skip-errors ${cloudsmith_repo_cli} "${distribution_filepath}"
 }
 
 set -e
