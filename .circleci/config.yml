@@ -25,7 +25,7 @@ commands:
       - save_cache:
           paths:
             - ./bindings/<<parameters.language>>/src
-          key: <<parameters.language>>-bindings-{{ .Revision }}-{{ .BuildNum }}
+          key: <<parameters.language>>-bindings-{{ .Revision }}
   restore_bindings:
     description: "Restore the cached bindings for a language"
     parameters:
@@ -33,7 +33,7 @@ commands:
         type: string
     steps:
       - restore_cache:
-          key: <<parameters.language>>-bindings-{{ .Revision }}-{{ .BuildNum }}
+          key: <<parameters.language>>-bindings-{{ .Revision }}
   test_bindings:
     description: "Test the bindings for a language"
     parameters:
