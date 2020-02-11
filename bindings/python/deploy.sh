@@ -34,9 +34,9 @@ upload_to_cloudsmith() {
 
   distribution_filepath="dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
 
-  cloudsmith push python --skip-errors ${cloudsmith_repo_api} "${distribution_filepath}"
+  cloudsmith push python ${cloudsmith_repo_api} "${distribution_filepath}" --skip-errors
 
-  cloudsmith push python --skip-errors ${cloudsmith_repo_cli} "${distribution_filepath}"
+  cloudsmith push python ${cloudsmith_repo_cli} "${distribution_filepath}" --skip-errors
 }
 
 set -e
