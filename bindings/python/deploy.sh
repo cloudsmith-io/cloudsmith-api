@@ -19,7 +19,7 @@ build_distribution() {
 upload_to_pypi() {
   echo "Uploading to PyPi ..."
 
-  twine_args="--skip-existing --non-interactive dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
+  twine_args="--skip-existing --non-interactive $(pwd)/dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
 
   if [[ "$CI" == "true" ]]
   then 
