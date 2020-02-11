@@ -18,10 +18,9 @@ build_distribution() {
 
 upload_to_pypi() {
   echo "Uploading to PyPi ..."
-  twine_args="\
-    --skip-existing \
-    --non-interactive \
-    dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
+
+  twine_args=" --skip-existing --non-interactive dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
+
   if [[ "$CI" == "true" ]]
   then 
     {
@@ -37,19 +36,20 @@ upload_to_pypi() {
 
 upload_to_cloudsmith() {
   echo "Uploading to Cloudsmith ..."
-  cloudsmith_args="\
-    dist/${project_underscore}-${api_version}-py2.py3-none-any.whl \
-    --skip-errors"
+
+  cloudsmith_args="dist/${project_underscore}-${api_version}-py2.py3-none-any.whl --skip-errors"
+
   cloudsmith push python \
     ${cloudsmith_repo_api} \
     "${cloudsmith_args}"
+
   cloudsmith push python \
     ${cloudsmith_repo_cli} \
     "${cloudsmith_args}"
 }
 
 set -e
-cd $src_dir
+cd "$src_dir"
 install_dependencies
 build_distribution
 upload_to_pypi
