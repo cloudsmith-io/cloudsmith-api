@@ -20,6 +20,7 @@ upload_to_pypi() {
   echo "Uploading to PyPi ..."
   twine_args="\
     --skip-existing \
+    --non-interactive \
     dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
   test "$CI" == "true" && {
       twine upload \
