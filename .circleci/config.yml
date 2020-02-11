@@ -1,6 +1,6 @@
 version: 2.1
 commands:
-  prepare_environment:
+  prepare_build_environment:
     description: "Install the tools necessary to build the bindings"
     steps:
       - run:
@@ -41,6 +41,14 @@ commands:
         type: string
     steps:
       - run: ./scripts/test.sh <<parameters.language>>
+  prepare_deploy_environment:
+    description: "Prepare the environment used to deploy the API bindings"
+    steps:
+      - run:
+          command: |
+            sudo apt update
+            sudo apt-get install --no-upgrade -y gettext python python-pip
+            pip install --no-cache --user cloudsmith-cli
   deploy_bindings:
     description: "Deploy the bindings for a language"
     parameters:
@@ -55,7 +63,7 @@ jobs:
       - image: circleci/openjdk:8
     steps:
       - checkout
-      - prepare_environment
+      - prepare_build_environment
       - build_bindings:
           language: "java"
       - build_bindings:
@@ -103,6 +111,7 @@ jobs:
       - checkout
       - restore_bindings:
           language: <<parameters.language>>
+      - prepare_deploy_environment
       - deploy_bindings:
           language: <<parameters.language>>
 
