@@ -31,21 +31,19 @@ upload_to_rubygems() {
 
   if [[ "$CI" == "true" ]]
   then
-    {
-      mkdir -p "$HOME/.gem"
-      cat > "$HOME/.gem/credentials" <<-EOH
+    mkdir -p "$HOME/.gem"
+    cat > "$HOME/.gem/credentials" <<-EOH
 ---
 :rubygems_api_key: $RUBYGEMS_API_KEY
 EOH
-      chmod 0600 "$HOME/.gem/credentials"
+    chmod 0600 "$HOME/.gem/credentials"
 
-      gem push \
-        "$gem_args" \
-        -k rubygems
-    } || {
-      gem push \
-        "$gem_args"
-    }
+    gem push \
+      "$gem_args" \
+      -k rubygems
+  else
+    gem push \
+      "$gem_args"
   fi
 }
 

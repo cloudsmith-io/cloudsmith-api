@@ -23,14 +23,12 @@ upload_to_pypi() {
 
   if [[ "$CI" == "true" ]]
   then 
-    {
-      twine upload \
-        -u csm-api-bot \
-        -p "$PYPI_PASSWORD" \
-        "$twine_args"
-    } || {
-      twine upload "$twine_args"
-    }
+    twine upload \
+      -u csm-api-bot \
+      -p "$PYPI_PASSWORD" \
+      "$twine_args"
+  else
+    twine upload "$twine_args"
   fi
 }
 
