@@ -48,6 +48,7 @@ upload_to_rubygems() {
 ---
 :rubygems_api_key: $RUBYGEMS_API_KEY
 EOH
+      chmod 0600 "$HOME/.gem/credentials"
       gem push \
         "$gem_args" \
         -k rubygems
