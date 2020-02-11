@@ -37,7 +37,7 @@ upload_to_rubygems() {
   local gem_args="\
     ${project_dash}-${api_version}.gem"
 
-  test "$TRAVIS" == "true" && {
+  test "$CI" == "true" && {
     mkdir -p $HOME/.gem
     cat > $HOME/.gem/credentials <<-EOH
 ---

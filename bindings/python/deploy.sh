@@ -21,7 +21,7 @@ upload_to_pypi() {
   twine_args="\
     --skip-existing \
     dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
-  test "$TRAVIS" == "true" && {
+  test "$CI" == "true" && {
       twine upload \
         -u csm-api-bot \
         -p $PYPI_PASSWORD \
