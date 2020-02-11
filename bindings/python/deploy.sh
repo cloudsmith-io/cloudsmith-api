@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 self=$(readlink -f $BASH_SOURCE)
-self_dir=$(dirname $self)
+self_dir="$(dirname $self)"
 root_dir=$(readlink -f "$self_dir/../..")
 . $root_dir/scripts/common.sh $1
 
@@ -22,14 +22,17 @@ upload_to_pypi() {
     --skip-existing \
     --non-interactive \
     dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
-  test "$CI" == "true" && {
+  if [[ "$CI" == "true" ]]
+  then 
+    {
       twine upload \
         -u csm-api-bot \
-        -p $PYPI_PASSWORD \
-        $twine_args
-  } || {
-      twine upload $twine_args
-  }
+        -p "$PYPI_PASSWORD" \
+        "$twine_args"
+    } || {
+      twine upload "$twine_args"
+    }
+  fi
 }
 
 upload_to_cloudsmith() {
@@ -39,10 +42,10 @@ upload_to_cloudsmith() {
     --skip-errors"
   cloudsmith push python \
     ${cloudsmith_repo_api} \
-    ${cloudsmith_args}
+    "${cloudsmith_args}"
   cloudsmith push python \
     ${cloudsmith_repo_cli} \
-    ${cloudsmith_args}
+    "${cloudsmith_args}"
 }
 
 set -e
