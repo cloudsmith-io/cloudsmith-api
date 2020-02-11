@@ -14,10 +14,12 @@ build_distribution() {
   gem build ${project_dash}.gemspec
 }
 
-check_rubygems_not_pushed() {
-  local curdir=$(pwd)
-  local tmpdir=$(mktemp -d)
-  cd $tmpdir
+check_if_rubygems_pushed() {
+  local curdir
+  curdir=$(pwd)
+  local tmpdir
+  tmpdir=$(mktemp -d)
+  cd "$tmpdir"
 
   gem fetch cloudsmith-api -v ${api_version} | grep ERROR &>/dev/null
   local does_not_exist=$?
@@ -30,7 +32,8 @@ check_rubygems_not_pushed() {
 upload_to_rubygems() {
   echo "Uploading to Rubygems ..."
 
-  check_rubygems_not_pushed || {
+  check_if_rubygems_pushed && {
+    echo "Gem version already exists, not pushing to Rubygems"
     return 0
   }
 
