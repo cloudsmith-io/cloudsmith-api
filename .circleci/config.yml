@@ -48,7 +48,7 @@ commands:
           command: |
             sudo apt update
             sudo apt-get install --no-upgrade -y gettext python python-pip
-            pip install --no-cache --user cloudsmith-cli
+            pip install --no-cache --upgrade --user cloudsmith-cli
   deploy_bindings:
     description: "Deploy the bindings for a language"
     parameters:
@@ -104,9 +104,6 @@ jobs:
         type: string
     docker:
       - image: <<parameters.docker_image>>
-        auth:
-          username: cloudsmith/circleci-images
-          password: $CLOUDSMITH_PRODUCTION_API_KEY
     steps:
       - checkout
       - restore_bindings:
@@ -151,7 +148,7 @@ workflows:
           #      - master
           name: "Deploy Go"
           language: go
-          docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/go:1.13-rc
+          docker_image: circleci/golang:1.13
       - test:
           requires:
             - build
@@ -167,7 +164,7 @@ workflows:
           #      - master
           name: "Deploy Ruby"
           language: ruby
-          docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/ruby:2.6.1
+          docker_image: circleci/ruby:2.6
       - test:
           requires:
             - build
@@ -183,4 +180,4 @@ workflows:
           #      - master
           name: "Deploy Python"
           language: python
-          docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/python:3.7.2
+          docker_image: circleci/python:3.7
