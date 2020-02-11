@@ -125,7 +125,7 @@ workflows:
             - build
           name: "Test Java"
           language: java
-          docker_image: circleci/openjdk:11
+          docker_image: circleci/openjdk:8
       - deploy_bindings:
           requires:
             - "Test Java"
@@ -135,7 +135,7 @@ workflows:
           #       - master
           name: "Deploy Java"
           language: java
-          docker_image: docker.cloudsmith.io/cloudsmith/circleci-images/openjdk:11.0.3-jdk-stretch
+          docker_image: circleci/openjdk:8
       - test:
           requires:
             - build
