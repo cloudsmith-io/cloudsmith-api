@@ -19,14 +19,13 @@ build_distribution() {
 upload_to_pypi() {
   echo "Uploading to PyPi ..."
 
-  twine_args="--skip-existing --non-interactive"
   distribution_filepath="dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
 
   if [[ "$CI" == "true" ]]
   then 
-    twine upload -u csm-api-bot -p "$PYPI_PASSWORD" "$twine_args" "$distribution_filepath"
+    twine upload -u csm-api-bot -p "$PYPI_PASSWORD" --skip-existing --non-interactive "$distribution_filepath"
   else
-    twine upload "$twine_args" "$distribution_filepath"
+    twine upload --skip-existing --non-interactive "$distribution_filepath" 
   fi
 }
 
