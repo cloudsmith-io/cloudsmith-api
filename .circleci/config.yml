@@ -47,8 +47,8 @@ commands:
       - run:
           command: |
             sudo apt update
-            sudo apt-get install --no-upgrade -y gettext python python-pip
-            pip install --no-cache --upgrade --user cloudsmith-cli
+            sudo apt-get install --no-upgrade -y gettext python3 python3-pip
+            pip3 install --no-cache --upgrade --user cloudsmith-cli
   deploy_bindings:
     description: "Deploy the bindings for a language"
     parameters:
