@@ -17,7 +17,7 @@ cat > $build_json <<EOC
     "gemAuthor": "$author",
     "gemAuthorEmail": "$author_email",
     "gemLicense": "$license_spdx",
-    "gemHomepage": "$api_url",
+    "gemHomepage": "$openapi_url",
     "gemName": "$project_dash",
     "gemRequiredRubyVersion": ">= 1.9",
     "gemSummary": "$summary",
@@ -30,7 +30,7 @@ EOC
 
 $root_dir/bin/swagger-codegen-cli generate \
     -c $build_json \
-    -i $api_url \
+    -i $openapi_url \
     -l ruby \
     -o $src_dir \
     $common_codegen_options

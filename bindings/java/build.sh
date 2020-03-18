@@ -15,7 +15,7 @@ cat > $build_json <<EOC
     "allowUnicodeIdentifiers": $allow_unicode_identifiers,
     "apiPackage": "io.cloudsmith.api.apis",
     "artifactId": "$project_dash",
-    "artifactUrl": "$api_url",
+    "artifactUrl": "$openapi_url",
     "artifactVersion": "$api_version",
     "artifactDescription": "$summary",
     "dateLibrary": "java8",
@@ -44,7 +44,7 @@ EOC
 
 $root_dir/bin/swagger-codegen-cli generate \
     -c $build_json \
-    -i $api_url \
+    -i $openapi_url \
     -l java \
     -o $src_dir \
     $common_codegen_options
