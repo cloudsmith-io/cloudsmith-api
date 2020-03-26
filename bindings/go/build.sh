@@ -20,7 +20,7 @@ EOC
 
 $root_dir/bin/swagger-codegen-cli generate \
     -c $build_json \
-    -i $api_url \
+    -i $openapi_url \
     -l go \
     -o $src_dir \
     $common_codegen_options

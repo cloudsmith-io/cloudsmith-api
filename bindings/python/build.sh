@@ -16,14 +16,14 @@ cat > $build_json <<EOC
     "packageName": "$project_underscore",
     "projectName": "$project_dash",
     "packageVersion": "$api_version",
-    "packageUrl": "$api_url",
+    "packageUrl": "$openapi_url",
     "sortParamsByRequiredFlag": $sort_params
 }
 EOC
 
 $root_dir/bin/swagger-codegen-cli generate \
     -c $build_json \
-    -i $api_url \
+    -i $openapi_url \
     -l python \
     -o $src_dir \
     $common_codegen_options

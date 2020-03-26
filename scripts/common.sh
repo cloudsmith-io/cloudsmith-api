@@ -2,6 +2,14 @@
 language=${1:-""}
 api_url=${2:-${api_url:-"https://api.cloudsmith.io/"}}
 api_version=$(curl -s "${api_url}status/check/basic/" | jq -r '.version')
+openapi_url="${api_url}?format=openapi"
+
+location=$(curl -s $openapi_url | grep Location | cut -d' ' -f2)
+[[ "$location" != "" ]] && {
+  openapi_scheme=$(echo $openapi_url | awk -F[/:] '{print $1}')
+  openapi_hostname=$(echo $openapi_url | awk -F[/:] '{print $4}')
+  openapi_url="${openapi_scheme}://${openapi_hostname}${location}"
+}
 
 # Bindings attributes/config
 allow_unicode_identifiers="true"
