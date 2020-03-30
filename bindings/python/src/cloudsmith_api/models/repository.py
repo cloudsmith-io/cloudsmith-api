@@ -117,16 +117,19 @@ class Repository(object):
           self.created_at = created_at
         if deleted_at is not None:
           self.deleted_at = deleted_at
-        self.description = description
+        if description is not None:
+          self.description = description
         if gpg_keys is not None:
           self.gpg_keys = gpg_keys
         if index_files is not None:
           self.index_files = index_files
-        self.is_open_source = is_open_source
-        self.is_private = is_private
-        self.is_public = is_public
-        if name is not None:
-          self.name = name
+        if is_open_source is not None:
+          self.is_open_source = is_open_source
+        if is_private is not None:
+          self.is_private = is_private
+        if is_public is not None:
+          self.is_public = is_public
+        self.name = name
         self.namespace = namespace
         if namespace_url is not None:
           self.namespace_url = namespace_url
@@ -148,8 +151,7 @@ class Repository(object):
           self.size = size
         if size_str is not None:
           self.size_str = size_str
-        if slug is not None:
-          self.slug = slug
+        self.slug = slug
         if slug_perm is not None:
           self.slug_perm = slug_perm
 
@@ -242,8 +244,6 @@ class Repository(object):
         :param description: The description of this Repository.
         :type: str
         """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")
 
         self._description = description
 
@@ -313,8 +313,6 @@ class Repository(object):
         :param is_open_source: The is_open_source of this Repository.
         :type: bool
         """
-        if is_open_source is None:
-            raise ValueError("Invalid value for `is_open_source`, must not be `None`")
 
         self._is_open_source = is_open_source
 
@@ -338,8 +336,6 @@ class Repository(object):
         :param is_private: The is_private of this Repository.
         :type: bool
         """
-        if is_private is None:
-            raise ValueError("Invalid value for `is_private`, must not be `None`")
 
         self._is_private = is_private
 
@@ -363,8 +359,6 @@ class Repository(object):
         :param is_public: The is_public of this Repository.
         :type: bool
         """
-        if is_public is None:
-            raise ValueError("Invalid value for `is_public`, must not be `None`")
 
         self._is_public = is_public
 
@@ -388,6 +382,8 @@ class Repository(object):
         :param name: The name of this Repository.
         :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")
 
         self._name = name
 
@@ -650,7 +646,7 @@ class Repository(object):
     def slug(self):
         """
         Gets the slug of this Repository.
-        The slug identifies the repository in URIs.
+        
 
         :return: The slug of this Repository.
         :rtype: str
@@ -661,11 +657,13 @@ class Repository(object):
     def slug(self, slug):
         """
         Sets the slug of this Repository.
-        The slug identifies the repository in URIs.
+        
 
         :param slug: The slug of this Repository.
         :type: str
         """
+        if slug is None:
+            raise ValueError("Invalid value for `slug`, must not be `None`")
 
         self._slug = slug
 

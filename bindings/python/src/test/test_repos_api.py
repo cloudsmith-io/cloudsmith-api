@@ -39,6 +39,22 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_create(self):
+        """
+        Test case for repos_create
+
+        Create a new repository in a given namespace.
+        """
+        pass
+
+    def test_repos_delete(self):
+        """
+        Test case for repos_delete
+
+        Delete a repository in a given namespace.
+        """
+        pass
+
     def test_repos_list(self):
         """
         Test case for repos_list
@@ -47,11 +63,19 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_partial_update(self):
+        """
+        Test case for repos_partial_update
+
+        Update details about a repository in a given namespace.
+        """
+        pass
+
     def test_repos_read(self):
         """
         Test case for repos_read
 
-        Views for working with repositories.
+        Get a specific repository.
         """
         pass
 

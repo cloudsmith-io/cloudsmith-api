@@ -5,8 +5,11 @@ All URIs are relative to *https://api.cloudsmith.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**reposAllList**](ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**reposCreate**](ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
+[**reposDelete**](ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{slug}/ | Delete a repository in a given namespace.
 [**reposList**](ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
-[**reposRead**](ReposApi.md#reposRead) | **GET** /repos/{owner}/{slug}/ | Views for working with repositories.
+[**reposPartialUpdate**](ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{slug}/ | Update details about a repository in a given namespace.
+[**reposRead**](ReposApi.md#reposRead) | **GET** /repos/{owner}/{slug}/ | Get a specific repository.
 
 
 <a name="reposAllList"></a>
@@ -62,6 +65,131 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;Repository&gt;**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="reposCreate"></a>
+# **reposCreate**
+> Repository reposCreate(owner, data)
+
+Create a new repository in a given namespace.
+
+Create a new repository in a given namespace.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: csrf_token
+ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
+csrf_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//csrf_token.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+ReposCreate data = new ReposCreate(); // ReposCreate | 
+try {
+    Repository result = apiInstance.reposCreate(owner, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **data** | [**ReposCreate**](ReposCreate.md)|  | [optional]
+
+### Return type
+
+[**Repository**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="reposDelete"></a>
+# **reposDelete**
+> reposDelete(owner, slug)
+
+Delete a repository in a given namespace.
+
+Delete a repository in a given namespace.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: csrf_token
+ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
+csrf_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//csrf_token.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String slug = "slug_example"; // String | 
+try {
+    apiInstance.reposDelete(owner, slug);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **slug** | **String**|  |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
@@ -137,13 +265,76 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+<a name="reposPartialUpdate"></a>
+# **reposPartialUpdate**
+> Repository reposPartialUpdate(owner, data)
+
+Update details about a repository in a given namespace.
+
+Update details about a repository in a given namespace.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: csrf_token
+ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
+csrf_token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//csrf_token.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+ReposPartialUpdate data = new ReposPartialUpdate(); // ReposPartialUpdate | 
+try {
+    Repository result = apiInstance.reposPartialUpdate(owner, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional]
+
+### Return type
+
+[**Repository**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
 <a name="reposRead"></a>
 # **reposRead**
 > Repository reposRead(owner, slug)
 
-Views for working with repositories.
+Get a specific repository.
 
-Views for working with repositories.
+Get a specific repository.
 
 ### Example
 ```java

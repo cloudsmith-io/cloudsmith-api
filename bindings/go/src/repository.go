@@ -22,7 +22,7 @@ type Repository struct {
 	DeletedAt string `json:"deleted_at,omitempty"`
 
 	// 
-	Description string `json:"description"`
+	Description string `json:"description,omitempty"`
 
 	// 
 	GpgKeys []ReposGpgKeys `json:"gpg_keys,omitempty"`
@@ -31,16 +31,16 @@ type Repository struct {
 	IndexFiles bool `json:"index_files,omitempty"`
 
 	// 
-	IsOpenSource bool `json:"is_open_source"`
+	IsOpenSource bool `json:"is_open_source,omitempty"`
 
 	// 
-	IsPrivate bool `json:"is_private"`
+	IsPrivate bool `json:"is_private,omitempty"`
 
 	// 
-	IsPublic bool `json:"is_public"`
+	IsPublic bool `json:"is_public,omitempty"`
 
 	// A descriptive name for the repository.
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 
 	// 
 	Namespace string `json:"namespace"`
@@ -75,8 +75,8 @@ type Repository struct {
 	// 
 	SizeStr string `json:"size_str,omitempty"`
 
-	// The slug identifies the repository in URIs.
-	Slug string `json:"slug,omitempty"`
+	// 
+	Slug string `json:"slug"`
 
 	// 
 	SlugPerm string `json:"slug_perm,omitempty"`

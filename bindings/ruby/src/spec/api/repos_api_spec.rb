@@ -45,6 +45,32 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_create
+  # Create a new repository in a given namespace.
+  # Create a new repository in a given namespace.
+  # @param owner 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ReposCreate] :data 
+  # @return [Repository]
+  describe 'repos_create test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_delete
+  # Delete a repository in a given namespace.
+  # Delete a repository in a given namespace.
+  # @param owner 
+  # @param slug 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_delete test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_list
   # Get a list of all repositories within a namespace.
   # Get a list of all repositories within a namespace.
@@ -59,9 +85,22 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_partial_update
+  # Update details about a repository in a given namespace.
+  # Update details about a repository in a given namespace.
+  # @param owner 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ReposPartialUpdate] :data 
+  # @return [Repository]
+  describe 'repos_partial_update test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_read
-  # Views for working with repositories.
-  # Views for working with repositories.
+  # Get a specific repository.
+  # Get a specific repository.
   # @param owner 
   # @param slug 
   # @param [Hash] opts the optional parameters
