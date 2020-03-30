@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 **cdn_url** | **String** |  | [optional] 
 **created_at** | **String** |  | [optional] 
 **deleted_at** | **String** |  | [optional] 
-**description** | **String** |  | 
+**description** | **String** |  | [optional] 
 **gpg_keys** | [**Array&lt;ReposGpgKeys&gt;**](ReposGpgKeys.md) |  | [optional] 
 **index_files** | **BOOLEAN** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. | [optional] 
-**is_open_source** | **BOOLEAN** |  | 
-**is_private** | **BOOLEAN** |  | 
-**is_public** | **BOOLEAN** |  | 
-**name** | **String** | A descriptive name for the repository. | [optional] 
+**is_open_source** | **BOOLEAN** |  | [optional] 
+**is_private** | **BOOLEAN** |  | [optional] 
+**is_public** | **BOOLEAN** |  | [optional] 
+**name** | **String** | A descriptive name for the repository. | 
 **namespace** | **String** |  | 
 **namespace_url** | **String** |  | [optional] 
 **num_downloads** | **Integer** | The number of downloads for packages in the repository. | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **self_url** | **String** |  | [optional] 
 **size** | **Integer** | The calculated size of the repository. | [optional] 
 **size_str** | **String** |  | [optional] 
-**slug** | **String** | The slug identifies the repository in URIs. | [optional] 
+**slug** | **String** |  | 
 **slug_perm** | **String** |  | [optional] 
 
 

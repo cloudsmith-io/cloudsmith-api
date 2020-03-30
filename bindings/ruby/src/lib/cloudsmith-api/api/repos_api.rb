@@ -71,6 +71,117 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Create a new repository in a given namespace.
+    # Create a new repository in a given namespace.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ReposCreate] :data 
+    # @return [Repository]
+    def repos_create(owner, opts = {})
+      data, _status_code, _headers = repos_create_with_http_info(owner, opts)
+      return data
+    end
+
+    # Create a new repository in a given namespace.
+    # Create a new repository in a given namespace.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ReposCreate] :data 
+    # @return [Array<(Repository, Fixnum, Hash)>] Repository data, response status code and response headers
+    def repos_create_with_http_info(owner, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ReposApi.repos_create ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_create"
+      end
+      # resource path
+      local_var_path = "/repos/{owner}/".sub('{' + 'owner' + '}', owner.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Repository')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a repository in a given namespace.
+    # Delete a repository in a given namespace.
+    # @param owner 
+    # @param slug 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_delete(owner, slug, opts = {})
+      repos_delete_with_http_info(owner, slug, opts)
+      return nil
+    end
+
+    # Delete a repository in a given namespace.
+    # Delete a repository in a given namespace.
+    # @param owner 
+    # @param slug 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_delete_with_http_info(owner, slug, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ReposApi.repos_delete ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_delete"
+      end
+      # verify the required parameter 'slug' is set
+      if @api_client.config.client_side_validation && slug.nil?
+        fail ArgumentError, "Missing the required parameter 'slug' when calling ReposApi.repos_delete"
+      end
+      # resource path
+      local_var_path = "/repos/{owner}/{slug}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'slug' + '}', slug.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of all repositories within a namespace.
     # Get a list of all repositories within a namespace.
     # @param owner 
@@ -128,8 +239,63 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Views for working with repositories.
-    # Views for working with repositories.
+    # Update details about a repository in a given namespace.
+    # Update details about a repository in a given namespace.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ReposPartialUpdate] :data 
+    # @return [Repository]
+    def repos_partial_update(owner, opts = {})
+      data, _status_code, _headers = repos_partial_update_with_http_info(owner, opts)
+      return data
+    end
+
+    # Update details about a repository in a given namespace.
+    # Update details about a repository in a given namespace.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ReposPartialUpdate] :data 
+    # @return [Array<(Repository, Fixnum, Hash)>] Repository data, response status code and response headers
+    def repos_partial_update_with_http_info(owner, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ReposApi.repos_partial_update ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_partial_update"
+      end
+      # resource path
+      local_var_path = "/repos/{owner}/{slug}/".sub('{' + 'owner' + '}', owner.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Repository')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a specific repository.
+    # Get a specific repository.
     # @param owner 
     # @param slug 
     # @param [Hash] opts the optional parameters
@@ -139,8 +305,8 @@ module CloudsmithApi
       return data
     end
 
-    # Views for working with repositories.
-    # Views for working with repositories.
+    # Get a specific repository.
+    # Get a specific repository.
     # @param owner 
     # @param slug 
     # @param [Hash] opts the optional parameters

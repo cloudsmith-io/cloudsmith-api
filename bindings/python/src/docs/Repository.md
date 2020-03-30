@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 **cdn_url** | **str** |  | [optional] 
 **created_at** | **str** |  | [optional] 
 **deleted_at** | **str** |  | [optional] 
-**description** | **str** |  | 
+**description** | **str** |  | [optional] 
 **gpg_keys** | [**list[ReposGpgKeys]**](ReposGpgKeys.md) |  | [optional] 
 **index_files** | **bool** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. | [optional] 
-**is_open_source** | **bool** |  | 
-**is_private** | **bool** |  | 
-**is_public** | **bool** |  | 
-**name** | **str** | A descriptive name for the repository. | [optional] 
+**is_open_source** | **bool** |  | [optional] 
+**is_private** | **bool** |  | [optional] 
+**is_public** | **bool** |  | [optional] 
+**name** | **str** | A descriptive name for the repository. | 
 **namespace** | **str** |  | 
 **namespace_url** | **str** |  | [optional] 
 **num_downloads** | **int** | The number of downloads for packages in the repository. | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **self_url** | **str** |  | [optional] 
 **size** | **int** | The calculated size of the repository. | [optional] 
 **size_str** | **str** |  | [optional] 
-**slug** | **str** | The slug identifies the repository in URIs. | [optional] 
+**slug** | **str** |  | 
 **slug_perm** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

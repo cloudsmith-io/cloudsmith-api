@@ -79,7 +79,9 @@ from .models.packages_validateupload_vagrant import PackagesValidateuploadVagran
 from .models.packagesownerrepo_architectures import PackagesownerrepoArchitectures
 from .models.packagesownerrepo_files import PackagesownerrepoFiles
 from .models.raw_package_upload import RawPackageUpload
+from .models.repos_create import ReposCreate
 from .models.repos_gpg_keys import ReposGpgKeys
+from .models.repos_partial_update import ReposPartialUpdate
 from .models.repository import Repository
 from .models.repository_token import RepositoryToken
 from .models.repository_token_refresh import RepositoryTokenRefresh

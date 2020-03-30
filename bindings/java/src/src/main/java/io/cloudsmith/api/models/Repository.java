@@ -168,8 +168,7 @@ public class Repository implements Serializable {
    * 
    * @return description
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
@@ -232,8 +231,7 @@ public class Repository implements Serializable {
    * 
    * @return isOpenSource
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Boolean getIsOpenSource() {
     return isOpenSource;
   }
@@ -251,8 +249,7 @@ public class Repository implements Serializable {
    * 
    * @return isPrivate
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Boolean getIsPrivate() {
     return isPrivate;
   }
@@ -270,8 +267,7 @@ public class Repository implements Serializable {
    * 
    * @return isPublic
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Boolean getIsPublic() {
     return isPublic;
   }
@@ -289,7 +285,8 @@ public class Repository implements Serializable {
    * A descriptive name for the repository.
    * @return name
   **/
-  @ApiModelProperty(value = "A descriptive name for the repository.")
+  @NotNull
+  @ApiModelProperty(required = true, value = "A descriptive name for the repository.")
   public String getName() {
     return name;
   }
@@ -503,10 +500,11 @@ public class Repository implements Serializable {
   }
 
    /**
-   * The slug identifies the repository in URIs.
+   * 
    * @return slug
   **/
-  @ApiModelProperty(value = "The slug identifies the repository in URIs.")
+  @NotNull
+  @ApiModelProperty(required = true, value = "")
   public String getSlug() {
     return slug;
   }

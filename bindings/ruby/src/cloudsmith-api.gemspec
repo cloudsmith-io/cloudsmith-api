@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Cloudsmith Ltd"]
   s.email       = ["support@cloudsmith.io"]
-  s.homepage    = "https://api.cloudsmith.io/"
+  s.homepage    = "https://api.cloudsmith.io/?format&#x3D;openapi"
   s.summary     = "Cloudsmith API"
   s.description = "The API to the Cloudsmith Service"
   s.license     = "Apache-2.0"

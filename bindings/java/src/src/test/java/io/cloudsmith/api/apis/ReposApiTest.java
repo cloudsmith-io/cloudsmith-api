@@ -14,6 +14,8 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.models.ReposCreate;
+import io.cloudsmith.api.models.ReposPartialUpdate;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
@@ -51,6 +53,40 @@ public class ReposApiTest {
     }
     
     /**
+     * Create a new repository in a given namespace.
+     *
+     * Create a new repository in a given namespace.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void reposCreateTest() throws ApiException {
+        String owner = null;
+        ReposCreate data = null;
+        Repository response = api.reposCreate(owner, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a repository in a given namespace.
+     *
+     * Delete a repository in a given namespace.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void reposDeleteTest() throws ApiException {
+        String owner = null;
+        String slug = null;
+        api.reposDelete(owner, slug);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a list of all repositories within a namespace.
      *
      * Get a list of all repositories within a namespace.
@@ -69,9 +105,26 @@ public class ReposApiTest {
     }
     
     /**
-     * Views for working with repositories.
+     * Update details about a repository in a given namespace.
      *
-     * Views for working with repositories.
+     * Update details about a repository in a given namespace.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void reposPartialUpdateTest() throws ApiException {
+        String owner = null;
+        ReposPartialUpdate data = null;
+        Repository response = api.reposPartialUpdate(owner, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a specific repository.
+     *
+     * Get a specific repository.
      *
      * @throws ApiException
      *          if the Api call fails

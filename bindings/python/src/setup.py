@@ -15,7 +15,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "cloudsmith-api"
-VERSION = "0.49.7"
+VERSION = "0.49.98"
 # To install the library, run the following
 #
 # python setup.py install
@@ -30,7 +30,7 @@ setup(
     version=VERSION,
     description="Cloudsmith API",
     author_email="support@cloudsmith.io",
-    url="https://api.cloudsmith.io/",
+    url="https://api.cloudsmith.io/?format&#x3D;openapi",
     keywords=["Swagger", "Cloudsmith API"],
     install_requires=REQUIRES,
     packages=find_packages(),

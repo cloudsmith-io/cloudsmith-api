@@ -79,7 +79,9 @@ from .packages_validateupload_vagrant import PackagesValidateuploadVagrant
 from .packagesownerrepo_architectures import PackagesownerrepoArchitectures
 from .packagesownerrepo_files import PackagesownerrepoFiles
 from .raw_package_upload import RawPackageUpload
+from .repos_create import ReposCreate
 from .repos_gpg_keys import ReposGpgKeys
+from .repos_partial_update import ReposPartialUpdate
 from .repository import Repository
 from .repository_token import RepositoryToken
 from .repository_token_refresh import RepositoryTokenRefresh

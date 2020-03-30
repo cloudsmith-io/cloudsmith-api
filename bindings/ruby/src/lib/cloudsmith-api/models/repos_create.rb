@@ -14,132 +14,62 @@ require 'date'
 
 module CloudsmithApi
 
-  class Repository
-    # 
-    attr_accessor :cdn_url
-
-    # 
-    attr_accessor :created_at
-
-    # 
-    attr_accessor :deleted_at
-
-    # 
+  class ReposCreate
+    # None
     attr_accessor :description
-
-    # 
-    attr_accessor :gpg_keys
 
     # If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
     attr_accessor :index_files
 
-    # 
+    # None
     attr_accessor :is_open_source
 
-    # 
+    # None
     attr_accessor :is_private
 
-    # 
+    # None
     attr_accessor :is_public
 
     # A descriptive name for the repository.
     attr_accessor :name
 
-    # 
+    # None
     attr_accessor :namespace
 
-    # 
-    attr_accessor :namespace_url
-
-    # The number of downloads for packages in the repository.
-    attr_accessor :num_downloads
-
-    # The number of packages in the repository.
-    attr_accessor :package_count
-
-    # The number of groups in the repository.
-    attr_accessor :package_group_count
-
-    # The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
-    attr_accessor :repository_type
-
-    # 
+    # None
     attr_accessor :repository_type_str
 
-    # 
-    attr_accessor :self_html_url
-
-    # 
-    attr_accessor :self_url
-
-    # The calculated size of the repository.
-    attr_accessor :size
-
-    # 
-    attr_accessor :size_str
-
-    # 
+    # None
     attr_accessor :slug
-
-    # 
-    attr_accessor :slug_perm
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'cdn_url' => :'cdn_url',
-        :'created_at' => :'created_at',
-        :'deleted_at' => :'deleted_at',
         :'description' => :'description',
-        :'gpg_keys' => :'gpg_keys',
         :'index_files' => :'index_files',
         :'is_open_source' => :'is_open_source',
         :'is_private' => :'is_private',
         :'is_public' => :'is_public',
         :'name' => :'name',
         :'namespace' => :'namespace',
-        :'namespace_url' => :'namespace_url',
-        :'num_downloads' => :'num_downloads',
-        :'package_count' => :'package_count',
-        :'package_group_count' => :'package_group_count',
-        :'repository_type' => :'repository_type',
         :'repository_type_str' => :'repository_type_str',
-        :'self_html_url' => :'self_html_url',
-        :'self_url' => :'self_url',
-        :'size' => :'size',
-        :'size_str' => :'size_str',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm'
+        :'slug' => :'slug'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'cdn_url' => :'String',
-        :'created_at' => :'String',
-        :'deleted_at' => :'String',
         :'description' => :'String',
-        :'gpg_keys' => :'Array<ReposGpgKeys>',
         :'index_files' => :'BOOLEAN',
         :'is_open_source' => :'BOOLEAN',
         :'is_private' => :'BOOLEAN',
         :'is_public' => :'BOOLEAN',
         :'name' => :'String',
         :'namespace' => :'String',
-        :'namespace_url' => :'String',
-        :'num_downloads' => :'Integer',
-        :'package_count' => :'Integer',
-        :'package_group_count' => :'Integer',
-        :'repository_type' => :'String',
         :'repository_type_str' => :'String',
-        :'self_html_url' => :'String',
-        :'self_url' => :'String',
-        :'size' => :'Integer',
-        :'size_str' => :'String',
-        :'slug' => :'String',
-        :'slug_perm' => :'String'
+        :'slug' => :'String'
       }
     end
 
@@ -151,26 +81,8 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'cdn_url')
-        self.cdn_url = attributes[:'cdn_url']
-      end
-
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'deleted_at')
-        self.deleted_at = attributes[:'deleted_at']
-      end
-
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'gpg_keys')
-        if (value = attributes[:'gpg_keys']).is_a?(Array)
-          self.gpg_keys = value
-        end
       end
 
       if attributes.has_key?(:'index_files')
@@ -197,52 +109,12 @@ module CloudsmithApi
         self.namespace = attributes[:'namespace']
       end
 
-      if attributes.has_key?(:'namespace_url')
-        self.namespace_url = attributes[:'namespace_url']
-      end
-
-      if attributes.has_key?(:'num_downloads')
-        self.num_downloads = attributes[:'num_downloads']
-      end
-
-      if attributes.has_key?(:'package_count')
-        self.package_count = attributes[:'package_count']
-      end
-
-      if attributes.has_key?(:'package_group_count')
-        self.package_group_count = attributes[:'package_group_count']
-      end
-
-      if attributes.has_key?(:'repository_type')
-        self.repository_type = attributes[:'repository_type']
-      end
-
       if attributes.has_key?(:'repository_type_str')
         self.repository_type_str = attributes[:'repository_type_str']
       end
 
-      if attributes.has_key?(:'self_html_url')
-        self.self_html_url = attributes[:'self_html_url']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'size')
-        self.size = attributes[:'size']
-      end
-
-      if attributes.has_key?(:'size_str')
-        self.size_str = attributes[:'size_str']
-      end
-
       if attributes.has_key?(:'slug')
         self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
       end
 
     end
@@ -280,29 +152,15 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cdn_url == o.cdn_url &&
-          created_at == o.created_at &&
-          deleted_at == o.deleted_at &&
           description == o.description &&
-          gpg_keys == o.gpg_keys &&
           index_files == o.index_files &&
           is_open_source == o.is_open_source &&
           is_private == o.is_private &&
           is_public == o.is_public &&
           name == o.name &&
           namespace == o.namespace &&
-          namespace_url == o.namespace_url &&
-          num_downloads == o.num_downloads &&
-          package_count == o.package_count &&
-          package_group_count == o.package_group_count &&
-          repository_type == o.repository_type &&
           repository_type_str == o.repository_type_str &&
-          self_html_url == o.self_html_url &&
-          self_url == o.self_url &&
-          size == o.size &&
-          size_str == o.size_str &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm
+          slug == o.slug
     end
 
     # @see the `==` method
@@ -314,7 +172,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [cdn_url, created_at, deleted_at, description, gpg_keys, index_files, is_open_source, is_private, is_public, name, namespace, namespace_url, num_downloads, package_count, package_group_count, repository_type, repository_type_str, self_html_url, self_url, size, size_str, slug, slug_perm].hash
+      [description, index_files, is_open_source, is_private, is_public, name, namespace, repository_type_str, slug].hash
     end
 
     # Builds the object from hash
