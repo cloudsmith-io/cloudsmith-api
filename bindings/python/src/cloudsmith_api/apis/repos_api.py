@@ -245,7 +245,7 @@ class ReposApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def repos_delete(self, owner, slug, **kwargs):
+    def repos_delete(self, owner, identifier, **kwargs):
         """
         Delete a repository in a given namespace.
         Delete a repository in a given namespace.
@@ -255,24 +255,24 @@ class ReposApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.repos_delete(owner, slug, callback=callback_function)
+        >>> thread = api.repos_delete(owner, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.repos_delete_with_http_info(owner, slug, **kwargs)
+            return self.repos_delete_with_http_info(owner, identifier, **kwargs)
         else:
-            (data) = self.repos_delete_with_http_info(owner, slug, **kwargs)
+            (data) = self.repos_delete_with_http_info(owner, identifier, **kwargs)
             return data
 
-    def repos_delete_with_http_info(self, owner, slug, **kwargs):
+    def repos_delete_with_http_info(self, owner, identifier, **kwargs):
         """
         Delete a repository in a given namespace.
         Delete a repository in a given namespace.
@@ -282,18 +282,18 @@ class ReposApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.repos_delete_with_http_info(owner, slug, callback=callback_function)
+        >>> thread = api.repos_delete_with_http_info(owner, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'slug']
+        all_params = ['owner', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -311,9 +311,9 @@ class ReposApi(object):
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
             raise ValueError("Missing the required parameter `owner` when calling `repos_delete`")
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `repos_delete`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_delete`")
 
 
         collection_formats = {}
@@ -321,8 +321,8 @@ class ReposApi(object):
         path_params = {}
         if 'owner' in params:
             path_params['owner'] = params['owner']
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -335,7 +335,7 @@ class ReposApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'csrf_token']
 
-        return self.api_client.call_api('/repos/{owner}/{slug}/', 'DELETE',
+        return self.api_client.call_api('/repos/{owner}/{identifier}/', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -456,7 +456,7 @@ class ReposApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def repos_partial_update(self, owner, **kwargs):
+    def repos_partial_update(self, owner, identifier, **kwargs):
         """
         Update details about a repository in a given namespace.
         Update details about a repository in a given namespace.
@@ -466,11 +466,12 @@ class ReposApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.repos_partial_update(owner, callback=callback_function)
+        >>> thread = api.repos_partial_update(owner, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
+        :param str identifier:  (required)
         :param ReposPartialUpdate data:
         :return: Repository
                  If the method is called asynchronously,
@@ -478,12 +479,12 @@ class ReposApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.repos_partial_update_with_http_info(owner, **kwargs)
+            return self.repos_partial_update_with_http_info(owner, identifier, **kwargs)
         else:
-            (data) = self.repos_partial_update_with_http_info(owner, **kwargs)
+            (data) = self.repos_partial_update_with_http_info(owner, identifier, **kwargs)
             return data
 
-    def repos_partial_update_with_http_info(self, owner, **kwargs):
+    def repos_partial_update_with_http_info(self, owner, identifier, **kwargs):
         """
         Update details about a repository in a given namespace.
         Update details about a repository in a given namespace.
@@ -493,18 +494,19 @@ class ReposApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.repos_partial_update_with_http_info(owner, callback=callback_function)
+        >>> thread = api.repos_partial_update_with_http_info(owner, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
+        :param str identifier:  (required)
         :param ReposPartialUpdate data:
         :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'data']
+        all_params = ['owner', 'identifier', 'data']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -522,6 +524,9 @@ class ReposApi(object):
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
             raise ValueError("Missing the required parameter `owner` when calling `repos_partial_update`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_partial_update`")
 
 
         collection_formats = {}
@@ -529,6 +534,8 @@ class ReposApi(object):
         path_params = {}
         if 'owner' in params:
             path_params['owner'] = params['owner']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -547,7 +554,7 @@ class ReposApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'csrf_token']
 
-        return self.api_client.call_api('/repos/{owner}/{slug}/', 'PATCH',
+        return self.api_client.call_api('/repos/{owner}/{identifier}/', 'PATCH',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -562,7 +569,7 @@ class ReposApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def repos_read(self, owner, slug, **kwargs):
+    def repos_read(self, owner, identifier, **kwargs):
         """
         Get a specific repository.
         Get a specific repository.
@@ -572,24 +579,24 @@ class ReposApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.repos_read(owner, slug, callback=callback_function)
+        >>> thread = api.repos_read(owner, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.repos_read_with_http_info(owner, slug, **kwargs)
+            return self.repos_read_with_http_info(owner, identifier, **kwargs)
         else:
-            (data) = self.repos_read_with_http_info(owner, slug, **kwargs)
+            (data) = self.repos_read_with_http_info(owner, identifier, **kwargs)
             return data
 
-    def repos_read_with_http_info(self, owner, slug, **kwargs):
+    def repos_read_with_http_info(self, owner, identifier, **kwargs):
         """
         Get a specific repository.
         Get a specific repository.
@@ -599,18 +606,18 @@ class ReposApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.repos_read_with_http_info(owner, slug, callback=callback_function)
+        >>> thread = api.repos_read_with_http_info(owner, identifier, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
-        :param str slug:  (required)
+        :param str identifier:  (required)
         :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'slug']
+        all_params = ['owner', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -628,9 +635,9 @@ class ReposApi(object):
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
             raise ValueError("Missing the required parameter `owner` when calling `repos_read`")
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `repos_read`")
+        # verify the required parameter 'identifier' is set
+        if ('identifier' not in params) or (params['identifier'] is None):
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_read`")
 
 
         collection_formats = {}
@@ -638,8 +645,8 @@ class ReposApi(object):
         path_params = {}
         if 'owner' in params:
             path_params['owner'] = params['owner']
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']
 
         query_params = []
 
@@ -652,7 +659,7 @@ class ReposApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'csrf_token']
 
-        return self.api_client.call_api('/repos/{owner}/{slug}/', 'GET',
+        return self.api_client.call_api('/repos/{owner}/{identifier}/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

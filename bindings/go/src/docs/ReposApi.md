@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ReposAllList**](ReposApi.md#ReposAllList) | **Get** /repos/ | Get a list of all repositories associated with current user.
 [**ReposCreate**](ReposApi.md#ReposCreate) | **Post** /repos/{owner}/ | Create a new repository in a given namespace.
-[**ReposDelete**](ReposApi.md#ReposDelete) | **Delete** /repos/{owner}/{slug}/ | Delete a repository in a given namespace.
+[**ReposDelete**](ReposApi.md#ReposDelete) | **Delete** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**ReposList**](ReposApi.md#ReposList) | **Get** /repos/{owner}/ | Get a list of all repositories within a namespace.
-[**ReposPartialUpdate**](ReposApi.md#ReposPartialUpdate) | **Patch** /repos/{owner}/{slug}/ | Update details about a repository in a given namespace.
-[**ReposRead**](ReposApi.md#ReposRead) | **Get** /repos/{owner}/{slug}/ | Get a specific repository.
+[**ReposPartialUpdate**](ReposApi.md#ReposPartialUpdate) | **Patch** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
+[**ReposRead**](ReposApi.md#ReposRead) | **Get** /repos/{owner}/{identifier}/ | Get a specific repository.
 
 
 # **ReposAllList**
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposDelete**
-> ReposDelete($owner, $slug)
+> ReposDelete($owner, $identifier)
 
 Delete a repository in a given namespace.
 
@@ -85,7 +85,7 @@ Delete a repository in a given namespace.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
- **slug** | **string**|  | 
+ **identifier** | **string**|  | 
 
 ### Return type
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposPartialUpdate**
-> Repository ReposPartialUpdate($owner, $data)
+> Repository ReposPartialUpdate($owner, $identifier, $data)
 
 Update details about a repository in a given namespace.
 
@@ -146,6 +146,7 @@ Update details about a repository in a given namespace.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
+ **identifier** | **string**|  | 
  **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional] 
 
 ### Return type
@@ -164,7 +165,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposRead**
-> Repository ReposRead($owner, $slug)
+> Repository ReposRead($owner, $identifier)
 
 Get a specific repository.
 
@@ -176,7 +177,7 @@ Get a specific repository.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
- **slug** | **string**|  | 
+ **identifier** | **string**|  | 
 
 ### Return type
 

@@ -80,8 +80,8 @@ public class ReposApiTest {
     @Test
     public void reposDeleteTest() throws ApiException {
         String owner = null;
-        String slug = null;
-        api.reposDelete(owner, slug);
+        String identifier = null;
+        api.reposDelete(owner, identifier);
 
         // TODO: test validations
     }
@@ -115,8 +115,9 @@ public class ReposApiTest {
     @Test
     public void reposPartialUpdateTest() throws ApiException {
         String owner = null;
+        String identifier = null;
         ReposPartialUpdate data = null;
-        Repository response = api.reposPartialUpdate(owner, data);
+        Repository response = api.reposPartialUpdate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -132,8 +133,8 @@ public class ReposApiTest {
     @Test
     public void reposReadTest() throws ApiException {
         String owner = null;
-        String slug = null;
-        Repository response = api.reposRead(owner, slug);
+        String identifier = null;
+        Repository response = api.reposRead(owner, identifier);
 
         // TODO: test validations
     }

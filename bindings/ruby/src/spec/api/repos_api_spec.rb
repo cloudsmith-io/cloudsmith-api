@@ -62,7 +62,7 @@ describe 'ReposApi' do
   # Delete a repository in a given namespace.
   # Delete a repository in a given namespace.
   # @param owner 
-  # @param slug 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'repos_delete test' do
@@ -89,6 +89,7 @@ describe 'ReposApi' do
   # Update details about a repository in a given namespace.
   # Update details about a repository in a given namespace.
   # @param owner 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [ReposPartialUpdate] :data 
   # @return [Repository]
@@ -102,7 +103,7 @@ describe 'ReposApi' do
   # Get a specific repository.
   # Get a specific repository.
   # @param owner 
-  # @param slug 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @return [Repository]
   describe 'repos_read test' do
