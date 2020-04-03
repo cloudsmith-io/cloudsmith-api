@@ -179,16 +179,16 @@ func (a ReposApi) ReposCreate(owner string, data ReposCreate) (*Repository, *API
  * Delete a repository in a given namespace.
  *
  * @param owner 
- * @param slug 
+ * @param identifier 
  * @return void
  */
-func (a ReposApi) ReposDelete(owner string, slug string) (*APIResponse, error) {
+func (a ReposApi) ReposDelete(owner string, identifier string) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Delete")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/repos/{owner}/{slug}/"
+	localVarPath := a.Configuration.BasePath + "/repos/{owner}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", fmt.Sprintf("%v", slug), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -315,15 +315,17 @@ func (a ReposApi) ReposList(owner string, page int32, pageSize int32) ([]Reposit
  * Update details about a repository in a given namespace.
  *
  * @param owner 
+ * @param identifier 
  * @param data 
  * @return *Repository
  */
-func (a ReposApi) ReposPartialUpdate(owner string, data ReposPartialUpdate) (*Repository, *APIResponse, error) {
+func (a ReposApi) ReposPartialUpdate(owner string, identifier string, data ReposPartialUpdate) (*Repository, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Patch")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/repos/{owner}/{slug}/"
+	localVarPath := a.Configuration.BasePath + "/repos/{owner}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -384,16 +386,16 @@ func (a ReposApi) ReposPartialUpdate(owner string, data ReposPartialUpdate) (*Re
  * Get a specific repository.
  *
  * @param owner 
- * @param slug 
+ * @param identifier 
  * @return *Repository
  */
-func (a ReposApi) ReposRead(owner string, slug string) (*Repository, *APIResponse, error) {
+func (a ReposApi) ReposRead(owner string, identifier string) (*Repository, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/repos/{owner}/{slug}/"
+	localVarPath := a.Configuration.BasePath + "/repos/{owner}/{identifier}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", fmt.Sprintf("%v", slug), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

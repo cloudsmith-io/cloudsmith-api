@@ -129,21 +129,21 @@ module CloudsmithApi
     # Delete a repository in a given namespace.
     # Delete a repository in a given namespace.
     # @param owner 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def repos_delete(owner, slug, opts = {})
-      repos_delete_with_http_info(owner, slug, opts)
+    def repos_delete(owner, identifier, opts = {})
+      repos_delete_with_http_info(owner, identifier, opts)
       return nil
     end
 
     # Delete a repository in a given namespace.
     # Delete a repository in a given namespace.
     # @param owner 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def repos_delete_with_http_info(owner, slug, opts = {})
+    def repos_delete_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ReposApi.repos_delete ..."
       end
@@ -151,12 +151,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && owner.nil?
         fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_delete"
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling ReposApi.repos_delete"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_delete"
       end
       # resource path
-      local_var_path = "/repos/{owner}/{slug}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/repos/{owner}/{identifier}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -242,21 +242,23 @@ module CloudsmithApi
     # Update details about a repository in a given namespace.
     # Update details about a repository in a given namespace.
     # @param owner 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [ReposPartialUpdate] :data 
     # @return [Repository]
-    def repos_partial_update(owner, opts = {})
-      data, _status_code, _headers = repos_partial_update_with_http_info(owner, opts)
+    def repos_partial_update(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_partial_update_with_http_info(owner, identifier, opts)
       return data
     end
 
     # Update details about a repository in a given namespace.
     # Update details about a repository in a given namespace.
     # @param owner 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [ReposPartialUpdate] :data 
     # @return [Array<(Repository, Fixnum, Hash)>] Repository data, response status code and response headers
-    def repos_partial_update_with_http_info(owner, opts = {})
+    def repos_partial_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ReposApi.repos_partial_update ..."
       end
@@ -264,8 +266,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && owner.nil?
         fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_partial_update"
       end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_partial_update"
+      end
       # resource path
-      local_var_path = "/repos/{owner}/{slug}/".sub('{' + 'owner' + '}', owner.to_s)
+      local_var_path = "/repos/{owner}/{identifier}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
@@ -297,21 +303,21 @@ module CloudsmithApi
     # Get a specific repository.
     # Get a specific repository.
     # @param owner 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [Repository]
-    def repos_read(owner, slug, opts = {})
-      data, _status_code, _headers = repos_read_with_http_info(owner, slug, opts)
+    def repos_read(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_read_with_http_info(owner, identifier, opts)
       return data
     end
 
     # Get a specific repository.
     # Get a specific repository.
     # @param owner 
-    # @param slug 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Repository, Fixnum, Hash)>] Repository data, response status code and response headers
-    def repos_read_with_http_info(owner, slug, opts = {})
+    def repos_read_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ReposApi.repos_read ..."
       end
@@ -319,12 +325,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && owner.nil?
         fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_read"
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling ReposApi.repos_read"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_read"
       end
       # resource path
-      local_var_path = "/repos/{owner}/{slug}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/repos/{owner}/{identifier}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}

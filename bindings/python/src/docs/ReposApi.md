@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**repos_all_list**](ReposApi.md#repos_all_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
-[**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{slug}/ | Delete a repository in a given namespace.
+[**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
-[**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{slug}/ | Update details about a repository in a given namespace.
-[**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{slug}/ | Get a specific repository.
+[**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
+[**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
 
 
 # **repos_all_list**
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_delete**
-> repos_delete(owner, slug)
+> repos_delete(owner, identifier)
 
 Delete a repository in a given namespace.
 
@@ -157,11 +157,11 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi()
 owner = 'owner_example' # str | 
-slug = 'slug_example' # str | 
+identifier = 'identifier_example' # str | 
 
 try: 
     # Delete a repository in a given namespace.
-    api_instance.repos_delete(owner, slug)
+    api_instance.repos_delete(owner, identifier)
 except ApiException as e:
     print("Exception when calling ReposApi->repos_delete: %s\n" % e)
 ```
@@ -171,7 +171,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
- **slug** | **str**|  | 
+ **identifier** | **str**|  | 
 
 ### Return type
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_partial_update**
-> Repository repos_partial_update(owner, data=data)
+> Repository repos_partial_update(owner, identifier, data=data)
 
 Update details about a repository in a given namespace.
 
@@ -276,11 +276,12 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi()
 owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
 data = cloudsmith_api.ReposPartialUpdate() # ReposPartialUpdate |  (optional)
 
 try: 
     # Update details about a repository in a given namespace.
-    api_response = api_instance.repos_partial_update(owner, data=data)
+    api_response = api_instance.repos_partial_update(owner, identifier, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ReposApi->repos_partial_update: %s\n" % e)
@@ -291,6 +292,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
+ **identifier** | **str**|  | 
  **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional] 
 
 ### Return type
@@ -309,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_read**
-> Repository repos_read(owner, slug)
+> Repository repos_read(owner, identifier)
 
 Get a specific repository.
 
@@ -335,11 +337,11 @@ cloudsmith_api.configuration.api_key['X-CSRFToken'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi()
 owner = 'owner_example' # str | 
-slug = 'slug_example' # str | 
+identifier = 'identifier_example' # str | 
 
 try: 
     # Get a specific repository.
-    api_response = api_instance.repos_read(owner, slug)
+    api_response = api_instance.repos_read(owner, identifier)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ReposApi->repos_read: %s\n" % e)
@@ -350,7 +352,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
- **slug** | **str**|  | 
+ **identifier** | **str**|  | 
 
 ### Return type
 

@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**reposAllList**](ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 [**reposCreate**](ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
-[**reposDelete**](ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{slug}/ | Delete a repository in a given namespace.
+[**reposDelete**](ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**reposList**](ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
-[**reposPartialUpdate**](ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{slug}/ | Update details about a repository in a given namespace.
-[**reposRead**](ReposApi.md#reposRead) | **GET** /repos/{owner}/{slug}/ | Get a specific repository.
+[**reposPartialUpdate**](ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
+[**reposRead**](ReposApi.md#reposRead) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
 
 
 <a name="reposAllList"></a>
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 <a name="reposDelete"></a>
 # **reposDelete**
-> reposDelete(owner, slug)
+> reposDelete(owner, identifier)
 
 Delete a repository in a given namespace.
 
@@ -171,9 +171,9 @@ csrf_token.setApiKey("YOUR API KEY");
 
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
-String slug = "slug_example"; // String | 
+String identifier = "identifier_example"; // String | 
 try {
-    apiInstance.reposDelete(owner, slug);
+    apiInstance.reposDelete(owner, identifier);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposDelete");
     e.printStackTrace();
@@ -185,7 +185,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
- **slug** | **String**|  |
+ **identifier** | **String**|  |
 
 ### Return type
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 <a name="reposPartialUpdate"></a>
 # **reposPartialUpdate**
-> Repository reposPartialUpdate(owner, data)
+> Repository reposPartialUpdate(owner, identifier, data)
 
 Update details about a repository in a given namespace.
 
@@ -298,9 +298,10 @@ csrf_token.setApiKey("YOUR API KEY");
 
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
 ReposPartialUpdate data = new ReposPartialUpdate(); // ReposPartialUpdate | 
 try {
-    Repository result = apiInstance.reposPartialUpdate(owner, data);
+    Repository result = apiInstance.reposPartialUpdate(owner, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposPartialUpdate");
@@ -313,6 +314,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
+ **identifier** | **String**|  |
  **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional]
 
 ### Return type
@@ -330,7 +332,7 @@ Name | Type | Description  | Notes
 
 <a name="reposRead"></a>
 # **reposRead**
-> Repository reposRead(owner, slug)
+> Repository reposRead(owner, identifier)
 
 Get a specific repository.
 
@@ -361,9 +363,9 @@ csrf_token.setApiKey("YOUR API KEY");
 
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
-String slug = "slug_example"; // String | 
+String identifier = "identifier_example"; // String | 
 try {
-    Repository result = apiInstance.reposRead(owner, slug);
+    Repository result = apiInstance.reposRead(owner, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposRead");
@@ -376,7 +378,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
- **slug** | **String**|  |
+ **identifier** | **String**|  |
 
 ### Return type
 

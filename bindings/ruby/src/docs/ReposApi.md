@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**repos_all_list**](ReposApi.md#repos_all_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
-[**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{slug}/ | Delete a repository in a given namespace.
+[**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
-[**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{slug}/ | Update details about a repository in a given namespace.
-[**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{slug}/ | Get a specific repository.
+[**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
+[**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
 
 
 # **repos_all_list**
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 
 # **repos_delete**
-> repos_delete(owner, slug)
+> repos_delete(owner, identifier)
 
 Delete a repository in a given namespace.
 
@@ -165,12 +165,12 @@ api_instance = CloudsmithApi::ReposApi.new
 
 owner = "owner_example" # String | 
 
-slug = "slug_example" # String | 
+identifier = "identifier_example" # String | 
 
 
 begin
   #Delete a repository in a given namespace.
-  api_instance.repos_delete(owner, slug)
+  api_instance.repos_delete(owner, identifier)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling ReposApi->repos_delete: #{e}"
 end
@@ -181,7 +181,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
- **slug** | **String**|  | 
+ **identifier** | **String**|  | 
 
 ### Return type
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 
 # **repos_partial_update**
-> Repository repos_partial_update(owner, opts)
+> Repository repos_partial_update(owner, identifier, opts)
 
 Update details about a repository in a given namespace.
 
@@ -291,13 +291,15 @@ api_instance = CloudsmithApi::ReposApi.new
 
 owner = "owner_example" # String | 
 
+identifier = "identifier_example" # String | 
+
 opts = { 
   data: CloudsmithApi::ReposPartialUpdate.new # ReposPartialUpdate | 
 }
 
 begin
   #Update details about a repository in a given namespace.
-  result = api_instance.repos_partial_update(owner, opts)
+  result = api_instance.repos_partial_update(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling ReposApi->repos_partial_update: #{e}"
@@ -309,6 +311,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
+ **identifier** | **String**|  | 
  **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional] 
 
 ### Return type
@@ -327,7 +330,7 @@ Name | Type | Description  | Notes
 
 
 # **repos_read**
-> Repository repos_read(owner, slug)
+> Repository repos_read(owner, identifier)
 
 Get a specific repository.
 
@@ -354,12 +357,12 @@ api_instance = CloudsmithApi::ReposApi.new
 
 owner = "owner_example" # String | 
 
-slug = "slug_example" # String | 
+identifier = "identifier_example" # String | 
 
 
 begin
   #Get a specific repository.
-  result = api_instance.repos_read(owner, slug)
+  result = api_instance.repos_read(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling ReposApi->repos_read: #{e}"
@@ -371,7 +374,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
- **slug** | **String**|  | 
+ **identifier** | **String**|  | 
 
 ### Return type
 
