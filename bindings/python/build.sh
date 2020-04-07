@@ -15,15 +15,17 @@ cat > $build_json <<EOC
     "hideGenerationTimestamp": $hide_generation_timestamp,
     "packageName": "$project_underscore",
     "projectName": "$project_dash",
-    "packageVersion": "$api_version",
+    "packageVersion": "$version",
     "packageUrl": "$openapi_url",
     "sortParamsByRequiredFlag": $sort_params
 }
 EOC
 
-$root_dir/bin/swagger-codegen-cli generate \
-    -c $build_json \
+docker run --rm --mount type=bind,source=${self_dir},target=/local \
+  openapitools/openapi-generator-cli generate \
+    -c "/local/src/build.json" \
     -i $openapi_url \
-    -l python \
-    -o $src_dir \
+    -g python \
+    -o "/local/src/" \
     $common_codegen_options
+sudo chown $USER:$USER -R $src_dir

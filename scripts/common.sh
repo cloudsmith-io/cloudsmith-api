@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+_self=$(readlink -f $BASH_SOURCE)
+_self_dir=$(dirname $_self)
+_root_dir=$(readlink -f "$_self_dir/..")
+
 language=${1:-""}
 api_url=${2:-${api_url:-"https://api.cloudsmith.io/"}}
 api_version=$(curl -s "${api_url}status/check/basic/" | jq -r '.version')
@@ -10,6 +14,14 @@ location=$(curl -s $openapi_url | grep Location | cut -d' ' -f2)
   openapi_hostname=$(echo $openapi_url | awk -F[/:] '{print $4}')
   openapi_url="${openapi_scheme}://${openapi_hostname}${location}"
 }
+
+if [ -z "$api_version" ]; then
+  echo "Failed to get API version!"
+  exit 1
+fi
+
+local_version=$(cat $_root_dir/VERSION)
+version="${local_version}.${api_version}"
 
 # Bindings attributes/config
 allow_unicode_identifiers="true"
