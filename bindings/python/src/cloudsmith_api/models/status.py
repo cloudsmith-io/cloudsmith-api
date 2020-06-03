@@ -45,8 +45,7 @@ class Status(object):
 
         self._detail = None
 
-        if detail is not None:
-          self.detail = detail
+        self.detail = detail
 
     @property
     def detail(self):
@@ -68,6 +67,8 @@ class Status(object):
         :param detail: The detail of this Status.
         :type: str
         """
+        if detail is None:
+            raise ValueError("Invalid value for `detail`, must not be `None`")
 
         self._detail = detail
 

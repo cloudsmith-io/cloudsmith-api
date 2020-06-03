@@ -1,4 +1,4 @@
-# PackageMove
+# ConanPackageUpload
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **checksum_sha1** | **str** |  | [optional] 
 **checksum_sha256** | **str** |  | [optional] 
 **checksum_sha512** | **str** |  | [optional] 
+**conan_channel** | **str** | Conan channel. | [optional] 
+**conan_prefix** | **str** | Conan prefix (User). | [optional] 
 **description** | **str** | A textual description of this package. | [optional] 
 **distro** | **object** |  | [optional] 
 **distro_version** | **object** |  | [optional] 
@@ -33,7 +35,7 @@ Name | Type | Description | Notes
 **num_files** | **int** |  | [optional] 
 **package_type** | **str** | The type of package contents. | [optional] 
 **release** | **str** | The release of the package version (if any). | [optional] 
-**repository** | **str** | The repository the package will be moved to. | [optional] 
+**repository** | **str** |  | [optional] 
 **repository_url** | **str** |  | [optional] 
 **self_html_url** | **str** |  | [optional] 
 **self_url** | **str** |  | [optional] 

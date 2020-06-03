@@ -119,6 +119,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_conan(self):
+        """
+        Test case for packages_upload_conan
+
+        Create a new Conan package
+        """
+        pass
+
     def test_packages_upload_cran(self):
         """
         Test case for packages_upload_cran
@@ -268,6 +276,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_composer
 
         Validate parameters for create Composer package
+        """
+        pass
+
+    def test_packages_validate_upload_conan(self):
+        """
+        Test case for packages_validate_upload_conan
+
+        Validate parameters for create Conan package
         """
         pass
 
