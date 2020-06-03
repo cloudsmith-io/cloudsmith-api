@@ -31,10 +31,10 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * ModelPackage
+ * ConanPackageUpload
  */
 
-public class ModelPackage implements Serializable {
+public class ConanPackageUpload implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("architectures")
@@ -54,6 +54,12 @@ public class ModelPackage implements Serializable {
 
   @SerializedName("checksum_sha512")
   private String checksumSha512 = null;
+
+  @SerializedName("conan_channel")
+  private String conanChannel = null;
+
+  @SerializedName("conan_prefix")
+  private String conanPrefix = null;
 
   @SerializedName("description")
   private String description = null;
@@ -202,12 +208,12 @@ public class ModelPackage implements Serializable {
   @SerializedName("version_orig")
   private String versionOrig = null;
 
-  public ModelPackage architectures(List<PackagesownerrepoArchitectures> architectures) {
+  public ConanPackageUpload architectures(List<PackagesownerrepoArchitectures> architectures) {
     this.architectures = architectures;
     return this;
   }
 
-  public ModelPackage addArchitecturesItem(PackagesownerrepoArchitectures architecturesItem) {
+  public ConanPackageUpload addArchitecturesItem(PackagesownerrepoArchitectures architecturesItem) {
     if (this.architectures == null) {
       this.architectures = new ArrayList<PackagesownerrepoArchitectures>();
     }
@@ -229,7 +235,7 @@ public class ModelPackage implements Serializable {
     this.architectures = architectures;
   }
 
-  public ModelPackage cdnUrl(String cdnUrl) {
+  public ConanPackageUpload cdnUrl(String cdnUrl) {
     this.cdnUrl = cdnUrl;
     return this;
   }
@@ -247,7 +253,7 @@ public class ModelPackage implements Serializable {
     this.cdnUrl = cdnUrl;
   }
 
-  public ModelPackage checksumMd5(String checksumMd5) {
+  public ConanPackageUpload checksumMd5(String checksumMd5) {
     this.checksumMd5 = checksumMd5;
     return this;
   }
@@ -265,7 +271,7 @@ public class ModelPackage implements Serializable {
     this.checksumMd5 = checksumMd5;
   }
 
-  public ModelPackage checksumSha1(String checksumSha1) {
+  public ConanPackageUpload checksumSha1(String checksumSha1) {
     this.checksumSha1 = checksumSha1;
     return this;
   }
@@ -283,7 +289,7 @@ public class ModelPackage implements Serializable {
     this.checksumSha1 = checksumSha1;
   }
 
-  public ModelPackage checksumSha256(String checksumSha256) {
+  public ConanPackageUpload checksumSha256(String checksumSha256) {
     this.checksumSha256 = checksumSha256;
     return this;
   }
@@ -301,7 +307,7 @@ public class ModelPackage implements Serializable {
     this.checksumSha256 = checksumSha256;
   }
 
-  public ModelPackage checksumSha512(String checksumSha512) {
+  public ConanPackageUpload checksumSha512(String checksumSha512) {
     this.checksumSha512 = checksumSha512;
     return this;
   }
@@ -319,7 +325,43 @@ public class ModelPackage implements Serializable {
     this.checksumSha512 = checksumSha512;
   }
 
-  public ModelPackage description(String description) {
+  public ConanPackageUpload conanChannel(String conanChannel) {
+    this.conanChannel = conanChannel;
+    return this;
+  }
+
+   /**
+   * Conan channel.
+   * @return conanChannel
+  **/
+  @ApiModelProperty(example = "y1234456789c", value = "Conan channel.")
+  public String getConanChannel() {
+    return conanChannel;
+  }
+
+  public void setConanChannel(String conanChannel) {
+    this.conanChannel = conanChannel;
+  }
+
+  public ConanPackageUpload conanPrefix(String conanPrefix) {
+    this.conanPrefix = conanPrefix;
+    return this;
+  }
+
+   /**
+   * Conan prefix (User).
+   * @return conanPrefix
+  **/
+  @ApiModelProperty(example = "y1234456789c", value = "Conan prefix (User).")
+  public String getConanPrefix() {
+    return conanPrefix;
+  }
+
+  public void setConanPrefix(String conanPrefix) {
+    this.conanPrefix = conanPrefix;
+  }
+
+  public ConanPackageUpload description(String description) {
     this.description = description;
     return this;
   }
@@ -337,7 +379,7 @@ public class ModelPackage implements Serializable {
     this.description = description;
   }
 
-  public ModelPackage distro(Object distro) {
+  public ConanPackageUpload distro(Object distro) {
     this.distro = distro;
     return this;
   }
@@ -355,7 +397,7 @@ public class ModelPackage implements Serializable {
     this.distro = distro;
   }
 
-  public ModelPackage distroVersion(Object distroVersion) {
+  public ConanPackageUpload distroVersion(Object distroVersion) {
     this.distroVersion = distroVersion;
     return this;
   }
@@ -373,7 +415,7 @@ public class ModelPackage implements Serializable {
     this.distroVersion = distroVersion;
   }
 
-  public ModelPackage downloads(Integer downloads) {
+  public ConanPackageUpload downloads(Integer downloads) {
     this.downloads = downloads;
     return this;
   }
@@ -391,7 +433,7 @@ public class ModelPackage implements Serializable {
     this.downloads = downloads;
   }
 
-  public ModelPackage epoch(Integer epoch) {
+  public ConanPackageUpload epoch(Integer epoch) {
     this.epoch = epoch;
     return this;
   }
@@ -409,7 +451,7 @@ public class ModelPackage implements Serializable {
     this.epoch = epoch;
   }
 
-  public ModelPackage extension(String extension) {
+  public ConanPackageUpload extension(String extension) {
     this.extension = extension;
     return this;
   }
@@ -427,7 +469,7 @@ public class ModelPackage implements Serializable {
     this.extension = extension;
   }
 
-  public ModelPackage filename(String filename) {
+  public ConanPackageUpload filename(String filename) {
     this.filename = filename;
     return this;
   }
@@ -445,12 +487,12 @@ public class ModelPackage implements Serializable {
     this.filename = filename;
   }
 
-  public ModelPackage files(List<PackagesownerrepoFiles> files) {
+  public ConanPackageUpload files(List<PackagesownerrepoFiles> files) {
     this.files = files;
     return this;
   }
 
-  public ModelPackage addFilesItem(PackagesownerrepoFiles filesItem) {
+  public ConanPackageUpload addFilesItem(PackagesownerrepoFiles filesItem) {
     if (this.files == null) {
       this.files = new ArrayList<PackagesownerrepoFiles>();
     }
@@ -472,7 +514,7 @@ public class ModelPackage implements Serializable {
     this.files = files;
   }
 
-  public ModelPackage format(String format) {
+  public ConanPackageUpload format(String format) {
     this.format = format;
     return this;
   }
@@ -490,7 +532,7 @@ public class ModelPackage implements Serializable {
     this.format = format;
   }
 
-  public ModelPackage formatUrl(String formatUrl) {
+  public ConanPackageUpload formatUrl(String formatUrl) {
     this.formatUrl = formatUrl;
     return this;
   }
@@ -508,7 +550,7 @@ public class ModelPackage implements Serializable {
     this.formatUrl = formatUrl;
   }
 
-  public ModelPackage identifierPerm(String identifierPerm) {
+  public ConanPackageUpload identifierPerm(String identifierPerm) {
     this.identifierPerm = identifierPerm;
     return this;
   }
@@ -526,7 +568,7 @@ public class ModelPackage implements Serializable {
     this.identifierPerm = identifierPerm;
   }
 
-  public ModelPackage indexed(Boolean indexed) {
+  public ConanPackageUpload indexed(Boolean indexed) {
     this.indexed = indexed;
     return this;
   }
@@ -544,7 +586,7 @@ public class ModelPackage implements Serializable {
     this.indexed = indexed;
   }
 
-  public ModelPackage isSyncAwaiting(Boolean isSyncAwaiting) {
+  public ConanPackageUpload isSyncAwaiting(Boolean isSyncAwaiting) {
     this.isSyncAwaiting = isSyncAwaiting;
     return this;
   }
@@ -562,7 +604,7 @@ public class ModelPackage implements Serializable {
     this.isSyncAwaiting = isSyncAwaiting;
   }
 
-  public ModelPackage isSyncCompleted(Boolean isSyncCompleted) {
+  public ConanPackageUpload isSyncCompleted(Boolean isSyncCompleted) {
     this.isSyncCompleted = isSyncCompleted;
     return this;
   }
@@ -580,7 +622,7 @@ public class ModelPackage implements Serializable {
     this.isSyncCompleted = isSyncCompleted;
   }
 
-  public ModelPackage isSyncFailed(Boolean isSyncFailed) {
+  public ConanPackageUpload isSyncFailed(Boolean isSyncFailed) {
     this.isSyncFailed = isSyncFailed;
     return this;
   }
@@ -598,7 +640,7 @@ public class ModelPackage implements Serializable {
     this.isSyncFailed = isSyncFailed;
   }
 
-  public ModelPackage isSyncInFlight(Boolean isSyncInFlight) {
+  public ConanPackageUpload isSyncInFlight(Boolean isSyncInFlight) {
     this.isSyncInFlight = isSyncInFlight;
     return this;
   }
@@ -616,7 +658,7 @@ public class ModelPackage implements Serializable {
     this.isSyncInFlight = isSyncInFlight;
   }
 
-  public ModelPackage isSyncInProgress(Boolean isSyncInProgress) {
+  public ConanPackageUpload isSyncInProgress(Boolean isSyncInProgress) {
     this.isSyncInProgress = isSyncInProgress;
     return this;
   }
@@ -634,7 +676,7 @@ public class ModelPackage implements Serializable {
     this.isSyncInProgress = isSyncInProgress;
   }
 
-  public ModelPackage license(String license) {
+  public ConanPackageUpload license(String license) {
     this.license = license;
     return this;
   }
@@ -652,7 +694,7 @@ public class ModelPackage implements Serializable {
     this.license = license;
   }
 
-  public ModelPackage name(String name) {
+  public ConanPackageUpload name(String name) {
     this.name = name;
     return this;
   }
@@ -670,7 +712,7 @@ public class ModelPackage implements Serializable {
     this.name = name;
   }
 
-  public ModelPackage namespace(String namespace) {
+  public ConanPackageUpload namespace(String namespace) {
     this.namespace = namespace;
     return this;
   }
@@ -688,7 +730,7 @@ public class ModelPackage implements Serializable {
     this.namespace = namespace;
   }
 
-  public ModelPackage namespaceUrl(String namespaceUrl) {
+  public ConanPackageUpload namespaceUrl(String namespaceUrl) {
     this.namespaceUrl = namespaceUrl;
     return this;
   }
@@ -706,7 +748,7 @@ public class ModelPackage implements Serializable {
     this.namespaceUrl = namespaceUrl;
   }
 
-  public ModelPackage numFiles(Integer numFiles) {
+  public ConanPackageUpload numFiles(Integer numFiles) {
     this.numFiles = numFiles;
     return this;
   }
@@ -724,7 +766,7 @@ public class ModelPackage implements Serializable {
     this.numFiles = numFiles;
   }
 
-  public ModelPackage packageType(String packageType) {
+  public ConanPackageUpload packageType(String packageType) {
     this.packageType = packageType;
     return this;
   }
@@ -742,7 +784,7 @@ public class ModelPackage implements Serializable {
     this.packageType = packageType;
   }
 
-  public ModelPackage release(String release) {
+  public ConanPackageUpload release(String release) {
     this.release = release;
     return this;
   }
@@ -760,7 +802,7 @@ public class ModelPackage implements Serializable {
     this.release = release;
   }
 
-  public ModelPackage repository(String repository) {
+  public ConanPackageUpload repository(String repository) {
     this.repository = repository;
     return this;
   }
@@ -778,7 +820,7 @@ public class ModelPackage implements Serializable {
     this.repository = repository;
   }
 
-  public ModelPackage repositoryUrl(String repositoryUrl) {
+  public ConanPackageUpload repositoryUrl(String repositoryUrl) {
     this.repositoryUrl = repositoryUrl;
     return this;
   }
@@ -796,7 +838,7 @@ public class ModelPackage implements Serializable {
     this.repositoryUrl = repositoryUrl;
   }
 
-  public ModelPackage selfHtmlUrl(String selfHtmlUrl) {
+  public ConanPackageUpload selfHtmlUrl(String selfHtmlUrl) {
     this.selfHtmlUrl = selfHtmlUrl;
     return this;
   }
@@ -814,7 +856,7 @@ public class ModelPackage implements Serializable {
     this.selfHtmlUrl = selfHtmlUrl;
   }
 
-  public ModelPackage selfUrl(String selfUrl) {
+  public ConanPackageUpload selfUrl(String selfUrl) {
     this.selfUrl = selfUrl;
     return this;
   }
@@ -832,7 +874,7 @@ public class ModelPackage implements Serializable {
     this.selfUrl = selfUrl;
   }
 
-  public ModelPackage size(Integer size) {
+  public ConanPackageUpload size(Integer size) {
     this.size = size;
     return this;
   }
@@ -850,7 +892,7 @@ public class ModelPackage implements Serializable {
     this.size = size;
   }
 
-  public ModelPackage slug(String slug) {
+  public ConanPackageUpload slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -868,7 +910,7 @@ public class ModelPackage implements Serializable {
     this.slug = slug;
   }
 
-  public ModelPackage slugPerm(String slugPerm) {
+  public ConanPackageUpload slugPerm(String slugPerm) {
     this.slugPerm = slugPerm;
     return this;
   }
@@ -886,7 +928,7 @@ public class ModelPackage implements Serializable {
     this.slugPerm = slugPerm;
   }
 
-  public ModelPackage stage(String stage) {
+  public ConanPackageUpload stage(String stage) {
     this.stage = stage;
     return this;
   }
@@ -904,7 +946,7 @@ public class ModelPackage implements Serializable {
     this.stage = stage;
   }
 
-  public ModelPackage stageStr(String stageStr) {
+  public ConanPackageUpload stageStr(String stageStr) {
     this.stageStr = stageStr;
     return this;
   }
@@ -922,7 +964,7 @@ public class ModelPackage implements Serializable {
     this.stageStr = stageStr;
   }
 
-  public ModelPackage stageUpdatedAt(String stageUpdatedAt) {
+  public ConanPackageUpload stageUpdatedAt(String stageUpdatedAt) {
     this.stageUpdatedAt = stageUpdatedAt;
     return this;
   }
@@ -940,7 +982,7 @@ public class ModelPackage implements Serializable {
     this.stageUpdatedAt = stageUpdatedAt;
   }
 
-  public ModelPackage status(String status) {
+  public ConanPackageUpload status(String status) {
     this.status = status;
     return this;
   }
@@ -958,7 +1000,7 @@ public class ModelPackage implements Serializable {
     this.status = status;
   }
 
-  public ModelPackage statusReason(String statusReason) {
+  public ConanPackageUpload statusReason(String statusReason) {
     this.statusReason = statusReason;
     return this;
   }
@@ -976,7 +1018,7 @@ public class ModelPackage implements Serializable {
     this.statusReason = statusReason;
   }
 
-  public ModelPackage statusStr(String statusStr) {
+  public ConanPackageUpload statusStr(String statusStr) {
     this.statusStr = statusStr;
     return this;
   }
@@ -994,7 +1036,7 @@ public class ModelPackage implements Serializable {
     this.statusStr = statusStr;
   }
 
-  public ModelPackage statusUpdatedAt(String statusUpdatedAt) {
+  public ConanPackageUpload statusUpdatedAt(String statusUpdatedAt) {
     this.statusUpdatedAt = statusUpdatedAt;
     return this;
   }
@@ -1012,7 +1054,7 @@ public class ModelPackage implements Serializable {
     this.statusUpdatedAt = statusUpdatedAt;
   }
 
-  public ModelPackage statusUrl(String statusUrl) {
+  public ConanPackageUpload statusUrl(String statusUrl) {
     this.statusUrl = statusUrl;
     return this;
   }
@@ -1030,7 +1072,7 @@ public class ModelPackage implements Serializable {
     this.statusUrl = statusUrl;
   }
 
-  public ModelPackage subtype(String subtype) {
+  public ConanPackageUpload subtype(String subtype) {
     this.subtype = subtype;
     return this;
   }
@@ -1048,7 +1090,7 @@ public class ModelPackage implements Serializable {
     this.subtype = subtype;
   }
 
-  public ModelPackage summary(String summary) {
+  public ConanPackageUpload summary(String summary) {
     this.summary = summary;
     return this;
   }
@@ -1066,7 +1108,7 @@ public class ModelPackage implements Serializable {
     this.summary = summary;
   }
 
-  public ModelPackage syncFinishedAt(String syncFinishedAt) {
+  public ConanPackageUpload syncFinishedAt(String syncFinishedAt) {
     this.syncFinishedAt = syncFinishedAt;
     return this;
   }
@@ -1084,7 +1126,7 @@ public class ModelPackage implements Serializable {
     this.syncFinishedAt = syncFinishedAt;
   }
 
-  public ModelPackage syncProgress(Integer syncProgress) {
+  public ConanPackageUpload syncProgress(Integer syncProgress) {
     this.syncProgress = syncProgress;
     return this;
   }
@@ -1102,7 +1144,7 @@ public class ModelPackage implements Serializable {
     this.syncProgress = syncProgress;
   }
 
-  public ModelPackage typeDisplay(String typeDisplay) {
+  public ConanPackageUpload typeDisplay(String typeDisplay) {
     this.typeDisplay = typeDisplay;
     return this;
   }
@@ -1120,7 +1162,7 @@ public class ModelPackage implements Serializable {
     this.typeDisplay = typeDisplay;
   }
 
-  public ModelPackage uploadedAt(String uploadedAt) {
+  public ConanPackageUpload uploadedAt(String uploadedAt) {
     this.uploadedAt = uploadedAt;
     return this;
   }
@@ -1138,7 +1180,7 @@ public class ModelPackage implements Serializable {
     this.uploadedAt = uploadedAt;
   }
 
-  public ModelPackage uploader(String uploader) {
+  public ConanPackageUpload uploader(String uploader) {
     this.uploader = uploader;
     return this;
   }
@@ -1156,7 +1198,7 @@ public class ModelPackage implements Serializable {
     this.uploader = uploader;
   }
 
-  public ModelPackage uploaderUrl(String uploaderUrl) {
+  public ConanPackageUpload uploaderUrl(String uploaderUrl) {
     this.uploaderUrl = uploaderUrl;
     return this;
   }
@@ -1174,7 +1216,7 @@ public class ModelPackage implements Serializable {
     this.uploaderUrl = uploaderUrl;
   }
 
-  public ModelPackage version(String version) {
+  public ConanPackageUpload version(String version) {
     this.version = version;
     return this;
   }
@@ -1192,7 +1234,7 @@ public class ModelPackage implements Serializable {
     this.version = version;
   }
 
-  public ModelPackage versionOrig(String versionOrig) {
+  public ConanPackageUpload versionOrig(String versionOrig) {
     this.versionOrig = versionOrig;
     return this;
   }
@@ -1219,74 +1261,76 @@ public class ModelPackage implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModelPackage _package = (ModelPackage) o;
-    return Objects.equals(this.architectures, _package.architectures) &&
-        Objects.equals(this.cdnUrl, _package.cdnUrl) &&
-        Objects.equals(this.checksumMd5, _package.checksumMd5) &&
-        Objects.equals(this.checksumSha1, _package.checksumSha1) &&
-        Objects.equals(this.checksumSha256, _package.checksumSha256) &&
-        Objects.equals(this.checksumSha512, _package.checksumSha512) &&
-        Objects.equals(this.description, _package.description) &&
-        Objects.equals(this.distro, _package.distro) &&
-        Objects.equals(this.distroVersion, _package.distroVersion) &&
-        Objects.equals(this.downloads, _package.downloads) &&
-        Objects.equals(this.epoch, _package.epoch) &&
-        Objects.equals(this.extension, _package.extension) &&
-        Objects.equals(this.filename, _package.filename) &&
-        Objects.equals(this.files, _package.files) &&
-        Objects.equals(this.format, _package.format) &&
-        Objects.equals(this.formatUrl, _package.formatUrl) &&
-        Objects.equals(this.identifierPerm, _package.identifierPerm) &&
-        Objects.equals(this.indexed, _package.indexed) &&
-        Objects.equals(this.isSyncAwaiting, _package.isSyncAwaiting) &&
-        Objects.equals(this.isSyncCompleted, _package.isSyncCompleted) &&
-        Objects.equals(this.isSyncFailed, _package.isSyncFailed) &&
-        Objects.equals(this.isSyncInFlight, _package.isSyncInFlight) &&
-        Objects.equals(this.isSyncInProgress, _package.isSyncInProgress) &&
-        Objects.equals(this.license, _package.license) &&
-        Objects.equals(this.name, _package.name) &&
-        Objects.equals(this.namespace, _package.namespace) &&
-        Objects.equals(this.namespaceUrl, _package.namespaceUrl) &&
-        Objects.equals(this.numFiles, _package.numFiles) &&
-        Objects.equals(this.packageType, _package.packageType) &&
-        Objects.equals(this.release, _package.release) &&
-        Objects.equals(this.repository, _package.repository) &&
-        Objects.equals(this.repositoryUrl, _package.repositoryUrl) &&
-        Objects.equals(this.selfHtmlUrl, _package.selfHtmlUrl) &&
-        Objects.equals(this.selfUrl, _package.selfUrl) &&
-        Objects.equals(this.size, _package.size) &&
-        Objects.equals(this.slug, _package.slug) &&
-        Objects.equals(this.slugPerm, _package.slugPerm) &&
-        Objects.equals(this.stage, _package.stage) &&
-        Objects.equals(this.stageStr, _package.stageStr) &&
-        Objects.equals(this.stageUpdatedAt, _package.stageUpdatedAt) &&
-        Objects.equals(this.status, _package.status) &&
-        Objects.equals(this.statusReason, _package.statusReason) &&
-        Objects.equals(this.statusStr, _package.statusStr) &&
-        Objects.equals(this.statusUpdatedAt, _package.statusUpdatedAt) &&
-        Objects.equals(this.statusUrl, _package.statusUrl) &&
-        Objects.equals(this.subtype, _package.subtype) &&
-        Objects.equals(this.summary, _package.summary) &&
-        Objects.equals(this.syncFinishedAt, _package.syncFinishedAt) &&
-        Objects.equals(this.syncProgress, _package.syncProgress) &&
-        Objects.equals(this.typeDisplay, _package.typeDisplay) &&
-        Objects.equals(this.uploadedAt, _package.uploadedAt) &&
-        Objects.equals(this.uploader, _package.uploader) &&
-        Objects.equals(this.uploaderUrl, _package.uploaderUrl) &&
-        Objects.equals(this.version, _package.version) &&
-        Objects.equals(this.versionOrig, _package.versionOrig);
+    ConanPackageUpload conanPackageUpload = (ConanPackageUpload) o;
+    return Objects.equals(this.architectures, conanPackageUpload.architectures) &&
+        Objects.equals(this.cdnUrl, conanPackageUpload.cdnUrl) &&
+        Objects.equals(this.checksumMd5, conanPackageUpload.checksumMd5) &&
+        Objects.equals(this.checksumSha1, conanPackageUpload.checksumSha1) &&
+        Objects.equals(this.checksumSha256, conanPackageUpload.checksumSha256) &&
+        Objects.equals(this.checksumSha512, conanPackageUpload.checksumSha512) &&
+        Objects.equals(this.conanChannel, conanPackageUpload.conanChannel) &&
+        Objects.equals(this.conanPrefix, conanPackageUpload.conanPrefix) &&
+        Objects.equals(this.description, conanPackageUpload.description) &&
+        Objects.equals(this.distro, conanPackageUpload.distro) &&
+        Objects.equals(this.distroVersion, conanPackageUpload.distroVersion) &&
+        Objects.equals(this.downloads, conanPackageUpload.downloads) &&
+        Objects.equals(this.epoch, conanPackageUpload.epoch) &&
+        Objects.equals(this.extension, conanPackageUpload.extension) &&
+        Objects.equals(this.filename, conanPackageUpload.filename) &&
+        Objects.equals(this.files, conanPackageUpload.files) &&
+        Objects.equals(this.format, conanPackageUpload.format) &&
+        Objects.equals(this.formatUrl, conanPackageUpload.formatUrl) &&
+        Objects.equals(this.identifierPerm, conanPackageUpload.identifierPerm) &&
+        Objects.equals(this.indexed, conanPackageUpload.indexed) &&
+        Objects.equals(this.isSyncAwaiting, conanPackageUpload.isSyncAwaiting) &&
+        Objects.equals(this.isSyncCompleted, conanPackageUpload.isSyncCompleted) &&
+        Objects.equals(this.isSyncFailed, conanPackageUpload.isSyncFailed) &&
+        Objects.equals(this.isSyncInFlight, conanPackageUpload.isSyncInFlight) &&
+        Objects.equals(this.isSyncInProgress, conanPackageUpload.isSyncInProgress) &&
+        Objects.equals(this.license, conanPackageUpload.license) &&
+        Objects.equals(this.name, conanPackageUpload.name) &&
+        Objects.equals(this.namespace, conanPackageUpload.namespace) &&
+        Objects.equals(this.namespaceUrl, conanPackageUpload.namespaceUrl) &&
+        Objects.equals(this.numFiles, conanPackageUpload.numFiles) &&
+        Objects.equals(this.packageType, conanPackageUpload.packageType) &&
+        Objects.equals(this.release, conanPackageUpload.release) &&
+        Objects.equals(this.repository, conanPackageUpload.repository) &&
+        Objects.equals(this.repositoryUrl, conanPackageUpload.repositoryUrl) &&
+        Objects.equals(this.selfHtmlUrl, conanPackageUpload.selfHtmlUrl) &&
+        Objects.equals(this.selfUrl, conanPackageUpload.selfUrl) &&
+        Objects.equals(this.size, conanPackageUpload.size) &&
+        Objects.equals(this.slug, conanPackageUpload.slug) &&
+        Objects.equals(this.slugPerm, conanPackageUpload.slugPerm) &&
+        Objects.equals(this.stage, conanPackageUpload.stage) &&
+        Objects.equals(this.stageStr, conanPackageUpload.stageStr) &&
+        Objects.equals(this.stageUpdatedAt, conanPackageUpload.stageUpdatedAt) &&
+        Objects.equals(this.status, conanPackageUpload.status) &&
+        Objects.equals(this.statusReason, conanPackageUpload.statusReason) &&
+        Objects.equals(this.statusStr, conanPackageUpload.statusStr) &&
+        Objects.equals(this.statusUpdatedAt, conanPackageUpload.statusUpdatedAt) &&
+        Objects.equals(this.statusUrl, conanPackageUpload.statusUrl) &&
+        Objects.equals(this.subtype, conanPackageUpload.subtype) &&
+        Objects.equals(this.summary, conanPackageUpload.summary) &&
+        Objects.equals(this.syncFinishedAt, conanPackageUpload.syncFinishedAt) &&
+        Objects.equals(this.syncProgress, conanPackageUpload.syncProgress) &&
+        Objects.equals(this.typeDisplay, conanPackageUpload.typeDisplay) &&
+        Objects.equals(this.uploadedAt, conanPackageUpload.uploadedAt) &&
+        Objects.equals(this.uploader, conanPackageUpload.uploader) &&
+        Objects.equals(this.uploaderUrl, conanPackageUpload.uploaderUrl) &&
+        Objects.equals(this.version, conanPackageUpload.version) &&
+        Objects.equals(this.versionOrig, conanPackageUpload.versionOrig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModelPackage {\n");
+    sb.append("class ConanPackageUpload {\n");
     
     sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
@@ -1294,6 +1338,8 @@ public class ModelPackage implements Serializable {
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");
     sb.append("    checksumSha256: ").append(toIndentedString(checksumSha256)).append("\n");
     sb.append("    checksumSha512: ").append(toIndentedString(checksumSha512)).append("\n");
+    sb.append("    conanChannel: ").append(toIndentedString(conanChannel)).append("\n");
+    sb.append("    conanPrefix: ").append(toIndentedString(conanPrefix)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");

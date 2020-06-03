@@ -1,5 +1,5 @@
 
-# RawPackageUpload
+# ConanPackageUpload
 
 ## Properties
 Name | Type | Description | Notes
@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **checksumSha1** | **String** |  |  [optional]
 **checksumSha256** | **String** |  |  [optional]
 **checksumSha512** | **String** |  |  [optional]
+**conanChannel** | **String** | Conan channel. |  [optional]
+**conanPrefix** | **String** | Conan prefix (User). |  [optional]
 **description** | **String** | A textual description of this package. |  [optional]
 **distro** | **Object** |  |  [optional]
 **distroVersion** | **Object** |  |  [optional]

@@ -36,6 +36,7 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import io.cloudsmith.api.models.ConanPackageUpload;
 import io.cloudsmith.api.models.MavenPackageUpload;
 import io.cloudsmith.api.models.ModelPackage;
 import io.cloudsmith.api.models.PackageCopy;
@@ -48,6 +49,7 @@ import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadCargo;
 import io.cloudsmith.api.models.PackagesUploadCocoapods;
 import io.cloudsmith.api.models.PackagesUploadComposer;
+import io.cloudsmith.api.models.PackagesUploadConan;
 import io.cloudsmith.api.models.PackagesUploadCran;
 import io.cloudsmith.api.models.PackagesUploadDart;
 import io.cloudsmith.api.models.PackagesUploadDeb;
@@ -67,6 +69,7 @@ import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
 import io.cloudsmith.api.models.PackagesValidateuploadCargo;
 import io.cloudsmith.api.models.PackagesValidateuploadCocoapods;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
+import io.cloudsmith.api.models.PackagesValidateuploadConan;
 import io.cloudsmith.api.models.PackagesValidateuploadCran;
 import io.cloudsmith.api.models.PackagesValidateuploadDart;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
@@ -1775,6 +1778,155 @@ public class PackagesApi {
 
         com.squareup.okhttp.Call call = packagesUploadComposerValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for packagesUploadConan
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesUploadConanCall(String owner, String repo, PackagesUploadConan data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+        
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/upload/conan/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesUploadConanValidateBeforeCall(String owner, String repo, PackagesUploadConan data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, data };
+            Method method = this.getClass().getMethod("packagesUploadConanWithHttpInfo", String.class, String.class, PackagesUploadConan.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesUploadConanCall(owner, repo, data, progressListener, progressRequestListener);
+                return call;
+            
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+            
+        
+        
+        
+        
+    }
+
+    /**
+     * Create a new Conan package
+     * Create a new Conan package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ConanPackageUpload
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConanPackageUpload packagesUploadConan(String owner, String repo, PackagesUploadConan data) throws ApiException {
+        ApiResponse<ConanPackageUpload> resp = packagesUploadConanWithHttpInfo(owner, repo, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create a new Conan package
+     * Create a new Conan package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;ConanPackageUpload&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConanPackageUpload> packagesUploadConanWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadConan data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesUploadConanValidateBeforeCall(owner, repo, data, null, null);
+        Type localVarReturnType = new TypeToken<ConanPackageUpload>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a new Conan package (asynchronously)
+     * Create a new Conan package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesUploadConanAsync(String owner, String repo, PackagesUploadConan data, final ApiCallback<ConanPackageUpload> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesUploadConanValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConanPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4590,6 +4742,151 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesValidateUploadComposerValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for packagesValidateUploadConan
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesValidateUploadConanCall(String owner, String repo, PackagesValidateuploadConan data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+        
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/validate-upload/conan/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesValidateUploadConanValidateBeforeCall(String owner, String repo, PackagesValidateuploadConan data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, data };
+            Method method = this.getClass().getMethod("packagesValidateUploadConanWithHttpInfo", String.class, String.class, PackagesValidateuploadConan.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesValidateUploadConanCall(owner, repo, data, progressListener, progressRequestListener);
+                return call;
+            
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+            
+        
+        
+        
+        
+    }
+
+    /**
+     * Validate parameters for create Conan package
+     * Validate parameters for create Conan package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void packagesValidateUploadConan(String owner, String repo, PackagesValidateuploadConan data) throws ApiException {
+        packagesValidateUploadConanWithHttpInfo(owner, repo, data);
+    }
+
+    /**
+     * Validate parameters for create Conan package
+     * Validate parameters for create Conan package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> packagesValidateUploadConanWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadConan data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesValidateUploadConanValidateBeforeCall(owner, repo, data, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Validate parameters for create Conan package (asynchronously)
+     * Validate parameters for create Conan package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesValidateUploadConanAsync(String owner, String repo, PackagesValidateuploadConan data, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesValidateUploadConanValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
