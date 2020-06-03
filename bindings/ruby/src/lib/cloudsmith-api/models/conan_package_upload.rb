@@ -14,7 +14,7 @@ require 'date'
 
 module CloudsmithApi
 
-  class VagrantPackageUpload
+  class ConanPackageUpload
     # 
     attr_accessor :architectures
 
@@ -32,6 +32,12 @@ module CloudsmithApi
 
     # 
     attr_accessor :checksum_sha512
+
+    # Conan channel.
+    attr_accessor :conan_channel
+
+    # Conan prefix (User).
+    attr_accessor :conan_prefix
 
     # A textual description of this package.
     attr_accessor :description
@@ -101,9 +107,6 @@ module CloudsmithApi
 
     # The type of package contents.
     attr_accessor :package_type
-
-    # The virtual machine provider for the box.
-    attr_accessor :provider
 
     # The release of the package version (if any).
     attr_accessor :release
@@ -193,6 +196,8 @@ module CloudsmithApi
         :'checksum_sha1' => :'checksum_sha1',
         :'checksum_sha256' => :'checksum_sha256',
         :'checksum_sha512' => :'checksum_sha512',
+        :'conan_channel' => :'conan_channel',
+        :'conan_prefix' => :'conan_prefix',
         :'description' => :'description',
         :'distro' => :'distro',
         :'distro_version' => :'distro_version',
@@ -216,7 +221,6 @@ module CloudsmithApi
         :'namespace_url' => :'namespace_url',
         :'num_files' => :'num_files',
         :'package_type' => :'package_type',
-        :'provider' => :'provider',
         :'release' => :'release',
         :'repository' => :'repository',
         :'repository_url' => :'repository_url',
@@ -255,6 +259,8 @@ module CloudsmithApi
         :'checksum_sha1' => :'String',
         :'checksum_sha256' => :'String',
         :'checksum_sha512' => :'String',
+        :'conan_channel' => :'String',
+        :'conan_prefix' => :'String',
         :'description' => :'String',
         :'distro' => :'Object',
         :'distro_version' => :'Object',
@@ -278,7 +284,6 @@ module CloudsmithApi
         :'namespace_url' => :'String',
         :'num_files' => :'Integer',
         :'package_type' => :'String',
-        :'provider' => :'String',
         :'release' => :'String',
         :'repository' => :'String',
         :'repository_url' => :'String',
@@ -340,6 +345,14 @@ module CloudsmithApi
 
       if attributes.has_key?(:'checksum_sha512')
         self.checksum_sha512 = attributes[:'checksum_sha512']
+      end
+
+      if attributes.has_key?(:'conan_channel')
+        self.conan_channel = attributes[:'conan_channel']
+      end
+
+      if attributes.has_key?(:'conan_prefix')
+        self.conan_prefix = attributes[:'conan_prefix']
       end
 
       if attributes.has_key?(:'description')
@@ -434,10 +447,6 @@ module CloudsmithApi
 
       if attributes.has_key?(:'package_type')
         self.package_type = attributes[:'package_type']
-      end
-
-      if attributes.has_key?(:'provider')
-        self.provider = attributes[:'provider']
       end
 
       if attributes.has_key?(:'release')
@@ -550,27 +559,12 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
-      if @provider.nil?
-        invalid_properties.push("invalid value for 'provider', provider cannot be nil.")
-      end
-
-      if @version.nil?
-        invalid_properties.push("invalid value for 'version', version cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @provider.nil?
-      return false if @version.nil?
       return true
     end
 
@@ -585,6 +579,8 @@ module CloudsmithApi
           checksum_sha1 == o.checksum_sha1 &&
           checksum_sha256 == o.checksum_sha256 &&
           checksum_sha512 == o.checksum_sha512 &&
+          conan_channel == o.conan_channel &&
+          conan_prefix == o.conan_prefix &&
           description == o.description &&
           distro == o.distro &&
           distro_version == o.distro_version &&
@@ -608,7 +604,6 @@ module CloudsmithApi
           namespace_url == o.namespace_url &&
           num_files == o.num_files &&
           package_type == o.package_type &&
-          provider == o.provider &&
           release == o.release &&
           repository == o.repository &&
           repository_url == o.repository_url &&
@@ -646,7 +641,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, provider, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, type_display, uploaded_at, uploader, uploader_url, version, version_orig].hash
+      [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, conan_channel, conan_prefix, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, type_display, uploaded_at, uploader, uploader_url, version, version_orig].hash
     end
 
     # Builds the object from hash

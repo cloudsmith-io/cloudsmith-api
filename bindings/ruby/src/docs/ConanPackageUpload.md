@@ -1,4 +1,4 @@
-# CloudsmithApi::PackageMove
+# CloudsmithApi::ConanPackageUpload
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **checksum_sha1** | **String** |  | [optional] 
 **checksum_sha256** | **String** |  | [optional] 
 **checksum_sha512** | **String** |  | [optional] 
+**conan_channel** | **String** | Conan channel. | [optional] 
+**conan_prefix** | **String** | Conan prefix (User). | [optional] 
 **description** | **String** | A textual description of this package. | [optional] 
 **distro** | **Object** |  | [optional] 
 **distro_version** | **Object** |  | [optional] 
@@ -33,7 +35,7 @@ Name | Type | Description | Notes
 **num_files** | **Integer** |  | [optional] 
 **package_type** | **String** | The type of package contents. | [optional] 
 **release** | **String** | The release of the package version (if any). | [optional] 
-**repository** | **String** | The repository the package will be moved to. | [optional] 
+**repository** | **String** |  | [optional] 
 **repository_url** | **String** |  | [optional] 
 **self_html_url** | **String** |  | [optional] 
 **self_url** | **String** |  | [optional] 

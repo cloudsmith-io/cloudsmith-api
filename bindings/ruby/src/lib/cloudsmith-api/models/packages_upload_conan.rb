@@ -14,22 +14,52 @@ require 'date'
 
 module CloudsmithApi
 
-  class Status
-    # An extended message for the response.
-    attr_accessor :detail
+  class PackagesUploadConan
+    # Conan channel.
+    attr_accessor :conan_channel
+
+    # Conan prefix (User).
+    attr_accessor :conan_prefix
+
+    # The info file is an python file containing the package metadata.
+    attr_accessor :info_file
+
+    # The info file is an python file containing the package metadata.
+    attr_accessor :manifest_file
+
+    # The conan file is an python file containing the package metadata.
+    attr_accessor :metadata_file
+
+    # The primary file for the package.
+    attr_accessor :package_file
+
+    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+    attr_accessor :republish
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'detail' => :'detail'
+        :'conan_channel' => :'conan_channel',
+        :'conan_prefix' => :'conan_prefix',
+        :'info_file' => :'info_file',
+        :'manifest_file' => :'manifest_file',
+        :'metadata_file' => :'metadata_file',
+        :'package_file' => :'package_file',
+        :'republish' => :'republish'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'detail' => :'String'
+        :'conan_channel' => :'String',
+        :'conan_prefix' => :'String',
+        :'info_file' => :'String',
+        :'manifest_file' => :'String',
+        :'metadata_file' => :'String',
+        :'package_file' => :'String',
+        :'republish' => :'BOOLEAN'
       }
     end
 
@@ -41,8 +71,32 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'detail')
-        self.detail = attributes[:'detail']
+      if attributes.has_key?(:'conan_channel')
+        self.conan_channel = attributes[:'conan_channel']
+      end
+
+      if attributes.has_key?(:'conan_prefix')
+        self.conan_prefix = attributes[:'conan_prefix']
+      end
+
+      if attributes.has_key?(:'info_file')
+        self.info_file = attributes[:'info_file']
+      end
+
+      if attributes.has_key?(:'manifest_file')
+        self.manifest_file = attributes[:'manifest_file']
+      end
+
+      if attributes.has_key?(:'metadata_file')
+        self.metadata_file = attributes[:'metadata_file']
+      end
+
+      if attributes.has_key?(:'package_file')
+        self.package_file = attributes[:'package_file']
+      end
+
+      if attributes.has_key?(:'republish')
+        self.republish = attributes[:'republish']
       end
 
     end
@@ -51,8 +105,8 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @detail.nil?
-        invalid_properties.push("invalid value for 'detail', detail cannot be nil.")
+      if @package_file.nil?
+        invalid_properties.push("invalid value for 'package_file', package_file cannot be nil.")
       end
 
       return invalid_properties
@@ -61,7 +115,7 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @detail.nil?
+      return false if @package_file.nil?
       return true
     end
 
@@ -70,7 +124,13 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          detail == o.detail
+          conan_channel == o.conan_channel &&
+          conan_prefix == o.conan_prefix &&
+          info_file == o.info_file &&
+          manifest_file == o.manifest_file &&
+          metadata_file == o.metadata_file &&
+          package_file == o.package_file &&
+          republish == o.republish
     end
 
     # @see the `==` method
@@ -82,7 +142,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [detail].hash
+      [conan_channel, conan_prefix, info_file, manifest_file, metadata_file, package_file, republish].hash
     end
 
     # Builds the object from hash

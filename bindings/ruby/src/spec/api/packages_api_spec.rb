@@ -191,6 +191,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_conan
+  # Create a new Conan package
+  # Create a new Conan package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadConan] :data 
+  # @return [ConanPackageUpload]
+  describe 'packages_upload_conan test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_cran
   # Create a new CRAN package
   # Create a new CRAN package
@@ -452,6 +466,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadComposer] :data 
   # @return [nil]
   describe 'packages_validate_upload_composer test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_conan
+  # Validate parameters for create Conan package
+  # Validate parameters for create Conan package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadConan] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_conan test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
