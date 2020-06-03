@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Files** | [**[]PackagesownerrepoFiles**](packagesownerrepo_files.md) |  | [optional] [default to null]
 **Format** | **string** |  | [optional] [default to null]
 **FormatUrl** | **string** |  | [optional] [default to null]
-**Identifier** | **int32** |  | [optional] [default to null]
+**IdentifierPerm** | **string** | Unique and permanent identifier for the package. | [optional] [default to null]
 **Indexed** | **bool** |  | [optional] [default to null]
 **IsSyncAwaiting** | **bool** |  | [optional] [default to null]
 **IsSyncCompleted** | **bool** |  | [optional] [default to null]

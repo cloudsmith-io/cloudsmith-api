@@ -66,8 +66,8 @@ type MavenPackageUpload struct {
 	// Artifact's group ID.
 	GroupId string `json:"group_id,omitempty"`
 
-	// 
-	Identifier int32 `json:"identifier,omitempty"`
+	// Unique and permanent identifier for the package.
+	IdentifierPerm string `json:"identifier_perm,omitempty"`
 
 	// 
 	Indexed bool `json:"indexed,omitempty"`

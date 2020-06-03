@@ -1,4 +1,4 @@
-# ModelPackage
+# ConanPackageUpload
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **ChecksumSha1** | **string** |  | [optional] [default to null]
 **ChecksumSha256** | **string** |  | [optional] [default to null]
 **ChecksumSha512** | **string** |  | [optional] [default to null]
+**ConanChannel** | **string** | Conan channel. | [optional] [default to null]
+**ConanPrefix** | **string** | Conan prefix (User). | [optional] [default to null]
 **Description** | **string** | A textual description of this package. | [optional] [default to null]
 **Distro** | [**interface{}**](interface{}.md) |  | [optional] [default to null]
 **DistroVersion** | [**interface{}**](interface{}.md) |  | [optional] [default to null]

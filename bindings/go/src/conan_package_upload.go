@@ -10,7 +10,7 @@
 
 package cloudsmith_api
 
-type PackageCopy struct {
+type ConanPackageUpload struct {
 
 	// 
 	Architectures []PackagesownerrepoArchitectures `json:"architectures,omitempty"`
@@ -29,6 +29,12 @@ type PackageCopy struct {
 
 	// 
 	ChecksumSha512 string `json:"checksum_sha512,omitempty"`
+
+	// Conan channel.
+	ConanChannel string `json:"conan_channel,omitempty"`
+
+	// Conan prefix (User).
+	ConanPrefix string `json:"conan_prefix,omitempty"`
 
 	// A textual description of this package.
 	Description string `json:"description,omitempty"`
@@ -102,7 +108,7 @@ type PackageCopy struct {
 	// The release of the package version (if any).
 	Release string `json:"release,omitempty"`
 
-	// The repository the package will be copied to.
+	// 
 	Repository string `json:"repository,omitempty"`
 
 	// 
