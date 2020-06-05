@@ -69,8 +69,8 @@ module CloudsmithApi
     # Artifact's group ID.
     attr_accessor :group_id
 
-    # 
-    attr_accessor :identifier
+    # Unique and permanent identifier for the package.
+    attr_accessor :identifier_perm
 
     # 
     attr_accessor :indexed
@@ -211,7 +211,7 @@ module CloudsmithApi
         :'format' => :'format',
         :'format_url' => :'format_url',
         :'group_id' => :'group_id',
-        :'identifier' => :'identifier',
+        :'identifier_perm' => :'identifier_perm',
         :'indexed' => :'indexed',
         :'is_sync_awaiting' => :'is_sync_awaiting',
         :'is_sync_completed' => :'is_sync_completed',
@@ -275,7 +275,7 @@ module CloudsmithApi
         :'format' => :'String',
         :'format_url' => :'String',
         :'group_id' => :'String',
-        :'identifier' => :'Integer',
+        :'identifier_perm' => :'String',
         :'indexed' => :'BOOLEAN',
         :'is_sync_awaiting' => :'BOOLEAN',
         :'is_sync_completed' => :'BOOLEAN',
@@ -402,8 +402,8 @@ module CloudsmithApi
         self.group_id = attributes[:'group_id']
       end
 
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
+      if attributes.has_key?(:'identifier_perm')
+        self.identifier_perm = attributes[:'identifier_perm']
       end
 
       if attributes.has_key?(:'indexed')
@@ -600,7 +600,7 @@ module CloudsmithApi
           format == o.format &&
           format_url == o.format_url &&
           group_id == o.group_id &&
-          identifier == o.identifier &&
+          identifier_perm == o.identifier_perm &&
           indexed == o.indexed &&
           is_sync_awaiting == o.is_sync_awaiting &&
           is_sync_completed == o.is_sync_completed &&
@@ -651,7 +651,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, type_display, uploaded_at, uploader, uploader_url, version, version_orig].hash
+      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, type_display, uploaded_at, uploader, uploader_url, version, version_orig].hash
     end
 
     # Builds the object from hash

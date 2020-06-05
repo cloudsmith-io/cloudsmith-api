@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **format** | **String** |  |  [optional]
 **formatUrl** | **String** |  |  [optional]
 **groupId** | **String** | Artifact&#39;s group ID. |  [optional]
-**identifier** | **Integer** |  |  [optional]
+**identifierPerm** | **String** | Unique and permanent identifier for the package. |  [optional]
 **indexed** | **Boolean** |  |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]

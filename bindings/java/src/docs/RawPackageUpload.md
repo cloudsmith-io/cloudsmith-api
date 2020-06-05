@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **files** | [**List&lt;PackagesownerrepoFiles&gt;**](PackagesownerrepoFiles.md) |  |  [optional]
 **format** | **String** |  |  [optional]
 **formatUrl** | **String** |  |  [optional]
-**identifier** | **Integer** |  |  [optional]
+**identifierPerm** | **String** | Unique and permanent identifier for the package. |  [optional]
 **indexed** | **Boolean** |  |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]

@@ -91,8 +91,8 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("group_id")
   private String groupId = null;
 
-  @SerializedName("identifier")
-  private Integer identifier = null;
+  @SerializedName("identifier_perm")
+  private String identifierPerm = null;
 
   @SerializedName("indexed")
   private Boolean indexed = null;
@@ -553,22 +553,22 @@ public class MavenPackageUpload implements Serializable {
     this.groupId = groupId;
   }
 
-  public MavenPackageUpload identifier(Integer identifier) {
-    this.identifier = identifier;
+  public MavenPackageUpload identifierPerm(String identifierPerm) {
+    this.identifierPerm = identifierPerm;
     return this;
   }
 
    /**
-   * 
-   * @return identifier
+   * Unique and permanent identifier for the package.
+   * @return identifierPerm
   **/
-  @ApiModelProperty(value = "")
-  public Integer getIdentifier() {
-    return identifier;
+  @ApiModelProperty(value = "Unique and permanent identifier for the package.")
+  public String getIdentifierPerm() {
+    return identifierPerm;
   }
 
-  public void setIdentifier(Integer identifier) {
-    this.identifier = identifier;
+  public void setIdentifierPerm(String identifierPerm) {
+    this.identifierPerm = identifierPerm;
   }
 
   public MavenPackageUpload indexed(Boolean indexed) {
@@ -1301,7 +1301,7 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.format, mavenPackageUpload.format) &&
         Objects.equals(this.formatUrl, mavenPackageUpload.formatUrl) &&
         Objects.equals(this.groupId, mavenPackageUpload.groupId) &&
-        Objects.equals(this.identifier, mavenPackageUpload.identifier) &&
+        Objects.equals(this.identifierPerm, mavenPackageUpload.identifierPerm) &&
         Objects.equals(this.indexed, mavenPackageUpload.indexed) &&
         Objects.equals(this.isSyncAwaiting, mavenPackageUpload.isSyncAwaiting) &&
         Objects.equals(this.isSyncCompleted, mavenPackageUpload.isSyncCompleted) &&
@@ -1345,7 +1345,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifier, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, packaging, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
+    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, packaging, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
   }
 
 
@@ -1372,7 +1372,7 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    identifierPerm: ").append(toIndentedString(identifierPerm)).append("\n");
     sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");

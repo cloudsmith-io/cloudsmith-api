@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.49.118</version>
+    <version>0.51.21</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.49.118"
+compile "io.cloudsmith.api:cloudsmith-api:0.51.21"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.49.118.jar
+* target/cloudsmith-api-0.51.21.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -144,6 +144,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadCargo**](docs/PackagesApi.md#packagesUploadCargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 *PackagesApi* | [**packagesUploadCocoapods**](docs/PackagesApi.md#packagesUploadCocoapods) | **POST** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
 *PackagesApi* | [**packagesUploadComposer**](docs/PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
+*PackagesApi* | [**packagesUploadConan**](docs/PackagesApi.md#packagesUploadConan) | **POST** /packages/{owner}/{repo}/upload/conan/ | Create a new Conan package
 *PackagesApi* | [**packagesUploadCran**](docs/PackagesApi.md#packagesUploadCran) | **POST** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
 *PackagesApi* | [**packagesUploadDart**](docs/PackagesApi.md#packagesUploadDart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
@@ -163,6 +164,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadCargo**](docs/PackagesApi.md#packagesValidateUploadCargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 *PackagesApi* | [**packagesValidateUploadCocoapods**](docs/PackagesApi.md#packagesValidateUploadCocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
 *PackagesApi* | [**packagesValidateUploadComposer**](docs/PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
+*PackagesApi* | [**packagesValidateUploadConan**](docs/PackagesApi.md#packagesValidateUploadConan) | **POST** /packages/{owner}/{repo}/validate-upload/conan/ | Validate parameters for create Conan package
 *PackagesApi* | [**packagesValidateUploadCran**](docs/PackagesApi.md#packagesValidateUploadCran) | **POST** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
 *PackagesApi* | [**packagesValidateUploadDart**](docs/PackagesApi.md#packagesValidateUploadDart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
@@ -198,6 +200,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [ConanPackageUpload](docs/ConanPackageUpload.md)
  - [Distribution](docs/Distribution.md)
  - [DistrosVersions](docs/DistrosVersions.md)
  - [EntitlementsCreate](docs/EntitlementsCreate.md)
@@ -226,6 +229,7 @@ Class | Method | HTTP request | Description
  - [PackagesUploadCargo](docs/PackagesUploadCargo.md)
  - [PackagesUploadCocoapods](docs/PackagesUploadCocoapods.md)
  - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
+ - [PackagesUploadConan](docs/PackagesUploadConan.md)
  - [PackagesUploadCran](docs/PackagesUploadCran.md)
  - [PackagesUploadDart](docs/PackagesUploadDart.md)
  - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
@@ -245,6 +249,7 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadCargo](docs/PackagesValidateuploadCargo.md)
  - [PackagesValidateuploadCocoapods](docs/PackagesValidateuploadCocoapods.md)
  - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
+ - [PackagesValidateuploadConan](docs/PackagesValidateuploadConan.md)
  - [PackagesValidateuploadCran](docs/PackagesValidateuploadCran.md)
  - [PackagesValidateuploadDart](docs/PackagesValidateuploadDart.md)
  - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)

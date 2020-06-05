@@ -60,8 +60,8 @@ type PackageCopy struct {
 	// 
 	FormatUrl string `json:"format_url,omitempty"`
 
-	// 
-	Identifier int32 `json:"identifier,omitempty"`
+	// Unique and permanent identifier for the package.
+	IdentifierPerm string `json:"identifier_perm,omitempty"`
 
 	// 
 	Indexed bool `json:"indexed,omitempty"`

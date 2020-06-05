@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Format** | **string** |  | [optional] [default to null]
 **FormatUrl** | **string** |  | [optional] [default to null]
 **GroupId** | **string** | Artifact&#39;s group ID. | [optional] [default to null]
-**Identifier** | **int32** |  | [optional] [default to null]
+**IdentifierPerm** | **string** | Unique and permanent identifier for the package. | [optional] [default to null]
 **Indexed** | **bool** |  | [optional] [default to null]
 **IsSyncAwaiting** | **bool** |  | [optional] [default to null]
 **IsSyncCompleted** | **bool** |  | [optional] [default to null]

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **format** | **String** |  | [optional] 
 **format_url** | **String** |  | [optional] 
 **group_id** | **String** | Artifact&#39;s group ID. | [optional] 
-**identifier** | **Integer** |  | [optional] 
+**identifier_perm** | **String** | Unique and permanent identifier for the package. | [optional] 
 **indexed** | **BOOLEAN** |  | [optional] 
 **is_sync_awaiting** | **BOOLEAN** |  | [optional] 
 **is_sync_completed** | **BOOLEAN** |  | [optional] 

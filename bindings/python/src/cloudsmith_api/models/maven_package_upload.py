@@ -49,7 +49,7 @@ class MavenPackageUpload(object):
         'format': 'str',
         'format_url': 'str',
         'group_id': 'str',
-        'identifier': 'int',
+        'identifier_perm': 'str',
         'indexed': 'bool',
         'is_sync_awaiting': 'bool',
         'is_sync_completed': 'bool',
@@ -110,7 +110,7 @@ class MavenPackageUpload(object):
         'format': 'format',
         'format_url': 'format_url',
         'group_id': 'group_id',
-        'identifier': 'identifier',
+        'identifier_perm': 'identifier_perm',
         'indexed': 'indexed',
         'is_sync_awaiting': 'is_sync_awaiting',
         'is_sync_completed': 'is_sync_completed',
@@ -152,7 +152,7 @@ class MavenPackageUpload(object):
         'version_orig': 'version_orig'
     }
 
-    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, group_id=None, identifier=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, packaging=None, release=None, repository=None, repository_url=None, self_html_url=None, self_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None):
+    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, group_id=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, packaging=None, release=None, repository=None, repository_url=None, self_html_url=None, self_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None):
         """
         MavenPackageUpload - a model defined in Swagger
         """
@@ -175,7 +175,7 @@ class MavenPackageUpload(object):
         self._format = None
         self._format_url = None
         self._group_id = None
-        self._identifier = None
+        self._identifier_perm = None
         self._indexed = None
         self._is_sync_awaiting = None
         self._is_sync_completed = None
@@ -252,8 +252,8 @@ class MavenPackageUpload(object):
           self.format_url = format_url
         if group_id is not None:
           self.group_id = group_id
-        if identifier is not None:
-          self.identifier = identifier
+        if identifier_perm is not None:
+          self.identifier_perm = identifier_perm
         if indexed is not None:
           self.indexed = indexed
         if is_sync_awaiting is not None:
@@ -748,27 +748,27 @@ class MavenPackageUpload(object):
         self._group_id = group_id
 
     @property
-    def identifier(self):
+    def identifier_perm(self):
         """
-        Gets the identifier of this MavenPackageUpload.
-        
+        Gets the identifier_perm of this MavenPackageUpload.
+        Unique and permanent identifier for the package.
 
-        :return: The identifier of this MavenPackageUpload.
-        :rtype: int
+        :return: The identifier_perm of this MavenPackageUpload.
+        :rtype: str
         """
-        return self._identifier
+        return self._identifier_perm
 
-    @identifier.setter
-    def identifier(self, identifier):
+    @identifier_perm.setter
+    def identifier_perm(self, identifier_perm):
         """
-        Sets the identifier of this MavenPackageUpload.
-        
+        Sets the identifier_perm of this MavenPackageUpload.
+        Unique and permanent identifier for the package.
 
-        :param identifier: The identifier of this MavenPackageUpload.
-        :type: int
+        :param identifier_perm: The identifier_perm of this MavenPackageUpload.
+        :type: str
         """
 
-        self._identifier = identifier
+        self._identifier_perm = identifier_perm
 
     @property
     def indexed(self):

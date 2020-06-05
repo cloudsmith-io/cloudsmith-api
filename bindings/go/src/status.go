@@ -13,5 +13,5 @@ package cloudsmith_api
 type Status struct {
 
 	// An extended message for the response.
-	Detail string `json:"detail,omitempty"`
+	Detail string `json:"detail"`
 }

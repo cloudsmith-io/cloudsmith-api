@@ -85,8 +85,8 @@ public class RawPackageUpload implements Serializable {
   @SerializedName("format_url")
   private String formatUrl = null;
 
-  @SerializedName("identifier")
-  private Integer identifier = null;
+  @SerializedName("identifier_perm")
+  private String identifierPerm = null;
 
   @SerializedName("indexed")
   private Boolean indexed = null;
@@ -508,22 +508,22 @@ public class RawPackageUpload implements Serializable {
     this.formatUrl = formatUrl;
   }
 
-  public RawPackageUpload identifier(Integer identifier) {
-    this.identifier = identifier;
+  public RawPackageUpload identifierPerm(String identifierPerm) {
+    this.identifierPerm = identifierPerm;
     return this;
   }
 
    /**
-   * 
-   * @return identifier
+   * Unique and permanent identifier for the package.
+   * @return identifierPerm
   **/
-  @ApiModelProperty(value = "")
-  public Integer getIdentifier() {
-    return identifier;
+  @ApiModelProperty(value = "Unique and permanent identifier for the package.")
+  public String getIdentifierPerm() {
+    return identifierPerm;
   }
 
-  public void setIdentifier(Integer identifier) {
-    this.identifier = identifier;
+  public void setIdentifierPerm(String identifierPerm) {
+    this.identifierPerm = identifierPerm;
   }
 
   public RawPackageUpload indexed(Boolean indexed) {
@@ -1236,7 +1236,7 @@ public class RawPackageUpload implements Serializable {
         Objects.equals(this.files, rawPackageUpload.files) &&
         Objects.equals(this.format, rawPackageUpload.format) &&
         Objects.equals(this.formatUrl, rawPackageUpload.formatUrl) &&
-        Objects.equals(this.identifier, rawPackageUpload.identifier) &&
+        Objects.equals(this.identifierPerm, rawPackageUpload.identifierPerm) &&
         Objects.equals(this.indexed, rawPackageUpload.indexed) &&
         Objects.equals(this.isSyncAwaiting, rawPackageUpload.isSyncAwaiting) &&
         Objects.equals(this.isSyncCompleted, rawPackageUpload.isSyncCompleted) &&
@@ -1279,7 +1279,7 @@ public class RawPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifier, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
   }
 
 
@@ -1304,7 +1304,7 @@ public class RawPackageUpload implements Serializable {
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    identifierPerm: ").append(toIndentedString(identifierPerm)).append("\n");
     sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");

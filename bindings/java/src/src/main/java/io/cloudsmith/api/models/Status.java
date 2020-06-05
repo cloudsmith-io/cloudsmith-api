@@ -45,7 +45,8 @@ public class Status implements Serializable {
    * An extended message for the response.
    * @return detail
   **/
-  @ApiModelProperty(value = "An extended message for the response.")
+  @NotNull
+  @ApiModelProperty(required = true, value = "An extended message for the response.")
   public String getDetail() {
     return detail;
   }
