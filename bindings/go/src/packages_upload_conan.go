@@ -19,13 +19,13 @@ type PackagesUploadConan struct {
 	ConanPrefix string `json:"conan_prefix,omitempty"`
 
 	// The info file is an python file containing the package metadata.
-	InfoFile string `json:"info_file,omitempty"`
+	InfoFile string `json:"info_file"`
 
 	// The info file is an python file containing the package metadata.
-	ManifestFile string `json:"manifest_file,omitempty"`
+	ManifestFile string `json:"manifest_file"`
 
 	// The conan file is an python file containing the package metadata.
-	MetadataFile string `json:"metadata_file,omitempty"`
+	MetadataFile string `json:"metadata_file"`
 
 	// The primary file for the package.
 	PackageFile string `json:"package_file"`
