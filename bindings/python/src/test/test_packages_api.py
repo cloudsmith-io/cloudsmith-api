@@ -239,6 +239,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_terraform(self):
+        """
+        Test case for packages_upload_terraform
+
+        Create a new Terraform package
+        """
+        pass
+
     def test_packages_upload_vagrant(self):
         """
         Test case for packages_upload_vagrant
@@ -396,6 +404,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_ruby
 
         Validate parameters for create Ruby package
+        """
+        pass
+
+    def test_packages_validate_upload_terraform(self):
+        """
+        Test case for packages_validate_upload_terraform
+
+        Validate parameters for create Terraform package
         """
         pass
 

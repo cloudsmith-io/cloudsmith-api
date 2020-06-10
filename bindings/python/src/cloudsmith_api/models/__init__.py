@@ -58,6 +58,7 @@ from .packages_upload_python import PackagesUploadPython
 from .packages_upload_raw import PackagesUploadRaw
 from .packages_upload_rpm import PackagesUploadRpm
 from .packages_upload_ruby import PackagesUploadRuby
+from .packages_upload_terraform import PackagesUploadTerraform
 from .packages_upload_vagrant import PackagesUploadVagrant
 from .packages_validateupload_alpine import PackagesValidateuploadAlpine
 from .packages_validateupload_cargo import PackagesValidateuploadCargo
@@ -78,6 +79,7 @@ from .packages_validateupload_python import PackagesValidateuploadPython
 from .packages_validateupload_raw import PackagesValidateuploadRaw
 from .packages_validateupload_rpm import PackagesValidateuploadRpm
 from .packages_validateupload_ruby import PackagesValidateuploadRuby
+from .packages_validateupload_terraform import PackagesValidateuploadTerraform
 from .packages_validateupload_vagrant import PackagesValidateuploadVagrant
 from .packagesownerrepo_architectures import PackagesownerrepoArchitectures
 from .packagesownerrepo_files import PackagesownerrepoFiles
