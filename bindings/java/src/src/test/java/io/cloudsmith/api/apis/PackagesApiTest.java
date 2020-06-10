@@ -42,6 +42,7 @@ import io.cloudsmith.api.models.PackagesUploadPython;
 import io.cloudsmith.api.models.PackagesUploadRaw;
 import io.cloudsmith.api.models.PackagesUploadRpm;
 import io.cloudsmith.api.models.PackagesUploadRuby;
+import io.cloudsmith.api.models.PackagesUploadTerraform;
 import io.cloudsmith.api.models.PackagesUploadVagrant;
 import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
 import io.cloudsmith.api.models.PackagesValidateuploadCargo;
@@ -62,6 +63,7 @@ import io.cloudsmith.api.models.PackagesValidateuploadPython;
 import io.cloudsmith.api.models.PackagesValidateuploadRaw;
 import io.cloudsmith.api.models.PackagesValidateuploadRpm;
 import io.cloudsmith.api.models.PackagesValidateuploadRuby;
+import io.cloudsmith.api.models.PackagesValidateuploadTerraform;
 import io.cloudsmith.api.models.PackagesValidateuploadVagrant;
 import io.cloudsmith.api.models.RawPackageUpload;
 import io.cloudsmith.api.models.Status;
@@ -557,6 +559,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new Terraform package
+     *
+     * Create a new Terraform package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadTerraformTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadTerraform data = null;
+        ModelPackage response = api.packagesUploadTerraform(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Vagrant package
      *
      * Create a new Vagrant package
@@ -912,6 +932,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadRuby data = null;
         api.packagesValidateUploadRuby(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Terraform package
+     *
+     * Validate parameters for create Terraform package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadTerraformTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadTerraform data = null;
+        api.packagesValidateUploadTerraform(owner, repo, data);
 
         // TODO: test validations
     }
