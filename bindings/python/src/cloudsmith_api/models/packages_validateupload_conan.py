@@ -67,12 +67,9 @@ class PackagesValidateuploadConan(object):
           self.conan_channel = conan_channel
         if conan_prefix is not None:
           self.conan_prefix = conan_prefix
-        if info_file is not None:
-          self.info_file = info_file
-        if manifest_file is not None:
-          self.manifest_file = manifest_file
-        if metadata_file is not None:
-          self.metadata_file = metadata_file
+        self.info_file = info_file
+        self.manifest_file = manifest_file
+        self.metadata_file = metadata_file
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
@@ -143,6 +140,8 @@ class PackagesValidateuploadConan(object):
         :param info_file: The info_file of this PackagesValidateuploadConan.
         :type: str
         """
+        if info_file is None:
+            raise ValueError("Invalid value for `info_file`, must not be `None`")
 
         self._info_file = info_file
 
@@ -166,6 +165,8 @@ class PackagesValidateuploadConan(object):
         :param manifest_file: The manifest_file of this PackagesValidateuploadConan.
         :type: str
         """
+        if manifest_file is None:
+            raise ValueError("Invalid value for `manifest_file`, must not be `None`")
 
         self._manifest_file = manifest_file
 
@@ -189,6 +190,8 @@ class PackagesValidateuploadConan(object):
         :param metadata_file: The metadata_file of this PackagesValidateuploadConan.
         :type: str
         """
+        if metadata_file is None:
+            raise ValueError("Invalid value for `metadata_file`, must not be `None`")
 
         self._metadata_file = metadata_file
 

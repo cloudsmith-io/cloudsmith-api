@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conan_channel** | **str** | Conan channel. | [optional] 
 **conan_prefix** | **str** | Conan prefix (User). | [optional] 
-**info_file** | **str** | The info file is an python file containing the package metadata. | [optional] 
-**manifest_file** | **str** | The info file is an python file containing the package metadata. | [optional] 
-**metadata_file** | **str** | The conan file is an python file containing the package metadata. | [optional] 
+**info_file** | **str** | The info file is an python file containing the package metadata. | 
+**manifest_file** | **str** | The info file is an python file containing the package metadata. | 
+**metadata_file** | **str** | The conan file is an python file containing the package metadata. | 
 **package_file** | **str** | The primary file for the package. | 
 **republish** | **bool** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] 
 
