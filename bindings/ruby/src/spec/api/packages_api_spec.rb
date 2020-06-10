@@ -401,6 +401,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_terraform
+  # Create a new Terraform package
+  # Create a new Terraform package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadTerraform] :data 
+  # @return [Package]
+  describe 'packages_upload_terraform test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_vagrant
   # Create a new Vagrant package
   # Create a new Vagrant package
@@ -676,6 +690,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadRuby] :data 
   # @return [nil]
   describe 'packages_validate_upload_ruby test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_terraform
+  # Validate parameters for create Terraform package
+  # Validate parameters for create Terraform package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadTerraform] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_terraform test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
