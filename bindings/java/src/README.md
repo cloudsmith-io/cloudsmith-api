@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.51.34</version>
+    <version>0.51.35</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.51.34"
+compile "io.cloudsmith.api:cloudsmith-api:0.51.35"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.51.34.jar
+* target/cloudsmith-api-0.51.35.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -159,6 +159,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadRaw**](docs/PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 *PackagesApi* | [**packagesUploadRpm**](docs/PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 *PackagesApi* | [**packagesUploadRuby**](docs/PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
+*PackagesApi* | [**packagesUploadTerraform**](docs/PackagesApi.md#packagesUploadTerraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 *PackagesApi* | [**packagesUploadVagrant**](docs/PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
 *PackagesApi* | [**packagesValidateUploadAlpine**](docs/PackagesApi.md#packagesValidateUploadAlpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 *PackagesApi* | [**packagesValidateUploadCargo**](docs/PackagesApi.md#packagesValidateUploadCargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
@@ -179,6 +180,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadRaw**](docs/PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 *PackagesApi* | [**packagesValidateUploadRpm**](docs/PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 *PackagesApi* | [**packagesValidateUploadRuby**](docs/PackagesApi.md#packagesValidateUploadRuby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
+*PackagesApi* | [**packagesValidateUploadTerraform**](docs/PackagesApi.md#packagesValidateUploadTerraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 *PackagesApi* | [**packagesValidateUploadVagrant**](docs/PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
 *ReposApi* | [**reposAllList**](docs/ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
@@ -244,6 +246,7 @@ Class | Method | HTTP request | Description
  - [PackagesUploadRaw](docs/PackagesUploadRaw.md)
  - [PackagesUploadRpm](docs/PackagesUploadRpm.md)
  - [PackagesUploadRuby](docs/PackagesUploadRuby.md)
+ - [PackagesUploadTerraform](docs/PackagesUploadTerraform.md)
  - [PackagesUploadVagrant](docs/PackagesUploadVagrant.md)
  - [PackagesValidateuploadAlpine](docs/PackagesValidateuploadAlpine.md)
  - [PackagesValidateuploadCargo](docs/PackagesValidateuploadCargo.md)
@@ -264,6 +267,7 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadRaw](docs/PackagesValidateuploadRaw.md)
  - [PackagesValidateuploadRpm](docs/PackagesValidateuploadRpm.md)
  - [PackagesValidateuploadRuby](docs/PackagesValidateuploadRuby.md)
+ - [PackagesValidateuploadTerraform](docs/PackagesValidateuploadTerraform.md)
  - [PackagesValidateuploadVagrant](docs/PackagesValidateuploadVagrant.md)
  - [PackagesownerrepoArchitectures](docs/PackagesownerrepoArchitectures.md)
  - [PackagesownerrepoFiles](docs/PackagesownerrepoFiles.md)
