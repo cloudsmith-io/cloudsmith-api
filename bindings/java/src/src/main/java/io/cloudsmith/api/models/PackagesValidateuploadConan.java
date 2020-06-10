@@ -99,7 +99,8 @@ public class PackagesValidateuploadConan implements Serializable {
    * The info file is an python file containing the package metadata.
    * @return infoFile
   **/
-  @ApiModelProperty(example = "y1234456789b", value = "The info file is an python file containing the package metadata.")
+  @NotNull
+  @ApiModelProperty(example = "y1234456789b", required = true, value = "The info file is an python file containing the package metadata.")
   public String getInfoFile() {
     return infoFile;
   }
@@ -117,7 +118,8 @@ public class PackagesValidateuploadConan implements Serializable {
    * The info file is an python file containing the package metadata.
    * @return manifestFile
   **/
-  @ApiModelProperty(example = "y1234456789c", value = "The info file is an python file containing the package metadata.")
+  @NotNull
+  @ApiModelProperty(example = "y1234456789c", required = true, value = "The info file is an python file containing the package metadata.")
   public String getManifestFile() {
     return manifestFile;
   }
@@ -135,7 +137,8 @@ public class PackagesValidateuploadConan implements Serializable {
    * The conan file is an python file containing the package metadata.
    * @return metadataFile
   **/
-  @ApiModelProperty(example = "y1234456789a", value = "The conan file is an python file containing the package metadata.")
+  @NotNull
+  @ApiModelProperty(example = "y1234456789a", required = true, value = "The conan file is an python file containing the package metadata.")
   public String getMetadataFile() {
     return metadataFile;
   }

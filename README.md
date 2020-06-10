@@ -42,7 +42,7 @@ Where `<language>` is the language you're generating bindings for (e.g. `python`
 
 ## Versioning
 
-The version of the generated library bindings is automatically made to match the upstream API. So if the Cloudsmith API is currently `0.21.5`, then the language bindings will also be `0.21.5`.
+The version of the generated library bindings is automatically made to match the upstream API. So if the Cloudsmith API is currently `0.22.1`, then the language bindings will also be `0.22.1`.
 
 
 ## Releasing
