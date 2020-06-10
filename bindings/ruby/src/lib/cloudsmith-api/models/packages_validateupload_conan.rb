@@ -105,6 +105,18 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @info_file.nil?
+        invalid_properties.push("invalid value for 'info_file', info_file cannot be nil.")
+      end
+
+      if @manifest_file.nil?
+        invalid_properties.push("invalid value for 'manifest_file', manifest_file cannot be nil.")
+      end
+
+      if @metadata_file.nil?
+        invalid_properties.push("invalid value for 'metadata_file', metadata_file cannot be nil.")
+      end
+
       if @package_file.nil?
         invalid_properties.push("invalid value for 'package_file', package_file cannot be nil.")
       end
@@ -115,6 +127,9 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @info_file.nil?
+      return false if @manifest_file.nil?
+      return false if @metadata_file.nil?
       return false if @package_file.nil?
       return true
     end
