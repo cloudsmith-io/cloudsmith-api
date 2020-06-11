@@ -27,9 +27,15 @@ type PackagesValidateuploadConan struct {
 	// The conan file is an python file containing the package metadata.
 	MetadataFile string `json:"metadata_file"`
 
+	// The name of this package.
+	Name string `json:"name,omitempty"`
+
 	// The primary file for the package.
 	PackageFile string `json:"package_file"`
 
 	// If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 	Republish bool `json:"republish,omitempty"`
+
+	// The raw version for this package.
+	Version string `json:"version,omitempty"`
 }
