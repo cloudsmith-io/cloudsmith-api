@@ -48,11 +48,17 @@ public class PackagesValidateuploadConan implements Serializable {
   @SerializedName("metadata_file")
   private String metadataFile = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
   @SerializedName("republish")
   private Boolean republish = null;
+
+  @SerializedName("version")
+  private String version = null;
 
   public PackagesValidateuploadConan conanChannel(String conanChannel) {
     this.conanChannel = conanChannel;
@@ -63,7 +69,7 @@ public class PackagesValidateuploadConan implements Serializable {
    * Conan channel.
    * @return conanChannel
   **/
-  @ApiModelProperty(example = "y1234456789c", value = "Conan channel.")
+  @ApiModelProperty(example = "alpha", value = "Conan channel.")
   public String getConanChannel() {
     return conanChannel;
   }
@@ -81,7 +87,7 @@ public class PackagesValidateuploadConan implements Serializable {
    * Conan prefix (User).
    * @return conanPrefix
   **/
-  @ApiModelProperty(example = "y1234456789c", value = "Conan prefix (User).")
+  @ApiModelProperty(example = "my-repository", value = "Conan prefix (User).")
   public String getConanPrefix() {
     return conanPrefix;
   }
@@ -147,6 +153,24 @@ public class PackagesValidateuploadConan implements Serializable {
     this.metadataFile = metadataFile;
   }
 
+  public PackagesValidateuploadConan name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name of this package.
+   * @return name
+  **/
+  @ApiModelProperty(example = "conan_package.tgz", value = "The name of this package.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public PackagesValidateuploadConan packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
@@ -184,6 +208,24 @@ public class PackagesValidateuploadConan implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesValidateuploadConan version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The raw version for this package.
+   * @return version
+  **/
+  @ApiModelProperty(example = "1.0.0", value = "The raw version for this package.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -199,13 +241,15 @@ public class PackagesValidateuploadConan implements Serializable {
         Objects.equals(this.infoFile, packagesValidateuploadConan.infoFile) &&
         Objects.equals(this.manifestFile, packagesValidateuploadConan.manifestFile) &&
         Objects.equals(this.metadataFile, packagesValidateuploadConan.metadataFile) &&
+        Objects.equals(this.name, packagesValidateuploadConan.name) &&
         Objects.equals(this.packageFile, packagesValidateuploadConan.packageFile) &&
-        Objects.equals(this.republish, packagesValidateuploadConan.republish);
+        Objects.equals(this.republish, packagesValidateuploadConan.republish) &&
+        Objects.equals(this.version, packagesValidateuploadConan.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, packageFile, republish);
+    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, republish, version);
   }
 
 
@@ -219,8 +263,10 @@ public class PackagesValidateuploadConan implements Serializable {
     sb.append("    infoFile: ").append(toIndentedString(infoFile)).append("\n");
     sb.append("    manifestFile: ").append(toIndentedString(manifestFile)).append("\n");
     sb.append("    metadataFile: ").append(toIndentedString(metadataFile)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

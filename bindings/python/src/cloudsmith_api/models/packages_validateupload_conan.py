@@ -36,8 +36,10 @@ class PackagesValidateuploadConan(object):
         'info_file': 'str',
         'manifest_file': 'str',
         'metadata_file': 'str',
+        'name': 'str',
         'package_file': 'str',
-        'republish': 'bool'
+        'republish': 'bool',
+        'version': 'str'
     }
 
     attribute_map = {
@@ -46,11 +48,13 @@ class PackagesValidateuploadConan(object):
         'info_file': 'info_file',
         'manifest_file': 'manifest_file',
         'metadata_file': 'metadata_file',
+        'name': 'name',
         'package_file': 'package_file',
-        'republish': 'republish'
+        'republish': 'republish',
+        'version': 'version'
     }
 
-    def __init__(self, conan_channel=None, conan_prefix=None, info_file=None, manifest_file=None, metadata_file=None, package_file=None, republish=None):
+    def __init__(self, conan_channel=None, conan_prefix=None, info_file=None, manifest_file=None, metadata_file=None, name=None, package_file=None, republish=None, version=None):
         """
         PackagesValidateuploadConan - a model defined in Swagger
         """
@@ -60,8 +64,10 @@ class PackagesValidateuploadConan(object):
         self._info_file = None
         self._manifest_file = None
         self._metadata_file = None
+        self._name = None
         self._package_file = None
         self._republish = None
+        self._version = None
 
         if conan_channel is not None:
           self.conan_channel = conan_channel
@@ -70,9 +76,13 @@ class PackagesValidateuploadConan(object):
         self.info_file = info_file
         self.manifest_file = manifest_file
         self.metadata_file = metadata_file
+        if name is not None:
+          self.name = name
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
+        if version is not None:
+          self.version = version
 
     @property
     def conan_channel(self):
@@ -196,6 +206,29 @@ class PackagesValidateuploadConan(object):
         self._metadata_file = metadata_file
 
     @property
+    def name(self):
+        """
+        Gets the name of this PackagesValidateuploadConan.
+        The name of this package.
+
+        :return: The name of this PackagesValidateuploadConan.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this PackagesValidateuploadConan.
+        The name of this package.
+
+        :param name: The name of this PackagesValidateuploadConan.
+        :type: str
+        """
+
+        self._name = name
+
+    @property
     def package_file(self):
         """
         Gets the package_file of this PackagesValidateuploadConan.
@@ -242,6 +275,29 @@ class PackagesValidateuploadConan(object):
         """
 
         self._republish = republish
+
+    @property
+    def version(self):
+        """
+        Gets the version of this PackagesValidateuploadConan.
+        The raw version for this package.
+
+        :return: The version of this PackagesValidateuploadConan.
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """
+        Sets the version of this PackagesValidateuploadConan.
+        The raw version for this package.
+
+        :param version: The version of this PackagesValidateuploadConan.
+        :type: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """

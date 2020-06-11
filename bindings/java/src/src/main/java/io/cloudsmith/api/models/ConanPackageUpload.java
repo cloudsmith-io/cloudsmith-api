@@ -334,7 +334,7 @@ public class ConanPackageUpload implements Serializable {
    * Conan channel.
    * @return conanChannel
   **/
-  @ApiModelProperty(example = "y1234456789c", value = "Conan channel.")
+  @ApiModelProperty(example = "alpha", value = "Conan channel.")
   public String getConanChannel() {
     return conanChannel;
   }
@@ -352,7 +352,7 @@ public class ConanPackageUpload implements Serializable {
    * Conan prefix (User).
    * @return conanPrefix
   **/
-  @ApiModelProperty(example = "y1234456789c", value = "Conan prefix (User).")
+  @ApiModelProperty(example = "my-repository", value = "Conan prefix (User).")
   public String getConanPrefix() {
     return conanPrefix;
   }
@@ -703,7 +703,7 @@ public class ConanPackageUpload implements Serializable {
    * The name of this package.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of this package.")
+  @ApiModelProperty(example = "conan_package.tgz", value = "The name of this package.")
   public String getName() {
     return name;
   }
@@ -1225,7 +1225,7 @@ public class ConanPackageUpload implements Serializable {
    * The raw version for this package.
    * @return version
   **/
-  @ApiModelProperty(value = "The raw version for this package.")
+  @ApiModelProperty(example = "1.0.0", value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }

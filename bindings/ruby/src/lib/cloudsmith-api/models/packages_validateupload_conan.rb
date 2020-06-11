@@ -30,11 +30,17 @@ module CloudsmithApi
     # The conan file is an python file containing the package metadata.
     attr_accessor :metadata_file
 
+    # The name of this package.
+    attr_accessor :name
+
     # The primary file for the package.
     attr_accessor :package_file
 
     # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
     attr_accessor :republish
+
+    # The raw version for this package.
+    attr_accessor :version
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -45,8 +51,10 @@ module CloudsmithApi
         :'info_file' => :'info_file',
         :'manifest_file' => :'manifest_file',
         :'metadata_file' => :'metadata_file',
+        :'name' => :'name',
         :'package_file' => :'package_file',
-        :'republish' => :'republish'
+        :'republish' => :'republish',
+        :'version' => :'version'
       }
     end
 
@@ -58,8 +66,10 @@ module CloudsmithApi
         :'info_file' => :'String',
         :'manifest_file' => :'String',
         :'metadata_file' => :'String',
+        :'name' => :'String',
         :'package_file' => :'String',
-        :'republish' => :'BOOLEAN'
+        :'republish' => :'BOOLEAN',
+        :'version' => :'String'
       }
     end
 
@@ -91,12 +101,20 @@ module CloudsmithApi
         self.metadata_file = attributes[:'metadata_file']
       end
 
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.has_key?(:'package_file')
         self.package_file = attributes[:'package_file']
       end
 
       if attributes.has_key?(:'republish')
         self.republish = attributes[:'republish']
+      end
+
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
       end
 
     end
@@ -144,8 +162,10 @@ module CloudsmithApi
           info_file == o.info_file &&
           manifest_file == o.manifest_file &&
           metadata_file == o.metadata_file &&
+          name == o.name &&
           package_file == o.package_file &&
-          republish == o.republish
+          republish == o.republish &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -157,7 +177,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [conan_channel, conan_prefix, info_file, manifest_file, metadata_file, package_file, republish].hash
+      [conan_channel, conan_prefix, info_file, manifest_file, metadata_file, name, package_file, republish, version].hash
     end
 
     # Builds the object from hash
