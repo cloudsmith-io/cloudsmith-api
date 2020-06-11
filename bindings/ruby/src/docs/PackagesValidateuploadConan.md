@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 **info_file** | **String** | The info file is an python file containing the package metadata. | 
 **manifest_file** | **String** | The info file is an python file containing the package metadata. | 
 **metadata_file** | **String** | The conan file is an python file containing the package metadata. | 
+**name** | **String** | The name of this package. | [optional] 
 **package_file** | **String** | The primary file for the package. | 
 **republish** | **BOOLEAN** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] 
+**version** | **String** | The raw version for this package. | [optional] 
 
 
