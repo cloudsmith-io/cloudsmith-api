@@ -48,11 +48,17 @@ public class PackagesUploadConan implements Serializable {
   @SerializedName("metadata_file")
   private String metadataFile = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
   @SerializedName("republish")
   private Boolean republish = null;
+
+  @SerializedName("version")
+  private String version = null;
 
   public PackagesUploadConan conanChannel(String conanChannel) {
     this.conanChannel = conanChannel;
@@ -63,7 +69,7 @@ public class PackagesUploadConan implements Serializable {
    * Conan channel.
    * @return conanChannel
   **/
-  @ApiModelProperty(example = "y1234456789c", value = "Conan channel.")
+  @ApiModelProperty(example = "alpha", value = "Conan channel.")
   public String getConanChannel() {
     return conanChannel;
   }
@@ -81,7 +87,7 @@ public class PackagesUploadConan implements Serializable {
    * Conan prefix (User).
    * @return conanPrefix
   **/
-  @ApiModelProperty(example = "y1234456789c", value = "Conan prefix (User).")
+  @ApiModelProperty(example = "my-repository", value = "Conan prefix (User).")
   public String getConanPrefix() {
     return conanPrefix;
   }
@@ -147,6 +153,24 @@ public class PackagesUploadConan implements Serializable {
     this.metadataFile = metadataFile;
   }
 
+  public PackagesUploadConan name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name of this package.
+   * @return name
+  **/
+  @ApiModelProperty(example = "conan_package.tgz", value = "The name of this package.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public PackagesUploadConan packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
@@ -184,6 +208,24 @@ public class PackagesUploadConan implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesUploadConan version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The raw version for this package.
+   * @return version
+  **/
+  @ApiModelProperty(example = "1.0.0", value = "The raw version for this package.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -199,13 +241,15 @@ public class PackagesUploadConan implements Serializable {
         Objects.equals(this.infoFile, packagesUploadConan.infoFile) &&
         Objects.equals(this.manifestFile, packagesUploadConan.manifestFile) &&
         Objects.equals(this.metadataFile, packagesUploadConan.metadataFile) &&
+        Objects.equals(this.name, packagesUploadConan.name) &&
         Objects.equals(this.packageFile, packagesUploadConan.packageFile) &&
-        Objects.equals(this.republish, packagesUploadConan.republish);
+        Objects.equals(this.republish, packagesUploadConan.republish) &&
+        Objects.equals(this.version, packagesUploadConan.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, packageFile, republish);
+    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, republish, version);
   }
 
 
@@ -219,8 +263,10 @@ public class PackagesUploadConan implements Serializable {
     sb.append("    infoFile: ").append(toIndentedString(infoFile)).append("\n");
     sb.append("    manifestFile: ").append(toIndentedString(manifestFile)).append("\n");
     sb.append("    metadataFile: ").append(toIndentedString(metadataFile)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
