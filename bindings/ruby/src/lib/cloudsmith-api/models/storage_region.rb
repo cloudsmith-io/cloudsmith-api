@@ -14,22 +14,27 @@ require 'date'
 
 module CloudsmithApi
 
-  class PackagesResync
-    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-    attr_accessor :republish
+  class StorageRegion
+    # Name of the storage region
+    attr_accessor :label
+
+    # Slug for the storage region
+    attr_accessor :slug
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'republish' => :'republish'
+        :'label' => :'label',
+        :'slug' => :'slug'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'republish' => :'BOOLEAN'
+        :'label' => :'String',
+        :'slug' => :'String'
       }
     end
 
@@ -41,8 +46,12 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'republish')
-        self.republish = attributes[:'republish']
+      if attributes.has_key?(:'label')
+        self.label = attributes[:'label']
+      end
+
+      if attributes.has_key?(:'slug')
+        self.slug = attributes[:'slug']
       end
 
     end
@@ -51,12 +60,22 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @label.nil?
+        invalid_properties.push("invalid value for 'label', label cannot be nil.")
+      end
+
+      if @slug.nil?
+        invalid_properties.push("invalid value for 'slug', slug cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @label.nil?
+      return false if @slug.nil?
       return true
     end
 
@@ -65,7 +84,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          republish == o.republish
+          label == o.label &&
+          slug == o.slug
     end
 
     # @see the `==` method
@@ -77,7 +97,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [republish].hash
+      [label, slug].hash
     end
 
     # Builds the object from hash

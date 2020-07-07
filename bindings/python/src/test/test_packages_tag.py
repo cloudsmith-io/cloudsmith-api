@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.packages_resync import PackagesResync
+from cloudsmith_api.models.packages_tag import PackagesTag
 
 
-class TestPackagesResync(unittest.TestCase):
-    """ PackagesResync unit test stubs """
+class TestPackagesTag(unittest.TestCase):
+    """ PackagesTag unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestPackagesResync(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testPackagesResync(self):
+    def testPackagesTag(self):
         """
-        Test PackagesResync
+        Test PackagesTag
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.packages_resync.PackagesResync()
+        #model = cloudsmith_api.models.packages_tag.PackagesTag()
         pass
 
 

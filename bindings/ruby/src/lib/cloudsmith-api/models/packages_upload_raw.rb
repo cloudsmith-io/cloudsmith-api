@@ -33,6 +33,9 @@ module CloudsmithApi
     # A one-liner synopsis of this package.
     attr_accessor :summary
 
+    # A comma-separated values list of tags to add to the package.
+    attr_accessor :tags
+
     # The raw version for this package.
     attr_accessor :version
 
@@ -46,6 +49,7 @@ module CloudsmithApi
         :'package_file' => :'package_file',
         :'republish' => :'republish',
         :'summary' => :'summary',
+        :'tags' => :'tags',
         :'version' => :'version'
       }
     end
@@ -59,6 +63,7 @@ module CloudsmithApi
         :'package_file' => :'String',
         :'republish' => :'BOOLEAN',
         :'summary' => :'String',
+        :'tags' => :'String',
         :'version' => :'String'
       }
     end
@@ -93,6 +98,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'summary')
         self.summary = attributes[:'summary']
+      end
+
+      if attributes.has_key?(:'tags')
+        self.tags = attributes[:'tags']
       end
 
       if attributes.has_key?(:'version')
@@ -130,6 +139,7 @@ module CloudsmithApi
           package_file == o.package_file &&
           republish == o.republish &&
           summary == o.summary &&
+          tags == o.tags &&
           version == o.version
     end
 
@@ -142,7 +152,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [content_type, description, name, package_file, republish, summary, version].hash
+      [content_type, description, name, package_file, republish, summary, tags, version].hash
     end
 
     # Builds the object from hash

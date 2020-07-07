@@ -39,6 +39,7 @@ class PackagesUploadConan(object):
         'name': 'str',
         'package_file': 'str',
         'republish': 'bool',
+        'tags': 'str',
         'version': 'str'
     }
 
@@ -51,10 +52,11 @@ class PackagesUploadConan(object):
         'name': 'name',
         'package_file': 'package_file',
         'republish': 'republish',
+        'tags': 'tags',
         'version': 'version'
     }
 
-    def __init__(self, conan_channel=None, conan_prefix=None, info_file=None, manifest_file=None, metadata_file=None, name=None, package_file=None, republish=None, version=None):
+    def __init__(self, conan_channel=None, conan_prefix=None, info_file=None, manifest_file=None, metadata_file=None, name=None, package_file=None, republish=None, tags=None, version=None):
         """
         PackagesUploadConan - a model defined in Swagger
         """
@@ -67,6 +69,7 @@ class PackagesUploadConan(object):
         self._name = None
         self._package_file = None
         self._republish = None
+        self._tags = None
         self._version = None
 
         if conan_channel is not None:
@@ -81,6 +84,8 @@ class PackagesUploadConan(object):
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
+        if tags is not None:
+          self.tags = tags
         if version is not None:
           self.version = version
 
@@ -275,6 +280,29 @@ class PackagesUploadConan(object):
         """
 
         self._republish = republish
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this PackagesUploadConan.
+        A comma-separated values list of tags to add to the package.
+
+        :return: The tags of this PackagesUploadConan.
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this PackagesUploadConan.
+        A comma-separated values list of tags to add to the package.
+
+        :param tags: The tags of this PackagesUploadConan.
+        :type: str
+        """
+
+        self._tags = tags
 
     @property
     def version(self):

@@ -193,6 +193,9 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("sync_progress")
   private Integer syncProgress = null;
 
+  @SerializedName("tags_immutable")
+  private Object tagsImmutable = null;
+
   @SerializedName("type_display")
   private String typeDisplay = null;
 
@@ -1165,6 +1168,24 @@ public class MavenPackageUpload implements Serializable {
     this.syncProgress = syncProgress;
   }
 
+  public MavenPackageUpload tagsImmutable(Object tagsImmutable) {
+    this.tagsImmutable = tagsImmutable;
+    return this;
+  }
+
+   /**
+   * All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
+   * @return tagsImmutable
+  **/
+  @ApiModelProperty(value = "All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.")
+  public Object getTagsImmutable() {
+    return tagsImmutable;
+  }
+
+  public void setTagsImmutable(Object tagsImmutable) {
+    this.tagsImmutable = tagsImmutable;
+  }
+
   public MavenPackageUpload typeDisplay(String typeDisplay) {
     this.typeDisplay = typeDisplay;
     return this;
@@ -1335,6 +1356,7 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.summary, mavenPackageUpload.summary) &&
         Objects.equals(this.syncFinishedAt, mavenPackageUpload.syncFinishedAt) &&
         Objects.equals(this.syncProgress, mavenPackageUpload.syncProgress) &&
+        Objects.equals(this.tagsImmutable, mavenPackageUpload.tagsImmutable) &&
         Objects.equals(this.typeDisplay, mavenPackageUpload.typeDisplay) &&
         Objects.equals(this.uploadedAt, mavenPackageUpload.uploadedAt) &&
         Objects.equals(this.uploader, mavenPackageUpload.uploader) &&
@@ -1345,7 +1367,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, packaging, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
+    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, packaging, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
   }
 
 
@@ -1406,6 +1428,7 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
     sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
+    sb.append("    tagsImmutable: ").append(toIndentedString(tagsImmutable)).append("\n");
     sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");

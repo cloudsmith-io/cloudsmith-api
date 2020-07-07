@@ -351,7 +351,6 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesResync] :data 
     # @return [Package]
     def packages_resync(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_resync_with_http_info(owner, repo, identifier, opts)
@@ -364,7 +363,6 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesResync] :data 
     # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_resync_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -390,14 +388,12 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
+      post_body = nil
       auth_names = ['apikey', 'csrf_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -475,13 +471,80 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Add/Replace/Remove tags for a package.
+    # Add/Replace/Remove tags for a package.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesTag] :data 
+    # @return [Package]
+    def packages_tag(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_tag_with_http_info(owner, repo, identifier, opts)
+      return data
+    end
+
+    # Add/Replace/Remove tags for a package.
+    # Add/Replace/Remove tags for a package.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesTag] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_tag_with_http_info(owner, repo, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_tag ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_tag"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_tag"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_tag"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/{identifier}/tag/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_tag\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new Alpine package
     # Create a new Alpine package
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadAlpine] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_alpine(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_alpine_with_http_info(owner, repo, opts)
       return data
@@ -493,7 +556,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadAlpine] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_alpine_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_alpine ..."
@@ -529,7 +592,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_alpine\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -542,7 +605,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadCargo] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_cargo(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_cargo_with_http_info(owner, repo, opts)
       return data
@@ -554,7 +617,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadCargo] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_cargo_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_cargo ..."
@@ -590,7 +653,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_cargo\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -603,7 +666,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadCocoapods] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_cocoapods(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_cocoapods_with_http_info(owner, repo, opts)
       return data
@@ -615,7 +678,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadCocoapods] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_cocoapods_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_cocoapods ..."
@@ -651,7 +714,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_cocoapods\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -664,7 +727,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadComposer] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_composer(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_composer_with_http_info(owner, repo, opts)
       return data
@@ -676,7 +739,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadComposer] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_composer_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_composer ..."
@@ -712,7 +775,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_composer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -786,7 +849,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadCran] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_cran(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_cran_with_http_info(owner, repo, opts)
       return data
@@ -798,7 +861,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadCran] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_cran_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_cran ..."
@@ -834,7 +897,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_cran\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -847,7 +910,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadDart] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_dart(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_dart_with_http_info(owner, repo, opts)
       return data
@@ -859,7 +922,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadDart] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_dart_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_dart ..."
@@ -895,7 +958,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_dart\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -908,7 +971,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadDeb] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_deb(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_deb_with_http_info(owner, repo, opts)
       return data
@@ -920,7 +983,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadDeb] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_deb_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_deb ..."
@@ -956,7 +1019,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_deb\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -969,7 +1032,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadDocker] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_docker(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_docker_with_http_info(owner, repo, opts)
       return data
@@ -981,7 +1044,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadDocker] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_docker_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_docker ..."
@@ -1017,7 +1080,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_docker\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1030,7 +1093,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadGo] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_go(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_go_with_http_info(owner, repo, opts)
       return data
@@ -1042,7 +1105,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadGo] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_go_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_go ..."
@@ -1078,7 +1141,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_go\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1091,7 +1154,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadHelm] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_helm(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_helm_with_http_info(owner, repo, opts)
       return data
@@ -1103,7 +1166,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadHelm] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_helm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_helm ..."
@@ -1139,7 +1202,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_helm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1152,7 +1215,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadLuarocks] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_luarocks(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_luarocks_with_http_info(owner, repo, opts)
       return data
@@ -1164,7 +1227,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadLuarocks] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_luarocks_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_luarocks ..."
@@ -1200,7 +1263,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_luarocks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1274,7 +1337,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadNpm] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_npm(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_npm_with_http_info(owner, repo, opts)
       return data
@@ -1286,7 +1349,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadNpm] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_npm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_npm ..."
@@ -1322,7 +1385,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_npm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1335,7 +1398,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadNuget] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_nuget(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_nuget_with_http_info(owner, repo, opts)
       return data
@@ -1347,7 +1410,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadNuget] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_nuget_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_nuget ..."
@@ -1383,7 +1446,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_nuget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1396,7 +1459,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadPython] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_python(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_python_with_http_info(owner, repo, opts)
       return data
@@ -1408,7 +1471,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadPython] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_python_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_python ..."
@@ -1444,7 +1507,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_python\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1518,7 +1581,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadRpm] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_rpm(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_rpm_with_http_info(owner, repo, opts)
       return data
@@ -1530,7 +1593,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadRpm] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_rpm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_rpm ..."
@@ -1566,7 +1629,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_rpm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1579,7 +1642,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadRuby] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_ruby(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_ruby_with_http_info(owner, repo, opts)
       return data
@@ -1591,7 +1654,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadRuby] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_ruby_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_ruby ..."
@@ -1627,7 +1690,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_ruby\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1640,7 +1703,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadTerraform] :data 
-    # @return [Package]
+    # @return [AlpinePackageUpload]
     def packages_upload_terraform(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_terraform_with_http_info(owner, repo, opts)
       return data
@@ -1652,7 +1715,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackagesUploadTerraform] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_terraform_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_terraform ..."
@@ -1688,7 +1751,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'AlpinePackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_terraform\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

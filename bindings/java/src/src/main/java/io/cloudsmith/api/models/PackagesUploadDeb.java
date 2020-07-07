@@ -33,6 +33,9 @@ import javax.validation.Valid;
 public class PackagesUploadDeb implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("changes_file")
+  private String changesFile = null;
+
   @SerializedName("distribution")
   private String distribution = null;
 
@@ -41,6 +44,30 @@ public class PackagesUploadDeb implements Serializable {
 
   @SerializedName("republish")
   private Boolean republish = null;
+
+  @SerializedName("sources_file")
+  private String sourcesFile = null;
+
+  @SerializedName("tags")
+  private String tags = null;
+
+  public PackagesUploadDeb changesFile(String changesFile) {
+    this.changesFile = changesFile;
+    return this;
+  }
+
+   /**
+   * The changes archive containing the changes made to the source and debian packaging files
+   * @return changesFile
+  **/
+  @ApiModelProperty(example = "y123456789", value = "The changes archive containing the changes made to the source and debian packaging files")
+  public String getChangesFile() {
+    return changesFile;
+  }
+
+  public void setChangesFile(String changesFile) {
+    this.changesFile = changesFile;
+  }
 
   public PackagesUploadDeb distribution(String distribution) {
     this.distribution = distribution;
@@ -98,6 +125,42 @@ public class PackagesUploadDeb implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesUploadDeb sourcesFile(String sourcesFile) {
+    this.sourcesFile = sourcesFile;
+    return this;
+  }
+
+   /**
+   * The sources archive containing the source code for the binary
+   * @return sourcesFile
+  **/
+  @ApiModelProperty(example = "y123456789", value = "The sources archive containing the source code for the binary")
+  public String getSourcesFile() {
+    return sourcesFile;
+  }
+
+  public void setSourcesFile(String sourcesFile) {
+    this.sourcesFile = sourcesFile;
+  }
+
+  public PackagesUploadDeb tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * A comma-separated values list of tags to add to the package.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "A comma-separated values list of tags to add to the package.")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,14 +171,17 @@ public class PackagesUploadDeb implements Serializable {
       return false;
     }
     PackagesUploadDeb packagesUploadDeb = (PackagesUploadDeb) o;
-    return Objects.equals(this.distribution, packagesUploadDeb.distribution) &&
+    return Objects.equals(this.changesFile, packagesUploadDeb.changesFile) &&
+        Objects.equals(this.distribution, packagesUploadDeb.distribution) &&
         Objects.equals(this.packageFile, packagesUploadDeb.packageFile) &&
-        Objects.equals(this.republish, packagesUploadDeb.republish);
+        Objects.equals(this.republish, packagesUploadDeb.republish) &&
+        Objects.equals(this.sourcesFile, packagesUploadDeb.sourcesFile) &&
+        Objects.equals(this.tags, packagesUploadDeb.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(distribution, packageFile, republish);
+    return Objects.hash(changesFile, distribution, packageFile, republish, sourcesFile, tags);
   }
 
 
@@ -124,9 +190,12 @@ public class PackagesUploadDeb implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagesUploadDeb {\n");
     
+    sb.append("    changesFile: ").append(toIndentedString(changesFile)).append("\n");
     sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

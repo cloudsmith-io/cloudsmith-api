@@ -57,6 +57,9 @@ public class PackagesValidateuploadConan implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("tags")
+  private String tags = null;
+
   @SerializedName("version")
   private String version = null;
 
@@ -208,6 +211,24 @@ public class PackagesValidateuploadConan implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesValidateuploadConan tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * A comma-separated values list of tags to add to the package.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "A comma-separated values list of tags to add to the package.")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
   public PackagesValidateuploadConan version(String version) {
     this.version = version;
     return this;
@@ -244,12 +265,13 @@ public class PackagesValidateuploadConan implements Serializable {
         Objects.equals(this.name, packagesValidateuploadConan.name) &&
         Objects.equals(this.packageFile, packagesValidateuploadConan.packageFile) &&
         Objects.equals(this.republish, packagesValidateuploadConan.republish) &&
+        Objects.equals(this.tags, packagesValidateuploadConan.tags) &&
         Objects.equals(this.version, packagesValidateuploadConan.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, republish, version);
+    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, republish, tags, version);
   }
 
 
@@ -266,6 +288,7 @@ public class PackagesValidateuploadConan implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**PackagesRead**](PackagesApi.md#PackagesRead) | **Get** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**PackagesResync**](PackagesApi.md#PackagesResync) | **Post** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 [**PackagesStatus**](PackagesApi.md#PackagesStatus) | **Get** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+[**PackagesTag**](PackagesApi.md#PackagesTag) | **Post** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
 [**PackagesUploadAlpine**](PackagesApi.md#PackagesUploadAlpine) | **Post** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**PackagesUploadCargo**](PackagesApi.md#PackagesUploadCargo) | **Post** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 [**PackagesUploadCocoapods**](PackagesApi.md#PackagesUploadCocoapods) | **Post** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
@@ -215,7 +216,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesResync**
-> ModelPackage PackagesResync($owner, $repo, $identifier, $data)
+> ModelPackage PackagesResync($owner, $repo, $identifier)
 
 Schedule a package for resynchronisation.
 
@@ -229,7 +230,6 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **identifier** | **string**|  | 
- **data** | [**PackagesResync**](PackagesResync.md)|  | [optional] 
 
 ### Return type
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -277,8 +277,40 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PackagesTag**
+> ModelPackage PackagesTag($owner, $repo, $identifier, $data)
+
+Add/Replace/Remove tags for a package.
+
+Add/Replace/Remove tags for a package.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **identifier** | **string**|  | 
+ **data** | [**PackagesTag**](PackagesTag.md)|  | [optional] 
+
+### Return type
+
+[**ModelPackage**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PackagesUploadAlpine**
-> ModelPackage PackagesUploadAlpine($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadAlpine($owner, $repo, $data)
 
 Create a new Alpine package
 
@@ -295,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -309,7 +341,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadCargo**
-> ModelPackage PackagesUploadCargo($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadCargo($owner, $repo, $data)
 
 Create a new Cargo package
 
@@ -326,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -340,7 +372,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadCocoapods**
-> ModelPackage PackagesUploadCocoapods($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadCocoapods($owner, $repo, $data)
 
 Create a new CocoaPods package
 
@@ -357,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -371,7 +403,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadComposer**
-> ModelPackage PackagesUploadComposer($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadComposer($owner, $repo, $data)
 
 Create a new Composer package
 
@@ -388,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -433,7 +465,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadCran**
-> ModelPackage PackagesUploadCran($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadCran($owner, $repo, $data)
 
 Create a new CRAN package
 
@@ -450,7 +482,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -464,7 +496,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadDart**
-> ModelPackage PackagesUploadDart($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadDart($owner, $repo, $data)
 
 Create a new Dart package
 
@@ -481,7 +513,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -495,7 +527,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadDeb**
-> ModelPackage PackagesUploadDeb($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadDeb($owner, $repo, $data)
 
 Create a new Debian package
 
@@ -512,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -526,7 +558,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadDocker**
-> ModelPackage PackagesUploadDocker($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadDocker($owner, $repo, $data)
 
 Create a new Docker package
 
@@ -543,7 +575,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -557,7 +589,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadGo**
-> ModelPackage PackagesUploadGo($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadGo($owner, $repo, $data)
 
 Create a new Go package
 
@@ -574,7 +606,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -588,7 +620,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadHelm**
-> ModelPackage PackagesUploadHelm($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadHelm($owner, $repo, $data)
 
 Create a new Helm package
 
@@ -605,7 +637,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -619,7 +651,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadLuarocks**
-> ModelPackage PackagesUploadLuarocks($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadLuarocks($owner, $repo, $data)
 
 Create a new LuaRocks package
 
@@ -636,7 +668,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -681,7 +713,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadNpm**
-> ModelPackage PackagesUploadNpm($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadNpm($owner, $repo, $data)
 
 Create a new npm package
 
@@ -698,7 +730,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -712,7 +744,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadNuget**
-> ModelPackage PackagesUploadNuget($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadNuget($owner, $repo, $data)
 
 Create a new NuGet package
 
@@ -729,7 +761,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -743,7 +775,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadPython**
-> ModelPackage PackagesUploadPython($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadPython($owner, $repo, $data)
 
 Create a new Python package
 
@@ -760,7 +792,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -805,7 +837,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadRpm**
-> ModelPackage PackagesUploadRpm($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadRpm($owner, $repo, $data)
 
 Create a new RedHat package
 
@@ -822,7 +854,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -836,7 +868,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadRuby**
-> ModelPackage PackagesUploadRuby($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadRuby($owner, $repo, $data)
 
 Create a new Ruby package
 
@@ -853,7 +885,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -867,7 +899,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesUploadTerraform**
-> ModelPackage PackagesUploadTerraform($owner, $repo, $data)
+> AlpinePackageUpload PackagesUploadTerraform($owner, $repo, $data)
 
 Create a new Terraform package
 
@@ -884,7 +916,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 

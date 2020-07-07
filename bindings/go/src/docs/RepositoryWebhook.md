@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **LastResponseStatus** | **int32** |  | [optional] [default to null]
 **LastResponseStatusStr** | **string** |  | [optional] [default to null]
 **NumSent** | **int32** |  | [optional] [default to null]
+**PackageQuery** | **string** | The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire. | [optional] [default to null]
 **RequestBodyFormat** | **string** | The format of the payloads for webhook requests. | [optional] [default to null]
 **RequestBodyFormatStr** | **string** |  | [optional] [default to null]
 **RequestBodyTemplateFormat** | **string** | The format of the payloads for webhook requests. | [optional] [default to null]

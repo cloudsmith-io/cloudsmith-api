@@ -33,11 +33,7 @@ class ReposPartialUpdate(object):
     swagger_types = {
         'description': 'str',
         'index_files': 'bool',
-        'is_open_source': 'bool',
-        'is_private': 'bool',
-        'is_public': 'bool',
         'name': 'str',
-        'namespace': 'str',
         'repository_type_str': 'str',
         'slug': 'str'
     }
@@ -45,27 +41,19 @@ class ReposPartialUpdate(object):
     attribute_map = {
         'description': 'description',
         'index_files': 'index_files',
-        'is_open_source': 'is_open_source',
-        'is_private': 'is_private',
-        'is_public': 'is_public',
         'name': 'name',
-        'namespace': 'namespace',
         'repository_type_str': 'repository_type_str',
         'slug': 'slug'
     }
 
-    def __init__(self, description=None, index_files=None, is_open_source=None, is_private=None, is_public=None, name=None, namespace=None, repository_type_str=None, slug=None):
+    def __init__(self, description=None, index_files=None, name=None, repository_type_str=None, slug=None):
         """
         ReposPartialUpdate - a model defined in Swagger
         """
 
         self._description = None
         self._index_files = None
-        self._is_open_source = None
-        self._is_private = None
-        self._is_public = None
         self._name = None
-        self._namespace = None
         self._repository_type_str = None
         self._slug = None
 
@@ -73,16 +61,8 @@ class ReposPartialUpdate(object):
           self.description = description
         if index_files is not None:
           self.index_files = index_files
-        if is_open_source is not None:
-          self.is_open_source = is_open_source
-        if is_private is not None:
-          self.is_private = is_private
-        if is_public is not None:
-          self.is_public = is_public
         if name is not None:
           self.name = name
-        if namespace is not None:
-          self.namespace = namespace
         if repository_type_str is not None:
           self.repository_type_str = repository_type_str
         if slug is not None:
@@ -92,7 +72,7 @@ class ReposPartialUpdate(object):
     def description(self):
         """
         Gets the description of this ReposPartialUpdate.
-        None
+        A description of the repository's purpose/contents.
 
         :return: The description of this ReposPartialUpdate.
         :rtype: str
@@ -103,7 +83,7 @@ class ReposPartialUpdate(object):
     def description(self, description):
         """
         Sets the description of this ReposPartialUpdate.
-        None
+        A description of the repository's purpose/contents.
 
         :param description: The description of this ReposPartialUpdate.
         :type: str
@@ -135,75 +115,6 @@ class ReposPartialUpdate(object):
         self._index_files = index_files
 
     @property
-    def is_open_source(self):
-        """
-        Gets the is_open_source of this ReposPartialUpdate.
-        None
-
-        :return: The is_open_source of this ReposPartialUpdate.
-        :rtype: bool
-        """
-        return self._is_open_source
-
-    @is_open_source.setter
-    def is_open_source(self, is_open_source):
-        """
-        Sets the is_open_source of this ReposPartialUpdate.
-        None
-
-        :param is_open_source: The is_open_source of this ReposPartialUpdate.
-        :type: bool
-        """
-
-        self._is_open_source = is_open_source
-
-    @property
-    def is_private(self):
-        """
-        Gets the is_private of this ReposPartialUpdate.
-        None
-
-        :return: The is_private of this ReposPartialUpdate.
-        :rtype: bool
-        """
-        return self._is_private
-
-    @is_private.setter
-    def is_private(self, is_private):
-        """
-        Sets the is_private of this ReposPartialUpdate.
-        None
-
-        :param is_private: The is_private of this ReposPartialUpdate.
-        :type: bool
-        """
-
-        self._is_private = is_private
-
-    @property
-    def is_public(self):
-        """
-        Gets the is_public of this ReposPartialUpdate.
-        None
-
-        :return: The is_public of this ReposPartialUpdate.
-        :rtype: bool
-        """
-        return self._is_public
-
-    @is_public.setter
-    def is_public(self, is_public):
-        """
-        Sets the is_public of this ReposPartialUpdate.
-        None
-
-        :param is_public: The is_public of this ReposPartialUpdate.
-        :type: bool
-        """
-
-        self._is_public = is_public
-
-    @property
     def name(self):
         """
         Gets the name of this ReposPartialUpdate.
@@ -227,33 +138,10 @@ class ReposPartialUpdate(object):
         self._name = name
 
     @property
-    def namespace(self):
-        """
-        Gets the namespace of this ReposPartialUpdate.
-        None
-
-        :return: The namespace of this ReposPartialUpdate.
-        :rtype: str
-        """
-        return self._namespace
-
-    @namespace.setter
-    def namespace(self, namespace):
-        """
-        Sets the namespace of this ReposPartialUpdate.
-        None
-
-        :param namespace: The namespace of this ReposPartialUpdate.
-        :type: str
-        """
-
-        self._namespace = namespace
-
-    @property
     def repository_type_str(self):
         """
         Gets the repository_type_str of this ReposPartialUpdate.
-        None
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 
         :return: The repository_type_str of this ReposPartialUpdate.
         :rtype: str
@@ -264,7 +152,7 @@ class ReposPartialUpdate(object):
     def repository_type_str(self, repository_type_str):
         """
         Sets the repository_type_str of this ReposPartialUpdate.
-        None
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 
         :param repository_type_str: The repository_type_str of this ReposPartialUpdate.
         :type: str
@@ -276,7 +164,7 @@ class ReposPartialUpdate(object):
     def slug(self):
         """
         Gets the slug of this ReposPartialUpdate.
-        None
+        The slug identifies the repository in URIs.
 
         :return: The slug of this ReposPartialUpdate.
         :rtype: str
@@ -287,7 +175,7 @@ class ReposPartialUpdate(object):
     def slug(self, slug):
         """
         Sets the slug of this ReposPartialUpdate.
-        None
+        The slug identifies the repository in URIs.
 
         :param slug: The slug of this ReposPartialUpdate.
         :type: str

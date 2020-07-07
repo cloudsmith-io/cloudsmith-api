@@ -82,6 +82,7 @@ class ConanPackageUpload(object):
         'summary': 'str',
         'sync_finished_at': 'str',
         'sync_progress': 'int',
+        'tags_immutable': 'object',
         'type_display': 'str',
         'uploaded_at': 'str',
         'uploader': 'str',
@@ -142,6 +143,7 @@ class ConanPackageUpload(object):
         'summary': 'summary',
         'sync_finished_at': 'sync_finished_at',
         'sync_progress': 'sync_progress',
+        'tags_immutable': 'tags_immutable',
         'type_display': 'type_display',
         'uploaded_at': 'uploaded_at',
         'uploader': 'uploader',
@@ -150,7 +152,7 @@ class ConanPackageUpload(object):
         'version_orig': 'version_orig'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, self_html_url=None, self_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None):
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, self_html_url=None, self_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None):
         """
         ConanPackageUpload - a model defined in Swagger
         """
@@ -206,6 +208,7 @@ class ConanPackageUpload(object):
         self._summary = None
         self._sync_finished_at = None
         self._sync_progress = None
+        self._tags_immutable = None
         self._type_display = None
         self._uploaded_at = None
         self._uploader = None
@@ -315,6 +318,8 @@ class ConanPackageUpload(object):
           self.sync_finished_at = sync_finished_at
         if sync_progress is not None:
           self.sync_progress = sync_progress
+        if tags_immutable is not None:
+          self.tags_immutable = tags_immutable
         if type_display is not None:
           self.type_display = type_display
         if uploaded_at is not None:
@@ -1500,6 +1505,29 @@ class ConanPackageUpload(object):
         """
 
         self._sync_progress = sync_progress
+
+    @property
+    def tags_immutable(self):
+        """
+        Gets the tags_immutable of this ConanPackageUpload.
+        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
+
+        :return: The tags_immutable of this ConanPackageUpload.
+        :rtype: object
+        """
+        return self._tags_immutable
+
+    @tags_immutable.setter
+    def tags_immutable(self, tags_immutable):
+        """
+        Sets the tags_immutable of this ConanPackageUpload.
+        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
+
+        :param tags_immutable: The tags_immutable of this ConanPackageUpload.
+        :type: object
+        """
+
+        self._tags_immutable = tags_immutable
 
     @property
     def type_display(self):

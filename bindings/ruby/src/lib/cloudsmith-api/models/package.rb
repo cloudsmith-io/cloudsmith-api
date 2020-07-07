@@ -162,6 +162,12 @@ module CloudsmithApi
     # Synchronisation progress (from 0-100)
     attr_accessor :sync_progress
 
+    # All tags on the package, grouped by tag type. This includes immutable tags, but doesn't distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field.
+    attr_accessor :tags
+
+    # All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
+    attr_accessor :tags_immutable
+
     # 
     attr_accessor :type_display
 
@@ -233,6 +239,8 @@ module CloudsmithApi
         :'summary' => :'summary',
         :'sync_finished_at' => :'sync_finished_at',
         :'sync_progress' => :'sync_progress',
+        :'tags' => :'tags',
+        :'tags_immutable' => :'tags_immutable',
         :'type_display' => :'type_display',
         :'uploaded_at' => :'uploaded_at',
         :'uploader' => :'uploader',
@@ -294,6 +302,8 @@ module CloudsmithApi
         :'summary' => :'String',
         :'sync_finished_at' => :'String',
         :'sync_progress' => :'Integer',
+        :'tags' => :'Object',
+        :'tags_immutable' => :'Object',
         :'type_display' => :'String',
         :'uploaded_at' => :'String',
         :'uploader' => :'String',
@@ -511,6 +521,14 @@ module CloudsmithApi
         self.sync_progress = attributes[:'sync_progress']
       end
 
+      if attributes.has_key?(:'tags')
+        self.tags = attributes[:'tags']
+      end
+
+      if attributes.has_key?(:'tags_immutable')
+        self.tags_immutable = attributes[:'tags_immutable']
+      end
+
       if attributes.has_key?(:'type_display')
         self.type_display = attributes[:'type_display']
       end
@@ -604,6 +622,8 @@ module CloudsmithApi
           summary == o.summary &&
           sync_finished_at == o.sync_finished_at &&
           sync_progress == o.sync_progress &&
+          tags == o.tags &&
+          tags_immutable == o.tags_immutable &&
           type_display == o.type_display &&
           uploaded_at == o.uploaded_at &&
           uploader == o.uploader &&
@@ -621,7 +641,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, type_display, uploaded_at, uploader, uploader_url, version, version_orig].hash
+      [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig].hash
     end
 
     # Builds the object from hash

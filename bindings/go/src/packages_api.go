@@ -402,10 +402,9 @@ func (a PackagesApi) PackagesRead(owner string, repo string, identifier string) 
  * @param owner 
  * @param repo 
  * @param identifier 
- * @param data 
  * @return *ModelPackage
  */
-func (a PackagesApi) PackagesResync(owner string, repo string, identifier string, data PackagesResync) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesResync(owner string, repo string, identifier string) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -432,7 +431,7 @@ func (a PackagesApi) PackagesResync(owner string, repo string, identifier string
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -448,8 +447,6 @@ func (a PackagesApi) PackagesResync(owner string, repo string, identifier string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	// body params
-	localVarPostBody = &data
 	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
@@ -539,15 +536,88 @@ func (a PackagesApi) PackagesStatus(owner string, repo string, identifier string
 }
 
 /**
+ * Add/Replace/Remove tags for a package.
+ * Add/Replace/Remove tags for a package.
+ *
+ * @param owner 
+ * @param repo 
+ * @param identifier 
+ * @param data 
+ * @return *ModelPackage
+ */
+func (a PackagesApi) PackagesTag(owner string, repo string, identifier string, data PackagesTag) (*ModelPackage, *APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{identifier}/tag/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &data
+	var successPayload = new(ModelPackage)
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "PackagesTag", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return successPayload, localVarAPIResponse, err
+	}
+	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
+	return successPayload, localVarAPIResponse, err
+}
+
+/**
  * Create a new Alpine package
  * Create a new Alpine package
  *
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadAlpine(owner string, repo string, data PackagesUploadAlpine) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadAlpine(owner string, repo string, data PackagesUploadAlpine) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -591,7 +661,7 @@ func (a PackagesApi) PackagesUploadAlpine(owner string, repo string, data Packag
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -616,9 +686,9 @@ func (a PackagesApi) PackagesUploadAlpine(owner string, repo string, data Packag
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadCargo(owner string, repo string, data PackagesUploadCargo) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadCargo(owner string, repo string, data PackagesUploadCargo) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -662,7 +732,7 @@ func (a PackagesApi) PackagesUploadCargo(owner string, repo string, data Package
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -687,9 +757,9 @@ func (a PackagesApi) PackagesUploadCargo(owner string, repo string, data Package
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadCocoapods(owner string, repo string, data PackagesUploadCocoapods) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadCocoapods(owner string, repo string, data PackagesUploadCocoapods) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -733,7 +803,7 @@ func (a PackagesApi) PackagesUploadCocoapods(owner string, repo string, data Pac
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -758,9 +828,9 @@ func (a PackagesApi) PackagesUploadCocoapods(owner string, repo string, data Pac
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadComposer(owner string, repo string, data PackagesUploadComposer) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadComposer(owner string, repo string, data PackagesUploadComposer) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -804,7 +874,7 @@ func (a PackagesApi) PackagesUploadComposer(owner string, repo string, data Pack
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -900,9 +970,9 @@ func (a PackagesApi) PackagesUploadConan(owner string, repo string, data Package
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadCran(owner string, repo string, data PackagesUploadCran) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadCran(owner string, repo string, data PackagesUploadCran) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -946,7 +1016,7 @@ func (a PackagesApi) PackagesUploadCran(owner string, repo string, data Packages
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -971,9 +1041,9 @@ func (a PackagesApi) PackagesUploadCran(owner string, repo string, data Packages
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadDart(owner string, repo string, data PackagesUploadDart) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadDart(owner string, repo string, data PackagesUploadDart) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1017,7 +1087,7 @@ func (a PackagesApi) PackagesUploadDart(owner string, repo string, data Packages
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1042,9 +1112,9 @@ func (a PackagesApi) PackagesUploadDart(owner string, repo string, data Packages
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesUploadDeb) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesUploadDeb) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1088,7 +1158,7 @@ func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesU
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1113,9 +1183,9 @@ func (a PackagesApi) PackagesUploadDeb(owner string, repo string, data PackagesU
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadDocker(owner string, repo string, data PackagesUploadDocker) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadDocker(owner string, repo string, data PackagesUploadDocker) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1159,7 +1229,7 @@ func (a PackagesApi) PackagesUploadDocker(owner string, repo string, data Packag
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1184,9 +1254,9 @@ func (a PackagesApi) PackagesUploadDocker(owner string, repo string, data Packag
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadGo(owner string, repo string, data PackagesUploadGo) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadGo(owner string, repo string, data PackagesUploadGo) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1230,7 +1300,7 @@ func (a PackagesApi) PackagesUploadGo(owner string, repo string, data PackagesUp
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1255,9 +1325,9 @@ func (a PackagesApi) PackagesUploadGo(owner string, repo string, data PackagesUp
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadHelm(owner string, repo string, data PackagesUploadHelm) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadHelm(owner string, repo string, data PackagesUploadHelm) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1301,7 +1371,7 @@ func (a PackagesApi) PackagesUploadHelm(owner string, repo string, data Packages
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1326,9 +1396,9 @@ func (a PackagesApi) PackagesUploadHelm(owner string, repo string, data Packages
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadLuarocks(owner string, repo string, data PackagesUploadLuarocks) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadLuarocks(owner string, repo string, data PackagesUploadLuarocks) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1372,7 +1442,7 @@ func (a PackagesApi) PackagesUploadLuarocks(owner string, repo string, data Pack
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1468,9 +1538,9 @@ func (a PackagesApi) PackagesUploadMaven(owner string, repo string, data Package
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadNpm(owner string, repo string, data PackagesUploadNpm) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadNpm(owner string, repo string, data PackagesUploadNpm) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1514,7 +1584,7 @@ func (a PackagesApi) PackagesUploadNpm(owner string, repo string, data PackagesU
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1539,9 +1609,9 @@ func (a PackagesApi) PackagesUploadNpm(owner string, repo string, data PackagesU
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadNuget(owner string, repo string, data PackagesUploadNuget) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadNuget(owner string, repo string, data PackagesUploadNuget) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1585,7 +1655,7 @@ func (a PackagesApi) PackagesUploadNuget(owner string, repo string, data Package
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1610,9 +1680,9 @@ func (a PackagesApi) PackagesUploadNuget(owner string, repo string, data Package
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadPython(owner string, repo string, data PackagesUploadPython) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadPython(owner string, repo string, data PackagesUploadPython) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1656,7 +1726,7 @@ func (a PackagesApi) PackagesUploadPython(owner string, repo string, data Packag
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1752,9 +1822,9 @@ func (a PackagesApi) PackagesUploadRaw(owner string, repo string, data PackagesU
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesUploadRpm) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesUploadRpm) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1798,7 +1868,7 @@ func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesU
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1823,9 +1893,9 @@ func (a PackagesApi) PackagesUploadRpm(owner string, repo string, data PackagesU
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadRuby(owner string, repo string, data PackagesUploadRuby) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadRuby(owner string, repo string, data PackagesUploadRuby) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1869,7 +1939,7 @@ func (a PackagesApi) PackagesUploadRuby(owner string, repo string, data Packages
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -1894,9 +1964,9 @@ func (a PackagesApi) PackagesUploadRuby(owner string, repo string, data Packages
  * @param owner 
  * @param repo 
  * @param data 
- * @return *ModelPackage
+ * @return *AlpinePackageUpload
  */
-func (a PackagesApi) PackagesUploadTerraform(owner string, repo string, data PackagesUploadTerraform) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesUploadTerraform(owner string, repo string, data PackagesUploadTerraform) (*AlpinePackageUpload, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -1940,7 +2010,7 @@ func (a PackagesApi) PackagesUploadTerraform(owner string, repo string, data Pac
 	}
 	// body params
 	localVarPostBody = &data
-	var successPayload = new(ModelPackage)
+	var successPayload = new(AlpinePackageUpload)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)

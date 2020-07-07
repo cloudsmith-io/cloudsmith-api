@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **last_response_status** | **int** |  | [optional] 
 **last_response_status_str** | **str** |  | [optional] 
 **num_sent** | **int** |  | [optional] 
+**package_query** | **str** | The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire. | [optional] 
 **request_body_format** | **str** | The format of the payloads for webhook requests. | [optional] 
 **request_body_format_str** | **str** |  | [optional] 
 **request_body_template_format** | **str** | The format of the payloads for webhook requests. | [optional] 

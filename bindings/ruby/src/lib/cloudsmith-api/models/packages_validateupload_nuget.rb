@@ -24,13 +24,17 @@ module CloudsmithApi
     # Attaches a symbols file to the package.
     attr_accessor :symbols_file
 
+    # A comma-separated values list of tags to add to the package.
+    attr_accessor :tags
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'package_file' => :'package_file',
         :'republish' => :'republish',
-        :'symbols_file' => :'symbols_file'
+        :'symbols_file' => :'symbols_file',
+        :'tags' => :'tags'
       }
     end
 
@@ -39,7 +43,8 @@ module CloudsmithApi
       {
         :'package_file' => :'String',
         :'republish' => :'BOOLEAN',
-        :'symbols_file' => :'String'
+        :'symbols_file' => :'String',
+        :'tags' => :'String'
       }
     end
 
@@ -61,6 +66,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'symbols_file')
         self.symbols_file = attributes[:'symbols_file']
+      end
+
+      if attributes.has_key?(:'tags')
+        self.tags = attributes[:'tags']
       end
 
     end
@@ -90,7 +99,8 @@ module CloudsmithApi
       self.class == o.class &&
           package_file == o.package_file &&
           republish == o.republish &&
-          symbols_file == o.symbols_file
+          symbols_file == o.symbols_file &&
+          tags == o.tags
     end
 
     # @see the `==` method
@@ -102,7 +112,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [package_file, republish, symbols_file].hash
+      [package_file, republish, symbols_file, tags].hash
     end
 
     # Builds the object from hash

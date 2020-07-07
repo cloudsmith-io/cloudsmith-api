@@ -212,7 +212,7 @@ class EntitlementsPartialUpdate(object):
     def limit_package_query(self):
         """
         Gets the limit_package_query of this EntitlementsPartialUpdate.
-        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
 
         :return: The limit_package_query of this EntitlementsPartialUpdate.
         :rtype: str
@@ -223,7 +223,7 @@ class EntitlementsPartialUpdate(object):
     def limit_package_query(self, limit_package_query):
         """
         Sets the limit_package_query of this EntitlementsPartialUpdate.
-        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
 
         :param limit_package_query: The limit_package_query of this EntitlementsPartialUpdate.
         :type: str

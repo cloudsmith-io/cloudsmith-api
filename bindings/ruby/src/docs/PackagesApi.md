@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 [**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+[**packages_tag**](PackagesApi.md#packages_tag) | **POST** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
 [**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**packages_upload_cargo**](PackagesApi.md#packages_upload_cargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 [**packages_upload_cocoapods**](PackagesApi.md#packages_upload_cocoapods) | **POST** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
@@ -393,7 +394,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_resync**
-> Package packages_resync(owner, repo, identifier, opts)
+> Package packages_resync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -424,13 +425,10 @@ repo = "repo_example" # String |
 
 identifier = "identifier_example" # String | 
 
-opts = { 
-  data: CloudsmithApi::PackagesResync.new # PackagesResync | 
-}
 
 begin
   #Schedule a package for resynchronisation.
-  result = api_instance.packages_resync(owner, repo, identifier, opts)
+  result = api_instance.packages_resync(owner, repo, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_resync: #{e}"
@@ -444,7 +442,6 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**PackagesResync**](PackagesResync.md)|  | [optional] 
 
 ### Return type
 
@@ -456,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 
@@ -526,8 +523,77 @@ Name | Type | Description  | Notes
 
 
 
+# **packages_tag**
+> Package packages_tag(owner, repo, identifier, opts)
+
+Add/Replace/Remove tags for a package.
+
+Add/Replace/Remove tags for a package.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure API key authorization: csrf_token
+  config.api_key['X-CSRFToken'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-CSRFToken'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+identifier = "identifier_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesTag.new # PackagesTag | 
+}
+
+begin
+  #Add/Replace/Remove tags for a package.
+  result = api_instance.packages_tag(owner, repo, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_tag: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**PackagesTag**](PackagesTag.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_upload_alpine**
-> Package packages_upload_alpine(owner, repo, opts)
+> AlpinePackageUpload packages_upload_alpine(owner, repo, opts)
 
 Create a new Alpine package
 
@@ -579,7 +645,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -593,7 +659,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_cargo**
-> Package packages_upload_cargo(owner, repo, opts)
+> AlpinePackageUpload packages_upload_cargo(owner, repo, opts)
 
 Create a new Cargo package
 
@@ -645,7 +711,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -659,7 +725,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_cocoapods**
-> Package packages_upload_cocoapods(owner, repo, opts)
+> AlpinePackageUpload packages_upload_cocoapods(owner, repo, opts)
 
 Create a new CocoaPods package
 
@@ -711,7 +777,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -725,7 +791,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_composer**
-> Package packages_upload_composer(owner, repo, opts)
+> AlpinePackageUpload packages_upload_composer(owner, repo, opts)
 
 Create a new Composer package
 
@@ -777,7 +843,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -857,7 +923,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_cran**
-> Package packages_upload_cran(owner, repo, opts)
+> AlpinePackageUpload packages_upload_cran(owner, repo, opts)
 
 Create a new CRAN package
 
@@ -909,7 +975,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -923,7 +989,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_dart**
-> Package packages_upload_dart(owner, repo, opts)
+> AlpinePackageUpload packages_upload_dart(owner, repo, opts)
 
 Create a new Dart package
 
@@ -975,7 +1041,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -989,7 +1055,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_deb**
-> Package packages_upload_deb(owner, repo, opts)
+> AlpinePackageUpload packages_upload_deb(owner, repo, opts)
 
 Create a new Debian package
 
@@ -1041,7 +1107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1055,7 +1121,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_docker**
-> Package packages_upload_docker(owner, repo, opts)
+> AlpinePackageUpload packages_upload_docker(owner, repo, opts)
 
 Create a new Docker package
 
@@ -1107,7 +1173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1121,7 +1187,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_go**
-> Package packages_upload_go(owner, repo, opts)
+> AlpinePackageUpload packages_upload_go(owner, repo, opts)
 
 Create a new Go package
 
@@ -1173,7 +1239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1187,7 +1253,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_helm**
-> Package packages_upload_helm(owner, repo, opts)
+> AlpinePackageUpload packages_upload_helm(owner, repo, opts)
 
 Create a new Helm package
 
@@ -1239,7 +1305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1253,7 +1319,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_luarocks**
-> Package packages_upload_luarocks(owner, repo, opts)
+> AlpinePackageUpload packages_upload_luarocks(owner, repo, opts)
 
 Create a new LuaRocks package
 
@@ -1305,7 +1371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1385,7 +1451,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_npm**
-> Package packages_upload_npm(owner, repo, opts)
+> AlpinePackageUpload packages_upload_npm(owner, repo, opts)
 
 Create a new npm package
 
@@ -1437,7 +1503,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1451,7 +1517,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_nuget**
-> Package packages_upload_nuget(owner, repo, opts)
+> AlpinePackageUpload packages_upload_nuget(owner, repo, opts)
 
 Create a new NuGet package
 
@@ -1503,7 +1569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1517,7 +1583,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_python**
-> Package packages_upload_python(owner, repo, opts)
+> AlpinePackageUpload packages_upload_python(owner, repo, opts)
 
 Create a new Python package
 
@@ -1569,7 +1635,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1649,7 +1715,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_rpm**
-> Package packages_upload_rpm(owner, repo, opts)
+> AlpinePackageUpload packages_upload_rpm(owner, repo, opts)
 
 Create a new RedHat package
 
@@ -1701,7 +1767,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1715,7 +1781,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_ruby**
-> Package packages_upload_ruby(owner, repo, opts)
+> AlpinePackageUpload packages_upload_ruby(owner, repo, opts)
 
 Create a new Ruby package
 
@@ -1767,7 +1833,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -1781,7 +1847,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_terraform**
-> Package packages_upload_terraform(owner, repo, opts)
+> AlpinePackageUpload packages_upload_terraform(owner, repo, opts)
 
 Create a new Terraform package
 
@@ -1833,7 +1899,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 

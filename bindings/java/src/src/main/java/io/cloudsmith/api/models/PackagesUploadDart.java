@@ -39,6 +39,9 @@ public class PackagesUploadDart implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("tags")
+  private String tags = null;
+
   public PackagesUploadDart packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
@@ -76,6 +79,24 @@ public class PackagesUploadDart implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesUploadDart tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * A comma-separated values list of tags to add to the package.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "A comma-separated values list of tags to add to the package.")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,12 +108,13 @@ public class PackagesUploadDart implements Serializable {
     }
     PackagesUploadDart packagesUploadDart = (PackagesUploadDart) o;
     return Objects.equals(this.packageFile, packagesUploadDart.packageFile) &&
-        Objects.equals(this.republish, packagesUploadDart.republish);
+        Objects.equals(this.republish, packagesUploadDart.republish) &&
+        Objects.equals(this.tags, packagesUploadDart.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish);
+    return Objects.hash(packageFile, republish, tags);
   }
 
 
@@ -103,6 +125,7 @@ public class PackagesUploadDart implements Serializable {
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

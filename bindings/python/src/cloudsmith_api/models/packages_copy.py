@@ -31,26 +31,21 @@ class PackagesCopy(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'destination': 'str',
-        'republish': 'bool'
+        'destination': 'str'
     }
 
     attribute_map = {
-        'destination': 'destination',
-        'republish': 'republish'
+        'destination': 'destination'
     }
 
-    def __init__(self, destination=None, republish=None):
+    def __init__(self, destination=None):
         """
         PackagesCopy - a model defined in Swagger
         """
 
         self._destination = None
-        self._republish = None
 
         self.destination = destination
-        if republish is not None:
-          self.republish = republish
 
     @property
     def destination(self):
@@ -76,29 +71,6 @@ class PackagesCopy(object):
             raise ValueError("Invalid value for `destination`, must not be `None`")
 
         self._destination = destination
-
-    @property
-    def republish(self):
-        """
-        Gets the republish of this PackagesCopy.
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-
-        :return: The republish of this PackagesCopy.
-        :rtype: bool
-        """
-        return self._republish
-
-    @republish.setter
-    def republish(self, republish):
-        """
-        Sets the republish of this PackagesCopy.
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-
-        :param republish: The republish of this PackagesCopy.
-        :type: bool
-        """
-
-        self._republish = republish
 
     def to_dict(self):
         """

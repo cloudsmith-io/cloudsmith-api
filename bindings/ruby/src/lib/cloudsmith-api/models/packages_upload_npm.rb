@@ -24,13 +24,17 @@ module CloudsmithApi
     # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
     attr_accessor :republish
 
+    # A comma-separated values list of tags to add to the package.
+    attr_accessor :tags
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'npm_dist_tag' => :'npm_dist_tag',
         :'package_file' => :'package_file',
-        :'republish' => :'republish'
+        :'republish' => :'republish',
+        :'tags' => :'tags'
       }
     end
 
@@ -39,7 +43,8 @@ module CloudsmithApi
       {
         :'npm_dist_tag' => :'String',
         :'package_file' => :'String',
-        :'republish' => :'BOOLEAN'
+        :'republish' => :'BOOLEAN',
+        :'tags' => :'String'
       }
     end
 
@@ -61,6 +66,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'republish')
         self.republish = attributes[:'republish']
+      end
+
+      if attributes.has_key?(:'tags')
+        self.tags = attributes[:'tags']
       end
 
     end
@@ -90,7 +99,8 @@ module CloudsmithApi
       self.class == o.class &&
           npm_dist_tag == o.npm_dist_tag &&
           package_file == o.package_file &&
-          republish == o.republish
+          republish == o.republish &&
+          tags == o.tags
     end
 
     # @see the `==` method
@@ -102,7 +112,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [npm_dist_tag, package_file, republish].hash
+      [npm_dist_tag, package_file, republish, tags].hash
     end
 
     # Builds the object from hash

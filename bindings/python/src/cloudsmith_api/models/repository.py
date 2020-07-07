@@ -53,7 +53,8 @@ class Repository(object):
         'size': 'int',
         'size_str': 'str',
         'slug': 'str',
-        'slug_perm': 'str'
+        'slug_perm': 'str',
+        'storage_region': 'str'
     }
 
     attribute_map = {
@@ -79,10 +80,11 @@ class Repository(object):
         'size': 'size',
         'size_str': 'size_str',
         'slug': 'slug',
-        'slug_perm': 'slug_perm'
+        'slug_perm': 'slug_perm',
+        'storage_region': 'storage_region'
     }
 
-    def __init__(self, cdn_url=None, created_at=None, deleted_at=None, description=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, name=None, namespace=None, namespace_url=None, num_downloads=None, package_count=None, package_group_count=None, repository_type=None, repository_type_str=None, self_html_url=None, self_url=None, size=None, size_str=None, slug=None, slug_perm=None):
+    def __init__(self, cdn_url=None, created_at=None, deleted_at=None, description=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, name=None, namespace=None, namespace_url=None, num_downloads=None, package_count=None, package_group_count=None, repository_type=None, repository_type_str=None, self_html_url=None, self_url=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region=None):
         """
         Repository - a model defined in Swagger
         """
@@ -110,6 +112,7 @@ class Repository(object):
         self._size_str = None
         self._slug = None
         self._slug_perm = None
+        self._storage_region = None
 
         if cdn_url is not None:
           self.cdn_url = cdn_url
@@ -130,7 +133,8 @@ class Repository(object):
         if is_public is not None:
           self.is_public = is_public
         self.name = name
-        self.namespace = namespace
+        if namespace is not None:
+          self.namespace = namespace
         if namespace_url is not None:
           self.namespace_url = namespace_url
         if num_downloads is not None:
@@ -151,15 +155,18 @@ class Repository(object):
           self.size = size
         if size_str is not None:
           self.size_str = size_str
-        self.slug = slug
+        if slug is not None:
+          self.slug = slug
         if slug_perm is not None:
           self.slug_perm = slug_perm
+        if storage_region is not None:
+          self.storage_region = storage_region
 
     @property
     def cdn_url(self):
         """
         Gets the cdn_url of this Repository.
-        
+        Base URL from which packages and other artifacts are downloaded.
 
         :return: The cdn_url of this Repository.
         :rtype: str
@@ -170,7 +177,7 @@ class Repository(object):
     def cdn_url(self, cdn_url):
         """
         Sets the cdn_url of this Repository.
-        
+        Base URL from which packages and other artifacts are downloaded.
 
         :param cdn_url: The cdn_url of this Repository.
         :type: str
@@ -228,7 +235,7 @@ class Repository(object):
     def description(self):
         """
         Gets the description of this Repository.
-        
+        A description of the repository's purpose/contents.
 
         :return: The description of this Repository.
         :rtype: str
@@ -239,7 +246,7 @@ class Repository(object):
     def description(self, description):
         """
         Sets the description of this Repository.
-        
+        A description of the repository's purpose/contents.
 
         :param description: The description of this Repository.
         :type: str
@@ -391,7 +398,7 @@ class Repository(object):
     def namespace(self):
         """
         Gets the namespace of this Repository.
-        
+        Namespace to which this repository belongs.
 
         :return: The namespace of this Repository.
         :rtype: str
@@ -402,13 +409,11 @@ class Repository(object):
     def namespace(self, namespace):
         """
         Sets the namespace of this Repository.
-        
+        Namespace to which this repository belongs.
 
         :param namespace: The namespace of this Repository.
         :type: str
         """
-        if namespace is None:
-            raise ValueError("Invalid value for `namespace`, must not be `None`")
 
         self._namespace = namespace
 
@@ -416,7 +421,7 @@ class Repository(object):
     def namespace_url(self):
         """
         Gets the namespace_url of this Repository.
-        
+        API endpoint where data about this namespace can be retrieved.
 
         :return: The namespace_url of this Repository.
         :rtype: str
@@ -427,7 +432,7 @@ class Repository(object):
     def namespace_url(self, namespace_url):
         """
         Sets the namespace_url of this Repository.
-        
+        API endpoint where data about this namespace can be retrieved.
 
         :param namespace_url: The namespace_url of this Repository.
         :type: str
@@ -531,7 +536,7 @@ class Repository(object):
     def repository_type_str(self):
         """
         Gets the repository_type_str of this Repository.
-        
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 
         :return: The repository_type_str of this Repository.
         :rtype: str
@@ -542,7 +547,7 @@ class Repository(object):
     def repository_type_str(self, repository_type_str):
         """
         Sets the repository_type_str of this Repository.
-        
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 
         :param repository_type_str: The repository_type_str of this Repository.
         :type: str
@@ -554,7 +559,7 @@ class Repository(object):
     def self_html_url(self):
         """
         Gets the self_html_url of this Repository.
-        
+        Website URL for this repository.
 
         :return: The self_html_url of this Repository.
         :rtype: str
@@ -565,7 +570,7 @@ class Repository(object):
     def self_html_url(self, self_html_url):
         """
         Sets the self_html_url of this Repository.
-        
+        Website URL for this repository.
 
         :param self_html_url: The self_html_url of this Repository.
         :type: str
@@ -577,7 +582,7 @@ class Repository(object):
     def self_url(self):
         """
         Gets the self_url of this Repository.
-        
+        API endpoint where data about this repository can be retrieved.
 
         :return: The self_url of this Repository.
         :rtype: str
@@ -588,7 +593,7 @@ class Repository(object):
     def self_url(self, self_url):
         """
         Sets the self_url of this Repository.
-        
+        API endpoint where data about this repository can be retrieved.
 
         :param self_url: The self_url of this Repository.
         :type: str
@@ -623,7 +628,7 @@ class Repository(object):
     def size_str(self):
         """
         Gets the size_str of this Repository.
-        
+        The calculated size of the repository (human readable).
 
         :return: The size_str of this Repository.
         :rtype: str
@@ -634,7 +639,7 @@ class Repository(object):
     def size_str(self, size_str):
         """
         Sets the size_str of this Repository.
-        
+        The calculated size of the repository (human readable).
 
         :param size_str: The size_str of this Repository.
         :type: str
@@ -646,7 +651,7 @@ class Repository(object):
     def slug(self):
         """
         Gets the slug of this Repository.
-        
+        The slug identifies the repository in URIs.
 
         :return: The slug of this Repository.
         :rtype: str
@@ -657,13 +662,11 @@ class Repository(object):
     def slug(self, slug):
         """
         Sets the slug of this Repository.
-        
+        The slug identifies the repository in URIs.
 
         :param slug: The slug of this Repository.
         :type: str
         """
-        if slug is None:
-            raise ValueError("Invalid value for `slug`, must not be `None`")
 
         self._slug = slug
 
@@ -671,7 +674,7 @@ class Repository(object):
     def slug_perm(self):
         """
         Gets the slug_perm of this Repository.
-        
+        The slug_perm immutably identifies the repository. It will never change once a repository has been created.
 
         :return: The slug_perm of this Repository.
         :rtype: str
@@ -682,13 +685,36 @@ class Repository(object):
     def slug_perm(self, slug_perm):
         """
         Sets the slug_perm of this Repository.
-        
+        The slug_perm immutably identifies the repository. It will never change once a repository has been created.
 
         :param slug_perm: The slug_perm of this Repository.
         :type: str
         """
 
         self._slug_perm = slug_perm
+
+    @property
+    def storage_region(self):
+        """
+        Gets the storage_region of this Repository.
+        The Cloudsmith region in which package files are stored.
+
+        :return: The storage_region of this Repository.
+        :rtype: str
+        """
+        return self._storage_region
+
+    @storage_region.setter
+    def storage_region(self, storage_region):
+        """
+        Sets the storage_region of this Repository.
+        The Cloudsmith region in which package files are stored.
+
+        :param storage_region: The storage_region of this Repository.
+        :type: str
+        """
+
+        self._storage_region = storage_region
 
     def to_dict(self):
         """

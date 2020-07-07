@@ -42,6 +42,9 @@ public class WebhooksCreate implements Serializable {
   @SerializedName("is_active")
   private Boolean isActive = null;
 
+  @SerializedName("package_query")
+  private String packageQuery = null;
+
   @SerializedName("request_body_format")
   private String requestBodyFormat = null;
 
@@ -109,6 +112,24 @@ public class WebhooksCreate implements Serializable {
 
   public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
+  }
+
+  public WebhooksCreate packageQuery(String packageQuery) {
+    this.packageQuery = packageQuery;
+    return this;
+  }
+
+   /**
+   * The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+   * @return packageQuery
+  **/
+  @ApiModelProperty(value = "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
+  public String getPackageQuery() {
+    return packageQuery;
+  }
+
+  public void setPackageQuery(String packageQuery) {
+    this.packageQuery = packageQuery;
   }
 
   public WebhooksCreate requestBodyFormat(String requestBodyFormat) {
@@ -293,6 +314,7 @@ public class WebhooksCreate implements Serializable {
     WebhooksCreate webhooksCreate = (WebhooksCreate) o;
     return Objects.equals(this.events, webhooksCreate.events) &&
         Objects.equals(this.isActive, webhooksCreate.isActive) &&
+        Objects.equals(this.packageQuery, webhooksCreate.packageQuery) &&
         Objects.equals(this.requestBodyFormat, webhooksCreate.requestBodyFormat) &&
         Objects.equals(this.requestBodyTemplateFormat, webhooksCreate.requestBodyTemplateFormat) &&
         Objects.equals(this.requestContentType, webhooksCreate.requestContentType) &&
@@ -306,7 +328,7 @@ public class WebhooksCreate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, isActive, requestBodyFormat, requestBodyTemplateFormat, requestContentType, secretHeader, secretValue, signatureKey, targetUrl, templates, verifySsl);
+    return Objects.hash(events, isActive, packageQuery, requestBodyFormat, requestBodyTemplateFormat, requestContentType, secretHeader, secretValue, signatureKey, targetUrl, templates, verifySsl);
   }
 
 
@@ -317,6 +339,7 @@ public class WebhooksCreate implements Serializable {
     
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    packageQuery: ").append(toIndentedString(packageQuery)).append("\n");
     sb.append("    requestBodyFormat: ").append(toIndentedString(requestBodyFormat)).append("\n");
     sb.append("    requestBodyTemplateFormat: ").append(toIndentedString(requestBodyTemplateFormat)).append("\n");
     sb.append("    requestContentType: ").append(toIndentedString(requestContentType)).append("\n");

@@ -39,20 +39,8 @@ public class ReposPartialUpdate implements Serializable {
   @SerializedName("index_files")
   private Boolean indexFiles = null;
 
-  @SerializedName("is_open_source")
-  private Boolean isOpenSource = null;
-
-  @SerializedName("is_private")
-  private Boolean isPrivate = null;
-
-  @SerializedName("is_public")
-  private Boolean isPublic = null;
-
   @SerializedName("name")
   private String name = null;
-
-  @SerializedName("namespace")
-  private String namespace = null;
 
   @SerializedName("repository_type_str")
   private String repositoryTypeStr = null;
@@ -66,10 +54,10 @@ public class ReposPartialUpdate implements Serializable {
   }
 
    /**
-   * None
+   * A description of the repository&#39;s purpose/contents.
    * @return description
   **/
-  @ApiModelProperty(value = "None")
+  @ApiModelProperty(value = "A description of the repository's purpose/contents.")
   public String getDescription() {
     return description;
   }
@@ -96,60 +84,6 @@ public class ReposPartialUpdate implements Serializable {
     this.indexFiles = indexFiles;
   }
 
-  public ReposPartialUpdate isOpenSource(Boolean isOpenSource) {
-    this.isOpenSource = isOpenSource;
-    return this;
-  }
-
-   /**
-   * None
-   * @return isOpenSource
-  **/
-  @ApiModelProperty(value = "None")
-  public Boolean getIsOpenSource() {
-    return isOpenSource;
-  }
-
-  public void setIsOpenSource(Boolean isOpenSource) {
-    this.isOpenSource = isOpenSource;
-  }
-
-  public ReposPartialUpdate isPrivate(Boolean isPrivate) {
-    this.isPrivate = isPrivate;
-    return this;
-  }
-
-   /**
-   * None
-   * @return isPrivate
-  **/
-  @ApiModelProperty(value = "None")
-  public Boolean getIsPrivate() {
-    return isPrivate;
-  }
-
-  public void setIsPrivate(Boolean isPrivate) {
-    this.isPrivate = isPrivate;
-  }
-
-  public ReposPartialUpdate isPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
-    return this;
-  }
-
-   /**
-   * None
-   * @return isPublic
-  **/
-  @ApiModelProperty(value = "None")
-  public Boolean getIsPublic() {
-    return isPublic;
-  }
-
-  public void setIsPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
-  }
-
   public ReposPartialUpdate name(String name) {
     this.name = name;
     return this;
@@ -168,34 +102,16 @@ public class ReposPartialUpdate implements Serializable {
     this.name = name;
   }
 
-  public ReposPartialUpdate namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-   /**
-   * None
-   * @return namespace
-  **/
-  @ApiModelProperty(value = "None")
-  public String getNamespace() {
-    return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
   public ReposPartialUpdate repositoryTypeStr(String repositoryTypeStr) {
     this.repositoryTypeStr = repositoryTypeStr;
     return this;
   }
 
    /**
-   * None
+   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
    * @return repositoryTypeStr
   **/
-  @ApiModelProperty(value = "None")
+  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.")
   public String getRepositoryTypeStr() {
     return repositoryTypeStr;
   }
@@ -210,10 +126,10 @@ public class ReposPartialUpdate implements Serializable {
   }
 
    /**
-   * None
+   * The slug identifies the repository in URIs.
    * @return slug
   **/
-  @ApiModelProperty(value = "None")
+  @ApiModelProperty(value = "The slug identifies the repository in URIs.")
   public String getSlug() {
     return slug;
   }
@@ -234,18 +150,14 @@ public class ReposPartialUpdate implements Serializable {
     ReposPartialUpdate reposPartialUpdate = (ReposPartialUpdate) o;
     return Objects.equals(this.description, reposPartialUpdate.description) &&
         Objects.equals(this.indexFiles, reposPartialUpdate.indexFiles) &&
-        Objects.equals(this.isOpenSource, reposPartialUpdate.isOpenSource) &&
-        Objects.equals(this.isPrivate, reposPartialUpdate.isPrivate) &&
-        Objects.equals(this.isPublic, reposPartialUpdate.isPublic) &&
         Objects.equals(this.name, reposPartialUpdate.name) &&
-        Objects.equals(this.namespace, reposPartialUpdate.namespace) &&
         Objects.equals(this.repositoryTypeStr, reposPartialUpdate.repositoryTypeStr) &&
         Objects.equals(this.slug, reposPartialUpdate.slug);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, indexFiles, isOpenSource, isPrivate, isPublic, name, namespace, repositoryTypeStr, slug);
+    return Objects.hash(description, indexFiles, name, repositoryTypeStr, slug);
   }
 
 
@@ -256,11 +168,7 @@ public class ReposPartialUpdate implements Serializable {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
-    sb.append("    isOpenSource: ").append(toIndentedString(isOpenSource)).append("\n");
-    sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
-    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    repositoryTypeStr: ").append(toIndentedString(repositoryTypeStr)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("}");

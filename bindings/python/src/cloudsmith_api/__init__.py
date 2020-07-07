@@ -14,6 +14,7 @@
 from __future__ import absolute_import
 
 # import models into sdk package
+from .models.alpine_package_upload import AlpinePackageUpload
 from .models.conan_package_upload import ConanPackageUpload
 from .models.distribution import Distribution
 from .models.distros_versions import DistrosVersions
@@ -38,7 +39,7 @@ from .models.package_move import PackageMove
 from .models.package_status import PackageStatus
 from .models.packages_copy import PackagesCopy
 from .models.packages_move import PackagesMove
-from .models.packages_resync import PackagesResync
+from .models.packages_tag import PackagesTag
 from .models.packages_upload_alpine import PackagesUploadAlpine
 from .models.packages_upload_cargo import PackagesUploadCargo
 from .models.packages_upload_cocoapods import PackagesUploadCocoapods
@@ -96,6 +97,7 @@ from .models.repository_webhook import RepositoryWebhook
 from .models.resources_rate_check import ResourcesRateCheck
 from .models.status import Status
 from .models.status_basic import StatusBasic
+from .models.storage_region import StorageRegion
 from .models.user_auth_token import UserAuthToken
 from .models.user_brief import UserBrief
 from .models.user_profile import UserProfile
@@ -117,6 +119,7 @@ from .apis.packages_api import PackagesApi
 from .apis.rates_api import RatesApi
 from .apis.repos_api import ReposApi
 from .apis.status_api import StatusApi
+from .apis.storageregions_api import StorageregionsApi
 from .apis.user_api import UserApi
 from .apis.users_api import UsersApi
 from .apis.webhooks_api import WebhooksApi

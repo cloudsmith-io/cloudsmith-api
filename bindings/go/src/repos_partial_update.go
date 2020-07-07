@@ -12,30 +12,18 @@ package cloudsmith_api
 
 type ReposPartialUpdate struct {
 
-	// None
+	// A description of the repository's purpose/contents.
 	Description string `json:"description,omitempty"`
 
 	// If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
 	IndexFiles bool `json:"index_files,omitempty"`
 
-	// None
-	IsOpenSource bool `json:"is_open_source,omitempty"`
-
-	// None
-	IsPrivate bool `json:"is_private,omitempty"`
-
-	// None
-	IsPublic bool `json:"is_public,omitempty"`
-
 	// A descriptive name for the repository.
 	Name string `json:"name,omitempty"`
 
-	// None
-	Namespace string `json:"namespace,omitempty"`
-
-	// None
+	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 	RepositoryTypeStr string `json:"repository_type_str,omitempty"`
 
-	// None
+	// The slug identifies the repository in URIs.
 	Slug string `json:"slug,omitempty"`
 }

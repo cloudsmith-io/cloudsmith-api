@@ -105,16 +105,19 @@ public class Repository implements Serializable {
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
+  @SerializedName("storage_region")
+  private String storageRegion = null;
+
   public Repository cdnUrl(String cdnUrl) {
     this.cdnUrl = cdnUrl;
     return this;
   }
 
    /**
-   * 
+   * Base URL from which packages and other artifacts are downloaded.
    * @return cdnUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Base URL from which packages and other artifacts are downloaded.")
   public String getCdnUrl() {
     return cdnUrl;
   }
@@ -165,10 +168,10 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * A description of the repository&#39;s purpose/contents.
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A description of the repository's purpose/contents.")
   public String getDescription() {
     return description;
   }
@@ -301,11 +304,10 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * Namespace to which this repository belongs.
    * @return namespace
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "Namespace to which this repository belongs.")
   public String getNamespace() {
     return namespace;
   }
@@ -320,10 +322,10 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * API endpoint where data about this namespace can be retrieved.
    * @return namespaceUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "API endpoint where data about this namespace can be retrieved.")
   public String getNamespaceUrl() {
     return namespaceUrl;
   }
@@ -410,10 +412,10 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
    * @return repositoryTypeStr
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.")
   public String getRepositoryTypeStr() {
     return repositoryTypeStr;
   }
@@ -428,10 +430,10 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * Website URL for this repository.
    * @return selfHtmlUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Website URL for this repository.")
   public String getSelfHtmlUrl() {
     return selfHtmlUrl;
   }
@@ -446,10 +448,10 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * API endpoint where data about this repository can be retrieved.
    * @return selfUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "API endpoint where data about this repository can be retrieved.")
   public String getSelfUrl() {
     return selfUrl;
   }
@@ -482,10 +484,10 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * The calculated size of the repository (human readable).
    * @return sizeStr
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The calculated size of the repository (human readable).")
   public String getSizeStr() {
     return sizeStr;
   }
@@ -500,11 +502,10 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * The slug identifies the repository in URIs.
    * @return slug
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "The slug identifies the repository in URIs.")
   public String getSlug() {
     return slug;
   }
@@ -519,16 +520,34 @@ public class Repository implements Serializable {
   }
 
    /**
-   * 
+   * The slug_perm immutably identifies the repository. It will never change once a repository has been created.
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The slug_perm immutably identifies the repository. It will never change once a repository has been created.")
   public String getSlugPerm() {
     return slugPerm;
   }
 
   public void setSlugPerm(String slugPerm) {
     this.slugPerm = slugPerm;
+  }
+
+  public Repository storageRegion(String storageRegion) {
+    this.storageRegion = storageRegion;
+    return this;
+  }
+
+   /**
+   * The Cloudsmith region in which package files are stored.
+   * @return storageRegion
+  **/
+  @ApiModelProperty(value = "The Cloudsmith region in which package files are stored.")
+  public String getStorageRegion() {
+    return storageRegion;
+  }
+
+  public void setStorageRegion(String storageRegion) {
+    this.storageRegion = storageRegion;
   }
 
 
@@ -563,12 +582,13 @@ public class Repository implements Serializable {
         Objects.equals(this.size, repository.size) &&
         Objects.equals(this.sizeStr, repository.sizeStr) &&
         Objects.equals(this.slug, repository.slug) &&
-        Objects.equals(this.slugPerm, repository.slugPerm);
+        Objects.equals(this.slugPerm, repository.slugPerm) &&
+        Objects.equals(this.storageRegion, repository.storageRegion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnUrl, createdAt, deletedAt, description, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, name, namespace, namespaceUrl, numDownloads, packageCount, packageGroupCount, repositoryType, repositoryTypeStr, selfHtmlUrl, selfUrl, size, sizeStr, slug, slugPerm);
+    return Objects.hash(cdnUrl, createdAt, deletedAt, description, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, name, namespace, namespaceUrl, numDownloads, packageCount, packageGroupCount, repositoryType, repositoryTypeStr, selfHtmlUrl, selfUrl, size, sizeStr, slug, slugPerm, storageRegion);
   }
 
 
@@ -600,6 +620,7 @@ public class Repository implements Serializable {
     sb.append("    sizeStr: ").append(toIndentedString(sizeStr)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    storageRegion: ").append(toIndentedString(storageRegion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -57,6 +57,9 @@ public class PackagesValidateuploadMaven implements Serializable {
   @SerializedName("sources_file")
   private String sourcesFile = null;
 
+  @SerializedName("tags")
+  private String tags = null;
+
   @SerializedName("tests_file")
   private String testsFile = null;
 
@@ -208,6 +211,24 @@ public class PackagesValidateuploadMaven implements Serializable {
     this.sourcesFile = sourcesFile;
   }
 
+  public PackagesValidateuploadMaven tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * A comma-separated values list of tags to add to the package.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "A comma-separated values list of tags to add to the package.")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
   public PackagesValidateuploadMaven testsFile(String testsFile) {
     this.testsFile = testsFile;
     return this;
@@ -262,13 +283,14 @@ public class PackagesValidateuploadMaven implements Serializable {
         Objects.equals(this.pomFile, packagesValidateuploadMaven.pomFile) &&
         Objects.equals(this.republish, packagesValidateuploadMaven.republish) &&
         Objects.equals(this.sourcesFile, packagesValidateuploadMaven.sourcesFile) &&
+        Objects.equals(this.tags, packagesValidateuploadMaven.tags) &&
         Objects.equals(this.testsFile, packagesValidateuploadMaven.testsFile) &&
         Objects.equals(this.version, packagesValidateuploadMaven.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, testsFile, version);
+    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, tags, testsFile, version);
   }
 
 
@@ -285,6 +307,7 @@ public class PackagesValidateuploadMaven implements Serializable {
     sb.append("    pomFile: ").append(toIndentedString(pomFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    testsFile: ").append(toIndentedString(testsFile)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

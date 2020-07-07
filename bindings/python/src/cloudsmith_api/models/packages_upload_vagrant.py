@@ -35,6 +35,7 @@ class PackagesUploadVagrant(object):
         'package_file': 'str',
         'provider': 'str',
         'republish': 'bool',
+        'tags': 'str',
         'version': 'str'
     }
 
@@ -43,10 +44,11 @@ class PackagesUploadVagrant(object):
         'package_file': 'package_file',
         'provider': 'provider',
         'republish': 'republish',
+        'tags': 'tags',
         'version': 'version'
     }
 
-    def __init__(self, name=None, package_file=None, provider=None, republish=None, version=None):
+    def __init__(self, name=None, package_file=None, provider=None, republish=None, tags=None, version=None):
         """
         PackagesUploadVagrant - a model defined in Swagger
         """
@@ -55,6 +57,7 @@ class PackagesUploadVagrant(object):
         self._package_file = None
         self._provider = None
         self._republish = None
+        self._tags = None
         self._version = None
 
         self.name = name
@@ -62,6 +65,8 @@ class PackagesUploadVagrant(object):
         self.provider = provider
         if republish is not None:
           self.republish = republish
+        if tags is not None:
+          self.tags = tags
         self.version = version
 
     @property
@@ -161,6 +166,29 @@ class PackagesUploadVagrant(object):
         """
 
         self._republish = republish
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this PackagesUploadVagrant.
+        A comma-separated values list of tags to add to the package.
+
+        :return: The tags of this PackagesUploadVagrant.
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this PackagesUploadVagrant.
+        A comma-separated values list of tags to add to the package.
+
+        :param tags: The tags of this PackagesUploadVagrant.
+        :type: str
+        """
+
+        self._tags = tags
 
     @property
     def version(self):

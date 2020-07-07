@@ -27,6 +27,9 @@ module CloudsmithApi
     # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
     attr_accessor :republish
 
+    # A comma-separated values list of tags to add to the package.
+    attr_accessor :tags
+
     # The raw version for this package.
     attr_accessor :version
 
@@ -38,6 +41,7 @@ module CloudsmithApi
         :'package_file' => :'package_file',
         :'provider' => :'provider',
         :'republish' => :'republish',
+        :'tags' => :'tags',
         :'version' => :'version'
       }
     end
@@ -49,6 +53,7 @@ module CloudsmithApi
         :'package_file' => :'String',
         :'provider' => :'String',
         :'republish' => :'BOOLEAN',
+        :'tags' => :'String',
         :'version' => :'String'
       }
     end
@@ -75,6 +80,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'republish')
         self.republish = attributes[:'republish']
+      end
+
+      if attributes.has_key?(:'tags')
+        self.tags = attributes[:'tags']
       end
 
       if attributes.has_key?(:'version')
@@ -125,6 +134,7 @@ module CloudsmithApi
           package_file == o.package_file &&
           provider == o.provider &&
           republish == o.republish &&
+          tags == o.tags &&
           version == o.version
     end
 
@@ -137,7 +147,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, package_file, provider, republish, version].hash
+      [name, package_file, provider, republish, tags, version].hash
     end
 
     # Builds the object from hash

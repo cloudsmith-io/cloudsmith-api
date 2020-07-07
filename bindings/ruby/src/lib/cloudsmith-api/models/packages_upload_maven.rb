@@ -39,6 +39,9 @@ module CloudsmithApi
     # Adds bundled Java source code to the Maven package.
     attr_accessor :sources_file
 
+    # A comma-separated values list of tags to add to the package.
+    attr_accessor :tags
+
     # Adds bundled Java tests to the Maven package.
     attr_accessor :tests_file
 
@@ -57,6 +60,7 @@ module CloudsmithApi
         :'pom_file' => :'pom_file',
         :'republish' => :'republish',
         :'sources_file' => :'sources_file',
+        :'tags' => :'tags',
         :'tests_file' => :'tests_file',
         :'version' => :'version'
       }
@@ -73,6 +77,7 @@ module CloudsmithApi
         :'pom_file' => :'String',
         :'republish' => :'BOOLEAN',
         :'sources_file' => :'String',
+        :'tags' => :'String',
         :'tests_file' => :'String',
         :'version' => :'String'
       }
@@ -118,6 +123,10 @@ module CloudsmithApi
         self.sources_file = attributes[:'sources_file']
       end
 
+      if attributes.has_key?(:'tags')
+        self.tags = attributes[:'tags']
+      end
+
       if attributes.has_key?(:'tests_file')
         self.tests_file = attributes[:'tests_file']
       end
@@ -159,6 +168,7 @@ module CloudsmithApi
           pom_file == o.pom_file &&
           republish == o.republish &&
           sources_file == o.sources_file &&
+          tags == o.tags &&
           tests_file == o.tests_file &&
           version == o.version
     end
@@ -172,7 +182,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tests_file, version].hash
+      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tags, tests_file, version].hash
     end
 
     # Builds the object from hash

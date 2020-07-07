@@ -51,6 +51,9 @@ public class PackagesUploadRaw implements Serializable {
   @SerializedName("summary")
   private String summary = null;
 
+  @SerializedName("tags")
+  private String tags = null;
+
   @SerializedName("version")
   private String version = null;
 
@@ -163,6 +166,24 @@ public class PackagesUploadRaw implements Serializable {
     this.summary = summary;
   }
 
+  public PackagesUploadRaw tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * A comma-separated values list of tags to add to the package.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "A comma-separated values list of tags to add to the package.")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
   public PackagesUploadRaw version(String version) {
     this.version = version;
     return this;
@@ -197,12 +218,13 @@ public class PackagesUploadRaw implements Serializable {
         Objects.equals(this.packageFile, packagesUploadRaw.packageFile) &&
         Objects.equals(this.republish, packagesUploadRaw.republish) &&
         Objects.equals(this.summary, packagesUploadRaw.summary) &&
+        Objects.equals(this.tags, packagesUploadRaw.tags) &&
         Objects.equals(this.version, packagesUploadRaw.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentType, description, name, packageFile, republish, summary, version);
+    return Objects.hash(contentType, description, name, packageFile, republish, summary, tags, version);
   }
 
 
@@ -217,6 +239,7 @@ public class PackagesUploadRaw implements Serializable {
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

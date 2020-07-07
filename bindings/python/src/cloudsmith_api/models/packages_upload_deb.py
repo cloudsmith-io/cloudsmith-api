@@ -31,30 +31,68 @@ class PackagesUploadDeb(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'changes_file': 'str',
         'distribution': 'str',
         'package_file': 'str',
-        'republish': 'bool'
+        'republish': 'bool',
+        'sources_file': 'str',
+        'tags': 'str'
     }
 
     attribute_map = {
+        'changes_file': 'changes_file',
         'distribution': 'distribution',
         'package_file': 'package_file',
-        'republish': 'republish'
+        'republish': 'republish',
+        'sources_file': 'sources_file',
+        'tags': 'tags'
     }
 
-    def __init__(self, distribution=None, package_file=None, republish=None):
+    def __init__(self, changes_file=None, distribution=None, package_file=None, republish=None, sources_file=None, tags=None):
         """
         PackagesUploadDeb - a model defined in Swagger
         """
 
+        self._changes_file = None
         self._distribution = None
         self._package_file = None
         self._republish = None
+        self._sources_file = None
+        self._tags = None
 
+        if changes_file is not None:
+          self.changes_file = changes_file
         self.distribution = distribution
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
+        if sources_file is not None:
+          self.sources_file = sources_file
+        if tags is not None:
+          self.tags = tags
+
+    @property
+    def changes_file(self):
+        """
+        Gets the changes_file of this PackagesUploadDeb.
+        The changes archive containing the changes made to the source and debian packaging files
+
+        :return: The changes_file of this PackagesUploadDeb.
+        :rtype: str
+        """
+        return self._changes_file
+
+    @changes_file.setter
+    def changes_file(self, changes_file):
+        """
+        Sets the changes_file of this PackagesUploadDeb.
+        The changes archive containing the changes made to the source and debian packaging files
+
+        :param changes_file: The changes_file of this PackagesUploadDeb.
+        :type: str
+        """
+
+        self._changes_file = changes_file
 
     @property
     def distribution(self):
@@ -128,6 +166,52 @@ class PackagesUploadDeb(object):
         """
 
         self._republish = republish
+
+    @property
+    def sources_file(self):
+        """
+        Gets the sources_file of this PackagesUploadDeb.
+        The sources archive containing the source code for the binary
+
+        :return: The sources_file of this PackagesUploadDeb.
+        :rtype: str
+        """
+        return self._sources_file
+
+    @sources_file.setter
+    def sources_file(self, sources_file):
+        """
+        Sets the sources_file of this PackagesUploadDeb.
+        The sources archive containing the source code for the binary
+
+        :param sources_file: The sources_file of this PackagesUploadDeb.
+        :type: str
+        """
+
+        self._sources_file = sources_file
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this PackagesUploadDeb.
+        A comma-separated values list of tags to add to the package.
+
+        :return: The tags of this PackagesUploadDeb.
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this PackagesUploadDeb.
+        A comma-separated values list of tags to add to the package.
+
+        :param tags: The tags of this PackagesUploadDeb.
+        :type: str
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """

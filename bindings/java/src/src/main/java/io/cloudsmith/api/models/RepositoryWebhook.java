@@ -72,6 +72,9 @@ public class RepositoryWebhook implements Serializable {
   @SerializedName("num_sent")
   private Integer numSent = null;
 
+  @SerializedName("package_query")
+  private String packageQuery = null;
+
   @SerializedName("request_body_format")
   private String requestBodyFormat = null;
 
@@ -334,6 +337,24 @@ public class RepositoryWebhook implements Serializable {
 
   public void setNumSent(Integer numSent) {
     this.numSent = numSent;
+  }
+
+  public RepositoryWebhook packageQuery(String packageQuery) {
+    this.packageQuery = packageQuery;
+    return this;
+  }
+
+   /**
+   * The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+   * @return packageQuery
+  **/
+  @ApiModelProperty(value = "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
+  public String getPackageQuery() {
+    return packageQuery;
+  }
+
+  public void setPackageQuery(String packageQuery) {
+    this.packageQuery = packageQuery;
   }
 
   public RepositoryWebhook requestBodyFormat(String requestBodyFormat) {
@@ -618,6 +639,7 @@ public class RepositoryWebhook implements Serializable {
         Objects.equals(this.lastResponseStatus, repositoryWebhook.lastResponseStatus) &&
         Objects.equals(this.lastResponseStatusStr, repositoryWebhook.lastResponseStatusStr) &&
         Objects.equals(this.numSent, repositoryWebhook.numSent) &&
+        Objects.equals(this.packageQuery, repositoryWebhook.packageQuery) &&
         Objects.equals(this.requestBodyFormat, repositoryWebhook.requestBodyFormat) &&
         Objects.equals(this.requestBodyFormatStr, repositoryWebhook.requestBodyFormatStr) &&
         Objects.equals(this.requestBodyTemplateFormat, repositoryWebhook.requestBodyTemplateFormat) &&
@@ -636,7 +658,7 @@ public class RepositoryWebhook implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdBy, createdByUrl, disableReason, disableReasonStr, events, identifier, isActive, isLastResponseBad, lastResponseStatus, lastResponseStatusStr, numSent, requestBodyFormat, requestBodyFormatStr, requestBodyTemplateFormat, requestBodyTemplateFormatStr, requestContentType, secretHeader, selfUrl, slugPerm, targetUrl, templates, updatedAt, updatedBy, updatedByUrl, verifySsl);
+    return Objects.hash(createdAt, createdBy, createdByUrl, disableReason, disableReasonStr, events, identifier, isActive, isLastResponseBad, lastResponseStatus, lastResponseStatusStr, numSent, packageQuery, requestBodyFormat, requestBodyFormatStr, requestBodyTemplateFormat, requestBodyTemplateFormatStr, requestContentType, secretHeader, selfUrl, slugPerm, targetUrl, templates, updatedAt, updatedBy, updatedByUrl, verifySsl);
   }
 
 
@@ -657,6 +679,7 @@ public class RepositoryWebhook implements Serializable {
     sb.append("    lastResponseStatus: ").append(toIndentedString(lastResponseStatus)).append("\n");
     sb.append("    lastResponseStatusStr: ").append(toIndentedString(lastResponseStatusStr)).append("\n");
     sb.append("    numSent: ").append(toIndentedString(numSent)).append("\n");
+    sb.append("    packageQuery: ").append(toIndentedString(packageQuery)).append("\n");
     sb.append("    requestBodyFormat: ").append(toIndentedString(requestBodyFormat)).append("\n");
     sb.append("    requestBodyFormatStr: ").append(toIndentedString(requestBodyFormatStr)).append("\n");
     sb.append("    requestBodyTemplateFormat: ").append(toIndentedString(requestBodyTemplateFormat)).append("\n");

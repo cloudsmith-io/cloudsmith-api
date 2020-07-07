@@ -344,6 +344,12 @@ describe 'MavenPackageUpload' do
     end
   end
 
+  describe 'test attribute "tags_immutable"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "type_display"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

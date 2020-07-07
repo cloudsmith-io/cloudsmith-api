@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **events** | **List&lt;String&gt;** | None |  [optional]
 **isActive** | **Boolean** | If enabled, the webhook will trigger on events and send payloads to the configured target URL. |  [optional]
+**packageQuery** | **String** | The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire. |  [optional]
 **requestBodyFormat** | **String** | The format of the payloads for webhook requests. |  [optional]
 **requestBodyTemplateFormat** | **String** | The format of the payloads for webhook requests. |  [optional]
 **requestContentType** | **String** | The value that will be sent for the &#39;Content Type&#39; header.  |  [optional]

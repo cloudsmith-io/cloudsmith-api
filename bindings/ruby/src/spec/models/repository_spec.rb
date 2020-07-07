@@ -170,5 +170,11 @@ describe 'Repository' do
     end
   end
 
+  describe 'test attribute "storage_region"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
 

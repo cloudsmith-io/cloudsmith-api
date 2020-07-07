@@ -159,6 +159,12 @@ type PackageMove struct {
 	// Synchronisation progress (from 0-100)
 	SyncProgress int32 `json:"sync_progress,omitempty"`
 
+	// All tags on the package, grouped by tag type. This includes immutable tags, but doesn't distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field.
+	Tags interface{} `json:"tags,omitempty"`
+
+	// All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
+	TagsImmutable interface{} `json:"tags_immutable,omitempty"`
+
 	// 
 	TypeDisplay string `json:"type_display,omitempty"`
 

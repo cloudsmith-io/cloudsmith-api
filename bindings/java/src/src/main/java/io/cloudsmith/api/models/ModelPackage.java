@@ -184,6 +184,12 @@ public class ModelPackage implements Serializable {
   @SerializedName("sync_progress")
   private Integer syncProgress = null;
 
+  @SerializedName("tags")
+  private Object tags = null;
+
+  @SerializedName("tags_immutable")
+  private Object tagsImmutable = null;
+
   @SerializedName("type_display")
   private String typeDisplay = null;
 
@@ -1102,6 +1108,42 @@ public class ModelPackage implements Serializable {
     this.syncProgress = syncProgress;
   }
 
+  public ModelPackage tags(Object tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * All tags on the package, grouped by tag type. This includes immutable tags, but doesn&#39;t distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "All tags on the package, grouped by tag type. This includes immutable tags, but doesn't distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field.")
+  public Object getTags() {
+    return tags;
+  }
+
+  public void setTags(Object tags) {
+    this.tags = tags;
+  }
+
+  public ModelPackage tagsImmutable(Object tagsImmutable) {
+    this.tagsImmutable = tagsImmutable;
+    return this;
+  }
+
+   /**
+   * All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
+   * @return tagsImmutable
+  **/
+  @ApiModelProperty(value = "All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.")
+  public Object getTagsImmutable() {
+    return tagsImmutable;
+  }
+
+  public void setTagsImmutable(Object tagsImmutable) {
+    this.tagsImmutable = tagsImmutable;
+  }
+
   public ModelPackage typeDisplay(String typeDisplay) {
     this.typeDisplay = typeDisplay;
     return this;
@@ -1269,6 +1311,8 @@ public class ModelPackage implements Serializable {
         Objects.equals(this.summary, _package.summary) &&
         Objects.equals(this.syncFinishedAt, _package.syncFinishedAt) &&
         Objects.equals(this.syncProgress, _package.syncProgress) &&
+        Objects.equals(this.tags, _package.tags) &&
+        Objects.equals(this.tagsImmutable, _package.tagsImmutable) &&
         Objects.equals(this.typeDisplay, _package.typeDisplay) &&
         Objects.equals(this.uploadedAt, _package.uploadedAt) &&
         Objects.equals(this.uploader, _package.uploader) &&
@@ -1279,7 +1323,7 @@ public class ModelPackage implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tags, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
   }
 
 
@@ -1337,6 +1381,8 @@ public class ModelPackage implements Serializable {
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
     sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    tagsImmutable: ").append(toIndentedString(tagsImmutable)).append("\n");
     sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");

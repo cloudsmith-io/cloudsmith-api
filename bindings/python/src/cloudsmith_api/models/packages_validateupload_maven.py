@@ -39,6 +39,7 @@ class PackagesValidateuploadMaven(object):
         'pom_file': 'str',
         'republish': 'bool',
         'sources_file': 'str',
+        'tags': 'str',
         'tests_file': 'str',
         'version': 'str'
     }
@@ -52,11 +53,12 @@ class PackagesValidateuploadMaven(object):
         'pom_file': 'pom_file',
         'republish': 'republish',
         'sources_file': 'sources_file',
+        'tags': 'tags',
         'tests_file': 'tests_file',
         'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, tests_file=None, version=None):
+    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, tags=None, tests_file=None, version=None):
         """
         PackagesValidateuploadMaven - a model defined in Swagger
         """
@@ -69,6 +71,7 @@ class PackagesValidateuploadMaven(object):
         self._pom_file = None
         self._republish = None
         self._sources_file = None
+        self._tags = None
         self._tests_file = None
         self._version = None
 
@@ -87,6 +90,8 @@ class PackagesValidateuploadMaven(object):
           self.republish = republish
         if sources_file is not None:
           self.sources_file = sources_file
+        if tags is not None:
+          self.tags = tags
         if tests_file is not None:
           self.tests_file = tests_file
         if version is not None:
@@ -277,6 +282,29 @@ class PackagesValidateuploadMaven(object):
         """
 
         self._sources_file = sources_file
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this PackagesValidateuploadMaven.
+        A comma-separated values list of tags to add to the package.
+
+        :return: The tags of this PackagesValidateuploadMaven.
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this PackagesValidateuploadMaven.
+        A comma-separated values list of tags to add to the package.
+
+        :param tags: The tags of this PackagesValidateuploadMaven.
+        :type: str
+        """
+
+        self._tags = tags
 
     @property
     def tests_file(self):

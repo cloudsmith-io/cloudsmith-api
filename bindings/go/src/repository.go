@@ -12,7 +12,7 @@ package cloudsmith_api
 
 type Repository struct {
 
-	// 
+	// Base URL from which packages and other artifacts are downloaded.
 	CdnUrl string `json:"cdn_url,omitempty"`
 
 	// 
@@ -21,7 +21,7 @@ type Repository struct {
 	// 
 	DeletedAt string `json:"deleted_at,omitempty"`
 
-	// 
+	// A description of the repository's purpose/contents.
 	Description string `json:"description,omitempty"`
 
 	// 
@@ -42,10 +42,10 @@ type Repository struct {
 	// A descriptive name for the repository.
 	Name string `json:"name"`
 
-	// 
-	Namespace string `json:"namespace"`
+	// Namespace to which this repository belongs.
+	Namespace string `json:"namespace,omitempty"`
 
-	// 
+	// API endpoint where data about this namespace can be retrieved.
 	NamespaceUrl string `json:"namespace_url,omitempty"`
 
 	// The number of downloads for packages in the repository.
@@ -60,24 +60,27 @@ type Repository struct {
 	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
 	RepositoryType string `json:"repository_type,omitempty"`
 
-	// 
+	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 	RepositoryTypeStr string `json:"repository_type_str,omitempty"`
 
-	// 
+	// Website URL for this repository.
 	SelfHtmlUrl string `json:"self_html_url,omitempty"`
 
-	// 
+	// API endpoint where data about this repository can be retrieved.
 	SelfUrl string `json:"self_url,omitempty"`
 
 	// The calculated size of the repository.
 	Size int32 `json:"size,omitempty"`
 
-	// 
+	// The calculated size of the repository (human readable).
 	SizeStr string `json:"size_str,omitempty"`
 
-	// 
-	Slug string `json:"slug"`
+	// The slug identifies the repository in URIs.
+	Slug string `json:"slug,omitempty"`
 
-	// 
+	// The slug_perm immutably identifies the repository. It will never change once a repository has been created.
 	SlugPerm string `json:"slug_perm,omitempty"`
+
+	// The Cloudsmith region in which package files are stored.
+	StorageRegion string `json:"storage_region,omitempty"`
 }

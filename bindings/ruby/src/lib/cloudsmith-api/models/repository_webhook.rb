@@ -51,6 +51,9 @@ module CloudsmithApi
     # 
     attr_accessor :num_sent
 
+    # The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+    attr_accessor :package_query
+
     # The format of the payloads for webhook requests.
     attr_accessor :request_body_format
 
@@ -109,6 +112,7 @@ module CloudsmithApi
         :'last_response_status' => :'last_response_status',
         :'last_response_status_str' => :'last_response_status_str',
         :'num_sent' => :'num_sent',
+        :'package_query' => :'package_query',
         :'request_body_format' => :'request_body_format',
         :'request_body_format_str' => :'request_body_format_str',
         :'request_body_template_format' => :'request_body_template_format',
@@ -141,6 +145,7 @@ module CloudsmithApi
         :'last_response_status' => :'Integer',
         :'last_response_status_str' => :'String',
         :'num_sent' => :'Integer',
+        :'package_query' => :'String',
         :'request_body_format' => :'String',
         :'request_body_format_str' => :'String',
         :'request_body_template_format' => :'String',
@@ -214,6 +219,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'num_sent')
         self.num_sent = attributes[:'num_sent']
+      end
+
+      if attributes.has_key?(:'package_query')
+        self.package_query = attributes[:'package_query']
       end
 
       if attributes.has_key?(:'request_body_format')
@@ -321,6 +330,7 @@ module CloudsmithApi
           last_response_status == o.last_response_status &&
           last_response_status_str == o.last_response_status_str &&
           num_sent == o.num_sent &&
+          package_query == o.package_query &&
           request_body_format == o.request_body_format &&
           request_body_format_str == o.request_body_format_str &&
           request_body_template_format == o.request_body_template_format &&
@@ -346,7 +356,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created_at, created_by, created_by_url, disable_reason, disable_reason_str, events, identifier, is_active, is_last_response_bad, last_response_status, last_response_status_str, num_sent, request_body_format, request_body_format_str, request_body_template_format, request_body_template_format_str, request_content_type, secret_header, self_url, slug_perm, target_url, templates, updated_at, updated_by, updated_by_url, verify_ssl].hash
+      [created_at, created_by, created_by_url, disable_reason, disable_reason_str, events, identifier, is_active, is_last_response_bad, last_response_status, last_response_status_str, num_sent, package_query, request_body_format, request_body_format_str, request_body_template_format, request_body_template_format_str, request_content_type, secret_header, self_url, slug_perm, target_url, templates, updated_at, updated_by, updated_by_url, verify_ssl].hash
     end
 
     # Builds the object from hash

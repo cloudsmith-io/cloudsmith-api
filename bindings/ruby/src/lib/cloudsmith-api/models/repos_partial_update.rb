@@ -15,31 +15,19 @@ require 'date'
 module CloudsmithApi
 
   class ReposPartialUpdate
-    # None
+    # A description of the repository's purpose/contents.
     attr_accessor :description
 
     # If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
     attr_accessor :index_files
 
-    # None
-    attr_accessor :is_open_source
-
-    # None
-    attr_accessor :is_private
-
-    # None
-    attr_accessor :is_public
-
     # A descriptive name for the repository.
     attr_accessor :name
 
-    # None
-    attr_accessor :namespace
-
-    # None
+    # The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
     attr_accessor :repository_type_str
 
-    # None
+    # The slug identifies the repository in URIs.
     attr_accessor :slug
 
 
@@ -48,11 +36,7 @@ module CloudsmithApi
       {
         :'description' => :'description',
         :'index_files' => :'index_files',
-        :'is_open_source' => :'is_open_source',
-        :'is_private' => :'is_private',
-        :'is_public' => :'is_public',
         :'name' => :'name',
-        :'namespace' => :'namespace',
         :'repository_type_str' => :'repository_type_str',
         :'slug' => :'slug'
       }
@@ -63,11 +47,7 @@ module CloudsmithApi
       {
         :'description' => :'String',
         :'index_files' => :'BOOLEAN',
-        :'is_open_source' => :'BOOLEAN',
-        :'is_private' => :'BOOLEAN',
-        :'is_public' => :'BOOLEAN',
         :'name' => :'String',
-        :'namespace' => :'String',
         :'repository_type_str' => :'String',
         :'slug' => :'String'
       }
@@ -89,24 +69,8 @@ module CloudsmithApi
         self.index_files = attributes[:'index_files']
       end
 
-      if attributes.has_key?(:'is_open_source')
-        self.is_open_source = attributes[:'is_open_source']
-      end
-
-      if attributes.has_key?(:'is_private')
-        self.is_private = attributes[:'is_private']
-      end
-
-      if attributes.has_key?(:'is_public')
-        self.is_public = attributes[:'is_public']
-      end
-
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'namespace')
-        self.namespace = attributes[:'namespace']
       end
 
       if attributes.has_key?(:'repository_type_str')
@@ -139,11 +103,7 @@ module CloudsmithApi
       self.class == o.class &&
           description == o.description &&
           index_files == o.index_files &&
-          is_open_source == o.is_open_source &&
-          is_private == o.is_private &&
-          is_public == o.is_public &&
           name == o.name &&
-          namespace == o.namespace &&
           repository_type_str == o.repository_type_str &&
           slug == o.slug
     end
@@ -157,7 +117,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, index_files, is_open_source, is_private, is_public, name, namespace, repository_type_str, slug].hash
+      [description, index_files, name, repository_type_str, slug].hash
     end
 
     # Builds the object from hash

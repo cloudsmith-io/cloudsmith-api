@@ -33,16 +33,18 @@ class PackagesUploadNuget(object):
     swagger_types = {
         'package_file': 'str',
         'republish': 'bool',
-        'symbols_file': 'str'
+        'symbols_file': 'str',
+        'tags': 'str'
     }
 
     attribute_map = {
         'package_file': 'package_file',
         'republish': 'republish',
-        'symbols_file': 'symbols_file'
+        'symbols_file': 'symbols_file',
+        'tags': 'tags'
     }
 
-    def __init__(self, package_file=None, republish=None, symbols_file=None):
+    def __init__(self, package_file=None, republish=None, symbols_file=None, tags=None):
         """
         PackagesUploadNuget - a model defined in Swagger
         """
@@ -50,12 +52,15 @@ class PackagesUploadNuget(object):
         self._package_file = None
         self._republish = None
         self._symbols_file = None
+        self._tags = None
 
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
         if symbols_file is not None:
           self.symbols_file = symbols_file
+        if tags is not None:
+          self.tags = tags
 
     @property
     def package_file(self):
@@ -127,6 +132,29 @@ class PackagesUploadNuget(object):
         """
 
         self._symbols_file = symbols_file
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this PackagesUploadNuget.
+        A comma-separated values list of tags to add to the package.
+
+        :return: The tags of this PackagesUploadNuget.
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this PackagesUploadNuget.
+        A comma-separated values list of tags to add to the package.
+
+        :param tags: The tags of this PackagesUploadNuget.
+        :type: str
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """

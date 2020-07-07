@@ -42,6 +42,9 @@ public class PackagesValidateuploadNpm implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("tags")
+  private String tags = null;
+
   public PackagesValidateuploadNpm npmDistTag(String npmDistTag) {
     this.npmDistTag = npmDistTag;
     return this;
@@ -97,6 +100,24 @@ public class PackagesValidateuploadNpm implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesValidateuploadNpm tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * A comma-separated values list of tags to add to the package.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "A comma-separated values list of tags to add to the package.")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -109,12 +130,13 @@ public class PackagesValidateuploadNpm implements Serializable {
     PackagesValidateuploadNpm packagesValidateuploadNpm = (PackagesValidateuploadNpm) o;
     return Objects.equals(this.npmDistTag, packagesValidateuploadNpm.npmDistTag) &&
         Objects.equals(this.packageFile, packagesValidateuploadNpm.packageFile) &&
-        Objects.equals(this.republish, packagesValidateuploadNpm.republish);
+        Objects.equals(this.republish, packagesValidateuploadNpm.republish) &&
+        Objects.equals(this.tags, packagesValidateuploadNpm.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(npmDistTag, packageFile, republish);
+    return Objects.hash(npmDistTag, packageFile, republish, tags);
   }
 
 
@@ -126,6 +148,7 @@ public class PackagesValidateuploadNpm implements Serializable {
     sb.append("    npmDistTag: ").append(toIndentedString(npmDistTag)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

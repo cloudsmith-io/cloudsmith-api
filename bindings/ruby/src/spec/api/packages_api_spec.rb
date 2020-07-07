@@ -113,7 +113,6 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [PackagesResync] :data 
   # @return [Package]
   describe 'packages_resync test' do
     it "should work" do
@@ -135,6 +134,21 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_tag
+  # Add/Replace/Remove tags for a package.
+  # Add/Replace/Remove tags for a package.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesTag] :data 
+  # @return [Package]
+  describe 'packages_tag test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_alpine
   # Create a new Alpine package
   # Create a new Alpine package
@@ -142,7 +156,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadAlpine] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_alpine test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -156,7 +170,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadCargo] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_cargo test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -170,7 +184,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadCocoapods] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_cocoapods test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -184,7 +198,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadComposer] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_composer test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -212,7 +226,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadCran] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_cran test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -226,7 +240,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadDart] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_dart test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -240,7 +254,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadDeb] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_deb test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -254,7 +268,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadDocker] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_docker test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -268,7 +282,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadGo] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_go test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -282,7 +296,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadHelm] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_helm test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -296,7 +310,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadLuarocks] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_luarocks test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -324,7 +338,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadNpm] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_npm test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -338,7 +352,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadNuget] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_nuget test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -352,7 +366,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadPython] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_python test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -380,7 +394,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadRpm] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_rpm test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -394,7 +408,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadRuby] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_ruby test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -408,7 +422,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackagesUploadTerraform] :data 
-  # @return [Package]
+  # @return [AlpinePackageUpload]
   describe 'packages_upload_terraform test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

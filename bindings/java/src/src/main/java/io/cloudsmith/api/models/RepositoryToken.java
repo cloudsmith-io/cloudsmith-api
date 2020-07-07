@@ -46,7 +46,7 @@ public class RepositoryToken implements Serializable {
   private Boolean _default = null;
 
   @SerializedName("has_limits")
-  private String hasLimits = null;
+  private Boolean hasLimits = null;
 
   @SerializedName("identifier")
   private Integer identifier = null;
@@ -55,7 +55,7 @@ public class RepositoryToken implements Serializable {
   private Boolean isActive = null;
 
   @SerializedName("is_limited")
-  private String isLimited = null;
+  private Boolean isLimited = null;
 
   @SerializedName("limit_date_range_from")
   private String limitDateRangeFrom = null;
@@ -180,7 +180,7 @@ public class RepositoryToken implements Serializable {
     this._default = _default;
   }
 
-  public RepositoryToken hasLimits(String hasLimits) {
+  public RepositoryToken hasLimits(Boolean hasLimits) {
     this.hasLimits = hasLimits;
     return this;
   }
@@ -190,11 +190,11 @@ public class RepositoryToken implements Serializable {
    * @return hasLimits
   **/
   @ApiModelProperty(value = "")
-  public String getHasLimits() {
+  public Boolean getHasLimits() {
     return hasLimits;
   }
 
-  public void setHasLimits(String hasLimits) {
+  public void setHasLimits(Boolean hasLimits) {
     this.hasLimits = hasLimits;
   }
 
@@ -234,7 +234,7 @@ public class RepositoryToken implements Serializable {
     this.isActive = isActive;
   }
 
-  public RepositoryToken isLimited(String isLimited) {
+  public RepositoryToken isLimited(Boolean isLimited) {
     this.isLimited = isLimited;
     return this;
   }
@@ -244,11 +244,11 @@ public class RepositoryToken implements Serializable {
    * @return isLimited
   **/
   @ApiModelProperty(value = "")
-  public String getIsLimited() {
+  public Boolean getIsLimited() {
     return isLimited;
   }
 
-  public void setIsLimited(String isLimited) {
+  public void setIsLimited(Boolean isLimited) {
     this.isLimited = isLimited;
   }
 
@@ -330,10 +330,10 @@ public class RepositoryToken implements Serializable {
   }
 
    /**
-   * The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+   * The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
    * @return limitPackageQuery
   **/
-  @ApiModelProperty(value = "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.")
+  @ApiModelProperty(value = "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.")
   public String getLimitPackageQuery() {
     return limitPackageQuery;
   }

@@ -33,16 +33,18 @@ class PackagesUploadAlpine(object):
     swagger_types = {
         'distribution': 'str',
         'package_file': 'str',
-        'republish': 'bool'
+        'republish': 'bool',
+        'tags': 'str'
     }
 
     attribute_map = {
         'distribution': 'distribution',
         'package_file': 'package_file',
-        'republish': 'republish'
+        'republish': 'republish',
+        'tags': 'tags'
     }
 
-    def __init__(self, distribution=None, package_file=None, republish=None):
+    def __init__(self, distribution=None, package_file=None, republish=None, tags=None):
         """
         PackagesUploadAlpine - a model defined in Swagger
         """
@@ -50,11 +52,14 @@ class PackagesUploadAlpine(object):
         self._distribution = None
         self._package_file = None
         self._republish = None
+        self._tags = None
 
         self.distribution = distribution
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
+        if tags is not None:
+          self.tags = tags
 
     @property
     def distribution(self):
@@ -128,6 +133,29 @@ class PackagesUploadAlpine(object):
         """
 
         self._republish = republish
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this PackagesUploadAlpine.
+        A comma-separated values list of tags to add to the package.
+
+        :return: The tags of this PackagesUploadAlpine.
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this PackagesUploadAlpine.
+        A comma-separated values list of tags to add to the package.
+
+        :param tags: The tags of this PackagesUploadAlpine.
+        :type: str
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """

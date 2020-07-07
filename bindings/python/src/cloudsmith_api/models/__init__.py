@@ -14,6 +14,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from .alpine_package_upload import AlpinePackageUpload
 from .conan_package_upload import ConanPackageUpload
 from .distribution import Distribution
 from .distros_versions import DistrosVersions
@@ -38,7 +39,7 @@ from .package_move import PackageMove
 from .package_status import PackageStatus
 from .packages_copy import PackagesCopy
 from .packages_move import PackagesMove
-from .packages_resync import PackagesResync
+from .packages_tag import PackagesTag
 from .packages_upload_alpine import PackagesUploadAlpine
 from .packages_upload_cargo import PackagesUploadCargo
 from .packages_upload_cocoapods import PackagesUploadCocoapods
@@ -96,6 +97,7 @@ from .repository_webhook import RepositoryWebhook
 from .resources_rate_check import ResourcesRateCheck
 from .status import Status
 from .status_basic import StatusBasic
+from .storage_region import StorageRegion
 from .user_auth_token import UserAuthToken
 from .user_brief import UserBrief
 from .user_profile import UserProfile

@@ -18,6 +18,9 @@ type WebhooksCreate struct {
 	// If enabled, the webhook will trigger on events and send payloads to the configured target URL.
 	IsActive bool `json:"is_active,omitempty"`
 
+	// The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+	PackageQuery string `json:"package_query,omitempty"`
+
 	// The format of the payloads for webhook requests.
 	RequestBodyFormat string `json:"request_body_format,omitempty"`
 

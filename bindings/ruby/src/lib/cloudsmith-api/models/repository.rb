@@ -15,7 +15,7 @@ require 'date'
 module CloudsmithApi
 
   class Repository
-    # 
+    # Base URL from which packages and other artifacts are downloaded.
     attr_accessor :cdn_url
 
     # 
@@ -24,7 +24,7 @@ module CloudsmithApi
     # 
     attr_accessor :deleted_at
 
-    # 
+    # A description of the repository's purpose/contents.
     attr_accessor :description
 
     # 
@@ -45,10 +45,10 @@ module CloudsmithApi
     # A descriptive name for the repository.
     attr_accessor :name
 
-    # 
+    # Namespace to which this repository belongs.
     attr_accessor :namespace
 
-    # 
+    # API endpoint where data about this namespace can be retrieved.
     attr_accessor :namespace_url
 
     # The number of downloads for packages in the repository.
@@ -63,26 +63,29 @@ module CloudsmithApi
     # The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
     attr_accessor :repository_type
 
-    # 
+    # The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
     attr_accessor :repository_type_str
 
-    # 
+    # Website URL for this repository.
     attr_accessor :self_html_url
 
-    # 
+    # API endpoint where data about this repository can be retrieved.
     attr_accessor :self_url
 
     # The calculated size of the repository.
     attr_accessor :size
 
-    # 
+    # The calculated size of the repository (human readable).
     attr_accessor :size_str
 
-    # 
+    # The slug identifies the repository in URIs.
     attr_accessor :slug
 
-    # 
+    # The slug_perm immutably identifies the repository. It will never change once a repository has been created.
     attr_accessor :slug_perm
+
+    # The Cloudsmith region in which package files are stored.
+    attr_accessor :storage_region
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -110,7 +113,8 @@ module CloudsmithApi
         :'size' => :'size',
         :'size_str' => :'size_str',
         :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm'
+        :'slug_perm' => :'slug_perm',
+        :'storage_region' => :'storage_region'
       }
     end
 
@@ -139,7 +143,8 @@ module CloudsmithApi
         :'size' => :'Integer',
         :'size_str' => :'String',
         :'slug' => :'String',
-        :'slug_perm' => :'String'
+        :'slug_perm' => :'String',
+        :'storage_region' => :'String'
       }
     end
 
@@ -245,6 +250,10 @@ module CloudsmithApi
         self.slug_perm = attributes[:'slug_perm']
       end
 
+      if attributes.has_key?(:'storage_region')
+        self.storage_region = attributes[:'storage_region']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -255,14 +264,6 @@ module CloudsmithApi
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
-      if @namespace.nil?
-        invalid_properties.push("invalid value for 'namespace', namespace cannot be nil.")
-      end
-
-      if @slug.nil?
-        invalid_properties.push("invalid value for 'slug', slug cannot be nil.")
-      end
-
       return invalid_properties
     end
 
@@ -270,8 +271,6 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if @namespace.nil?
-      return false if @slug.nil?
       return true
     end
 
@@ -302,7 +301,8 @@ module CloudsmithApi
           size == o.size &&
           size_str == o.size_str &&
           slug == o.slug &&
-          slug_perm == o.slug_perm
+          slug_perm == o.slug_perm &&
+          storage_region == o.storage_region
     end
 
     # @see the `==` method
@@ -314,7 +314,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [cdn_url, created_at, deleted_at, description, gpg_keys, index_files, is_open_source, is_private, is_public, name, namespace, namespace_url, num_downloads, package_count, package_group_count, repository_type, repository_type_str, self_html_url, self_url, size, size_str, slug, slug_perm].hash
+      [cdn_url, created_at, deleted_at, description, gpg_keys, index_files, is_open_source, is_private, is_public, name, namespace, namespace_url, num_downloads, package_count, package_group_count, repository_type, repository_type_str, self_html_url, self_url, size, size_str, slug, slug_perm, storage_region].hash
     end
 
     # Builds the object from hash

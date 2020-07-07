@@ -35,10 +35,10 @@ class RepositoryToken(object):
         'created_by': 'str',
         'created_by_url': 'str',
         'default': 'bool',
-        'has_limits': 'str',
+        'has_limits': 'bool',
         'identifier': 'int',
         'is_active': 'bool',
-        'is_limited': 'str',
+        'is_limited': 'bool',
         'limit_date_range_from': 'str',
         'limit_date_range_to': 'str',
         'limit_num_clients': 'int',
@@ -266,7 +266,7 @@ class RepositoryToken(object):
         
 
         :return: The has_limits of this RepositoryToken.
-        :rtype: str
+        :rtype: bool
         """
         return self._has_limits
 
@@ -277,7 +277,7 @@ class RepositoryToken(object):
         
 
         :param has_limits: The has_limits of this RepositoryToken.
-        :type: str
+        :type: bool
         """
 
         self._has_limits = has_limits
@@ -335,7 +335,7 @@ class RepositoryToken(object):
         
 
         :return: The is_limited of this RepositoryToken.
-        :rtype: str
+        :rtype: bool
         """
         return self._is_limited
 
@@ -346,7 +346,7 @@ class RepositoryToken(object):
         
 
         :param is_limited: The is_limited of this RepositoryToken.
-        :type: str
+        :type: bool
         """
 
         self._is_limited = is_limited
@@ -447,7 +447,7 @@ class RepositoryToken(object):
     def limit_package_query(self):
         """
         Gets the limit_package_query of this RepositoryToken.
-        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
 
         :return: The limit_package_query of this RepositoryToken.
         :rtype: str
@@ -458,7 +458,7 @@ class RepositoryToken(object):
     def limit_package_query(self, limit_package_query):
         """
         Sets the limit_package_query of this RepositoryToken.
-        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. For package formats that support dynamic metadata indexes, the contents of the metadata will also be filtered.
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
 
         :param limit_package_query: The limit_package_query of this RepositoryToken.
         :type: str

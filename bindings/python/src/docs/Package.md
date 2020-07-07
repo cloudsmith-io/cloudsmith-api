@@ -52,6 +52,8 @@ Name | Type | Description | Notes
 **summary** | **str** | A one-liner synopsis of this package. | [optional] 
 **sync_finished_at** | **str** | The datetime the package sync was finished at. | [optional] 
 **sync_progress** | **int** | Synchronisation progress (from 0-100) | [optional] 
+**tags** | **object** | All tags on the package, grouped by tag type. This includes immutable tags, but doesn&#39;t distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field. | [optional] 
+**tags_immutable** | **object** | All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted. | [optional] 
 **type_display** | **str** |  | [optional] 
 **uploaded_at** | **str** | The date this package was uploaded. | [optional] 
 **uploader** | **str** |  | [optional] 

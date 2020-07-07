@@ -33,6 +33,7 @@ class WebhooksCreate(object):
     swagger_types = {
         'events': 'list[str]',
         'is_active': 'bool',
+        'package_query': 'str',
         'request_body_format': 'str',
         'request_body_template_format': 'str',
         'request_content_type': 'str',
@@ -47,6 +48,7 @@ class WebhooksCreate(object):
     attribute_map = {
         'events': 'events',
         'is_active': 'is_active',
+        'package_query': 'package_query',
         'request_body_format': 'request_body_format',
         'request_body_template_format': 'request_body_template_format',
         'request_content_type': 'request_content_type',
@@ -58,13 +60,14 @@ class WebhooksCreate(object):
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, events=None, is_active=None, request_body_format=None, request_body_template_format=None, request_content_type=None, secret_header=None, secret_value=None, signature_key=None, target_url=None, templates=None, verify_ssl=None):
+    def __init__(self, events=None, is_active=None, package_query=None, request_body_format=None, request_body_template_format=None, request_content_type=None, secret_header=None, secret_value=None, signature_key=None, target_url=None, templates=None, verify_ssl=None):
         """
         WebhooksCreate - a model defined in Swagger
         """
 
         self._events = None
         self._is_active = None
+        self._package_query = None
         self._request_body_format = None
         self._request_body_template_format = None
         self._request_content_type = None
@@ -78,6 +81,8 @@ class WebhooksCreate(object):
         self.events = events
         if is_active is not None:
           self.is_active = is_active
+        if package_query is not None:
+          self.package_query = package_query
         if request_body_format is not None:
           self.request_body_format = request_body_format
         if request_body_template_format is not None:
@@ -142,6 +147,29 @@ class WebhooksCreate(object):
         """
 
         self._is_active = is_active
+
+    @property
+    def package_query(self):
+        """
+        Gets the package_query of this WebhooksCreate.
+        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+
+        :return: The package_query of this WebhooksCreate.
+        :rtype: str
+        """
+        return self._package_query
+
+    @package_query.setter
+    def package_query(self, package_query):
+        """
+        Sets the package_query of this WebhooksCreate.
+        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+
+        :param package_query: The package_query of this WebhooksCreate.
+        :type: str
+        """
+
+        self._package_query = package_query
 
     @property
     def request_body_format(self):

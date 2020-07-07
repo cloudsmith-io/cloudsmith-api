@@ -15,7 +15,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "cloudsmith-api"
-VERSION = "0.51.38"
+VERSION = "0.51.93"
 # To install the library, run the following
 #
 # python setup.py install

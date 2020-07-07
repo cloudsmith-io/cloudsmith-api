@@ -43,6 +43,7 @@ class RepositoryWebhook(object):
         'last_response_status': 'int',
         'last_response_status_str': 'str',
         'num_sent': 'int',
+        'package_query': 'str',
         'request_body_format': 'str',
         'request_body_format_str': 'str',
         'request_body_template_format': 'str',
@@ -72,6 +73,7 @@ class RepositoryWebhook(object):
         'last_response_status': 'last_response_status',
         'last_response_status_str': 'last_response_status_str',
         'num_sent': 'num_sent',
+        'package_query': 'package_query',
         'request_body_format': 'request_body_format',
         'request_body_format_str': 'request_body_format_str',
         'request_body_template_format': 'request_body_template_format',
@@ -88,7 +90,7 @@ class RepositoryWebhook(object):
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, created_at=None, created_by=None, created_by_url=None, disable_reason=None, disable_reason_str=None, events=None, identifier=None, is_active=None, is_last_response_bad=None, last_response_status=None, last_response_status_str=None, num_sent=None, request_body_format=None, request_body_format_str=None, request_body_template_format=None, request_body_template_format_str=None, request_content_type=None, secret_header=None, self_url=None, slug_perm=None, target_url=None, templates=None, updated_at=None, updated_by=None, updated_by_url=None, verify_ssl=None):
+    def __init__(self, created_at=None, created_by=None, created_by_url=None, disable_reason=None, disable_reason_str=None, events=None, identifier=None, is_active=None, is_last_response_bad=None, last_response_status=None, last_response_status_str=None, num_sent=None, package_query=None, request_body_format=None, request_body_format_str=None, request_body_template_format=None, request_body_template_format_str=None, request_content_type=None, secret_header=None, self_url=None, slug_perm=None, target_url=None, templates=None, updated_at=None, updated_by=None, updated_by_url=None, verify_ssl=None):
         """
         RepositoryWebhook - a model defined in Swagger
         """
@@ -105,6 +107,7 @@ class RepositoryWebhook(object):
         self._last_response_status = None
         self._last_response_status_str = None
         self._num_sent = None
+        self._package_query = None
         self._request_body_format = None
         self._request_body_format_str = None
         self._request_body_template_format = None
@@ -143,6 +146,8 @@ class RepositoryWebhook(object):
           self.last_response_status_str = last_response_status_str
         if num_sent is not None:
           self.num_sent = num_sent
+        if package_query is not None:
+          self.package_query = package_query
         if request_body_format is not None:
           self.request_body_format = request_body_format
         if request_body_format_str is not None:
@@ -447,6 +452,29 @@ class RepositoryWebhook(object):
         """
 
         self._num_sent = num_sent
+
+    @property
+    def package_query(self):
+        """
+        Gets the package_query of this RepositoryWebhook.
+        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+
+        :return: The package_query of this RepositoryWebhook.
+        :rtype: str
+        """
+        return self._package_query
+
+    @package_query.setter
+    def package_query(self, package_query):
+        """
+        Sets the package_query of this RepositoryWebhook.
+        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+
+        :param package_query: The package_query of this RepositoryWebhook.
+        :type: str
+        """
+
+        self._package_query = package_query
 
     @property
     def request_body_format(self):

@@ -15,6 +15,9 @@ require 'date'
 module CloudsmithApi
 
   class PackagesUploadDeb
+    # The changes archive containing the changes made to the source and debian packaging files
+    attr_accessor :changes_file
+
     # The distribution to store the package for.
     attr_accessor :distribution
 
@@ -24,22 +27,34 @@ module CloudsmithApi
     # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
     attr_accessor :republish
 
+    # The sources archive containing the source code for the binary
+    attr_accessor :sources_file
+
+    # A comma-separated values list of tags to add to the package.
+    attr_accessor :tags
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'changes_file' => :'changes_file',
         :'distribution' => :'distribution',
         :'package_file' => :'package_file',
-        :'republish' => :'republish'
+        :'republish' => :'republish',
+        :'sources_file' => :'sources_file',
+        :'tags' => :'tags'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'changes_file' => :'String',
         :'distribution' => :'String',
         :'package_file' => :'String',
-        :'republish' => :'BOOLEAN'
+        :'republish' => :'BOOLEAN',
+        :'sources_file' => :'String',
+        :'tags' => :'String'
       }
     end
 
@@ -51,6 +66,10 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'changes_file')
+        self.changes_file = attributes[:'changes_file']
+      end
+
       if attributes.has_key?(:'distribution')
         self.distribution = attributes[:'distribution']
       end
@@ -61,6 +80,14 @@ module CloudsmithApi
 
       if attributes.has_key?(:'republish')
         self.republish = attributes[:'republish']
+      end
+
+      if attributes.has_key?(:'sources_file')
+        self.sources_file = attributes[:'sources_file']
+      end
+
+      if attributes.has_key?(:'tags')
+        self.tags = attributes[:'tags']
       end
 
     end
@@ -93,9 +120,12 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          changes_file == o.changes_file &&
           distribution == o.distribution &&
           package_file == o.package_file &&
-          republish == o.republish
+          republish == o.republish &&
+          sources_file == o.sources_file &&
+          tags == o.tags
     end
 
     # @see the `==` method
@@ -107,7 +137,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [distribution, package_file, republish].hash
+      [changes_file, distribution, package_file, republish, sources_file, tags].hash
     end
 
     # Builds the object from hash

@@ -48,6 +48,9 @@ type RepositoryWebhook struct {
 	// 
 	NumSent int32 `json:"num_sent,omitempty"`
 
+	// The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+	PackageQuery string `json:"package_query,omitempty"`
+
 	// The format of the payloads for webhook requests.
 	RequestBodyFormat string `json:"request_body_format,omitempty"`
 

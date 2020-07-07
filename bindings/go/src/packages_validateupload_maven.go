@@ -36,6 +36,9 @@ type PackagesValidateuploadMaven struct {
 	// Adds bundled Java source code to the Maven package.
 	SourcesFile string `json:"sources_file,omitempty"`
 
+	// A comma-separated values list of tags to add to the package.
+	Tags string `json:"tags,omitempty"`
+
 	// Adds bundled Java tests to the Maven package.
 	TestsFile string `json:"tests_file,omitempty"`
 

@@ -18,23 +18,18 @@ module CloudsmithApi
     # None
     attr_accessor :destination
 
-    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-    attr_accessor :republish
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'destination' => :'destination',
-        :'republish' => :'republish'
+        :'destination' => :'destination'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'destination' => :'String',
-        :'republish' => :'BOOLEAN'
+        :'destination' => :'String'
       }
     end
 
@@ -48,10 +43,6 @@ module CloudsmithApi
 
       if attributes.has_key?(:'destination')
         self.destination = attributes[:'destination']
-      end
-
-      if attributes.has_key?(:'republish')
-        self.republish = attributes[:'republish']
       end
 
     end
@@ -79,8 +70,7 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          destination == o.destination &&
-          republish == o.republish
+          destination == o.destination
     end
 
     # @see the `==` method
@@ -92,7 +82,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [destination, republish].hash
+      [destination].hash
     end
 
     # Builds the object from hash

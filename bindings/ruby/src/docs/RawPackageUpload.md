@@ -52,6 +52,7 @@ Name | Type | Description | Notes
 **summary** | **String** | A one-liner synopsis of this package. | [optional] 
 **sync_finished_at** | **String** | The datetime the package sync was finished at. | [optional] 
 **sync_progress** | **Integer** | Synchronisation progress (from 0-100) | [optional] 
+**tags_immutable** | **Object** | All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted. | [optional] 
 **type_display** | **String** |  | [optional] 
 **uploaded_at** | **String** | The date this package was uploaded. | [optional] 
 **uploader** | **String** |  | [optional] 

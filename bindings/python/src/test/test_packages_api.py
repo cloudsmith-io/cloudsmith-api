@@ -87,6 +87,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_tag(self):
+        """
+        Test case for packages_tag
+
+        Add/Replace/Remove tags for a package.
+        """
+        pass
+
     def test_packages_upload_alpine(self):
         """
         Test case for packages_upload_alpine

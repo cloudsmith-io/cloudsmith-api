@@ -27,31 +27,54 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * PackagesResync
+ * StorageRegion
  */
 
-public class PackagesResync implements Serializable {
+public class StorageRegion implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("republish")
-  private Boolean republish = null;
+  @SerializedName("label")
+  private String label = null;
 
-  public PackagesResync republish(Boolean republish) {
-    this.republish = republish;
+  @SerializedName("slug")
+  private String slug = null;
+
+  public StorageRegion label(String label) {
+    this.label = label;
     return this;
   }
 
    /**
-   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-   * @return republish
+   * Name of the storage region
+   * @return label
   **/
-  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-  public Boolean getRepublish() {
-    return republish;
+  @NotNull
+  @ApiModelProperty(required = true, value = "Name of the storage region")
+  public String getLabel() {
+    return label;
   }
 
-  public void setRepublish(Boolean republish) {
-    this.republish = republish;
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  public StorageRegion slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+   /**
+   * Slug for the storage region
+   * @return slug
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "Slug for the storage region")
+  public String getSlug() {
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 
 
@@ -63,22 +86,24 @@ public class PackagesResync implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PackagesResync packagesResync = (PackagesResync) o;
-    return Objects.equals(this.republish, packagesResync.republish);
+    StorageRegion storageRegion = (StorageRegion) o;
+    return Objects.equals(this.label, storageRegion.label) &&
+        Objects.equals(this.slug, storageRegion.slug);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(republish);
+    return Objects.hash(label, slug);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PackagesResync {\n");
+    sb.append("class StorageRegion {\n");
     
-    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("}");
     return sb.toString();
   }

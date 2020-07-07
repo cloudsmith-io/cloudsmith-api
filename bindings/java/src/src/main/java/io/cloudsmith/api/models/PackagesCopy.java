@@ -36,9 +36,6 @@ public class PackagesCopy implements Serializable {
   @SerializedName("destination")
   private String destination = null;
 
-  @SerializedName("republish")
-  private Boolean republish = null;
-
   public PackagesCopy destination(String destination) {
     this.destination = destination;
     return this;
@@ -58,24 +55,6 @@ public class PackagesCopy implements Serializable {
     this.destination = destination;
   }
 
-  public PackagesCopy republish(Boolean republish) {
-    this.republish = republish;
-    return this;
-  }
-
-   /**
-   * If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-   * @return republish
-  **/
-  @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-  public Boolean getRepublish() {
-    return republish;
-  }
-
-  public void setRepublish(Boolean republish) {
-    this.republish = republish;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -86,13 +65,12 @@ public class PackagesCopy implements Serializable {
       return false;
     }
     PackagesCopy packagesCopy = (PackagesCopy) o;
-    return Objects.equals(this.destination, packagesCopy.destination) &&
-        Objects.equals(this.republish, packagesCopy.republish);
+    return Objects.equals(this.destination, packagesCopy.destination);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, republish);
+    return Objects.hash(destination);
   }
 
 
@@ -102,7 +80,6 @@ public class PackagesCopy implements Serializable {
     sb.append("class PackagesCopy {\n");
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
-    sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("}");
     return sb.toString();
   }

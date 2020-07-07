@@ -30,6 +30,9 @@ type PackagesUploadRaw struct {
 	// A one-liner synopsis of this package.
 	Summary string `json:"summary,omitempty"`
 
+	// A comma-separated values list of tags to add to the package.
+	Tags string `json:"tags,omitempty"`
+
 	// The raw version for this package.
 	Version string `json:"version,omitempty"`
 }

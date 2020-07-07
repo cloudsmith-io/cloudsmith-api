@@ -14,6 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.models.AlpinePackageUpload;
 import io.cloudsmith.api.models.ConanPackageUpload;
 import io.cloudsmith.api.models.MavenPackageUpload;
 import io.cloudsmith.api.models.ModelPackage;
@@ -22,7 +23,7 @@ import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackagesCopy;
 import io.cloudsmith.api.models.PackagesMove;
-import io.cloudsmith.api.models.PackagesResync;
+import io.cloudsmith.api.models.PackagesTag;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadCargo;
 import io.cloudsmith.api.models.PackagesUploadCocoapods;
@@ -192,8 +193,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackagesResync data = null;
-        ModelPackage response = api.packagesResync(owner, repo, identifier, data);
+        ModelPackage response = api.packagesResync(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -217,6 +217,25 @@ public class PackagesApiTest {
     }
     
     /**
+     * Add/Replace/Remove tags for a package.
+     *
+     * Add/Replace/Remove tags for a package.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesTagTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        PackagesTag data = null;
+        ModelPackage response = api.packagesTag(owner, repo, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Alpine package
      *
      * Create a new Alpine package
@@ -229,7 +248,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadAlpine data = null;
-        ModelPackage response = api.packagesUploadAlpine(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadAlpine(owner, repo, data);
 
         // TODO: test validations
     }
@@ -247,7 +266,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadCargo data = null;
-        ModelPackage response = api.packagesUploadCargo(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadCargo(owner, repo, data);
 
         // TODO: test validations
     }
@@ -265,7 +284,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadCocoapods data = null;
-        ModelPackage response = api.packagesUploadCocoapods(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadCocoapods(owner, repo, data);
 
         // TODO: test validations
     }
@@ -283,7 +302,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadComposer data = null;
-        ModelPackage response = api.packagesUploadComposer(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadComposer(owner, repo, data);
 
         // TODO: test validations
     }
@@ -319,7 +338,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadCran data = null;
-        ModelPackage response = api.packagesUploadCran(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadCran(owner, repo, data);
 
         // TODO: test validations
     }
@@ -337,7 +356,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadDart data = null;
-        ModelPackage response = api.packagesUploadDart(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadDart(owner, repo, data);
 
         // TODO: test validations
     }
@@ -355,7 +374,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadDeb data = null;
-        ModelPackage response = api.packagesUploadDeb(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadDeb(owner, repo, data);
 
         // TODO: test validations
     }
@@ -373,7 +392,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadDocker data = null;
-        ModelPackage response = api.packagesUploadDocker(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadDocker(owner, repo, data);
 
         // TODO: test validations
     }
@@ -391,7 +410,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadGo data = null;
-        ModelPackage response = api.packagesUploadGo(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadGo(owner, repo, data);
 
         // TODO: test validations
     }
@@ -409,7 +428,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadHelm data = null;
-        ModelPackage response = api.packagesUploadHelm(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadHelm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -427,7 +446,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadLuarocks data = null;
-        ModelPackage response = api.packagesUploadLuarocks(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadLuarocks(owner, repo, data);
 
         // TODO: test validations
     }
@@ -463,7 +482,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadNpm data = null;
-        ModelPackage response = api.packagesUploadNpm(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadNpm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -481,7 +500,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadNuget data = null;
-        ModelPackage response = api.packagesUploadNuget(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadNuget(owner, repo, data);
 
         // TODO: test validations
     }
@@ -499,7 +518,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadPython data = null;
-        ModelPackage response = api.packagesUploadPython(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadPython(owner, repo, data);
 
         // TODO: test validations
     }
@@ -535,7 +554,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadRpm data = null;
-        ModelPackage response = api.packagesUploadRpm(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadRpm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -553,7 +572,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadRuby data = null;
-        ModelPackage response = api.packagesUploadRuby(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadRuby(owner, repo, data);
 
         // TODO: test validations
     }
@@ -571,7 +590,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PackagesUploadTerraform data = null;
-        ModelPackage response = api.packagesUploadTerraform(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadTerraform(owner, repo, data);
 
         // TODO: test validations
     }

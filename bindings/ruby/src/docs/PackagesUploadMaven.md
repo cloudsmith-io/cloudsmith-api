@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **pom_file** | **String** | The POM file is an XML file containing the Maven coordinates. | [optional] 
 **republish** | **BOOLEAN** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] 
 **sources_file** | **String** | Adds bundled Java source code to the Maven package. | [optional] 
+**tags** | **String** | A comma-separated values list of tags to add to the package. | [optional] 
 **tests_file** | **String** | Adds bundled Java tests to the Maven package. | [optional] 
 **version** | **String** | The raw version for this package. | [optional] 
 

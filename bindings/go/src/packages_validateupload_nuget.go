@@ -20,4 +20,7 @@ type PackagesValidateuploadNuget struct {
 
 	// Attaches a symbols file to the package.
 	SymbolsFile string `json:"symbols_file,omitempty"`
+
+	// A comma-separated values list of tags to add to the package.
+	Tags string `json:"tags,omitempty"`
 }

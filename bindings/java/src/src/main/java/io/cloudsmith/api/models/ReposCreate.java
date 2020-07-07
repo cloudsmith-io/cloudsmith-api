@@ -39,20 +39,8 @@ public class ReposCreate implements Serializable {
   @SerializedName("index_files")
   private Boolean indexFiles = null;
 
-  @SerializedName("is_open_source")
-  private Boolean isOpenSource = null;
-
-  @SerializedName("is_private")
-  private Boolean isPrivate = null;
-
-  @SerializedName("is_public")
-  private Boolean isPublic = null;
-
   @SerializedName("name")
   private String name = null;
-
-  @SerializedName("namespace")
-  private String namespace = null;
 
   @SerializedName("repository_type_str")
   private String repositoryTypeStr = null;
@@ -60,16 +48,19 @@ public class ReposCreate implements Serializable {
   @SerializedName("slug")
   private String slug = null;
 
+  @SerializedName("storage_region")
+  private String storageRegion = null;
+
   public ReposCreate description(String description) {
     this.description = description;
     return this;
   }
 
    /**
-   * None
+   * A description of the repository&#39;s purpose/contents.
    * @return description
   **/
-  @ApiModelProperty(value = "None")
+  @ApiModelProperty(value = "A description of the repository's purpose/contents.")
   public String getDescription() {
     return description;
   }
@@ -96,60 +87,6 @@ public class ReposCreate implements Serializable {
     this.indexFiles = indexFiles;
   }
 
-  public ReposCreate isOpenSource(Boolean isOpenSource) {
-    this.isOpenSource = isOpenSource;
-    return this;
-  }
-
-   /**
-   * None
-   * @return isOpenSource
-  **/
-  @ApiModelProperty(value = "None")
-  public Boolean getIsOpenSource() {
-    return isOpenSource;
-  }
-
-  public void setIsOpenSource(Boolean isOpenSource) {
-    this.isOpenSource = isOpenSource;
-  }
-
-  public ReposCreate isPrivate(Boolean isPrivate) {
-    this.isPrivate = isPrivate;
-    return this;
-  }
-
-   /**
-   * None
-   * @return isPrivate
-  **/
-  @ApiModelProperty(value = "None")
-  public Boolean getIsPrivate() {
-    return isPrivate;
-  }
-
-  public void setIsPrivate(Boolean isPrivate) {
-    this.isPrivate = isPrivate;
-  }
-
-  public ReposCreate isPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
-    return this;
-  }
-
-   /**
-   * None
-   * @return isPublic
-  **/
-  @ApiModelProperty(value = "None")
-  public Boolean getIsPublic() {
-    return isPublic;
-  }
-
-  public void setIsPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
-  }
-
   public ReposCreate name(String name) {
     this.name = name;
     return this;
@@ -169,35 +106,16 @@ public class ReposCreate implements Serializable {
     this.name = name;
   }
 
-  public ReposCreate namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-   /**
-   * None
-   * @return namespace
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "None")
-  public String getNamespace() {
-    return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
   public ReposCreate repositoryTypeStr(String repositoryTypeStr) {
     this.repositoryTypeStr = repositoryTypeStr;
     return this;
   }
 
    /**
-   * None
+   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
    * @return repositoryTypeStr
   **/
-  @ApiModelProperty(value = "None")
+  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.")
   public String getRepositoryTypeStr() {
     return repositoryTypeStr;
   }
@@ -212,17 +130,34 @@ public class ReposCreate implements Serializable {
   }
 
    /**
-   * None
+   * The slug identifies the repository in URIs.
    * @return slug
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "None")
+  @ApiModelProperty(value = "The slug identifies the repository in URIs.")
   public String getSlug() {
     return slug;
   }
 
   public void setSlug(String slug) {
     this.slug = slug;
+  }
+
+  public ReposCreate storageRegion(String storageRegion) {
+    this.storageRegion = storageRegion;
+    return this;
+  }
+
+   /**
+   * The Cloudsmith region in which package files are stored.
+   * @return storageRegion
+  **/
+  @ApiModelProperty(value = "The Cloudsmith region in which package files are stored.")
+  public String getStorageRegion() {
+    return storageRegion;
+  }
+
+  public void setStorageRegion(String storageRegion) {
+    this.storageRegion = storageRegion;
   }
 
 
@@ -237,18 +172,15 @@ public class ReposCreate implements Serializable {
     ReposCreate reposCreate = (ReposCreate) o;
     return Objects.equals(this.description, reposCreate.description) &&
         Objects.equals(this.indexFiles, reposCreate.indexFiles) &&
-        Objects.equals(this.isOpenSource, reposCreate.isOpenSource) &&
-        Objects.equals(this.isPrivate, reposCreate.isPrivate) &&
-        Objects.equals(this.isPublic, reposCreate.isPublic) &&
         Objects.equals(this.name, reposCreate.name) &&
-        Objects.equals(this.namespace, reposCreate.namespace) &&
         Objects.equals(this.repositoryTypeStr, reposCreate.repositoryTypeStr) &&
-        Objects.equals(this.slug, reposCreate.slug);
+        Objects.equals(this.slug, reposCreate.slug) &&
+        Objects.equals(this.storageRegion, reposCreate.storageRegion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, indexFiles, isOpenSource, isPrivate, isPublic, name, namespace, repositoryTypeStr, slug);
+    return Objects.hash(description, indexFiles, name, repositoryTypeStr, slug, storageRegion);
   }
 
 
@@ -259,13 +191,10 @@ public class ReposCreate implements Serializable {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
-    sb.append("    isOpenSource: ").append(toIndentedString(isOpenSource)).append("\n");
-    sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
-    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    repositoryTypeStr: ").append(toIndentedString(repositoryTypeStr)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    storageRegion: ").append(toIndentedString(storageRegion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

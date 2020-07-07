@@ -42,6 +42,9 @@ public class PackagesValidateuploadAlpine implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("tags")
+  private String tags = null;
+
   public PackagesValidateuploadAlpine distribution(String distribution) {
     this.distribution = distribution;
     return this;
@@ -98,6 +101,24 @@ public class PackagesValidateuploadAlpine implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesValidateuploadAlpine tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * A comma-separated values list of tags to add to the package.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "A comma-separated values list of tags to add to the package.")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -110,12 +131,13 @@ public class PackagesValidateuploadAlpine implements Serializable {
     PackagesValidateuploadAlpine packagesValidateuploadAlpine = (PackagesValidateuploadAlpine) o;
     return Objects.equals(this.distribution, packagesValidateuploadAlpine.distribution) &&
         Objects.equals(this.packageFile, packagesValidateuploadAlpine.packageFile) &&
-        Objects.equals(this.republish, packagesValidateuploadAlpine.republish);
+        Objects.equals(this.republish, packagesValidateuploadAlpine.republish) &&
+        Objects.equals(this.tags, packagesValidateuploadAlpine.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(distribution, packageFile, republish);
+    return Objects.hash(distribution, packageFile, republish, tags);
   }
 
 
@@ -127,6 +149,7 @@ public class PackagesValidateuploadAlpine implements Serializable {
     sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

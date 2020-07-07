@@ -42,6 +42,9 @@ public class WebhooksPartialUpdate implements Serializable {
   @SerializedName("is_active")
   private Boolean isActive = null;
 
+  @SerializedName("package_query")
+  private String packageQuery = null;
+
   @SerializedName("request_body_format")
   private String requestBodyFormat = null;
 
@@ -111,6 +114,24 @@ public class WebhooksPartialUpdate implements Serializable {
 
   public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
+  }
+
+  public WebhooksPartialUpdate packageQuery(String packageQuery) {
+    this.packageQuery = packageQuery;
+    return this;
+  }
+
+   /**
+   * The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+   * @return packageQuery
+  **/
+  @ApiModelProperty(value = "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
+  public String getPackageQuery() {
+    return packageQuery;
+  }
+
+  public void setPackageQuery(String packageQuery) {
+    this.packageQuery = packageQuery;
   }
 
   public WebhooksPartialUpdate requestBodyFormat(String requestBodyFormat) {
@@ -296,6 +317,7 @@ public class WebhooksPartialUpdate implements Serializable {
     WebhooksPartialUpdate webhooksPartialUpdate = (WebhooksPartialUpdate) o;
     return Objects.equals(this.events, webhooksPartialUpdate.events) &&
         Objects.equals(this.isActive, webhooksPartialUpdate.isActive) &&
+        Objects.equals(this.packageQuery, webhooksPartialUpdate.packageQuery) &&
         Objects.equals(this.requestBodyFormat, webhooksPartialUpdate.requestBodyFormat) &&
         Objects.equals(this.requestBodyTemplateFormat, webhooksPartialUpdate.requestBodyTemplateFormat) &&
         Objects.equals(this.requestContentType, webhooksPartialUpdate.requestContentType) &&
@@ -309,7 +331,7 @@ public class WebhooksPartialUpdate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, isActive, requestBodyFormat, requestBodyTemplateFormat, requestContentType, secretHeader, secretValue, signatureKey, targetUrl, templates, verifySsl);
+    return Objects.hash(events, isActive, packageQuery, requestBodyFormat, requestBodyTemplateFormat, requestContentType, secretHeader, secretValue, signatureKey, targetUrl, templates, verifySsl);
   }
 
 
@@ -320,6 +342,7 @@ public class WebhooksPartialUpdate implements Serializable {
     
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    packageQuery: ").append(toIndentedString(packageQuery)).append("\n");
     sb.append("    requestBodyFormat: ").append(toIndentedString(requestBodyFormat)).append("\n");
     sb.append("    requestBodyTemplateFormat: ").append(toIndentedString(requestBodyTemplateFormat)).append("\n");
     sb.append("    requestContentType: ").append(toIndentedString(requestContentType)).append("\n");

@@ -37,6 +37,7 @@ class PackagesUploadRaw(object):
         'package_file': 'str',
         'republish': 'bool',
         'summary': 'str',
+        'tags': 'str',
         'version': 'str'
     }
 
@@ -47,10 +48,11 @@ class PackagesUploadRaw(object):
         'package_file': 'package_file',
         'republish': 'republish',
         'summary': 'summary',
+        'tags': 'tags',
         'version': 'version'
     }
 
-    def __init__(self, content_type=None, description=None, name=None, package_file=None, republish=None, summary=None, version=None):
+    def __init__(self, content_type=None, description=None, name=None, package_file=None, republish=None, summary=None, tags=None, version=None):
         """
         PackagesUploadRaw - a model defined in Swagger
         """
@@ -61,6 +63,7 @@ class PackagesUploadRaw(object):
         self._package_file = None
         self._republish = None
         self._summary = None
+        self._tags = None
         self._version = None
 
         if content_type is not None:
@@ -74,6 +77,8 @@ class PackagesUploadRaw(object):
           self.republish = republish
         if summary is not None:
           self.summary = summary
+        if tags is not None:
+          self.tags = tags
         if version is not None:
           self.version = version
 
@@ -216,6 +221,29 @@ class PackagesUploadRaw(object):
         """
 
         self._summary = summary
+
+    @property
+    def tags(self):
+        """
+        Gets the tags of this PackagesUploadRaw.
+        A comma-separated values list of tags to add to the package.
+
+        :return: The tags of this PackagesUploadRaw.
+        :rtype: str
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this PackagesUploadRaw.
+        A comma-separated values list of tags to add to the package.
+
+        :param tags: The tags of this PackagesUploadRaw.
+        :type: str
+        """
+
+        self._tags = tags
 
     @property
     def version(self):

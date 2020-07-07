@@ -10,8 +10,11 @@
 
 package cloudsmith_api
 
-type PackagesResync struct {
+type StorageRegion struct {
 
-	// If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-	Republish bool `json:"republish,omitempty"`
+	// Name of the storage region
+	Label string `json:"label"`
+
+	// Slug for the storage region
+	Slug string `json:"slug"`
 }

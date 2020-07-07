@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.51.38</version>
+    <version>0.51.93</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.51.38"
+compile "io.cloudsmith.api:cloudsmith-api:0.51.93"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.51.38.jar
+* target/cloudsmith-api-0.51.93.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 *PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 *PackagesApi* | [**packagesStatus**](docs/PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+*PackagesApi* | [**packagesTag**](docs/PackagesApi.md#packagesTag) | **POST** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
 *PackagesApi* | [**packagesUploadAlpine**](docs/PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 *PackagesApi* | [**packagesUploadCargo**](docs/PackagesApi.md#packagesUploadCargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 *PackagesApi* | [**packagesUploadCocoapods**](docs/PackagesApi.md#packagesUploadCocoapods) | **POST** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
@@ -190,6 +191,8 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposPartialUpdate**](docs/ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
 *ReposApi* | [**reposRead**](docs/ReposApi.md#reposRead) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
 *StatusApi* | [**statusCheckBasic**](docs/StatusApi.md#statusCheckBasic) | **GET** /status/check/basic/ | Endpoint to check basic API connectivity.
+*StorageRegionsApi* | [**storageRegionsList**](docs/StorageRegionsApi.md#storageRegionsList) | **GET** /storage-regions/ | Get a list of all available storage regions.
+*StorageRegionsApi* | [**storageRegionsRead**](docs/StorageRegionsApi.md#storageRegionsRead) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
 *UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
@@ -202,6 +205,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AlpinePackageUpload](docs/AlpinePackageUpload.md)
  - [ConanPackageUpload](docs/ConanPackageUpload.md)
  - [Distribution](docs/Distribution.md)
  - [DistrosVersions](docs/DistrosVersions.md)
@@ -226,7 +230,7 @@ Class | Method | HTTP request | Description
  - [PackageStatus](docs/PackageStatus.md)
  - [PackagesCopy](docs/PackagesCopy.md)
  - [PackagesMove](docs/PackagesMove.md)
- - [PackagesResync](docs/PackagesResync.md)
+ - [PackagesTag](docs/PackagesTag.md)
  - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
  - [PackagesUploadCargo](docs/PackagesUploadCargo.md)
  - [PackagesUploadCocoapods](docs/PackagesUploadCocoapods.md)
@@ -284,6 +288,7 @@ Class | Method | HTTP request | Description
  - [ResourcesRateCheck](docs/ResourcesRateCheck.md)
  - [Status](docs/Status.md)
  - [StatusBasic](docs/StatusBasic.md)
+ - [StorageRegion](docs/StorageRegion.md)
  - [UserAuthToken](docs/UserAuthToken.md)
  - [UserBrief](docs/UserBrief.md)
  - [UserProfile](docs/UserProfile.md)

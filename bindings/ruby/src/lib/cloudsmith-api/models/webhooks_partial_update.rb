@@ -21,6 +21,9 @@ module CloudsmithApi
     # If enabled, the webhook will trigger on events and send payloads to the configured target URL.
     attr_accessor :is_active
 
+    # The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+    attr_accessor :package_query
+
     # The format of the payloads for webhook requests.
     attr_accessor :request_body_format
 
@@ -54,6 +57,7 @@ module CloudsmithApi
       {
         :'events' => :'events',
         :'is_active' => :'is_active',
+        :'package_query' => :'package_query',
         :'request_body_format' => :'request_body_format',
         :'request_body_template_format' => :'request_body_template_format',
         :'request_content_type' => :'request_content_type',
@@ -71,6 +75,7 @@ module CloudsmithApi
       {
         :'events' => :'Array<String>',
         :'is_active' => :'BOOLEAN',
+        :'package_query' => :'String',
         :'request_body_format' => :'String',
         :'request_body_template_format' => :'String',
         :'request_content_type' => :'String',
@@ -99,6 +104,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'is_active')
         self.is_active = attributes[:'is_active']
+      end
+
+      if attributes.has_key?(:'package_query')
+        self.package_query = attributes[:'package_query']
       end
 
       if attributes.has_key?(:'request_body_format')
@@ -161,6 +170,7 @@ module CloudsmithApi
       self.class == o.class &&
           events == o.events &&
           is_active == o.is_active &&
+          package_query == o.package_query &&
           request_body_format == o.request_body_format &&
           request_body_template_format == o.request_body_template_format &&
           request_content_type == o.request_content_type &&
@@ -181,7 +191,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [events, is_active, request_body_format, request_body_template_format, request_content_type, secret_header, secret_value, signature_key, target_url, templates, verify_ssl].hash
+      [events, is_active, package_query, request_body_format, request_body_template_format, request_content_type, secret_header, secret_value, signature_key, target_url, templates, verify_ssl].hash
     end
 
     # Builds the object from hash

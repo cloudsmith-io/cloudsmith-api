@@ -45,6 +45,9 @@ public class PackagesUploadVagrant implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("tags")
+  private String tags = null;
+
   @SerializedName("version")
   private String version = null;
 
@@ -123,6 +126,24 @@ public class PackagesUploadVagrant implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesUploadVagrant tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * A comma-separated values list of tags to add to the package.
+   * @return tags
+  **/
+  @ApiModelProperty(value = "A comma-separated values list of tags to add to the package.")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
+  }
+
   public PackagesUploadVagrant version(String version) {
     this.version = version;
     return this;
@@ -156,12 +177,13 @@ public class PackagesUploadVagrant implements Serializable {
         Objects.equals(this.packageFile, packagesUploadVagrant.packageFile) &&
         Objects.equals(this.provider, packagesUploadVagrant.provider) &&
         Objects.equals(this.republish, packagesUploadVagrant.republish) &&
+        Objects.equals(this.tags, packagesUploadVagrant.tags) &&
         Objects.equals(this.version, packagesUploadVagrant.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, packageFile, provider, republish, version);
+    return Objects.hash(name, packageFile, provider, republish, tags, version);
   }
 
 
@@ -174,6 +196,7 @@ public class PackagesUploadVagrant implements Serializable {
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

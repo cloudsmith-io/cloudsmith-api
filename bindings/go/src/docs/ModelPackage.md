@@ -52,6 +52,8 @@ Name | Type | Description | Notes
 **Summary** | **string** | A one-liner synopsis of this package. | [optional] [default to null]
 **SyncFinishedAt** | **string** | The datetime the package sync was finished at. | [optional] [default to null]
 **SyncProgress** | **int32** | Synchronisation progress (from 0-100) | [optional] [default to null]
+**Tags** | [**interface{}**](interface{}.md) | All tags on the package, grouped by tag type. This includes immutable tags, but doesn&#39;t distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field. | [optional] [default to null]
+**TagsImmutable** | [**interface{}**](interface{}.md) | All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted. | [optional] [default to null]
 **TypeDisplay** | **string** |  | [optional] [default to null]
 **UploadedAt** | **string** | The date this package was uploaded. | [optional] [default to null]
 **Uploader** | **string** |  | [optional] [default to null]

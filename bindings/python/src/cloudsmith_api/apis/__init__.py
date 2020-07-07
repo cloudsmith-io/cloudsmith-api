@@ -12,6 +12,7 @@ from .packages_api import PackagesApi
 from .rates_api import RatesApi
 from .repos_api import ReposApi
 from .status_api import StatusApi
+from .storageregions_api import StorageregionsApi
 from .user_api import UserApi
 from .users_api import UsersApi
 from .webhooks_api import WebhooksApi
