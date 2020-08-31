@@ -45,7 +45,7 @@ public class ResourcesRateCheck implements Serializable {
    * Rate limit values per resource
    * @return resources
   **/
-  @ApiModelProperty(example = "{\"core\":{\"interval\":5.123456789,\"limit\":3600,\"remaining\":3595,\"reset\":1594401200,\"reset_iso_8601\":\"2020-07-10T17:13:20.916192+00:00\",\"throttled\":false}}", value = "Rate limit values per resource")
+  @ApiModelProperty(example = "{\"core\":{\"interval\":5.123456789,\"limit\":3600,\"remaining\":3595,\"reset\":1598743880,\"reset_iso_8601\":\"2020-08-29T23:31:20.483482+00:00\",\"throttled\":false}}", value = "Rate limit values per resource")
   public Object getResources() {
     return resources;
   }

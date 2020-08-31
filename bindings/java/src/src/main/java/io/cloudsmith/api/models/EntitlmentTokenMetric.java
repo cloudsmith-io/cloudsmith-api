@@ -27,52 +27,54 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * StatusBasic
+ * EntitlmentTokenMetric
  */
 
-public class StatusBasic implements Serializable {
+public class EntitlmentTokenMetric implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("detail")
-  private String detail = null;
+  @SerializedName("bandwidth_per_token")
+  private Object bandwidthPerToken = null;
 
-  @SerializedName("version")
-  private String version = null;
+  @SerializedName("totals")
+  private Object totals = null;
 
-  public StatusBasic detail(String detail) {
-    this.detail = detail;
+  public EntitlmentTokenMetric bandwidthPerToken(Object bandwidthPerToken) {
+    this.bandwidthPerToken = bandwidthPerToken;
     return this;
   }
 
    /**
-   * The message describing the state of the API.
-   * @return detail
+   * 
+   * @return bandwidthPerToken
   **/
-  @ApiModelProperty(example = "Cloudsmith API is operational.", value = "The message describing the state of the API.")
-  public String getDetail() {
-    return detail;
+  @NotNull
+  @ApiModelProperty(required = true, value = "")
+  public Object getBandwidthPerToken() {
+    return bandwidthPerToken;
   }
 
-  public void setDetail(String detail) {
-    this.detail = detail;
+  public void setBandwidthPerToken(Object bandwidthPerToken) {
+    this.bandwidthPerToken = bandwidthPerToken;
   }
 
-  public StatusBasic version(String version) {
-    this.version = version;
+  public EntitlmentTokenMetric totals(Object totals) {
+    this.totals = totals;
     return this;
   }
 
    /**
-   * The current version for the Cloudsmith service.
-   * @return version
+   * 
+   * @return totals
   **/
-  @ApiModelProperty(example = "0.52.75", value = "The current version for the Cloudsmith service.")
-  public String getVersion() {
-    return version;
+  @NotNull
+  @ApiModelProperty(required = true, value = "")
+  public Object getTotals() {
+    return totals;
   }
 
-  public void setVersion(String version) {
-    this.version = version;
+  public void setTotals(Object totals) {
+    this.totals = totals;
   }
 
 
@@ -84,24 +86,24 @@ public class StatusBasic implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusBasic statusBasic = (StatusBasic) o;
-    return Objects.equals(this.detail, statusBasic.detail) &&
-        Objects.equals(this.version, statusBasic.version);
+    EntitlmentTokenMetric entitlmentTokenMetric = (EntitlmentTokenMetric) o;
+    return Objects.equals(this.bandwidthPerToken, entitlmentTokenMetric.bandwidthPerToken) &&
+        Objects.equals(this.totals, entitlmentTokenMetric.totals);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, version);
+    return Objects.hash(bandwidthPerToken, totals);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusBasic {\n");
+    sb.append("class EntitlmentTokenMetric {\n");
     
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    bandwidthPerToken: ").append(toIndentedString(bandwidthPerToken)).append("\n");
+    sb.append("    totals: ").append(toIndentedString(totals)).append("\n");
     sb.append("}");
     return sb.toString();
   }

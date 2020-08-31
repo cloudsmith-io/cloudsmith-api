@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.52.5</version>
+    <version>0.52.75</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.52.5"
+compile "io.cloudsmith.api:cloudsmith-api:0.52.75"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.52.5.jar
+* target/cloudsmith-api-0.52.75.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -129,6 +129,7 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**filesValidate**](docs/FilesApi.md#filesValidate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 *FormatsApi* | [**formatsList**](docs/FormatsApi.md#formatsList) | **GET** /formats/ | Get a list of all supported package formats.
 *FormatsApi* | [**formatsRead**](docs/FormatsApi.md#formatsRead) | **GET** /formats/{slug}/ | Get a specific supported package format.
+*MetricsApi* | [**metricsEntitlementsUsageList**](docs/MetricsApi.md#metricsEntitlementsUsageList) | **GET** /metrics/{owner}/{repo}/entitlements/usage/ | View for listing entitlement token usage as a metric.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
@@ -213,6 +214,7 @@ Class | Method | HTTP request | Description
  - [EntitlementsPartialUpdate](docs/EntitlementsPartialUpdate.md)
  - [EntitlementsRefresh](docs/EntitlementsRefresh.md)
  - [EntitlementsSync](docs/EntitlementsSync.md)
+ - [EntitlmentTokenMetric](docs/EntitlmentTokenMetric.md)
  - [FilesAbort](docs/FilesAbort.md)
  - [FilesComplete](docs/FilesComplete.md)
  - [FilesCreate](docs/FilesCreate.md)
