@@ -22,6 +22,7 @@ from .models.entitlements_create import EntitlementsCreate
 from .models.entitlements_partial_update import EntitlementsPartialUpdate
 from .models.entitlements_refresh import EntitlementsRefresh
 from .models.entitlements_sync import EntitlementsSync
+from .models.entitlment_token_metric import EntitlmentTokenMetric
 from .models.files_abort import FilesAbort
 from .models.files_complete import FilesComplete
 from .models.files_create import FilesCreate
@@ -113,6 +114,7 @@ from .apis.distros_api import DistrosApi
 from .apis.entitlements_api import EntitlementsApi
 from .apis.files_api import FilesApi
 from .apis.formats_api import FormatsApi
+from .apis.metrics_api import MetricsApi
 from .apis.namespaces_api import NamespacesApi
 from .apis.orgs_api import OrgsApi
 from .apis.packages_api import PackagesApi

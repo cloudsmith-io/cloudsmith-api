@@ -22,6 +22,7 @@ from .entitlements_create import EntitlementsCreate
 from .entitlements_partial_update import EntitlementsPartialUpdate
 from .entitlements_refresh import EntitlementsRefresh
 from .entitlements_sync import EntitlementsSync
+from .entitlment_token_metric import EntitlmentTokenMetric
 from .files_abort import FilesAbort
 from .files_complete import FilesComplete
 from .files_create import FilesCreate

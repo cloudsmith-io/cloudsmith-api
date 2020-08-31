@@ -54,6 +54,7 @@ class RepositoryToken(object):
         'updated_at': 'str',
         'updated_by': 'str',
         'updated_by_url': 'str',
+        'usage': 'str',
         'user': 'str',
         'user_url': 'str'
     }
@@ -82,11 +83,12 @@ class RepositoryToken(object):
         'updated_at': 'updated_at',
         'updated_by': 'updated_by',
         'updated_by_url': 'updated_by_url',
+        'usage': 'usage',
         'user': 'user',
         'user_url': 'user_url'
     }
 
-    def __init__(self, created_at=None, created_by=None, created_by_url=None, default=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, user=None, user_url=None):
+    def __init__(self, created_at=None, created_by=None, created_by_url=None, default=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
         """
         RepositoryToken - a model defined in Swagger
         """
@@ -114,6 +116,7 @@ class RepositoryToken(object):
         self._updated_at = None
         self._updated_by = None
         self._updated_by_url = None
+        self._usage = None
         self._user = None
         self._user_url = None
 
@@ -162,6 +165,8 @@ class RepositoryToken(object):
           self.updated_by = updated_by
         if updated_by_url is not None:
           self.updated_by_url = updated_by_url
+        if usage is not None:
+          self.usage = usage
         if user is not None:
           self.user = user
         if user_url is not None:
@@ -697,6 +702,29 @@ class RepositoryToken(object):
         """
 
         self._updated_by_url = updated_by_url
+
+    @property
+    def usage(self):
+        """
+        Gets the usage of this RepositoryToken.
+        
+
+        :return: The usage of this RepositoryToken.
+        :rtype: str
+        """
+        return self._usage
+
+    @usage.setter
+    def usage(self, usage):
+        """
+        Sets the usage of this RepositoryToken.
+        
+
+        :param usage: The usage of this RepositoryToken.
+        :type: str
+        """
+
+        self._usage = usage
 
     @property
     def user(self):
