@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | **string** | The datetime the token was updated at. | [optional] [default to null]
 **UpdatedBy** | **string** |  | [optional] [default to null]
 **UpdatedByUrl** | **string** |  | [optional] [default to null]
+**Usage** | **string** |  | [optional] [default to null]
 **User** | **string** |  | [optional] [default to null]
 **UserUrl** | **string** |  | [optional] [default to null]
 
