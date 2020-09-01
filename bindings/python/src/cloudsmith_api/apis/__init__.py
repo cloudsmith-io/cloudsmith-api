@@ -6,6 +6,7 @@ from .distros_api import DistrosApi
 from .entitlements_api import EntitlementsApi
 from .files_api import FilesApi
 from .formats_api import FormatsApi
+from .metrics_api import MetricsApi
 from .namespaces_api import NamespacesApi
 from .orgs_api import OrgsApi
 from .packages_api import PackagesApi

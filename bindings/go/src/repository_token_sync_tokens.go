@@ -82,6 +82,9 @@ type RepositoryTokenSyncTokens struct {
 	UpdatedByUrl string `json:"updated_by_url,omitempty"`
 
 	// 
+	Usage string `json:"usage,omitempty"`
+
+	// 
 	User string `json:"user,omitempty"`
 
 	// 

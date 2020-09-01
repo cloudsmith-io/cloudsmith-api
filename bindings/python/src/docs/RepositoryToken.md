@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **updated_at** | **str** | The datetime the token was updated at. | [optional] 
 **updated_by** | **str** |  | [optional] 
 **updated_by_url** | **str** |  | [optional] 
+**usage** | **str** |  | [optional] 
 **user** | **str** |  | [optional] 
 **user_url** | **str** |  | [optional] 
 

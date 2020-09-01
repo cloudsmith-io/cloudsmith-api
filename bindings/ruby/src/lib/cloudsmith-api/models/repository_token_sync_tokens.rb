@@ -85,6 +85,9 @@ module CloudsmithApi
     attr_accessor :updated_by_url
 
     # 
+    attr_accessor :usage
+
+    # 
     attr_accessor :user
 
     # 
@@ -117,6 +120,7 @@ module CloudsmithApi
         :'updated_at' => :'updated_at',
         :'updated_by' => :'updated_by',
         :'updated_by_url' => :'updated_by_url',
+        :'usage' => :'usage',
         :'user' => :'user',
         :'user_url' => :'user_url'
       }
@@ -148,6 +152,7 @@ module CloudsmithApi
         :'updated_at' => :'String',
         :'updated_by' => :'String',
         :'updated_by_url' => :'String',
+        :'usage' => :'String',
         :'user' => :'String',
         :'user_url' => :'String'
       }
@@ -253,6 +258,10 @@ module CloudsmithApi
         self.updated_by_url = attributes[:'updated_by_url']
       end
 
+      if attributes.has_key?(:'usage')
+        self.usage = attributes[:'usage']
+      end
+
       if attributes.has_key?(:'user')
         self.user = attributes[:'user']
       end
@@ -304,6 +313,7 @@ module CloudsmithApi
           updated_at == o.updated_at &&
           updated_by == o.updated_by &&
           updated_by_url == o.updated_by_url &&
+          usage == o.usage &&
           user == o.user &&
           user_url == o.user_url
     end
@@ -317,7 +327,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created_at, created_by, created_by_url, default, has_limits, identifier, is_active, is_limited, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, refresh_url, self_url, slug_perm, token, updated_at, updated_by, updated_by_url, user, user_url].hash
+      [created_at, created_by, created_by_url, default, has_limits, identifier, is_active, is_limited, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, refresh_url, self_url, slug_perm, token, updated_at, updated_by, updated_by_url, usage, user, user_url].hash
     end
 
     # Builds the object from hash

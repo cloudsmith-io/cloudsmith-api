@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **updatedAt** | **String** | The datetime the token was updated at. |  [optional]
 **updatedBy** | **String** |  |  [optional]
 **updatedByUrl** | **String** |  |  [optional]
+**usage** | **String** |  |  [optional]
 **user** | **String** |  |  [optional]
 **userUrl** | **String** |  |  [optional]
 

@@ -102,6 +102,9 @@ public class RepositoryTokenSyncTokens implements Serializable {
   @SerializedName("updated_by_url")
   private String updatedByUrl = null;
 
+  @SerializedName("usage")
+  private String usage = null;
+
   @SerializedName("user")
   private String user = null;
 
@@ -522,6 +525,24 @@ public class RepositoryTokenSyncTokens implements Serializable {
     this.updatedByUrl = updatedByUrl;
   }
 
+  public RepositoryTokenSyncTokens usage(String usage) {
+    this.usage = usage;
+    return this;
+  }
+
+   /**
+   * 
+   * @return usage
+  **/
+  @ApiModelProperty(value = "")
+  public String getUsage() {
+    return usage;
+  }
+
+  public void setUsage(String usage) {
+    this.usage = usage;
+  }
+
   public RepositoryTokenSyncTokens user(String user) {
     this.user = user;
     return this;
@@ -591,13 +612,14 @@ public class RepositoryTokenSyncTokens implements Serializable {
         Objects.equals(this.updatedAt, repositoryTokenSyncTokens.updatedAt) &&
         Objects.equals(this.updatedBy, repositoryTokenSyncTokens.updatedBy) &&
         Objects.equals(this.updatedByUrl, repositoryTokenSyncTokens.updatedByUrl) &&
+        Objects.equals(this.usage, repositoryTokenSyncTokens.usage) &&
         Objects.equals(this.user, repositoryTokenSyncTokens.user) &&
         Objects.equals(this.userUrl, repositoryTokenSyncTokens.userUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdBy, createdByUrl, _default, hasLimits, identifier, isActive, isLimited, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, user, userUrl);
+    return Objects.hash(createdAt, createdBy, createdByUrl, _default, hasLimits, identifier, isActive, isLimited, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
   }
 
 
@@ -629,6 +651,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
     sb.append("    updatedByUrl: ").append(toIndentedString(updatedByUrl)).append("\n");
+    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    userUrl: ").append(toIndentedString(userUrl)).append("\n");
     sb.append("}");
