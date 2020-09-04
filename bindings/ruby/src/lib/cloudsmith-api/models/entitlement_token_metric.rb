@@ -14,7 +14,7 @@ require 'date'
 
 module CloudsmithApi
 
-  class EntitlmentTokenMetric
+  class EntitlementTokenMetric
     # 
     attr_accessor :bandwidth_per_token
 
