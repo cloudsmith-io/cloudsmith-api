@@ -10,7 +10,7 @@
 
 package cloudsmith_api
 
-type EntitlmentTokenMetric struct {
+type EntitlementTokenMetric struct {
 
 	// 
 	BandwidthPerToken interface{} `json:"bandwidth_per_token"`
