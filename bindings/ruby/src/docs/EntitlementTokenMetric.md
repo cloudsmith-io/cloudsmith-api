@@ -1,4 +1,4 @@
-# CloudsmithApi::EntitlmentTokenMetric
+# CloudsmithApi::EntitlementTokenMetric
 
 ## Properties
 Name | Type | Description | Notes

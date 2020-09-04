@@ -14,7 +14,8 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.ApiException;
-import io.cloudsmith.api.models.EntitlmentTokenMetric;
+import io.cloudsmith.api.models.EntitlementTokenMetric;
+import io.cloudsmith.api.models.PackageUsageMetric;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -50,7 +51,29 @@ public class MetricsApiTest {
         Integer finish = null;
         Integer start = null;
         String tokens = null;
-        List<EntitlmentTokenMetric> response = api.metricsEntitlementsUsageList(owner, repo, page, pageSize, finish, start, tokens);
+        List<EntitlementTokenMetric> response = api.metricsEntitlementsUsageList(owner, repo, page, pageSize, finish, start, tokens);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * View for listing package usage metrics by user.
+     *
+     * View for listing package usage metrics by user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void metricsPackagesUsageListTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        Integer page = null;
+        Integer pageSize = null;
+        Integer finish = null;
+        String packages = null;
+        Integer start = null;
+        List<PackageUsageMetric> response = api.metricsPackagesUsageList(owner, repo, page, pageSize, finish, packages, start);
 
         // TODO: test validations
     }

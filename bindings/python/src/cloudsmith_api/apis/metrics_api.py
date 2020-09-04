@@ -58,10 +58,10 @@ class MetricsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this timestamp. Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this timestamp (seconds since Jan 01 1970. (UTC)).
+        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
+        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: list[EntitlmentTokenMetric]
+        :return: list[EntitlementTokenMetric]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -90,10 +90,10 @@ class MetricsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this timestamp. Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this timestamp (seconds since Jan 01 1970. (UTC)).
+        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
+        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: list[EntitlmentTokenMetric]
+        :return: list[EntitlementTokenMetric]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -157,7 +157,132 @@ class MetricsApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[EntitlmentTokenMetric]',
+                                        response_type='list[EntitlementTokenMetric]',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def metrics_packages_usage_list(self, owner, repo, **kwargs):
+        """
+        View for listing package usage metrics by user.
+        View for listing package usage metrics by user.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.metrics_packages_usage_list(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :param int finish: Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+        :param str packages: A comma seperated list of packages (slug perm) to include in the results.
+        :param int start: Filter token usage starting from this datetime (UTC)).
+        :return: list[PackageUsageMetric]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.metrics_packages_usage_list_with_http_info(owner, repo, **kwargs)
+        else:
+            (data) = self.metrics_packages_usage_list_with_http_info(owner, repo, **kwargs)
+            return data
+
+    def metrics_packages_usage_list_with_http_info(self, owner, repo, **kwargs):
+        """
+        View for listing package usage metrics by user.
+        View for listing package usage metrics by user.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.metrics_packages_usage_list_with_http_info(owner, repo, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :param int finish: Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+        :param str packages: A comma seperated list of packages (slug perm) to include in the results.
+        :param int start: Filter token usage starting from this datetime (UTC)).
+        :return: list[PackageUsageMetric]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'page', 'page_size', 'finish', 'packages', 'start']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method metrics_packages_usage_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `metrics_packages_usage_list`")
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params) or (params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `metrics_packages_usage_list`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+        if 'repo' in params:
+            path_params['repo'] = params['repo']
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))
+        if 'finish' in params:
+            query_params.append(('finish', params['finish']))
+        if 'packages' in params:
+            query_params.append(('packages', params['packages']))
+        if 'start' in params:
+            query_params.append(('start', params['start']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'csrf_token']
+
+        return self.api_client.call_api('/metrics/{owner}/{repo}/packages/usage/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='list[PackageUsageMetric]',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

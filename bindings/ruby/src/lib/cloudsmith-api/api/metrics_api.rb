@@ -27,10 +27,10 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this timestamp. Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this timestamp (seconds since Jan 01 1970. (UTC)).
+    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
+    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<EntitlmentTokenMetric>]
+    # @return [Array<EntitlementTokenMetric>]
     def metrics_entitlements_usage_list(owner, repo, opts = {})
       data, _status_code, _headers = metrics_entitlements_usage_list_with_http_info(owner, repo, opts)
       return data
@@ -43,10 +43,10 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this timestamp. Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this timestamp (seconds since Jan 01 1970. (UTC)).
+    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
+    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<(Array<EntitlmentTokenMetric>, Fixnum, Hash)>] Array<EntitlmentTokenMetric> data, response status code and response headers
+    # @return [Array<(Array<EntitlementTokenMetric>, Fixnum, Hash)>] Array<EntitlementTokenMetric> data, response status code and response headers
     def metrics_entitlements_usage_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_usage_list ..."
@@ -85,9 +85,81 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<EntitlmentTokenMetric>')
+        :return_type => 'Array<EntitlementTokenMetric>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_usage_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # View for listing package usage metrics by user.
+    # View for listing package usage metrics by user.
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+    # @option opts [String] :packages A comma seperated list of packages (slug perm) to include in the results.
+    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC)).
+    # @return [Array<PackageUsageMetric>]
+    def metrics_packages_usage_list(owner, repo, opts = {})
+      data, _status_code, _headers = metrics_packages_usage_list_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # View for listing package usage metrics by user.
+    # View for listing package usage metrics by user.
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+    # @option opts [String] :packages A comma seperated list of packages (slug perm) to include in the results.
+    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC)).
+    # @return [Array<(Array<PackageUsageMetric>, Fixnum, Hash)>] Array<PackageUsageMetric> data, response status code and response headers
+    def metrics_packages_usage_list_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_packages_usage_list ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_packages_usage_list"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_packages_usage_list"
+      end
+      # resource path
+      local_var_path = "/metrics/{owner}/{repo}/packages/usage/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'finish'] = opts[:'finish'] if !opts[:'finish'].nil?
+      query_params[:'packages'] = opts[:'packages'] if !opts[:'packages'].nil?
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<PackageUsageMetric>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsApi#metrics_packages_usage_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

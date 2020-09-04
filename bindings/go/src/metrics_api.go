@@ -45,12 +45,12 @@ func NewMetricsApiWithBasePath(basePath string) *MetricsApi {
  * @param repo 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
- * @param finish Filter token usage ending before this timestamp. Defaults to now if not supplied.
- * @param start Filter token usage starting from this timestamp (seconds since Jan 01 1970. (UTC)).
+ * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
+ * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
  * @param tokens A comma seperated list of tokens (slug perm) to include in the results.
- * @return []EntitlmentTokenMetric
+ * @return []EntitlementTokenMetric
  */
-func (a MetricsApi) MetricsEntitlementsUsageList(owner string, repo string, page int32, pageSize int32, finish int32, start int32, tokens string) ([]EntitlmentTokenMetric, *APIResponse, error) {
+func (a MetricsApi) MetricsEntitlementsUsageList(owner string, repo string, page int32, pageSize int32, finish int32, start int32, tokens string) ([]EntitlementTokenMetric, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -97,12 +97,90 @@ func (a MetricsApi) MetricsEntitlementsUsageList(owner string, repo string, page
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new([]EntitlmentTokenMetric)
+	var successPayload = new([]EntitlementTokenMetric)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
 	var localVarAPIResponse = &APIResponse{Operation: "MetricsEntitlementsUsageList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return *successPayload, localVarAPIResponse, err
+	}
+	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
+	return *successPayload, localVarAPIResponse, err
+}
+
+/**
+ * View for listing package usage metrics by user.
+ * View for listing package usage metrics by user.
+ *
+ * @param owner 
+ * @param repo 
+ * @param page A page number within the paginated result set.
+ * @param pageSize Number of results to return per page.
+ * @param finish Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+ * @param packages A comma seperated list of packages (slug perm) to include in the results.
+ * @param start Filter token usage starting from this datetime (UTC)).
+ * @return []PackageUsageMetric
+ */
+func (a MetricsApi) MetricsPackagesUsageList(owner string, repo string, page int32, pageSize int32, finish int32, packages string, start int32) ([]PackageUsageMetric, *APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Get")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/metrics/{owner}/{repo}/packages/usage/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// authentication '(csrf_token)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
+	localVarQueryParams.Add("page_size", a.Configuration.APIClient.ParameterToString(pageSize, ""))
+	localVarQueryParams.Add("finish", a.Configuration.APIClient.ParameterToString(finish, ""))
+	localVarQueryParams.Add("packages", a.Configuration.APIClient.ParameterToString(packages, ""))
+	localVarQueryParams.Add("start", a.Configuration.APIClient.ParameterToString(start, ""))
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	var successPayload = new([]PackageUsageMetric)
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "MetricsPackagesUsageList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
