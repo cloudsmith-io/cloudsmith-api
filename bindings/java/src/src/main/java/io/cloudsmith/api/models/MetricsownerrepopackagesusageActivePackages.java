@@ -27,46 +27,67 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * StatusBasic
+ * MetricsownerrepopackagesusageActivePackages
  */
 
-public class StatusBasic implements Serializable {
+public class MetricsownerrepopackagesusageActivePackages implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("detail")
-  private String detail = null;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("slug")
+  private String slug = null;
 
   @SerializedName("version")
   private String version = null;
 
-  public StatusBasic detail(String detail) {
-    this.detail = detail;
+  public MetricsownerrepopackagesusageActivePackages name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The message describing the state of the API.
-   * @return detail
+   * 
+   * @return name
   **/
-  @ApiModelProperty(example = "Cloudsmith API is operational.", value = "The message describing the state of the API.")
-  public String getDetail() {
-    return detail;
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
   }
 
-  public void setDetail(String detail) {
-    this.detail = detail;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public StatusBasic version(String version) {
+  public MetricsownerrepopackagesusageActivePackages slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+   /**
+   * 
+   * @return slug
+  **/
+  @ApiModelProperty(value = "")
+  public String getSlug() {
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
+  }
+
+  public MetricsownerrepopackagesusageActivePackages version(String version) {
     this.version = version;
     return this;
   }
 
    /**
-   * The current version for the Cloudsmith service.
+   * 
    * @return version
   **/
-  @ApiModelProperty(example = "0.52.92", value = "The current version for the Cloudsmith service.")
+  @ApiModelProperty(value = "")
   public String getVersion() {
     return version;
   }
@@ -84,23 +105,25 @@ public class StatusBasic implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusBasic statusBasic = (StatusBasic) o;
-    return Objects.equals(this.detail, statusBasic.detail) &&
-        Objects.equals(this.version, statusBasic.version);
+    MetricsownerrepopackagesusageActivePackages metricsownerrepopackagesusageActivePackages = (MetricsownerrepopackagesusageActivePackages) o;
+    return Objects.equals(this.name, metricsownerrepopackagesusageActivePackages.name) &&
+        Objects.equals(this.slug, metricsownerrepopackagesusageActivePackages.slug) &&
+        Objects.equals(this.version, metricsownerrepopackagesusageActivePackages.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, version);
+    return Objects.hash(name, slug, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusBasic {\n");
+    sb.append("class MetricsownerrepopackagesusageActivePackages {\n");
     
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

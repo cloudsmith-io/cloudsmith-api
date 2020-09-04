@@ -1,5 +1,5 @@
 
-# EntitlmentTokenMetric
+# EntitlementTokenMetric
 
 ## Properties
 Name | Type | Description | Notes

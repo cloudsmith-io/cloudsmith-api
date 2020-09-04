@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.52.75</version>
+    <version>0.52.92</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.52.75"
+compile "io.cloudsmith.api:cloudsmith-api:0.52.92"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.52.75.jar
+* target/cloudsmith-api-0.52.92.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 *FormatsApi* | [**formatsList**](docs/FormatsApi.md#formatsList) | **GET** /formats/ | Get a list of all supported package formats.
 *FormatsApi* | [**formatsRead**](docs/FormatsApi.md#formatsRead) | **GET** /formats/{slug}/ | Get a specific supported package format.
 *MetricsApi* | [**metricsEntitlementsUsageList**](docs/MetricsApi.md#metricsEntitlementsUsageList) | **GET** /metrics/{owner}/{repo}/entitlements/usage/ | View for listing entitlement token usage as a metric.
+*MetricsApi* | [**metricsPackagesUsageList**](docs/MetricsApi.md#metricsPackagesUsageList) | **GET** /metrics/{owner}/{repo}/packages/usage/ | View for listing package usage metrics by user.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
@@ -210,11 +211,11 @@ Class | Method | HTTP request | Description
  - [ConanPackageUpload](docs/ConanPackageUpload.md)
  - [Distribution](docs/Distribution.md)
  - [DistrosVersions](docs/DistrosVersions.md)
+ - [EntitlementTokenMetric](docs/EntitlementTokenMetric.md)
  - [EntitlementsCreate](docs/EntitlementsCreate.md)
  - [EntitlementsPartialUpdate](docs/EntitlementsPartialUpdate.md)
  - [EntitlementsRefresh](docs/EntitlementsRefresh.md)
  - [EntitlementsSync](docs/EntitlementsSync.md)
- - [EntitlmentTokenMetric](docs/EntitlmentTokenMetric.md)
  - [FilesAbort](docs/FilesAbort.md)
  - [FilesComplete](docs/FilesComplete.md)
  - [FilesCreate](docs/FilesCreate.md)
@@ -222,6 +223,7 @@ Class | Method | HTTP request | Description
  - [Format](docs/Format.md)
  - [FormatsDistributions](docs/FormatsDistributions.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
+ - [MetricsownerrepopackagesusageActivePackages](docs/MetricsownerrepopackagesusageActivePackages.md)
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [Organization](docs/Organization.md)
@@ -230,6 +232,7 @@ Class | Method | HTTP request | Description
  - [PackageFileUpload](docs/PackageFileUpload.md)
  - [PackageMove](docs/PackageMove.md)
  - [PackageStatus](docs/PackageStatus.md)
+ - [PackageUsageMetric](docs/PackageUsageMetric.md)
  - [PackagesCopy](docs/PackagesCopy.md)
  - [PackagesMove](docs/PackagesMove.md)
  - [PackagesTag](docs/PackagesTag.md)

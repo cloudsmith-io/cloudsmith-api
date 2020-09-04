@@ -27,10 +27,10 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * EntitlmentTokenMetric
+ * EntitlementTokenMetric
  */
 
-public class EntitlmentTokenMetric implements Serializable {
+public class EntitlementTokenMetric implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("bandwidth_per_token")
@@ -39,7 +39,7 @@ public class EntitlmentTokenMetric implements Serializable {
   @SerializedName("totals")
   private Object totals = null;
 
-  public EntitlmentTokenMetric bandwidthPerToken(Object bandwidthPerToken) {
+  public EntitlementTokenMetric bandwidthPerToken(Object bandwidthPerToken) {
     this.bandwidthPerToken = bandwidthPerToken;
     return this;
   }
@@ -58,7 +58,7 @@ public class EntitlmentTokenMetric implements Serializable {
     this.bandwidthPerToken = bandwidthPerToken;
   }
 
-  public EntitlmentTokenMetric totals(Object totals) {
+  public EntitlementTokenMetric totals(Object totals) {
     this.totals = totals;
     return this;
   }
@@ -86,9 +86,9 @@ public class EntitlmentTokenMetric implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EntitlmentTokenMetric entitlmentTokenMetric = (EntitlmentTokenMetric) o;
-    return Objects.equals(this.bandwidthPerToken, entitlmentTokenMetric.bandwidthPerToken) &&
-        Objects.equals(this.totals, entitlmentTokenMetric.totals);
+    EntitlementTokenMetric entitlementTokenMetric = (EntitlementTokenMetric) o;
+    return Objects.equals(this.bandwidthPerToken, entitlementTokenMetric.bandwidthPerToken) &&
+        Objects.equals(this.totals, entitlementTokenMetric.totals);
   }
 
   @Override
@@ -100,7 +100,7 @@ public class EntitlmentTokenMetric implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EntitlmentTokenMetric {\n");
+    sb.append("class EntitlementTokenMetric {\n");
     
     sb.append("    bandwidthPerToken: ").append(toIndentedString(bandwidthPerToken)).append("\n");
     sb.append("    totals: ").append(toIndentedString(totals)).append("\n");
