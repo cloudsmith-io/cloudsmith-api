@@ -39,6 +39,14 @@ class TestMetricsApi(unittest.TestCase):
         """
         pass
 
+    def test_metrics_packages_usage_list(self):
+        """
+        Test case for metrics_packages_usage_list
+
+        View for listing package usage metrics by user.
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

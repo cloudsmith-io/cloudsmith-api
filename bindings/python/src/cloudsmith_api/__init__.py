@@ -18,11 +18,11 @@ from .models.alpine_package_upload import AlpinePackageUpload
 from .models.conan_package_upload import ConanPackageUpload
 from .models.distribution import Distribution
 from .models.distros_versions import DistrosVersions
+from .models.entitlement_token_metric import EntitlementTokenMetric
 from .models.entitlements_create import EntitlementsCreate
 from .models.entitlements_partial_update import EntitlementsPartialUpdate
 from .models.entitlements_refresh import EntitlementsRefresh
 from .models.entitlements_sync import EntitlementsSync
-from .models.entitlment_token_metric import EntitlmentTokenMetric
 from .models.files_abort import FilesAbort
 from .models.files_complete import FilesComplete
 from .models.files_create import FilesCreate
@@ -30,6 +30,7 @@ from .models.files_validate import FilesValidate
 from .models.format import Format
 from .models.formats_distributions import FormatsDistributions
 from .models.maven_package_upload import MavenPackageUpload
+from .models.metricsownerrepopackagesusage_active_packages import MetricsownerrepopackagesusageActivePackages
 from .models.namespace import Namespace
 from .models.organization import Organization
 from .models.package import Package
@@ -38,6 +39,7 @@ from .models.package_file_parts_upload import PackageFilePartsUpload
 from .models.package_file_upload import PackageFileUpload
 from .models.package_move import PackageMove
 from .models.package_status import PackageStatus
+from .models.package_usage_metric import PackageUsageMetric
 from .models.packages_copy import PackagesCopy
 from .models.packages_move import PackagesMove
 from .models.packages_tag import PackagesTag

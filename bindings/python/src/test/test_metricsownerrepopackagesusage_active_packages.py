@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.entitlment_token_metric import EntitlmentTokenMetric
+from cloudsmith_api.models.metricsownerrepopackagesusage_active_packages import MetricsownerrepopackagesusageActivePackages
 
 
-class TestEntitlmentTokenMetric(unittest.TestCase):
-    """ EntitlmentTokenMetric unit test stubs """
+class TestMetricsownerrepopackagesusageActivePackages(unittest.TestCase):
+    """ MetricsownerrepopackagesusageActivePackages unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestEntitlmentTokenMetric(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEntitlmentTokenMetric(self):
+    def testMetricsownerrepopackagesusageActivePackages(self):
         """
-        Test EntitlmentTokenMetric
+        Test MetricsownerrepopackagesusageActivePackages
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.entitlment_token_metric.EntitlmentTokenMetric()
+        #model = cloudsmith_api.models.metricsownerrepopackagesusage_active_packages.MetricsownerrepopackagesusageActivePackages()
         pass
 
 
