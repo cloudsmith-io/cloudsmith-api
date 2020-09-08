@@ -4,10 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**clients** | **Integer** |  |  [optional]
 **createdAt** | **String** | The datetime the token was updated at. |  [optional]
 **createdBy** | **String** |  |  [optional]
 **createdByUrl** | **String** |  |  [optional]
 **_default** | **Boolean** | If selected this is the default token for this repository. |  [optional]
+**downloads** | **Integer** |  |  [optional]
 **hasLimits** | **Boolean** |  |  [optional]
 **identifier** | **Integer** |  |  [optional]
 **isActive** | **Boolean** | If enabled, the token will allow downloads based on configured restrictions (if any). |  [optional]

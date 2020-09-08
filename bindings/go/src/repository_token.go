@@ -12,6 +12,9 @@ package cloudsmith_api
 
 type RepositoryToken struct {
 
+	// 
+	Clients int32 `json:"clients,omitempty"`
+
 	// The datetime the token was updated at.
 	CreatedAt string `json:"created_at,omitempty"`
 
@@ -23,6 +26,9 @@ type RepositoryToken struct {
 
 	// If selected this is the default token for this repository.
 	Default_ bool `json:"default,omitempty"`
+
+	// 
+	Downloads int32 `json:"downloads,omitempty"`
 
 	// 
 	HasLimits bool `json:"has_limits,omitempty"`

@@ -33,6 +33,9 @@ import javax.validation.Valid;
 public class RepositoryTokenSyncTokens implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("clients")
+  private Integer clients = null;
+
   @SerializedName("created_at")
   private String createdAt = null;
 
@@ -44,6 +47,9 @@ public class RepositoryTokenSyncTokens implements Serializable {
 
   @SerializedName("default")
   private Boolean _default = null;
+
+  @SerializedName("downloads")
+  private Integer downloads = null;
 
   @SerializedName("has_limits")
   private Boolean hasLimits = null;
@@ -110,6 +116,24 @@ public class RepositoryTokenSyncTokens implements Serializable {
 
   @SerializedName("user_url")
   private String userUrl = null;
+
+  public RepositoryTokenSyncTokens clients(Integer clients) {
+    this.clients = clients;
+    return this;
+  }
+
+   /**
+   * 
+   * @return clients
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getClients() {
+    return clients;
+  }
+
+  public void setClients(Integer clients) {
+    this.clients = clients;
+  }
 
   public RepositoryTokenSyncTokens createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -181,6 +205,24 @@ public class RepositoryTokenSyncTokens implements Serializable {
 
   public void setDefault(Boolean _default) {
     this._default = _default;
+  }
+
+  public RepositoryTokenSyncTokens downloads(Integer downloads) {
+    this.downloads = downloads;
+    return this;
+  }
+
+   /**
+   * 
+   * @return downloads
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getDownloads() {
+    return downloads;
+  }
+
+  public void setDownloads(Integer downloads) {
+    this.downloads = downloads;
   }
 
   public RepositoryTokenSyncTokens hasLimits(Boolean hasLimits) {
@@ -589,10 +631,12 @@ public class RepositoryTokenSyncTokens implements Serializable {
       return false;
     }
     RepositoryTokenSyncTokens repositoryTokenSyncTokens = (RepositoryTokenSyncTokens) o;
-    return Objects.equals(this.createdAt, repositoryTokenSyncTokens.createdAt) &&
+    return Objects.equals(this.clients, repositoryTokenSyncTokens.clients) &&
+        Objects.equals(this.createdAt, repositoryTokenSyncTokens.createdAt) &&
         Objects.equals(this.createdBy, repositoryTokenSyncTokens.createdBy) &&
         Objects.equals(this.createdByUrl, repositoryTokenSyncTokens.createdByUrl) &&
         Objects.equals(this._default, repositoryTokenSyncTokens._default) &&
+        Objects.equals(this.downloads, repositoryTokenSyncTokens.downloads) &&
         Objects.equals(this.hasLimits, repositoryTokenSyncTokens.hasLimits) &&
         Objects.equals(this.identifier, repositoryTokenSyncTokens.identifier) &&
         Objects.equals(this.isActive, repositoryTokenSyncTokens.isActive) &&
@@ -619,7 +663,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdBy, createdByUrl, _default, hasLimits, identifier, isActive, isLimited, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
+    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, downloads, hasLimits, identifier, isActive, isLimited, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
   }
 
 
@@ -628,10 +672,12 @@ public class RepositoryTokenSyncTokens implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepositoryTokenSyncTokens {\n");
     
+    sb.append("    clients: ").append(toIndentedString(clients)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdByUrl: ").append(toIndentedString(createdByUrl)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
     sb.append("    hasLimits: ").append(toIndentedString(hasLimits)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");

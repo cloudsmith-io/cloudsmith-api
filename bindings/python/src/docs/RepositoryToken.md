@@ -3,10 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**clients** | **int** |  | [optional] 
 **created_at** | **str** | The datetime the token was updated at. | [optional] 
 **created_by** | **str** |  | [optional] 
 **created_by_url** | **str** |  | [optional] 
 **default** | **bool** | If selected this is the default token for this repository. | [optional] 
+**downloads** | **int** |  | [optional] 
 **has_limits** | **bool** |  | [optional] 
 **identifier** | **int** |  | [optional] 
 **is_active** | **bool** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] 

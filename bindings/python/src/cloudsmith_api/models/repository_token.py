@@ -31,10 +31,12 @@ class RepositoryToken(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'clients': 'int',
         'created_at': 'str',
         'created_by': 'str',
         'created_by_url': 'str',
         'default': 'bool',
+        'downloads': 'int',
         'has_limits': 'bool',
         'identifier': 'int',
         'is_active': 'bool',
@@ -60,10 +62,12 @@ class RepositoryToken(object):
     }
 
     attribute_map = {
+        'clients': 'clients',
         'created_at': 'created_at',
         'created_by': 'created_by',
         'created_by_url': 'created_by_url',
         'default': 'default',
+        'downloads': 'downloads',
         'has_limits': 'has_limits',
         'identifier': 'identifier',
         'is_active': 'is_active',
@@ -88,15 +92,17 @@ class RepositoryToken(object):
         'user_url': 'user_url'
     }
 
-    def __init__(self, created_at=None, created_by=None, created_by_url=None, default=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
+    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, downloads=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
         """
         RepositoryToken - a model defined in Swagger
         """
 
+        self._clients = None
         self._created_at = None
         self._created_by = None
         self._created_by_url = None
         self._default = None
+        self._downloads = None
         self._has_limits = None
         self._identifier = None
         self._is_active = None
@@ -120,6 +126,8 @@ class RepositoryToken(object):
         self._user = None
         self._user_url = None
 
+        if clients is not None:
+          self.clients = clients
         if created_at is not None:
           self.created_at = created_at
         if created_by is not None:
@@ -128,6 +136,8 @@ class RepositoryToken(object):
           self.created_by_url = created_by_url
         if default is not None:
           self.default = default
+        if downloads is not None:
+          self.downloads = downloads
         if has_limits is not None:
           self.has_limits = has_limits
         if identifier is not None:
@@ -171,6 +181,29 @@ class RepositoryToken(object):
           self.user = user
         if user_url is not None:
           self.user_url = user_url
+
+    @property
+    def clients(self):
+        """
+        Gets the clients of this RepositoryToken.
+        
+
+        :return: The clients of this RepositoryToken.
+        :rtype: int
+        """
+        return self._clients
+
+    @clients.setter
+    def clients(self, clients):
+        """
+        Sets the clients of this RepositoryToken.
+        
+
+        :param clients: The clients of this RepositoryToken.
+        :type: int
+        """
+
+        self._clients = clients
 
     @property
     def created_at(self):
@@ -263,6 +296,29 @@ class RepositoryToken(object):
         """
 
         self._default = default
+
+    @property
+    def downloads(self):
+        """
+        Gets the downloads of this RepositoryToken.
+        
+
+        :return: The downloads of this RepositoryToken.
+        :rtype: int
+        """
+        return self._downloads
+
+    @downloads.setter
+    def downloads(self, downloads):
+        """
+        Sets the downloads of this RepositoryToken.
+        
+
+        :param downloads: The downloads of this RepositoryToken.
+        :type: int
+        """
+
+        self._downloads = downloads
 
     @property
     def has_limits(self):

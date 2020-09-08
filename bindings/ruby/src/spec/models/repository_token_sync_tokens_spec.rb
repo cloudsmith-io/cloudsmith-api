@@ -32,6 +32,12 @@ describe 'RepositoryTokenSyncTokens' do
       expect(@instance).to be_instance_of(CloudsmithApi::RepositoryTokenSyncTokens)
     end
   end
+  describe 'test attribute "clients"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "created_at"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -51,6 +57,12 @@ describe 'RepositoryTokenSyncTokens' do
   end
 
   describe 'test attribute "default"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "downloads"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
