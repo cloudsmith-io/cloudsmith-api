@@ -15,6 +15,9 @@ require 'date'
 module CloudsmithApi
 
   class RepositoryToken
+    # 
+    attr_accessor :clients
+
     # The datetime the token was updated at.
     attr_accessor :created_at
 
@@ -26,6 +29,9 @@ module CloudsmithApi
 
     # If selected this is the default token for this repository.
     attr_accessor :default
+
+    # 
+    attr_accessor :downloads
 
     # 
     attr_accessor :has_limits
@@ -97,10 +103,12 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'clients' => :'clients',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
         :'created_by_url' => :'created_by_url',
         :'default' => :'default',
+        :'downloads' => :'downloads',
         :'has_limits' => :'has_limits',
         :'identifier' => :'identifier',
         :'is_active' => :'is_active',
@@ -129,10 +137,12 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'clients' => :'Integer',
         :'created_at' => :'String',
         :'created_by' => :'String',
         :'created_by_url' => :'String',
         :'default' => :'BOOLEAN',
+        :'downloads' => :'Integer',
         :'has_limits' => :'BOOLEAN',
         :'identifier' => :'Integer',
         :'is_active' => :'BOOLEAN',
@@ -166,6 +176,10 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'clients')
+        self.clients = attributes[:'clients']
+      end
+
       if attributes.has_key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
@@ -180,6 +194,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'default')
         self.default = attributes[:'default']
+      end
+
+      if attributes.has_key?(:'downloads')
+        self.downloads = attributes[:'downloads']
       end
 
       if attributes.has_key?(:'has_limits')
@@ -295,10 +313,12 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          clients == o.clients &&
           created_at == o.created_at &&
           created_by == o.created_by &&
           created_by_url == o.created_by_url &&
           default == o.default &&
+          downloads == o.downloads &&
           has_limits == o.has_limits &&
           identifier == o.identifier &&
           is_active == o.is_active &&
@@ -332,7 +352,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created_at, created_by, created_by_url, default, has_limits, identifier, is_active, is_limited, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, refresh_url, self_url, slug_perm, token, updated_at, updated_by, updated_by_url, usage, user, user_url].hash
+      [clients, created_at, created_by, created_by_url, default, downloads, has_limits, identifier, is_active, is_limited, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, refresh_url, self_url, slug_perm, token, updated_at, updated_by, updated_by_url, usage, user, user_url].hash
     end
 
     # Builds the object from hash
