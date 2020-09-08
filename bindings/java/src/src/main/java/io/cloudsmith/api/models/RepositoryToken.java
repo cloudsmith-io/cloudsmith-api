@@ -33,6 +33,9 @@ import javax.validation.Valid;
 public class RepositoryToken implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("clients")
+  private Integer clients = null;
+
   @SerializedName("created_at")
   private String createdAt = null;
 
@@ -44,6 +47,9 @@ public class RepositoryToken implements Serializable {
 
   @SerializedName("default")
   private Boolean _default = null;
+
+  @SerializedName("downloads")
+  private Integer downloads = null;
 
   @SerializedName("has_limits")
   private Boolean hasLimits = null;
@@ -110,6 +116,24 @@ public class RepositoryToken implements Serializable {
 
   @SerializedName("user_url")
   private String userUrl = null;
+
+  public RepositoryToken clients(Integer clients) {
+    this.clients = clients;
+    return this;
+  }
+
+   /**
+   * 
+   * @return clients
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getClients() {
+    return clients;
+  }
+
+  public void setClients(Integer clients) {
+    this.clients = clients;
+  }
 
   public RepositoryToken createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -181,6 +205,24 @@ public class RepositoryToken implements Serializable {
 
   public void setDefault(Boolean _default) {
     this._default = _default;
+  }
+
+  public RepositoryToken downloads(Integer downloads) {
+    this.downloads = downloads;
+    return this;
+  }
+
+   /**
+   * 
+   * @return downloads
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getDownloads() {
+    return downloads;
+  }
+
+  public void setDownloads(Integer downloads) {
+    this.downloads = downloads;
   }
 
   public RepositoryToken hasLimits(Boolean hasLimits) {
@@ -590,10 +632,12 @@ public class RepositoryToken implements Serializable {
       return false;
     }
     RepositoryToken repositoryToken = (RepositoryToken) o;
-    return Objects.equals(this.createdAt, repositoryToken.createdAt) &&
+    return Objects.equals(this.clients, repositoryToken.clients) &&
+        Objects.equals(this.createdAt, repositoryToken.createdAt) &&
         Objects.equals(this.createdBy, repositoryToken.createdBy) &&
         Objects.equals(this.createdByUrl, repositoryToken.createdByUrl) &&
         Objects.equals(this._default, repositoryToken._default) &&
+        Objects.equals(this.downloads, repositoryToken.downloads) &&
         Objects.equals(this.hasLimits, repositoryToken.hasLimits) &&
         Objects.equals(this.identifier, repositoryToken.identifier) &&
         Objects.equals(this.isActive, repositoryToken.isActive) &&
@@ -620,7 +664,7 @@ public class RepositoryToken implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdBy, createdByUrl, _default, hasLimits, identifier, isActive, isLimited, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
+    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, downloads, hasLimits, identifier, isActive, isLimited, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
   }
 
 
@@ -629,10 +673,12 @@ public class RepositoryToken implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepositoryToken {\n");
     
+    sb.append("    clients: ").append(toIndentedString(clients)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdByUrl: ").append(toIndentedString(createdByUrl)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
     sb.append("    hasLimits: ").append(toIndentedString(hasLimits)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
