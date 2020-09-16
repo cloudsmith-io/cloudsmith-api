@@ -87,6 +87,9 @@ from .models.packages_validateupload_terraform import PackagesValidateuploadTerr
 from .models.packages_validateupload_vagrant import PackagesValidateuploadVagrant
 from .models.packagesownerrepo_architectures import PackagesownerrepoArchitectures
 from .models.packagesownerrepo_files import PackagesownerrepoFiles
+from .models.quota import Quota
+from .models.quota_history import QuotaHistory
+from .models.quotaownerhistory_history import QuotaownerhistoryHistory
 from .models.raw_package_upload import RawPackageUpload
 from .models.repos_create import ReposCreate
 from .models.repos_gpg_keys import ReposGpgKeys
@@ -120,6 +123,7 @@ from .apis.metrics_api import MetricsApi
 from .apis.namespaces_api import NamespacesApi
 from .apis.orgs_api import OrgsApi
 from .apis.packages_api import PackagesApi
+from .apis.quota_api import QuotaApi
 from .apis.rates_api import RatesApi
 from .apis.repos_api import ReposApi
 from .apis.status_api import StatusApi
