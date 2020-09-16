@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.52.121</version>
+    <version>0.53.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.52.121"
+compile "io.cloudsmith.api:cloudsmith-api:0.53.1"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.52.121.jar
+* target/cloudsmith-api-0.53.1.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -185,6 +185,10 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadRuby**](docs/PackagesApi.md#packagesValidateUploadRuby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
 *PackagesApi* | [**packagesValidateUploadTerraform**](docs/PackagesApi.md#packagesValidateUploadTerraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 *PackagesApi* | [**packagesValidateUploadVagrant**](docs/PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
+*QuotaApi* | [**quotaHistoryList**](docs/QuotaApi.md#quotaHistoryList) | **GET** /quota/{owner}/history/ | Quota history for a given namespace.
+*QuotaApi* | [**quotaList**](docs/QuotaApi.md#quotaList) | **GET** /quota/{owner}/ | Quota usage for a given namespace.
+*QuotaApi* | [**quotaOssHistoryList**](docs/QuotaApi.md#quotaOssHistoryList) | **GET** /quota/{owner}/oss/history/ | Open-source Quota history for a given namespace.
+*QuotaApi* | [**quotaOssList**](docs/QuotaApi.md#quotaOssList) | **GET** /quota/{owner}/oss/ | Open-source Quota usage for a given namespace.
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
 *ReposApi* | [**reposAllList**](docs/ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 *ReposApi* | [**reposCreate**](docs/ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
@@ -280,6 +284,9 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadVagrant](docs/PackagesValidateuploadVagrant.md)
  - [PackagesownerrepoArchitectures](docs/PackagesownerrepoArchitectures.md)
  - [PackagesownerrepoFiles](docs/PackagesownerrepoFiles.md)
+ - [Quota](docs/Quota.md)
+ - [QuotaHistory](docs/QuotaHistory.md)
+ - [QuotaownerhistoryHistory](docs/QuotaownerhistoryHistory.md)
  - [RawPackageUpload](docs/RawPackageUpload.md)
  - [ReposCreate](docs/ReposCreate.md)
  - [ReposGpgKeys](docs/ReposGpgKeys.md)
