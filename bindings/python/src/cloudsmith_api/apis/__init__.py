@@ -10,6 +10,7 @@ from .metrics_api import MetricsApi
 from .namespaces_api import NamespacesApi
 from .orgs_api import OrgsApi
 from .packages_api import PackagesApi
+from .quota_api import QuotaApi
 from .rates_api import RatesApi
 from .repos_api import ReposApi
 from .status_api import StatusApi

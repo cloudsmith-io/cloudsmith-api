@@ -27,52 +27,32 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * StatusBasic
+ * Quota
  */
 
-public class StatusBasic implements Serializable {
+public class Quota implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("detail")
-  private String detail = null;
+  @SerializedName("usage")
+  private Object usage = null;
 
-  @SerializedName("version")
-  private String version = null;
-
-  public StatusBasic detail(String detail) {
-    this.detail = detail;
+  public Quota usage(Object usage) {
+    this.usage = usage;
     return this;
   }
 
    /**
-   * The message describing the state of the API.
-   * @return detail
+   * 
+   * @return usage
   **/
-  @ApiModelProperty(example = "Cloudsmith API is operational.", value = "The message describing the state of the API.")
-  public String getDetail() {
-    return detail;
+  @NotNull
+  @ApiModelProperty(example = "{\"display\":{\"bandwidth\":{\"configured\":\"60 GB\",\"percentage_used\":\"0.0%\",\"plan_limit\":\"2 TB\",\"used\":\"0 B\"},\"storage\":{\"configured\":\"30 GB\",\"percentage_used\":\"0.109%\",\"plan_limit\":\"1 TB\",\"used\":\"1.1 GB\"}},\"raw\":{\"bandwidth\":{\"configured\":64424509440,\"percentage_used\":0.0,\"plan_limit\":2199023255552,\"used\":0},\"storage\":{\"configured\":32212254720,\"percentage_used\":0.109,\"plan_limit\":1099511627776,\"used\":1197653687}}}", required = true, value = "")
+  public Object getUsage() {
+    return usage;
   }
 
-  public void setDetail(String detail) {
-    this.detail = detail;
-  }
-
-  public StatusBasic version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The current version for the Cloudsmith service.
-   * @return version
-  **/
-  @ApiModelProperty(example = "0.53.1", value = "The current version for the Cloudsmith service.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
+  public void setUsage(Object usage) {
+    this.usage = usage;
   }
 
 
@@ -84,24 +64,22 @@ public class StatusBasic implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusBasic statusBasic = (StatusBasic) o;
-    return Objects.equals(this.detail, statusBasic.detail) &&
-        Objects.equals(this.version, statusBasic.version);
+    Quota quota = (Quota) o;
+    return Objects.equals(this.usage, quota.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, version);
+    return Objects.hash(usage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusBasic {\n");
+    sb.append("class Quota {\n");
     
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

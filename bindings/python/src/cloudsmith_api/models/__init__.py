@@ -87,6 +87,9 @@ from .packages_validateupload_terraform import PackagesValidateuploadTerraform
 from .packages_validateupload_vagrant import PackagesValidateuploadVagrant
 from .packagesownerrepo_architectures import PackagesownerrepoArchitectures
 from .packagesownerrepo_files import PackagesownerrepoFiles
+from .quota import Quota
+from .quota_history import QuotaHistory
+from .quotaownerhistory_history import QuotaownerhistoryHistory
 from .raw_package_upload import RawPackageUpload
 from .repos_create import ReposCreate
 from .repos_gpg_keys import ReposGpgKeys
