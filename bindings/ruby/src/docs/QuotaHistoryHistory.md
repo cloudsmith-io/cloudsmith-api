@@ -1,4 +1,4 @@
-# CloudsmithApi::QuotaownerhistoryHistory
+# CloudsmithApi::QuotaHistoryHistory
 
 ## Properties
 Name | Type | Description | Notes

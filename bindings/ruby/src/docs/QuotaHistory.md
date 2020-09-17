@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**history** | [**Array&lt;QuotaownerhistoryHistory&gt;**](QuotaownerhistoryHistory.md) |  | 
+**history** | [**Array&lt;QuotaHistoryHistory&gt;**](QuotaHistoryHistory.md) |  | 
 
 
