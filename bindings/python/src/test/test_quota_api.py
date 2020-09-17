@@ -31,35 +31,35 @@ class TestQuotaApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_quota_history_list(self):
+    def test_quota_history_read(self):
         """
-        Test case for quota_history_list
+        Test case for quota_history_read
 
         Quota history for a given namespace.
         """
         pass
 
-    def test_quota_list(self):
+    def test_quota_oss_history_read(self):
         """
-        Test case for quota_list
-
-        Quota usage for a given namespace.
-        """
-        pass
-
-    def test_quota_oss_history_list(self):
-        """
-        Test case for quota_oss_history_list
+        Test case for quota_oss_history_read
 
         Open-source Quota history for a given namespace.
         """
         pass
 
-    def test_quota_oss_list(self):
+    def test_quota_oss_read(self):
         """
-        Test case for quota_oss_list
+        Test case for quota_oss_read
 
         Open-source Quota usage for a given namespace.
+        """
+        pass
+
+    def test_quota_read(self):
+        """
+        Test case for quota_read
+
+        Quota usage for a given namespace.
         """
         pass
 

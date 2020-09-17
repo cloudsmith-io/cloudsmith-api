@@ -31,7 +31,7 @@ class QuotaHistory(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'history': 'list[QuotaownerhistoryHistory]'
+        'history': 'list[QuotaHistoryHistory]'
     }
 
     attribute_map = {
@@ -54,7 +54,7 @@ class QuotaHistory(object):
         
 
         :return: The history of this QuotaHistory.
-        :rtype: list[QuotaownerhistoryHistory]
+        :rtype: list[QuotaHistoryHistory]
         """
         return self._history
 
@@ -65,7 +65,7 @@ class QuotaHistory(object):
         
 
         :param history: The history of this QuotaHistory.
-        :type: list[QuotaownerhistoryHistory]
+        :type: list[QuotaHistoryHistory]
         """
         if history is None:
             raise ValueError("Invalid value for `history`, must not be `None`")

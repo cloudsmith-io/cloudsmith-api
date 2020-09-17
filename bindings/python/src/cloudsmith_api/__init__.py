@@ -89,7 +89,7 @@ from .models.packagesownerrepo_architectures import PackagesownerrepoArchitectur
 from .models.packagesownerrepo_files import PackagesownerrepoFiles
 from .models.quota import Quota
 from .models.quota_history import QuotaHistory
-from .models.quotaownerhistory_history import QuotaownerhistoryHistory
+from .models.quota_history_history import QuotaHistoryHistory
 from .models.raw_package_upload import RawPackageUpload
 from .models.repos_create import ReposCreate
 from .models.repos_gpg_keys import ReposGpgKeys
