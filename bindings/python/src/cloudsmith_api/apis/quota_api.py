@@ -40,7 +40,7 @@ class QuotaApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def quota_history_list(self, owner, **kwargs):
+    def quota_history_read(self, owner, **kwargs):
         """
         Quota history for a given namespace.
         Quota history for a given namespace.
@@ -50,25 +50,23 @@ class QuotaApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.quota_history_list(owner, callback=callback_function)
+        >>> thread = api.quota_history_read(owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[QuotaHistory]
+        :return: QuotaHistory
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.quota_history_list_with_http_info(owner, **kwargs)
+            return self.quota_history_read_with_http_info(owner, **kwargs)
         else:
-            (data) = self.quota_history_list_with_http_info(owner, **kwargs)
+            (data) = self.quota_history_read_with_http_info(owner, **kwargs)
             return data
 
-    def quota_history_list_with_http_info(self, owner, **kwargs):
+    def quota_history_read_with_http_info(self, owner, **kwargs):
         """
         Quota history for a given namespace.
         Quota history for a given namespace.
@@ -78,19 +76,17 @@ class QuotaApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.quota_history_list_with_http_info(owner, callback=callback_function)
+        >>> thread = api.quota_history_read_with_http_info(owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[QuotaHistory]
+        :return: QuotaHistory
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'page', 'page_size']
+        all_params = ['owner']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -101,13 +97,13 @@ class QuotaApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method quota_history_list" % key
+                    " to method quota_history_read" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `quota_history_list`")
+            raise ValueError("Missing the required parameter `owner` when calling `quota_history_read`")
 
 
         collection_formats = {}
@@ -117,10 +113,6 @@ class QuotaApi(object):
             path_params['owner'] = params['owner']
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))
 
         header_params = {}
 
@@ -131,14 +123,14 @@ class QuotaApi(object):
         # Authentication setting
         auth_settings = ['apikey', 'csrf_token']
 
-        return self.api_client.call_api('/quota/{owner}/history/', 'GET',
+        return self.api_client.call_api('/quota/history/{owner}/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[QuotaHistory]',
+                                        response_type='QuotaHistory',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -146,57 +138,53 @@ class QuotaApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def quota_list(self, owner, **kwargs):
+    def quota_oss_history_read(self, owner, **kwargs):
         """
-        Quota usage for a given namespace.
-        Quota usage for a given namespace.
+        Open-source Quota history for a given namespace.
+        Open-source Quota history for a given namespace.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.quota_list(owner, callback=callback_function)
+        >>> thread = api.quota_oss_history_read(owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[Quota]
+        :return: QuotaHistory
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.quota_list_with_http_info(owner, **kwargs)
+            return self.quota_oss_history_read_with_http_info(owner, **kwargs)
         else:
-            (data) = self.quota_list_with_http_info(owner, **kwargs)
+            (data) = self.quota_oss_history_read_with_http_info(owner, **kwargs)
             return data
 
-    def quota_list_with_http_info(self, owner, **kwargs):
+    def quota_oss_history_read_with_http_info(self, owner, **kwargs):
         """
-        Quota usage for a given namespace.
-        Quota usage for a given namespace.
+        Open-source Quota history for a given namespace.
+        Open-source Quota history for a given namespace.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.quota_list_with_http_info(owner, callback=callback_function)
+        >>> thread = api.quota_oss_history_read_with_http_info(owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[Quota]
+        :return: QuotaHistory
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'page', 'page_size']
+        all_params = ['owner']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -207,13 +195,13 @@ class QuotaApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method quota_list" % key
+                    " to method quota_oss_history_read" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `quota_list`")
+            raise ValueError("Missing the required parameter `owner` when calling `quota_oss_history_read`")
 
 
         collection_formats = {}
@@ -223,10 +211,202 @@ class QuotaApi(object):
             path_params['owner'] = params['owner']
 
         query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'csrf_token']
+
+        return self.api_client.call_api('/quota/oss/history/{owner}/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='QuotaHistory',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def quota_oss_read(self, owner, **kwargs):
+        """
+        Open-source Quota usage for a given namespace.
+        Open-source Quota usage for a given namespace.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.quota_oss_read(owner, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :return: Quota
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.quota_oss_read_with_http_info(owner, **kwargs)
+        else:
+            (data) = self.quota_oss_read_with_http_info(owner, **kwargs)
+            return data
+
+    def quota_oss_read_with_http_info(self, owner, **kwargs):
+        """
+        Open-source Quota usage for a given namespace.
+        Open-source Quota usage for a given namespace.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.quota_oss_read_with_http_info(owner, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :return: Quota
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method quota_oss_read" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `quota_oss_read`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey', 'csrf_token']
+
+        return self.api_client.call_api('/quota/oss/{owner}/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='Quota',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def quota_read(self, owner, **kwargs):
+        """
+        Quota usage for a given namespace.
+        Quota usage for a given namespace.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.quota_read(owner, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :return: Quota
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.quota_read_with_http_info(owner, **kwargs)
+        else:
+            (data) = self.quota_read_with_http_info(owner, **kwargs)
+            return data
+
+    def quota_read_with_http_info(self, owner, **kwargs):
+        """
+        Quota usage for a given namespace.
+        Quota usage for a given namespace.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.quota_read_with_http_info(owner, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str owner:  (required)
+        :return: Quota
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method quota_read" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params) or (params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `quota_read`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']
+
+        query_params = []
 
         header_params = {}
 
@@ -244,219 +424,7 @@ class QuotaApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[Quota]',
-                                        auth_settings=auth_settings,
-                                        callback=params.get('callback'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
-    def quota_oss_history_list(self, owner, **kwargs):
-        """
-        Open-source Quota history for a given namespace.
-        Open-source Quota history for a given namespace.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.quota_oss_history_list(owner, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str owner:  (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[QuotaHistory]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.quota_oss_history_list_with_http_info(owner, **kwargs)
-        else:
-            (data) = self.quota_oss_history_list_with_http_info(owner, **kwargs)
-            return data
-
-    def quota_oss_history_list_with_http_info(self, owner, **kwargs):
-        """
-        Open-source Quota history for a given namespace.
-        Open-source Quota history for a given namespace.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.quota_oss_history_list_with_http_info(owner, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str owner:  (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[QuotaHistory]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'page', 'page_size']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method quota_oss_history_list" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `quota_oss_history_list`")
-
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']
-
-        query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
-
-        return self.api_client.call_api('/quota/{owner}/oss/history/', 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='list[QuotaHistory]',
-                                        auth_settings=auth_settings,
-                                        callback=params.get('callback'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
-    def quota_oss_list(self, owner, **kwargs):
-        """
-        Open-source Quota usage for a given namespace.
-        Open-source Quota usage for a given namespace.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.quota_oss_list(owner, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str owner:  (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[Quota]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.quota_oss_list_with_http_info(owner, **kwargs)
-        else:
-            (data) = self.quota_oss_list_with_http_info(owner, **kwargs)
-            return data
-
-    def quota_oss_list_with_http_info(self, owner, **kwargs):
-        """
-        Open-source Quota usage for a given namespace.
-        Open-source Quota usage for a given namespace.
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.quota_oss_list_with_http_info(owner, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str owner:  (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[Quota]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'page', 'page_size']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method quota_oss_list" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `quota_oss_list`")
-
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']
-
-        query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
-
-        return self.api_client.call_api('/quota/{owner}/oss/', 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='list[Quota]',
+                                        response_type='Quota',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

@@ -66,27 +66,21 @@ public class QuotaApi {
     }
 
     /**
-     * Build call for quotaHistoryList
+     * Build call for quotaHistoryRead
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call quotaHistoryListCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call quotaHistoryReadCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/quota/{owner}/history/"
+        String localVarPath = "/quota/history/{owner}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-        if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -121,18 +115,18 @@ public class QuotaApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call quotaHistoryListValidateBeforeCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call quotaHistoryReadValidateBeforeCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, page, pageSize };
-            Method method = this.getClass().getMethod("quotaHistoryListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Object[] parameterValues = { owner };
+            Method method = this.getClass().getMethod("quotaHistoryReadWithHttpInfo", String.class);
             Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = quotaHistoryListCall(owner, page, pageSize, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = quotaHistoryReadCall(owner, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -156,13 +150,11 @@ public class QuotaApi {
      * Quota history for a given namespace.
      * Quota history for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;QuotaHistory&gt;
+     * @return QuotaHistory
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<QuotaHistory> quotaHistoryList(String owner, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<QuotaHistory>> resp = quotaHistoryListWithHttpInfo(owner, page, pageSize);
+    public QuotaHistory quotaHistoryRead(String owner) throws ApiException {
+        ApiResponse<QuotaHistory> resp = quotaHistoryReadWithHttpInfo(owner);
         return resp.getData();
     }
 
@@ -170,14 +162,12 @@ public class QuotaApi {
      * Quota history for a given namespace.
      * Quota history for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;QuotaHistory&gt;&gt;
+     * @return ApiResponse&lt;QuotaHistory&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<QuotaHistory>> quotaHistoryListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize) throws ApiException {
-        com.squareup.okhttp.Call call = quotaHistoryListValidateBeforeCall(owner, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<QuotaHistory>>(){}.getType();
+    public ApiResponse<QuotaHistory> quotaHistoryReadWithHttpInfo( @NotNull String owner) throws ApiException {
+        com.squareup.okhttp.Call call = quotaHistoryReadValidateBeforeCall(owner, null, null);
+        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -185,13 +175,11 @@ public class QuotaApi {
      * Quota history for a given namespace. (asynchronously)
      * Quota history for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaHistoryListAsync(String owner, Integer page, Integer pageSize, final ApiCallback<List<QuotaHistory>> callback) throws ApiException {
+    public com.squareup.okhttp.Call quotaHistoryReadAsync(String owner, final ApiCallback<QuotaHistory> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -212,33 +200,27 @@ public class QuotaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = quotaHistoryListValidateBeforeCall(owner, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<QuotaHistory>>(){}.getType();
+        com.squareup.okhttp.Call call = quotaHistoryReadValidateBeforeCall(owner, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for quotaList
+     * Build call for quotaOssHistoryRead
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call quotaListCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call quotaOssHistoryReadCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/quota/{owner}/"
+        String localVarPath = "/quota/oss/history/{owner}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-        if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -273,170 +255,18 @@ public class QuotaApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call quotaListValidateBeforeCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call quotaOssHistoryReadValidateBeforeCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, page, pageSize };
-            Method method = this.getClass().getMethod("quotaListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Object[] parameterValues = { owner };
+            Method method = this.getClass().getMethod("quotaOssHistoryReadWithHttpInfo", String.class);
             Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = quotaListCall(owner, page, pageSize, progressListener, progressRequestListener);
-                return call;
-            
-            } else {
-                throw new BeanValidationException((Set) violations);
-            }
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-            throw new ApiException(e.getMessage());
-        } catch (SecurityException e) {
-            e.printStackTrace();
-            throw new ApiException(e.getMessage());
-        }
-            
-        
-        
-        
-        
-    }
-
-    /**
-     * Quota usage for a given namespace.
-     * Quota usage for a given namespace.
-     * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;Quota&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<Quota> quotaList(String owner, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<Quota>> resp = quotaListWithHttpInfo(owner, page, pageSize);
-        return resp.getData();
-    }
-
-    /**
-     * Quota usage for a given namespace.
-     * Quota usage for a given namespace.
-     * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;Quota&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<Quota>> quotaListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize) throws ApiException {
-        com.squareup.okhttp.Call call = quotaListValidateBeforeCall(owner, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<Quota>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Quota usage for a given namespace. (asynchronously)
-     * Quota usage for a given namespace.
-     * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call quotaListAsync(String owner, Integer page, Integer pageSize, final ApiCallback<List<Quota>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = quotaListValidateBeforeCall(owner, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Quota>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for quotaOssHistoryList
-     * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call quotaOssHistoryListCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/quota/{owner}/oss/history/"
-            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-        if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call quotaOssHistoryListValidateBeforeCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        try {
-            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
-
-            Object[] parameterValues = { owner, page, pageSize };
-            Method method = this.getClass().getMethod("quotaOssHistoryListWithHttpInfo", String.class, Integer.class, Integer.class);
-            Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
-                    parameterValues);
-
-            if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = quotaOssHistoryListCall(owner, page, pageSize, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = quotaOssHistoryReadCall(owner, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -460,13 +290,11 @@ public class QuotaApi {
      * Open-source Quota history for a given namespace.
      * Open-source Quota history for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;QuotaHistory&gt;
+     * @return QuotaHistory
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<QuotaHistory> quotaOssHistoryList(String owner, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<QuotaHistory>> resp = quotaOssHistoryListWithHttpInfo(owner, page, pageSize);
+    public QuotaHistory quotaOssHistoryRead(String owner) throws ApiException {
+        ApiResponse<QuotaHistory> resp = quotaOssHistoryReadWithHttpInfo(owner);
         return resp.getData();
     }
 
@@ -474,14 +302,12 @@ public class QuotaApi {
      * Open-source Quota history for a given namespace.
      * Open-source Quota history for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;QuotaHistory&gt;&gt;
+     * @return ApiResponse&lt;QuotaHistory&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<QuotaHistory>> quotaOssHistoryListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize) throws ApiException {
-        com.squareup.okhttp.Call call = quotaOssHistoryListValidateBeforeCall(owner, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<QuotaHistory>>(){}.getType();
+    public ApiResponse<QuotaHistory> quotaOssHistoryReadWithHttpInfo( @NotNull String owner) throws ApiException {
+        com.squareup.okhttp.Call call = quotaOssHistoryReadValidateBeforeCall(owner, null, null);
+        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -489,13 +315,11 @@ public class QuotaApi {
      * Open-source Quota history for a given namespace. (asynchronously)
      * Open-source Quota history for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaOssHistoryListAsync(String owner, Integer page, Integer pageSize, final ApiCallback<List<QuotaHistory>> callback) throws ApiException {
+    public com.squareup.okhttp.Call quotaOssHistoryReadAsync(String owner, final ApiCallback<QuotaHistory> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -516,33 +340,27 @@ public class QuotaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = quotaOssHistoryListValidateBeforeCall(owner, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<QuotaHistory>>(){}.getType();
+        com.squareup.okhttp.Call call = quotaOssHistoryReadValidateBeforeCall(owner, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for quotaOssList
+     * Build call for quotaOssRead
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call quotaOssListCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call quotaOssReadCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/quota/{owner}/oss/"
+        String localVarPath = "/quota/oss/{owner}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-        if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -577,18 +395,18 @@ public class QuotaApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call quotaOssListValidateBeforeCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call quotaOssReadValidateBeforeCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, page, pageSize };
-            Method method = this.getClass().getMethod("quotaOssListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Object[] parameterValues = { owner };
+            Method method = this.getClass().getMethod("quotaOssReadWithHttpInfo", String.class);
             Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = quotaOssListCall(owner, page, pageSize, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = quotaOssReadCall(owner, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -612,13 +430,11 @@ public class QuotaApi {
      * Open-source Quota usage for a given namespace.
      * Open-source Quota usage for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;Quota&gt;
+     * @return Quota
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Quota> quotaOssList(String owner, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<Quota>> resp = quotaOssListWithHttpInfo(owner, page, pageSize);
+    public Quota quotaOssRead(String owner) throws ApiException {
+        ApiResponse<Quota> resp = quotaOssReadWithHttpInfo(owner);
         return resp.getData();
     }
 
@@ -626,14 +442,12 @@ public class QuotaApi {
      * Open-source Quota usage for a given namespace.
      * Open-source Quota usage for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;Quota&gt;&gt;
+     * @return ApiResponse&lt;Quota&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Quota>> quotaOssListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize) throws ApiException {
-        com.squareup.okhttp.Call call = quotaOssListValidateBeforeCall(owner, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<Quota>>(){}.getType();
+    public ApiResponse<Quota> quotaOssReadWithHttpInfo( @NotNull String owner) throws ApiException {
+        com.squareup.okhttp.Call call = quotaOssReadValidateBeforeCall(owner, null, null);
+        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -641,13 +455,11 @@ public class QuotaApi {
      * Open-source Quota usage for a given namespace. (asynchronously)
      * Open-source Quota usage for a given namespace.
      * @param owner  (required)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaOssListAsync(String owner, Integer page, Integer pageSize, final ApiCallback<List<Quota>> callback) throws ApiException {
+    public com.squareup.okhttp.Call quotaOssReadAsync(String owner, final ApiCallback<Quota> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -668,8 +480,148 @@ public class QuotaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = quotaOssListValidateBeforeCall(owner, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Quota>>(){}.getType();
+        com.squareup.okhttp.Call call = quotaOssReadValidateBeforeCall(owner, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for quotaRead
+     * @param owner  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call quotaReadCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/quota/{owner}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call quotaReadValidateBeforeCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner };
+            Method method = this.getClass().getMethod("quotaReadWithHttpInfo", String.class);
+            Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = quotaReadCall(owner, progressListener, progressRequestListener);
+                return call;
+            
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+            
+        
+        
+        
+        
+    }
+
+    /**
+     * Quota usage for a given namespace.
+     * Quota usage for a given namespace.
+     * @param owner  (required)
+     * @return Quota
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Quota quotaRead(String owner) throws ApiException {
+        ApiResponse<Quota> resp = quotaReadWithHttpInfo(owner);
+        return resp.getData();
+    }
+
+    /**
+     * Quota usage for a given namespace.
+     * Quota usage for a given namespace.
+     * @param owner  (required)
+     * @return ApiResponse&lt;Quota&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Quota> quotaReadWithHttpInfo( @NotNull String owner) throws ApiException {
+        com.squareup.okhttp.Call call = quotaReadValidateBeforeCall(owner, null, null);
+        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Quota usage for a given namespace. (asynchronously)
+     * Quota usage for a given namespace.
+     * @param owner  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call quotaReadAsync(String owner, final ApiCallback<Quota> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = quotaReadValidateBeforeCall(owner, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

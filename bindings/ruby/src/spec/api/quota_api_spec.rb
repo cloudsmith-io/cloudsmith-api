@@ -32,57 +32,49 @@ describe 'QuotaApi' do
     end
   end
 
-  # unit tests for quota_history_list
+  # unit tests for quota_history_read
   # Quota history for a given namespace.
   # Quota history for a given namespace.
   # @param owner 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :page A page number within the paginated result set.
-  # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<QuotaHistory>]
-  describe 'quota_history_list test' do
+  # @return [QuotaHistory]
+  describe 'quota_history_read test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for quota_list
-  # Quota usage for a given namespace.
-  # Quota usage for a given namespace.
-  # @param owner 
-  # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :page A page number within the paginated result set.
-  # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<Quota>]
-  describe 'quota_list test' do
-    it "should work" do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for quota_oss_history_list
+  # unit tests for quota_oss_history_read
   # Open-source Quota history for a given namespace.
   # Open-source Quota history for a given namespace.
   # @param owner 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :page A page number within the paginated result set.
-  # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<QuotaHistory>]
-  describe 'quota_oss_history_list test' do
+  # @return [QuotaHistory]
+  describe 'quota_oss_history_read test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for quota_oss_list
+  # unit tests for quota_oss_read
   # Open-source Quota usage for a given namespace.
   # Open-source Quota usage for a given namespace.
   # @param owner 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :page A page number within the paginated result set.
-  # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<Quota>]
-  describe 'quota_oss_list test' do
+  # @return [Quota]
+  describe 'quota_oss_read test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for quota_read
+  # Quota usage for a given namespace.
+  # Quota usage for a given namespace.
+  # @param owner 
+  # @param [Hash] opts the optional parameters
+  # @return [Quota]
+  describe 'quota_read test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

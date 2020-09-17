@@ -29,7 +29,7 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'history' => :'Array<QuotaownerhistoryHistory>'
+        :'history' => :'Array<QuotaHistoryHistory>'
       }
     end
 

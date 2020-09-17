@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.quotaownerhistory_history import QuotaownerhistoryHistory
+from cloudsmith_api.models.quota_history_history import QuotaHistoryHistory
 
 
-class TestQuotaownerhistoryHistory(unittest.TestCase):
-    """ QuotaownerhistoryHistory unit test stubs """
+class TestQuotaHistoryHistory(unittest.TestCase):
+    """ QuotaHistoryHistory unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestQuotaownerhistoryHistory(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testQuotaownerhistoryHistory(self):
+    def testQuotaHistoryHistory(self):
         """
-        Test QuotaownerhistoryHistory
+        Test QuotaHistoryHistory
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.quotaownerhistory_history.QuotaownerhistoryHistory()
+        #model = cloudsmith_api.models.quota_history_history.QuotaHistoryHistory()
         pass
 
 

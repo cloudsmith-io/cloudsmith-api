@@ -10,7 +10,7 @@
 
 package cloudsmith_api
 
-type QuotaownerhistoryHistory struct {
+type QuotaHistoryHistory struct {
 
 	// 
 	Days int32 `json:"days,omitempty"`

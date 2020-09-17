@@ -24,11 +24,9 @@ module CloudsmithApi
     # Quota history for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<QuotaHistory>]
-    def quota_history_list(owner, opts = {})
-      data, _status_code, _headers = quota_history_list_with_http_info(owner, opts)
+    # @return [QuotaHistory]
+    def quota_history_read(owner, opts = {})
+      data, _status_code, _headers = quota_history_read_with_http_info(owner, opts)
       return data
     end
 
@@ -36,24 +34,20 @@ module CloudsmithApi
     # Quota history for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<QuotaHistory>, Fixnum, Hash)>] Array<QuotaHistory> data, response status code and response headers
-    def quota_history_list_with_http_info(owner, opts = {})
+    # @return [Array<(QuotaHistory, Fixnum, Hash)>] QuotaHistory data, response status code and response headers
+    def quota_history_read_with_http_info(owner, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: QuotaApi.quota_history_list ..."
+        @api_client.config.logger.debug "Calling API: QuotaApi.quota_history_read ..."
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling QuotaApi.quota_history_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling QuotaApi.quota_history_read"
       end
       # resource path
-      local_var_path = "/quota/{owner}/history/".sub('{' + 'owner' + '}', owner.to_s)
+      local_var_path = "/quota/history/{owner}/".sub('{' + 'owner' + '}', owner.to_s)
 
       # query parameters
       query_params = {}
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
 
       # header parameters
       header_params = {}
@@ -70,9 +64,111 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<QuotaHistory>')
+        :return_type => 'QuotaHistory')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuotaApi#quota_history_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: QuotaApi#quota_history_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Open-source Quota history for a given namespace.
+    # Open-source Quota history for a given namespace.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @return [QuotaHistory]
+    def quota_oss_history_read(owner, opts = {})
+      data, _status_code, _headers = quota_oss_history_read_with_http_info(owner, opts)
+      return data
+    end
+
+    # Open-source Quota history for a given namespace.
+    # Open-source Quota history for a given namespace.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(QuotaHistory, Fixnum, Hash)>] QuotaHistory data, response status code and response headers
+    def quota_oss_history_read_with_http_info(owner, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: QuotaApi.quota_oss_history_read ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling QuotaApi.quota_oss_history_read"
+      end
+      # resource path
+      local_var_path = "/quota/oss/history/{owner}/".sub('{' + 'owner' + '}', owner.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'QuotaHistory')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: QuotaApi#quota_oss_history_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Open-source Quota usage for a given namespace.
+    # Open-source Quota usage for a given namespace.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @return [Quota]
+    def quota_oss_read(owner, opts = {})
+      data, _status_code, _headers = quota_oss_read_with_http_info(owner, opts)
+      return data
+    end
+
+    # Open-source Quota usage for a given namespace.
+    # Open-source Quota usage for a given namespace.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Quota, Fixnum, Hash)>] Quota data, response status code and response headers
+    def quota_oss_read_with_http_info(owner, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: QuotaApi.quota_oss_read ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling QuotaApi.quota_oss_read"
+      end
+      # resource path
+      local_var_path = "/quota/oss/{owner}/".sub('{' + 'owner' + '}', owner.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'csrf_token']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Quota')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: QuotaApi#quota_oss_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -81,11 +177,9 @@ module CloudsmithApi
     # Quota usage for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<Quota>]
-    def quota_list(owner, opts = {})
-      data, _status_code, _headers = quota_list_with_http_info(owner, opts)
+    # @return [Quota]
+    def quota_read(owner, opts = {})
+      data, _status_code, _headers = quota_read_with_http_info(owner, opts)
       return data
     end
 
@@ -93,24 +187,20 @@ module CloudsmithApi
     # Quota usage for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<Quota>, Fixnum, Hash)>] Array<Quota> data, response status code and response headers
-    def quota_list_with_http_info(owner, opts = {})
+    # @return [Array<(Quota, Fixnum, Hash)>] Quota data, response status code and response headers
+    def quota_read_with_http_info(owner, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: QuotaApi.quota_list ..."
+        @api_client.config.logger.debug "Calling API: QuotaApi.quota_read ..."
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling QuotaApi.quota_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling QuotaApi.quota_read"
       end
       # resource path
       local_var_path = "/quota/{owner}/".sub('{' + 'owner' + '}', owner.to_s)
 
       # query parameters
       query_params = {}
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
 
       # header parameters
       header_params = {}
@@ -127,123 +217,9 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<Quota>')
+        :return_type => 'Quota')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuotaApi#quota_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Open-source Quota history for a given namespace.
-    # Open-source Quota history for a given namespace.
-    # @param owner 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<QuotaHistory>]
-    def quota_oss_history_list(owner, opts = {})
-      data, _status_code, _headers = quota_oss_history_list_with_http_info(owner, opts)
-      return data
-    end
-
-    # Open-source Quota history for a given namespace.
-    # Open-source Quota history for a given namespace.
-    # @param owner 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<QuotaHistory>, Fixnum, Hash)>] Array<QuotaHistory> data, response status code and response headers
-    def quota_oss_history_list_with_http_info(owner, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: QuotaApi.quota_oss_history_list ..."
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling QuotaApi.quota_oss_history_list"
-      end
-      # resource path
-      local_var_path = "/quota/{owner}/oss/history/".sub('{' + 'owner' + '}', owner.to_s)
-
-      # query parameters
-      query_params = {}
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-
-      # header parameters
-      header_params = {}
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'csrf_token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<QuotaHistory>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuotaApi#quota_oss_history_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Open-source Quota usage for a given namespace.
-    # Open-source Quota usage for a given namespace.
-    # @param owner 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<Quota>]
-    def quota_oss_list(owner, opts = {})
-      data, _status_code, _headers = quota_oss_list_with_http_info(owner, opts)
-      return data
-    end
-
-    # Open-source Quota usage for a given namespace.
-    # Open-source Quota usage for a given namespace.
-    # @param owner 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<Quota>, Fixnum, Hash)>] Array<Quota> data, response status code and response headers
-    def quota_oss_list_with_http_info(owner, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: QuotaApi.quota_oss_list ..."
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling QuotaApi.quota_oss_list"
-      end
-      # resource path
-      local_var_path = "/quota/{owner}/oss/".sub('{' + 'owner' + '}', owner.to_s)
-
-      # query parameters
-      query_params = {}
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-
-      # header parameters
-      header_params = {}
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'csrf_token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<Quota>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuotaApi#quota_oss_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: QuotaApi#quota_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

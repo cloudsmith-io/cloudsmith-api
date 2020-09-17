@@ -13,5 +13,5 @@ package cloudsmith_api
 type QuotaHistory struct {
 
 	// 
-	History []QuotaownerhistoryHistory `json:"history"`
+	History []QuotaHistoryHistory `json:"history"`
 }

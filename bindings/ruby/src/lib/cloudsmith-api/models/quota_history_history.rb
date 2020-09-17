@@ -14,7 +14,7 @@ require 'date'
 
 module CloudsmithApi
 
-  class QuotaownerhistoryHistory
+  class QuotaHistoryHistory
     # 
     attr_accessor :days
 
