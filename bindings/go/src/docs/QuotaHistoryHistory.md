@@ -1,4 +1,4 @@
-# QuotaownerhistoryHistory
+# QuotaHistoryHistory
 
 ## Properties
 Name | Type | Description | Notes

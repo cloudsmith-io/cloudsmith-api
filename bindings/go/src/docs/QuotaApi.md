@@ -4,14 +4,14 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**QuotaHistoryList**](QuotaApi.md#QuotaHistoryList) | **Get** /quota/{owner}/history/ | Quota history for a given namespace.
-[**QuotaList**](QuotaApi.md#QuotaList) | **Get** /quota/{owner}/ | Quota usage for a given namespace.
-[**QuotaOssHistoryList**](QuotaApi.md#QuotaOssHistoryList) | **Get** /quota/{owner}/oss/history/ | Open-source Quota history for a given namespace.
-[**QuotaOssList**](QuotaApi.md#QuotaOssList) | **Get** /quota/{owner}/oss/ | Open-source Quota usage for a given namespace.
+[**QuotaHistoryRead**](QuotaApi.md#QuotaHistoryRead) | **Get** /quota/history/{owner}/ | Quota history for a given namespace.
+[**QuotaOssHistoryRead**](QuotaApi.md#QuotaOssHistoryRead) | **Get** /quota/oss/history/{owner}/ | Open-source Quota history for a given namespace.
+[**QuotaOssRead**](QuotaApi.md#QuotaOssRead) | **Get** /quota/oss/{owner}/ | Open-source Quota usage for a given namespace.
+[**QuotaRead**](QuotaApi.md#QuotaRead) | **Get** /quota/{owner}/ | Quota usage for a given namespace.
 
 
-# **QuotaHistoryList**
-> []QuotaHistory QuotaHistoryList($owner, $page, $pageSize)
+# **QuotaHistoryRead**
+> QuotaHistory QuotaHistoryRead($owner)
 
 Quota history for a given namespace.
 
@@ -23,12 +23,10 @@ Quota history for a given namespace.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**[]QuotaHistory**](QuotaHistory.md)
+[**QuotaHistory**](QuotaHistory.md)
 
 ### Authorization
 
@@ -41,39 +39,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **QuotaList**
-> []Quota QuotaList($owner, $page, $pageSize)
-
-Quota usage for a given namespace.
-
-Quota usage for a given namespace.
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
-
-### Return type
-
-[**[]Quota**](Quota.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **QuotaOssHistoryList**
-> []QuotaHistory QuotaOssHistoryList($owner, $page, $pageSize)
+# **QuotaOssHistoryRead**
+> QuotaHistory QuotaOssHistoryRead($owner)
 
 Open-source Quota history for a given namespace.
 
@@ -85,12 +52,10 @@ Open-source Quota history for a given namespace.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**[]QuotaHistory**](QuotaHistory.md)
+[**QuotaHistory**](QuotaHistory.md)
 
 ### Authorization
 
@@ -103,8 +68,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **QuotaOssList**
-> []Quota QuotaOssList($owner, $page, $pageSize)
+# **QuotaOssRead**
+> Quota QuotaOssRead($owner)
 
 Open-source Quota usage for a given namespace.
 
@@ -116,12 +81,39 @@ Open-source Quota usage for a given namespace.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**[]Quota**](Quota.md)
+[**Quota**](Quota.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **QuotaRead**
+> Quota QuotaRead($owner)
+
+Quota usage for a given namespace.
+
+Quota usage for a given namespace.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+
+### Return type
+
+[**Quota**](Quota.md)
 
 ### Authorization
 
