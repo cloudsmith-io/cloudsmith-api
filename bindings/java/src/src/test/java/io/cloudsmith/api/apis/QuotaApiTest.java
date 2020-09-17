@@ -43,29 +43,9 @@ public class QuotaApiTest {
      *          if the Api call fails
      */
     @Test
-    public void quotaHistoryListTest() throws ApiException {
+    public void quotaHistoryReadTest() throws ApiException {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
-        List<QuotaHistory> response = api.quotaHistoryList(owner, page, pageSize);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Quota usage for a given namespace.
-     *
-     * Quota usage for a given namespace.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void quotaListTest() throws ApiException {
-        String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
-        List<Quota> response = api.quotaList(owner, page, pageSize);
+        QuotaHistory response = api.quotaHistoryRead(owner);
 
         // TODO: test validations
     }
@@ -79,11 +59,9 @@ public class QuotaApiTest {
      *          if the Api call fails
      */
     @Test
-    public void quotaOssHistoryListTest() throws ApiException {
+    public void quotaOssHistoryReadTest() throws ApiException {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
-        List<QuotaHistory> response = api.quotaOssHistoryList(owner, page, pageSize);
+        QuotaHistory response = api.quotaOssHistoryRead(owner);
 
         // TODO: test validations
     }
@@ -97,11 +75,25 @@ public class QuotaApiTest {
      *          if the Api call fails
      */
     @Test
-    public void quotaOssListTest() throws ApiException {
+    public void quotaOssReadTest() throws ApiException {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
-        List<Quota> response = api.quotaOssList(owner, page, pageSize);
+        Quota response = api.quotaOssRead(owner);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Quota usage for a given namespace.
+     *
+     * Quota usage for a given namespace.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void quotaReadTest() throws ApiException {
+        String owner = null;
+        Quota response = api.quotaRead(owner);
 
         // TODO: test validations
     }

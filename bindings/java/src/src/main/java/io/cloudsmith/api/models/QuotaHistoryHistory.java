@@ -27,10 +27,10 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * QuotaownerhistoryHistory
+ * QuotaHistoryHistory
  */
 
-public class QuotaownerhistoryHistory implements Serializable {
+public class QuotaHistoryHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("days")
@@ -51,7 +51,7 @@ public class QuotaownerhistoryHistory implements Serializable {
   @SerializedName("start")
   private String start = null;
 
-  public QuotaownerhistoryHistory days(Integer days) {
+  public QuotaHistoryHistory days(Integer days) {
     this.days = days;
     return this;
   }
@@ -69,7 +69,7 @@ public class QuotaownerhistoryHistory implements Serializable {
     this.days = days;
   }
 
-  public QuotaownerhistoryHistory display(Object display) {
+  public QuotaHistoryHistory display(Object display) {
     this.display = display;
     return this;
   }
@@ -87,7 +87,7 @@ public class QuotaownerhistoryHistory implements Serializable {
     this.display = display;
   }
 
-  public QuotaownerhistoryHistory end(String end) {
+  public QuotaHistoryHistory end(String end) {
     this.end = end;
     return this;
   }
@@ -105,7 +105,7 @@ public class QuotaownerhistoryHistory implements Serializable {
     this.end = end;
   }
 
-  public QuotaownerhistoryHistory plan(String plan) {
+  public QuotaHistoryHistory plan(String plan) {
     this.plan = plan;
     return this;
   }
@@ -123,7 +123,7 @@ public class QuotaownerhistoryHistory implements Serializable {
     this.plan = plan;
   }
 
-  public QuotaownerhistoryHistory raw(Object raw) {
+  public QuotaHistoryHistory raw(Object raw) {
     this.raw = raw;
     return this;
   }
@@ -141,7 +141,7 @@ public class QuotaownerhistoryHistory implements Serializable {
     this.raw = raw;
   }
 
-  public QuotaownerhistoryHistory start(String start) {
+  public QuotaHistoryHistory start(String start) {
     this.start = start;
     return this;
   }
@@ -168,13 +168,13 @@ public class QuotaownerhistoryHistory implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    QuotaownerhistoryHistory quotaownerhistoryHistory = (QuotaownerhistoryHistory) o;
-    return Objects.equals(this.days, quotaownerhistoryHistory.days) &&
-        Objects.equals(this.display, quotaownerhistoryHistory.display) &&
-        Objects.equals(this.end, quotaownerhistoryHistory.end) &&
-        Objects.equals(this.plan, quotaownerhistoryHistory.plan) &&
-        Objects.equals(this.raw, quotaownerhistoryHistory.raw) &&
-        Objects.equals(this.start, quotaownerhistoryHistory.start);
+    QuotaHistoryHistory quotaHistoryHistory = (QuotaHistoryHistory) o;
+    return Objects.equals(this.days, quotaHistoryHistory.days) &&
+        Objects.equals(this.display, quotaHistoryHistory.display) &&
+        Objects.equals(this.end, quotaHistoryHistory.end) &&
+        Objects.equals(this.plan, quotaHistoryHistory.plan) &&
+        Objects.equals(this.raw, quotaHistoryHistory.raw) &&
+        Objects.equals(this.start, quotaHistoryHistory.start);
   }
 
   @Override
@@ -186,7 +186,7 @@ public class QuotaownerhistoryHistory implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class QuotaownerhistoryHistory {\n");
+    sb.append("class QuotaHistoryHistory {\n");
     
     sb.append("    days: ").append(toIndentedString(days)).append("\n");
     sb.append("    display: ").append(toIndentedString(display)).append("\n");
