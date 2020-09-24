@@ -55,7 +55,7 @@ public class QuotaHistory implements Serializable {
   **/
   @NotNull
   @Valid
-  @ApiModelProperty(example = "[{\"days\":30,\"display\":{\"downloaded\":{\"limit\":\"2 TB\",\"percentage\":\"0.0%\",\"used\":\"0 B\"},\"storage_used\":{\"limit\":\"1 TB\",\"percentage\":\"0.109%\",\"used\":\"1.1 GB\"},\"uploaded\":{\"limit\":\"Unlimited\",\"percentage\":\"∞\",\"used\":\"0 B\"}},\"end\":\"2020-10-10 12:35:23+00:00\",\"plan\":\"Package (Velocity)\",\"raw\":{\"downloaded\":{\"limit\":2199023255552,\"percentage\":0.0,\"used\":0},\"storage_used\":{\"limit\":1099511627776,\"percentage\":0.109,\"used\":1197653687},\"uploaded\":{\"limit\":null,\"percentage\":0.0,\"used\":0}},\"start\":\"2020-09-10 12:35:23+00:00\"}]", required = true, value = "")
+  @ApiModelProperty(example = "[{\"days\":30,\"display\":{\"downloaded\":{\"limit\":\"2 TB\",\"percentage\":\"0.0%\",\"used\":\"0 B\"},\"storage_used\":{\"limit\":\"1 TB\",\"percentage\":\"0.109%\",\"used\":\"1.1 GB\"},\"uploaded\":{\"limit\":\"Unlimited\",\"percentage\":\"∞\",\"used\":\"0 B\"}},\"end\":\"2020-10-10 12:35:23+00:00\",\"plan\":\"Package (Velocity)\",\"raw\":{\"downloaded\":{\"limit\":2199023255552,\"percentage\":0.0,\"used\":0},\"storage_used\":{\"limit\":1099511627776,\"percentage\":0.109,\"used\":1197653687},\"uploaded\":{\"limit\":\"\",\"percentage\":0.0,\"used\":0}},\"start\":\"2020-09-10 12:35:23+00:00\"}]", required = true, value = "")
   public List<QuotaHistoryHistory> getHistory() {
     return history;
   }

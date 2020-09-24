@@ -32,6 +32,8 @@ class EntitlementsRefresh(object):
     """
     swagger_types = {
         'is_active': 'bool',
+        'limit_bandwidth': 'int',
+        'limit_bandwidth_unit': 'str',
         'limit_date_range_from': 'str',
         'limit_date_range_to': 'str',
         'limit_num_clients': 'int',
@@ -39,11 +41,14 @@ class EntitlementsRefresh(object):
         'limit_package_query': 'str',
         'limit_path_query': 'str',
         'metadata': 'object',
+        'scheduled_reset_period': 'str',
         'token': 'str'
     }
 
     attribute_map = {
         'is_active': 'is_active',
+        'limit_bandwidth': 'limit_bandwidth',
+        'limit_bandwidth_unit': 'limit_bandwidth_unit',
         'limit_date_range_from': 'limit_date_range_from',
         'limit_date_range_to': 'limit_date_range_to',
         'limit_num_clients': 'limit_num_clients',
@@ -51,15 +56,18 @@ class EntitlementsRefresh(object):
         'limit_package_query': 'limit_package_query',
         'limit_path_query': 'limit_path_query',
         'metadata': 'metadata',
+        'scheduled_reset_period': 'scheduled_reset_period',
         'token': 'token'
     }
 
-    def __init__(self, is_active=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, token=None):
+    def __init__(self, is_active=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, scheduled_reset_period=None, token=None):
         """
         EntitlementsRefresh - a model defined in Swagger
         """
 
         self._is_active = None
+        self._limit_bandwidth = None
+        self._limit_bandwidth_unit = None
         self._limit_date_range_from = None
         self._limit_date_range_to = None
         self._limit_num_clients = None
@@ -67,10 +75,15 @@ class EntitlementsRefresh(object):
         self._limit_package_query = None
         self._limit_path_query = None
         self._metadata = None
+        self._scheduled_reset_period = None
         self._token = None
 
         if is_active is not None:
           self.is_active = is_active
+        if limit_bandwidth is not None:
+          self.limit_bandwidth = limit_bandwidth
+        if limit_bandwidth_unit is not None:
+          self.limit_bandwidth_unit = limit_bandwidth_unit
         if limit_date_range_from is not None:
           self.limit_date_range_from = limit_date_range_from
         if limit_date_range_to is not None:
@@ -85,6 +98,8 @@ class EntitlementsRefresh(object):
           self.limit_path_query = limit_path_query
         if metadata is not None:
           self.metadata = metadata
+        if scheduled_reset_period is not None:
+          self.scheduled_reset_period = scheduled_reset_period
         if token is not None:
           self.token = token
 
@@ -110,6 +125,52 @@ class EntitlementsRefresh(object):
         """
 
         self._is_active = is_active
+
+    @property
+    def limit_bandwidth(self):
+        """
+        Gets the limit_bandwidth of this EntitlementsRefresh.
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+
+        :return: The limit_bandwidth of this EntitlementsRefresh.
+        :rtype: int
+        """
+        return self._limit_bandwidth
+
+    @limit_bandwidth.setter
+    def limit_bandwidth(self, limit_bandwidth):
+        """
+        Sets the limit_bandwidth of this EntitlementsRefresh.
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+
+        :param limit_bandwidth: The limit_bandwidth of this EntitlementsRefresh.
+        :type: int
+        """
+
+        self._limit_bandwidth = limit_bandwidth
+
+    @property
+    def limit_bandwidth_unit(self):
+        """
+        Gets the limit_bandwidth_unit of this EntitlementsRefresh.
+        None
+
+        :return: The limit_bandwidth_unit of this EntitlementsRefresh.
+        :rtype: str
+        """
+        return self._limit_bandwidth_unit
+
+    @limit_bandwidth_unit.setter
+    def limit_bandwidth_unit(self, limit_bandwidth_unit):
+        """
+        Sets the limit_bandwidth_unit of this EntitlementsRefresh.
+        None
+
+        :param limit_bandwidth_unit: The limit_bandwidth_unit of this EntitlementsRefresh.
+        :type: str
+        """
+
+        self._limit_bandwidth_unit = limit_bandwidth_unit
 
     @property
     def limit_date_range_from(self):
@@ -271,6 +332,29 @@ class EntitlementsRefresh(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def scheduled_reset_period(self):
+        """
+        Gets the scheduled_reset_period of this EntitlementsRefresh.
+        None
+
+        :return: The scheduled_reset_period of this EntitlementsRefresh.
+        :rtype: str
+        """
+        return self._scheduled_reset_period
+
+    @scheduled_reset_period.setter
+    def scheduled_reset_period(self, scheduled_reset_period):
+        """
+        Sets the scheduled_reset_period of this EntitlementsRefresh.
+        None
+
+        :param scheduled_reset_period: The scheduled_reset_period of this EntitlementsRefresh.
+        :type: str
+        """
+
+        self._scheduled_reset_period = scheduled_reset_period
 
     @property
     def token(self):

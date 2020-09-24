@@ -15,6 +15,12 @@ type EntitlementsPartialUpdate struct {
 	// If enabled, the token will allow downloads based on configured restrictions (if any).
 	IsActive bool `json:"is_active,omitempty"`
 
+	// The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+	LimitBandwidth int32 `json:"limit_bandwidth,omitempty"`
+
+	// None
+	LimitBandwidthUnit string `json:"limit_bandwidth_unit,omitempty"`
+
 	// The starting date/time the token is allowed to be used from.
 	LimitDateRangeFrom string `json:"limit_date_range_from,omitempty"`
 
@@ -38,6 +44,9 @@ type EntitlementsPartialUpdate struct {
 
 	// None
 	Name string `json:"name,omitempty"`
+
+	// None
+	ScheduledResetPeriod string `json:"scheduled_reset_period,omitempty"`
 
 	// None
 	Token string `json:"token,omitempty"`

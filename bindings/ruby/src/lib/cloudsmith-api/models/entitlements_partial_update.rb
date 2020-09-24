@@ -18,6 +18,12 @@ module CloudsmithApi
     # If enabled, the token will allow downloads based on configured restrictions (if any).
     attr_accessor :is_active
 
+    # The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+    attr_accessor :limit_bandwidth
+
+    # None
+    attr_accessor :limit_bandwidth_unit
+
     # The starting date/time the token is allowed to be used from.
     attr_accessor :limit_date_range_from
 
@@ -43,6 +49,9 @@ module CloudsmithApi
     attr_accessor :name
 
     # None
+    attr_accessor :scheduled_reset_period
+
+    # None
     attr_accessor :token
 
 
@@ -50,6 +59,8 @@ module CloudsmithApi
     def self.attribute_map
       {
         :'is_active' => :'is_active',
+        :'limit_bandwidth' => :'limit_bandwidth',
+        :'limit_bandwidth_unit' => :'limit_bandwidth_unit',
         :'limit_date_range_from' => :'limit_date_range_from',
         :'limit_date_range_to' => :'limit_date_range_to',
         :'limit_num_clients' => :'limit_num_clients',
@@ -58,6 +69,7 @@ module CloudsmithApi
         :'limit_path_query' => :'limit_path_query',
         :'metadata' => :'metadata',
         :'name' => :'name',
+        :'scheduled_reset_period' => :'scheduled_reset_period',
         :'token' => :'token'
       }
     end
@@ -66,6 +78,8 @@ module CloudsmithApi
     def self.swagger_types
       {
         :'is_active' => :'BOOLEAN',
+        :'limit_bandwidth' => :'Integer',
+        :'limit_bandwidth_unit' => :'String',
         :'limit_date_range_from' => :'String',
         :'limit_date_range_to' => :'String',
         :'limit_num_clients' => :'Integer',
@@ -74,6 +88,7 @@ module CloudsmithApi
         :'limit_path_query' => :'String',
         :'metadata' => :'Object',
         :'name' => :'String',
+        :'scheduled_reset_period' => :'String',
         :'token' => :'String'
       }
     end
@@ -88,6 +103,14 @@ module CloudsmithApi
 
       if attributes.has_key?(:'is_active')
         self.is_active = attributes[:'is_active']
+      end
+
+      if attributes.has_key?(:'limit_bandwidth')
+        self.limit_bandwidth = attributes[:'limit_bandwidth']
+      end
+
+      if attributes.has_key?(:'limit_bandwidth_unit')
+        self.limit_bandwidth_unit = attributes[:'limit_bandwidth_unit']
       end
 
       if attributes.has_key?(:'limit_date_range_from')
@@ -122,6 +145,10 @@ module CloudsmithApi
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'scheduled_reset_period')
+        self.scheduled_reset_period = attributes[:'scheduled_reset_period']
+      end
+
       if attributes.has_key?(:'token')
         self.token = attributes[:'token']
       end
@@ -147,6 +174,8 @@ module CloudsmithApi
       return true if self.equal?(o)
       self.class == o.class &&
           is_active == o.is_active &&
+          limit_bandwidth == o.limit_bandwidth &&
+          limit_bandwidth_unit == o.limit_bandwidth_unit &&
           limit_date_range_from == o.limit_date_range_from &&
           limit_date_range_to == o.limit_date_range_to &&
           limit_num_clients == o.limit_num_clients &&
@@ -155,6 +184,7 @@ module CloudsmithApi
           limit_path_query == o.limit_path_query &&
           metadata == o.metadata &&
           name == o.name &&
+          scheduled_reset_period == o.scheduled_reset_period &&
           token == o.token
     end
 
@@ -167,7 +197,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [is_active, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, token].hash
+      [is_active, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, scheduled_reset_period, token].hash
     end
 
     # Builds the object from hash
