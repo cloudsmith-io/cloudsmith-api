@@ -41,6 +41,8 @@ class RepositoryTokenSyncTokens(object):
         'identifier': 'int',
         'is_active': 'bool',
         'is_limited': 'bool',
+        'limit_bandwidth': 'int',
+        'limit_bandwidth_unit': 'str',
         'limit_date_range_from': 'str',
         'limit_date_range_to': 'str',
         'limit_num_clients': 'int',
@@ -50,6 +52,8 @@ class RepositoryTokenSyncTokens(object):
         'metadata': 'str',
         'name': 'str',
         'refresh_url': 'str',
+        'scheduled_reset_at': 'str',
+        'scheduled_reset_period': 'str',
         'self_url': 'str',
         'slug_perm': 'str',
         'token': 'str',
@@ -72,6 +76,8 @@ class RepositoryTokenSyncTokens(object):
         'identifier': 'identifier',
         'is_active': 'is_active',
         'is_limited': 'is_limited',
+        'limit_bandwidth': 'limit_bandwidth',
+        'limit_bandwidth_unit': 'limit_bandwidth_unit',
         'limit_date_range_from': 'limit_date_range_from',
         'limit_date_range_to': 'limit_date_range_to',
         'limit_num_clients': 'limit_num_clients',
@@ -81,6 +87,8 @@ class RepositoryTokenSyncTokens(object):
         'metadata': 'metadata',
         'name': 'name',
         'refresh_url': 'refresh_url',
+        'scheduled_reset_at': 'scheduled_reset_at',
+        'scheduled_reset_period': 'scheduled_reset_period',
         'self_url': 'self_url',
         'slug_perm': 'slug_perm',
         'token': 'token',
@@ -92,7 +100,7 @@ class RepositoryTokenSyncTokens(object):
         'user_url': 'user_url'
     }
 
-    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, downloads=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
+    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, downloads=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, scheduled_reset_at=None, scheduled_reset_period=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
         """
         RepositoryTokenSyncTokens - a model defined in Swagger
         """
@@ -107,6 +115,8 @@ class RepositoryTokenSyncTokens(object):
         self._identifier = None
         self._is_active = None
         self._is_limited = None
+        self._limit_bandwidth = None
+        self._limit_bandwidth_unit = None
         self._limit_date_range_from = None
         self._limit_date_range_to = None
         self._limit_num_clients = None
@@ -116,6 +126,8 @@ class RepositoryTokenSyncTokens(object):
         self._metadata = None
         self._name = None
         self._refresh_url = None
+        self._scheduled_reset_at = None
+        self._scheduled_reset_period = None
         self._self_url = None
         self._slug_perm = None
         self._token = None
@@ -146,6 +158,10 @@ class RepositoryTokenSyncTokens(object):
           self.is_active = is_active
         if is_limited is not None:
           self.is_limited = is_limited
+        if limit_bandwidth is not None:
+          self.limit_bandwidth = limit_bandwidth
+        if limit_bandwidth_unit is not None:
+          self.limit_bandwidth_unit = limit_bandwidth_unit
         if limit_date_range_from is not None:
           self.limit_date_range_from = limit_date_range_from
         if limit_date_range_to is not None:
@@ -164,6 +180,10 @@ class RepositoryTokenSyncTokens(object):
           self.name = name
         if refresh_url is not None:
           self.refresh_url = refresh_url
+        if scheduled_reset_at is not None:
+          self.scheduled_reset_at = scheduled_reset_at
+        if scheduled_reset_period is not None:
+          self.scheduled_reset_period = scheduled_reset_period
         if self_url is not None:
           self.self_url = self_url
         if slug_perm is not None:
@@ -414,6 +434,52 @@ class RepositoryTokenSyncTokens(object):
         self._is_limited = is_limited
 
     @property
+    def limit_bandwidth(self):
+        """
+        Gets the limit_bandwidth of this RepositoryTokenSyncTokens.
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+
+        :return: The limit_bandwidth of this RepositoryTokenSyncTokens.
+        :rtype: int
+        """
+        return self._limit_bandwidth
+
+    @limit_bandwidth.setter
+    def limit_bandwidth(self, limit_bandwidth):
+        """
+        Sets the limit_bandwidth of this RepositoryTokenSyncTokens.
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+
+        :param limit_bandwidth: The limit_bandwidth of this RepositoryTokenSyncTokens.
+        :type: int
+        """
+
+        self._limit_bandwidth = limit_bandwidth
+
+    @property
+    def limit_bandwidth_unit(self):
+        """
+        Gets the limit_bandwidth_unit of this RepositoryTokenSyncTokens.
+        
+
+        :return: The limit_bandwidth_unit of this RepositoryTokenSyncTokens.
+        :rtype: str
+        """
+        return self._limit_bandwidth_unit
+
+    @limit_bandwidth_unit.setter
+    def limit_bandwidth_unit(self, limit_bandwidth_unit):
+        """
+        Sets the limit_bandwidth_unit of this RepositoryTokenSyncTokens.
+        
+
+        :param limit_bandwidth_unit: The limit_bandwidth_unit of this RepositoryTokenSyncTokens.
+        :type: str
+        """
+
+        self._limit_bandwidth_unit = limit_bandwidth_unit
+
+    @property
     def limit_date_range_from(self):
         """
         Gets the limit_date_range_from of this RepositoryTokenSyncTokens.
@@ -619,6 +685,52 @@ class RepositoryTokenSyncTokens(object):
         """
 
         self._refresh_url = refresh_url
+
+    @property
+    def scheduled_reset_at(self):
+        """
+        Gets the scheduled_reset_at of this RepositoryTokenSyncTokens.
+        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
+
+        :return: The scheduled_reset_at of this RepositoryTokenSyncTokens.
+        :rtype: str
+        """
+        return self._scheduled_reset_at
+
+    @scheduled_reset_at.setter
+    def scheduled_reset_at(self, scheduled_reset_at):
+        """
+        Sets the scheduled_reset_at of this RepositoryTokenSyncTokens.
+        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
+
+        :param scheduled_reset_at: The scheduled_reset_at of this RepositoryTokenSyncTokens.
+        :type: str
+        """
+
+        self._scheduled_reset_at = scheduled_reset_at
+
+    @property
+    def scheduled_reset_period(self):
+        """
+        Gets the scheduled_reset_period of this RepositoryTokenSyncTokens.
+        
+
+        :return: The scheduled_reset_period of this RepositoryTokenSyncTokens.
+        :rtype: str
+        """
+        return self._scheduled_reset_period
+
+    @scheduled_reset_period.setter
+    def scheduled_reset_period(self, scheduled_reset_period):
+        """
+        Sets the scheduled_reset_period of this RepositoryTokenSyncTokens.
+        
+
+        :param scheduled_reset_period: The scheduled_reset_period of this RepositoryTokenSyncTokens.
+        :type: str
+        """
+
+        self._scheduled_reset_period = scheduled_reset_period
 
     @property
     def self_url(self):
