@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **identifier** | **Integer** |  | [optional] 
 **is_active** | **BOOLEAN** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] 
 **is_limited** | **BOOLEAN** |  | [optional] 
+**limit_bandwidth** | **Integer** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  | [optional] 
+**limit_bandwidth_unit** | **String** |  | [optional] 
 **limit_date_range_from** | **String** | The starting date/time the token is allowed to be used from. | [optional] 
 **limit_date_range_to** | **String** | The ending date/time the token is allowed to be used until. | [optional] 
 **limit_num_clients** | **Integer** | The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. | [optional] 
@@ -22,6 +24,8 @@ Name | Type | Description | Notes
 **metadata** | **Object** |  | [optional] 
 **name** | **String** |  | 
 **refresh_url** | **String** |  | [optional] 
+**scheduled_reset_at** | **String** | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. | [optional] 
+**scheduled_reset_period** | **String** |  | [optional] 
 **self_url** | **String** |  | [optional] 
 **slug_perm** | **String** |  | [optional] 
 **token** | **String** |  | [optional] 
