@@ -63,6 +63,12 @@ public class RepositoryToken implements Serializable {
   @SerializedName("is_limited")
   private Boolean isLimited = null;
 
+  @SerializedName("limit_bandwidth")
+  private Integer limitBandwidth = null;
+
+  @SerializedName("limit_bandwidth_unit")
+  private String limitBandwidthUnit = null;
+
   @SerializedName("limit_date_range_from")
   private String limitDateRangeFrom = null;
 
@@ -89,6 +95,12 @@ public class RepositoryToken implements Serializable {
 
   @SerializedName("refresh_url")
   private String refreshUrl = null;
+
+  @SerializedName("scheduled_reset_at")
+  private String scheduledResetAt = null;
+
+  @SerializedName("scheduled_reset_period")
+  private String scheduledResetPeriod = null;
 
   @SerializedName("self_url")
   private String selfUrl = null;
@@ -297,6 +309,42 @@ public class RepositoryToken implements Serializable {
     this.isLimited = isLimited;
   }
 
+  public RepositoryToken limitBandwidth(Integer limitBandwidth) {
+    this.limitBandwidth = limitBandwidth;
+    return this;
+  }
+
+   /**
+   * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+   * @return limitBandwidth
+  **/
+  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
+  public Integer getLimitBandwidth() {
+    return limitBandwidth;
+  }
+
+  public void setLimitBandwidth(Integer limitBandwidth) {
+    this.limitBandwidth = limitBandwidth;
+  }
+
+  public RepositoryToken limitBandwidthUnit(String limitBandwidthUnit) {
+    this.limitBandwidthUnit = limitBandwidthUnit;
+    return this;
+  }
+
+   /**
+   * 
+   * @return limitBandwidthUnit
+  **/
+  @ApiModelProperty(value = "")
+  public String getLimitBandwidthUnit() {
+    return limitBandwidthUnit;
+  }
+
+  public void setLimitBandwidthUnit(String limitBandwidthUnit) {
+    this.limitBandwidthUnit = limitBandwidthUnit;
+  }
+
   public RepositoryToken limitDateRangeFrom(String limitDateRangeFrom) {
     this.limitDateRangeFrom = limitDateRangeFrom;
     return this;
@@ -458,6 +506,42 @@ public class RepositoryToken implements Serializable {
 
   public void setRefreshUrl(String refreshUrl) {
     this.refreshUrl = refreshUrl;
+  }
+
+  public RepositoryToken scheduledResetAt(String scheduledResetAt) {
+    this.scheduledResetAt = scheduledResetAt;
+    return this;
+  }
+
+   /**
+   * The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
+   * @return scheduledResetAt
+  **/
+  @ApiModelProperty(value = "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.")
+  public String getScheduledResetAt() {
+    return scheduledResetAt;
+  }
+
+  public void setScheduledResetAt(String scheduledResetAt) {
+    this.scheduledResetAt = scheduledResetAt;
+  }
+
+  public RepositoryToken scheduledResetPeriod(String scheduledResetPeriod) {
+    this.scheduledResetPeriod = scheduledResetPeriod;
+    return this;
+  }
+
+   /**
+   * 
+   * @return scheduledResetPeriod
+  **/
+  @ApiModelProperty(value = "")
+  public String getScheduledResetPeriod() {
+    return scheduledResetPeriod;
+  }
+
+  public void setScheduledResetPeriod(String scheduledResetPeriod) {
+    this.scheduledResetPeriod = scheduledResetPeriod;
   }
 
   public RepositoryToken selfUrl(String selfUrl) {
@@ -642,6 +726,8 @@ public class RepositoryToken implements Serializable {
         Objects.equals(this.identifier, repositoryToken.identifier) &&
         Objects.equals(this.isActive, repositoryToken.isActive) &&
         Objects.equals(this.isLimited, repositoryToken.isLimited) &&
+        Objects.equals(this.limitBandwidth, repositoryToken.limitBandwidth) &&
+        Objects.equals(this.limitBandwidthUnit, repositoryToken.limitBandwidthUnit) &&
         Objects.equals(this.limitDateRangeFrom, repositoryToken.limitDateRangeFrom) &&
         Objects.equals(this.limitDateRangeTo, repositoryToken.limitDateRangeTo) &&
         Objects.equals(this.limitNumClients, repositoryToken.limitNumClients) &&
@@ -651,6 +737,8 @@ public class RepositoryToken implements Serializable {
         Objects.equals(this.metadata, repositoryToken.metadata) &&
         Objects.equals(this.name, repositoryToken.name) &&
         Objects.equals(this.refreshUrl, repositoryToken.refreshUrl) &&
+        Objects.equals(this.scheduledResetAt, repositoryToken.scheduledResetAt) &&
+        Objects.equals(this.scheduledResetPeriod, repositoryToken.scheduledResetPeriod) &&
         Objects.equals(this.selfUrl, repositoryToken.selfUrl) &&
         Objects.equals(this.slugPerm, repositoryToken.slugPerm) &&
         Objects.equals(this.token, repositoryToken.token) &&
@@ -664,7 +752,7 @@ public class RepositoryToken implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, downloads, hasLimits, identifier, isActive, isLimited, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
+    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, downloads, hasLimits, identifier, isActive, isLimited, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, scheduledResetAt, scheduledResetPeriod, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
   }
 
 
@@ -683,6 +771,8 @@ public class RepositoryToken implements Serializable {
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    isLimited: ").append(toIndentedString(isLimited)).append("\n");
+    sb.append("    limitBandwidth: ").append(toIndentedString(limitBandwidth)).append("\n");
+    sb.append("    limitBandwidthUnit: ").append(toIndentedString(limitBandwidthUnit)).append("\n");
     sb.append("    limitDateRangeFrom: ").append(toIndentedString(limitDateRangeFrom)).append("\n");
     sb.append("    limitDateRangeTo: ").append(toIndentedString(limitDateRangeTo)).append("\n");
     sb.append("    limitNumClients: ").append(toIndentedString(limitNumClients)).append("\n");
@@ -692,6 +782,8 @@ public class RepositoryToken implements Serializable {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    refreshUrl: ").append(toIndentedString(refreshUrl)).append("\n");
+    sb.append("    scheduledResetAt: ").append(toIndentedString(scheduledResetAt)).append("\n");
+    sb.append("    scheduledResetPeriod: ").append(toIndentedString(scheduledResetPeriod)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

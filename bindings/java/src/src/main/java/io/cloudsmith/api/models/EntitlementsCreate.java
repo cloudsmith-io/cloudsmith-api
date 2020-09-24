@@ -36,6 +36,12 @@ public class EntitlementsCreate implements Serializable {
   @SerializedName("is_active")
   private Boolean isActive = null;
 
+  @SerializedName("limit_bandwidth")
+  private Integer limitBandwidth = null;
+
+  @SerializedName("limit_bandwidth_unit")
+  private String limitBandwidthUnit = null;
+
   @SerializedName("limit_date_range_from")
   private String limitDateRangeFrom = null;
 
@@ -60,6 +66,9 @@ public class EntitlementsCreate implements Serializable {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("scheduled_reset_period")
+  private String scheduledResetPeriod = null;
+
   @SerializedName("token")
   private String token = null;
 
@@ -79,6 +88,42 @@ public class EntitlementsCreate implements Serializable {
 
   public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
+  }
+
+  public EntitlementsCreate limitBandwidth(Integer limitBandwidth) {
+    this.limitBandwidth = limitBandwidth;
+    return this;
+  }
+
+   /**
+   * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+   * @return limitBandwidth
+  **/
+  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
+  public Integer getLimitBandwidth() {
+    return limitBandwidth;
+  }
+
+  public void setLimitBandwidth(Integer limitBandwidth) {
+    this.limitBandwidth = limitBandwidth;
+  }
+
+  public EntitlementsCreate limitBandwidthUnit(String limitBandwidthUnit) {
+    this.limitBandwidthUnit = limitBandwidthUnit;
+    return this;
+  }
+
+   /**
+   * None
+   * @return limitBandwidthUnit
+  **/
+  @ApiModelProperty(value = "None")
+  public String getLimitBandwidthUnit() {
+    return limitBandwidthUnit;
+  }
+
+  public void setLimitBandwidthUnit(String limitBandwidthUnit) {
+    this.limitBandwidthUnit = limitBandwidthUnit;
   }
 
   public EntitlementsCreate limitDateRangeFrom(String limitDateRangeFrom) {
@@ -226,6 +271,24 @@ public class EntitlementsCreate implements Serializable {
     this.name = name;
   }
 
+  public EntitlementsCreate scheduledResetPeriod(String scheduledResetPeriod) {
+    this.scheduledResetPeriod = scheduledResetPeriod;
+    return this;
+  }
+
+   /**
+   * None
+   * @return scheduledResetPeriod
+  **/
+  @ApiModelProperty(value = "None")
+  public String getScheduledResetPeriod() {
+    return scheduledResetPeriod;
+  }
+
+  public void setScheduledResetPeriod(String scheduledResetPeriod) {
+    this.scheduledResetPeriod = scheduledResetPeriod;
+  }
+
   public EntitlementsCreate token(String token) {
     this.token = token;
     return this;
@@ -255,6 +318,8 @@ public class EntitlementsCreate implements Serializable {
     }
     EntitlementsCreate entitlementsCreate = (EntitlementsCreate) o;
     return Objects.equals(this.isActive, entitlementsCreate.isActive) &&
+        Objects.equals(this.limitBandwidth, entitlementsCreate.limitBandwidth) &&
+        Objects.equals(this.limitBandwidthUnit, entitlementsCreate.limitBandwidthUnit) &&
         Objects.equals(this.limitDateRangeFrom, entitlementsCreate.limitDateRangeFrom) &&
         Objects.equals(this.limitDateRangeTo, entitlementsCreate.limitDateRangeTo) &&
         Objects.equals(this.limitNumClients, entitlementsCreate.limitNumClients) &&
@@ -263,12 +328,13 @@ public class EntitlementsCreate implements Serializable {
         Objects.equals(this.limitPathQuery, entitlementsCreate.limitPathQuery) &&
         Objects.equals(this.metadata, entitlementsCreate.metadata) &&
         Objects.equals(this.name, entitlementsCreate.name) &&
+        Objects.equals(this.scheduledResetPeriod, entitlementsCreate.scheduledResetPeriod) &&
         Objects.equals(this.token, entitlementsCreate.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isActive, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, token);
+    return Objects.hash(isActive, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, scheduledResetPeriod, token);
   }
 
 
@@ -278,6 +344,8 @@ public class EntitlementsCreate implements Serializable {
     sb.append("class EntitlementsCreate {\n");
     
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    limitBandwidth: ").append(toIndentedString(limitBandwidth)).append("\n");
+    sb.append("    limitBandwidthUnit: ").append(toIndentedString(limitBandwidthUnit)).append("\n");
     sb.append("    limitDateRangeFrom: ").append(toIndentedString(limitDateRangeFrom)).append("\n");
     sb.append("    limitDateRangeTo: ").append(toIndentedString(limitDateRangeTo)).append("\n");
     sb.append("    limitNumClients: ").append(toIndentedString(limitNumClients)).append("\n");
@@ -286,6 +354,7 @@ public class EntitlementsCreate implements Serializable {
     sb.append("    limitPathQuery: ").append(toIndentedString(limitPathQuery)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    scheduledResetPeriod: ").append(toIndentedString(scheduledResetPeriod)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
