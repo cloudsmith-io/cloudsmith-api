@@ -18,7 +18,7 @@ from .models.alpine_package_upload import AlpinePackageUpload
 from .models.conan_package_upload import ConanPackageUpload
 from .models.distribution import Distribution
 from .models.distros_versions import DistrosVersions
-from .models.entitlement_token_metric import EntitlementTokenMetric
+from .models.entitlement_usage_metric import EntitlementUsageMetric
 from .models.entitlements_create import EntitlementsCreate
 from .models.entitlements_partial_update import EntitlementsPartialUpdate
 from .models.entitlements_refresh import EntitlementsRefresh
@@ -109,6 +109,8 @@ from .models.user_brief import UserBrief
 from .models.user_profile import UserProfile
 from .models.user_token_create import UserTokenCreate
 from .models.vagrant_package_upload import VagrantPackageUpload
+from .models.vulnerability_scan_results import VulnerabilityScanResults
+from .models.vulnerability_scan_results_list import VulnerabilityScanResultsList
 from .models.webhooks_create import WebhooksCreate
 from .models.webhooks_partial_update import WebhooksPartialUpdate
 from .models.webhooksownerrepo_templates import WebhooksownerrepoTemplates
@@ -130,6 +132,7 @@ from .apis.status_api import StatusApi
 from .apis.storageregions_api import StorageregionsApi
 from .apis.user_api import UserApi
 from .apis.users_api import UsersApi
+from .apis.vulnerabilities_api import VulnerabilitiesApi
 from .apis.webhooks_api import WebhooksApi
 
 # import ApiClient

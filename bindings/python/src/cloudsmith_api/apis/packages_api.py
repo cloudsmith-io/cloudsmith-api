@@ -143,7 +143,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/copy/', 'POST',
                                         path_params,
@@ -255,7 +255,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/', 'DELETE',
                                         path_params,
@@ -372,7 +372,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/', 'GET',
                                         path_params,
@@ -492,7 +492,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/move/', 'POST',
                                         path_params,
@@ -604,7 +604,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/', 'GET',
                                         path_params,
@@ -716,7 +716,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/resync/', 'POST',
                                         path_params,
@@ -828,7 +828,7 @@ class PackagesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/status/', 'GET',
                                         path_params,
@@ -948,7 +948,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/{identifier}/tag/', 'POST',
                                         path_params,
@@ -1061,7 +1061,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/alpine/', 'POST',
                                         path_params,
@@ -1174,7 +1174,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/cargo/', 'POST',
                                         path_params,
@@ -1287,7 +1287,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/cocoapods/', 'POST',
                                         path_params,
@@ -1400,7 +1400,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/composer/', 'POST',
                                         path_params,
@@ -1513,7 +1513,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/conan/', 'POST',
                                         path_params,
@@ -1626,7 +1626,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/cran/', 'POST',
                                         path_params,
@@ -1739,7 +1739,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/dart/', 'POST',
                                         path_params,
@@ -1852,7 +1852,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/deb/', 'POST',
                                         path_params,
@@ -1965,7 +1965,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/docker/', 'POST',
                                         path_params,
@@ -2078,7 +2078,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/go/', 'POST',
                                         path_params,
@@ -2191,7 +2191,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/helm/', 'POST',
                                         path_params,
@@ -2304,7 +2304,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/luarocks/', 'POST',
                                         path_params,
@@ -2417,7 +2417,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/maven/', 'POST',
                                         path_params,
@@ -2530,7 +2530,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/npm/', 'POST',
                                         path_params,
@@ -2643,7 +2643,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/nuget/', 'POST',
                                         path_params,
@@ -2756,7 +2756,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/python/', 'POST',
                                         path_params,
@@ -2869,7 +2869,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/raw/', 'POST',
                                         path_params,
@@ -2982,7 +2982,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/rpm/', 'POST',
                                         path_params,
@@ -3095,7 +3095,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/ruby/', 'POST',
                                         path_params,
@@ -3208,7 +3208,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/terraform/', 'POST',
                                         path_params,
@@ -3321,7 +3321,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/upload/vagrant/', 'POST',
                                         path_params,
@@ -3434,7 +3434,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/alpine/', 'POST',
                                         path_params,
@@ -3547,7 +3547,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/cargo/', 'POST',
                                         path_params,
@@ -3660,7 +3660,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/cocoapods/', 'POST',
                                         path_params,
@@ -3773,7 +3773,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/composer/', 'POST',
                                         path_params,
@@ -3886,7 +3886,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/conan/', 'POST',
                                         path_params,
@@ -3999,7 +3999,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/cran/', 'POST',
                                         path_params,
@@ -4112,7 +4112,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/dart/', 'POST',
                                         path_params,
@@ -4225,7 +4225,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/deb/', 'POST',
                                         path_params,
@@ -4338,7 +4338,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/docker/', 'POST',
                                         path_params,
@@ -4451,7 +4451,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/go/', 'POST',
                                         path_params,
@@ -4564,7 +4564,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/helm/', 'POST',
                                         path_params,
@@ -4677,7 +4677,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/luarocks/', 'POST',
                                         path_params,
@@ -4790,7 +4790,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/maven/', 'POST',
                                         path_params,
@@ -4903,7 +4903,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/npm/', 'POST',
                                         path_params,
@@ -5016,7 +5016,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/nuget/', 'POST',
                                         path_params,
@@ -5129,7 +5129,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/python/', 'POST',
                                         path_params,
@@ -5242,7 +5242,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/raw/', 'POST',
                                         path_params,
@@ -5355,7 +5355,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/rpm/', 'POST',
                                         path_params,
@@ -5468,7 +5468,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/ruby/', 'POST',
                                         path_params,
@@ -5581,7 +5581,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/terraform/', 'POST',
                                         path_params,
@@ -5694,7 +5694,7 @@ class PackagesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/packages/{owner}/{repo}/validate-upload/vagrant/', 'POST',
                                         path_params,

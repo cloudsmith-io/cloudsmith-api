@@ -113,7 +113,7 @@ class StorageregionsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/storage-regions/', 'GET',
                                         path_params,
@@ -211,7 +211,7 @@ class StorageregionsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/storage-regions/{slug}/', 'GET',
                                         path_params,

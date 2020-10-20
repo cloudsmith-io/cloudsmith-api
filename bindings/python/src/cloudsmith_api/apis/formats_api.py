@@ -113,7 +113,7 @@ class FormatsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/formats/', 'GET',
                                         path_params,
@@ -211,7 +211,7 @@ class FormatsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/formats/{slug}/', 'GET',
                                         path_params,

@@ -61,7 +61,7 @@ class MetricsApi(object):
         :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
         :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: list[EntitlementTokenMetric]
+        :return: list[EntitlementUsageMetric]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -93,7 +93,7 @@ class MetricsApi(object):
         :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
         :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: list[EntitlementTokenMetric]
+        :return: list[EntitlementUsageMetric]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -148,7 +148,7 @@ class MetricsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/metrics/{owner}/{repo}/entitlements/usage/', 'GET',
                                         path_params,
@@ -157,7 +157,7 @@ class MetricsApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[EntitlementTokenMetric]',
+                                        response_type='list[EntitlementUsageMetric]',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -273,7 +273,7 @@ class MetricsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/metrics/{owner}/{repo}/packages/usage/', 'GET',
                                         path_params,

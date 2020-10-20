@@ -17,4 +17,5 @@ from .status_api import StatusApi
 from .storageregions_api import StorageregionsApi
 from .user_api import UserApi
 from .users_api import UsersApi
+from .vulnerabilities_api import VulnerabilitiesApi
 from .webhooks_api import WebhooksApi
