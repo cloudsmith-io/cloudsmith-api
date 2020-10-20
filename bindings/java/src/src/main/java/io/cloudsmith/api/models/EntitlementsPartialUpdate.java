@@ -66,6 +66,9 @@ public class EntitlementsPartialUpdate implements Serializable {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("scheduled_reset_at")
+  private String scheduledResetAt = null;
+
   @SerializedName("scheduled_reset_period")
   private String scheduledResetPeriod = null;
 
@@ -96,10 +99,10 @@ public class EntitlementsPartialUpdate implements Serializable {
   }
 
    /**
-   * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+   * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
    * @return limitBandwidth
   **/
-  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
+  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
   public Integer getLimitBandwidth() {
     return limitBandwidth;
   }
@@ -270,6 +273,24 @@ public class EntitlementsPartialUpdate implements Serializable {
     this.name = name;
   }
 
+  public EntitlementsPartialUpdate scheduledResetAt(String scheduledResetAt) {
+    this.scheduledResetAt = scheduledResetAt;
+    return this;
+  }
+
+   /**
+   * The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
+   * @return scheduledResetAt
+  **/
+  @ApiModelProperty(value = "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.")
+  public String getScheduledResetAt() {
+    return scheduledResetAt;
+  }
+
+  public void setScheduledResetAt(String scheduledResetAt) {
+    this.scheduledResetAt = scheduledResetAt;
+  }
+
   public EntitlementsPartialUpdate scheduledResetPeriod(String scheduledResetPeriod) {
     this.scheduledResetPeriod = scheduledResetPeriod;
     return this;
@@ -327,13 +348,14 @@ public class EntitlementsPartialUpdate implements Serializable {
         Objects.equals(this.limitPathQuery, entitlementsPartialUpdate.limitPathQuery) &&
         Objects.equals(this.metadata, entitlementsPartialUpdate.metadata) &&
         Objects.equals(this.name, entitlementsPartialUpdate.name) &&
+        Objects.equals(this.scheduledResetAt, entitlementsPartialUpdate.scheduledResetAt) &&
         Objects.equals(this.scheduledResetPeriod, entitlementsPartialUpdate.scheduledResetPeriod) &&
         Objects.equals(this.token, entitlementsPartialUpdate.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isActive, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, scheduledResetPeriod, token);
+    return Objects.hash(isActive, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, scheduledResetAt, scheduledResetPeriod, token);
   }
 
 
@@ -353,6 +375,7 @@ public class EntitlementsPartialUpdate implements Serializable {
     sb.append("    limitPathQuery: ").append(toIndentedString(limitPathQuery)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    scheduledResetAt: ").append(toIndentedString(scheduledResetAt)).append("\n");
     sb.append("    scheduledResetPeriod: ").append(toIndentedString(scheduledResetPeriod)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");

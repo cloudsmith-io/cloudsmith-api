@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **isActive** | **Boolean** | If enabled, the token will allow downloads based on configured restrictions (if any). |  [optional]
-**limitBandwidth** | **Integer** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  |  [optional]
+**limitBandwidth** | **Integer** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  |  [optional]
 **limitBandwidthUnit** | **String** | None |  [optional]
 **limitDateRangeFrom** | **String** | The starting date/time the token is allowed to be used from. |  [optional]
 **limitDateRangeTo** | **String** | The ending date/time the token is allowed to be used until. |  [optional]
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **limitPackageQuery** | **String** | The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. |  [optional]
 **limitPathQuery** | **String** | The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash. |  [optional]
 **metadata** | **Object** | None |  [optional]
+**scheduledResetAt** | **String** | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. |  [optional]
 **scheduledResetPeriod** | **String** | None |  [optional]
 **token** | **String** | None |  [optional]
 

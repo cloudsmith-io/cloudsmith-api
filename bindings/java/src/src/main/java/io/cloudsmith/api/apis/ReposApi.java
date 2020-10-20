@@ -115,7 +115,7 @@ public class ReposApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -259,7 +259,7 @@ public class ReposApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -404,7 +404,7 @@ public class ReposApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -549,7 +549,7 @@ public class ReposApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -698,7 +698,7 @@ public class ReposApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -846,7 +846,7 @@ public class ReposApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

@@ -36,9 +36,9 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import io.cloudsmith.api.models.Quota;
-import io.cloudsmith.api.models.QuotaHistory;
 import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.VulnerabilityScanResults;
+import io.cloudsmith.api.models.VulnerabilityScanResultsList;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -46,14 +46,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class QuotaApi {
+public class VulnerabilitiesApi {
     private ApiClient apiClient;
 
-    public QuotaApi() {
+    public VulnerabilitiesApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public QuotaApi(ApiClient apiClient) {
+    public VulnerabilitiesApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -66,21 +66,27 @@ public class QuotaApi {
     }
 
     /**
-     * Build call for quotaHistoryRead
+     * Build call for vulnerabilitiesList
      * @param owner  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call quotaHistoryReadCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesListCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/quota/history/{owner}/"
+        String localVarPath = "/vulnerabilities/{owner}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -115,18 +121,18 @@ public class QuotaApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call quotaHistoryReadValidateBeforeCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call vulnerabilitiesListValidateBeforeCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner };
-            Method method = this.getClass().getMethod("quotaHistoryReadWithHttpInfo", String.class);
-            Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
+            Object[] parameterValues = { owner, page, pageSize };
+            Method method = this.getClass().getMethod("vulnerabilitiesListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Set<ConstraintViolation<VulnerabilitiesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = quotaHistoryReadCall(owner, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = vulnerabilitiesListCall(owner, page, pageSize, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -147,39 +153,45 @@ public class QuotaApi {
     }
 
     /**
-     * Quota history for a given namespace.
-     * Quota history for a given namespace.
+     * Read-only view to list vulnerabiltiy scan results within a Namespace.
+     * Read-only view to list vulnerabiltiy scan results within a Namespace.
      * @param owner  (required)
-     * @return QuotaHistory
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public QuotaHistory quotaHistoryRead(String owner) throws ApiException {
-        ApiResponse<QuotaHistory> resp = quotaHistoryReadWithHttpInfo(owner);
+    public List<VulnerabilityScanResultsList> vulnerabilitiesList(String owner, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesListWithHttpInfo(owner, page, pageSize);
         return resp.getData();
     }
 
     /**
-     * Quota history for a given namespace.
-     * Quota history for a given namespace.
+     * Read-only view to list vulnerabiltiy scan results within a Namespace.
+     * Read-only view to list vulnerabiltiy scan results within a Namespace.
      * @param owner  (required)
-     * @return ApiResponse&lt;QuotaHistory&gt;
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<QuotaHistory> quotaHistoryReadWithHttpInfo( @NotNull String owner) throws ApiException {
-        com.squareup.okhttp.Call call = quotaHistoryReadValidateBeforeCall(owner, null, null);
-        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
+    public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = vulnerabilitiesListValidateBeforeCall(owner, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Quota history for a given namespace. (asynchronously)
-     * Quota history for a given namespace.
+     * Read-only view to list vulnerabiltiy scan results within a Namespace. (asynchronously)
+     * Read-only view to list vulnerabiltiy scan results within a Namespace.
      * @param owner  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaHistoryReadAsync(String owner, final ApiCallback<QuotaHistory> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesListAsync(String owner, Integer page, Integer pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -200,27 +212,35 @@ public class QuotaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = quotaHistoryReadValidateBeforeCall(owner, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
+        com.squareup.okhttp.Call call = vulnerabilitiesListValidateBeforeCall(owner, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for quotaOssHistoryRead
+     * Build call for vulnerabilitiesList0
      * @param owner  (required)
+     * @param repo  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call quotaOssHistoryReadCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesList0Call(String owner, String repo, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/quota/oss/history/{owner}/"
-            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
+        String localVarPath = "/vulnerabilities/{owner}/{repo}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -255,18 +275,18 @@ public class QuotaApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call quotaOssHistoryReadValidateBeforeCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call vulnerabilitiesList0ValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner };
-            Method method = this.getClass().getMethod("quotaOssHistoryReadWithHttpInfo", String.class);
-            Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
+            Object[] parameterValues = { owner, repo, page, pageSize };
+            Method method = this.getClass().getMethod("vulnerabilitiesList0WithHttpInfo", String.class, String.class, Integer.class, Integer.class);
+            Set<ConstraintViolation<VulnerabilitiesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = quotaOssHistoryReadCall(owner, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = vulnerabilitiesList0Call(owner, repo, page, pageSize, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -287,39 +307,48 @@ public class QuotaApi {
     }
 
     /**
-     * Open-source Quota history for a given namespace.
-     * Open-source Quota history for a given namespace.
+     * Read-only views to list vulnerabiltiy scan results within a Repository.
+     * Read-only views to list vulnerabiltiy scan results within a Repository.
      * @param owner  (required)
-     * @return QuotaHistory
+     * @param repo  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public QuotaHistory quotaOssHistoryRead(String owner) throws ApiException {
-        ApiResponse<QuotaHistory> resp = quotaOssHistoryReadWithHttpInfo(owner);
+    public List<VulnerabilityScanResultsList> vulnerabilitiesList0(String owner, String repo, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesList0WithHttpInfo(owner, repo, page, pageSize);
         return resp.getData();
     }
 
     /**
-     * Open-source Quota history for a given namespace.
-     * Open-source Quota history for a given namespace.
+     * Read-only views to list vulnerabiltiy scan results within a Repository.
+     * Read-only views to list vulnerabiltiy scan results within a Repository.
      * @param owner  (required)
-     * @return ApiResponse&lt;QuotaHistory&gt;
+     * @param repo  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<QuotaHistory> quotaOssHistoryReadWithHttpInfo( @NotNull String owner) throws ApiException {
-        com.squareup.okhttp.Call call = quotaOssHistoryReadValidateBeforeCall(owner, null, null);
-        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
+    public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesList0WithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = vulnerabilitiesList0ValidateBeforeCall(owner, repo, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Open-source Quota history for a given namespace. (asynchronously)
-     * Open-source Quota history for a given namespace.
+     * Read-only views to list vulnerabiltiy scan results within a Repository. (asynchronously)
+     * Read-only views to list vulnerabiltiy scan results within a Repository.
      * @param owner  (required)
+     * @param repo  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaOssHistoryReadAsync(String owner, final ApiCallback<QuotaHistory> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesList0Async(String owner, String repo, Integer page, Integer pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -340,27 +369,37 @@ public class QuotaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = quotaOssHistoryReadValidateBeforeCall(owner, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
+        com.squareup.okhttp.Call call = vulnerabilitiesList0ValidateBeforeCall(owner, repo, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for quotaOssRead
+     * Build call for vulnerabilitiesList1
      * @param owner  (required)
+     * @param repo  (required)
+     * @param _package The package that the scan result relates to. (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call quotaOssReadCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesList1Call(String owner, String repo, String _package, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/quota/oss/{owner}/"
-            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
+        String localVarPath = "/vulnerabilities/{owner}/{repo}/{package}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "package" + "\\}", apiClient.escapeString(_package.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -395,18 +434,18 @@ public class QuotaApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call quotaOssReadValidateBeforeCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call vulnerabilitiesList1ValidateBeforeCall(String owner, String repo, String _package, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner };
-            Method method = this.getClass().getMethod("quotaOssReadWithHttpInfo", String.class);
-            Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
+            Object[] parameterValues = { owner, repo, _package, page, pageSize };
+            Method method = this.getClass().getMethod("vulnerabilitiesList1WithHttpInfo", String.class, String.class, String.class, Integer.class, Integer.class);
+            Set<ConstraintViolation<VulnerabilitiesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = quotaOssReadCall(owner, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = vulnerabilitiesList1Call(owner, repo, _package, page, pageSize, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -427,39 +466,51 @@ public class QuotaApi {
     }
 
     /**
-     * Open-source Quota usage for a given namespace.
-     * Open-source Quota usage for a given namespace.
+     * Read-only views to list vulnerabiltiy scan results within a Repository
+     * Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
      * @param owner  (required)
-     * @return Quota
+     * @param repo  (required)
+     * @param _package The package that the scan result relates to. (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Quota quotaOssRead(String owner) throws ApiException {
-        ApiResponse<Quota> resp = quotaOssReadWithHttpInfo(owner);
+    public List<VulnerabilityScanResultsList> vulnerabilitiesList1(String owner, String repo, String _package, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesList1WithHttpInfo(owner, repo, _package, page, pageSize);
         return resp.getData();
     }
 
     /**
-     * Open-source Quota usage for a given namespace.
-     * Open-source Quota usage for a given namespace.
+     * Read-only views to list vulnerabiltiy scan results within a Repository
+     * Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
      * @param owner  (required)
-     * @return ApiResponse&lt;Quota&gt;
+     * @param repo  (required)
+     * @param _package The package that the scan result relates to. (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Quota> quotaOssReadWithHttpInfo( @NotNull String owner) throws ApiException {
-        com.squareup.okhttp.Call call = quotaOssReadValidateBeforeCall(owner, null, null);
-        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
+    public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesList1WithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  Integer page,  Integer pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = vulnerabilitiesList1ValidateBeforeCall(owner, repo, _package, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Open-source Quota usage for a given namespace. (asynchronously)
-     * Open-source Quota usage for a given namespace.
+     * Read-only views to list vulnerabiltiy scan results within a Repository (asynchronously)
+     * Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
      * @param owner  (required)
+     * @param repo  (required)
+     * @param _package The package that the scan result relates to. (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaOssReadAsync(String owner, final ApiCallback<Quota> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesList1Async(String owner, String repo, String _package, Integer page, Integer pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -480,25 +531,31 @@ public class QuotaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = quotaOssReadValidateBeforeCall(owner, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
+        com.squareup.okhttp.Call call = vulnerabilitiesList1ValidateBeforeCall(owner, repo, _package, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for quotaRead
+     * Build call for vulnerabilitiesRead
      * @param owner  (required)
+     * @param repo  (required)
+     * @param _package The package that the scan result relates to. (required)
+     * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call quotaReadCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesReadCall(String owner, String repo, String _package, String scanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/quota/{owner}/"
-            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
+        String localVarPath = "/vulnerabilities/{owner}/{repo}/{package}/{scan_id}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "package" + "\\}", apiClient.escapeString(_package.toString()))
+            .replaceAll("\\{" + "scan_id" + "\\}", apiClient.escapeString(scanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -535,18 +592,18 @@ public class QuotaApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call quotaReadValidateBeforeCall(String owner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call vulnerabilitiesReadValidateBeforeCall(String owner, String repo, String _package, String scanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner };
-            Method method = this.getClass().getMethod("quotaReadWithHttpInfo", String.class);
-            Set<ConstraintViolation<QuotaApi>> violations = executableValidator.validateParameters(this, method,
+            Object[] parameterValues = { owner, repo, _package, scanId };
+            Method method = this.getClass().getMethod("vulnerabilitiesReadWithHttpInfo", String.class, String.class, String.class, String.class);
+            Set<ConstraintViolation<VulnerabilitiesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = quotaReadCall(owner, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = vulnerabilitiesReadCall(owner, repo, _package, scanId, progressListener, progressRequestListener);
                 return call;
             
             } else {
@@ -567,39 +624,48 @@ public class QuotaApi {
     }
 
     /**
-     * Quota usage for a given namespace.
-     * Quota usage for a given namespace.
+     * Read-only view to retrieve vulnerability scans results using a
+     * Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
      * @param owner  (required)
-     * @return Quota
+     * @param repo  (required)
+     * @param _package The package that the scan result relates to. (required)
+     * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
+     * @return VulnerabilityScanResults
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Quota quotaRead(String owner) throws ApiException {
-        ApiResponse<Quota> resp = quotaReadWithHttpInfo(owner);
+    public VulnerabilityScanResults vulnerabilitiesRead(String owner, String repo, String _package, String scanId) throws ApiException {
+        ApiResponse<VulnerabilityScanResults> resp = vulnerabilitiesReadWithHttpInfo(owner, repo, _package, scanId);
         return resp.getData();
     }
 
     /**
-     * Quota usage for a given namespace.
-     * Quota usage for a given namespace.
+     * Read-only view to retrieve vulnerability scans results using a
+     * Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
      * @param owner  (required)
-     * @return ApiResponse&lt;Quota&gt;
+     * @param repo  (required)
+     * @param _package The package that the scan result relates to. (required)
+     * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
+     * @return ApiResponse&lt;VulnerabilityScanResults&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Quota> quotaReadWithHttpInfo( @NotNull String owner) throws ApiException {
-        com.squareup.okhttp.Call call = quotaReadValidateBeforeCall(owner, null, null);
-        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
+    public ApiResponse<VulnerabilityScanResults> vulnerabilitiesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  @NotNull String scanId) throws ApiException {
+        com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, scanId, null, null);
+        Type localVarReturnType = new TypeToken<VulnerabilityScanResults>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Quota usage for a given namespace. (asynchronously)
-     * Quota usage for a given namespace.
+     * Read-only view to retrieve vulnerability scans results using a (asynchronously)
+     * Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
      * @param owner  (required)
+     * @param repo  (required)
+     * @param _package The package that the scan result relates to. (required)
+     * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaReadAsync(String owner, final ApiCallback<Quota> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesReadAsync(String owner, String repo, String _package, String scanId, final ApiCallback<VulnerabilityScanResults> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -620,8 +686,8 @@ public class QuotaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = quotaReadValidateBeforeCall(owner, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
+        com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, scanId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<VulnerabilityScanResults>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

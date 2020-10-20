@@ -48,8 +48,14 @@ public class RepositoryTokenSyncTokens implements Serializable {
   @SerializedName("default")
   private Boolean _default = null;
 
+  @SerializedName("disable_url")
+  private String disableUrl = null;
+
   @SerializedName("downloads")
   private Integer downloads = null;
+
+  @SerializedName("enable_url")
+  private String enableUrl = null;
 
   @SerializedName("has_limits")
   private Boolean hasLimits = null;
@@ -95,6 +101,9 @@ public class RepositoryTokenSyncTokens implements Serializable {
 
   @SerializedName("refresh_url")
   private String refreshUrl = null;
+
+  @SerializedName("reset_url")
+  private String resetUrl = null;
 
   @SerializedName("scheduled_reset_at")
   private String scheduledResetAt = null;
@@ -219,6 +228,24 @@ public class RepositoryTokenSyncTokens implements Serializable {
     this._default = _default;
   }
 
+  public RepositoryTokenSyncTokens disableUrl(String disableUrl) {
+    this.disableUrl = disableUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return disableUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisableUrl() {
+    return disableUrl;
+  }
+
+  public void setDisableUrl(String disableUrl) {
+    this.disableUrl = disableUrl;
+  }
+
   public RepositoryTokenSyncTokens downloads(Integer downloads) {
     this.downloads = downloads;
     return this;
@@ -235,6 +262,24 @@ public class RepositoryTokenSyncTokens implements Serializable {
 
   public void setDownloads(Integer downloads) {
     this.downloads = downloads;
+  }
+
+  public RepositoryTokenSyncTokens enableUrl(String enableUrl) {
+    this.enableUrl = enableUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return enableUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getEnableUrl() {
+    return enableUrl;
+  }
+
+  public void setEnableUrl(String enableUrl) {
+    this.enableUrl = enableUrl;
   }
 
   public RepositoryTokenSyncTokens hasLimits(Boolean hasLimits) {
@@ -315,10 +360,10 @@ public class RepositoryTokenSyncTokens implements Serializable {
   }
 
    /**
-   * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+   * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
    * @return limitBandwidth
   **/
-  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
+  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
   public Integer getLimitBandwidth() {
     return limitBandwidth;
   }
@@ -505,6 +550,24 @@ public class RepositoryTokenSyncTokens implements Serializable {
 
   public void setRefreshUrl(String refreshUrl) {
     this.refreshUrl = refreshUrl;
+  }
+
+  public RepositoryTokenSyncTokens resetUrl(String resetUrl) {
+    this.resetUrl = resetUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return resetUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getResetUrl() {
+    return resetUrl;
+  }
+
+  public void setResetUrl(String resetUrl) {
+    this.resetUrl = resetUrl;
   }
 
   public RepositoryTokenSyncTokens scheduledResetAt(String scheduledResetAt) {
@@ -720,7 +783,9 @@ public class RepositoryTokenSyncTokens implements Serializable {
         Objects.equals(this.createdBy, repositoryTokenSyncTokens.createdBy) &&
         Objects.equals(this.createdByUrl, repositoryTokenSyncTokens.createdByUrl) &&
         Objects.equals(this._default, repositoryTokenSyncTokens._default) &&
+        Objects.equals(this.disableUrl, repositoryTokenSyncTokens.disableUrl) &&
         Objects.equals(this.downloads, repositoryTokenSyncTokens.downloads) &&
+        Objects.equals(this.enableUrl, repositoryTokenSyncTokens.enableUrl) &&
         Objects.equals(this.hasLimits, repositoryTokenSyncTokens.hasLimits) &&
         Objects.equals(this.identifier, repositoryTokenSyncTokens.identifier) &&
         Objects.equals(this.isActive, repositoryTokenSyncTokens.isActive) &&
@@ -736,6 +801,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
         Objects.equals(this.metadata, repositoryTokenSyncTokens.metadata) &&
         Objects.equals(this.name, repositoryTokenSyncTokens.name) &&
         Objects.equals(this.refreshUrl, repositoryTokenSyncTokens.refreshUrl) &&
+        Objects.equals(this.resetUrl, repositoryTokenSyncTokens.resetUrl) &&
         Objects.equals(this.scheduledResetAt, repositoryTokenSyncTokens.scheduledResetAt) &&
         Objects.equals(this.scheduledResetPeriod, repositoryTokenSyncTokens.scheduledResetPeriod) &&
         Objects.equals(this.selfUrl, repositoryTokenSyncTokens.selfUrl) &&
@@ -751,7 +817,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, downloads, hasLimits, identifier, isActive, isLimited, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, scheduledResetAt, scheduledResetPeriod, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
+    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, disableUrl, downloads, enableUrl, hasLimits, identifier, isActive, isLimited, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, resetUrl, scheduledResetAt, scheduledResetPeriod, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
   }
 
 
@@ -765,7 +831,9 @@ public class RepositoryTokenSyncTokens implements Serializable {
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdByUrl: ").append(toIndentedString(createdByUrl)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    disableUrl: ").append(toIndentedString(disableUrl)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
+    sb.append("    enableUrl: ").append(toIndentedString(enableUrl)).append("\n");
     sb.append("    hasLimits: ").append(toIndentedString(hasLimits)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
@@ -781,6 +849,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    refreshUrl: ").append(toIndentedString(refreshUrl)).append("\n");
+    sb.append("    resetUrl: ").append(toIndentedString(resetUrl)).append("\n");
     sb.append("    scheduledResetAt: ").append(toIndentedString(scheduledResetAt)).append("\n");
     sb.append("    scheduledResetPeriod: ").append(toIndentedString(scheduledResetPeriod)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
