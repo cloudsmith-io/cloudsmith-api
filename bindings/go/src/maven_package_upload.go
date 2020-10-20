@@ -126,7 +126,7 @@ type MavenPackageUpload struct {
 	// The calculated size of the package.
 	Size int32 `json:"size,omitempty"`
 
-	// 
+	// The public unique identifier for the package.
 	Slug string `json:"slug,omitempty"`
 
 	// 
@@ -188,4 +188,7 @@ type MavenPackageUpload struct {
 
 	// 
 	VersionOrig string `json:"version_orig,omitempty"`
+
+	// 
+	VulnerabilityScanResultsUrl string `json:"vulnerability_scan_results_url,omitempty"`
 }

@@ -48,9 +48,9 @@ func NewMetricsApiWithBasePath(basePath string) *MetricsApi {
  * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
  * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
  * @param tokens A comma seperated list of tokens (slug perm) to include in the results.
- * @return []EntitlementTokenMetric
+ * @return []EntitlementUsageMetric
  */
-func (a MetricsApi) MetricsEntitlementsUsageList(owner string, repo string, page int32, pageSize int32, finish int32, start int32, tokens string) ([]EntitlementTokenMetric, *APIResponse, error) {
+func (a MetricsApi) MetricsEntitlementsUsageList(owner string, repo string, page int32, pageSize int32, finish int32, start int32, tokens string) ([]EntitlementUsageMetric, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -67,9 +67,6 @@ func (a MetricsApi) MetricsEntitlementsUsageList(owner string, repo string, page
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -97,7 +94,7 @@ func (a MetricsApi) MetricsEntitlementsUsageList(owner string, repo string, page
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new([]EntitlementTokenMetric)
+	var successPayload = new([]EntitlementUsageMetric)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -145,9 +142,6 @@ func (a MetricsApi) MetricsPackagesUsageList(owner string, repo string, page int
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
