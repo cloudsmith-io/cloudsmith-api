@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **self_html_url** | **String** |  | [optional] 
 **self_url** | **String** |  | [optional] 
 **size** | **Integer** | The calculated size of the package. | [optional] 
-**slug** | **String** |  | [optional] 
+**slug** | **String** | The public unique identifier for the package. | [optional] 
 **slug_perm** | **String** |  | [optional] 
 **stage** | **String** | The synchronisation (in progress) stage of the package. | [optional] 
 **stage_str** | **String** |  | [optional] 
@@ -59,5 +59,6 @@ Name | Type | Description | Notes
 **uploader_url** | **String** |  | [optional] 
 **version** | **String** | The raw version for this package. | [optional] 
 **version_orig** | **String** |  | [optional] 
+**vulnerability_scan_results_url** | **String** |  | [optional] 
 
 

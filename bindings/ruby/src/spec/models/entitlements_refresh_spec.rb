@@ -92,6 +92,12 @@ describe 'EntitlementsRefresh' do
     end
   end
 
+  describe 'test attribute "scheduled_reset_at"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "scheduled_reset_period"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

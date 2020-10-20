@@ -129,7 +129,7 @@ module CloudsmithApi
     # The calculated size of the package.
     attr_accessor :size
 
-    # 
+    # The public unique identifier for the package.
     attr_accessor :slug
 
     # 
@@ -191,6 +191,9 @@ module CloudsmithApi
 
     # 
     attr_accessor :version_orig
+
+    # 
+    attr_accessor :vulnerability_scan_results_url
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -254,7 +257,8 @@ module CloudsmithApi
         :'uploader' => :'uploader',
         :'uploader_url' => :'uploader_url',
         :'version' => :'version',
-        :'version_orig' => :'version_orig'
+        :'version_orig' => :'version_orig',
+        :'vulnerability_scan_results_url' => :'vulnerability_scan_results_url'
       }
     end
 
@@ -319,7 +323,8 @@ module CloudsmithApi
         :'uploader' => :'String',
         :'uploader_url' => :'String',
         :'version' => :'String',
-        :'version_orig' => :'String'
+        :'version_orig' => :'String',
+        :'vulnerability_scan_results_url' => :'String'
       }
     end
 
@@ -571,6 +576,10 @@ module CloudsmithApi
         self.version_orig = attributes[:'version_orig']
       end
 
+      if attributes.has_key?(:'vulnerability_scan_results_url')
+        self.vulnerability_scan_results_url = attributes[:'vulnerability_scan_results_url']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -649,7 +658,8 @@ module CloudsmithApi
           uploader == o.uploader &&
           uploader_url == o.uploader_url &&
           version == o.version &&
-          version_orig == o.version_orig
+          version_orig == o.version_orig &&
+          vulnerability_scan_results_url == o.vulnerability_scan_results_url
     end
 
     # @see the `==` method
@@ -661,7 +671,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig].hash
+      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
     end
 
     # Builds the object from hash
