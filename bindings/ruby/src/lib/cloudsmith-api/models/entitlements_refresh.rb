@@ -18,7 +18,7 @@ module CloudsmithApi
     # If enabled, the token will allow downloads based on configured restrictions (if any).
     attr_accessor :is_active
 
-    # The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+    # The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
     attr_accessor :limit_bandwidth
 
     # None
@@ -45,6 +45,9 @@ module CloudsmithApi
     # None
     attr_accessor :metadata
 
+    # The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
+    attr_accessor :scheduled_reset_at
+
     # None
     attr_accessor :scheduled_reset_period
 
@@ -65,6 +68,7 @@ module CloudsmithApi
         :'limit_package_query' => :'limit_package_query',
         :'limit_path_query' => :'limit_path_query',
         :'metadata' => :'metadata',
+        :'scheduled_reset_at' => :'scheduled_reset_at',
         :'scheduled_reset_period' => :'scheduled_reset_period',
         :'token' => :'token'
       }
@@ -83,6 +87,7 @@ module CloudsmithApi
         :'limit_package_query' => :'String',
         :'limit_path_query' => :'String',
         :'metadata' => :'Object',
+        :'scheduled_reset_at' => :'String',
         :'scheduled_reset_period' => :'String',
         :'token' => :'String'
       }
@@ -136,6 +141,10 @@ module CloudsmithApi
         self.metadata = attributes[:'metadata']
       end
 
+      if attributes.has_key?(:'scheduled_reset_at')
+        self.scheduled_reset_at = attributes[:'scheduled_reset_at']
+      end
+
       if attributes.has_key?(:'scheduled_reset_period')
         self.scheduled_reset_period = attributes[:'scheduled_reset_period']
       end
@@ -174,6 +183,7 @@ module CloudsmithApi
           limit_package_query == o.limit_package_query &&
           limit_path_query == o.limit_path_query &&
           metadata == o.metadata &&
+          scheduled_reset_at == o.scheduled_reset_at &&
           scheduled_reset_period == o.scheduled_reset_period &&
           token == o.token
     end
@@ -187,7 +197,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [is_active, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, scheduled_reset_period, token].hash
+      [is_active, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, scheduled_reset_at, scheduled_reset_period, token].hash
     end
 
     # Builds the object from hash

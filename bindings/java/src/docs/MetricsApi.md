@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="metricsEntitlementsUsageList"></a>
 # **metricsEntitlementsUsageList**
-> List&lt;EntitlementTokenMetric&gt; metricsEntitlementsUsageList(owner, repo, page, pageSize, finish, start, tokens)
+> List&lt;EntitlementUsageMetric&gt; metricsEntitlementsUsageList(owner, repo, page, pageSize, finish, start, tokens)
 
 View for listing entitlement token usage as a metric.
 
@@ -33,12 +33,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: csrf_token
-ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
-csrf_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//csrf_token.setApiKeyPrefix("Token");
-
 MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
@@ -48,7 +42,7 @@ Integer finish = 56; // Integer | Filter token usage ending before this datetime
 Integer start = 56; // Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    List<EntitlementTokenMetric> result = apiInstance.metricsEntitlementsUsageList(owner, repo, page, pageSize, finish, start, tokens);
+    List<EntitlementUsageMetric> result = apiInstance.metricsEntitlementsUsageList(owner, repo, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetricsApi#metricsEntitlementsUsageList");
@@ -70,11 +64,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;EntitlementTokenMetric&gt;**](EntitlementTokenMetric.md)
+[**List&lt;EntitlementUsageMetric&gt;**](EntitlementUsageMetric.md)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -105,12 +99,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: csrf_token
-ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
-csrf_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//csrf_token.setApiKeyPrefix("Token");
 
 MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
@@ -147,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 

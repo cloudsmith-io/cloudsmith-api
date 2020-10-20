@@ -31,7 +31,13 @@ module CloudsmithApi
     attr_accessor :default
 
     # 
+    attr_accessor :disable_url
+
+    # 
     attr_accessor :downloads
+
+    # 
+    attr_accessor :enable_url
 
     # 
     attr_accessor :has_limits
@@ -45,7 +51,7 @@ module CloudsmithApi
     # 
     attr_accessor :is_limited
 
-    # The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+    # The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
     attr_accessor :limit_bandwidth
 
     # 
@@ -77,6 +83,9 @@ module CloudsmithApi
 
     # 
     attr_accessor :refresh_url
+
+    # 
+    attr_accessor :reset_url
 
     # The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
     attr_accessor :scheduled_reset_at
@@ -120,7 +129,9 @@ module CloudsmithApi
         :'created_by' => :'created_by',
         :'created_by_url' => :'created_by_url',
         :'default' => :'default',
+        :'disable_url' => :'disable_url',
         :'downloads' => :'downloads',
+        :'enable_url' => :'enable_url',
         :'has_limits' => :'has_limits',
         :'identifier' => :'identifier',
         :'is_active' => :'is_active',
@@ -136,6 +147,7 @@ module CloudsmithApi
         :'metadata' => :'metadata',
         :'name' => :'name',
         :'refresh_url' => :'refresh_url',
+        :'reset_url' => :'reset_url',
         :'scheduled_reset_at' => :'scheduled_reset_at',
         :'scheduled_reset_period' => :'scheduled_reset_period',
         :'self_url' => :'self_url',
@@ -158,7 +170,9 @@ module CloudsmithApi
         :'created_by' => :'String',
         :'created_by_url' => :'String',
         :'default' => :'BOOLEAN',
+        :'disable_url' => :'String',
         :'downloads' => :'Integer',
+        :'enable_url' => :'String',
         :'has_limits' => :'BOOLEAN',
         :'identifier' => :'Integer',
         :'is_active' => :'BOOLEAN',
@@ -174,6 +188,7 @@ module CloudsmithApi
         :'metadata' => :'Object',
         :'name' => :'String',
         :'refresh_url' => :'String',
+        :'reset_url' => :'String',
         :'scheduled_reset_at' => :'String',
         :'scheduled_reset_period' => :'String',
         :'self_url' => :'String',
@@ -216,8 +231,16 @@ module CloudsmithApi
         self.default = attributes[:'default']
       end
 
+      if attributes.has_key?(:'disable_url')
+        self.disable_url = attributes[:'disable_url']
+      end
+
       if attributes.has_key?(:'downloads')
         self.downloads = attributes[:'downloads']
+      end
+
+      if attributes.has_key?(:'enable_url')
+        self.enable_url = attributes[:'enable_url']
       end
 
       if attributes.has_key?(:'has_limits')
@@ -278,6 +301,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'refresh_url')
         self.refresh_url = attributes[:'refresh_url']
+      end
+
+      if attributes.has_key?(:'reset_url')
+        self.reset_url = attributes[:'reset_url']
       end
 
       if attributes.has_key?(:'scheduled_reset_at')
@@ -349,7 +376,9 @@ module CloudsmithApi
           created_by == o.created_by &&
           created_by_url == o.created_by_url &&
           default == o.default &&
+          disable_url == o.disable_url &&
           downloads == o.downloads &&
+          enable_url == o.enable_url &&
           has_limits == o.has_limits &&
           identifier == o.identifier &&
           is_active == o.is_active &&
@@ -365,6 +394,7 @@ module CloudsmithApi
           metadata == o.metadata &&
           name == o.name &&
           refresh_url == o.refresh_url &&
+          reset_url == o.reset_url &&
           scheduled_reset_at == o.scheduled_reset_at &&
           scheduled_reset_period == o.scheduled_reset_period &&
           self_url == o.self_url &&
@@ -387,7 +417,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [clients, created_at, created_by, created_by_url, default, downloads, has_limits, identifier, is_active, is_limited, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, refresh_url, scheduled_reset_at, scheduled_reset_period, self_url, slug_perm, token, updated_at, updated_by, updated_by_url, usage, user, user_url].hash
+      [clients, created_at, created_by, created_by_url, default, disable_url, downloads, enable_url, has_limits, identifier, is_active, is_limited, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, refresh_url, reset_url, scheduled_reset_at, scheduled_reset_period, self_url, slug_perm, token, updated_at, updated_by, updated_by_url, usage, user, user_url].hash
     end
 
     # Builds the object from hash

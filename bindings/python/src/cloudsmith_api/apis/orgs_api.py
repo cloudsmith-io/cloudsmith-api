@@ -122,7 +122,7 @@ class OrgsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/orgs/', 'GET',
                                         path_params,
@@ -220,7 +220,7 @@ class OrgsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/orgs/{slug}/', 'GET',
                                         path_params,

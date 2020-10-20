@@ -1,11 +1,10 @@
 
-# EntitlementTokenMetric
+# EntitlementUsageMetric
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bandwidthPerToken** | **Object** |  | 
-**totals** | **Object** |  | 
+**usage** | **Object** |  | 
 
 
 

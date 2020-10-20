@@ -89,7 +89,8 @@ class MavenPackageUpload(object):
         'uploader': 'str',
         'uploader_url': 'str',
         'version': 'str',
-        'version_orig': 'str'
+        'version_orig': 'str',
+        'vulnerability_scan_results_url': 'str'
     }
 
     attribute_map = {
@@ -151,10 +152,11 @@ class MavenPackageUpload(object):
         'uploader': 'uploader',
         'uploader_url': 'uploader_url',
         'version': 'version',
-        'version_orig': 'version_orig'
+        'version_orig': 'version_orig',
+        'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, group_id=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, packaging=None, release=None, repository=None, repository_url=None, self_html_url=None, self_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None):
+    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, group_id=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, packaging=None, release=None, repository=None, repository_url=None, self_html_url=None, self_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None):
         """
         MavenPackageUpload - a model defined in Swagger
         """
@@ -218,6 +220,7 @@ class MavenPackageUpload(object):
         self._uploader_url = None
         self._version = None
         self._version_orig = None
+        self._vulnerability_scan_results_url = None
 
         if architectures is not None:
           self.architectures = architectures
@@ -337,6 +340,8 @@ class MavenPackageUpload(object):
           self.version = version
         if version_orig is not None:
           self.version_orig = version_orig
+        if vulnerability_scan_results_url is not None:
+          self.vulnerability_scan_results_url = vulnerability_scan_results_url
 
     @property
     def architectures(self):
@@ -1216,7 +1221,7 @@ class MavenPackageUpload(object):
     def slug(self):
         """
         Gets the slug of this MavenPackageUpload.
-        
+        The public unique identifier for the package.
 
         :return: The slug of this MavenPackageUpload.
         :rtype: str
@@ -1227,7 +1232,7 @@ class MavenPackageUpload(object):
     def slug(self, slug):
         """
         Sets the slug of this MavenPackageUpload.
-        
+        The public unique identifier for the package.
 
         :param slug: The slug of this MavenPackageUpload.
         :type: str
@@ -1694,6 +1699,29 @@ class MavenPackageUpload(object):
         """
 
         self._version_orig = version_orig
+
+    @property
+    def vulnerability_scan_results_url(self):
+        """
+        Gets the vulnerability_scan_results_url of this MavenPackageUpload.
+        
+
+        :return: The vulnerability_scan_results_url of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._vulnerability_scan_results_url
+
+    @vulnerability_scan_results_url.setter
+    def vulnerability_scan_results_url(self, vulnerability_scan_results_url):
+        """
+        Sets the vulnerability_scan_results_url of this MavenPackageUpload.
+        
+
+        :param vulnerability_scan_results_url: The vulnerability_scan_results_url of this MavenPackageUpload.
+        :type: str
+        """
+
+        self._vulnerability_scan_results_url = vulnerability_scan_results_url
 
     def to_dict(self):
         """

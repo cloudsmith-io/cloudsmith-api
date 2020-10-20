@@ -10,11 +10,8 @@
 
 package cloudsmith_api
 
-type EntitlementTokenMetric struct {
+type EntitlementUsageMetric struct {
 
 	// 
-	BandwidthPerToken interface{} `json:"bandwidth_per_token"`
-
-	// 
-	Totals interface{} `json:"totals"`
+	Usage interface{} `json:"usage"`
 }

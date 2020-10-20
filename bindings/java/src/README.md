@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.53.17</version>
+    <version>0.53.78</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.53.17"
+compile "io.cloudsmith.api:cloudsmith-api:0.53.78"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.53.17.jar
+* target/cloudsmith-api-0.53.78.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -76,12 +76,6 @@ public class BadgesApiExample {
         apikey.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //apikey.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: csrf_token
-        ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
-        csrf_token.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //csrf_token.setApiKeyPrefix("Token");
 
         BadgesApi apiInstance = new BadgesApi();
         String owner = "owner_example"; // String | 
@@ -202,6 +196,10 @@ Class | Method | HTTP request | Description
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
 *UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
+*VulnerabilitiesApi* | [**vulnerabilitiesList**](docs/VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Read-only view to list vulnerabiltiy scan results within a Namespace.
+*VulnerabilitiesApi* | [**vulnerabilitiesList0**](docs/VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Read-only views to list vulnerabiltiy scan results within a Repository.
+*VulnerabilitiesApi* | [**vulnerabilitiesList1**](docs/VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Read-only views to list vulnerabiltiy scan results within a Repository
+*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Read-only view to retrieve vulnerability scans results using a
 *WebhooksApi* | [**webhooksCreate**](docs/WebhooksApi.md#webhooksCreate) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
 *WebhooksApi* | [**webhooksDelete**](docs/WebhooksApi.md#webhooksDelete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
 *WebhooksApi* | [**webhooksList**](docs/WebhooksApi.md#webhooksList) | **GET** /webhooks/{owner}/{repo}/ | Get a list of all webhooks in a repository.
@@ -215,7 +213,7 @@ Class | Method | HTTP request | Description
  - [ConanPackageUpload](docs/ConanPackageUpload.md)
  - [Distribution](docs/Distribution.md)
  - [DistrosVersions](docs/DistrosVersions.md)
- - [EntitlementTokenMetric](docs/EntitlementTokenMetric.md)
+ - [EntitlementUsageMetric](docs/EntitlementUsageMetric.md)
  - [EntitlementsCreate](docs/EntitlementsCreate.md)
  - [EntitlementsPartialUpdate](docs/EntitlementsPartialUpdate.md)
  - [EntitlementsRefresh](docs/EntitlementsRefresh.md)
@@ -306,6 +304,8 @@ Class | Method | HTTP request | Description
  - [UserProfile](docs/UserProfile.md)
  - [UserTokenCreate](docs/UserTokenCreate.md)
  - [VagrantPackageUpload](docs/VagrantPackageUpload.md)
+ - [VulnerabilityScanResults](docs/VulnerabilityScanResults.md)
+ - [VulnerabilityScanResultsList](docs/VulnerabilityScanResultsList.md)
  - [WebhooksCreate](docs/WebhooksCreate.md)
  - [WebhooksPartialUpdate](docs/WebhooksPartialUpdate.md)
  - [WebhooksownerrepoTemplates](docs/WebhooksownerrepoTemplates.md)
@@ -323,12 +323,6 @@ Authentication schemes defined for the API:
 ### basic
 
 - **Type**: HTTP basic authentication
-
-### csrf_token
-
-- **Type**: API key
-- **API key parameter name**: X-CSRFToken
-- **Location**: HTTP header
 
 
 ## Recommendation

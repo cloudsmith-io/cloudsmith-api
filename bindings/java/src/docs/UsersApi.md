@@ -32,12 +32,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: csrf_token
-ApiKeyAuth csrf_token = (ApiKeyAuth) defaultClient.getAuthentication("csrf_token");
-csrf_token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//csrf_token.setApiKeyPrefix("Token");
-
 UsersApi apiInstance = new UsersApi();
 String slug = "slug_example"; // String | 
 try {
@@ -61,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 

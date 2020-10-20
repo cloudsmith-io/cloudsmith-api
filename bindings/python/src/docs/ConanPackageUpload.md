@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **self_html_url** | **str** |  | [optional] 
 **self_url** | **str** |  | [optional] 
 **size** | **int** | The calculated size of the package. | [optional] 
-**slug** | **str** |  | [optional] 
+**slug** | **str** | The public unique identifier for the package. | [optional] 
 **slug_perm** | **str** |  | [optional] 
 **stage** | **str** | The synchronisation (in progress) stage of the package. | [optional] 
 **stage_str** | **str** |  | [optional] 
@@ -61,6 +61,7 @@ Name | Type | Description | Notes
 **uploader_url** | **str** |  | [optional] 
 **version** | **str** | The raw version for this package. | [optional] 
 **version_orig** | **str** |  | [optional] 
+**vulnerability_scan_results_url** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

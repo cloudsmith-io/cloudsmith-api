@@ -60,9 +60,6 @@ func (a ReposApi) ReposAllList(page int32, pageSize int32) ([]Repository, *APIRe
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -129,9 +126,6 @@ func (a ReposApi) ReposCreate(owner string, data ReposCreate) (*Repository, *API
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -199,9 +193,6 @@ func (a ReposApi) ReposDelete(owner string, identifier string) (*APIResponse, er
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -265,9 +256,6 @@ func (a ReposApi) ReposList(owner string, page int32, pageSize int32) ([]Reposit
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -336,9 +324,6 @@ func (a ReposApi) ReposPartialUpdate(owner string, identifier string, data Repos
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -406,9 +391,6 @@ func (a ReposApi) ReposRead(owner string, identifier string) (*Repository, *APIR
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]

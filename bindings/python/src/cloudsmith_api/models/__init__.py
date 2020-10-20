@@ -18,7 +18,7 @@ from .alpine_package_upload import AlpinePackageUpload
 from .conan_package_upload import ConanPackageUpload
 from .distribution import Distribution
 from .distros_versions import DistrosVersions
-from .entitlement_token_metric import EntitlementTokenMetric
+from .entitlement_usage_metric import EntitlementUsageMetric
 from .entitlements_create import EntitlementsCreate
 from .entitlements_partial_update import EntitlementsPartialUpdate
 from .entitlements_refresh import EntitlementsRefresh
@@ -109,6 +109,8 @@ from .user_brief import UserBrief
 from .user_profile import UserProfile
 from .user_token_create import UserTokenCreate
 from .vagrant_package_upload import VagrantPackageUpload
+from .vulnerability_scan_results import VulnerabilityScanResults
+from .vulnerability_scan_results_list import VulnerabilityScanResultsList
 from .webhooks_create import WebhooksCreate
 from .webhooks_partial_update import WebhooksPartialUpdate
 from .webhooksownerrepo_templates import WebhooksownerrepoTemplates

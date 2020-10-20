@@ -28,7 +28,13 @@ type RepositoryTokenSyncTokens struct {
 	Default_ bool `json:"default,omitempty"`
 
 	// 
+	DisableUrl string `json:"disable_url,omitempty"`
+
+	// 
 	Downloads int32 `json:"downloads,omitempty"`
+
+	// 
+	EnableUrl string `json:"enable_url,omitempty"`
 
 	// 
 	HasLimits bool `json:"has_limits,omitempty"`
@@ -42,7 +48,7 @@ type RepositoryTokenSyncTokens struct {
 	// 
 	IsLimited bool `json:"is_limited,omitempty"`
 
-	// The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+	// The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 	LimitBandwidth int32 `json:"limit_bandwidth,omitempty"`
 
 	// 
@@ -74,6 +80,9 @@ type RepositoryTokenSyncTokens struct {
 
 	// 
 	RefreshUrl string `json:"refresh_url,omitempty"`
+
+	// 
+	ResetUrl string `json:"reset_url,omitempty"`
 
 	// The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
 	ScheduledResetAt string `json:"scheduled_reset_at,omitempty"`

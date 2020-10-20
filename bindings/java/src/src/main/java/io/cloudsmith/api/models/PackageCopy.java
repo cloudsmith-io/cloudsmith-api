@@ -208,6 +208,9 @@ public class PackageCopy implements Serializable {
   @SerializedName("version_orig")
   private String versionOrig = null;
 
+  @SerializedName("vulnerability_scan_results_url")
+  private String vulnerabilityScanResultsUrl = null;
+
   public PackageCopy architectures(List<PackagesownerrepoArchitectures> architectures) {
     this.architectures = architectures;
     return this;
@@ -862,10 +865,10 @@ public class PackageCopy implements Serializable {
   }
 
    /**
-   * 
+   * The public unique identifier for the package.
    * @return slug
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The public unique identifier for the package.")
   public String getSlug() {
     return slug;
   }
@@ -1252,6 +1255,24 @@ public class PackageCopy implements Serializable {
     this.versionOrig = versionOrig;
   }
 
+  public PackageCopy vulnerabilityScanResultsUrl(String vulnerabilityScanResultsUrl) {
+    this.vulnerabilityScanResultsUrl = vulnerabilityScanResultsUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return vulnerabilityScanResultsUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getVulnerabilityScanResultsUrl() {
+    return vulnerabilityScanResultsUrl;
+  }
+
+  public void setVulnerabilityScanResultsUrl(String vulnerabilityScanResultsUrl) {
+    this.vulnerabilityScanResultsUrl = vulnerabilityScanResultsUrl;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1318,12 +1339,13 @@ public class PackageCopy implements Serializable {
         Objects.equals(this.uploader, packageCopy.uploader) &&
         Objects.equals(this.uploaderUrl, packageCopy.uploaderUrl) &&
         Objects.equals(this.version, packageCopy.version) &&
-        Objects.equals(this.versionOrig, packageCopy.versionOrig);
+        Objects.equals(this.versionOrig, packageCopy.versionOrig) &&
+        Objects.equals(this.vulnerabilityScanResultsUrl, packageCopy.vulnerabilityScanResultsUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tags, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tags, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1389,6 +1411,7 @@ public class PackageCopy implements Serializable {
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
+    sb.append("    vulnerabilityScanResultsUrl: ").append(toIndentedString(vulnerabilityScanResultsUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -15,7 +15,7 @@ type EntitlementsCreate struct {
 	// If enabled, the token will allow downloads based on configured restrictions (if any).
 	IsActive bool `json:"is_active,omitempty"`
 
-	// The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+	// The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 	LimitBandwidth int32 `json:"limit_bandwidth,omitempty"`
 
 	// None
@@ -44,6 +44,9 @@ type EntitlementsCreate struct {
 
 	// None
 	Name string `json:"name"`
+
+	// The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
+	ScheduledResetAt string `json:"scheduled_reset_at,omitempty"`
 
 	// None
 	ScheduledResetPeriod string `json:"scheduled_reset_period,omitempty"`

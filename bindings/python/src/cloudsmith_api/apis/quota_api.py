@@ -121,7 +121,7 @@ class QuotaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/quota/history/{owner}/', 'GET',
                                         path_params,
@@ -219,7 +219,7 @@ class QuotaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/quota/oss/history/{owner}/', 'GET',
                                         path_params,
@@ -317,7 +317,7 @@ class QuotaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/quota/oss/{owner}/', 'GET',
                                         path_params,
@@ -415,7 +415,7 @@ class QuotaApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/quota/{owner}/', 'GET',
                                         path_params,

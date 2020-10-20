@@ -122,7 +122,7 @@ class ReposApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/repos/', 'GET',
                                         path_params,
@@ -228,7 +228,7 @@ class ReposApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/repos/{owner}/', 'POST',
                                         path_params,
@@ -333,7 +333,7 @@ class ReposApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/repos/{owner}/{identifier}/', 'DELETE',
                                         path_params,
@@ -439,7 +439,7 @@ class ReposApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/repos/{owner}/', 'GET',
                                         path_params,
@@ -552,7 +552,7 @@ class ReposApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/repos/{owner}/{identifier}/', 'PATCH',
                                         path_params,
@@ -657,7 +657,7 @@ class ReposApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/repos/{owner}/{identifier}/', 'GET',
                                         path_params,

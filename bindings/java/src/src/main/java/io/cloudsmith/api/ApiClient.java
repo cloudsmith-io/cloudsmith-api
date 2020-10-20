@@ -159,13 +159,12 @@ public class ApiClient {
         this.lenientDatetimeFormat = true;
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/0.53.17/java");
+        setUserAgent("Swagger-Codegen/0.53.78/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
         authentications.put("apikey", new ApiKeyAuth("header", "X-Api-Key"));
         authentications.put("basic", new HttpBasicAuth());
-        authentications.put("csrf_token", new ApiKeyAuth("header", "X-CSRFToken"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }

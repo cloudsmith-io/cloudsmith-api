@@ -221,13 +221,6 @@ class Configuration(object):
                     'key': 'Authorization',
                     'value': self.get_basic_auth_token()
                 },
-            'csrf_token':
-                {
-                    'type': 'api_key',
-                    'in': 'header',
-                    'key': 'X-CSRFToken',
-                    'value': self.get_api_key_with_prefix('X-CSRFToken')
-                },
 
         }
 
@@ -241,5 +234,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v1\n"\
-               "SDK Package Version: 0.53.17".\
+               "SDK Package Version: 0.53.78".\
                format(env=sys.platform, pyversion=sys.version)

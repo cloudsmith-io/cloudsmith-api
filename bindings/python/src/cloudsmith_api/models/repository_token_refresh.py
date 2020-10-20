@@ -36,7 +36,9 @@ class RepositoryTokenRefresh(object):
         'created_by': 'str',
         'created_by_url': 'str',
         'default': 'bool',
+        'disable_url': 'str',
         'downloads': 'int',
+        'enable_url': 'str',
         'has_limits': 'bool',
         'identifier': 'int',
         'is_active': 'bool',
@@ -52,6 +54,7 @@ class RepositoryTokenRefresh(object):
         'metadata': 'object',
         'name': 'str',
         'refresh_url': 'str',
+        'reset_url': 'str',
         'scheduled_reset_at': 'str',
         'scheduled_reset_period': 'str',
         'self_url': 'str',
@@ -71,7 +74,9 @@ class RepositoryTokenRefresh(object):
         'created_by': 'created_by',
         'created_by_url': 'created_by_url',
         'default': 'default',
+        'disable_url': 'disable_url',
         'downloads': 'downloads',
+        'enable_url': 'enable_url',
         'has_limits': 'has_limits',
         'identifier': 'identifier',
         'is_active': 'is_active',
@@ -87,6 +92,7 @@ class RepositoryTokenRefresh(object):
         'metadata': 'metadata',
         'name': 'name',
         'refresh_url': 'refresh_url',
+        'reset_url': 'reset_url',
         'scheduled_reset_at': 'scheduled_reset_at',
         'scheduled_reset_period': 'scheduled_reset_period',
         'self_url': 'self_url',
@@ -100,7 +106,7 @@ class RepositoryTokenRefresh(object):
         'user_url': 'user_url'
     }
 
-    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, downloads=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, scheduled_reset_at=None, scheduled_reset_period=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
+    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, disable_url=None, downloads=None, enable_url=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, reset_url=None, scheduled_reset_at=None, scheduled_reset_period=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
         """
         RepositoryTokenRefresh - a model defined in Swagger
         """
@@ -110,7 +116,9 @@ class RepositoryTokenRefresh(object):
         self._created_by = None
         self._created_by_url = None
         self._default = None
+        self._disable_url = None
         self._downloads = None
+        self._enable_url = None
         self._has_limits = None
         self._identifier = None
         self._is_active = None
@@ -126,6 +134,7 @@ class RepositoryTokenRefresh(object):
         self._metadata = None
         self._name = None
         self._refresh_url = None
+        self._reset_url = None
         self._scheduled_reset_at = None
         self._scheduled_reset_period = None
         self._self_url = None
@@ -148,8 +157,12 @@ class RepositoryTokenRefresh(object):
           self.created_by_url = created_by_url
         if default is not None:
           self.default = default
+        if disable_url is not None:
+          self.disable_url = disable_url
         if downloads is not None:
           self.downloads = downloads
+        if enable_url is not None:
+          self.enable_url = enable_url
         if has_limits is not None:
           self.has_limits = has_limits
         if identifier is not None:
@@ -180,6 +193,8 @@ class RepositoryTokenRefresh(object):
           self.name = name
         if refresh_url is not None:
           self.refresh_url = refresh_url
+        if reset_url is not None:
+          self.reset_url = reset_url
         if scheduled_reset_at is not None:
           self.scheduled_reset_at = scheduled_reset_at
         if scheduled_reset_period is not None:
@@ -319,6 +334,29 @@ class RepositoryTokenRefresh(object):
         self._default = default
 
     @property
+    def disable_url(self):
+        """
+        Gets the disable_url of this RepositoryTokenRefresh.
+        
+
+        :return: The disable_url of this RepositoryTokenRefresh.
+        :rtype: str
+        """
+        return self._disable_url
+
+    @disable_url.setter
+    def disable_url(self, disable_url):
+        """
+        Sets the disable_url of this RepositoryTokenRefresh.
+        
+
+        :param disable_url: The disable_url of this RepositoryTokenRefresh.
+        :type: str
+        """
+
+        self._disable_url = disable_url
+
+    @property
     def downloads(self):
         """
         Gets the downloads of this RepositoryTokenRefresh.
@@ -340,6 +378,29 @@ class RepositoryTokenRefresh(object):
         """
 
         self._downloads = downloads
+
+    @property
+    def enable_url(self):
+        """
+        Gets the enable_url of this RepositoryTokenRefresh.
+        
+
+        :return: The enable_url of this RepositoryTokenRefresh.
+        :rtype: str
+        """
+        return self._enable_url
+
+    @enable_url.setter
+    def enable_url(self, enable_url):
+        """
+        Sets the enable_url of this RepositoryTokenRefresh.
+        
+
+        :param enable_url: The enable_url of this RepositoryTokenRefresh.
+        :type: str
+        """
+
+        self._enable_url = enable_url
 
     @property
     def has_limits(self):
@@ -437,7 +498,7 @@ class RepositoryTokenRefresh(object):
     def limit_bandwidth(self):
         """
         Gets the limit_bandwidth of this RepositoryTokenRefresh.
-        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 
         :return: The limit_bandwidth of this RepositoryTokenRefresh.
         :rtype: int
@@ -448,7 +509,7 @@ class RepositoryTokenRefresh(object):
     def limit_bandwidth(self, limit_bandwidth):
         """
         Sets the limit_bandwidth of this RepositoryTokenRefresh.
-        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 
         :param limit_bandwidth: The limit_bandwidth of this RepositoryTokenRefresh.
         :type: int
@@ -685,6 +746,29 @@ class RepositoryTokenRefresh(object):
         """
 
         self._refresh_url = refresh_url
+
+    @property
+    def reset_url(self):
+        """
+        Gets the reset_url of this RepositoryTokenRefresh.
+        
+
+        :return: The reset_url of this RepositoryTokenRefresh.
+        :rtype: str
+        """
+        return self._reset_url
+
+    @reset_url.setter
+    def reset_url(self, reset_url):
+        """
+        Sets the reset_url of this RepositoryTokenRefresh.
+        
+
+        :param reset_url: The reset_url of this RepositoryTokenRefresh.
+        :type: str
+        """
+
+        self._reset_url = reset_url
 
     @property
     def scheduled_reset_at(self):

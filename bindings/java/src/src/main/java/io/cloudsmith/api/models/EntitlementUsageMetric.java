@@ -27,54 +27,32 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * EntitlementTokenMetric
+ * EntitlementUsageMetric
  */
 
-public class EntitlementTokenMetric implements Serializable {
+public class EntitlementUsageMetric implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("bandwidth_per_token")
-  private Object bandwidthPerToken = null;
+  @SerializedName("usage")
+  private Object usage = null;
 
-  @SerializedName("totals")
-  private Object totals = null;
-
-  public EntitlementTokenMetric bandwidthPerToken(Object bandwidthPerToken) {
-    this.bandwidthPerToken = bandwidthPerToken;
+  public EntitlementUsageMetric usage(Object usage) {
+    this.usage = usage;
     return this;
   }
 
    /**
    * 
-   * @return bandwidthPerToken
+   * @return usage
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
-  public Object getBandwidthPerToken() {
-    return bandwidthPerToken;
+  @ApiModelProperty(example = "{\"display\":{\"bandwidth_per_token\":{\"average\":\"11 B\",\"highest\":\"11 B\",\"lowest\":\"11 B\"},\"totals\":{\"active_tokens\":1,\"bandwidth_used\":\"11 B\",\"inactive_tokens\":0,\"tokens\":1}},\"raw\":{\"bandwidth_per_token\":{\"average\":11,\"highest\":11,\"lowest\":11},\"totals\":{\"active_tokens\":1,\"bandwidth_used\":11,\"inactive_tokens\":0,\"tokens\":1}}}", required = true, value = "")
+  public Object getUsage() {
+    return usage;
   }
 
-  public void setBandwidthPerToken(Object bandwidthPerToken) {
-    this.bandwidthPerToken = bandwidthPerToken;
-  }
-
-  public EntitlementTokenMetric totals(Object totals) {
-    this.totals = totals;
-    return this;
-  }
-
-   /**
-   * 
-   * @return totals
-  **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "")
-  public Object getTotals() {
-    return totals;
-  }
-
-  public void setTotals(Object totals) {
-    this.totals = totals;
+  public void setUsage(Object usage) {
+    this.usage = usage;
   }
 
 
@@ -86,24 +64,22 @@ public class EntitlementTokenMetric implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EntitlementTokenMetric entitlementTokenMetric = (EntitlementTokenMetric) o;
-    return Objects.equals(this.bandwidthPerToken, entitlementTokenMetric.bandwidthPerToken) &&
-        Objects.equals(this.totals, entitlementTokenMetric.totals);
+    EntitlementUsageMetric entitlementUsageMetric = (EntitlementUsageMetric) o;
+    return Objects.equals(this.usage, entitlementUsageMetric.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPerToken, totals);
+    return Objects.hash(usage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EntitlementTokenMetric {\n");
+    sb.append("class EntitlementUsageMetric {\n");
     
-    sb.append("    bandwidthPerToken: ").append(toIndentedString(bandwidthPerToken)).append("\n");
-    sb.append("    totals: ").append(toIndentedString(totals)).append("\n");
+    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

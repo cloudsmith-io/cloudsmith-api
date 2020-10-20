@@ -42,6 +42,7 @@ class EntitlementsPartialUpdate(object):
         'limit_path_query': 'str',
         'metadata': 'object',
         'name': 'str',
+        'scheduled_reset_at': 'str',
         'scheduled_reset_period': 'str',
         'token': 'str'
     }
@@ -58,11 +59,12 @@ class EntitlementsPartialUpdate(object):
         'limit_path_query': 'limit_path_query',
         'metadata': 'metadata',
         'name': 'name',
+        'scheduled_reset_at': 'scheduled_reset_at',
         'scheduled_reset_period': 'scheduled_reset_period',
         'token': 'token'
     }
 
-    def __init__(self, is_active=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, scheduled_reset_period=None, token=None):
+    def __init__(self, is_active=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, scheduled_reset_at=None, scheduled_reset_period=None, token=None):
         """
         EntitlementsPartialUpdate - a model defined in Swagger
         """
@@ -78,6 +80,7 @@ class EntitlementsPartialUpdate(object):
         self._limit_path_query = None
         self._metadata = None
         self._name = None
+        self._scheduled_reset_at = None
         self._scheduled_reset_period = None
         self._token = None
 
@@ -103,6 +106,8 @@ class EntitlementsPartialUpdate(object):
           self.metadata = metadata
         if name is not None:
           self.name = name
+        if scheduled_reset_at is not None:
+          self.scheduled_reset_at = scheduled_reset_at
         if scheduled_reset_period is not None:
           self.scheduled_reset_period = scheduled_reset_period
         if token is not None:
@@ -135,7 +140,7 @@ class EntitlementsPartialUpdate(object):
     def limit_bandwidth(self):
         """
         Gets the limit_bandwidth of this EntitlementsPartialUpdate.
-        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 
         :return: The limit_bandwidth of this EntitlementsPartialUpdate.
         :rtype: int
@@ -146,7 +151,7 @@ class EntitlementsPartialUpdate(object):
     def limit_bandwidth(self, limit_bandwidth):
         """
         Sets the limit_bandwidth of this EntitlementsPartialUpdate.
-        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 
         :param limit_bandwidth: The limit_bandwidth of this EntitlementsPartialUpdate.
         :type: int
@@ -360,6 +365,29 @@ class EntitlementsPartialUpdate(object):
         """
 
         self._name = name
+
+    @property
+    def scheduled_reset_at(self):
+        """
+        Gets the scheduled_reset_at of this EntitlementsPartialUpdate.
+        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
+
+        :return: The scheduled_reset_at of this EntitlementsPartialUpdate.
+        :rtype: str
+        """
+        return self._scheduled_reset_at
+
+    @scheduled_reset_at.setter
+    def scheduled_reset_at(self, scheduled_reset_at):
+        """
+        Sets the scheduled_reset_at of this EntitlementsPartialUpdate.
+        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
+
+        :param scheduled_reset_at: The scheduled_reset_at of this EntitlementsPartialUpdate.
+        :type: str
+        """
+
+        self._scheduled_reset_at = scheduled_reset_at
 
     @property
     def scheduled_reset_period(self):

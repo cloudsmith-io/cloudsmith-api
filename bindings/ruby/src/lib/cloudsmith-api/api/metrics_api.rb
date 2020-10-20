@@ -30,7 +30,7 @@ module CloudsmithApi
     # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
     # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<EntitlementTokenMetric>]
+    # @return [Array<EntitlementUsageMetric>]
     def metrics_entitlements_usage_list(owner, repo, opts = {})
       data, _status_code, _headers = metrics_entitlements_usage_list_with_http_info(owner, repo, opts)
       return data
@@ -46,7 +46,7 @@ module CloudsmithApi
     # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
     # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<(Array<EntitlementTokenMetric>, Fixnum, Hash)>] Array<EntitlementTokenMetric> data, response status code and response headers
+    # @return [Array<(Array<EntitlementUsageMetric>, Fixnum, Hash)>] Array<EntitlementUsageMetric> data, response status code and response headers
     def metrics_entitlements_usage_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_usage_list ..."
@@ -78,14 +78,14 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'csrf_token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<EntitlementTokenMetric>')
+        :return_type => 'Array<EntitlementUsageMetric>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_usage_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -150,7 +150,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'csrf_token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

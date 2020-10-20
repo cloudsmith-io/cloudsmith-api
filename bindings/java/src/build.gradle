@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'io.cloudsmith.api'
-version = '0.53.17'
+version = '0.53.78'
 
 buildscript {
     repositories {

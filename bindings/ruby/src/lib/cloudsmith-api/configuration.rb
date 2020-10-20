@@ -210,13 +210,6 @@ module CloudsmithApi
             key: 'Authorization',
             value: basic_auth_token
           },
-        'csrf_token' =>
-          {
-            type: 'api_key',
-            in: 'header',
-            key: 'X-CSRFToken',
-            value: api_key_with_prefix('X-CSRFToken')
-          },
       }
     end
   end

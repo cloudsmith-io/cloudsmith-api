@@ -143,7 +143,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/files/{owner}/{repo}/{identifier}/abort/', 'POST',
                                         path_params,
@@ -263,7 +263,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/files/{owner}/{repo}/{identifier}/complete/', 'POST',
                                         path_params,
@@ -376,7 +376,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/files/{owner}/{repo}/', 'POST',
                                         path_params,
@@ -488,7 +488,7 @@ class FilesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/files/{owner}/{repo}/{identifier}/info/', 'GET',
                                         path_params,
@@ -601,7 +601,7 @@ class FilesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['apikey', 'csrf_token']
+        auth_settings = ['apikey']
 
         return self.api_client.call_api('/files/{owner}/{repo}/validate/', 'POST',
                                         path_params,

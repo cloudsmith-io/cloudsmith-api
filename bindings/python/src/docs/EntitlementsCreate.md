@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_active** | **bool** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] 
-**limit_bandwidth** | **int** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth.Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  | [optional] 
+**limit_bandwidth** | **int** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  | [optional] 
 **limit_bandwidth_unit** | **str** | None | [optional] 
 **limit_date_range_from** | **str** | The starting date/time the token is allowed to be used from. | [optional] 
 **limit_date_range_to** | **str** | The ending date/time the token is allowed to be used until. | [optional] 
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **limit_path_query** | **str** | The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash. | [optional] 
 **metadata** | **object** | None | [optional] 
 **name** | **str** | None | 
+**scheduled_reset_at** | **str** | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. | [optional] 
 **scheduled_reset_period** | **str** | None | [optional] 
 **token** | **str** | None | [optional] 
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **MetricsEntitlementsUsageList**
-> []EntitlementTokenMetric MetricsEntitlementsUsageList($owner, $repo, $page, $pageSize, $finish, $start, $tokens)
+> []EntitlementUsageMetric MetricsEntitlementsUsageList($owner, $repo, $page, $pageSize, $finish, $start, $tokens)
 
 View for listing entitlement token usage as a metric.
 
@@ -30,11 +30,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]EntitlementTokenMetric**](EntitlementTokenMetric.md)
+[**[]EntitlementUsageMetric**](EntitlementUsageMetric.md)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [csrf_token](../README.md#csrf_token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 

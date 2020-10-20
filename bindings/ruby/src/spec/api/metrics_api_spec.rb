@@ -43,7 +43,7 @@ describe 'MetricsApi' do
   # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
   # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
   # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-  # @return [Array<EntitlementTokenMetric>]
+  # @return [Array<EntitlementUsageMetric>]
   describe 'metrics_entitlements_usage_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

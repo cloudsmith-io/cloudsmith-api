@@ -36,7 +36,7 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import io.cloudsmith.api.models.EntitlementTokenMetric;
+import io.cloudsmith.api.models.EntitlementUsageMetric;
 import io.cloudsmith.api.models.PackageUsageMetric;
 import io.cloudsmith.api.models.Status;
 
@@ -127,7 +127,7 @@ public class MetricsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -173,11 +173,11 @@ public class MetricsApi {
      * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
      * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
-     * @return List&lt;EntitlementTokenMetric&gt;
+     * @return List&lt;EntitlementUsageMetric&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<EntitlementTokenMetric> metricsEntitlementsUsageList(String owner, String repo, Integer page, Integer pageSize, Integer finish, Integer start, String tokens) throws ApiException {
-        ApiResponse<List<EntitlementTokenMetric>> resp = metricsEntitlementsUsageListWithHttpInfo(owner, repo, page, pageSize, finish, start, tokens);
+    public List<EntitlementUsageMetric> metricsEntitlementsUsageList(String owner, String repo, Integer page, Integer pageSize, Integer finish, Integer start, String tokens) throws ApiException {
+        ApiResponse<List<EntitlementUsageMetric>> resp = metricsEntitlementsUsageListWithHttpInfo(owner, repo, page, pageSize, finish, start, tokens);
         return resp.getData();
     }
 
@@ -191,12 +191,12 @@ public class MetricsApi {
      * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
      * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
-     * @return ApiResponse&lt;List&lt;EntitlementTokenMetric&gt;&gt;
+     * @return ApiResponse&lt;List&lt;EntitlementUsageMetric&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<EntitlementTokenMetric>> metricsEntitlementsUsageListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  Integer finish,  Integer start,  String tokens) throws ApiException {
+    public ApiResponse<List<EntitlementUsageMetric>> metricsEntitlementsUsageListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  Integer finish,  Integer start,  String tokens) throws ApiException {
         com.squareup.okhttp.Call call = metricsEntitlementsUsageListValidateBeforeCall(owner, repo, page, pageSize, finish, start, tokens, null, null);
-        Type localVarReturnType = new TypeToken<List<EntitlementTokenMetric>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<EntitlementUsageMetric>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -214,7 +214,7 @@ public class MetricsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsUsageListAsync(String owner, String repo, Integer page, Integer pageSize, Integer finish, Integer start, String tokens, final ApiCallback<List<EntitlementTokenMetric>> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsUsageListAsync(String owner, String repo, Integer page, Integer pageSize, Integer finish, Integer start, String tokens, final ApiCallback<List<EntitlementUsageMetric>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -236,7 +236,7 @@ public class MetricsApi {
         }
 
         com.squareup.okhttp.Call call = metricsEntitlementsUsageListValidateBeforeCall(owner, repo, page, pageSize, finish, start, tokens, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<EntitlementTokenMetric>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<EntitlementUsageMetric>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -302,7 +302,7 @@ public class MetricsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "csrf_token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

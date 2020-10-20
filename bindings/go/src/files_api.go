@@ -65,9 +65,6 @@ func (a FilesApi) FilesAbort(owner string, repo string, identifier string, data 
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -136,9 +133,6 @@ func (a FilesApi) FilesComplete(owner string, repo string, identifier string, da
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -207,9 +201,6 @@ func (a FilesApi) FilesCreate(owner string, repo string, data FilesCreate) (*Pac
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -279,9 +270,6 @@ func (a FilesApi) FilesInfo(owner string, repo string, identifier string) (*Pack
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
@@ -348,9 +336,6 @@ func (a FilesApi) FilesValidate(owner string, repo string, data FilesValidate) (
 	// authentication '(apikey)' required
 	// set key with prefix in header
 	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
-	// authentication '(csrf_token)' required
-	// set key with prefix in header
-	localVarHeaderParams["X-CSRFToken"] = a.Configuration.GetAPIKeyWithPrefix("X-CSRFToken")
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
