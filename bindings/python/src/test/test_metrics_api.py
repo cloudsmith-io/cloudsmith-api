@@ -39,6 +39,14 @@ class TestMetricsApi(unittest.TestCase):
         """
         pass
 
+    def test_metrics_entitlements_usage_list0(self):
+        """
+        Test case for metrics_entitlements_usage_list0
+
+        View for listing entitlement token usage as a metric.
+        """
+        pass
+
     def test_metrics_packages_usage_list(self):
         """
         Test case for metrics_packages_usage_list

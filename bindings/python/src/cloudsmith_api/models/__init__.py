@@ -42,6 +42,8 @@ from .package_status import PackageStatus
 from .package_usage_metric import PackageUsageMetric
 from .packages_copy import PackagesCopy
 from .packages_move import PackagesMove
+from .packages_resync import PackagesResync
+from .packages_scan import PackagesScan
 from .packages_tag import PackagesTag
 from .packages_upload_alpine import PackagesUploadAlpine
 from .packages_upload_cargo import PackagesUploadCargo

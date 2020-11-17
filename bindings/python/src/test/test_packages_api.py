@@ -79,6 +79,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_scan(self):
+        """
+        Test case for packages_scan
+
+        Schedule a package for scanning.
+        """
+        pass
+
     def test_packages_status(self):
         """
         Test case for packages_status

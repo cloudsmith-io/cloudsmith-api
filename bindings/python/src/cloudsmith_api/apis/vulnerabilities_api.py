@@ -42,8 +42,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list(self, owner, **kwargs):
         """
-        Read-only view to list vulnerabiltiy scan results within a Namespace.
-        Read-only view to list vulnerabiltiy scan results within a Namespace.
+        Checks feature is within plan before listing results.
+        Checks feature is within plan before listing results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -70,8 +70,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list_with_http_info(self, owner, **kwargs):
         """
-        Read-only view to list vulnerabiltiy scan results within a Namespace.
-        Read-only view to list vulnerabiltiy scan results within a Namespace.
+        Checks feature is within plan before listing results.
+        Checks feature is within plan before listing results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -148,8 +148,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list0(self, owner, repo, **kwargs):
         """
-        Read-only views to list vulnerabiltiy scan results within a Repository.
-        Read-only views to list vulnerabiltiy scan results within a Repository.
+        Checks feature is within plan before listing results.
+        Checks feature is within plan before listing results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -177,8 +177,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list0_with_http_info(self, owner, repo, **kwargs):
         """
-        Read-only views to list vulnerabiltiy scan results within a Repository.
-        Read-only views to list vulnerabiltiy scan results within a Repository.
+        Checks feature is within plan before listing results.
+        Checks feature is within plan before listing results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -261,8 +261,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list1(self, owner, repo, package, **kwargs):
         """
-        Read-only views to list vulnerabiltiy scan results within a Repository
-        Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+        Checks feature is within plan before listing results.
+        Checks feature is within plan before listing results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -275,7 +275,7 @@ class VulnerabilitiesApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str package: The package that the scan result relates to. (required)
+        :param str package:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :return: list[VulnerabilityScanResultsList]
@@ -291,8 +291,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list1_with_http_info(self, owner, repo, package, **kwargs):
         """
-        Read-only views to list vulnerabiltiy scan results within a Repository
-        Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+        Checks feature is within plan before listing results.
+        Checks feature is within plan before listing results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -305,7 +305,7 @@ class VulnerabilitiesApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str package: The package that the scan result relates to. (required)
+        :param str package:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :return: list[VulnerabilityScanResultsList]
@@ -381,8 +381,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_read(self, owner, repo, package, scan_id, **kwargs):
         """
-        Read-only view to retrieve vulnerability scans results using a
-        Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+        Checks feature is within plan before retrieving results.
+        Checks feature is within plan before retrieving results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -395,8 +395,8 @@ class VulnerabilitiesApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str package: The package that the scan result relates to. (required)
-        :param str scan_id: A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
+        :param str package:  (required)
+        :param str scan_id:  (required)
         :return: VulnerabilityScanResults
                  If the method is called asynchronously,
                  returns the request thread.
@@ -410,8 +410,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_read_with_http_info(self, owner, repo, package, scan_id, **kwargs):
         """
-        Read-only view to retrieve vulnerability scans results using a
-        Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+        Checks feature is within plan before retrieving results.
+        Checks feature is within plan before retrieving results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -424,8 +424,8 @@ class VulnerabilitiesApi(object):
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param str repo:  (required)
-        :param str package: The package that the scan result relates to. (required)
-        :param str scan_id: A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
+        :param str package:  (required)
+        :param str scan_id:  (required)
         :return: VulnerabilityScanResults
                  If the method is called asynchronously,
                  returns the request thread.

@@ -35,7 +35,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_list
 
-        Read-only view to list vulnerabiltiy scan results within a Namespace.
+        Checks feature is within plan before listing results.
         """
         pass
 
@@ -43,7 +43,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_list0
 
-        Read-only views to list vulnerabiltiy scan results within a Repository.
+        Checks feature is within plan before listing results.
         """
         pass
 
@@ -51,7 +51,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_list1
 
-        Read-only views to list vulnerabiltiy scan results within a Repository
+        Checks feature is within plan before listing results.
         """
         pass
 
@@ -59,7 +59,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_read
 
-        Read-only view to retrieve vulnerability scans results using a
+        Checks feature is within plan before retrieving results.
         """
         pass
 
