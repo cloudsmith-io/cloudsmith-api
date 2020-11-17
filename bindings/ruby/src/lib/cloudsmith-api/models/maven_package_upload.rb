@@ -120,6 +120,18 @@ module CloudsmithApi
     # 
     attr_accessor :repository_url
 
+    # The datetime the security scanning was completed.
+    attr_accessor :security_scan_completed_at
+
+    # The datetime the security scanning was started.
+    attr_accessor :security_scan_started_at
+
+    # 
+    attr_accessor :security_scan_status
+
+    # The datetime the security scanning status was updated.
+    attr_accessor :security_scan_status_updated_at
+
     # 
     attr_accessor :self_html_url
 
@@ -234,6 +246,10 @@ module CloudsmithApi
         :'release' => :'release',
         :'repository' => :'repository',
         :'repository_url' => :'repository_url',
+        :'security_scan_completed_at' => :'security_scan_completed_at',
+        :'security_scan_started_at' => :'security_scan_started_at',
+        :'security_scan_status' => :'security_scan_status',
+        :'security_scan_status_updated_at' => :'security_scan_status_updated_at',
         :'self_html_url' => :'self_html_url',
         :'self_url' => :'self_url',
         :'size' => :'size',
@@ -300,6 +316,10 @@ module CloudsmithApi
         :'release' => :'String',
         :'repository' => :'String',
         :'repository_url' => :'String',
+        :'security_scan_completed_at' => :'String',
+        :'security_scan_started_at' => :'String',
+        :'security_scan_status' => :'String',
+        :'security_scan_status_updated_at' => :'String',
         :'self_html_url' => :'String',
         :'self_url' => :'String',
         :'size' => :'Integer',
@@ -480,6 +500,22 @@ module CloudsmithApi
         self.repository_url = attributes[:'repository_url']
       end
 
+      if attributes.has_key?(:'security_scan_completed_at')
+        self.security_scan_completed_at = attributes[:'security_scan_completed_at']
+      end
+
+      if attributes.has_key?(:'security_scan_started_at')
+        self.security_scan_started_at = attributes[:'security_scan_started_at']
+      end
+
+      if attributes.has_key?(:'security_scan_status')
+        self.security_scan_status = attributes[:'security_scan_status']
+      end
+
+      if attributes.has_key?(:'security_scan_status_updated_at')
+        self.security_scan_status_updated_at = attributes[:'security_scan_status_updated_at']
+      end
+
       if attributes.has_key?(:'self_html_url')
         self.self_html_url = attributes[:'self_html_url']
       end
@@ -635,6 +671,10 @@ module CloudsmithApi
           release == o.release &&
           repository == o.repository &&
           repository_url == o.repository_url &&
+          security_scan_completed_at == o.security_scan_completed_at &&
+          security_scan_started_at == o.security_scan_started_at &&
+          security_scan_status == o.security_scan_status &&
+          security_scan_status_updated_at == o.security_scan_status_updated_at &&
           self_html_url == o.self_html_url &&
           self_url == o.self_url &&
           size == o.size &&
@@ -671,7 +711,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
     end
 
     # Builds the object from hash

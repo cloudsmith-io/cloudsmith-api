@@ -113,8 +113,24 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [PackagesResync] :data 
   # @return [Package]
   describe 'packages_resync test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_scan
+  # Schedule a package for scanning.
+  # Schedule a package for scanning.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesScan] :data 
+  # @return [Package]
+  describe 'packages_scan test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -21,6 +21,9 @@ module CloudsmithApi
     # If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.
     attr_accessor :is_immutable
 
+    # None
+    attr_accessor :security_scan_status
+
     # A list of tags to apply the action to. Not required for clears.
     attr_accessor :tags
 
@@ -30,6 +33,7 @@ module CloudsmithApi
       {
         :'action' => :'action',
         :'is_immutable' => :'is_immutable',
+        :'security_scan_status' => :'security_scan_status',
         :'tags' => :'tags'
       }
     end
@@ -39,6 +43,7 @@ module CloudsmithApi
       {
         :'action' => :'String',
         :'is_immutable' => :'BOOLEAN',
+        :'security_scan_status' => :'String',
         :'tags' => :'Array<String>'
       }
     end
@@ -57,6 +62,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'is_immutable')
         self.is_immutable = attributes[:'is_immutable']
+      end
+
+      if attributes.has_key?(:'security_scan_status')
+        self.security_scan_status = attributes[:'security_scan_status']
       end
 
       if attributes.has_key?(:'tags')
@@ -87,6 +96,7 @@ module CloudsmithApi
       self.class == o.class &&
           action == o.action &&
           is_immutable == o.is_immutable &&
+          security_scan_status == o.security_scan_status &&
           tags == o.tags
     end
 
@@ -99,7 +109,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [action, is_immutable, tags].hash
+      [action, is_immutable, security_scan_status, tags].hash
     end
 
     # Builds the object from hash

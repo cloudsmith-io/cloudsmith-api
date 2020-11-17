@@ -18,18 +18,23 @@ module CloudsmithApi
     # None
     attr_accessor :destination
 
+    # None
+    attr_accessor :security_scan_status
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'destination' => :'destination'
+        :'destination' => :'destination',
+        :'security_scan_status' => :'security_scan_status'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'destination' => :'String'
+        :'destination' => :'String',
+        :'security_scan_status' => :'String'
       }
     end
 
@@ -43,6 +48,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'destination')
         self.destination = attributes[:'destination']
+      end
+
+      if attributes.has_key?(:'security_scan_status')
+        self.security_scan_status = attributes[:'security_scan_status']
       end
 
     end
@@ -70,7 +79,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          destination == o.destination
+          destination == o.destination &&
+          security_scan_status == o.security_scan_status
     end
 
     # @see the `==` method
@@ -82,7 +92,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [destination].hash
+      [destination, security_scan_status].hash
     end
 
     # Builds the object from hash

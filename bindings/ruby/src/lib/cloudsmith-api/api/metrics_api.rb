@@ -23,6 +23,72 @@ module CloudsmithApi
     # View for listing entitlement token usage as a metric.
     # View for listing entitlement token usage as a metric.
     # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
+    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
+    # @return [Array<EntitlementUsageMetric>]
+    def metrics_entitlements_usage_list(owner, opts = {})
+      data, _status_code, _headers = metrics_entitlements_usage_list_with_http_info(owner, opts)
+      return data
+    end
+
+    # View for listing entitlement token usage as a metric.
+    # View for listing entitlement token usage as a metric.
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
+    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
+    # @return [Array<(Array<EntitlementUsageMetric>, Fixnum, Hash)>] Array<EntitlementUsageMetric> data, response status code and response headers
+    def metrics_entitlements_usage_list_with_http_info(owner, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_usage_list ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_usage_list"
+      end
+      # resource path
+      local_var_path = "/metrics/{owner}/entitlements/usage/".sub('{' + 'owner' + '}', owner.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'finish'] = opts[:'finish'] if !opts[:'finish'].nil?
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
+      query_params[:'tokens'] = opts[:'tokens'] if !opts[:'tokens'].nil?
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<EntitlementUsageMetric>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_usage_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # View for listing entitlement token usage as a metric.
+    # View for listing entitlement token usage as a metric.
+    # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
@@ -31,8 +97,8 @@ module CloudsmithApi
     # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
     # @return [Array<EntitlementUsageMetric>]
-    def metrics_entitlements_usage_list(owner, repo, opts = {})
-      data, _status_code, _headers = metrics_entitlements_usage_list_with_http_info(owner, repo, opts)
+    def metrics_entitlements_usage_list0(owner, repo, opts = {})
+      data, _status_code, _headers = metrics_entitlements_usage_list0_with_http_info(owner, repo, opts)
       return data
     end
 
@@ -47,17 +113,17 @@ module CloudsmithApi
     # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
     # @return [Array<(Array<EntitlementUsageMetric>, Fixnum, Hash)>] Array<EntitlementUsageMetric> data, response status code and response headers
-    def metrics_entitlements_usage_list_with_http_info(owner, repo, opts = {})
+    def metrics_entitlements_usage_list0_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_usage_list ..."
+        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_usage_list0 ..."
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_usage_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_usage_list0"
       end
       # verify the required parameter 'repo' is set
       if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_entitlements_usage_list"
+        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_entitlements_usage_list0"
       end
       # resource path
       local_var_path = "/metrics/{owner}/{repo}/entitlements/usage/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
@@ -87,7 +153,7 @@ module CloudsmithApi
         :auth_names => auth_names,
         :return_type => 'Array<EntitlementUsageMetric>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_usage_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_usage_list0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
