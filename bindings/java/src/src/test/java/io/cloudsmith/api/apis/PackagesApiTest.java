@@ -23,6 +23,8 @@ import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackagesCopy;
 import io.cloudsmith.api.models.PackagesMove;
+import io.cloudsmith.api.models.PackagesResync;
+import io.cloudsmith.api.models.PackagesScan;
 import io.cloudsmith.api.models.PackagesTag;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadCargo;
@@ -193,7 +195,27 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        ModelPackage response = api.packagesResync(owner, repo, identifier);
+        PackagesResync data = null;
+        ModelPackage response = api.packagesResync(owner, repo, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Schedule a package for scanning.
+     *
+     * Schedule a package for scanning.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesScanTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        PackagesScan data = null;
+        ModelPackage response = api.packagesScan(owner, repo, identifier, data);
 
         // TODO: test validations
     }

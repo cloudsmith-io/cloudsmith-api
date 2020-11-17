@@ -39,6 +39,9 @@ public class PackagesValidateuploadHelm implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   @SerializedName("tags")
   private String tags = null;
 
@@ -79,6 +82,24 @@ public class PackagesValidateuploadHelm implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesValidateuploadHelm securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
   public PackagesValidateuploadHelm tags(String tags) {
     this.tags = tags;
     return this;
@@ -109,12 +130,13 @@ public class PackagesValidateuploadHelm implements Serializable {
     PackagesValidateuploadHelm packagesValidateuploadHelm = (PackagesValidateuploadHelm) o;
     return Objects.equals(this.packageFile, packagesValidateuploadHelm.packageFile) &&
         Objects.equals(this.republish, packagesValidateuploadHelm.republish) &&
+        Objects.equals(this.securityScanStatus, packagesValidateuploadHelm.securityScanStatus) &&
         Objects.equals(this.tags, packagesValidateuploadHelm.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags);
+    return Objects.hash(packageFile, republish, securityScanStatus, tags);
   }
 
 
@@ -125,6 +147,7 @@ public class PackagesValidateuploadHelm implements Serializable {
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

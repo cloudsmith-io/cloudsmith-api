@@ -48,6 +48,9 @@ public class PackagesValidateuploadRaw implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   @SerializedName("summary")
   private String summary = null;
 
@@ -148,6 +151,24 @@ public class PackagesValidateuploadRaw implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesValidateuploadRaw securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
   public PackagesValidateuploadRaw summary(String summary) {
     this.summary = summary;
     return this;
@@ -217,6 +238,7 @@ public class PackagesValidateuploadRaw implements Serializable {
         Objects.equals(this.name, packagesValidateuploadRaw.name) &&
         Objects.equals(this.packageFile, packagesValidateuploadRaw.packageFile) &&
         Objects.equals(this.republish, packagesValidateuploadRaw.republish) &&
+        Objects.equals(this.securityScanStatus, packagesValidateuploadRaw.securityScanStatus) &&
         Objects.equals(this.summary, packagesValidateuploadRaw.summary) &&
         Objects.equals(this.tags, packagesValidateuploadRaw.tags) &&
         Objects.equals(this.version, packagesValidateuploadRaw.version);
@@ -224,7 +246,7 @@ public class PackagesValidateuploadRaw implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentType, description, name, packageFile, republish, summary, tags, version);
+    return Objects.hash(contentType, description, name, packageFile, republish, securityScanStatus, summary, tags, version);
   }
 
 
@@ -238,6 +260,7 @@ public class PackagesValidateuploadRaw implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

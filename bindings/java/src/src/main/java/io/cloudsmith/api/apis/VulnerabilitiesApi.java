@@ -153,8 +153,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only view to list vulnerabiltiy scan results within a Namespace.
-     * Read-only view to list vulnerabiltiy scan results within a Namespace.
+     * Checks feature is within plan before listing results.
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -167,8 +167,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only view to list vulnerabiltiy scan results within a Namespace.
-     * Read-only view to list vulnerabiltiy scan results within a Namespace.
+     * Checks feature is within plan before listing results.
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -182,8 +182,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only view to list vulnerabiltiy scan results within a Namespace. (asynchronously)
-     * Read-only view to list vulnerabiltiy scan results within a Namespace.
+     * Checks feature is within plan before listing results. (asynchronously)
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -307,8 +307,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only views to list vulnerabiltiy scan results within a Repository.
-     * Read-only views to list vulnerabiltiy scan results within a Repository.
+     * Checks feature is within plan before listing results.
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -322,8 +322,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only views to list vulnerabiltiy scan results within a Repository.
-     * Read-only views to list vulnerabiltiy scan results within a Repository.
+     * Checks feature is within plan before listing results.
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -338,8 +338,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only views to list vulnerabiltiy scan results within a Repository. (asynchronously)
-     * Read-only views to list vulnerabiltiy scan results within a Repository.
+     * Checks feature is within plan before listing results. (asynchronously)
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -378,7 +378,7 @@ public class VulnerabilitiesApi {
      * Build call for vulnerabilitiesList1
      * @param owner  (required)
      * @param repo  (required)
-     * @param _package The package that the scan result relates to. (required)
+     * @param _package  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param progressListener Progress listener
@@ -466,11 +466,11 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only views to list vulnerabiltiy scan results within a Repository
-     * Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+     * Checks feature is within plan before listing results.
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param repo  (required)
-     * @param _package The package that the scan result relates to. (required)
+     * @param _package  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @return List&lt;VulnerabilityScanResultsList&gt;
@@ -482,11 +482,11 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only views to list vulnerabiltiy scan results within a Repository
-     * Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+     * Checks feature is within plan before listing results.
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param repo  (required)
-     * @param _package The package that the scan result relates to. (required)
+     * @param _package  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
@@ -499,11 +499,11 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only views to list vulnerabiltiy scan results within a Repository (asynchronously)
-     * Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+     * Checks feature is within plan before listing results. (asynchronously)
+     * Checks feature is within plan before listing results.
      * @param owner  (required)
      * @param repo  (required)
-     * @param _package The package that the scan result relates to. (required)
+     * @param _package  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -540,8 +540,8 @@ public class VulnerabilitiesApi {
      * Build call for vulnerabilitiesRead
      * @param owner  (required)
      * @param repo  (required)
-     * @param _package The package that the scan result relates to. (required)
-     * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
+     * @param _package  (required)
+     * @param scanId  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -624,12 +624,12 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only view to retrieve vulnerability scans results using a
-     * Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+     * Checks feature is within plan before retrieving results.
+     * Checks feature is within plan before retrieving results.
      * @param owner  (required)
      * @param repo  (required)
-     * @param _package The package that the scan result relates to. (required)
-     * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
+     * @param _package  (required)
+     * @param scanId  (required)
      * @return VulnerabilityScanResults
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -639,12 +639,12 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only view to retrieve vulnerability scans results using a
-     * Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+     * Checks feature is within plan before retrieving results.
+     * Checks feature is within plan before retrieving results.
      * @param owner  (required)
      * @param repo  (required)
-     * @param _package The package that the scan result relates to. (required)
-     * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
+     * @param _package  (required)
+     * @param scanId  (required)
      * @return ApiResponse&lt;VulnerabilityScanResults&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -655,12 +655,12 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Read-only view to retrieve vulnerability scans results using a (asynchronously)
-     * Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+     * Checks feature is within plan before retrieving results. (asynchronously)
+     * Checks feature is within plan before retrieving results.
      * @param owner  (required)
      * @param repo  (required)
-     * @param _package The package that the scan result relates to. (required)
-     * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) (required)
+     * @param _package  (required)
+     * @param scanId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -54,6 +54,9 @@ public class PackagesValidateuploadMaven implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   @SerializedName("sources_file")
   private String sourcesFile = null;
 
@@ -193,6 +196,24 @@ public class PackagesValidateuploadMaven implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesValidateuploadMaven securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
   public PackagesValidateuploadMaven sourcesFile(String sourcesFile) {
     this.sourcesFile = sourcesFile;
     return this;
@@ -282,6 +303,7 @@ public class PackagesValidateuploadMaven implements Serializable {
         Objects.equals(this.packaging, packagesValidateuploadMaven.packaging) &&
         Objects.equals(this.pomFile, packagesValidateuploadMaven.pomFile) &&
         Objects.equals(this.republish, packagesValidateuploadMaven.republish) &&
+        Objects.equals(this.securityScanStatus, packagesValidateuploadMaven.securityScanStatus) &&
         Objects.equals(this.sourcesFile, packagesValidateuploadMaven.sourcesFile) &&
         Objects.equals(this.tags, packagesValidateuploadMaven.tags) &&
         Objects.equals(this.testsFile, packagesValidateuploadMaven.testsFile) &&
@@ -290,7 +312,7 @@ public class PackagesValidateuploadMaven implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, tags, testsFile, version);
+    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, republish, securityScanStatus, sourcesFile, tags, testsFile, version);
   }
 
 
@@ -306,6 +328,7 @@ public class PackagesValidateuploadMaven implements Serializable {
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
     sb.append("    pomFile: ").append(toIndentedString(pomFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    testsFile: ").append(toIndentedString(testsFile)).append("\n");

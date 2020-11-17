@@ -45,6 +45,9 @@ public class PackagesUploadVagrant implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   @SerializedName("tags")
   private String tags = null;
 
@@ -126,6 +129,24 @@ public class PackagesUploadVagrant implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesUploadVagrant securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
   public PackagesUploadVagrant tags(String tags) {
     this.tags = tags;
     return this;
@@ -177,13 +198,14 @@ public class PackagesUploadVagrant implements Serializable {
         Objects.equals(this.packageFile, packagesUploadVagrant.packageFile) &&
         Objects.equals(this.provider, packagesUploadVagrant.provider) &&
         Objects.equals(this.republish, packagesUploadVagrant.republish) &&
+        Objects.equals(this.securityScanStatus, packagesUploadVagrant.securityScanStatus) &&
         Objects.equals(this.tags, packagesUploadVagrant.tags) &&
         Objects.equals(this.version, packagesUploadVagrant.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, packageFile, provider, republish, tags, version);
+    return Objects.hash(name, packageFile, provider, republish, securityScanStatus, tags, version);
   }
 
 
@@ -196,6 +218,7 @@ public class PackagesUploadVagrant implements Serializable {
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

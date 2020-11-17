@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.53.78</version>
+    <version>0.54.15</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.53.78"
+compile "io.cloudsmith.api:cloudsmith-api:0.54.15"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.53.78.jar
+* target/cloudsmith-api-0.54.15.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -123,7 +123,8 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**filesValidate**](docs/FilesApi.md#filesValidate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 *FormatsApi* | [**formatsList**](docs/FormatsApi.md#formatsList) | **GET** /formats/ | Get a list of all supported package formats.
 *FormatsApi* | [**formatsRead**](docs/FormatsApi.md#formatsRead) | **GET** /formats/{slug}/ | Get a specific supported package format.
-*MetricsApi* | [**metricsEntitlementsUsageList**](docs/MetricsApi.md#metricsEntitlementsUsageList) | **GET** /metrics/{owner}/{repo}/entitlements/usage/ | View for listing entitlement token usage as a metric.
+*MetricsApi* | [**metricsEntitlementsUsageList**](docs/MetricsApi.md#metricsEntitlementsUsageList) | **GET** /metrics/{owner}/entitlements/usage/ | View for listing entitlement token usage as a metric.
+*MetricsApi* | [**metricsEntitlementsUsageList0**](docs/MetricsApi.md#metricsEntitlementsUsageList0) | **GET** /metrics/{owner}/{repo}/entitlements/usage/ | View for listing entitlement token usage as a metric.
 *MetricsApi* | [**metricsPackagesUsageList**](docs/MetricsApi.md#metricsPackagesUsageList) | **GET** /metrics/{owner}/{repo}/packages/usage/ | View for listing package usage metrics by user.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
@@ -135,6 +136,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesMove**](docs/PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 *PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 *PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
+*PackagesApi* | [**packagesScan**](docs/PackagesApi.md#packagesScan) | **POST** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
 *PackagesApi* | [**packagesStatus**](docs/PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
 *PackagesApi* | [**packagesTag**](docs/PackagesApi.md#packagesTag) | **POST** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
 *PackagesApi* | [**packagesUploadAlpine**](docs/PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
@@ -196,10 +198,10 @@ Class | Method | HTTP request | Description
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
 *UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
-*VulnerabilitiesApi* | [**vulnerabilitiesList**](docs/VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Read-only view to list vulnerabiltiy scan results within a Namespace.
-*VulnerabilitiesApi* | [**vulnerabilitiesList0**](docs/VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Read-only views to list vulnerabiltiy scan results within a Repository.
-*VulnerabilitiesApi* | [**vulnerabilitiesList1**](docs/VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Read-only views to list vulnerabiltiy scan results within a Repository
-*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Read-only view to retrieve vulnerability scans results using a
+*VulnerabilitiesApi* | [**vulnerabilitiesList**](docs/VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
+*VulnerabilitiesApi* | [**vulnerabilitiesList0**](docs/VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
+*VulnerabilitiesApi* | [**vulnerabilitiesList1**](docs/VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Checks feature is within plan before listing results.
+*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
 *WebhooksApi* | [**webhooksCreate**](docs/WebhooksApi.md#webhooksCreate) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
 *WebhooksApi* | [**webhooksDelete**](docs/WebhooksApi.md#webhooksDelete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
 *WebhooksApi* | [**webhooksList**](docs/WebhooksApi.md#webhooksList) | **GET** /webhooks/{owner}/{repo}/ | Get a list of all webhooks in a repository.
@@ -237,6 +239,8 @@ Class | Method | HTTP request | Description
  - [PackageUsageMetric](docs/PackageUsageMetric.md)
  - [PackagesCopy](docs/PackagesCopy.md)
  - [PackagesMove](docs/PackagesMove.md)
+ - [PackagesResync](docs/PackagesResync.md)
+ - [PackagesScan](docs/PackagesScan.md)
  - [PackagesTag](docs/PackagesTag.md)
  - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
  - [PackagesUploadCargo](docs/PackagesUploadCargo.md)

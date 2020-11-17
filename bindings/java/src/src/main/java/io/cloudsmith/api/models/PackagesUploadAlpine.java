@@ -42,6 +42,9 @@ public class PackagesUploadAlpine implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   @SerializedName("tags")
   private String tags = null;
 
@@ -101,6 +104,24 @@ public class PackagesUploadAlpine implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesUploadAlpine securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
   public PackagesUploadAlpine tags(String tags) {
     this.tags = tags;
     return this;
@@ -132,12 +153,13 @@ public class PackagesUploadAlpine implements Serializable {
     return Objects.equals(this.distribution, packagesUploadAlpine.distribution) &&
         Objects.equals(this.packageFile, packagesUploadAlpine.packageFile) &&
         Objects.equals(this.republish, packagesUploadAlpine.republish) &&
+        Objects.equals(this.securityScanStatus, packagesUploadAlpine.securityScanStatus) &&
         Objects.equals(this.tags, packagesUploadAlpine.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(distribution, packageFile, republish, tags);
+    return Objects.hash(distribution, packageFile, republish, securityScanStatus, tags);
   }
 
 
@@ -149,6 +171,7 @@ public class PackagesUploadAlpine implements Serializable {
     sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

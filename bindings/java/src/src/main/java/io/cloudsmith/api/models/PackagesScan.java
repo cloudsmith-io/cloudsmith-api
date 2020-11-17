@@ -27,52 +27,31 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * StatusBasic
+ * PackagesScan
  */
 
-public class StatusBasic implements Serializable {
+public class PackagesScan implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("detail")
-  private String detail = null;
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
 
-  @SerializedName("version")
-  private String version = null;
-
-  public StatusBasic detail(String detail) {
-    this.detail = detail;
+  public PackagesScan securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
     return this;
   }
 
    /**
-   * The message describing the state of the API.
-   * @return detail
+   * None
+   * @return securityScanStatus
   **/
-  @ApiModelProperty(example = "Cloudsmith API is operational.", value = "The message describing the state of the API.")
-  public String getDetail() {
-    return detail;
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
   }
 
-  public void setDetail(String detail) {
-    this.detail = detail;
-  }
-
-  public StatusBasic version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The current version for the Cloudsmith service.
-   * @return version
-  **/
-  @ApiModelProperty(example = "0.54.15", value = "The current version for the Cloudsmith service.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
   }
 
 
@@ -84,24 +63,22 @@ public class StatusBasic implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusBasic statusBasic = (StatusBasic) o;
-    return Objects.equals(this.detail, statusBasic.detail) &&
-        Objects.equals(this.version, statusBasic.version);
+    PackagesScan packagesScan = (PackagesScan) o;
+    return Objects.equals(this.securityScanStatus, packagesScan.securityScanStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, version);
+    return Objects.hash(securityScanStatus);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusBasic {\n");
+    sb.append("class PackagesScan {\n");
     
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

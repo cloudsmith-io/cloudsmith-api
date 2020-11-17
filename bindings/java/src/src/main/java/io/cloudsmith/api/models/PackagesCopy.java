@@ -39,6 +39,9 @@ public class PackagesCopy implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   public PackagesCopy destination(String destination) {
     this.destination = destination;
     return this;
@@ -76,6 +79,24 @@ public class PackagesCopy implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesCopy securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,12 +108,13 @@ public class PackagesCopy implements Serializable {
     }
     PackagesCopy packagesCopy = (PackagesCopy) o;
     return Objects.equals(this.destination, packagesCopy.destination) &&
-        Objects.equals(this.republish, packagesCopy.republish);
+        Objects.equals(this.republish, packagesCopy.republish) &&
+        Objects.equals(this.securityScanStatus, packagesCopy.securityScanStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, republish);
+    return Objects.hash(destination, republish, securityScanStatus);
   }
 
 
@@ -103,6 +125,7 @@ public class PackagesCopy implements Serializable {
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

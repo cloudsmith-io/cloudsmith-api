@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**packagesMove**](PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packagesRead**](PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**packagesResync**](PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
+[**packagesScan**](PackagesApi.md#packagesScan) | **POST** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
 [**packagesStatus**](PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
 [**packagesTag**](PackagesApi.md#packagesTag) | **POST** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
 [**packagesUploadAlpine**](PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
@@ -360,7 +361,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesResync"></a>
 # **packagesResync**
-> ModelPackage packagesResync(owner, repo, identifier)
+> ModelPackage packagesResync(owner, repo, identifier, data)
 
 Schedule a package for resynchronisation.
 
@@ -387,8 +388,9 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
+PackagesResync data = new PackagesResync(); // PackagesResync | 
 try {
-    ModelPackage result = apiInstance.packagesResync(owner, repo, identifier);
+    ModelPackage result = apiInstance.packagesResync(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesResync");
@@ -403,6 +405,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
+ **data** | [**PackagesResync**](PackagesResync.md)|  | [optional]
 
 ### Return type
 
@@ -414,7 +417,68 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="packagesScan"></a>
+# **packagesScan**
+> ModelPackage packagesScan(owner, repo, identifier, data)
+
+Schedule a package for scanning.
+
+Schedule a package for scanning.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+String identifier = "identifier_example"; // String | 
+PackagesScan data = new PackagesScan(); // PackagesScan | 
+try {
+    ModelPackage result = apiInstance.packagesScan(owner, repo, identifier, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesScan");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **identifier** | **String**|  |
+ **data** | [**PackagesScan**](PackagesScan.md)|  | [optional]
+
+### Return type
+
+[**ModelPackage**](ModelPackage.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 <a name="packagesStatus"></a>

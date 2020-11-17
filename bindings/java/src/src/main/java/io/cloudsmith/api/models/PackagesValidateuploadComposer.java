@@ -39,6 +39,9 @@ public class PackagesValidateuploadComposer implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   @SerializedName("tags")
   private String tags = null;
 
@@ -79,6 +82,24 @@ public class PackagesValidateuploadComposer implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesValidateuploadComposer securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
   public PackagesValidateuploadComposer tags(String tags) {
     this.tags = tags;
     return this;
@@ -109,12 +130,13 @@ public class PackagesValidateuploadComposer implements Serializable {
     PackagesValidateuploadComposer packagesValidateuploadComposer = (PackagesValidateuploadComposer) o;
     return Objects.equals(this.packageFile, packagesValidateuploadComposer.packageFile) &&
         Objects.equals(this.republish, packagesValidateuploadComposer.republish) &&
+        Objects.equals(this.securityScanStatus, packagesValidateuploadComposer.securityScanStatus) &&
         Objects.equals(this.tags, packagesValidateuploadComposer.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags);
+    return Objects.hash(packageFile, republish, securityScanStatus, tags);
   }
 
 
@@ -125,6 +147,7 @@ public class PackagesValidateuploadComposer implements Serializable {
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
