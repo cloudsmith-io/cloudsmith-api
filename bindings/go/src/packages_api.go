@@ -387,9 +387,10 @@ func (a PackagesApi) PackagesRead(owner string, repo string, identifier string) 
  * @param owner 
  * @param repo 
  * @param identifier 
+ * @param data 
  * @return *ModelPackage
  */
-func (a PackagesApi) PackagesResync(owner string, repo string, identifier string) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesResync(owner string, repo string, identifier string, data PackagesResync) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -413,7 +414,7 @@ func (a PackagesApi) PackagesResync(owner string, repo string, identifier string
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -429,12 +430,84 @@ func (a PackagesApi) PackagesResync(owner string, repo string, identifier string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	// body params
+	localVarPostBody = &data
 	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
 	var localVarAPIResponse = &APIResponse{Operation: "PackagesResync", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return successPayload, localVarAPIResponse, err
+	}
+	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
+	return successPayload, localVarAPIResponse, err
+}
+
+/**
+ * Schedule a package for scanning.
+ * Schedule a package for scanning.
+ *
+ * @param owner 
+ * @param repo 
+ * @param identifier 
+ * @param data 
+ * @return *ModelPackage
+ */
+func (a PackagesApi) PackagesScan(owner string, repo string, identifier string, data PackagesScan) (*ModelPackage, *APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Post")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/packages/{owner}/{repo}/{identifier}/scan/"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"identifier"+"}", fmt.Sprintf("%v", identifier), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(apikey)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-Api-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-Api-Key")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &data
+	var successPayload = new(ModelPackage)
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "PackagesScan", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()

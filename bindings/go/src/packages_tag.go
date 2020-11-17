@@ -18,6 +18,9 @@ type PackagesTag struct {
 	// If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.
 	IsImmutable bool `json:"is_immutable,omitempty"`
 
+	// None
+	SecurityScanStatus string `json:"security_scan_status,omitempty"`
+
 	// A list of tags to apply the action to. Not required for clears.
 	Tags []string `json:"tags,omitempty"`
 }

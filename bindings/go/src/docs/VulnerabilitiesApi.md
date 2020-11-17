@@ -4,18 +4,18 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**VulnerabilitiesList**](VulnerabilitiesApi.md#VulnerabilitiesList) | **Get** /vulnerabilities/{owner}/ | Read-only view to list vulnerabiltiy scan results within a Namespace.
-[**VulnerabilitiesList0**](VulnerabilitiesApi.md#VulnerabilitiesList0) | **Get** /vulnerabilities/{owner}/{repo}/ | Read-only views to list vulnerabiltiy scan results within a Repository.
-[**VulnerabilitiesList1**](VulnerabilitiesApi.md#VulnerabilitiesList1) | **Get** /vulnerabilities/{owner}/{repo}/{package}/ | Read-only views to list vulnerabiltiy scan results within a Repository
-[**VulnerabilitiesRead**](VulnerabilitiesApi.md#VulnerabilitiesRead) | **Get** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Read-only view to retrieve vulnerability scans results using a
+[**VulnerabilitiesList**](VulnerabilitiesApi.md#VulnerabilitiesList) | **Get** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
+[**VulnerabilitiesList0**](VulnerabilitiesApi.md#VulnerabilitiesList0) | **Get** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
+[**VulnerabilitiesList1**](VulnerabilitiesApi.md#VulnerabilitiesList1) | **Get** /vulnerabilities/{owner}/{repo}/{package}/ | Checks feature is within plan before listing results.
+[**VulnerabilitiesRead**](VulnerabilitiesApi.md#VulnerabilitiesRead) | **Get** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
 
 
 # **VulnerabilitiesList**
 > []VulnerabilityScanResultsList VulnerabilitiesList($owner, $page, $pageSize)
 
-Read-only view to list vulnerabiltiy scan results within a Namespace.
+Checks feature is within plan before listing results.
 
-Read-only view to list vulnerabiltiy scan results within a Namespace.
+Checks feature is within plan before listing results.
 
 
 ### Parameters
@@ -44,9 +44,9 @@ Name | Type | Description  | Notes
 # **VulnerabilitiesList0**
 > []VulnerabilityScanResultsList VulnerabilitiesList0($owner, $repo, $page, $pageSize)
 
-Read-only views to list vulnerabiltiy scan results within a Repository.
+Checks feature is within plan before listing results.
 
-Read-only views to list vulnerabiltiy scan results within a Repository.
+Checks feature is within plan before listing results.
 
 
 ### Parameters
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 # **VulnerabilitiesList1**
 > []VulnerabilityScanResultsList VulnerabilitiesList1($owner, $repo, $package_, $page, $pageSize)
 
-Read-only views to list vulnerabiltiy scan results within a Repository
+Checks feature is within plan before listing results.
 
-Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+Checks feature is within plan before listing results.
 
 
 ### Parameters
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
- **package_** | **string**| The package that the scan result relates to. | 
+ **package_** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
 
@@ -109,9 +109,9 @@ Name | Type | Description  | Notes
 # **VulnerabilitiesRead**
 > VulnerabilityScanResults VulnerabilitiesRead($owner, $repo, $package_, $scanId)
 
-Read-only view to retrieve vulnerability scans results using a
+Checks feature is within plan before retrieving results.
 
-Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+Checks feature is within plan before retrieving results.
 
 
 ### Parameters
@@ -120,8 +120,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **string**|  | 
  **repo** | **string**|  | 
- **package_** | **string**| The package that the scan result relates to. | 
- **scanId** | **string**| A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) | 
+ **package_** | **string**|  | 
+ **scanId** | **string**|  | 
 
 ### Return type
 
