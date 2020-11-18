@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**packages_move**](PackagesApi.md#packages_move) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
+[**packages_scan**](PackagesApi.md#packages_scan) | **POST** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
 [**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
 [**packages_tag**](PackagesApi.md#packages_tag) | **POST** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
 [**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
@@ -369,7 +370,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_resync**
-> Package packages_resync(owner, repo, identifier)
+> Package packages_resync(owner, repo, identifier, opts)
 
 Schedule a package for resynchronisation.
 
@@ -395,10 +396,13 @@ repo = "repo_example" # String |
 
 identifier = "identifier_example" # String | 
 
+opts = { 
+  data: CloudsmithApi::PackagesResync.new # PackagesResync | 
+}
 
 begin
   #Schedule a package for resynchronisation.
-  result = api_instance.packages_resync(owner, repo, identifier)
+  result = api_instance.packages_resync(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_resync: #{e}"
@@ -412,6 +416,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
+ **data** | [**PackagesResync**](PackagesResync.md)|  | [optional] 
 
 ### Return type
 
@@ -423,7 +428,71 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_scan**
+> Package packages_scan(owner, repo, identifier, opts)
+
+Schedule a package for scanning.
+
+Schedule a package for scanning.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+identifier = "identifier_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesScan.new # PackagesScan | 
+}
+
+begin
+  #Schedule a package for scanning.
+  result = api_instance.packages_scan(owner, repo, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_scan: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**PackagesScan**](PackagesScan.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 

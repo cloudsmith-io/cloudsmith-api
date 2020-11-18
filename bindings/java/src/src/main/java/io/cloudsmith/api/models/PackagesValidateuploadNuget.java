@@ -39,6 +39,9 @@ public class PackagesValidateuploadNuget implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   @SerializedName("symbols_file")
   private String symbolsFile = null;
 
@@ -80,6 +83,24 @@ public class PackagesValidateuploadNuget implements Serializable {
 
   public void setRepublish(Boolean republish) {
     this.republish = republish;
+  }
+
+  public PackagesValidateuploadNuget securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
   }
 
   public PackagesValidateuploadNuget symbolsFile(String symbolsFile) {
@@ -130,13 +151,14 @@ public class PackagesValidateuploadNuget implements Serializable {
     PackagesValidateuploadNuget packagesValidateuploadNuget = (PackagesValidateuploadNuget) o;
     return Objects.equals(this.packageFile, packagesValidateuploadNuget.packageFile) &&
         Objects.equals(this.republish, packagesValidateuploadNuget.republish) &&
+        Objects.equals(this.securityScanStatus, packagesValidateuploadNuget.securityScanStatus) &&
         Objects.equals(this.symbolsFile, packagesValidateuploadNuget.symbolsFile) &&
         Objects.equals(this.tags, packagesValidateuploadNuget.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, symbolsFile, tags);
+    return Objects.hash(packageFile, republish, securityScanStatus, symbolsFile, tags);
   }
 
 
@@ -147,6 +169,7 @@ public class PackagesValidateuploadNuget implements Serializable {
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    symbolsFile: ").append(toIndentedString(symbolsFile)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

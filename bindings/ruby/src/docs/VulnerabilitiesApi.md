@@ -4,18 +4,18 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vulnerabilities_list**](VulnerabilitiesApi.md#vulnerabilities_list) | **GET** /vulnerabilities/{owner}/ | Read-only view to list vulnerabiltiy scan results within a Namespace.
-[**vulnerabilities_list0**](VulnerabilitiesApi.md#vulnerabilities_list0) | **GET** /vulnerabilities/{owner}/{repo}/ | Read-only views to list vulnerabiltiy scan results within a Repository.
-[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Read-only views to list vulnerabiltiy scan results within a Repository
-[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Read-only view to retrieve vulnerability scans results using a
+[**vulnerabilities_list**](VulnerabilitiesApi.md#vulnerabilities_list) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
+[**vulnerabilities_list0**](VulnerabilitiesApi.md#vulnerabilities_list0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
+[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Checks feature is within plan before listing results.
+[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
 
 
 # **vulnerabilities_list**
 > Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_list(owner, opts)
 
-Read-only view to list vulnerabiltiy scan results within a Namespace.
+Checks feature is within plan before listing results.
 
-Read-only view to list vulnerabiltiy scan results within a Namespace.
+Checks feature is within plan before listing results.
 
 ### Example
 ```ruby
@@ -39,7 +39,7 @@ opts = {
 }
 
 begin
-  #Read-only view to list vulnerabiltiy scan results within a Namespace.
+  #Checks feature is within plan before listing results.
   result = api_instance.vulnerabilities_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_list0**
 > Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_list0(owner, repo, opts)
 
-Read-only views to list vulnerabiltiy scan results within a Repository.
+Checks feature is within plan before listing results.
 
-Read-only views to list vulnerabiltiy scan results within a Repository.
+Checks feature is within plan before listing results.
 
 ### Example
 ```ruby
@@ -101,7 +101,7 @@ opts = {
 }
 
 begin
-  #Read-only views to list vulnerabiltiy scan results within a Repository.
+  #Checks feature is within plan before listing results.
   result = api_instance.vulnerabilities_list0(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -136,9 +136,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_list1**
 > Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_list1(owner, repo, package, opts)
 
-Read-only views to list vulnerabiltiy scan results within a Repository
+Checks feature is within plan before listing results.
 
-Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+Checks feature is within plan before listing results.
 
 ### Example
 ```ruby
@@ -158,7 +158,7 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-package = "package_example" # String | The package that the scan result relates to.
+package = "package_example" # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
@@ -166,7 +166,7 @@ opts = {
 }
 
 begin
-  #Read-only views to list vulnerabiltiy scan results within a Repository
+  #Checks feature is within plan before listing results.
   result = api_instance.vulnerabilities_list1(owner, repo, package, opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **package** | **String**| The package that the scan result relates to. | 
+ **package** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
 
@@ -202,9 +202,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_read**
 > VulnerabilityScanResults vulnerabilities_read(owner, repo, package, scan_id)
 
-Read-only view to retrieve vulnerability scans results using a
+Checks feature is within plan before retrieving results.
 
-Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+Checks feature is within plan before retrieving results.
 
 ### Example
 ```ruby
@@ -224,13 +224,13 @@ owner = "owner_example" # String |
 
 repo = "repo_example" # String | 
 
-package = "package_example" # String | The package that the scan result relates to.
+package = "package_example" # String | 
 
-scan_id = "scan_id_example" # String | A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.)
+scan_id = "scan_id_example" # String | 
 
 
 begin
-  #Read-only view to retrieve vulnerability scans results using a
+  #Checks feature is within plan before retrieving results.
   result = api_instance.vulnerabilities_read(owner, repo, package, scan_id)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -244,8 +244,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **package** | **String**| The package that the scan result relates to. | 
- **scan_id** | **String**| A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) | 
+ **package** | **String**|  | 
+ **scan_id** | **String**|  | 
 
 ### Return type
 

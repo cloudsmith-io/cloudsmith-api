@@ -36,7 +36,6 @@ describe 'MetricsApi' do
   # View for listing entitlement token usage as a metric.
   # View for listing entitlement token usage as a metric.
   # @param owner 
-  # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
@@ -45,6 +44,24 @@ describe 'MetricsApi' do
   # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
   # @return [Array<EntitlementUsageMetric>]
   describe 'metrics_entitlements_usage_list test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for metrics_entitlements_usage_list0
+  # View for listing entitlement token usage as a metric.
+  # View for listing entitlement token usage as a metric.
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
+  # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+  # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
+  # @return [Array<EntitlementUsageMetric>]
+  describe 'metrics_entitlements_usage_list0 test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -31,21 +31,26 @@ class PackagesMove(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'destination': 'str'
+        'destination': 'str',
+        'security_scan_status': 'str'
     }
 
     attribute_map = {
-        'destination': 'destination'
+        'destination': 'destination',
+        'security_scan_status': 'security_scan_status'
     }
 
-    def __init__(self, destination=None):
+    def __init__(self, destination=None, security_scan_status=None):
         """
         PackagesMove - a model defined in Swagger
         """
 
         self._destination = None
+        self._security_scan_status = None
 
         self.destination = destination
+        if security_scan_status is not None:
+          self.security_scan_status = security_scan_status
 
     @property
     def destination(self):
@@ -71,6 +76,29 @@ class PackagesMove(object):
             raise ValueError("Invalid value for `destination`, must not be `None`")
 
         self._destination = destination
+
+    @property
+    def security_scan_status(self):
+        """
+        Gets the security_scan_status of this PackagesMove.
+        None
+
+        :return: The security_scan_status of this PackagesMove.
+        :rtype: str
+        """
+        return self._security_scan_status
+
+    @security_scan_status.setter
+    def security_scan_status(self, security_scan_status):
+        """
+        Sets the security_scan_status of this PackagesMove.
+        None
+
+        :param security_scan_status: The security_scan_status of this PackagesMove.
+        :type: str
+        """
+
+        self._security_scan_status = security_scan_status
 
     def to_dict(self):
         """

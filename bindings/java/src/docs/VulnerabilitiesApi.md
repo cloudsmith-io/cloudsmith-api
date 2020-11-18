@@ -4,19 +4,19 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vulnerabilitiesList**](VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Read-only view to list vulnerabiltiy scan results within a Namespace.
-[**vulnerabilitiesList0**](VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Read-only views to list vulnerabiltiy scan results within a Repository.
-[**vulnerabilitiesList1**](VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Read-only views to list vulnerabiltiy scan results within a Repository
-[**vulnerabilitiesRead**](VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Read-only view to retrieve vulnerability scans results using a
+[**vulnerabilitiesList**](VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
+[**vulnerabilitiesList0**](VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
+[**vulnerabilitiesList1**](VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Checks feature is within plan before listing results.
+[**vulnerabilitiesRead**](VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
 
 
 <a name="vulnerabilitiesList"></a>
 # **vulnerabilitiesList**
 > List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesList(owner, page, pageSize)
 
-Read-only view to list vulnerabiltiy scan results within a Namespace.
+Checks feature is within plan before listing results.
 
-Read-only view to list vulnerabiltiy scan results within a Namespace.
+Checks feature is within plan before listing results.
 
 ### Example
 ```java
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 # **vulnerabilitiesList0**
 > List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesList0(owner, repo, page, pageSize)
 
-Read-only views to list vulnerabiltiy scan results within a Repository.
+Checks feature is within plan before listing results.
 
-Read-only views to list vulnerabiltiy scan results within a Repository.
+Checks feature is within plan before listing results.
 
 ### Example
 ```java
@@ -134,9 +134,9 @@ Name | Type | Description  | Notes
 # **vulnerabilitiesList1**
 > List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesList1(owner, repo, _package, page, pageSize)
 
-Read-only views to list vulnerabiltiy scan results within a Repository
+Checks feature is within plan before listing results.
 
-Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+Checks feature is within plan before listing results.
 
 ### Example
 ```java
@@ -158,7 +158,7 @@ apikey.setApiKey("YOUR API KEY");
 VulnerabilitiesApi apiInstance = new VulnerabilitiesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-String _package = "_package_example"; // String | The package that the scan result relates to.
+String _package = "_package_example"; // String | 
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **_package** | **String**| The package that the scan result relates to. |
+ **_package** | **String**|  |
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
 
@@ -197,9 +197,9 @@ Name | Type | Description  | Notes
 # **vulnerabilitiesRead**
 > VulnerabilityScanResults vulnerabilitiesRead(owner, repo, _package, scanId)
 
-Read-only view to retrieve vulnerability scans results using a
+Checks feature is within plan before retrieving results.
 
-Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+Checks feature is within plan before retrieving results.
 
 ### Example
 ```java
@@ -221,8 +221,8 @@ apikey.setApiKey("YOUR API KEY");
 VulnerabilitiesApi apiInstance = new VulnerabilitiesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-String _package = "_package_example"; // String | The package that the scan result relates to.
-String scanId = "scanId_example"; // String | A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.)
+String _package = "_package_example"; // String | 
+String scanId = "scanId_example"; // String | 
 try {
     VulnerabilityScanResults result = apiInstance.vulnerabilitiesRead(owner, repo, _package, scanId);
     System.out.println(result);
@@ -238,8 +238,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **_package** | **String**| The package that the scan result relates to. |
- **scanId** | **String**| A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.) |
+ **_package** | **String**|  |
+ **scanId** | **String**|  |
 
 ### Return type
 

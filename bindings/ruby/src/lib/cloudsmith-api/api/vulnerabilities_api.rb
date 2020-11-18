@@ -20,8 +20,8 @@ module CloudsmithApi
       @api_client = api_client
     end
 
-    # Read-only view to list vulnerabiltiy scan results within a Namespace.
-    # Read-only view to list vulnerabiltiy scan results within a Namespace.
+    # Checks feature is within plan before listing results.
+    # Checks feature is within plan before listing results.
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
@@ -32,8 +32,8 @@ module CloudsmithApi
       return data
     end
 
-    # Read-only view to list vulnerabiltiy scan results within a Namespace.
-    # Read-only view to list vulnerabiltiy scan results within a Namespace.
+    # Checks feature is within plan before listing results.
+    # Checks feature is within plan before listing results.
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
@@ -77,8 +77,8 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Read-only views to list vulnerabiltiy scan results within a Repository.
-    # Read-only views to list vulnerabiltiy scan results within a Repository.
+    # Checks feature is within plan before listing results.
+    # Checks feature is within plan before listing results.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -90,8 +90,8 @@ module CloudsmithApi
       return data
     end
 
-    # Read-only views to list vulnerabiltiy scan results within a Repository.
-    # Read-only views to list vulnerabiltiy scan results within a Repository.
+    # Checks feature is within plan before listing results.
+    # Checks feature is within plan before listing results.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -140,11 +140,11 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Read-only views to list vulnerabiltiy scan results within a Repository
-    # Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+    # Checks feature is within plan before listing results.
+    # Checks feature is within plan before listing results.
     # @param owner 
     # @param repo 
-    # @param package The package that the scan result relates to.
+    # @param package 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
@@ -154,11 +154,11 @@ module CloudsmithApi
       return data
     end
 
-    # Read-only views to list vulnerabiltiy scan results within a Repository
-    # Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+    # Checks feature is within plan before listing results.
+    # Checks feature is within plan before listing results.
     # @param owner 
     # @param repo 
-    # @param package The package that the scan result relates to.
+    # @param package 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
@@ -209,12 +209,12 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Read-only view to retrieve vulnerability scans results using a
-    # Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+    # Checks feature is within plan before retrieving results.
+    # Checks feature is within plan before retrieving results.
     # @param owner 
     # @param repo 
-    # @param package The package that the scan result relates to.
-    # @param scan_id A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.)
+    # @param package 
+    # @param scan_id 
     # @param [Hash] opts the optional parameters
     # @return [VulnerabilityScanResults]
     def vulnerabilities_read(owner, repo, package, scan_id, opts = {})
@@ -222,12 +222,12 @@ module CloudsmithApi
       return data
     end
 
-    # Read-only view to retrieve vulnerability scans results using a
-    # Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+    # Checks feature is within plan before retrieving results.
+    # Checks feature is within plan before retrieving results.
     # @param owner 
     # @param repo 
-    # @param package The package that the scan result relates to.
-    # @param scan_id A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.)
+    # @param package 
+    # @param scan_id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(VulnerabilityScanResults, Fixnum, Hash)>] VulnerabilityScanResults data, response status code and response headers
     def vulnerabilities_read_with_http_info(owner, repo, package, scan_id, opts = {})

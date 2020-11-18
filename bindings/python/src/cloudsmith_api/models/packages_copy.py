@@ -32,25 +32,30 @@ class PackagesCopy(object):
     """
     swagger_types = {
         'destination': 'str',
-        'republish': 'bool'
+        'republish': 'bool',
+        'security_scan_status': 'str'
     }
 
     attribute_map = {
         'destination': 'destination',
-        'republish': 'republish'
+        'republish': 'republish',
+        'security_scan_status': 'security_scan_status'
     }
 
-    def __init__(self, destination=None, republish=None):
+    def __init__(self, destination=None, republish=None, security_scan_status=None):
         """
         PackagesCopy - a model defined in Swagger
         """
 
         self._destination = None
         self._republish = None
+        self._security_scan_status = None
 
         self.destination = destination
         if republish is not None:
           self.republish = republish
+        if security_scan_status is not None:
+          self.security_scan_status = security_scan_status
 
     @property
     def destination(self):
@@ -99,6 +104,29 @@ class PackagesCopy(object):
         """
 
         self._republish = republish
+
+    @property
+    def security_scan_status(self):
+        """
+        Gets the security_scan_status of this PackagesCopy.
+        None
+
+        :return: The security_scan_status of this PackagesCopy.
+        :rtype: str
+        """
+        return self._security_scan_status
+
+    @security_scan_status.setter
+    def security_scan_status(self, security_scan_status):
+        """
+        Sets the security_scan_status of this PackagesCopy.
+        None
+
+        :param security_scan_status: The security_scan_status of this PackagesCopy.
+        :type: str
+        """
+
+        self._security_scan_status = security_scan_status
 
     def to_dict(self):
         """

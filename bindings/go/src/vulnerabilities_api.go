@@ -38,8 +38,8 @@ func NewVulnerabilitiesApiWithBasePath(basePath string) *VulnerabilitiesApi {
 }
 
 /**
- * Read-only view to list vulnerabiltiy scan results within a Namespace.
- * Read-only view to list vulnerabiltiy scan results within a Namespace.
+ * Checks feature is within plan before listing results.
+ * Checks feature is within plan before listing results.
  *
  * @param owner 
  * @param page A page number within the paginated result set.
@@ -105,8 +105,8 @@ func (a VulnerabilitiesApi) VulnerabilitiesList(owner string, page int32, pageSi
 }
 
 /**
- * Read-only views to list vulnerabiltiy scan results within a Repository.
- * Read-only views to list vulnerabiltiy scan results within a Repository.
+ * Checks feature is within plan before listing results.
+ * Checks feature is within plan before listing results.
  *
  * @param owner 
  * @param repo 
@@ -174,12 +174,12 @@ func (a VulnerabilitiesApi) VulnerabilitiesList0(owner string, repo string, page
 }
 
 /**
- * Read-only views to list vulnerabiltiy scan results within a Repository
- * Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+ * Checks feature is within plan before listing results.
+ * Checks feature is within plan before listing results.
  *
  * @param owner 
  * @param repo 
- * @param package_ The package that the scan result relates to.
+ * @param package_ 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
  * @return []VulnerabilityScanResultsList
@@ -245,13 +245,13 @@ func (a VulnerabilitiesApi) VulnerabilitiesList1(owner string, repo string, pack
 }
 
 /**
- * Read-only view to retrieve vulnerability scans results using a
- * Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+ * Checks feature is within plan before retrieving results.
+ * Checks feature is within plan before retrieving results.
  *
  * @param owner 
  * @param repo 
- * @param package_ The package that the scan result relates to.
- * @param scanId A sequential identifier that increments by one for each new scan result within a package. These are always unique and can be used to reference the scan results elsewhere (e.g. via the CLI.)
+ * @param package_ 
+ * @param scanId 
  * @return *VulnerabilityScanResults
  */
 func (a VulnerabilitiesApi) VulnerabilitiesRead(owner string, repo string, package_ string, scanId string) (*VulnerabilityScanResults, *APIResponse, error) {

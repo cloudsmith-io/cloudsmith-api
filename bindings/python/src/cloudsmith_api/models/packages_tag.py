@@ -33,28 +33,33 @@ class PackagesTag(object):
     swagger_types = {
         'action': 'str',
         'is_immutable': 'bool',
+        'security_scan_status': 'str',
         'tags': 'list[str]'
     }
 
     attribute_map = {
         'action': 'action',
         'is_immutable': 'is_immutable',
+        'security_scan_status': 'security_scan_status',
         'tags': 'tags'
     }
 
-    def __init__(self, action=None, is_immutable=None, tags=None):
+    def __init__(self, action=None, is_immutable=None, security_scan_status=None, tags=None):
         """
         PackagesTag - a model defined in Swagger
         """
 
         self._action = None
         self._is_immutable = None
+        self._security_scan_status = None
         self._tags = None
 
         if action is not None:
           self.action = action
         if is_immutable is not None:
           self.is_immutable = is_immutable
+        if security_scan_status is not None:
+          self.security_scan_status = security_scan_status
         if tags is not None:
           self.tags = tags
 
@@ -103,6 +108,29 @@ class PackagesTag(object):
         """
 
         self._is_immutable = is_immutable
+
+    @property
+    def security_scan_status(self):
+        """
+        Gets the security_scan_status of this PackagesTag.
+        None
+
+        :return: The security_scan_status of this PackagesTag.
+        :rtype: str
+        """
+        return self._security_scan_status
+
+    @security_scan_status.setter
+    def security_scan_status(self, security_scan_status):
+        """
+        Sets the security_scan_status of this PackagesTag.
+        None
+
+        :param security_scan_status: The security_scan_status of this PackagesTag.
+        :type: str
+        """
+
+        self._security_scan_status = security_scan_status
 
     @property
     def tags(self):

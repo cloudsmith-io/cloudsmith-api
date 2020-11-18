@@ -35,6 +35,7 @@ class PackagesValidateuploadVagrant(object):
         'package_file': 'str',
         'provider': 'str',
         'republish': 'bool',
+        'security_scan_status': 'str',
         'tags': 'str',
         'version': 'str'
     }
@@ -44,11 +45,12 @@ class PackagesValidateuploadVagrant(object):
         'package_file': 'package_file',
         'provider': 'provider',
         'republish': 'republish',
+        'security_scan_status': 'security_scan_status',
         'tags': 'tags',
         'version': 'version'
     }
 
-    def __init__(self, name=None, package_file=None, provider=None, republish=None, tags=None, version=None):
+    def __init__(self, name=None, package_file=None, provider=None, republish=None, security_scan_status=None, tags=None, version=None):
         """
         PackagesValidateuploadVagrant - a model defined in Swagger
         """
@@ -57,6 +59,7 @@ class PackagesValidateuploadVagrant(object):
         self._package_file = None
         self._provider = None
         self._republish = None
+        self._security_scan_status = None
         self._tags = None
         self._version = None
 
@@ -65,6 +68,8 @@ class PackagesValidateuploadVagrant(object):
         self.provider = provider
         if republish is not None:
           self.republish = republish
+        if security_scan_status is not None:
+          self.security_scan_status = security_scan_status
         if tags is not None:
           self.tags = tags
         self.version = version
@@ -166,6 +171,29 @@ class PackagesValidateuploadVagrant(object):
         """
 
         self._republish = republish
+
+    @property
+    def security_scan_status(self):
+        """
+        Gets the security_scan_status of this PackagesValidateuploadVagrant.
+        None
+
+        :return: The security_scan_status of this PackagesValidateuploadVagrant.
+        :rtype: str
+        """
+        return self._security_scan_status
+
+    @security_scan_status.setter
+    def security_scan_status(self, security_scan_status):
+        """
+        Sets the security_scan_status of this PackagesValidateuploadVagrant.
+        None
+
+        :param security_scan_status: The security_scan_status of this PackagesValidateuploadVagrant.
+        :type: str
+        """
+
+        self._security_scan_status = security_scan_status
 
     @property
     def tags(self):

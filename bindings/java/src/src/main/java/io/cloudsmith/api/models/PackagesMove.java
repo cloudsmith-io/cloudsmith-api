@@ -36,6 +36,9 @@ public class PackagesMove implements Serializable {
   @SerializedName("destination")
   private String destination = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   public PackagesMove destination(String destination) {
     this.destination = destination;
     return this;
@@ -55,6 +58,24 @@ public class PackagesMove implements Serializable {
     this.destination = destination;
   }
 
+  public PackagesMove securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -65,12 +86,13 @@ public class PackagesMove implements Serializable {
       return false;
     }
     PackagesMove packagesMove = (PackagesMove) o;
-    return Objects.equals(this.destination, packagesMove.destination);
+    return Objects.equals(this.destination, packagesMove.destination) &&
+        Objects.equals(this.securityScanStatus, packagesMove.securityScanStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination);
+    return Objects.hash(destination, securityScanStatus);
   }
 
 
@@ -80,6 +102,7 @@ public class PackagesMove implements Serializable {
     sb.append("class PackagesMove {\n");
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -136,6 +136,18 @@ public class VagrantPackageUpload implements Serializable {
   @SerializedName("repository_url")
   private String repositoryUrl = null;
 
+  @SerializedName("security_scan_completed_at")
+  private String securityScanCompletedAt = null;
+
+  @SerializedName("security_scan_started_at")
+  private String securityScanStartedAt = null;
+
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
+  @SerializedName("security_scan_status_updated_at")
+  private String securityScanStatusUpdatedAt = null;
+
   @SerializedName("self_html_url")
   private String selfHtmlUrl = null;
 
@@ -825,6 +837,78 @@ public class VagrantPackageUpload implements Serializable {
     this.repositoryUrl = repositoryUrl;
   }
 
+  public VagrantPackageUpload securityScanCompletedAt(String securityScanCompletedAt) {
+    this.securityScanCompletedAt = securityScanCompletedAt;
+    return this;
+  }
+
+   /**
+   * The datetime the security scanning was completed.
+   * @return securityScanCompletedAt
+  **/
+  @ApiModelProperty(value = "The datetime the security scanning was completed.")
+  public String getSecurityScanCompletedAt() {
+    return securityScanCompletedAt;
+  }
+
+  public void setSecurityScanCompletedAt(String securityScanCompletedAt) {
+    this.securityScanCompletedAt = securityScanCompletedAt;
+  }
+
+  public VagrantPackageUpload securityScanStartedAt(String securityScanStartedAt) {
+    this.securityScanStartedAt = securityScanStartedAt;
+    return this;
+  }
+
+   /**
+   * The datetime the security scanning was started.
+   * @return securityScanStartedAt
+  **/
+  @ApiModelProperty(value = "The datetime the security scanning was started.")
+  public String getSecurityScanStartedAt() {
+    return securityScanStartedAt;
+  }
+
+  public void setSecurityScanStartedAt(String securityScanStartedAt) {
+    this.securityScanStartedAt = securityScanStartedAt;
+  }
+
+  public VagrantPackageUpload securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * 
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
+  public VagrantPackageUpload securityScanStatusUpdatedAt(String securityScanStatusUpdatedAt) {
+    this.securityScanStatusUpdatedAt = securityScanStatusUpdatedAt;
+    return this;
+  }
+
+   /**
+   * The datetime the security scanning status was updated.
+   * @return securityScanStatusUpdatedAt
+  **/
+  @ApiModelProperty(value = "The datetime the security scanning status was updated.")
+  public String getSecurityScanStatusUpdatedAt() {
+    return securityScanStatusUpdatedAt;
+  }
+
+  public void setSecurityScanStatusUpdatedAt(String securityScanStatusUpdatedAt) {
+    this.securityScanStatusUpdatedAt = securityScanStatusUpdatedAt;
+  }
+
   public VagrantPackageUpload selfHtmlUrl(String selfHtmlUrl) {
     this.selfHtmlUrl = selfHtmlUrl;
     return this;
@@ -1319,6 +1403,10 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.release, vagrantPackageUpload.release) &&
         Objects.equals(this.repository, vagrantPackageUpload.repository) &&
         Objects.equals(this.repositoryUrl, vagrantPackageUpload.repositoryUrl) &&
+        Objects.equals(this.securityScanCompletedAt, vagrantPackageUpload.securityScanCompletedAt) &&
+        Objects.equals(this.securityScanStartedAt, vagrantPackageUpload.securityScanStartedAt) &&
+        Objects.equals(this.securityScanStatus, vagrantPackageUpload.securityScanStatus) &&
+        Objects.equals(this.securityScanStatusUpdatedAt, vagrantPackageUpload.securityScanStatusUpdatedAt) &&
         Objects.equals(this.selfHtmlUrl, vagrantPackageUpload.selfHtmlUrl) &&
         Objects.equals(this.selfUrl, vagrantPackageUpload.selfUrl) &&
         Objects.equals(this.size, vagrantPackageUpload.size) &&
@@ -1348,7 +1436,7 @@ public class VagrantPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, provider, release, repository, repositoryUrl, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, provider, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1390,6 +1478,10 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
+    sb.append("    securityScanCompletedAt: ").append(toIndentedString(securityScanCompletedAt)).append("\n");
+    sb.append("    securityScanStartedAt: ").append(toIndentedString(securityScanStartedAt)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
+    sb.append("    securityScanStatusUpdatedAt: ").append(toIndentedString(securityScanStatusUpdatedAt)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");

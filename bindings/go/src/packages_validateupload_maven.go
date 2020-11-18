@@ -33,6 +33,9 @@ type PackagesValidateuploadMaven struct {
 	// If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 	Republish bool `json:"republish,omitempty"`
 
+	// None
+	SecurityScanStatus string `json:"security_scan_status,omitempty"`
+
 	// Adds bundled Java source code to the Maven package.
 	SourcesFile string `json:"sources_file,omitempty"`
 

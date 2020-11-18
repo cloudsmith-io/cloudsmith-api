@@ -35,9 +35,9 @@ public class VulnerabilitiesApiTest {
 
     
     /**
-     * Read-only view to list vulnerabiltiy scan results within a Namespace.
+     * Checks feature is within plan before listing results.
      *
-     * Read-only view to list vulnerabiltiy scan results within a Namespace.
+     * Checks feature is within plan before listing results.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -53,9 +53,9 @@ public class VulnerabilitiesApiTest {
     }
     
     /**
-     * Read-only views to list vulnerabiltiy scan results within a Repository.
+     * Checks feature is within plan before listing results.
      *
-     * Read-only views to list vulnerabiltiy scan results within a Repository.
+     * Checks feature is within plan before listing results.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -72,9 +72,9 @@ public class VulnerabilitiesApiTest {
     }
     
     /**
-     * Read-only views to list vulnerabiltiy scan results within a Repository
+     * Checks feature is within plan before listing results.
      *
-     * Read-only views to list vulnerabiltiy scan results within a Repository for a given Package identifier.
+     * Checks feature is within plan before listing results.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -92,9 +92,9 @@ public class VulnerabilitiesApiTest {
     }
     
     /**
-     * Read-only view to retrieve vulnerability scans results using a
+     * Checks feature is within plan before retrieving results.
      *
-     * Read-only view to retrieve vulnerability scans results using a vulnerabiltiy scan results identifier (slug_perm).
+     * Checks feature is within plan before retrieving results.
      *
      * @throws ApiException
      *          if the Api call fails

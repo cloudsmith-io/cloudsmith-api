@@ -18,6 +18,9 @@ type PackagesUploadNuget struct {
 	// If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 	Republish bool `json:"republish,omitempty"`
 
+	// None
+	SecurityScanStatus string `json:"security_scan_status,omitempty"`
+
 	// Attaches a symbols file to the package.
 	SymbolsFile string `json:"symbols_file,omitempty"`
 

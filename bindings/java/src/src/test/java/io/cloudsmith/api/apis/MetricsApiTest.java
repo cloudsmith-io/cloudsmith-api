@@ -45,13 +45,34 @@ public class MetricsApiTest {
     @Test
     public void metricsEntitlementsUsageListTest() throws ApiException {
         String owner = null;
+        Integer page = null;
+        Integer pageSize = null;
+        Integer finish = null;
+        Integer start = null;
+        String tokens = null;
+        List<EntitlementUsageMetric> response = api.metricsEntitlementsUsageList(owner, page, pageSize, finish, start, tokens);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * View for listing entitlement token usage as a metric.
+     *
+     * View for listing entitlement token usage as a metric.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void metricsEntitlementsUsageList0Test() throws ApiException {
+        String owner = null;
         String repo = null;
         Integer page = null;
         Integer pageSize = null;
         Integer finish = null;
         Integer start = null;
         String tokens = null;
-        List<EntitlementUsageMetric> response = api.metricsEntitlementsUsageList(owner, repo, page, pageSize, finish, start, tokens);
+        List<EntitlementUsageMetric> response = api.metricsEntitlementsUsageList0(owner, repo, page, pageSize, finish, start, tokens);
 
         // TODO: test validations
     }

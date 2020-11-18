@@ -57,6 +57,9 @@ public class PackagesUploadConan implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("security_scan_status")
+  private String securityScanStatus = null;
+
   @SerializedName("tags")
   private String tags = null;
 
@@ -211,6 +214,24 @@ public class PackagesUploadConan implements Serializable {
     this.republish = republish;
   }
 
+  public PackagesUploadConan securityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+    return this;
+  }
+
+   /**
+   * None
+   * @return securityScanStatus
+  **/
+  @ApiModelProperty(value = "None")
+  public String getSecurityScanStatus() {
+    return securityScanStatus;
+  }
+
+  public void setSecurityScanStatus(String securityScanStatus) {
+    this.securityScanStatus = securityScanStatus;
+  }
+
   public PackagesUploadConan tags(String tags) {
     this.tags = tags;
     return this;
@@ -265,13 +286,14 @@ public class PackagesUploadConan implements Serializable {
         Objects.equals(this.name, packagesUploadConan.name) &&
         Objects.equals(this.packageFile, packagesUploadConan.packageFile) &&
         Objects.equals(this.republish, packagesUploadConan.republish) &&
+        Objects.equals(this.securityScanStatus, packagesUploadConan.securityScanStatus) &&
         Objects.equals(this.tags, packagesUploadConan.tags) &&
         Objects.equals(this.version, packagesUploadConan.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, republish, tags, version);
+    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, republish, securityScanStatus, tags, version);
   }
 
 
@@ -288,6 +310,7 @@ public class PackagesUploadConan implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

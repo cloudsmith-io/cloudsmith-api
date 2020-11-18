@@ -14,4 +14,7 @@ type PackagesMove struct {
 
 	// None
 	Destination string `json:"destination"`
+
+	// None
+	SecurityScanStatus string `json:"security_scan_status,omitempty"`
 }

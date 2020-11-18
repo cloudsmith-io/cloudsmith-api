@@ -108,6 +108,18 @@ type PackageMove struct {
 	// 
 	RepositoryUrl string `json:"repository_url,omitempty"`
 
+	// The datetime the security scanning was completed.
+	SecurityScanCompletedAt string `json:"security_scan_completed_at,omitempty"`
+
+	// The datetime the security scanning was started.
+	SecurityScanStartedAt string `json:"security_scan_started_at,omitempty"`
+
+	// 
+	SecurityScanStatus string `json:"security_scan_status,omitempty"`
+
+	// The datetime the security scanning status was updated.
+	SecurityScanStatusUpdatedAt string `json:"security_scan_status_updated_at,omitempty"`
+
 	// 
 	SelfHtmlUrl string `json:"self_html_url,omitempty"`
 
