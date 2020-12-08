@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**vulnerabilities_list**](VulnerabilitiesApi.md#vulnerabilities_list) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
 [**vulnerabilities_list0**](VulnerabilitiesApi.md#vulnerabilities_list0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Checks feature is within plan before listing results.
+[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
 [**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
 
 
@@ -129,9 +129,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_list1**
 > list[VulnerabilityScanResultsList] vulnerabilities_list1(owner, repo, package, page=page, page_size=page_size)
 
-Checks feature is within plan before listing results.
+Check package identifier is valid before querying results.
 
-Checks feature is within plan before listing results.
+Check package identifier is valid before querying results.
 
 ### Example 
 ```python
@@ -155,7 +155,7 @@ page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
 try: 
-    # Checks feature is within plan before listing results.
+    # Check package identifier is valid before querying results.
     api_response = api_instance.vulnerabilities_list1(owner, repo, package, page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:

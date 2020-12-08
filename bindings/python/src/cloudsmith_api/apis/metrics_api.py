@@ -57,8 +57,8 @@ class MetricsApi(object):
         :param str owner:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+        :param str finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied.
+        :param str start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
         :return: list[EntitlementUsageMetric]
                  If the method is called asynchronously,
@@ -88,8 +88,8 @@ class MetricsApi(object):
         :param str owner:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+        :param str finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied.
+        :param str start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
         :return: list[EntitlementUsageMetric]
                  If the method is called asynchronously,
@@ -176,8 +176,8 @@ class MetricsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+        :param str finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied.
+        :param str start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
         :return: list[EntitlementUsageMetric]
                  If the method is called asynchronously,
@@ -208,8 +208,8 @@ class MetricsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+        :param str finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied.
+        :param str start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
         :return: list[EntitlementUsageMetric]
                  If the method is called asynchronously,
