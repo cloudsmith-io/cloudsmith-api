@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**VulnerabilitiesList**](VulnerabilitiesApi.md#VulnerabilitiesList) | **Get** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
 [**VulnerabilitiesList0**](VulnerabilitiesApi.md#VulnerabilitiesList0) | **Get** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-[**VulnerabilitiesList1**](VulnerabilitiesApi.md#VulnerabilitiesList1) | **Get** /vulnerabilities/{owner}/{repo}/{package}/ | Checks feature is within plan before listing results.
+[**VulnerabilitiesList1**](VulnerabilitiesApi.md#VulnerabilitiesList1) | **Get** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
 [**VulnerabilitiesRead**](VulnerabilitiesApi.md#VulnerabilitiesRead) | **Get** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
 
 
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 # **VulnerabilitiesList1**
 > []VulnerabilityScanResultsList VulnerabilitiesList1($owner, $repo, $package_, $page, $pageSize)
 
-Checks feature is within plan before listing results.
+Check package identifier is valid before querying results.
 
-Checks feature is within plan before listing results.
+Check package identifier is valid before querying results.
 
 
 ### Parameters
