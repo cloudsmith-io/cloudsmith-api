@@ -466,8 +466,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results.
-     * Checks feature is within plan before listing results.
+     * Check package identifier is valid before querying results.
+     * Check package identifier is valid before querying results.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
@@ -482,8 +482,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results.
-     * Checks feature is within plan before listing results.
+     * Check package identifier is valid before querying results.
+     * Check package identifier is valid before querying results.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
@@ -499,8 +499,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results. (asynchronously)
-     * Checks feature is within plan before listing results.
+     * Check package identifier is valid before querying results. (asynchronously)
+     * Check package identifier is valid before querying results.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)

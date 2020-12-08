@@ -35,8 +35,8 @@ owner = "owner_example" # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  finish: 56, # Integer | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-  start: 56, # Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+  finish: "finish_example", # String | Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied.
+  start: "start_example", # String | Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'.
   tokens: "tokens_example" # String | A comma seperated list of tokens (slug perm) to include in the results.
 }
 
@@ -56,8 +56,8 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **Integer**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **String**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. | [optional] 
+ **start** | **String**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. | [optional] 
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type
@@ -103,8 +103,8 @@ repo = "repo_example" # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  finish: 56, # Integer | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-  start: 56, # Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+  finish: "finish_example", # String | Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied.
+  start: "start_example", # String | Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'.
   tokens: "tokens_example" # String | A comma seperated list of tokens (slug perm) to include in the results.
 }
 
@@ -125,8 +125,8 @@ Name | Type | Description  | Notes
  **repo** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **Integer**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **String**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. | [optional] 
+ **start** | **String**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. | [optional] 
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type

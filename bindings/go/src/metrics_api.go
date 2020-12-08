@@ -44,12 +44,12 @@ func NewMetricsApiWithBasePath(basePath string) *MetricsApi {
  * @param owner 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
- * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
- * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+ * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied.
+ * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;.
  * @param tokens A comma seperated list of tokens (slug perm) to include in the results.
  * @return []EntitlementUsageMetric
  */
-func (a MetricsApi) MetricsEntitlementsUsageList(owner string, page int32, pageSize int32, finish int32, start int32, tokens string) ([]EntitlementUsageMetric, *APIResponse, error) {
+func (a MetricsApi) MetricsEntitlementsUsageList(owner string, page int32, pageSize int32, finish string, start string, tokens string) ([]EntitlementUsageMetric, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -118,12 +118,12 @@ func (a MetricsApi) MetricsEntitlementsUsageList(owner string, page int32, pageS
  * @param repo 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
- * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
- * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+ * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied.
+ * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;.
  * @param tokens A comma seperated list of tokens (slug perm) to include in the results.
  * @return []EntitlementUsageMetric
  */
-func (a MetricsApi) MetricsEntitlementsUsageList0(owner string, repo string, page int32, pageSize int32, finish int32, start int32, tokens string) ([]EntitlementUsageMetric, *APIResponse, error) {
+func (a MetricsApi) MetricsEntitlementsUsageList0(owner string, repo string, page int32, pageSize int32, finish string, start string, tokens string) ([]EntitlementUsageMetric, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables

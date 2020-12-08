@@ -51,7 +51,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_list1
 
-        Checks feature is within plan before listing results.
+        Check package identifier is valid before querying results.
         """
         pass
 

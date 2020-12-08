@@ -24,8 +24,8 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **finish** | **int32**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **int32**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **string**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. | [optional] 
+ **start** | **string**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. | [optional] 
  **tokens** | **string**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type
@@ -59,8 +59,8 @@ Name | Type | Description  | Notes
  **repo** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **finish** | **int32**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **int32**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **string**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. | [optional] 
+ **start** | **string**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. | [optional] 
  **tokens** | **string**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type

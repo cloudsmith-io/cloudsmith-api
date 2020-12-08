@@ -34,8 +34,8 @@ api_instance = cloudsmith_api.MetricsApi()
 owner = 'owner_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
-finish = 56 # int | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-start = 56 # int | Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+finish = 'finish_example' # str | Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied. (optional)
+start = 'start_example' # str | Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'. (optional)
 tokens = 'tokens_example' # str | A comma seperated list of tokens (slug perm) to include in the results. (optional)
 
 try: 
@@ -53,8 +53,8 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **finish** | **int**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **int**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **str**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. | [optional] 
+ **start** | **str**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. | [optional] 
  **tokens** | **str**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type
@@ -98,8 +98,8 @@ owner = 'owner_example' # str |
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
-finish = 56 # int | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-start = 56 # int | Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+finish = 'finish_example' # str | Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied. (optional)
+start = 'start_example' # str | Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'. (optional)
 tokens = 'tokens_example' # str | A comma seperated list of tokens (slug perm) to include in the results. (optional)
 
 try: 
@@ -118,8 +118,8 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **finish** | **int**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **int**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **str**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. | [optional] 
+ **start** | **str**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. | [optional] 
  **tokens** | **str**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type

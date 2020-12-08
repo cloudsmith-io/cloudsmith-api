@@ -47,8 +47,8 @@ public class MetricsApiTest {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
-        Integer finish = null;
-        Integer start = null;
+        String finish = null;
+        String start = null;
         String tokens = null;
         List<EntitlementUsageMetric> response = api.metricsEntitlementsUsageList(owner, page, pageSize, finish, start, tokens);
 
@@ -69,8 +69,8 @@ public class MetricsApiTest {
         String repo = null;
         Integer page = null;
         Integer pageSize = null;
-        Integer finish = null;
-        Integer start = null;
+        String finish = null;
+        String start = null;
         String tokens = null;
         List<EntitlementUsageMetric> response = api.metricsEntitlementsUsageList0(owner, repo, page, pageSize, finish, start, tokens);
 

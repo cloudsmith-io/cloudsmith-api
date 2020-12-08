@@ -38,8 +38,8 @@ MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
-Integer finish = 56; // Integer | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-Integer start = 56; // Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+String finish = "finish_example"; // String | Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied.
+String start = "start_example"; // String | Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
     List<EntitlementUsageMetric> result = apiInstance.metricsEntitlementsUsageList(owner, page, pageSize, finish, start, tokens);
@@ -57,8 +57,8 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional]
- **start** | **Integer**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional]
+ **finish** | **String**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. | [optional]
+ **start** | **String**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. | [optional]
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional]
 
 ### Return type
@@ -104,8 +104,8 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
-Integer finish = 56; // Integer | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-Integer start = 56; // Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+String finish = "finish_example"; // String | Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example '2020-12-31', defaults to now if not supplied.
+String start = "start_example"; // String | Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example '2020-12-31'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
     List<EntitlementUsageMetric> result = apiInstance.metricsEntitlementsUsageList0(owner, repo, page, pageSize, finish, start, tokens);
@@ -124,8 +124,8 @@ Name | Type | Description  | Notes
  **repo** | **String**|  |
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional]
- **start** | **Integer**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional]
+ **finish** | **String**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. | [optional]
+ **start** | **String**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. | [optional]
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional]
 
 ### Return type

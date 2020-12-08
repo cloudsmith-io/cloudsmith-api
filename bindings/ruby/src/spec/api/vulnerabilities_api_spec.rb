@@ -62,8 +62,8 @@ describe 'VulnerabilitiesApi' do
   end
 
   # unit tests for vulnerabilities_list1
-  # Checks feature is within plan before listing results.
-  # Checks feature is within plan before listing results.
+  # Check package identifier is valid before querying results.
+  # Check package identifier is valid before querying results.
   # @param owner 
   # @param repo 
   # @param package 
