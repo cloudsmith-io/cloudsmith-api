@@ -140,8 +140,8 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Checks feature is within plan before listing results.
-    # Checks feature is within plan before listing results.
+    # Check package identifier is valid before querying results.
+    # Check package identifier is valid before querying results.
     # @param owner 
     # @param repo 
     # @param package 
@@ -154,8 +154,8 @@ module CloudsmithApi
       return data
     end
 
-    # Checks feature is within plan before listing results.
-    # Checks feature is within plan before listing results.
+    # Check package identifier is valid before querying results.
+    # Check package identifier is valid before querying results.
     # @param owner 
     # @param repo 
     # @param package 

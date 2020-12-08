@@ -26,8 +26,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied.
+    # @option opts [String] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
     # @return [Array<EntitlementUsageMetric>]
     def metrics_entitlements_usage_list(owner, opts = {})
@@ -41,8 +41,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied.
+    # @option opts [String] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
     # @return [Array<(Array<EntitlementUsageMetric>, Fixnum, Hash)>] Array<EntitlementUsageMetric> data, response status code and response headers
     def metrics_entitlements_usage_list_with_http_info(owner, opts = {})
@@ -93,8 +93,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied.
+    # @option opts [String] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
     # @return [Array<EntitlementUsageMetric>]
     def metrics_entitlements_usage_list0(owner, repo, opts = {})
@@ -109,8 +109,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied.
+    # @option opts [String] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
     # @return [Array<(Array<EntitlementUsageMetric>, Fixnum, Hash)>] Array<EntitlementUsageMetric> data, response status code and response headers
     def metrics_entitlements_usage_list0_with_http_info(owner, repo, opts = {})
