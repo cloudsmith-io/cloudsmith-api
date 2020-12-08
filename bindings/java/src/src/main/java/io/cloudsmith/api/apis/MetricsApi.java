@@ -70,15 +70,15 @@ public class MetricsApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. (optional)
+     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsUsageListCall(String owner, Integer page, Integer pageSize, Integer finish, Integer start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsUsageListCall(String owner, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -130,13 +130,13 @@ public class MetricsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call metricsEntitlementsUsageListValidateBeforeCall(String owner, Integer page, Integer pageSize, Integer finish, Integer start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call metricsEntitlementsUsageListValidateBeforeCall(String owner, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, page, pageSize, finish, start, tokens };
-            Method method = this.getClass().getMethod("metricsEntitlementsUsageListWithHttpInfo", String.class, Integer.class, Integer.class, Integer.class, Integer.class, String.class);
+            Method method = this.getClass().getMethod("metricsEntitlementsUsageListWithHttpInfo", String.class, Integer.class, Integer.class, String.class, String.class, String.class);
             Set<ConstraintViolation<MetricsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -167,13 +167,13 @@ public class MetricsApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. (optional)
+     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
      * @return List&lt;EntitlementUsageMetric&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<EntitlementUsageMetric> metricsEntitlementsUsageList(String owner, Integer page, Integer pageSize, Integer finish, Integer start, String tokens) throws ApiException {
+    public List<EntitlementUsageMetric> metricsEntitlementsUsageList(String owner, Integer page, Integer pageSize, String finish, String start, String tokens) throws ApiException {
         ApiResponse<List<EntitlementUsageMetric>> resp = metricsEntitlementsUsageListWithHttpInfo(owner, page, pageSize, finish, start, tokens);
         return resp.getData();
     }
@@ -184,13 +184,13 @@ public class MetricsApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. (optional)
+     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
      * @return ApiResponse&lt;List&lt;EntitlementUsageMetric&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<EntitlementUsageMetric>> metricsEntitlementsUsageListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize,  Integer finish,  Integer start,  String tokens) throws ApiException {
+    public ApiResponse<List<EntitlementUsageMetric>> metricsEntitlementsUsageListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize,  String finish,  String start,  String tokens) throws ApiException {
         com.squareup.okhttp.Call call = metricsEntitlementsUsageListValidateBeforeCall(owner, page, pageSize, finish, start, tokens, null, null);
         Type localVarReturnType = new TypeToken<List<EntitlementUsageMetric>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -202,14 +202,14 @@ public class MetricsApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. (optional)
+     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsUsageListAsync(String owner, Integer page, Integer pageSize, Integer finish, Integer start, String tokens, final ApiCallback<List<EntitlementUsageMetric>> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsUsageListAsync(String owner, Integer page, Integer pageSize, String finish, String start, String tokens, final ApiCallback<List<EntitlementUsageMetric>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -241,15 +241,15 @@ public class MetricsApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. (optional)
+     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsUsageList0Call(String owner, String repo, Integer page, Integer pageSize, Integer finish, Integer start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsUsageList0Call(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -302,13 +302,13 @@ public class MetricsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call metricsEntitlementsUsageList0ValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, Integer finish, Integer start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call metricsEntitlementsUsageList0ValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, page, pageSize, finish, start, tokens };
-            Method method = this.getClass().getMethod("metricsEntitlementsUsageList0WithHttpInfo", String.class, String.class, Integer.class, Integer.class, Integer.class, Integer.class, String.class);
+            Method method = this.getClass().getMethod("metricsEntitlementsUsageList0WithHttpInfo", String.class, String.class, Integer.class, Integer.class, String.class, String.class, String.class);
             Set<ConstraintViolation<MetricsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -340,13 +340,13 @@ public class MetricsApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. (optional)
+     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
      * @return List&lt;EntitlementUsageMetric&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<EntitlementUsageMetric> metricsEntitlementsUsageList0(String owner, String repo, Integer page, Integer pageSize, Integer finish, Integer start, String tokens) throws ApiException {
+    public List<EntitlementUsageMetric> metricsEntitlementsUsageList0(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens) throws ApiException {
         ApiResponse<List<EntitlementUsageMetric>> resp = metricsEntitlementsUsageList0WithHttpInfo(owner, repo, page, pageSize, finish, start, tokens);
         return resp.getData();
     }
@@ -358,13 +358,13 @@ public class MetricsApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. (optional)
+     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
      * @return ApiResponse&lt;List&lt;EntitlementUsageMetric&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<EntitlementUsageMetric>> metricsEntitlementsUsageList0WithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  Integer finish,  Integer start,  String tokens) throws ApiException {
+    public ApiResponse<List<EntitlementUsageMetric>> metricsEntitlementsUsageList0WithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  String finish,  String start,  String tokens) throws ApiException {
         com.squareup.okhttp.Call call = metricsEntitlementsUsageList0ValidateBeforeCall(owner, repo, page, pageSize, finish, start, tokens, null, null);
         Type localVarReturnType = new TypeToken<List<EntitlementUsageMetric>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -377,14 +377,14 @@ public class MetricsApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. (optional)
-     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). (optional)
+     * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). For example &#39;2020-12-31&#39;, defaults to now if not supplied. (optional)
+     * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)). For example &#39;2020-12-31&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsUsageList0Async(String owner, String repo, Integer page, Integer pageSize, Integer finish, Integer start, String tokens, final ApiCallback<List<EntitlementUsageMetric>> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsUsageList0Async(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens, final ApiCallback<List<EntitlementUsageMetric>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

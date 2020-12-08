@@ -66,7 +66,7 @@ public class StatusBasic implements Serializable {
    * The current version for the Cloudsmith service.
    * @return version
   **/
-  @ApiModelProperty(example = "0.54.15", value = "The current version for the Cloudsmith service.")
+  @ApiModelProperty(example = "0.55.12", value = "The current version for the Cloudsmith service.")
   public String getVersion() {
     return version;
   }
