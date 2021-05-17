@@ -49,8 +49,17 @@ public class BadgesApiTest {
         String packageVersion = null;
         String packageIdentifiers = null;
         String badgeToken = null;
+        String cacheSeconds = null;
+        String color = null;
+        String label = null;
+        String labelColor = null;
+        String logoColor = null;
+        String logoWidth = null;
         Boolean render = null;
-        api.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, render);
+        Boolean shields = null;
+        Boolean showLatest = null;
+        String style = null;
+        api.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
 
         // TODO: test validations
     }

@@ -1,6 +1,6 @@
 # PackagesApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesResync"></a>
 # **packagesResync**
-> ModelPackage packagesResync(owner, repo, identifier, data)
+> ModelPackage packagesResync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -388,9 +388,8 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-PackagesResync data = new PackagesResync(); // PackagesResync | 
 try {
-    ModelPackage result = apiInstance.packagesResync(owner, repo, identifier, data);
+    ModelPackage result = apiInstance.packagesResync(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesResync");
@@ -405,7 +404,6 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**PackagesResync**](PackagesResync.md)|  | [optional]
 
 ### Return type
 
@@ -417,12 +415,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 <a name="packagesScan"></a>
 # **packagesScan**
-> ModelPackage packagesScan(owner, repo, identifier, data)
+> ModelPackage packagesScan(owner, repo, identifier)
 
 Schedule a package for scanning.
 
@@ -449,9 +447,8 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-PackagesScan data = new PackagesScan(); // PackagesScan | 
 try {
-    ModelPackage result = apiInstance.packagesScan(owner, repo, identifier, data);
+    ModelPackage result = apiInstance.packagesScan(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesScan");
@@ -466,7 +463,6 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**PackagesScan**](PackagesScan.md)|  | [optional]
 
 ### Return type
 
@@ -478,7 +474,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 <a name="packagesStatus"></a>

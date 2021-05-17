@@ -991,6 +991,7 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1019,12 +1020,13 @@ class EntitlementsApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
+        :param bool show_tokens: Show entitlement token strings in results
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier']
+        all_params = ['owner', 'repo', 'identifier', 'show_tokens']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1061,6 +1063,8 @@ class EntitlementsApi(object):
             path_params['identifier'] = params['identifier']
 
         query_params = []
+        if 'show_tokens' in params:
+            query_params.append(('show_tokens', params['show_tokens']))
 
         header_params = {}
 

@@ -1,6 +1,6 @@
 # CloudsmithApi::PackagesApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_resync**
-> Package packages_resync(owner, repo, identifier, opts)
+> Package packages_resync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -396,13 +396,10 @@ repo = "repo_example" # String |
 
 identifier = "identifier_example" # String | 
 
-opts = { 
-  data: CloudsmithApi::PackagesResync.new # PackagesResync | 
-}
 
 begin
   #Schedule a package for resynchronisation.
-  result = api_instance.packages_resync(owner, repo, identifier, opts)
+  result = api_instance.packages_resync(owner, repo, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_resync: #{e}"
@@ -416,7 +413,6 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**PackagesResync**](PackagesResync.md)|  | [optional] 
 
 ### Return type
 
@@ -428,13 +424,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 
 
 # **packages_scan**
-> Package packages_scan(owner, repo, identifier, opts)
+> Package packages_scan(owner, repo, identifier)
 
 Schedule a package for scanning.
 
@@ -460,13 +456,10 @@ repo = "repo_example" # String |
 
 identifier = "identifier_example" # String | 
 
-opts = { 
-  data: CloudsmithApi::PackagesScan.new # PackagesScan | 
-}
 
 begin
   #Schedule a package for scanning.
-  result = api_instance.packages_scan(owner, repo, identifier, opts)
+  result = api_instance.packages_scan(owner, repo, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_scan: #{e}"
@@ -480,7 +473,6 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**PackagesScan**](PackagesScan.md)|  | [optional] 
 
 ### Return type
 
@@ -492,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 

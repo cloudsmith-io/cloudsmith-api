@@ -638,7 +638,6 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
-        :param PackagesResync data:
         :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
@@ -667,13 +666,12 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
-        :param PackagesResync data:
         :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier', 'data']
+        all_params = ['owner', 'repo', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -717,12 +715,6 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['apikey']
 
@@ -758,7 +750,6 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
-        :param PackagesScan data:
         :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
@@ -787,13 +778,12 @@ class PackagesApi(object):
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
-        :param PackagesScan data:
         :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier', 'data']
+        all_params = ['owner', 'repo', 'identifier']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -837,12 +827,6 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['apikey']
 

@@ -1,21 +1,21 @@
 # MetricsApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**metricsEntitlementsUsageList**](MetricsApi.md#metricsEntitlementsUsageList) | **GET** /metrics/{owner}/entitlements/usage/ | View for listing entitlement token usage as a metric.
-[**metricsEntitlementsUsageList0**](MetricsApi.md#metricsEntitlementsUsageList0) | **GET** /metrics/{owner}/{repo}/entitlements/usage/ | View for listing entitlement token usage as a metric.
-[**metricsPackagesUsageList**](MetricsApi.md#metricsPackagesUsageList) | **GET** /metrics/{owner}/{repo}/packages/usage/ | View for listing package usage metrics by user.
+[**metricsEntitlementsList**](MetricsApi.md#metricsEntitlementsList) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+[**metricsEntitlementsList0**](MetricsApi.md#metricsEntitlementsList0) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+[**metricsPackagesList**](MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 
 
-<a name="metricsEntitlementsUsageList"></a>
-# **metricsEntitlementsUsageList**
-> List&lt;EntitlementUsageMetric&gt; metricsEntitlementsUsageList(owner, page, pageSize, finish, start, tokens)
+<a name="metricsEntitlementsList"></a>
+# **metricsEntitlementsList**
+> EntitlementUsageMetrics metricsEntitlementsList(owner, page, pageSize, finish, start, tokens)
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, across an account.
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, across an account.
 
 ### Example
 ```java
@@ -38,14 +38,14 @@ MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
-Integer finish = 56; // Integer | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-Integer start = 56; // Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+String finish = "finish_example"; // String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    List<EntitlementUsageMetric> result = apiInstance.metricsEntitlementsUsageList(owner, page, pageSize, finish, start, tokens);
+    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsList(owner, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MetricsApi#metricsEntitlementsUsageList");
+    System.err.println("Exception when calling MetricsApi#metricsEntitlementsList");
     e.printStackTrace();
 }
 ```
@@ -57,13 +57,13 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional]
- **start** | **Integer**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional]
+ **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
+ **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional]
 
 ### Return type
 
-[**List&lt;EntitlementUsageMetric&gt;**](EntitlementUsageMetric.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -74,13 +74,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="metricsEntitlementsUsageList0"></a>
-# **metricsEntitlementsUsageList0**
-> List&lt;EntitlementUsageMetric&gt; metricsEntitlementsUsageList0(owner, repo, page, pageSize, finish, start, tokens)
+<a name="metricsEntitlementsList0"></a>
+# **metricsEntitlementsList0**
+> EntitlementUsageMetrics metricsEntitlementsList0(owner, repo, page, pageSize, finish, start, tokens)
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, for a repository.
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, for a repository.
 
 ### Example
 ```java
@@ -104,14 +104,14 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
-Integer finish = 56; // Integer | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-Integer start = 56; // Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+String finish = "finish_example"; // String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    List<EntitlementUsageMetric> result = apiInstance.metricsEntitlementsUsageList0(owner, repo, page, pageSize, finish, start, tokens);
+    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsList0(owner, repo, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MetricsApi#metricsEntitlementsUsageList0");
+    System.err.println("Exception when calling MetricsApi#metricsEntitlementsList0");
     e.printStackTrace();
 }
 ```
@@ -124,13 +124,13 @@ Name | Type | Description  | Notes
  **repo** | **String**|  |
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional]
- **start** | **Integer**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional]
+ **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
+ **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional]
 
 ### Return type
 
-[**List&lt;EntitlementUsageMetric&gt;**](EntitlementUsageMetric.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -141,13 +141,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="metricsPackagesUsageList"></a>
-# **metricsPackagesUsageList**
-> List&lt;PackageUsageMetric&gt; metricsPackagesUsageList(owner, repo, page, pageSize, finish, packages, start)
+<a name="metricsPackagesList"></a>
+# **metricsPackagesList**
+> PackageUsageMetrics metricsPackagesList(owner, repo, page, pageSize, finish, packages, start)
 
-View for listing package usage metrics by user.
+View for listing package usage metrics, for a repository.
 
-View for listing package usage metrics by user.
+View for listing package usage metrics, for a repository.
 
 ### Example
 ```java
@@ -171,14 +171,14 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
-Integer finish = 56; // Integer | Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+String finish = "finish_example"; // String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String packages = "packages_example"; // String | A comma seperated list of packages (slug perm) to include in the results.
-Integer start = 56; // Integer | Filter token usage starting from this datetime (UTC)).
+String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 try {
-    List<PackageUsageMetric> result = apiInstance.metricsPackagesUsageList(owner, repo, page, pageSize, finish, packages, start);
+    PackageUsageMetrics result = apiInstance.metricsPackagesList(owner, repo, page, pageSize, finish, packages, start);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MetricsApi#metricsPackagesUsageList");
+    System.err.println("Exception when calling MetricsApi#metricsPackagesList");
     e.printStackTrace();
 }
 ```
@@ -191,13 +191,13 @@ Name | Type | Description  | Notes
  **repo** | **String**|  |
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC). Defaults to now if not supplied. | [optional]
+ **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
  **packages** | **String**| A comma seperated list of packages (slug perm) to include in the results. | [optional]
- **start** | **Integer**| Filter token usage starting from this datetime (UTC)). | [optional]
+ **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
 
 ### Return type
 
-[**List&lt;PackageUsageMetric&gt;**](PackageUsageMetric.md)
+[**PackageUsageMetrics**](PackageUsageMetrics.md)
 
 ### Authorization
 

@@ -27,9 +27,6 @@ module CloudsmithApi
     # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
     attr_accessor :republish
 
-    # None
-    attr_accessor :security_scan_status
-
     # The sources archive containing the source code for the binary
     attr_accessor :sources_file
 
@@ -44,7 +41,6 @@ module CloudsmithApi
         :'distribution' => :'distribution',
         :'package_file' => :'package_file',
         :'republish' => :'republish',
-        :'security_scan_status' => :'security_scan_status',
         :'sources_file' => :'sources_file',
         :'tags' => :'tags'
       }
@@ -57,7 +53,6 @@ module CloudsmithApi
         :'distribution' => :'String',
         :'package_file' => :'String',
         :'republish' => :'BOOLEAN',
-        :'security_scan_status' => :'String',
         :'sources_file' => :'String',
         :'tags' => :'String'
       }
@@ -85,10 +80,6 @@ module CloudsmithApi
 
       if attributes.has_key?(:'republish')
         self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'security_scan_status')
-        self.security_scan_status = attributes[:'security_scan_status']
       end
 
       if attributes.has_key?(:'sources_file')
@@ -133,7 +124,6 @@ module CloudsmithApi
           distribution == o.distribution &&
           package_file == o.package_file &&
           republish == o.republish &&
-          security_scan_status == o.security_scan_status &&
           sources_file == o.sources_file &&
           tags == o.tags
     end
@@ -147,7 +137,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [changes_file, distribution, package_file, republish, security_scan_status, sources_file, tags].hash
+      [changes_file, distribution, package_file, republish, sources_file, tags].hash
     end
 
     # Builds the object from hash

@@ -27,31 +27,32 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * PackagesResync
+ * PackageUsageMetrics
  */
 
-public class PackagesResync implements Serializable {
+public class PackageUsageMetrics implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("security_scan_status")
-  private String securityScanStatus = null;
+  @SerializedName("packages")
+  private Object packages = null;
 
-  public PackagesResync securityScanStatus(String securityScanStatus) {
-    this.securityScanStatus = securityScanStatus;
+  public PackageUsageMetrics packages(Object packages) {
+    this.packages = packages;
     return this;
   }
 
    /**
-   * None
-   * @return securityScanStatus
+   * 
+   * @return packages
   **/
-  @ApiModelProperty(value = "None")
-  public String getSecurityScanStatus() {
-    return securityScanStatus;
+  @NotNull
+  @ApiModelProperty(example = "{\"active\":1,\"bandwidth\":{\"average\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"highest\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"lowest\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"total\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11}},\"downloads\":{\"average\":{\"value\":5},\"highest\":{\"value\":5},\"lowest\":{\"value\":5},\"total\":{\"value\":5}},\"inactive\":0,\"total\":0}", required = true, value = "")
+  public Object getPackages() {
+    return packages;
   }
 
-  public void setSecurityScanStatus(String securityScanStatus) {
-    this.securityScanStatus = securityScanStatus;
+  public void setPackages(Object packages) {
+    this.packages = packages;
   }
 
 
@@ -63,22 +64,22 @@ public class PackagesResync implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PackagesResync packagesResync = (PackagesResync) o;
-    return Objects.equals(this.securityScanStatus, packagesResync.securityScanStatus);
+    PackageUsageMetrics packageUsageMetrics = (PackageUsageMetrics) o;
+    return Objects.equals(this.packages, packageUsageMetrics.packages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(securityScanStatus);
+    return Objects.hash(packages);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PackagesResync {\n");
+    sb.append("class PackageUsageMetrics {\n");
     
-    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
+    sb.append("    packages: ").append(toIndentedString(packages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

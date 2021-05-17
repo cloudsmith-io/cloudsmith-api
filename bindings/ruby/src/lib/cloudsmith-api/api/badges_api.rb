@@ -30,7 +30,16 @@ module CloudsmithApi
     # @param package_identifiers 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :badge_token Badge token to authenticate for private packages
+    # @option opts [String] :cache_seconds Override the shields.io badge cacheSeconds value.
+    # @option opts [String] :color Override the shields.io badge color value.
+    # @option opts [String] :label Override the shields.io badge label value.
+    # @option opts [String] :label_color Override the shields.io badge labelColor value.
+    # @option opts [String] :logo_color Override the shields.io badge logoColor value.
+    # @option opts [String] :logo_width Override the shields.io badge logoWidth value.
     # @option opts [BOOLEAN] :render If true, badge will be rendered
+    # @option opts [BOOLEAN] :shields If true, a shields response will be generated
+    # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added
+    # @option opts [String] :style Override the shields.io badge style value.
     # @return [nil]
     def badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts = {})
       badges_version_list_with_http_info(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
@@ -47,7 +56,16 @@ module CloudsmithApi
     # @param package_identifiers 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :badge_token Badge token to authenticate for private packages
+    # @option opts [String] :cache_seconds Override the shields.io badge cacheSeconds value.
+    # @option opts [String] :color Override the shields.io badge color value.
+    # @option opts [String] :label Override the shields.io badge label value.
+    # @option opts [String] :label_color Override the shields.io badge labelColor value.
+    # @option opts [String] :logo_color Override the shields.io badge logoColor value.
+    # @option opts [String] :logo_width Override the shields.io badge logoWidth value.
     # @option opts [BOOLEAN] :render If true, badge will be rendered
+    # @option opts [BOOLEAN] :shields If true, a shields response will be generated
+    # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added
+    # @option opts [String] :style Override the shields.io badge style value.
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def badges_version_list_with_http_info(owner, repo, package_format, package_name, package_version, package_identifiers, opts = {})
       if @api_client.config.debugging
@@ -83,7 +101,16 @@ module CloudsmithApi
       # query parameters
       query_params = {}
       query_params[:'badge_token'] = opts[:'badge_token'] if !opts[:'badge_token'].nil?
+      query_params[:'cacheSeconds'] = opts[:'cache_seconds'] if !opts[:'cache_seconds'].nil?
+      query_params[:'color'] = opts[:'color'] if !opts[:'color'].nil?
+      query_params[:'label'] = opts[:'label'] if !opts[:'label'].nil?
+      query_params[:'labelColor'] = opts[:'label_color'] if !opts[:'label_color'].nil?
+      query_params[:'logoColor'] = opts[:'logo_color'] if !opts[:'logo_color'].nil?
+      query_params[:'logoWidth'] = opts[:'logo_width'] if !opts[:'logo_width'].nil?
       query_params[:'render'] = opts[:'render'] if !opts[:'render'].nil?
+      query_params[:'shields'] = opts[:'shields'] if !opts[:'shields'].nil?
+      query_params[:'show_latest'] = opts[:'show_latest'] if !opts[:'show_latest'].nil?
+      query_params[:'style'] = opts[:'style'] if !opts[:'style'].nil?
 
       # header parameters
       header_params = {}

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **IsDownloadable** | **bool** |  | [optional] [default to null]
 **IsPrimary** | **bool** |  | [optional] [default to null]
 **IsSynchronised** | **bool** |  | [optional] [default to null]
+**SignatureUrl** | **string** |  | [optional] [default to null]
 **Size** | **int32** | The calculated size of the file. | [optional] [default to null]
 **SlugPerm** | **string** |  | [optional] [default to null]
 **Tag** | **string** | Freeform descriptor that describes what the file is. | [optional] [default to null]

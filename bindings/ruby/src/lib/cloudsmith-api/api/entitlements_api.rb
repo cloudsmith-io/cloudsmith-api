@@ -548,6 +548,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [nil]
     def entitlements_reset(owner, repo, identifier, opts = {})
       entitlements_reset_with_http_info(owner, repo, identifier, opts)
@@ -560,6 +561,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def entitlements_reset_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -582,6 +584,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **packaging** | **str** | Artifact&#39;s Maven packaging type. | [optional] 
 **pom_file** | **str** | The POM file is an XML file containing the Maven coordinates. | [optional] 
 **republish** | **bool** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] 
-**security_scan_status** | **str** | None | [optional] 
 **sources_file** | **str** | Adds bundled Java source code to the Maven package. | [optional] 
 **tags** | **str** | A comma-separated values list of tags to add to the package. | [optional] 
 **tests_file** | **str** | Adds bundled Java tests to the Maven package. | [optional] 

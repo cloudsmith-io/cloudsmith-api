@@ -1,6 +1,6 @@
 # \EntitlementsApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EntitlementsReset**
-> EntitlementsReset($owner, $repo, $identifier)
+> EntitlementsReset($owner, $repo, $identifier, $showTokens)
 
 Reset the statistics for an entitlement token in a repository.
 
@@ -287,6 +287,7 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **identifier** | **string**|  | 
+ **showTokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 

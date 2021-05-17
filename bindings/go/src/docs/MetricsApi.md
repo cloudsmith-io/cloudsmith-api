@@ -1,20 +1,20 @@
 # \MetricsApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MetricsEntitlementsUsageList**](MetricsApi.md#MetricsEntitlementsUsageList) | **Get** /metrics/{owner}/entitlements/usage/ | View for listing entitlement token usage as a metric.
-[**MetricsEntitlementsUsageList0**](MetricsApi.md#MetricsEntitlementsUsageList0) | **Get** /metrics/{owner}/{repo}/entitlements/usage/ | View for listing entitlement token usage as a metric.
-[**MetricsPackagesUsageList**](MetricsApi.md#MetricsPackagesUsageList) | **Get** /metrics/{owner}/{repo}/packages/usage/ | View for listing package usage metrics by user.
+[**MetricsEntitlementsList**](MetricsApi.md#MetricsEntitlementsList) | **Get** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+[**MetricsEntitlementsList0**](MetricsApi.md#MetricsEntitlementsList0) | **Get** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+[**MetricsPackagesList**](MetricsApi.md#MetricsPackagesList) | **Get** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 
 
-# **MetricsEntitlementsUsageList**
-> []EntitlementUsageMetric MetricsEntitlementsUsageList($owner, $page, $pageSize, $finish, $start, $tokens)
+# **MetricsEntitlementsList**
+> EntitlementUsageMetrics MetricsEntitlementsList($owner, $page, $pageSize, $finish, $start, $tokens)
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, across an account.
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, across an account.
 
 
 ### Parameters
@@ -24,13 +24,13 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **finish** | **int32**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **int32**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **string**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
+ **start** | **string**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
  **tokens** | **string**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type
 
-[**[]EntitlementUsageMetric**](EntitlementUsageMetric.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -43,12 +43,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **MetricsEntitlementsUsageList0**
-> []EntitlementUsageMetric MetricsEntitlementsUsageList0($owner, $repo, $page, $pageSize, $finish, $start, $tokens)
+# **MetricsEntitlementsList0**
+> EntitlementUsageMetrics MetricsEntitlementsList0($owner, $repo, $page, $pageSize, $finish, $start, $tokens)
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, for a repository.
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, for a repository.
 
 
 ### Parameters
@@ -59,13 +59,13 @@ Name | Type | Description  | Notes
  **repo** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **finish** | **int32**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **int32**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **string**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
+ **start** | **string**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
  **tokens** | **string**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type
 
-[**[]EntitlementUsageMetric**](EntitlementUsageMetric.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -78,12 +78,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **MetricsPackagesUsageList**
-> []PackageUsageMetric MetricsPackagesUsageList($owner, $repo, $page, $pageSize, $finish, $packages, $start)
+# **MetricsPackagesList**
+> PackageUsageMetrics MetricsPackagesList($owner, $repo, $page, $pageSize, $finish, $packages, $start)
 
-View for listing package usage metrics by user.
+View for listing package usage metrics, for a repository.
 
-View for listing package usage metrics by user.
+View for listing package usage metrics, for a repository.
 
 
 ### Parameters
@@ -94,13 +94,13 @@ Name | Type | Description  | Notes
  **repo** | **string**|  | 
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **finish** | **int32**| Filter token usage ending before this datetime (UTC). Defaults to now if not supplied. | [optional] 
+ **finish** | **string**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
  **packages** | **string**| A comma seperated list of packages (slug perm) to include in the results. | [optional] 
- **start** | **int32**| Filter token usage starting from this datetime (UTC)). | [optional] 
+ **start** | **string**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
 
 ### Return type
 
-[**[]PackageUsageMetric**](PackageUsageMetric.md)
+[**PackageUsageMetrics**](PackageUsageMetrics.md)
 
 ### Authorization
 

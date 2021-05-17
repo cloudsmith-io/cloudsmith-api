@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.metricsownerrepopackagesusage_active_packages import MetricsownerrepopackagesusageActivePackages
+from cloudsmith_api.models.entitlement_usage_metrics import EntitlementUsageMetrics
 
 
-class TestMetricsownerrepopackagesusageActivePackages(unittest.TestCase):
-    """ MetricsownerrepopackagesusageActivePackages unit test stubs """
+class TestEntitlementUsageMetrics(unittest.TestCase):
+    """ EntitlementUsageMetrics unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestMetricsownerrepopackagesusageActivePackages(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testMetricsownerrepopackagesusageActivePackages(self):
+    def testEntitlementUsageMetrics(self):
         """
-        Test MetricsownerrepopackagesusageActivePackages
+        Test EntitlementUsageMetrics
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.metricsownerrepopackagesusage_active_packages.MetricsownerrepopackagesusageActivePackages()
+        #model = cloudsmith_api.models.entitlement_usage_metrics.EntitlementUsageMetrics()
         pass
 
 

@@ -31,27 +31,27 @@ class TestMetricsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_metrics_entitlements_usage_list(self):
+    def test_metrics_entitlements_list(self):
         """
-        Test case for metrics_entitlements_usage_list
+        Test case for metrics_entitlements_list
 
-        View for listing entitlement token usage as a metric.
-        """
-        pass
-
-    def test_metrics_entitlements_usage_list0(self):
-        """
-        Test case for metrics_entitlements_usage_list0
-
-        View for listing entitlement token usage as a metric.
+        View for listing entitlement token metrics, across an account.
         """
         pass
 
-    def test_metrics_packages_usage_list(self):
+    def test_metrics_entitlements_list0(self):
         """
-        Test case for metrics_packages_usage_list
+        Test case for metrics_entitlements_list0
 
-        View for listing package usage metrics by user.
+        View for listing entitlement token metrics, for a repository.
+        """
+        pass
+
+    def test_metrics_packages_list(self):
+        """
+        Test case for metrics_packages_list
+
+        View for listing package usage metrics, for a repository.
         """
         pass
 

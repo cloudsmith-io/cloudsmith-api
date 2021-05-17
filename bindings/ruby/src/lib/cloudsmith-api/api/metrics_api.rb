@@ -20,41 +20,41 @@ module CloudsmithApi
       @api_client = api_client
     end
 
-    # View for listing entitlement token usage as a metric.
-    # View for listing entitlement token usage as a metric.
+    # View for listing entitlement token metrics, across an account.
+    # View for listing entitlement token metrics, across an account.
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+    # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<EntitlementUsageMetric>]
-    def metrics_entitlements_usage_list(owner, opts = {})
-      data, _status_code, _headers = metrics_entitlements_usage_list_with_http_info(owner, opts)
+    # @return [EntitlementUsageMetrics]
+    def metrics_entitlements_list(owner, opts = {})
+      data, _status_code, _headers = metrics_entitlements_list_with_http_info(owner, opts)
       return data
     end
 
-    # View for listing entitlement token usage as a metric.
-    # View for listing entitlement token usage as a metric.
+    # View for listing entitlement token metrics, across an account.
+    # View for listing entitlement token metrics, across an account.
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+    # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<(Array<EntitlementUsageMetric>, Fixnum, Hash)>] Array<EntitlementUsageMetric> data, response status code and response headers
-    def metrics_entitlements_usage_list_with_http_info(owner, opts = {})
+    # @return [Array<(EntitlementUsageMetrics, Fixnum, Hash)>] EntitlementUsageMetrics data, response status code and response headers
+    def metrics_entitlements_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_usage_list ..."
+        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_list ..."
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_usage_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_list"
       end
       # resource path
-      local_var_path = "/metrics/{owner}/entitlements/usage/".sub('{' + 'owner' + '}', owner.to_s)
+      local_var_path = "/metrics/entitlements/{owner}/".sub('{' + 'owner' + '}', owner.to_s)
 
       # query parameters
       query_params = {}
@@ -79,54 +79,54 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<EntitlementUsageMetric>')
+        :return_type => 'EntitlementUsageMetrics')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_usage_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # View for listing entitlement token usage as a metric.
-    # View for listing entitlement token usage as a metric.
+    # View for listing entitlement token metrics, for a repository.
+    # View for listing entitlement token metrics, for a repository.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+    # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<EntitlementUsageMetric>]
-    def metrics_entitlements_usage_list0(owner, repo, opts = {})
-      data, _status_code, _headers = metrics_entitlements_usage_list0_with_http_info(owner, repo, opts)
+    # @return [EntitlementUsageMetrics]
+    def metrics_entitlements_list0(owner, repo, opts = {})
+      data, _status_code, _headers = metrics_entitlements_list0_with_http_info(owner, repo, opts)
       return data
     end
 
-    # View for listing entitlement token usage as a metric.
-    # View for listing entitlement token usage as a metric.
+    # View for listing entitlement token metrics, for a repository.
+    # View for listing entitlement token metrics, for a repository.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+    # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+    # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<(Array<EntitlementUsageMetric>, Fixnum, Hash)>] Array<EntitlementUsageMetric> data, response status code and response headers
-    def metrics_entitlements_usage_list0_with_http_info(owner, repo, opts = {})
+    # @return [Array<(EntitlementUsageMetrics, Fixnum, Hash)>] EntitlementUsageMetrics data, response status code and response headers
+    def metrics_entitlements_list0_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_usage_list0 ..."
+        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_entitlements_list0 ..."
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_usage_list0"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_list0"
       end
       # verify the required parameter 'repo' is set
       if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_entitlements_usage_list0"
+        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_entitlements_list0"
       end
       # resource path
-      local_var_path = "/metrics/{owner}/{repo}/entitlements/usage/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+      local_var_path = "/metrics/entitlements/{owner}/{repo}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
 
       # query parameters
       query_params = {}
@@ -151,54 +151,54 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<EntitlementUsageMetric>')
+        :return_type => 'EntitlementUsageMetrics')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_usage_list0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_list0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # View for listing package usage metrics by user.
-    # View for listing package usage metrics by user.
+    # View for listing package usage metrics, for a repository.
+    # View for listing package usage metrics, for a repository.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+    # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :packages A comma seperated list of packages (slug perm) to include in the results.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC)).
-    # @return [Array<PackageUsageMetric>]
-    def metrics_packages_usage_list(owner, repo, opts = {})
-      data, _status_code, _headers = metrics_packages_usage_list_with_http_info(owner, repo, opts)
+    # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+    # @return [PackageUsageMetrics]
+    def metrics_packages_list(owner, repo, opts = {})
+      data, _status_code, _headers = metrics_packages_list_with_http_info(owner, repo, opts)
       return data
     end
 
-    # View for listing package usage metrics by user.
-    # View for listing package usage metrics by user.
+    # View for listing package usage metrics, for a repository.
+    # View for listing package usage metrics, for a repository.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+    # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :packages A comma seperated list of packages (slug perm) to include in the results.
-    # @option opts [Integer] :start Filter token usage starting from this datetime (UTC)).
-    # @return [Array<(Array<PackageUsageMetric>, Fixnum, Hash)>] Array<PackageUsageMetric> data, response status code and response headers
-    def metrics_packages_usage_list_with_http_info(owner, repo, opts = {})
+    # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+    # @return [Array<(PackageUsageMetrics, Fixnum, Hash)>] PackageUsageMetrics data, response status code and response headers
+    def metrics_packages_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_packages_usage_list ..."
+        @api_client.config.logger.debug "Calling API: MetricsApi.metrics_packages_list ..."
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_packages_usage_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_packages_list"
       end
       # verify the required parameter 'repo' is set
       if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_packages_usage_list"
+        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_packages_list"
       end
       # resource path
-      local_var_path = "/metrics/{owner}/{repo}/packages/usage/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+      local_var_path = "/metrics/packages/{owner}/{repo}/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
 
       # query parameters
       query_params = {}
@@ -223,9 +223,9 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<PackageUsageMetric>')
+        :return_type => 'PackageUsageMetrics')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetricsApi#metrics_packages_usage_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MetricsApi#metrics_packages_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

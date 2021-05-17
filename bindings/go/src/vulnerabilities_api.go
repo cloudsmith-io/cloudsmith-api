@@ -174,8 +174,8 @@ func (a VulnerabilitiesApi) VulnerabilitiesList0(owner string, repo string, page
 }
 
 /**
- * Checks feature is within plan before listing results.
- * Checks feature is within plan before listing results.
+ * Check package identifier is valid before querying results.
+ * Check package identifier is valid before querying results.
  *
  * @param owner 
  * @param repo 

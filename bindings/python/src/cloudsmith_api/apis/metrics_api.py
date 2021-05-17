@@ -40,58 +40,58 @@ class MetricsApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def metrics_entitlements_usage_list(self, owner, **kwargs):
+    def metrics_entitlements_list(self, owner, **kwargs):
         """
-        View for listing entitlement token usage as a metric.
-        View for listing entitlement token usage as a metric.
+        View for listing entitlement token metrics, across an account.
+        View for listing entitlement token metrics, across an account.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.metrics_entitlements_usage_list(owner, callback=callback_function)
+        >>> thread = api.metrics_entitlements_list(owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+        :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+        :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: list[EntitlementUsageMetric]
+        :return: EntitlementUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.metrics_entitlements_usage_list_with_http_info(owner, **kwargs)
+            return self.metrics_entitlements_list_with_http_info(owner, **kwargs)
         else:
-            (data) = self.metrics_entitlements_usage_list_with_http_info(owner, **kwargs)
+            (data) = self.metrics_entitlements_list_with_http_info(owner, **kwargs)
             return data
 
-    def metrics_entitlements_usage_list_with_http_info(self, owner, **kwargs):
+    def metrics_entitlements_list_with_http_info(self, owner, **kwargs):
         """
-        View for listing entitlement token usage as a metric.
-        View for listing entitlement token usage as a metric.
+        View for listing entitlement token metrics, across an account.
+        View for listing entitlement token metrics, across an account.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.metrics_entitlements_usage_list_with_http_info(owner, callback=callback_function)
+        >>> thread = api.metrics_entitlements_list_with_http_info(owner, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str owner:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+        :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+        :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: list[EntitlementUsageMetric]
+        :return: EntitlementUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -107,13 +107,13 @@ class MetricsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method metrics_entitlements_usage_list" % key
+                    " to method metrics_entitlements_list" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `metrics_entitlements_usage_list`")
+            raise ValueError("Missing the required parameter `owner` when calling `metrics_entitlements_list`")
 
 
         collection_formats = {}
@@ -143,14 +143,14 @@ class MetricsApi(object):
         # Authentication setting
         auth_settings = ['apikey']
 
-        return self.api_client.call_api('/metrics/{owner}/entitlements/usage/', 'GET',
+        return self.api_client.call_api('/metrics/entitlements/{owner}/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[EntitlementUsageMetric]',
+                                        response_type='EntitlementUsageMetrics',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -158,17 +158,17 @@ class MetricsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def metrics_entitlements_usage_list0(self, owner, repo, **kwargs):
+    def metrics_entitlements_list0(self, owner, repo, **kwargs):
         """
-        View for listing entitlement token usage as a metric.
-        View for listing entitlement token usage as a metric.
+        View for listing entitlement token metrics, for a repository.
+        View for listing entitlement token metrics, for a repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.metrics_entitlements_usage_list0(owner, repo, callback=callback_function)
+        >>> thread = api.metrics_entitlements_list0(owner, repo, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -176,31 +176,31 @@ class MetricsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+        :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+        :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: list[EntitlementUsageMetric]
+        :return: EntitlementUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.metrics_entitlements_usage_list0_with_http_info(owner, repo, **kwargs)
+            return self.metrics_entitlements_list0_with_http_info(owner, repo, **kwargs)
         else:
-            (data) = self.metrics_entitlements_usage_list0_with_http_info(owner, repo, **kwargs)
+            (data) = self.metrics_entitlements_list0_with_http_info(owner, repo, **kwargs)
             return data
 
-    def metrics_entitlements_usage_list0_with_http_info(self, owner, repo, **kwargs):
+    def metrics_entitlements_list0_with_http_info(self, owner, repo, **kwargs):
         """
-        View for listing entitlement token usage as a metric.
-        View for listing entitlement token usage as a metric.
+        View for listing entitlement token metrics, for a repository.
+        View for listing entitlement token metrics, for a repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.metrics_entitlements_usage_list0_with_http_info(owner, repo, callback=callback_function)
+        >>> thread = api.metrics_entitlements_list0_with_http_info(owner, repo, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -208,10 +208,10 @@ class MetricsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-        :param int start: Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+        :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+        :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: list[EntitlementUsageMetric]
+        :return: EntitlementUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -227,16 +227,16 @@ class MetricsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method metrics_entitlements_usage_list0" % key
+                    " to method metrics_entitlements_list0" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `metrics_entitlements_usage_list0`")
+            raise ValueError("Missing the required parameter `owner` when calling `metrics_entitlements_list0`")
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
-            raise ValueError("Missing the required parameter `repo` when calling `metrics_entitlements_usage_list0`")
+            raise ValueError("Missing the required parameter `repo` when calling `metrics_entitlements_list0`")
 
 
         collection_formats = {}
@@ -268,14 +268,14 @@ class MetricsApi(object):
         # Authentication setting
         auth_settings = ['apikey']
 
-        return self.api_client.call_api('/metrics/{owner}/{repo}/entitlements/usage/', 'GET',
+        return self.api_client.call_api('/metrics/entitlements/{owner}/{repo}/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[EntitlementUsageMetric]',
+                                        response_type='EntitlementUsageMetrics',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -283,17 +283,17 @@ class MetricsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def metrics_packages_usage_list(self, owner, repo, **kwargs):
+    def metrics_packages_list(self, owner, repo, **kwargs):
         """
-        View for listing package usage metrics by user.
-        View for listing package usage metrics by user.
+        View for listing package usage metrics, for a repository.
+        View for listing package usage metrics, for a repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.metrics_packages_usage_list(owner, repo, callback=callback_function)
+        >>> thread = api.metrics_packages_list(owner, repo, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -301,31 +301,31 @@ class MetricsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+        :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str packages: A comma seperated list of packages (slug perm) to include in the results.
-        :param int start: Filter token usage starting from this datetime (UTC)).
-        :return: list[PackageUsageMetric]
+        :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+        :return: PackageUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.metrics_packages_usage_list_with_http_info(owner, repo, **kwargs)
+            return self.metrics_packages_list_with_http_info(owner, repo, **kwargs)
         else:
-            (data) = self.metrics_packages_usage_list_with_http_info(owner, repo, **kwargs)
+            (data) = self.metrics_packages_list_with_http_info(owner, repo, **kwargs)
             return data
 
-    def metrics_packages_usage_list_with_http_info(self, owner, repo, **kwargs):
+    def metrics_packages_list_with_http_info(self, owner, repo, **kwargs):
         """
-        View for listing package usage metrics by user.
-        View for listing package usage metrics by user.
+        View for listing package usage metrics, for a repository.
+        View for listing package usage metrics, for a repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.metrics_packages_usage_list_with_http_info(owner, repo, callback=callback_function)
+        >>> thread = api.metrics_packages_list_with_http_info(owner, repo, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -333,10 +333,10 @@ class MetricsApi(object):
         :param str repo:  (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :param int finish: Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+        :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str packages: A comma seperated list of packages (slug perm) to include in the results.
-        :param int start: Filter token usage starting from this datetime (UTC)).
-        :return: list[PackageUsageMetric]
+        :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+        :return: PackageUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -352,16 +352,16 @@ class MetricsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method metrics_packages_usage_list" % key
+                    " to method metrics_packages_list" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if ('owner' not in params) or (params['owner'] is None):
-            raise ValueError("Missing the required parameter `owner` when calling `metrics_packages_usage_list`")
+            raise ValueError("Missing the required parameter `owner` when calling `metrics_packages_list`")
         # verify the required parameter 'repo' is set
         if ('repo' not in params) or (params['repo'] is None):
-            raise ValueError("Missing the required parameter `repo` when calling `metrics_packages_usage_list`")
+            raise ValueError("Missing the required parameter `repo` when calling `metrics_packages_list`")
 
 
         collection_formats = {}
@@ -393,14 +393,14 @@ class MetricsApi(object):
         # Authentication setting
         auth_settings = ['apikey']
 
-        return self.api_client.call_api('/metrics/{owner}/{repo}/packages/usage/', 'GET',
+        return self.api_client.call_api('/metrics/packages/{owner}/{repo}/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='list[PackageUsageMetric]',
+                                        response_type='PackageUsageMetrics',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

@@ -19,11 +19,11 @@ import unittest
 
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.packages_scan import PackagesScan
+from cloudsmith_api.models.package_usage_metrics import PackageUsageMetrics
 
 
-class TestPackagesScan(unittest.TestCase):
-    """ PackagesScan unit test stubs """
+class TestPackageUsageMetrics(unittest.TestCase):
+    """ PackageUsageMetrics unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestPackagesScan(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testPackagesScan(self):
+    def testPackageUsageMetrics(self):
         """
-        Test PackagesScan
+        Test PackageUsageMetrics
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.packages_scan.PackagesScan()
+        #model = cloudsmith_api.models.package_usage_metrics.PackageUsageMetrics()
         pass
 
 

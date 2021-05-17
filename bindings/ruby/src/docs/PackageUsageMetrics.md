@@ -1,8 +1,8 @@
-# CloudsmithApi::EntitlementUsageMetric
+# CloudsmithApi::PackageUsageMetrics
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | **Object** |  | 
+**packages** | **Object** |  | 
 
 

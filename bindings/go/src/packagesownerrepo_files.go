@@ -42,6 +42,9 @@ type PackagesownerrepoFiles struct {
 	// 
 	IsSynchronised bool `json:"is_synchronised,omitempty"`
 
+	// 
+	SignatureUrl string `json:"signature_url,omitempty"`
+
 	// The calculated size of the file.
 	Size int32 `json:"size,omitempty"`
 

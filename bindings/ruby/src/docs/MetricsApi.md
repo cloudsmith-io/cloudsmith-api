@@ -1,20 +1,20 @@
 # CloudsmithApi::MetricsApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**metrics_entitlements_usage_list**](MetricsApi.md#metrics_entitlements_usage_list) | **GET** /metrics/{owner}/entitlements/usage/ | View for listing entitlement token usage as a metric.
-[**metrics_entitlements_usage_list0**](MetricsApi.md#metrics_entitlements_usage_list0) | **GET** /metrics/{owner}/{repo}/entitlements/usage/ | View for listing entitlement token usage as a metric.
-[**metrics_packages_usage_list**](MetricsApi.md#metrics_packages_usage_list) | **GET** /metrics/{owner}/{repo}/packages/usage/ | View for listing package usage metrics by user.
+[**metrics_entitlements_list**](MetricsApi.md#metrics_entitlements_list) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+[**metrics_entitlements_list0**](MetricsApi.md#metrics_entitlements_list0) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+[**metrics_packages_list**](MetricsApi.md#metrics_packages_list) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 
 
-# **metrics_entitlements_usage_list**
-> Array&lt;EntitlementUsageMetric&gt; metrics_entitlements_usage_list(owner, opts)
+# **metrics_entitlements_list**
+> EntitlementUsageMetrics metrics_entitlements_list(owner, opts)
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, across an account.
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, across an account.
 
 ### Example
 ```ruby
@@ -35,17 +35,17 @@ owner = "owner_example" # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  finish: 56, # Integer | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-  start: 56, # Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+  finish: "finish_example", # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+  start: "start_example", # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
   tokens: "tokens_example" # String | A comma seperated list of tokens (slug perm) to include in the results.
 }
 
 begin
-  #View for listing entitlement token usage as a metric.
-  result = api_instance.metrics_entitlements_usage_list(owner, opts)
+  #View for listing entitlement token metrics, across an account.
+  result = api_instance.metrics_entitlements_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling MetricsApi->metrics_entitlements_usage_list: #{e}"
+  puts "Exception when calling MetricsApi->metrics_entitlements_list: #{e}"
 end
 ```
 
@@ -56,13 +56,13 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **Integer**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
+ **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type
 
-[**Array&lt;EntitlementUsageMetric&gt;**](EntitlementUsageMetric.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -75,12 +75,12 @@ Name | Type | Description  | Notes
 
 
 
-# **metrics_entitlements_usage_list0**
-> Array&lt;EntitlementUsageMetric&gt; metrics_entitlements_usage_list0(owner, repo, opts)
+# **metrics_entitlements_list0**
+> EntitlementUsageMetrics metrics_entitlements_list0(owner, repo, opts)
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, for a repository.
 
-View for listing entitlement token usage as a metric.
+View for listing entitlement token metrics, for a repository.
 
 ### Example
 ```ruby
@@ -103,17 +103,17 @@ repo = "repo_example" # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  finish: 56, # Integer | Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-  start: 56, # Integer | Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+  finish: "finish_example", # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+  start: "start_example", # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
   tokens: "tokens_example" # String | A comma seperated list of tokens (slug perm) to include in the results.
 }
 
 begin
-  #View for listing entitlement token usage as a metric.
-  result = api_instance.metrics_entitlements_usage_list0(owner, repo, opts)
+  #View for listing entitlement token metrics, for a repository.
+  result = api_instance.metrics_entitlements_list0(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling MetricsApi->metrics_entitlements_usage_list0: #{e}"
+  puts "Exception when calling MetricsApi->metrics_entitlements_list0: #{e}"
 end
 ```
 
@@ -125,13 +125,13 @@ Name | Type | Description  | Notes
  **repo** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied. | [optional] 
- **start** | **Integer**| Filter token usage starting from this datetime (UTC by default unless otherwise specified)). | [optional] 
+ **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
+ **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
 
 ### Return type
 
-[**Array&lt;EntitlementUsageMetric&gt;**](EntitlementUsageMetric.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -144,12 +144,12 @@ Name | Type | Description  | Notes
 
 
 
-# **metrics_packages_usage_list**
-> Array&lt;PackageUsageMetric&gt; metrics_packages_usage_list(owner, repo, opts)
+# **metrics_packages_list**
+> PackageUsageMetrics metrics_packages_list(owner, repo, opts)
 
-View for listing package usage metrics by user.
+View for listing package usage metrics, for a repository.
 
-View for listing package usage metrics by user.
+View for listing package usage metrics, for a repository.
 
 ### Example
 ```ruby
@@ -172,17 +172,17 @@ repo = "repo_example" # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  finish: 56, # Integer | Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+  finish: "finish_example", # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
   packages: "packages_example", # String | A comma seperated list of packages (slug perm) to include in the results.
-  start: 56 # Integer | Filter token usage starting from this datetime (UTC)).
+  start: "start_example" # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 }
 
 begin
-  #View for listing package usage metrics by user.
-  result = api_instance.metrics_packages_usage_list(owner, repo, opts)
+  #View for listing package usage metrics, for a repository.
+  result = api_instance.metrics_packages_list(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling MetricsApi->metrics_packages_usage_list: #{e}"
+  puts "Exception when calling MetricsApi->metrics_packages_list: #{e}"
 end
 ```
 
@@ -194,13 +194,13 @@ Name | Type | Description  | Notes
  **repo** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **finish** | **Integer**| Filter token usage ending before this datetime (UTC). Defaults to now if not supplied. | [optional] 
+ **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
  **packages** | **String**| A comma seperated list of packages (slug perm) to include in the results. | [optional] 
- **start** | **Integer**| Filter token usage starting from this datetime (UTC)). | [optional] 
+ **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
 
 ### Return type
 
-[**Array&lt;PackageUsageMetric&gt;**](PackageUsageMetric.md)
+[**PackageUsageMetrics**](PackageUsageMetrics.md)
 
 ### Authorization
 

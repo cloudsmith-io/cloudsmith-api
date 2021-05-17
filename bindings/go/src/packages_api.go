@@ -387,10 +387,9 @@ func (a PackagesApi) PackagesRead(owner string, repo string, identifier string) 
  * @param owner 
  * @param repo 
  * @param identifier 
- * @param data 
  * @return *ModelPackage
  */
-func (a PackagesApi) PackagesResync(owner string, repo string, identifier string, data PackagesResync) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesResync(owner string, repo string, identifier string) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -414,7 +413,7 @@ func (a PackagesApi) PackagesResync(owner string, repo string, identifier string
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -430,8 +429,6 @@ func (a PackagesApi) PackagesResync(owner string, repo string, identifier string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	// body params
-	localVarPostBody = &data
 	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
@@ -457,10 +454,9 @@ func (a PackagesApi) PackagesResync(owner string, repo string, identifier string
  * @param owner 
  * @param repo 
  * @param identifier 
- * @param data 
  * @return *ModelPackage
  */
-func (a PackagesApi) PackagesScan(owner string, repo string, identifier string, data PackagesScan) (*ModelPackage, *APIResponse, error) {
+func (a PackagesApi) PackagesScan(owner string, repo string, identifier string) (*ModelPackage, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -484,7 +480,7 @@ func (a PackagesApi) PackagesScan(owner string, repo string, identifier string, 
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -500,8 +496,6 @@ func (a PackagesApi) PackagesScan(owner string, repo string, identifier string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	// body params
-	localVarPostBody = &data
 	var successPayload = new(ModelPackage)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 

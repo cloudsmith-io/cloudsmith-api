@@ -261,8 +261,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list1(self, owner, repo, package, **kwargs):
         """
-        Checks feature is within plan before listing results.
-        Checks feature is within plan before listing results.
+        Check package identifier is valid before querying results.
+        Check package identifier is valid before querying results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -291,8 +291,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list1_with_http_info(self, owner, repo, package, **kwargs):
         """
-        Checks feature is within plan before listing results.
-        Checks feature is within plan before listing results.
+        Check package identifier is valid before querying results.
+        Check package identifier is valid before querying results.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.

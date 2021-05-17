@@ -1,6 +1,6 @@
 # cloudsmith_api.EntitlementsApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_reset**
-> entitlements_reset(owner, repo, identifier)
+> entitlements_reset(owner, repo, identifier, show_tokens=show_tokens)
 
 Reset the statistics for an entitlement token in a repository.
 
@@ -510,10 +510,11 @@ api_instance = cloudsmith_api.EntitlementsApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
+show_tokens = true # bool | Show entitlement token strings in results (optional)
 
 try: 
     # Reset the statistics for an entitlement token in a repository.
-    api_instance.entitlements_reset(owner, repo, identifier)
+    api_instance.entitlements_reset(owner, repo, identifier, show_tokens=show_tokens)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_reset: %s\n" % e)
 ```
@@ -525,6 +526,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 

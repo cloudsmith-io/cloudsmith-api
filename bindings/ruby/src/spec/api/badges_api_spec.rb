@@ -43,7 +43,16 @@ describe 'BadgesApi' do
   # @param package_identifiers 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :badge_token Badge token to authenticate for private packages
+  # @option opts [String] :cache_seconds Override the shields.io badge cacheSeconds value.
+  # @option opts [String] :color Override the shields.io badge color value.
+  # @option opts [String] :label Override the shields.io badge label value.
+  # @option opts [String] :label_color Override the shields.io badge labelColor value.
+  # @option opts [String] :logo_color Override the shields.io badge logoColor value.
+  # @option opts [String] :logo_width Override the shields.io badge logoWidth value.
   # @option opts [BOOLEAN] :render If true, badge will be rendered
+  # @option opts [BOOLEAN] :shields If true, a shields response will be generated
+  # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added
+  # @option opts [String] :style Override the shields.io badge style value.
   # @return [nil]
   describe 'badges_version_list test' do
     it "should work" do

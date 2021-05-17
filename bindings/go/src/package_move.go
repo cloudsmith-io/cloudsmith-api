@@ -30,6 +30,9 @@ type PackageMove struct {
 	// 
 	ChecksumSha512 string `json:"checksum_sha512,omitempty"`
 
+	// A checksum of all of the package's dependencies.
+	DependenciesChecksumMd5 string `json:"dependencies_checksum_md5,omitempty"`
+
 	// A textual description of this package.
 	Description string `json:"description,omitempty"`
 
@@ -125,6 +128,9 @@ type PackageMove struct {
 
 	// 
 	SelfUrl string `json:"self_url,omitempty"`
+
+	// 
+	SignatureUrl string `json:"signature_url,omitempty"`
 
 	// The calculated size of the package.
 	Size int32 `json:"size,omitempty"`
