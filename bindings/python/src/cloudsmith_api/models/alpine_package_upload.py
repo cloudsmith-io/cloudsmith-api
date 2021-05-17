@@ -37,6 +37,7 @@ class AlpinePackageUpload(object):
         'checksum_sha1': 'str',
         'checksum_sha256': 'str',
         'checksum_sha512': 'str',
+        'dependencies_checksum_md5': 'str',
         'description': 'str',
         'distro': 'object',
         'distro_version': 'object',
@@ -69,6 +70,7 @@ class AlpinePackageUpload(object):
         'security_scan_status_updated_at': 'str',
         'self_html_url': 'str',
         'self_url': 'str',
+        'signature_url': 'str',
         'size': 'int',
         'slug': 'str',
         'slug_perm': 'str',
@@ -101,6 +103,7 @@ class AlpinePackageUpload(object):
         'checksum_sha1': 'checksum_sha1',
         'checksum_sha256': 'checksum_sha256',
         'checksum_sha512': 'checksum_sha512',
+        'dependencies_checksum_md5': 'dependencies_checksum_md5',
         'description': 'description',
         'distro': 'distro',
         'distro_version': 'distro_version',
@@ -133,6 +136,7 @@ class AlpinePackageUpload(object):
         'security_scan_status_updated_at': 'security_scan_status_updated_at',
         'self_html_url': 'self_html_url',
         'self_url': 'self_url',
+        'signature_url': 'signature_url',
         'size': 'size',
         'slug': 'slug',
         'slug_perm': 'slug_perm',
@@ -158,7 +162,7 @@ class AlpinePackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None):
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None):
         """
         AlpinePackageUpload - a model defined in Swagger
         """
@@ -169,6 +173,7 @@ class AlpinePackageUpload(object):
         self._checksum_sha1 = None
         self._checksum_sha256 = None
         self._checksum_sha512 = None
+        self._dependencies_checksum_md5 = None
         self._description = None
         self._distro = None
         self._distro_version = None
@@ -201,6 +206,7 @@ class AlpinePackageUpload(object):
         self._security_scan_status_updated_at = None
         self._self_html_url = None
         self._self_url = None
+        self._signature_url = None
         self._size = None
         self._slug = None
         self._slug_perm = None
@@ -237,6 +243,8 @@ class AlpinePackageUpload(object):
           self.checksum_sha256 = checksum_sha256
         if checksum_sha512 is not None:
           self.checksum_sha512 = checksum_sha512
+        if dependencies_checksum_md5 is not None:
+          self.dependencies_checksum_md5 = dependencies_checksum_md5
         if description is not None:
           self.description = description
         if distro is not None:
@@ -301,6 +309,8 @@ class AlpinePackageUpload(object):
           self.self_html_url = self_html_url
         if self_url is not None:
           self.self_url = self_url
+        if signature_url is not None:
+          self.signature_url = signature_url
         if size is not None:
           self.size = size
         if slug is not None:
@@ -485,6 +495,29 @@ class AlpinePackageUpload(object):
         """
 
         self._checksum_sha512 = checksum_sha512
+
+    @property
+    def dependencies_checksum_md5(self):
+        """
+        Gets the dependencies_checksum_md5 of this AlpinePackageUpload.
+        A checksum of all of the package's dependencies.
+
+        :return: The dependencies_checksum_md5 of this AlpinePackageUpload.
+        :rtype: str
+        """
+        return self._dependencies_checksum_md5
+
+    @dependencies_checksum_md5.setter
+    def dependencies_checksum_md5(self, dependencies_checksum_md5):
+        """
+        Sets the dependencies_checksum_md5 of this AlpinePackageUpload.
+        A checksum of all of the package's dependencies.
+
+        :param dependencies_checksum_md5: The dependencies_checksum_md5 of this AlpinePackageUpload.
+        :type: str
+        """
+
+        self._dependencies_checksum_md5 = dependencies_checksum_md5
 
     @property
     def description(self):
@@ -1221,6 +1254,29 @@ class AlpinePackageUpload(object):
         """
 
         self._self_url = self_url
+
+    @property
+    def signature_url(self):
+        """
+        Gets the signature_url of this AlpinePackageUpload.
+        
+
+        :return: The signature_url of this AlpinePackageUpload.
+        :rtype: str
+        """
+        return self._signature_url
+
+    @signature_url.setter
+    def signature_url(self, signature_url):
+        """
+        Sets the signature_url of this AlpinePackageUpload.
+        
+
+        :param signature_url: The signature_url of this AlpinePackageUpload.
+        :type: str
+        """
+
+        self._signature_url = signature_url
 
     @property
     def size(self):

@@ -55,6 +55,9 @@ public class VagrantPackageUpload implements Serializable {
   @SerializedName("checksum_sha512")
   private String checksumSha512 = null;
 
+  @SerializedName("dependencies_checksum_md5")
+  private String dependenciesChecksumMd5 = null;
+
   @SerializedName("description")
   private String description = null;
 
@@ -153,6 +156,9 @@ public class VagrantPackageUpload implements Serializable {
 
   @SerializedName("self_url")
   private String selfUrl = null;
+
+  @SerializedName("signature_url")
+  private String signatureUrl = null;
 
   @SerializedName("size")
   private Integer size = null;
@@ -338,6 +344,24 @@ public class VagrantPackageUpload implements Serializable {
 
   public void setChecksumSha512(String checksumSha512) {
     this.checksumSha512 = checksumSha512;
+  }
+
+  public VagrantPackageUpload dependenciesChecksumMd5(String dependenciesChecksumMd5) {
+    this.dependenciesChecksumMd5 = dependenciesChecksumMd5;
+    return this;
+  }
+
+   /**
+   * A checksum of all of the package&#39;s dependencies.
+   * @return dependenciesChecksumMd5
+  **/
+  @ApiModelProperty(value = "A checksum of all of the package's dependencies.")
+  public String getDependenciesChecksumMd5() {
+    return dependenciesChecksumMd5;
+  }
+
+  public void setDependenciesChecksumMd5(String dependenciesChecksumMd5) {
+    this.dependenciesChecksumMd5 = dependenciesChecksumMd5;
   }
 
   public VagrantPackageUpload description(String description) {
@@ -945,6 +969,24 @@ public class VagrantPackageUpload implements Serializable {
     this.selfUrl = selfUrl;
   }
 
+  public VagrantPackageUpload signatureUrl(String signatureUrl) {
+    this.signatureUrl = signatureUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return signatureUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSignatureUrl() {
+    return signatureUrl;
+  }
+
+  public void setSignatureUrl(String signatureUrl) {
+    this.signatureUrl = signatureUrl;
+  }
+
   public VagrantPackageUpload size(Integer size) {
     this.size = size;
     return this;
@@ -1376,6 +1418,7 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.checksumSha1, vagrantPackageUpload.checksumSha1) &&
         Objects.equals(this.checksumSha256, vagrantPackageUpload.checksumSha256) &&
         Objects.equals(this.checksumSha512, vagrantPackageUpload.checksumSha512) &&
+        Objects.equals(this.dependenciesChecksumMd5, vagrantPackageUpload.dependenciesChecksumMd5) &&
         Objects.equals(this.description, vagrantPackageUpload.description) &&
         Objects.equals(this.distro, vagrantPackageUpload.distro) &&
         Objects.equals(this.distroVersion, vagrantPackageUpload.distroVersion) &&
@@ -1409,6 +1452,7 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.securityScanStatusUpdatedAt, vagrantPackageUpload.securityScanStatusUpdatedAt) &&
         Objects.equals(this.selfHtmlUrl, vagrantPackageUpload.selfHtmlUrl) &&
         Objects.equals(this.selfUrl, vagrantPackageUpload.selfUrl) &&
+        Objects.equals(this.signatureUrl, vagrantPackageUpload.signatureUrl) &&
         Objects.equals(this.size, vagrantPackageUpload.size) &&
         Objects.equals(this.slug, vagrantPackageUpload.slug) &&
         Objects.equals(this.slugPerm, vagrantPackageUpload.slugPerm) &&
@@ -1436,7 +1480,7 @@ public class VagrantPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, provider, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, provider, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1451,6 +1495,7 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");
     sb.append("    checksumSha256: ").append(toIndentedString(checksumSha256)).append("\n");
     sb.append("    checksumSha512: ").append(toIndentedString(checksumSha512)).append("\n");
+    sb.append("    dependenciesChecksumMd5: ").append(toIndentedString(dependenciesChecksumMd5)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
@@ -1484,6 +1529,7 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    securityScanStatusUpdatedAt: ").append(toIndentedString(securityScanStatusUpdatedAt)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    signatureUrl: ").append(toIndentedString(signatureUrl)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");

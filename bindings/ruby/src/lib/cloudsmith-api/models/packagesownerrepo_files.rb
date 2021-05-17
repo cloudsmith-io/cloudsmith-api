@@ -45,6 +45,9 @@ module CloudsmithApi
     # 
     attr_accessor :is_synchronised
 
+    # 
+    attr_accessor :signature_url
+
     # The calculated size of the file.
     attr_accessor :size
 
@@ -68,6 +71,7 @@ module CloudsmithApi
         :'is_downloadable' => :'is_downloadable',
         :'is_primary' => :'is_primary',
         :'is_synchronised' => :'is_synchronised',
+        :'signature_url' => :'signature_url',
         :'size' => :'size',
         :'slug_perm' => :'slug_perm',
         :'tag' => :'tag'
@@ -87,6 +91,7 @@ module CloudsmithApi
         :'is_downloadable' => :'BOOLEAN',
         :'is_primary' => :'BOOLEAN',
         :'is_synchronised' => :'BOOLEAN',
+        :'signature_url' => :'String',
         :'size' => :'Integer',
         :'slug_perm' => :'String',
         :'tag' => :'String'
@@ -141,6 +146,10 @@ module CloudsmithApi
         self.is_synchronised = attributes[:'is_synchronised']
       end
 
+      if attributes.has_key?(:'signature_url')
+        self.signature_url = attributes[:'signature_url']
+      end
+
       if attributes.has_key?(:'size')
         self.size = attributes[:'size']
       end
@@ -183,6 +192,7 @@ module CloudsmithApi
           is_downloadable == o.is_downloadable &&
           is_primary == o.is_primary &&
           is_synchronised == o.is_synchronised &&
+          signature_url == o.signature_url &&
           size == o.size &&
           slug_perm == o.slug_perm &&
           tag == o.tag
@@ -197,7 +207,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, downloads, filename, is_downloadable, is_primary, is_synchronised, size, slug_perm, tag].hash
+      [cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, downloads, filename, is_downloadable, is_primary, is_synchronised, signature_url, size, slug_perm, tag].hash
     end
 
     # Builds the object from hash

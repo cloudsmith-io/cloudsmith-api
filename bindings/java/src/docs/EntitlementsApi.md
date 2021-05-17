@@ -1,6 +1,6 @@
 # EntitlementsApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsReset"></a>
 # **entitlementsReset**
-> entitlementsReset(owner, repo, identifier)
+> entitlementsReset(owner, repo, identifier, showTokens)
 
 Reset the statistics for an entitlement token in a repository.
 
@@ -530,8 +530,9 @@ EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
+Boolean showTokens = true; // Boolean | Show entitlement token strings in results
 try {
-    apiInstance.entitlementsReset(owner, repo, identifier);
+    apiInstance.entitlementsReset(owner, repo, identifier, showTokens);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsReset");
     e.printStackTrace();
@@ -545,6 +546,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
+ **showTokens** | **Boolean**| Show entitlement token strings in results | [optional]
 
 ### Return type
 

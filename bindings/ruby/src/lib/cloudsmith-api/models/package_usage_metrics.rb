@@ -14,22 +14,22 @@ require 'date'
 
 module CloudsmithApi
 
-  class PackagesResync
-    # None
-    attr_accessor :security_scan_status
+  class PackageUsageMetrics
+    # 
+    attr_accessor :packages
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'security_scan_status' => :'security_scan_status'
+        :'packages' => :'packages'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'security_scan_status' => :'String'
+        :'packages' => :'Object'
       }
     end
 
@@ -41,8 +41,8 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'security_scan_status')
-        self.security_scan_status = attributes[:'security_scan_status']
+      if attributes.has_key?(:'packages')
+        self.packages = attributes[:'packages']
       end
 
     end
@@ -51,12 +51,17 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @packages.nil?
+        invalid_properties.push("invalid value for 'packages', packages cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @packages.nil?
       return true
     end
 
@@ -65,7 +70,7 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          security_scan_status == o.security_scan_status
+          packages == o.packages
     end
 
     # @see the `==` method
@@ -77,7 +82,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [security_scan_status].hash
+      [packages].hash
     end
 
     # Builds the object from hash

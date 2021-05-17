@@ -38,22 +38,22 @@ func NewMetricsApiWithBasePath(basePath string) *MetricsApi {
 }
 
 /**
- * View for listing entitlement token usage as a metric.
- * View for listing entitlement token usage as a metric.
+ * View for listing entitlement token metrics, across an account.
+ * View for listing entitlement token metrics, across an account.
  *
  * @param owner 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
- * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
- * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+ * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+ * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
  * @param tokens A comma seperated list of tokens (slug perm) to include in the results.
- * @return []EntitlementUsageMetric
+ * @return *EntitlementUsageMetrics
  */
-func (a MetricsApi) MetricsEntitlementsUsageList(owner string, page int32, pageSize int32, finish int32, start int32, tokens string) ([]EntitlementUsageMetric, *APIResponse, error) {
+func (a MetricsApi) MetricsEntitlementsList(owner string, page int32, pageSize int32, finish string, start string, tokens string) (*EntitlementUsageMetrics, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/metrics/{owner}/entitlements/usage/"
+	localVarPath := a.Configuration.BasePath + "/metrics/entitlements/{owner}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -92,42 +92,42 @@ func (a MetricsApi) MetricsEntitlementsUsageList(owner string, page int32, pageS
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new([]EntitlementUsageMetric)
+	var successPayload = new(EntitlementUsageMetrics)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "MetricsEntitlementsUsageList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	var localVarAPIResponse = &APIResponse{Operation: "MetricsEntitlementsList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
 	}
 
 	if err != nil {
-		return *successPayload, localVarAPIResponse, err
+		return successPayload, localVarAPIResponse, err
 	}
 	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return *successPayload, localVarAPIResponse, err
+	return successPayload, localVarAPIResponse, err
 }
 
 /**
- * View for listing entitlement token usage as a metric.
- * View for listing entitlement token usage as a metric.
+ * View for listing entitlement token metrics, for a repository.
+ * View for listing entitlement token metrics, for a repository.
  *
  * @param owner 
  * @param repo 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
- * @param finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
- * @param start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+ * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+ * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
  * @param tokens A comma seperated list of tokens (slug perm) to include in the results.
- * @return []EntitlementUsageMetric
+ * @return *EntitlementUsageMetrics
  */
-func (a MetricsApi) MetricsEntitlementsUsageList0(owner string, repo string, page int32, pageSize int32, finish int32, start int32, tokens string) ([]EntitlementUsageMetric, *APIResponse, error) {
+func (a MetricsApi) MetricsEntitlementsList0(owner string, repo string, page int32, pageSize int32, finish string, start string, tokens string) (*EntitlementUsageMetrics, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/metrics/{owner}/{repo}/entitlements/usage/"
+	localVarPath := a.Configuration.BasePath + "/metrics/entitlements/{owner}/{repo}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 
@@ -167,42 +167,42 @@ func (a MetricsApi) MetricsEntitlementsUsageList0(owner string, repo string, pag
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new([]EntitlementUsageMetric)
+	var successPayload = new(EntitlementUsageMetrics)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "MetricsEntitlementsUsageList0", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	var localVarAPIResponse = &APIResponse{Operation: "MetricsEntitlementsList0", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
 	}
 
 	if err != nil {
-		return *successPayload, localVarAPIResponse, err
+		return successPayload, localVarAPIResponse, err
 	}
 	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return *successPayload, localVarAPIResponse, err
+	return successPayload, localVarAPIResponse, err
 }
 
 /**
- * View for listing package usage metrics by user.
- * View for listing package usage metrics by user.
+ * View for listing package usage metrics, for a repository.
+ * View for listing package usage metrics, for a repository.
  *
  * @param owner 
  * @param repo 
  * @param page A page number within the paginated result set.
  * @param pageSize Number of results to return per page.
- * @param finish Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+ * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
  * @param packages A comma seperated list of packages (slug perm) to include in the results.
- * @param start Filter token usage starting from this datetime (UTC)).
- * @return []PackageUsageMetric
+ * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+ * @return *PackageUsageMetrics
  */
-func (a MetricsApi) MetricsPackagesUsageList(owner string, repo string, page int32, pageSize int32, finish int32, packages string, start int32) ([]PackageUsageMetric, *APIResponse, error) {
+func (a MetricsApi) MetricsPackagesList(owner string, repo string, page int32, pageSize int32, finish string, packages string, start string) (*PackageUsageMetrics, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/metrics/{owner}/{repo}/packages/usage/"
+	localVarPath := a.Configuration.BasePath + "/metrics/packages/{owner}/{repo}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 
@@ -242,21 +242,21 @@ func (a MetricsApi) MetricsPackagesUsageList(owner string, repo string, page int
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new([]PackageUsageMetric)
+	var successPayload = new(PackageUsageMetrics)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "MetricsPackagesUsageList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	var localVarAPIResponse = &APIResponse{Operation: "MetricsPackagesList", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
 	}
 
 	if err != nil {
-		return *successPayload, localVarAPIResponse, err
+		return successPayload, localVarAPIResponse, err
 	}
 	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return *successPayload, localVarAPIResponse, err
+	return successPayload, localVarAPIResponse, err
 }
 

@@ -130,7 +130,7 @@ module CloudsmithApi
     def initialize
       @scheme = 'https'
       @host = 'api.cloudsmith.io'
-      @base_path = '/'
+      @base_path = '/v1'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0

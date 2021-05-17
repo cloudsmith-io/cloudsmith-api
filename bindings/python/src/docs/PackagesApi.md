@@ -1,6 +1,6 @@
 # cloudsmith_api.PackagesApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_resync**
-> Package packages_resync(owner, repo, identifier, data=data)
+> Package packages_resync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -374,11 +374,10 @@ api_instance = cloudsmith_api.PackagesApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackagesResync() # PackagesResync |  (optional)
 
 try: 
     # Schedule a package for resynchronisation.
-    api_response = api_instance.packages_resync(owner, repo, identifier, data=data)
+    api_response = api_instance.packages_resync(owner, repo, identifier)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_resync: %s\n" % e)
@@ -391,7 +390,6 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**PackagesResync**](PackagesResync.md)|  | [optional] 
 
 ### Return type
 
@@ -403,13 +401,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_scan**
-> Package packages_scan(owner, repo, identifier, data=data)
+> Package packages_scan(owner, repo, identifier)
 
 Schedule a package for scanning.
 
@@ -433,11 +431,10 @@ api_instance = cloudsmith_api.PackagesApi()
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackagesScan() # PackagesScan |  (optional)
 
 try: 
     # Schedule a package for scanning.
-    api_response = api_instance.packages_scan(owner, repo, identifier, data=data)
+    api_response = api_instance.packages_scan(owner, repo, identifier)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_scan: %s\n" % e)
@@ -450,7 +447,6 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**PackagesScan**](PackagesScan.md)|  | [optional] 
 
 ### Return type
 
@@ -462,7 +458,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

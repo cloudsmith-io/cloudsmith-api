@@ -10,8 +10,8 @@
 
 package cloudsmith_api
 
-type PackagesResync struct {
+type PackageUsageMetrics struct {
 
-	// None
-	SecurityScanStatus string `json:"security_scan_status,omitempty"`
+	// 
+	Packages interface{} `json:"packages"`
 }

@@ -1,12 +1,12 @@
 # CloudsmithApi::VulnerabilitiesApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**vulnerabilities_list**](VulnerabilitiesApi.md#vulnerabilities_list) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
 [**vulnerabilities_list0**](VulnerabilitiesApi.md#vulnerabilities_list0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Checks feature is within plan before listing results.
+[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
 [**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
 
 
@@ -136,9 +136,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_list1**
 > Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_list1(owner, repo, package, opts)
 
-Checks feature is within plan before listing results.
+Check package identifier is valid before querying results.
 
-Checks feature is within plan before listing results.
+Check package identifier is valid before querying results.
 
 ### Example
 ```ruby
@@ -166,7 +166,7 @@ opts = {
 }
 
 begin
-  #Checks feature is within plan before listing results.
+  #Check package identifier is valid before querying results.
   result = api_instance.vulnerabilities_list1(owner, repo, package, opts)
   p result
 rescue CloudsmithApi::ApiError => e

@@ -1,10 +1,10 @@
 
-# EntitlementUsageMetric
+# PackageUsageMetrics
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | **Object** |  | 
+**packages** | **Object** |  | 
 
 
 

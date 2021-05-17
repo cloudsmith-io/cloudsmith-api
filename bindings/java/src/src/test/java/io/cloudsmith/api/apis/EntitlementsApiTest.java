@@ -204,7 +204,8 @@ public class EntitlementsApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        api.entitlementsReset(owner, repo, identifier);
+        Boolean showTokens = null;
+        api.entitlementsReset(owner, repo, identifier, showTokens);
 
         // TODO: test validations
     }

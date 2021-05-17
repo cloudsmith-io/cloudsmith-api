@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **is_downloadable** | **BOOLEAN** |  | [optional] 
 **is_primary** | **BOOLEAN** |  | [optional] 
 **is_synchronised** | **BOOLEAN** |  | [optional] 
+**signature_url** | **String** |  | [optional] 
 **size** | **Integer** | The calculated size of the file. | [optional] 
 **slug_perm** | **String** |  | [optional] 
 **tag** | **String** | Freeform descriptor that describes what the file is. | [optional] 

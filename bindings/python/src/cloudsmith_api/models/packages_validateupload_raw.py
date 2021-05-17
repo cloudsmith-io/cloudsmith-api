@@ -36,7 +36,6 @@ class PackagesValidateuploadRaw(object):
         'name': 'str',
         'package_file': 'str',
         'republish': 'bool',
-        'security_scan_status': 'str',
         'summary': 'str',
         'tags': 'str',
         'version': 'str'
@@ -48,13 +47,12 @@ class PackagesValidateuploadRaw(object):
         'name': 'name',
         'package_file': 'package_file',
         'republish': 'republish',
-        'security_scan_status': 'security_scan_status',
         'summary': 'summary',
         'tags': 'tags',
         'version': 'version'
     }
 
-    def __init__(self, content_type=None, description=None, name=None, package_file=None, republish=None, security_scan_status=None, summary=None, tags=None, version=None):
+    def __init__(self, content_type=None, description=None, name=None, package_file=None, republish=None, summary=None, tags=None, version=None):
         """
         PackagesValidateuploadRaw - a model defined in Swagger
         """
@@ -64,7 +62,6 @@ class PackagesValidateuploadRaw(object):
         self._name = None
         self._package_file = None
         self._republish = None
-        self._security_scan_status = None
         self._summary = None
         self._tags = None
         self._version = None
@@ -78,8 +75,6 @@ class PackagesValidateuploadRaw(object):
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
-        if security_scan_status is not None:
-          self.security_scan_status = security_scan_status
         if summary is not None:
           self.summary = summary
         if tags is not None:
@@ -203,29 +198,6 @@ class PackagesValidateuploadRaw(object):
         """
 
         self._republish = republish
-
-    @property
-    def security_scan_status(self):
-        """
-        Gets the security_scan_status of this PackagesValidateuploadRaw.
-        None
-
-        :return: The security_scan_status of this PackagesValidateuploadRaw.
-        :rtype: str
-        """
-        return self._security_scan_status
-
-    @security_scan_status.setter
-    def security_scan_status(self, security_scan_status):
-        """
-        Sets the security_scan_status of this PackagesValidateuploadRaw.
-        None
-
-        :param security_scan_status: The security_scan_status of this PackagesValidateuploadRaw.
-        :type: str
-        """
-
-        self._security_scan_status = security_scan_status
 
     @property
     def summary(self):

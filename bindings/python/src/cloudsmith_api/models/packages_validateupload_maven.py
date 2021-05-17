@@ -38,7 +38,6 @@ class PackagesValidateuploadMaven(object):
         'packaging': 'str',
         'pom_file': 'str',
         'republish': 'bool',
-        'security_scan_status': 'str',
         'sources_file': 'str',
         'tags': 'str',
         'tests_file': 'str',
@@ -53,14 +52,13 @@ class PackagesValidateuploadMaven(object):
         'packaging': 'packaging',
         'pom_file': 'pom_file',
         'republish': 'republish',
-        'security_scan_status': 'security_scan_status',
         'sources_file': 'sources_file',
         'tags': 'tags',
         'tests_file': 'tests_file',
         'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, security_scan_status=None, sources_file=None, tags=None, tests_file=None, version=None):
+    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, tags=None, tests_file=None, version=None):
         """
         PackagesValidateuploadMaven - a model defined in Swagger
         """
@@ -72,7 +70,6 @@ class PackagesValidateuploadMaven(object):
         self._packaging = None
         self._pom_file = None
         self._republish = None
-        self._security_scan_status = None
         self._sources_file = None
         self._tags = None
         self._tests_file = None
@@ -91,8 +88,6 @@ class PackagesValidateuploadMaven(object):
           self.pom_file = pom_file
         if republish is not None:
           self.republish = republish
-        if security_scan_status is not None:
-          self.security_scan_status = security_scan_status
         if sources_file is not None:
           self.sources_file = sources_file
         if tags is not None:
@@ -264,29 +259,6 @@ class PackagesValidateuploadMaven(object):
         """
 
         self._republish = republish
-
-    @property
-    def security_scan_status(self):
-        """
-        Gets the security_scan_status of this PackagesValidateuploadMaven.
-        None
-
-        :return: The security_scan_status of this PackagesValidateuploadMaven.
-        :rtype: str
-        """
-        return self._security_scan_status
-
-    @security_scan_status.setter
-    def security_scan_status(self, security_scan_status):
-        """
-        Sets the security_scan_status of this PackagesValidateuploadMaven.
-        None
-
-        :param security_scan_status: The security_scan_status of this PackagesValidateuploadMaven.
-        :type: str
-        """
-
-        self._security_scan_status = security_scan_status
 
     @property
     def sources_file(self):

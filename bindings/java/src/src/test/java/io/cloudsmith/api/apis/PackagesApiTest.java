@@ -23,8 +23,6 @@ import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackagesCopy;
 import io.cloudsmith.api.models.PackagesMove;
-import io.cloudsmith.api.models.PackagesResync;
-import io.cloudsmith.api.models.PackagesScan;
 import io.cloudsmith.api.models.PackagesTag;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadCargo;
@@ -195,8 +193,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackagesResync data = null;
-        ModelPackage response = api.packagesResync(owner, repo, identifier, data);
+        ModelPackage response = api.packagesResync(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -214,8 +211,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackagesScan data = null;
-        ModelPackage response = api.packagesScan(owner, repo, identifier, data);
+        ModelPackage response = api.packagesScan(owner, repo, identifier);
 
         // TODO: test validations
     }

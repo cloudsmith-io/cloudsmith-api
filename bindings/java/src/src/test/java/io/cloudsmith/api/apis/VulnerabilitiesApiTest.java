@@ -72,9 +72,9 @@ public class VulnerabilitiesApiTest {
     }
     
     /**
-     * Checks feature is within plan before listing results.
+     * Check package identifier is valid before querying results.
      *
-     * Checks feature is within plan before listing results.
+     * Check package identifier is valid before querying results.
      *
      * @throws ApiException
      *          if the Api call fails

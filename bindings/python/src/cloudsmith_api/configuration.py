@@ -45,7 +45,7 @@ class Configuration(object):
         Constructor
         """
         # Default Base url
-        self.host = "https://api.cloudsmith.io"
+        self.host = "https://api.cloudsmith.io/v1"
         # Default api client
         self.api_client = None
         # Temp file folder for downloading files
@@ -234,5 +234,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v1\n"\
-               "SDK Package Version: 0.54.15".\
+               "SDK Package Version: 0.57.1".\
                format(env=sys.platform, pyversion=sys.version)

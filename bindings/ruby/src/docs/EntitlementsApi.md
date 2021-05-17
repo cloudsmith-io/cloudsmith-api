@@ -1,6 +1,6 @@
 # CloudsmithApi::EntitlementsApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_reset**
-> entitlements_reset(owner, repo, identifier)
+> entitlements_reset(owner, repo, identifier, opts)
 
 Reset the statistics for an entitlement token in a repository.
 
@@ -544,10 +544,13 @@ repo = "repo_example" # String |
 
 identifier = "identifier_example" # String | 
 
+opts = { 
+  show_tokens: true # BOOLEAN | Show entitlement token strings in results
+}
 
 begin
   #Reset the statistics for an entitlement token in a repository.
-  api_instance.entitlements_reset(owner, repo, identifier)
+  api_instance.entitlements_reset(owner, repo, identifier, opts)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling EntitlementsApi->entitlements_reset: #{e}"
 end
@@ -560,6 +563,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
 
 ### Return type
 

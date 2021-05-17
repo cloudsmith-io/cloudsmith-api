@@ -32,54 +32,54 @@ describe 'MetricsApi' do
     end
   end
 
-  # unit tests for metrics_entitlements_usage_list
-  # View for listing entitlement token usage as a metric.
-  # View for listing entitlement token usage as a metric.
+  # unit tests for metrics_entitlements_list
+  # View for listing entitlement token metrics, across an account.
+  # View for listing entitlement token metrics, across an account.
   # @param owner 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-  # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+  # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+  # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-  # @return [Array<EntitlementUsageMetric>]
-  describe 'metrics_entitlements_usage_list test' do
+  # @return [EntitlementUsageMetrics]
+  describe 'metrics_entitlements_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for metrics_entitlements_usage_list0
-  # View for listing entitlement token usage as a metric.
-  # View for listing entitlement token usage as a metric.
+  # unit tests for metrics_entitlements_list0
+  # View for listing entitlement token metrics, for a repository.
+  # View for listing entitlement token metrics, for a repository.
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC by default unless otherwise specified). Defaults to now if not supplied.
-  # @option opts [Integer] :start Filter token usage starting from this datetime (UTC by default unless otherwise specified)).
+  # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+  # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-  # @return [Array<EntitlementUsageMetric>]
-  describe 'metrics_entitlements_usage_list0 test' do
+  # @return [EntitlementUsageMetrics]
+  describe 'metrics_entitlements_list0 test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for metrics_packages_usage_list
-  # View for listing package usage metrics by user.
-  # View for listing package usage metrics by user.
+  # unit tests for metrics_packages_list
+  # View for listing package usage metrics, for a repository.
+  # View for listing package usage metrics, for a repository.
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @option opts [Integer] :finish Filter token usage ending before this datetime (UTC). Defaults to now if not supplied.
+  # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :packages A comma seperated list of packages (slug perm) to include in the results.
-  # @option opts [Integer] :start Filter token usage starting from this datetime (UTC)).
-  # @return [Array<PackageUsageMetric>]
-  describe 'metrics_packages_usage_list test' do
+  # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
+  # @return [PackageUsageMetrics]
+  describe 'metrics_packages_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -1,6 +1,6 @@
 # \PackagesApi
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesResync**
-> ModelPackage PackagesResync($owner, $repo, $identifier, $data)
+> ModelPackage PackagesResync($owner, $repo, $identifier)
 
 Schedule a package for resynchronisation.
 
@@ -231,7 +231,6 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **identifier** | **string**|  | 
- **data** | [**PackagesResync**](PackagesResync.md)|  | [optional] 
 
 ### Return type
 
@@ -243,13 +242,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PackagesScan**
-> ModelPackage PackagesScan($owner, $repo, $identifier, $data)
+> ModelPackage PackagesScan($owner, $repo, $identifier)
 
 Schedule a package for scanning.
 
@@ -263,7 +262,6 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **identifier** | **string**|  | 
- **data** | [**PackagesScan**](PackagesScan.md)|  | [optional] 
 
 ### Return type
 
@@ -275,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

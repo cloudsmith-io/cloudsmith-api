@@ -14,8 +14,8 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.ApiException;
-import io.cloudsmith.api.models.EntitlementUsageMetric;
-import io.cloudsmith.api.models.PackageUsageMetric;
+import io.cloudsmith.api.models.EntitlementUsageMetrics;
+import io.cloudsmith.api.models.PackageUsageMetrics;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -35,66 +35,66 @@ public class MetricsApiTest {
 
     
     /**
-     * View for listing entitlement token usage as a metric.
+     * View for listing entitlement token metrics, across an account.
      *
-     * View for listing entitlement token usage as a metric.
+     * View for listing entitlement token metrics, across an account.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void metricsEntitlementsUsageListTest() throws ApiException {
+    public void metricsEntitlementsListTest() throws ApiException {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
-        Integer finish = null;
-        Integer start = null;
+        String finish = null;
+        String start = null;
         String tokens = null;
-        List<EntitlementUsageMetric> response = api.metricsEntitlementsUsageList(owner, page, pageSize, finish, start, tokens);
+        EntitlementUsageMetrics response = api.metricsEntitlementsList(owner, page, pageSize, finish, start, tokens);
 
         // TODO: test validations
     }
     
     /**
-     * View for listing entitlement token usage as a metric.
+     * View for listing entitlement token metrics, for a repository.
      *
-     * View for listing entitlement token usage as a metric.
+     * View for listing entitlement token metrics, for a repository.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void metricsEntitlementsUsageList0Test() throws ApiException {
+    public void metricsEntitlementsList0Test() throws ApiException {
         String owner = null;
         String repo = null;
         Integer page = null;
         Integer pageSize = null;
-        Integer finish = null;
-        Integer start = null;
+        String finish = null;
+        String start = null;
         String tokens = null;
-        List<EntitlementUsageMetric> response = api.metricsEntitlementsUsageList0(owner, repo, page, pageSize, finish, start, tokens);
+        EntitlementUsageMetrics response = api.metricsEntitlementsList0(owner, repo, page, pageSize, finish, start, tokens);
 
         // TODO: test validations
     }
     
     /**
-     * View for listing package usage metrics by user.
+     * View for listing package usage metrics, for a repository.
      *
-     * View for listing package usage metrics by user.
+     * View for listing package usage metrics, for a repository.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void metricsPackagesUsageListTest() throws ApiException {
+    public void metricsPackagesListTest() throws ApiException {
         String owner = null;
         String repo = null;
         Integer page = null;
         Integer pageSize = null;
-        Integer finish = null;
+        String finish = null;
         String packages = null;
-        Integer start = null;
-        List<PackageUsageMetric> response = api.metricsPackagesUsageList(owner, repo, page, pageSize, finish, packages, start);
+        String start = null;
+        PackageUsageMetrics response = api.metricsPackagesList(owner, repo, page, pageSize, finish, packages, start);
 
         // TODO: test validations
     }

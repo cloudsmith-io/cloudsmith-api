@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **isDownloadable** | **Boolean** |  |  [optional]
 **isPrimary** | **Boolean** |  |  [optional]
 **isSynchronised** | **Boolean** |  |  [optional]
+**signatureUrl** | **String** |  |  [optional]
 **size** | **Integer** | The calculated size of the file. |  [optional]
 **slugPerm** | **String** |  |  [optional]
 **tag** | **String** | Freeform descriptor that describes what the file is. |  [optional]

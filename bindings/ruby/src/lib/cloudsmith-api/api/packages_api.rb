@@ -351,7 +351,6 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesResync] :data 
     # @return [Package]
     def packages_resync(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_resync_with_http_info(owner, repo, identifier, opts)
@@ -364,7 +363,6 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesResync] :data 
     # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_resync_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -390,14 +388,12 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
+      post_body = nil
       auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -418,7 +414,6 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesScan] :data 
     # @return [Package]
     def packages_scan(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_scan_with_http_info(owner, repo, identifier, opts)
@@ -431,7 +426,6 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesScan] :data 
     # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_scan_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -457,14 +451,12 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
+      post_body = nil
       auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,

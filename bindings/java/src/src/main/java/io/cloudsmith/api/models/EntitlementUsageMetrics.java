@@ -27,32 +27,32 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * EntitlementUsageMetric
+ * EntitlementUsageMetrics
  */
 
-public class EntitlementUsageMetric implements Serializable {
+public class EntitlementUsageMetrics implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("usage")
-  private Object usage = null;
+  @SerializedName("tokens")
+  private Object tokens = null;
 
-  public EntitlementUsageMetric usage(Object usage) {
-    this.usage = usage;
+  public EntitlementUsageMetrics tokens(Object tokens) {
+    this.tokens = tokens;
     return this;
   }
 
    /**
    * 
-   * @return usage
+   * @return tokens
   **/
   @NotNull
-  @ApiModelProperty(example = "{\"display\":{\"bandwidth_per_token\":{\"average\":\"11 B\",\"highest\":\"11 B\",\"lowest\":\"11 B\"},\"totals\":{\"active_tokens\":1,\"bandwidth_used\":\"11 B\",\"inactive_tokens\":0,\"tokens\":1}},\"raw\":{\"bandwidth_per_token\":{\"average\":11,\"highest\":11,\"lowest\":11},\"totals\":{\"active_tokens\":1,\"bandwidth_used\":11,\"inactive_tokens\":0,\"tokens\":1}}}", required = true, value = "")
-  public Object getUsage() {
-    return usage;
+  @ApiModelProperty(example = "{\"active\":1,\"bandwidth\":{\"average\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"highest\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"lowest\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"total\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11}},\"downloads\":{\"average\":{\"value\":5},\"highest\":{\"value\":5},\"lowest\":{\"value\":5},\"total\":{\"value\":5}},\"inactive\":0,\"total\":0}", required = true, value = "")
+  public Object getTokens() {
+    return tokens;
   }
 
-  public void setUsage(Object usage) {
-    this.usage = usage;
+  public void setTokens(Object tokens) {
+    this.tokens = tokens;
   }
 
 
@@ -64,22 +64,22 @@ public class EntitlementUsageMetric implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EntitlementUsageMetric entitlementUsageMetric = (EntitlementUsageMetric) o;
-    return Objects.equals(this.usage, entitlementUsageMetric.usage);
+    EntitlementUsageMetrics entitlementUsageMetrics = (EntitlementUsageMetrics) o;
+    return Objects.equals(this.tokens, entitlementUsageMetrics.tokens);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(usage);
+    return Objects.hash(tokens);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EntitlementUsageMetric {\n");
+    sb.append("class EntitlementUsageMetrics {\n");
     
-    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+    sb.append("    tokens: ").append(toIndentedString(tokens)).append("\n");
     sb.append("}");
     return sb.toString();
   }

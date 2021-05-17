@@ -63,6 +63,9 @@ public class PackagesownerrepoFiles implements Serializable {
   @SerializedName("is_synchronised")
   private Boolean isSynchronised = null;
 
+  @SerializedName("signature_url")
+  private String signatureUrl = null;
+
   @SerializedName("size")
   private Integer size = null;
 
@@ -252,6 +255,24 @@ public class PackagesownerrepoFiles implements Serializable {
     this.isSynchronised = isSynchronised;
   }
 
+  public PackagesownerrepoFiles signatureUrl(String signatureUrl) {
+    this.signatureUrl = signatureUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return signatureUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSignatureUrl() {
+    return signatureUrl;
+  }
+
+  public void setSignatureUrl(String signatureUrl) {
+    this.signatureUrl = signatureUrl;
+  }
+
   public PackagesownerrepoFiles size(Integer size) {
     this.size = size;
     return this;
@@ -326,6 +347,7 @@ public class PackagesownerrepoFiles implements Serializable {
         Objects.equals(this.isDownloadable, packagesownerrepoFiles.isDownloadable) &&
         Objects.equals(this.isPrimary, packagesownerrepoFiles.isPrimary) &&
         Objects.equals(this.isSynchronised, packagesownerrepoFiles.isSynchronised) &&
+        Objects.equals(this.signatureUrl, packagesownerrepoFiles.signatureUrl) &&
         Objects.equals(this.size, packagesownerrepoFiles.size) &&
         Objects.equals(this.slugPerm, packagesownerrepoFiles.slugPerm) &&
         Objects.equals(this.tag, packagesownerrepoFiles.tag);
@@ -333,7 +355,7 @@ public class PackagesownerrepoFiles implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, downloads, filename, isDownloadable, isPrimary, isSynchronised, size, slugPerm, tag);
+    return Objects.hash(cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, downloads, filename, isDownloadable, isPrimary, isSynchronised, signatureUrl, size, slugPerm, tag);
   }
 
 
@@ -352,6 +374,7 @@ public class PackagesownerrepoFiles implements Serializable {
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
     sb.append("    isPrimary: ").append(toIndentedString(isPrimary)).append("\n");
     sb.append("    isSynchronised: ").append(toIndentedString(isSynchronised)).append("\n");
+    sb.append("    signatureUrl: ").append(toIndentedString(signatureUrl)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");

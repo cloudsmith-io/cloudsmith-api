@@ -14,37 +14,22 @@ require 'date'
 
 module CloudsmithApi
 
-  class PackageUsageMetric
+  class EntitlementUsageMetrics
     # 
-    attr_accessor :active_packages
-
-    # 
-    attr_accessor :downloads_per_package
-
-    # 
-    attr_accessor :inactive_packages
-
-    # 
-    attr_accessor :totals
+    attr_accessor :tokens
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'active_packages' => :'active_packages',
-        :'downloads_per_package' => :'downloads_per_package',
-        :'inactive_packages' => :'inactive_packages',
-        :'totals' => :'totals'
+        :'tokens' => :'tokens'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'active_packages' => :'Array<MetricsownerrepopackagesusageActivePackages>',
-        :'downloads_per_package' => :'Object',
-        :'inactive_packages' => :'Array<MetricsownerrepopackagesusageActivePackages>',
-        :'totals' => :'Object'
+        :'tokens' => :'Object'
       }
     end
 
@@ -56,24 +41,8 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'active_packages')
-        if (value = attributes[:'active_packages']).is_a?(Array)
-          self.active_packages = value
-        end
-      end
-
-      if attributes.has_key?(:'downloads_per_package')
-        self.downloads_per_package = attributes[:'downloads_per_package']
-      end
-
-      if attributes.has_key?(:'inactive_packages')
-        if (value = attributes[:'inactive_packages']).is_a?(Array)
-          self.inactive_packages = value
-        end
-      end
-
-      if attributes.has_key?(:'totals')
-        self.totals = attributes[:'totals']
+      if attributes.has_key?(:'tokens')
+        self.tokens = attributes[:'tokens']
       end
 
     end
@@ -82,20 +51,8 @@ module CloudsmithApi
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @active_packages.nil?
-        invalid_properties.push("invalid value for 'active_packages', active_packages cannot be nil.")
-      end
-
-      if @downloads_per_package.nil?
-        invalid_properties.push("invalid value for 'downloads_per_package', downloads_per_package cannot be nil.")
-      end
-
-      if @inactive_packages.nil?
-        invalid_properties.push("invalid value for 'inactive_packages', inactive_packages cannot be nil.")
-      end
-
-      if @totals.nil?
-        invalid_properties.push("invalid value for 'totals', totals cannot be nil.")
+      if @tokens.nil?
+        invalid_properties.push("invalid value for 'tokens', tokens cannot be nil.")
       end
 
       return invalid_properties
@@ -104,10 +61,7 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @active_packages.nil?
-      return false if @downloads_per_package.nil?
-      return false if @inactive_packages.nil?
-      return false if @totals.nil?
+      return false if @tokens.nil?
       return true
     end
 
@@ -116,10 +70,7 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          active_packages == o.active_packages &&
-          downloads_per_package == o.downloads_per_package &&
-          inactive_packages == o.inactive_packages &&
-          totals == o.totals
+          tokens == o.tokens
     end
 
     # @see the `==` method
@@ -131,7 +82,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [active_packages, downloads_per_package, inactive_packages, totals].hash
+      [tokens].hash
     end
 
     # Builds the object from hash

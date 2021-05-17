@@ -593,9 +593,10 @@ func (a EntitlementsApi) EntitlementsRefresh(owner string, repo string, identifi
  * @param owner 
  * @param repo 
  * @param identifier 
+ * @param showTokens Show entitlement token strings in results
  * @return void
  */
-func (a EntitlementsApi) EntitlementsReset(owner string, repo string, identifier string) (*APIResponse, error) {
+func (a EntitlementsApi) EntitlementsReset(owner string, repo string, identifier string, showTokens bool) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -617,6 +618,7 @@ func (a EntitlementsApi) EntitlementsReset(owner string, repo string, identifier
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("show_tokens", a.Configuration.APIClient.ParameterToString(showTokens, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{  }

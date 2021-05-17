@@ -41,9 +41,6 @@ public class PackagesTag implements Serializable {
   @SerializedName("is_immutable")
   private Boolean isImmutable = null;
 
-  @SerializedName("security_scan_status")
-  private String securityScanStatus = null;
-
   @SerializedName("tags")
   private List<String> tags = null;
 
@@ -81,24 +78,6 @@ public class PackagesTag implements Serializable {
 
   public void setIsImmutable(Boolean isImmutable) {
     this.isImmutable = isImmutable;
-  }
-
-  public PackagesTag securityScanStatus(String securityScanStatus) {
-    this.securityScanStatus = securityScanStatus;
-    return this;
-  }
-
-   /**
-   * None
-   * @return securityScanStatus
-  **/
-  @ApiModelProperty(value = "None")
-  public String getSecurityScanStatus() {
-    return securityScanStatus;
-  }
-
-  public void setSecurityScanStatus(String securityScanStatus) {
-    this.securityScanStatus = securityScanStatus;
   }
 
   public PackagesTag tags(List<String> tags) {
@@ -139,13 +118,12 @@ public class PackagesTag implements Serializable {
     PackagesTag packagesTag = (PackagesTag) o;
     return Objects.equals(this.action, packagesTag.action) &&
         Objects.equals(this.isImmutable, packagesTag.isImmutable) &&
-        Objects.equals(this.securityScanStatus, packagesTag.securityScanStatus) &&
         Objects.equals(this.tags, packagesTag.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, isImmutable, securityScanStatus, tags);
+    return Objects.hash(action, isImmutable, tags);
   }
 
 
@@ -156,7 +134,6 @@ public class PackagesTag implements Serializable {
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    isImmutable: ").append(toIndentedString(isImmutable)).append("\n");
-    sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

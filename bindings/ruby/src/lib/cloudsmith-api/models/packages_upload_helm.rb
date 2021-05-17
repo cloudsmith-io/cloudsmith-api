@@ -21,9 +21,6 @@ module CloudsmithApi
     # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
     attr_accessor :republish
 
-    # None
-    attr_accessor :security_scan_status
-
     # A comma-separated values list of tags to add to the package.
     attr_accessor :tags
 
@@ -33,7 +30,6 @@ module CloudsmithApi
       {
         :'package_file' => :'package_file',
         :'republish' => :'republish',
-        :'security_scan_status' => :'security_scan_status',
         :'tags' => :'tags'
       }
     end
@@ -43,7 +39,6 @@ module CloudsmithApi
       {
         :'package_file' => :'String',
         :'republish' => :'BOOLEAN',
-        :'security_scan_status' => :'String',
         :'tags' => :'String'
       }
     end
@@ -62,10 +57,6 @@ module CloudsmithApi
 
       if attributes.has_key?(:'republish')
         self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'security_scan_status')
-        self.security_scan_status = attributes[:'security_scan_status']
       end
 
       if attributes.has_key?(:'tags')
@@ -99,7 +90,6 @@ module CloudsmithApi
       self.class == o.class &&
           package_file == o.package_file &&
           republish == o.republish &&
-          security_scan_status == o.security_scan_status &&
           tags == o.tags
     end
 
@@ -112,7 +102,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [package_file, republish, security_scan_status, tags].hash
+      [package_file, republish, tags].hash
     end
 
     # Builds the object from hash

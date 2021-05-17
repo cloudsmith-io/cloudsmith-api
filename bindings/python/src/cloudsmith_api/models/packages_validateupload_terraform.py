@@ -33,32 +33,27 @@ class PackagesValidateuploadTerraform(object):
     swagger_types = {
         'package_file': 'str',
         'republish': 'bool',
-        'security_scan_status': 'str',
         'tags': 'str'
     }
 
     attribute_map = {
         'package_file': 'package_file',
         'republish': 'republish',
-        'security_scan_status': 'security_scan_status',
         'tags': 'tags'
     }
 
-    def __init__(self, package_file=None, republish=None, security_scan_status=None, tags=None):
+    def __init__(self, package_file=None, republish=None, tags=None):
         """
         PackagesValidateuploadTerraform - a model defined in Swagger
         """
 
         self._package_file = None
         self._republish = None
-        self._security_scan_status = None
         self._tags = None
 
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
-        if security_scan_status is not None:
-          self.security_scan_status = security_scan_status
         if tags is not None:
           self.tags = tags
 
@@ -109,29 +104,6 @@ class PackagesValidateuploadTerraform(object):
         """
 
         self._republish = republish
-
-    @property
-    def security_scan_status(self):
-        """
-        Gets the security_scan_status of this PackagesValidateuploadTerraform.
-        None
-
-        :return: The security_scan_status of this PackagesValidateuploadTerraform.
-        :rtype: str
-        """
-        return self._security_scan_status
-
-    @security_scan_status.setter
-    def security_scan_status(self, security_scan_status):
-        """
-        Sets the security_scan_status of this PackagesValidateuploadTerraform.
-        None
-
-        :param security_scan_status: The security_scan_status of this PackagesValidateuploadTerraform.
-        :type: str
-        """
-
-        self._security_scan_status = security_scan_status
 
     @property
     def tags(self):

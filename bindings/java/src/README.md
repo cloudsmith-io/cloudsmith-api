@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.54.15</version>
+    <version>0.57.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.54.15"
+compile "io.cloudsmith.api:cloudsmith-api:0.57.1"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.54.15.jar
+* target/cloudsmith-api-0.57.1.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -85,9 +85,18 @@ public class BadgesApiExample {
         String packageVersion = "packageVersion_example"; // String | 
         String packageIdentifiers = "packageIdentifiers_example"; // String | 
         String badgeToken = "badgeToken_example"; // String | Badge token to authenticate for private packages
+        String cacheSeconds = "cacheSeconds_example"; // String | Override the shields.io badge cacheSeconds value.
+        String color = "color_example"; // String | Override the shields.io badge color value.
+        String label = "label_example"; // String | Override the shields.io badge label value.
+        String labelColor = "labelColor_example"; // String | Override the shields.io badge labelColor value.
+        String logoColor = "logoColor_example"; // String | Override the shields.io badge logoColor value.
+        String logoWidth = "logoWidth_example"; // String | Override the shields.io badge logoWidth value.
         Boolean render = true; // Boolean | If true, badge will be rendered
+        Boolean shields = true; // Boolean | If true, a shields response will be generated
+        Boolean showLatest = true; // Boolean | If true, for latest version badges a '(latest)' suffix is added
+        String style = "style_example"; // String | Override the shields.io badge style value.
         try {
-            apiInstance.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, render);
+            apiInstance.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
         } catch (ApiException e) {
             System.err.println("Exception when calling BadgesApi#badgesVersionList");
             e.printStackTrace();
@@ -99,7 +108,7 @@ public class BadgesApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.cloudsmith.io*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -123,9 +132,9 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**filesValidate**](docs/FilesApi.md#filesValidate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 *FormatsApi* | [**formatsList**](docs/FormatsApi.md#formatsList) | **GET** /formats/ | Get a list of all supported package formats.
 *FormatsApi* | [**formatsRead**](docs/FormatsApi.md#formatsRead) | **GET** /formats/{slug}/ | Get a specific supported package format.
-*MetricsApi* | [**metricsEntitlementsUsageList**](docs/MetricsApi.md#metricsEntitlementsUsageList) | **GET** /metrics/{owner}/entitlements/usage/ | View for listing entitlement token usage as a metric.
-*MetricsApi* | [**metricsEntitlementsUsageList0**](docs/MetricsApi.md#metricsEntitlementsUsageList0) | **GET** /metrics/{owner}/{repo}/entitlements/usage/ | View for listing entitlement token usage as a metric.
-*MetricsApi* | [**metricsPackagesUsageList**](docs/MetricsApi.md#metricsPackagesUsageList) | **GET** /metrics/{owner}/{repo}/packages/usage/ | View for listing package usage metrics by user.
+*MetricsApi* | [**metricsEntitlementsList**](docs/MetricsApi.md#metricsEntitlementsList) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+*MetricsApi* | [**metricsEntitlementsList0**](docs/MetricsApi.md#metricsEntitlementsList0) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+*MetricsApi* | [**metricsPackagesList**](docs/MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
@@ -200,7 +209,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
 *VulnerabilitiesApi* | [**vulnerabilitiesList**](docs/VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
 *VulnerabilitiesApi* | [**vulnerabilitiesList0**](docs/VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-*VulnerabilitiesApi* | [**vulnerabilitiesList1**](docs/VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Checks feature is within plan before listing results.
+*VulnerabilitiesApi* | [**vulnerabilitiesList1**](docs/VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
 *VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
 *WebhooksApi* | [**webhooksCreate**](docs/WebhooksApi.md#webhooksCreate) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
 *WebhooksApi* | [**webhooksDelete**](docs/WebhooksApi.md#webhooksDelete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
@@ -215,7 +224,7 @@ Class | Method | HTTP request | Description
  - [ConanPackageUpload](docs/ConanPackageUpload.md)
  - [Distribution](docs/Distribution.md)
  - [DistrosVersions](docs/DistrosVersions.md)
- - [EntitlementUsageMetric](docs/EntitlementUsageMetric.md)
+ - [EntitlementUsageMetrics](docs/EntitlementUsageMetrics.md)
  - [EntitlementsCreate](docs/EntitlementsCreate.md)
  - [EntitlementsPartialUpdate](docs/EntitlementsPartialUpdate.md)
  - [EntitlementsRefresh](docs/EntitlementsRefresh.md)
@@ -227,7 +236,6 @@ Class | Method | HTTP request | Description
  - [Format](docs/Format.md)
  - [FormatsDistributions](docs/FormatsDistributions.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
- - [MetricsownerrepopackagesusageActivePackages](docs/MetricsownerrepopackagesusageActivePackages.md)
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [Organization](docs/Organization.md)
@@ -236,11 +244,9 @@ Class | Method | HTTP request | Description
  - [PackageFileUpload](docs/PackageFileUpload.md)
  - [PackageMove](docs/PackageMove.md)
  - [PackageStatus](docs/PackageStatus.md)
- - [PackageUsageMetric](docs/PackageUsageMetric.md)
+ - [PackageUsageMetrics](docs/PackageUsageMetrics.md)
  - [PackagesCopy](docs/PackagesCopy.md)
  - [PackagesMove](docs/PackagesMove.md)
- - [PackagesResync](docs/PackagesResync.md)
- - [PackagesScan](docs/PackagesScan.md)
  - [PackagesTag](docs/PackagesTag.md)
  - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
  - [PackagesUploadCargo](docs/PackagesUploadCargo.md)

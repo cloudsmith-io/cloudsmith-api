@@ -159,6 +159,7 @@ describe 'EntitlementsApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @return [nil]
   describe 'entitlements_reset test' do
     it "should work" do

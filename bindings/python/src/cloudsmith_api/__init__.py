@@ -18,7 +18,7 @@ from .models.alpine_package_upload import AlpinePackageUpload
 from .models.conan_package_upload import ConanPackageUpload
 from .models.distribution import Distribution
 from .models.distros_versions import DistrosVersions
-from .models.entitlement_usage_metric import EntitlementUsageMetric
+from .models.entitlement_usage_metrics import EntitlementUsageMetrics
 from .models.entitlements_create import EntitlementsCreate
 from .models.entitlements_partial_update import EntitlementsPartialUpdate
 from .models.entitlements_refresh import EntitlementsRefresh
@@ -30,7 +30,6 @@ from .models.files_validate import FilesValidate
 from .models.format import Format
 from .models.formats_distributions import FormatsDistributions
 from .models.maven_package_upload import MavenPackageUpload
-from .models.metricsownerrepopackagesusage_active_packages import MetricsownerrepopackagesusageActivePackages
 from .models.namespace import Namespace
 from .models.organization import Organization
 from .models.package import Package
@@ -39,11 +38,9 @@ from .models.package_file_parts_upload import PackageFilePartsUpload
 from .models.package_file_upload import PackageFileUpload
 from .models.package_move import PackageMove
 from .models.package_status import PackageStatus
-from .models.package_usage_metric import PackageUsageMetric
+from .models.package_usage_metrics import PackageUsageMetrics
 from .models.packages_copy import PackagesCopy
 from .models.packages_move import PackagesMove
-from .models.packages_resync import PackagesResync
-from .models.packages_scan import PackagesScan
 from .models.packages_tag import PackagesTag
 from .models.packages_upload_alpine import PackagesUploadAlpine
 from .models.packages_upload_cargo import PackagesUploadCargo

@@ -55,6 +55,9 @@ public class AlpinePackageUpload implements Serializable {
   @SerializedName("checksum_sha512")
   private String checksumSha512 = null;
 
+  @SerializedName("dependencies_checksum_md5")
+  private String dependenciesChecksumMd5 = null;
+
   @SerializedName("description")
   private String description = null;
 
@@ -150,6 +153,9 @@ public class AlpinePackageUpload implements Serializable {
 
   @SerializedName("self_url")
   private String selfUrl = null;
+
+  @SerializedName("signature_url")
+  private String signatureUrl = null;
 
   @SerializedName("size")
   private Integer size = null;
@@ -335,6 +341,24 @@ public class AlpinePackageUpload implements Serializable {
 
   public void setChecksumSha512(String checksumSha512) {
     this.checksumSha512 = checksumSha512;
+  }
+
+  public AlpinePackageUpload dependenciesChecksumMd5(String dependenciesChecksumMd5) {
+    this.dependenciesChecksumMd5 = dependenciesChecksumMd5;
+    return this;
+  }
+
+   /**
+   * A checksum of all of the package&#39;s dependencies.
+   * @return dependenciesChecksumMd5
+  **/
+  @ApiModelProperty(value = "A checksum of all of the package's dependencies.")
+  public String getDependenciesChecksumMd5() {
+    return dependenciesChecksumMd5;
+  }
+
+  public void setDependenciesChecksumMd5(String dependenciesChecksumMd5) {
+    this.dependenciesChecksumMd5 = dependenciesChecksumMd5;
   }
 
   public AlpinePackageUpload description(String description) {
@@ -922,6 +946,24 @@ public class AlpinePackageUpload implements Serializable {
     this.selfUrl = selfUrl;
   }
 
+  public AlpinePackageUpload signatureUrl(String signatureUrl) {
+    this.signatureUrl = signatureUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return signatureUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getSignatureUrl() {
+    return signatureUrl;
+  }
+
+  public void setSignatureUrl(String signatureUrl) {
+    this.signatureUrl = signatureUrl;
+  }
+
   public AlpinePackageUpload size(Integer size) {
     this.size = size;
     return this;
@@ -1352,6 +1394,7 @@ public class AlpinePackageUpload implements Serializable {
         Objects.equals(this.checksumSha1, alpinePackageUpload.checksumSha1) &&
         Objects.equals(this.checksumSha256, alpinePackageUpload.checksumSha256) &&
         Objects.equals(this.checksumSha512, alpinePackageUpload.checksumSha512) &&
+        Objects.equals(this.dependenciesChecksumMd5, alpinePackageUpload.dependenciesChecksumMd5) &&
         Objects.equals(this.description, alpinePackageUpload.description) &&
         Objects.equals(this.distro, alpinePackageUpload.distro) &&
         Objects.equals(this.distroVersion, alpinePackageUpload.distroVersion) &&
@@ -1384,6 +1427,7 @@ public class AlpinePackageUpload implements Serializable {
         Objects.equals(this.securityScanStatusUpdatedAt, alpinePackageUpload.securityScanStatusUpdatedAt) &&
         Objects.equals(this.selfHtmlUrl, alpinePackageUpload.selfHtmlUrl) &&
         Objects.equals(this.selfUrl, alpinePackageUpload.selfUrl) &&
+        Objects.equals(this.signatureUrl, alpinePackageUpload.signatureUrl) &&
         Objects.equals(this.size, alpinePackageUpload.size) &&
         Objects.equals(this.slug, alpinePackageUpload.slug) &&
         Objects.equals(this.slugPerm, alpinePackageUpload.slugPerm) &&
@@ -1411,7 +1455,7 @@ public class AlpinePackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1426,6 +1470,7 @@ public class AlpinePackageUpload implements Serializable {
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");
     sb.append("    checksumSha256: ").append(toIndentedString(checksumSha256)).append("\n");
     sb.append("    checksumSha512: ").append(toIndentedString(checksumSha512)).append("\n");
+    sb.append("    dependenciesChecksumMd5: ").append(toIndentedString(dependenciesChecksumMd5)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
@@ -1458,6 +1503,7 @@ public class AlpinePackageUpload implements Serializable {
     sb.append("    securityScanStatusUpdatedAt: ").append(toIndentedString(securityScanStatusUpdatedAt)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    signatureUrl: ").append(toIndentedString(signatureUrl)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");

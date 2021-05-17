@@ -47,10 +47,19 @@ func NewBadgesApiWithBasePath(basePath string) *BadgesApi {
  * @param packageVersion 
  * @param packageIdentifiers 
  * @param badgeToken Badge token to authenticate for private packages
+ * @param cacheSeconds Override the shields.io badge cacheSeconds value.
+ * @param color Override the shields.io badge color value.
+ * @param label Override the shields.io badge label value.
+ * @param labelColor Override the shields.io badge labelColor value.
+ * @param logoColor Override the shields.io badge logoColor value.
+ * @param logoWidth Override the shields.io badge logoWidth value.
  * @param render If true, badge will be rendered
+ * @param shields If true, a shields response will be generated
+ * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added
+ * @param style Override the shields.io badge style value.
  * @return void
  */
-func (a BadgesApi) BadgesVersionList(owner string, repo string, packageFormat string, packageName string, packageVersion string, packageIdentifiers string, badgeToken string, render bool) (*APIResponse, error) {
+func (a BadgesApi) BadgesVersionList(owner string, repo string, packageFormat string, packageName string, packageVersion string, packageIdentifiers string, badgeToken string, cacheSeconds string, color string, label string, labelColor string, logoColor string, logoWidth string, render bool, shields bool, showLatest bool, style string) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -76,7 +85,16 @@ func (a BadgesApi) BadgesVersionList(owner string, repo string, packageFormat st
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
 	localVarQueryParams.Add("badge_token", a.Configuration.APIClient.ParameterToString(badgeToken, ""))
+	localVarQueryParams.Add("cacheSeconds", a.Configuration.APIClient.ParameterToString(cacheSeconds, ""))
+	localVarQueryParams.Add("color", a.Configuration.APIClient.ParameterToString(color, ""))
+	localVarQueryParams.Add("label", a.Configuration.APIClient.ParameterToString(label, ""))
+	localVarQueryParams.Add("labelColor", a.Configuration.APIClient.ParameterToString(labelColor, ""))
+	localVarQueryParams.Add("logoColor", a.Configuration.APIClient.ParameterToString(logoColor, ""))
+	localVarQueryParams.Add("logoWidth", a.Configuration.APIClient.ParameterToString(logoWidth, ""))
 	localVarQueryParams.Add("render", a.Configuration.APIClient.ParameterToString(render, ""))
+	localVarQueryParams.Add("shields", a.Configuration.APIClient.ParameterToString(shields, ""))
+	localVarQueryParams.Add("show_latest", a.Configuration.APIClient.ParameterToString(showLatest, ""))
+	localVarQueryParams.Add("style", a.Configuration.APIClient.ParameterToString(style, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{  }

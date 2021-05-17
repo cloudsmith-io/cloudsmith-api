@@ -112,7 +112,7 @@ public class ApiClient {
      */
     public static final String LENIENT_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
-    private String basePath = "https://api.cloudsmith.io";
+    private String basePath = "https://api.cloudsmith.io/v1";
     private boolean lenientOnJson = false;
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
@@ -159,7 +159,7 @@ public class ApiClient {
         this.lenientDatetimeFormat = true;
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/0.54.15/java");
+        setUserAgent("Swagger-Codegen/0.57.1/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
@@ -181,7 +181,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api.cloudsmith.io
+     * @param basePath Base path of the URL (e.g https://api.cloudsmith.io/v1
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

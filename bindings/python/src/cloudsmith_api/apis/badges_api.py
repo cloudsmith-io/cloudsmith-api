@@ -61,7 +61,16 @@ class BadgesApi(object):
         :param str package_version:  (required)
         :param str package_identifiers:  (required)
         :param str badge_token: Badge token to authenticate for private packages
+        :param str cache_seconds: Override the shields.io badge cacheSeconds value.
+        :param str color: Override the shields.io badge color value.
+        :param str label: Override the shields.io badge label value.
+        :param str label_color: Override the shields.io badge labelColor value.
+        :param str logo_color: Override the shields.io badge logoColor value.
+        :param str logo_width: Override the shields.io badge logoWidth value.
         :param bool render: If true, badge will be rendered
+        :param bool shields: If true, a shields response will be generated
+        :param bool show_latest: If true, for latest version badges a '(latest)' suffix is added
+        :param str style: Override the shields.io badge style value.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -94,13 +103,22 @@ class BadgesApi(object):
         :param str package_version:  (required)
         :param str package_identifiers:  (required)
         :param str badge_token: Badge token to authenticate for private packages
+        :param str cache_seconds: Override the shields.io badge cacheSeconds value.
+        :param str color: Override the shields.io badge color value.
+        :param str label: Override the shields.io badge label value.
+        :param str label_color: Override the shields.io badge labelColor value.
+        :param str logo_color: Override the shields.io badge logoColor value.
+        :param str logo_width: Override the shields.io badge logoWidth value.
         :param bool render: If true, badge will be rendered
+        :param bool shields: If true, a shields response will be generated
+        :param bool show_latest: If true, for latest version badges a '(latest)' suffix is added
+        :param str style: Override the shields.io badge style value.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'package_format', 'package_name', 'package_version', 'package_identifiers', 'badge_token', 'render']
+        all_params = ['owner', 'repo', 'package_format', 'package_name', 'package_version', 'package_identifiers', 'badge_token', 'cache_seconds', 'color', 'label', 'label_color', 'logo_color', 'logo_width', 'render', 'shields', 'show_latest', 'style']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -154,8 +172,26 @@ class BadgesApi(object):
         query_params = []
         if 'badge_token' in params:
             query_params.append(('badge_token', params['badge_token']))
+        if 'cache_seconds' in params:
+            query_params.append(('cacheSeconds', params['cache_seconds']))
+        if 'color' in params:
+            query_params.append(('color', params['color']))
+        if 'label' in params:
+            query_params.append(('label', params['label']))
+        if 'label_color' in params:
+            query_params.append(('labelColor', params['label_color']))
+        if 'logo_color' in params:
+            query_params.append(('logoColor', params['logo_color']))
+        if 'logo_width' in params:
+            query_params.append(('logoWidth', params['logo_width']))
         if 'render' in params:
             query_params.append(('render', params['render']))
+        if 'shields' in params:
+            query_params.append(('shields', params['shields']))
+        if 'show_latest' in params:
+            query_params.append(('show_latest', params['show_latest']))
+        if 'style' in params:
+            query_params.append(('style', params['style']))
 
         header_params = {}
 

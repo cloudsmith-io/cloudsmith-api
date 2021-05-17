@@ -36,6 +36,9 @@ module CloudsmithApi
     # 
     attr_accessor :checksum_sha512
 
+    # A checksum of all of the package's dependencies.
+    attr_accessor :dependencies_checksum_md5
+
     # A textual description of this package.
     attr_accessor :description
 
@@ -138,6 +141,9 @@ module CloudsmithApi
     # 
     attr_accessor :self_url
 
+    # 
+    attr_accessor :signature_url
+
     # The calculated size of the package.
     attr_accessor :size
 
@@ -218,6 +224,7 @@ module CloudsmithApi
         :'checksum_sha1' => :'checksum_sha1',
         :'checksum_sha256' => :'checksum_sha256',
         :'checksum_sha512' => :'checksum_sha512',
+        :'dependencies_checksum_md5' => :'dependencies_checksum_md5',
         :'description' => :'description',
         :'distro' => :'distro',
         :'distro_version' => :'distro_version',
@@ -252,6 +259,7 @@ module CloudsmithApi
         :'security_scan_status_updated_at' => :'security_scan_status_updated_at',
         :'self_html_url' => :'self_html_url',
         :'self_url' => :'self_url',
+        :'signature_url' => :'signature_url',
         :'size' => :'size',
         :'slug' => :'slug',
         :'slug_perm' => :'slug_perm',
@@ -288,6 +296,7 @@ module CloudsmithApi
         :'checksum_sha1' => :'String',
         :'checksum_sha256' => :'String',
         :'checksum_sha512' => :'String',
+        :'dependencies_checksum_md5' => :'String',
         :'description' => :'String',
         :'distro' => :'Object',
         :'distro_version' => :'Object',
@@ -322,6 +331,7 @@ module CloudsmithApi
         :'security_scan_status_updated_at' => :'String',
         :'self_html_url' => :'String',
         :'self_url' => :'String',
+        :'signature_url' => :'String',
         :'size' => :'Integer',
         :'slug' => :'String',
         :'slug_perm' => :'String',
@@ -384,6 +394,10 @@ module CloudsmithApi
 
       if attributes.has_key?(:'checksum_sha512')
         self.checksum_sha512 = attributes[:'checksum_sha512']
+      end
+
+      if attributes.has_key?(:'dependencies_checksum_md5')
+        self.dependencies_checksum_md5 = attributes[:'dependencies_checksum_md5']
       end
 
       if attributes.has_key?(:'description')
@@ -524,6 +538,10 @@ module CloudsmithApi
         self.self_url = attributes[:'self_url']
       end
 
+      if attributes.has_key?(:'signature_url')
+        self.signature_url = attributes[:'signature_url']
+      end
+
       if attributes.has_key?(:'size')
         self.size = attributes[:'size']
       end
@@ -643,6 +661,7 @@ module CloudsmithApi
           checksum_sha1 == o.checksum_sha1 &&
           checksum_sha256 == o.checksum_sha256 &&
           checksum_sha512 == o.checksum_sha512 &&
+          dependencies_checksum_md5 == o.dependencies_checksum_md5 &&
           description == o.description &&
           distro == o.distro &&
           distro_version == o.distro_version &&
@@ -677,6 +696,7 @@ module CloudsmithApi
           security_scan_status_updated_at == o.security_scan_status_updated_at &&
           self_html_url == o.self_html_url &&
           self_url == o.self_url &&
+          signature_url == o.signature_url &&
           size == o.size &&
           slug == o.slug &&
           slug_perm == o.slug_perm &&
@@ -711,7 +731,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
     end
 
     # Builds the object from hash

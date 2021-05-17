@@ -35,7 +35,6 @@ class PackagesValidateuploadDeb(object):
         'distribution': 'str',
         'package_file': 'str',
         'republish': 'bool',
-        'security_scan_status': 'str',
         'sources_file': 'str',
         'tags': 'str'
     }
@@ -45,12 +44,11 @@ class PackagesValidateuploadDeb(object):
         'distribution': 'distribution',
         'package_file': 'package_file',
         'republish': 'republish',
-        'security_scan_status': 'security_scan_status',
         'sources_file': 'sources_file',
         'tags': 'tags'
     }
 
-    def __init__(self, changes_file=None, distribution=None, package_file=None, republish=None, security_scan_status=None, sources_file=None, tags=None):
+    def __init__(self, changes_file=None, distribution=None, package_file=None, republish=None, sources_file=None, tags=None):
         """
         PackagesValidateuploadDeb - a model defined in Swagger
         """
@@ -59,7 +57,6 @@ class PackagesValidateuploadDeb(object):
         self._distribution = None
         self._package_file = None
         self._republish = None
-        self._security_scan_status = None
         self._sources_file = None
         self._tags = None
 
@@ -69,8 +66,6 @@ class PackagesValidateuploadDeb(object):
         self.package_file = package_file
         if republish is not None:
           self.republish = republish
-        if security_scan_status is not None:
-          self.security_scan_status = security_scan_status
         if sources_file is not None:
           self.sources_file = sources_file
         if tags is not None:
@@ -171,29 +166,6 @@ class PackagesValidateuploadDeb(object):
         """
 
         self._republish = republish
-
-    @property
-    def security_scan_status(self):
-        """
-        Gets the security_scan_status of this PackagesValidateuploadDeb.
-        None
-
-        :return: The security_scan_status of this PackagesValidateuploadDeb.
-        :rtype: str
-        """
-        return self._security_scan_status
-
-    @security_scan_status.setter
-    def security_scan_status(self, security_scan_status):
-        """
-        Sets the security_scan_status of this PackagesValidateuploadDeb.
-        None
-
-        :param security_scan_status: The security_scan_status of this PackagesValidateuploadDeb.
-        :type: str
-        """
-
-        self._security_scan_status = security_scan_status
 
     @property
     def sources_file(self):

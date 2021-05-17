@@ -113,7 +113,6 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [PackagesResync] :data 
   # @return [Package]
   describe 'packages_resync test' do
     it "should work" do
@@ -128,7 +127,6 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [PackagesScan] :data 
   # @return [Package]
   describe 'packages_scan test' do
     it "should work" do

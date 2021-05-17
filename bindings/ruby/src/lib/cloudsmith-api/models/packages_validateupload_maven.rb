@@ -36,9 +36,6 @@ module CloudsmithApi
     # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
     attr_accessor :republish
 
-    # None
-    attr_accessor :security_scan_status
-
     # Adds bundled Java source code to the Maven package.
     attr_accessor :sources_file
 
@@ -62,7 +59,6 @@ module CloudsmithApi
         :'packaging' => :'packaging',
         :'pom_file' => :'pom_file',
         :'republish' => :'republish',
-        :'security_scan_status' => :'security_scan_status',
         :'sources_file' => :'sources_file',
         :'tags' => :'tags',
         :'tests_file' => :'tests_file',
@@ -80,7 +76,6 @@ module CloudsmithApi
         :'packaging' => :'String',
         :'pom_file' => :'String',
         :'republish' => :'BOOLEAN',
-        :'security_scan_status' => :'String',
         :'sources_file' => :'String',
         :'tags' => :'String',
         :'tests_file' => :'String',
@@ -122,10 +117,6 @@ module CloudsmithApi
 
       if attributes.has_key?(:'republish')
         self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'security_scan_status')
-        self.security_scan_status = attributes[:'security_scan_status']
       end
 
       if attributes.has_key?(:'sources_file')
@@ -176,7 +167,6 @@ module CloudsmithApi
           packaging == o.packaging &&
           pom_file == o.pom_file &&
           republish == o.republish &&
-          security_scan_status == o.security_scan_status &&
           sources_file == o.sources_file &&
           tags == o.tags &&
           tests_file == o.tests_file &&
@@ -192,7 +182,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, security_scan_status, sources_file, tags, tests_file, version].hash
+      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tags, tests_file, version].hash
     end
 
     # Builds the object from hash

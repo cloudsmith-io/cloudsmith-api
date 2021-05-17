@@ -10,8 +10,8 @@
 
 package cloudsmith_api
 
-type PackagesScan struct {
+type EntitlementUsageMetrics struct {
 
-	// None
-	SecurityScanStatus string `json:"security_scan_status,omitempty"`
+	// 
+	Tokens interface{} `json:"tokens"`
 }

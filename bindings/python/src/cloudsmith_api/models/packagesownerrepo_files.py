@@ -41,6 +41,7 @@ class PackagesownerrepoFiles(object):
         'is_downloadable': 'bool',
         'is_primary': 'bool',
         'is_synchronised': 'bool',
+        'signature_url': 'str',
         'size': 'int',
         'slug_perm': 'str',
         'tag': 'str'
@@ -57,12 +58,13 @@ class PackagesownerrepoFiles(object):
         'is_downloadable': 'is_downloadable',
         'is_primary': 'is_primary',
         'is_synchronised': 'is_synchronised',
+        'signature_url': 'signature_url',
         'size': 'size',
         'slug_perm': 'slug_perm',
         'tag': 'tag'
     }
 
-    def __init__(self, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, downloads=None, filename=None, is_downloadable=None, is_primary=None, is_synchronised=None, size=None, slug_perm=None, tag=None):
+    def __init__(self, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, downloads=None, filename=None, is_downloadable=None, is_primary=None, is_synchronised=None, signature_url=None, size=None, slug_perm=None, tag=None):
         """
         PackagesownerrepoFiles - a model defined in Swagger
         """
@@ -77,6 +79,7 @@ class PackagesownerrepoFiles(object):
         self._is_downloadable = None
         self._is_primary = None
         self._is_synchronised = None
+        self._signature_url = None
         self._size = None
         self._slug_perm = None
         self._tag = None
@@ -101,6 +104,8 @@ class PackagesownerrepoFiles(object):
           self.is_primary = is_primary
         if is_synchronised is not None:
           self.is_synchronised = is_synchronised
+        if signature_url is not None:
+          self.signature_url = signature_url
         if size is not None:
           self.size = size
         if slug_perm is not None:
@@ -337,6 +342,29 @@ class PackagesownerrepoFiles(object):
         """
 
         self._is_synchronised = is_synchronised
+
+    @property
+    def signature_url(self):
+        """
+        Gets the signature_url of this PackagesownerrepoFiles.
+        
+
+        :return: The signature_url of this PackagesownerrepoFiles.
+        :rtype: str
+        """
+        return self._signature_url
+
+    @signature_url.setter
+    def signature_url(self, signature_url):
+        """
+        Sets the signature_url of this PackagesownerrepoFiles.
+        
+
+        :param signature_url: The signature_url of this PackagesownerrepoFiles.
+        :type: str
+        """
+
+        self._signature_url = signature_url
 
     @property
     def size(self):
