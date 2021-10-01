@@ -129,7 +129,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
           name: "Deploy Java"
           language: java
           docker_image: circleci/openjdk:8
@@ -145,7 +145,7 @@ workflows:
           filters:
             branches:
              only:
-               - master
+               - main
           name: "Deploy Go"
           language: go
           docker_image: circleci/golang:1.13
@@ -161,7 +161,7 @@ workflows:
           filters:
             branches:
              only:
-               - master
+               - main
           name: "Deploy Ruby"
           language: ruby
           docker_image: circleci/ruby:2.6
@@ -177,7 +177,7 @@ workflows:
           filters:
             branches:
              only:
-               - master
+               - main
           name: "Deploy Python"
           language: python
           docker_image: circleci/python:3.7

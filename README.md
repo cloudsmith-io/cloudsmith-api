@@ -23,7 +23,7 @@ If you need a different binding, [contact us](https://help.cloudsmith.io/docs/co
 
 We use [swagger-codegen-cli](https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-cli) to generate the bindings by using the [Cloudsmith API schema](https://api.cloudsmith.io/?format=openapi) that is compliant with the [OpenAPI 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md).
 
-Each of the supported language bindings has its own directory within the [bindings directory](https://github.com/cloudsmith-io/cloudsmith-api/tree/master/bindings), and three standardised scripts are used:
+Each of the supported language bindings has its own directory within the [bindings directory](https://github.com/cloudsmith-io/cloudsmith-api/tree/main/bindings), and three standardised scripts are used:
 
 - `build.sh` - Sets the swagger-codegen configuration for the language and generates the bindings into 'src'.
 - `test.sh` - Runs the test suite for the bindings (minimal) to ensure they are "correct" (able to be compiled).
@@ -47,7 +47,7 @@ The version of the generated library bindings is automatically made to match the
 
 ## Releasing
 
-The client APIs are automatically released as part of the build and release process. See the [travis configuration file](https://github.com/cloudsmith-io/cloudsmith-api/blob/master/.travis.yml) for more details.
+The client APIs are automatically released as part of the build and release process. See the [Circle CI configuration file](https://github.com/cloudsmith-io/cloudsmith-api/blob/main/.circleci/config.yml) for more details.
 
 
 ## Contributing
@@ -73,4 +73,4 @@ limitations under the License.
 
 ## EOF
 
-This quality product was brought to you by [Cloudsmith](https://cloudsmith.io) and the [fine folks who have contributed](https://github.com/cloudsmith-io/cloudsmith-cli/blob/master/CONTRIBUTORS.md).
+This quality product was brought to you by [Cloudsmith](https://cloudsmith.io) and the [fine folks who have contributed](https://github.com/cloudsmith-io/cloudsmith-cli/blob/main/CONTRIBUTORS.md).
