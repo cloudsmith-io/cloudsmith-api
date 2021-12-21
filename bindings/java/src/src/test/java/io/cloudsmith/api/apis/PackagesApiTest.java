@@ -19,6 +19,7 @@ import io.cloudsmith.api.models.ConanPackageUpload;
 import io.cloudsmith.api.models.MavenPackageUpload;
 import io.cloudsmith.api.models.ModelPackage;
 import io.cloudsmith.api.models.PackageCopy;
+import io.cloudsmith.api.models.PackageDependencies;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackagesCopy;
@@ -39,6 +40,7 @@ import io.cloudsmith.api.models.PackagesUploadLuarocks;
 import io.cloudsmith.api.models.PackagesUploadMaven;
 import io.cloudsmith.api.models.PackagesUploadNpm;
 import io.cloudsmith.api.models.PackagesUploadNuget;
+import io.cloudsmith.api.models.PackagesUploadP2;
 import io.cloudsmith.api.models.PackagesUploadPython;
 import io.cloudsmith.api.models.PackagesUploadRaw;
 import io.cloudsmith.api.models.PackagesUploadRpm;
@@ -60,6 +62,7 @@ import io.cloudsmith.api.models.PackagesValidateuploadLuarocks;
 import io.cloudsmith.api.models.PackagesValidateuploadMaven;
 import io.cloudsmith.api.models.PackagesValidateuploadNpm;
 import io.cloudsmith.api.models.PackagesValidateuploadNuget;
+import io.cloudsmith.api.models.PackagesValidateuploadP2;
 import io.cloudsmith.api.models.PackagesValidateuploadPython;
 import io.cloudsmith.api.models.PackagesValidateuploadRaw;
 import io.cloudsmith.api.models.PackagesValidateuploadRpm;
@@ -124,6 +127,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Get the direct (non-transitive) dependencies list for a package.
+     *
+     * Get the direct (non-transitive) dependencies list for a package.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesDependenciesTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        PackageDependencies response = api.packagesDependencies(owner, repo, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a list of all packages associated with repository.
      *
      * Get a list of all packages associated with repository.
@@ -138,7 +159,8 @@ public class PackagesApiTest {
         Integer page = null;
         Integer pageSize = null;
         String query = null;
-        List<ModelPackage> response = api.packagesList(owner, repo, page, pageSize, query);
+        String sort = null;
+        List<ModelPackage> response = api.packagesList(owner, repo, page, pageSize, query, sort);
 
         // TODO: test validations
     }
@@ -524,6 +546,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new P2 package
+     *
+     * Create a new P2 package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadP2Test() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadP2 data = null;
+        AlpinePackageUpload response = api.packagesUploadP2(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Python package
      *
      * Create a new Python package
@@ -897,6 +937,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadNuget data = null;
         api.packagesValidateUploadNuget(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create P2 package
+     *
+     * Validate parameters for create P2 package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadP2Test() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadP2 data = null;
+        api.packagesValidateUploadP2(owner, repo, data);
 
         // TODO: test validations
     }

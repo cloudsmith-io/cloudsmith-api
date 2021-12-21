@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **conan_channel** | **str** | Conan channel. | [optional] 
 **conan_prefix** | **str** | Conan prefix (User). | [optional] 
 **dependencies_checksum_md5** | **str** | A checksum of all of the package&#39;s dependencies. | [optional] 
+**dependencies_url** | **str** |  | [optional] 
 **description** | **str** | A textual description of this package. | [optional] 
 **distro** | **object** |  | [optional] 
 **distro_version** | **object** |  | [optional] 

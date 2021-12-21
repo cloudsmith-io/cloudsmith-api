@@ -61,6 +61,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_dependencies
+  # Get the direct (non-transitive) dependencies list for a package.
+  # Get the direct (non-transitive) dependencies list for a package.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [PackageDependencies]
+  describe 'packages_dependencies test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_list
   # Get a list of all packages associated with repository.
   # Get a list of all packages associated with repository.
@@ -70,6 +84,7 @@ describe 'PackagesApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order.
   # @return [Array<Package>]
   describe 'packages_list test' do
     it "should work" do
@@ -373,6 +388,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_p2
+  # Create a new P2 package
+  # Create a new P2 package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadP2] :data 
+  # @return [AlpinePackageUpload]
+  describe 'packages_upload_p2 test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_python
   # Create a new Python package
   # Create a new Python package
@@ -662,6 +691,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadNuget] :data 
   # @return [nil]
   describe 'packages_validate_upload_nuget test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_p2
+  # Validate parameters for create P2 package
+  # Validate parameters for create P2 package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadP2] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_p2 test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

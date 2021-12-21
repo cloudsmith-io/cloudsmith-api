@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PackagesCopy**](PackagesApi.md#PackagesCopy) | **Post** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 [**PackagesDelete**](PackagesApi.md#PackagesDelete) | **Delete** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
+[**PackagesDependencies**](PackagesApi.md#PackagesDependencies) | **Get** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
 [**PackagesList**](PackagesApi.md#PackagesList) | **Get** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**PackagesMove**](PackagesApi.md#PackagesMove) | **Post** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**PackagesRead**](PackagesApi.md#PackagesRead) | **Get** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
@@ -28,6 +29,7 @@ Method | HTTP request | Description
 [**PackagesUploadMaven**](PackagesApi.md#PackagesUploadMaven) | **Post** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**PackagesUploadNpm**](PackagesApi.md#PackagesUploadNpm) | **Post** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
 [**PackagesUploadNuget**](PackagesApi.md#PackagesUploadNuget) | **Post** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
+[**PackagesUploadP2**](PackagesApi.md#PackagesUploadP2) | **Post** /packages/{owner}/{repo}/upload/p2/ | Create a new P2 package
 [**PackagesUploadPython**](PackagesApi.md#PackagesUploadPython) | **Post** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
 [**PackagesUploadRaw**](PackagesApi.md#PackagesUploadRaw) | **Post** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 [**PackagesUploadRpm**](PackagesApi.md#PackagesUploadRpm) | **Post** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
@@ -49,6 +51,7 @@ Method | HTTP request | Description
 [**PackagesValidateUploadMaven**](PackagesApi.md#PackagesValidateUploadMaven) | **Post** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**PackagesValidateUploadNpm**](PackagesApi.md#PackagesValidateUploadNpm) | **Post** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
 [**PackagesValidateUploadNuget**](PackagesApi.md#PackagesValidateUploadNuget) | **Post** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
+[**PackagesValidateUploadP2**](PackagesApi.md#PackagesValidateUploadP2) | **Post** /packages/{owner}/{repo}/validate-upload/p2/ | Validate parameters for create P2 package
 [**PackagesValidateUploadPython**](PackagesApi.md#PackagesValidateUploadPython) | **Post** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
 [**PackagesValidateUploadRaw**](PackagesApi.md#PackagesValidateUploadRaw) | **Post** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 [**PackagesValidateUploadRpm**](PackagesApi.md#PackagesValidateUploadRpm) | **Post** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
@@ -120,8 +123,39 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PackagesDependencies**
+> PackageDependencies PackagesDependencies($owner, $repo, $identifier)
+
+Get the direct (non-transitive) dependencies list for a package.
+
+Get the direct (non-transitive) dependencies list for a package.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **identifier** | **string**|  | 
+
+### Return type
+
+[**PackageDependencies**](PackageDependencies.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PackagesList**
-> []ModelPackage PackagesList($owner, $repo, $page, $pageSize, $query)
+> []ModelPackage PackagesList($owner, $repo, $page, $pageSize, $query, $sort)
 
 Get a list of all packages associated with repository.
 
@@ -137,6 +171,7 @@ Name | Type | Description  | Notes
  **page** | **int32**| A page number within the paginated result set. | [optional] 
  **pageSize** | **int32**| Number of results to return per page. | [optional] 
  **query** | **string**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] 
+ **sort** | **string**| A field for sorting objects in ascending or descending order. | [optional] 
 
 ### Return type
 
@@ -806,6 +841,37 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PackagesUploadP2**
+> AlpinePackageUpload PackagesUploadP2($owner, $repo, $data)
+
+Create a new P2 package
+
+Create a new P2 package
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **data** | [**PackagesUploadP2**](PackagesUploadP2.md)|  | [optional] 
+
+### Return type
+
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PackagesUploadPython**
 > AlpinePackageUpload PackagesUploadPython($owner, $repo, $data)
 
@@ -1441,6 +1507,37 @@ Name | Type | Description  | Notes
  **owner** | **string**|  | 
  **repo** | **string**|  | 
  **data** | [**PackagesValidateuploadNuget**](PackagesValidateuploadNuget.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PackagesValidateUploadP2**
+> PackagesValidateUploadP2($owner, $repo, $data)
+
+Validate parameters for create P2 package
+
+Validate parameters for create P2 package
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**|  | 
+ **repo** | **string**|  | 
+ **data** | [**PackagesValidateuploadP2**](PackagesValidateuploadP2.md)|  | [optional] 
 
 ### Return type
 

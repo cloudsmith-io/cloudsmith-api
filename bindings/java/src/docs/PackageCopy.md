@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **checksumSha256** | **String** |  |  [optional]
 **checksumSha512** | **String** |  |  [optional]
 **dependenciesChecksumMd5** | **String** | A checksum of all of the package&#39;s dependencies. |  [optional]
+**dependenciesUrl** | **String** |  |  [optional]
 **description** | **String** | A textual description of this package. |  [optional]
 **distro** | **Object** |  |  [optional]
 **distroVersion** | **Object** |  |  [optional]

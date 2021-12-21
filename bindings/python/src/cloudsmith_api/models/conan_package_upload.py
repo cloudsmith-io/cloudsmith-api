@@ -40,6 +40,7 @@ class ConanPackageUpload(object):
         'conan_channel': 'str',
         'conan_prefix': 'str',
         'dependencies_checksum_md5': 'str',
+        'dependencies_url': 'str',
         'description': 'str',
         'distro': 'object',
         'distro_version': 'object',
@@ -108,6 +109,7 @@ class ConanPackageUpload(object):
         'conan_channel': 'conan_channel',
         'conan_prefix': 'conan_prefix',
         'dependencies_checksum_md5': 'dependencies_checksum_md5',
+        'dependencies_url': 'dependencies_url',
         'description': 'description',
         'distro': 'distro',
         'distro_version': 'distro_version',
@@ -166,7 +168,7 @@ class ConanPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, dependencies_checksum_md5=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None):
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None):
         """
         ConanPackageUpload - a model defined in Swagger
         """
@@ -180,6 +182,7 @@ class ConanPackageUpload(object):
         self._conan_channel = None
         self._conan_prefix = None
         self._dependencies_checksum_md5 = None
+        self._dependencies_url = None
         self._description = None
         self._distro = None
         self._distro_version = None
@@ -255,6 +258,8 @@ class ConanPackageUpload(object):
           self.conan_prefix = conan_prefix
         if dependencies_checksum_md5 is not None:
           self.dependencies_checksum_md5 = dependencies_checksum_md5
+        if dependencies_url is not None:
+          self.dependencies_url = dependencies_url
         if description is not None:
           self.description = description
         if distro is not None:
@@ -574,6 +579,29 @@ class ConanPackageUpload(object):
         """
 
         self._dependencies_checksum_md5 = dependencies_checksum_md5
+
+    @property
+    def dependencies_url(self):
+        """
+        Gets the dependencies_url of this ConanPackageUpload.
+        
+
+        :return: The dependencies_url of this ConanPackageUpload.
+        :rtype: str
+        """
+        return self._dependencies_url
+
+    @dependencies_url.setter
+    def dependencies_url(self, dependencies_url):
+        """
+        Sets the dependencies_url of this ConanPackageUpload.
+        
+
+        :param dependencies_url: The dependencies_url of this ConanPackageUpload.
+        :type: str
+        """
+
+        self._dependencies_url = dependencies_url
 
     @property
     def description(self):

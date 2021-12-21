@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ConanChannel** | **string** | Conan channel. | [optional] [default to null]
 **ConanPrefix** | **string** | Conan prefix (User). | [optional] [default to null]
 **DependenciesChecksumMd5** | **string** | A checksum of all of the package&#39;s dependencies. | [optional] [default to null]
+**DependenciesUrl** | **string** |  | [optional] [default to null]
 **Description** | **string** | A textual description of this package. | [optional] [default to null]
 **Distro** | [**interface{}**](interface{}.md) |  | [optional] [default to null]
 **DistroVersion** | [**interface{}**](interface{}.md) |  | [optional] [default to null]

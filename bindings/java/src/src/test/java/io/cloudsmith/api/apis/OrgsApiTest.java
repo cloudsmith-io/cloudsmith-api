@@ -15,6 +15,7 @@ package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Organization;
+import io.cloudsmith.api.models.OrganizationMembership;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -51,17 +52,69 @@ public class OrgsApiTest {
     }
     
     /**
-     * Views for working with organizations.
+     * Get the details for all organization members.
      *
-     * Views for working with organizations.
+     * Get the details for all organization members.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsMembersListTest() throws ApiException {
+        String org = null;
+        Integer page = null;
+        Integer pageSize = null;
+        List<OrganizationMembership> response = api.orgsMembersList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the details for a specific organization member.
+     *
+     * Get the details for a specific organization member.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsMembersReadTest() throws ApiException {
+        String org = null;
+        String member = null;
+        OrganizationMembership response = api.orgsMembersRead(org, member);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Removes a member from the organization.
+     *
+     * Removes a member from the organization.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsMembersRemoveTest() throws ApiException {
+        String org = null;
+        String member = null;
+        OrganizationMembership response = api.orgsMembersRemove(org, member);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the details for the specific organization.
+     *
+     * Get the details for the specific organization.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void orgsReadTest() throws ApiException {
-        String slug = null;
-        Organization response = api.orgsRead(slug);
+        String org = null;
+        Organization response = api.orgsRead(org);
 
         // TODO: test validations
     }

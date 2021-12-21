@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**country** | **str** | The country your organization is based in. | [optional] 
+**country** | **str** |  | [optional] 
 **created_at** | **str** |  | [optional] 
 **location** | **str** | The city/town/area your organization is based in. | [optional] 
 **name** | **str** | A descriptive name for your organization. | [optional] 

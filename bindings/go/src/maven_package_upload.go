@@ -36,6 +36,9 @@ type MavenPackageUpload struct {
 	// A checksum of all of the package's dependencies.
 	DependenciesChecksumMd5 string `json:"dependencies_checksum_md5,omitempty"`
 
+	// 
+	DependenciesUrl string `json:"dependencies_url,omitempty"`
+
 	// A textual description of this package.
 	Description string `json:"description,omitempty"`
 

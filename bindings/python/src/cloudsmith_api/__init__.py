@@ -32,8 +32,11 @@ from .models.formats_distributions import FormatsDistributions
 from .models.maven_package_upload import MavenPackageUpload
 from .models.namespace import Namespace
 from .models.organization import Organization
+from .models.organization_membership import OrganizationMembership
 from .models.package import Package
 from .models.package_copy import PackageCopy
+from .models.package_dependencies import PackageDependencies
+from .models.package_dependencies_dependencies import PackageDependenciesDependencies
 from .models.package_file_parts_upload import PackageFilePartsUpload
 from .models.package_file_upload import PackageFileUpload
 from .models.package_move import PackageMove
@@ -57,6 +60,7 @@ from .models.packages_upload_luarocks import PackagesUploadLuarocks
 from .models.packages_upload_maven import PackagesUploadMaven
 from .models.packages_upload_npm import PackagesUploadNpm
 from .models.packages_upload_nuget import PackagesUploadNuget
+from .models.packages_upload_p2 import PackagesUploadP2
 from .models.packages_upload_python import PackagesUploadPython
 from .models.packages_upload_raw import PackagesUploadRaw
 from .models.packages_upload_rpm import PackagesUploadRpm
@@ -78,6 +82,7 @@ from .models.packages_validateupload_luarocks import PackagesValidateuploadLuaro
 from .models.packages_validateupload_maven import PackagesValidateuploadMaven
 from .models.packages_validateupload_npm import PackagesValidateuploadNpm
 from .models.packages_validateupload_nuget import PackagesValidateuploadNuget
+from .models.packages_validateupload_p2 import PackagesValidateuploadP2
 from .models.packages_validateupload_python import PackagesValidateuploadPython
 from .models.packages_validateupload_raw import PackagesValidateuploadRaw
 from .models.packages_validateupload_rpm import PackagesValidateuploadRpm

@@ -82,7 +82,7 @@ class Organization(object):
     def country(self):
         """
         Gets the country of this Organization.
-        The country your organization is based in.
+        
 
         :return: The country of this Organization.
         :rtype: str
@@ -93,7 +93,7 @@ class Organization(object):
     def country(self, country):
         """
         Sets the country of this Organization.
-        The country your organization is based in.
+        
 
         :param country: The country of this Organization.
         :type: str

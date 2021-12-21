@@ -47,6 +47,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_dependencies(self):
+        """
+        Test case for packages_dependencies
+
+        Get the direct (non-transitive) dependencies list for a package.
+        """
+        pass
+
     def test_packages_list(self):
         """
         Test case for packages_list
@@ -223,6 +231,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_p2(self):
+        """
+        Test case for packages_upload_p2
+
+        Create a new P2 package
+        """
+        pass
+
     def test_packages_upload_python(self):
         """
         Test case for packages_upload_python
@@ -388,6 +404,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_nuget
 
         Validate parameters for create NuGet package
+        """
+        pass
+
+    def test_packages_validate_upload_p2(self):
+        """
+        Test case for packages_validate_upload_p2
+
+        Validate parameters for create P2 package
         """
         pass
 

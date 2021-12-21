@@ -149,6 +149,69 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Get the direct (non-transitive) dependencies list for a package.
+    # Get the direct (non-transitive) dependencies list for a package.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [PackageDependencies]
+    def packages_dependencies(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_dependencies_with_http_info(owner, repo, identifier, opts)
+      return data
+    end
+
+    # Get the direct (non-transitive) dependencies list for a package.
+    # Get the direct (non-transitive) dependencies list for a package.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PackageDependencies, Fixnum, Hash)>] PackageDependencies data, response status code and response headers
+    def packages_dependencies_with_http_info(owner, repo, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_dependencies ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_dependencies"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_dependencies"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_dependencies"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/{identifier}/dependencies/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageDependencies')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_dependencies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of all packages associated with repository.
     # Get a list of all packages associated with repository.
     # @param owner 
@@ -157,6 +220,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order.
     # @return [Array<Package>]
     def packages_list(owner, repo, opts = {})
       data, _status_code, _headers = packages_list_with_http_info(owner, repo, opts)
@@ -171,6 +235,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order.
     # @return [Array<(Array<Package>, Fixnum, Hash)>] Array<Package> data, response status code and response headers
     def packages_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -192,6 +257,7 @@ module CloudsmithApi
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -1516,6 +1582,67 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Create a new P2 package
+    # Create a new P2 package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadP2] :data 
+    # @return [AlpinePackageUpload]
+    def packages_upload_p2(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_p2_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # Create a new P2 package
+    # Create a new P2 package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadP2] :data 
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    def packages_upload_p2_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_p2 ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_p2"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_p2"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/upload/p2/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AlpinePackageUpload')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_p2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new Python package
     # Create a new Python package
     # @param owner 
@@ -2778,6 +2905,66 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_nuget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate parameters for create P2 package
+    # Validate parameters for create P2 package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadP2] :data 
+    # @return [nil]
+    def packages_validate_upload_p2(owner, repo, opts = {})
+      packages_validate_upload_p2_with_http_info(owner, repo, opts)
+      return nil
+    end
+
+    # Validate parameters for create P2 package
+    # Validate parameters for create P2 package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadP2] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_p2_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_p2 ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_p2"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_p2"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/p2/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_p2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

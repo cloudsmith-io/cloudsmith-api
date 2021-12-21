@@ -60,10 +60,10 @@ public class Organization implements Serializable {
   }
 
    /**
-   * The country your organization is based in.
+   * 
    * @return country
   **/
-  @ApiModelProperty(value = "The country your organization is based in.")
+  @ApiModelProperty(value = "")
   public String getCountry() {
     return country;
   }

@@ -45,10 +45,50 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_members_list
+  # Get the details for all organization members.
+  # Get the details for all organization members.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<OrganizationMembership>]
+  describe 'orgs_members_list test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_members_read
+  # Get the details for a specific organization member.
+  # Get the details for a specific organization member.
+  # @param org 
+  # @param member 
+  # @param [Hash] opts the optional parameters
+  # @return [OrganizationMembership]
+  describe 'orgs_members_read test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_members_remove
+  # Removes a member from the organization.
+  # Removes a member from the organization.
+  # @param org 
+  # @param member 
+  # @param [Hash] opts the optional parameters
+  # @return [OrganizationMembership]
+  describe 'orgs_members_remove test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_read
-  # Views for working with organizations.
-  # Views for working with organizations.
-  # @param slug 
+  # Get the details for the specific organization.
+  # Get the details for the specific organization.
+  # @param org 
   # @param [Hash] opts the optional parameters
   # @return [Organization]
   describe 'orgs_read test' do

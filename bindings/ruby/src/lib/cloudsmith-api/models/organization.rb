@@ -15,7 +15,7 @@ require 'date'
 module CloudsmithApi
 
   class Organization
-    # The country your organization is based in.
+    # 
     attr_accessor :country
 
     # 

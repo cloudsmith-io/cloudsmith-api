@@ -139,53 +139,369 @@ class OrgsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def orgs_read(self, slug, **kwargs):
+    def orgs_members_list(self, org, **kwargs):
         """
-        Views for working with organizations.
-        Views for working with organizations.
+        Get the details for all organization members.
+        Get the details for all organization members.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.orgs_read(slug, callback=callback_function)
+        >>> thread = api.orgs_members_list(org, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str slug:  (required)
+        :param str org:  (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[OrganizationMembership]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.orgs_members_list_with_http_info(org, **kwargs)
+        else:
+            (data) = self.orgs_members_list_with_http_info(org, **kwargs)
+            return data
+
+    def orgs_members_list_with_http_info(self, org, **kwargs):
+        """
+        Get the details for all organization members.
+        Get the details for all organization members.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.orgs_members_list_with_http_info(org, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str org:  (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[OrganizationMembership]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'page', 'page_size']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_members_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if ('org' not in params) or (params['org'] is None):
+            raise ValueError("Missing the required parameter `org` when calling `orgs_members_list`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']
+
+        return self.api_client.call_api('/orgs/{org}/members/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='list[OrganizationMembership]',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def orgs_members_read(self, org, member, **kwargs):
+        """
+        Get the details for a specific organization member.
+        Get the details for a specific organization member.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.orgs_members_read(org, member, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str org:  (required)
+        :param str member:  (required)
+        :return: OrganizationMembership
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.orgs_members_read_with_http_info(org, member, **kwargs)
+        else:
+            (data) = self.orgs_members_read_with_http_info(org, member, **kwargs)
+            return data
+
+    def orgs_members_read_with_http_info(self, org, member, **kwargs):
+        """
+        Get the details for a specific organization member.
+        Get the details for a specific organization member.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.orgs_members_read_with_http_info(org, member, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str org:  (required)
+        :param str member:  (required)
+        :return: OrganizationMembership
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'member']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_members_read" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if ('org' not in params) or (params['org'] is None):
+            raise ValueError("Missing the required parameter `org` when calling `orgs_members_read`")
+        # verify the required parameter 'member' is set
+        if ('member' not in params) or (params['member'] is None):
+            raise ValueError("Missing the required parameter `member` when calling `orgs_members_read`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']
+        if 'member' in params:
+            path_params['member'] = params['member']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']
+
+        return self.api_client.call_api('/orgs/{org}/members/{member}/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='OrganizationMembership',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def orgs_members_remove(self, org, member, **kwargs):
+        """
+        Removes a member from the organization.
+        Removes a member from the organization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.orgs_members_remove(org, member, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str org:  (required)
+        :param str member:  (required)
+        :return: OrganizationMembership
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.orgs_members_remove_with_http_info(org, member, **kwargs)
+        else:
+            (data) = self.orgs_members_remove_with_http_info(org, member, **kwargs)
+            return data
+
+    def orgs_members_remove_with_http_info(self, org, member, **kwargs):
+        """
+        Removes a member from the organization.
+        Removes a member from the organization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.orgs_members_remove_with_http_info(org, member, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str org:  (required)
+        :param str member:  (required)
+        :return: OrganizationMembership
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'member']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_members_remove" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if ('org' not in params) or (params['org'] is None):
+            raise ValueError("Missing the required parameter `org` when calling `orgs_members_remove`")
+        # verify the required parameter 'member' is set
+        if ('member' not in params) or (params['member'] is None):
+            raise ValueError("Missing the required parameter `member` when calling `orgs_members_remove`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']
+        if 'member' in params:
+            path_params['member'] = params['member']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']
+
+        return self.api_client.call_api('/orgs/{org}/members/{member}/remove/', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='OrganizationMembership',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def orgs_read(self, org, **kwargs):
+        """
+        Get the details for the specific organization.
+        Get the details for the specific organization.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.orgs_read(org, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str org:  (required)
         :return: Organization
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.orgs_read_with_http_info(slug, **kwargs)
+            return self.orgs_read_with_http_info(org, **kwargs)
         else:
-            (data) = self.orgs_read_with_http_info(slug, **kwargs)
+            (data) = self.orgs_read_with_http_info(org, **kwargs)
             return data
 
-    def orgs_read_with_http_info(self, slug, **kwargs):
+    def orgs_read_with_http_info(self, org, **kwargs):
         """
-        Views for working with organizations.
-        Views for working with organizations.
+        Get the details for the specific organization.
+        Get the details for the specific organization.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.orgs_read_with_http_info(slug, callback=callback_function)
+        >>> thread = api.orgs_read_with_http_info(org, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str slug:  (required)
+        :param str org:  (required)
         :return: Organization
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['slug']
+        all_params = ['org']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -200,16 +516,16 @@ class OrgsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'slug' is set
-        if ('slug' not in params) or (params['slug'] is None):
-            raise ValueError("Missing the required parameter `slug` when calling `orgs_read`")
+        # verify the required parameter 'org' is set
+        if ('org' not in params) or (params['org'] is None):
+            raise ValueError("Missing the required parameter `org` when calling `orgs_read`")
 
 
         collection_formats = {}
 
         path_params = {}
-        if 'slug' in params:
-            path_params['slug'] = params['slug']
+        if 'org' in params:
+            path_params['org'] = params['org']
 
         query_params = []
 
@@ -222,7 +538,7 @@ class OrgsApi(object):
         # Authentication setting
         auth_settings = ['apikey']
 
-        return self.api_client.call_api('/orgs/{slug}/', 'GET',
+        return self.api_client.call_api('/orgs/{org}/', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

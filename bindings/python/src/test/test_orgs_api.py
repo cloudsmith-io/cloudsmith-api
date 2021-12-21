@@ -39,11 +39,35 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_members_list(self):
+        """
+        Test case for orgs_members_list
+
+        Get the details for all organization members.
+        """
+        pass
+
+    def test_orgs_members_read(self):
+        """
+        Test case for orgs_members_read
+
+        Get the details for a specific organization member.
+        """
+        pass
+
+    def test_orgs_members_remove(self):
+        """
+        Test case for orgs_members_remove
+
+        Removes a member from the organization.
+        """
+        pass
+
     def test_orgs_read(self):
         """
         Test case for orgs_read
 
-        Views for working with organizations.
+        Get the details for the specific organization.
         """
         pass
 

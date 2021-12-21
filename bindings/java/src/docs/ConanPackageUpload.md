@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **conanChannel** | **String** | Conan channel. |  [optional]
 **conanPrefix** | **String** | Conan prefix (User). |  [optional]
 **dependenciesChecksumMd5** | **String** | A checksum of all of the package&#39;s dependencies. |  [optional]
+**dependenciesUrl** | **String** |  |  [optional]
 **description** | **String** | A textual description of this package. |  [optional]
 **distro** | **Object** |  |  [optional]
 **distroVersion** | **Object** |  |  [optional]

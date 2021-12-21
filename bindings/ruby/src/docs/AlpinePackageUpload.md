@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **checksum_sha256** | **String** |  | [optional] 
 **checksum_sha512** | **String** |  | [optional] 
 **dependencies_checksum_md5** | **String** | A checksum of all of the package&#39;s dependencies. | [optional] 
+**dependencies_url** | **String** |  | [optional] 
 **description** | **String** | A textual description of this package. | [optional] 
 **distro** | **Object** |  | [optional] 
 **distro_version** | **Object** |  | [optional] 

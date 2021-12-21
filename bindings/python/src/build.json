@@ -2,7 +2,7 @@
     "hideGenerationTimestamp": true,
     "packageName": "cloudsmith_api",
     "projectName": "cloudsmith-api",
-    "packageVersion": "0.57.1",
+    "packageVersion": "1.8.2",
     "packageUrl": "https://api.cloudsmith.io/?format=openapi",
     "sortParamsByRequiredFlag": true
 }

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**packagesCopy**](PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 [**packagesDelete**](PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
+[**packagesDependencies**](PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
 [**packagesList**](PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**packagesMove**](PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packagesRead**](PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
@@ -28,6 +29,7 @@ Method | HTTP request | Description
 [**packagesUploadMaven**](PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packagesUploadNpm**](PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
 [**packagesUploadNuget**](PackagesApi.md#packagesUploadNuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
+[**packagesUploadP2**](PackagesApi.md#packagesUploadP2) | **POST** /packages/{owner}/{repo}/upload/p2/ | Create a new P2 package
 [**packagesUploadPython**](PackagesApi.md#packagesUploadPython) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
 [**packagesUploadRaw**](PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 [**packagesUploadRpm**](PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
@@ -49,6 +51,7 @@ Method | HTTP request | Description
 [**packagesValidateUploadMaven**](PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packagesValidateUploadNpm**](PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
 [**packagesValidateUploadNuget**](PackagesApi.md#packagesValidateUploadNuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
+[**packagesValidateUploadP2**](PackagesApi.md#packagesValidateUploadP2) | **POST** /packages/{owner}/{repo}/validate-upload/p2/ | Validate parameters for create P2 package
 [**packagesValidateUploadPython**](PackagesApi.md#packagesValidateUploadPython) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
 [**packagesValidateUploadRaw**](PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 [**packagesValidateUploadRpm**](PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
@@ -176,9 +179,68 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+<a name="packagesDependencies"></a>
+# **packagesDependencies**
+> PackageDependencies packagesDependencies(owner, repo, identifier)
+
+Get the direct (non-transitive) dependencies list for a package.
+
+Get the direct (non-transitive) dependencies list for a package.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+String identifier = "identifier_example"; // String | 
+try {
+    PackageDependencies result = apiInstance.packagesDependencies(owner, repo, identifier);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesDependencies");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **identifier** | **String**|  |
+
+### Return type
+
+[**PackageDependencies**](PackageDependencies.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
 <a name="packagesList"></a>
 # **packagesList**
-> List&lt;ModelPackage&gt; packagesList(owner, repo, page, pageSize, query)
+> List&lt;ModelPackage&gt; packagesList(owner, repo, page, pageSize, query, sort)
 
 Get a list of all packages associated with repository.
 
@@ -207,8 +269,9 @@ String repo = "repo_example"; // String |
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 String query = "query_example"; // String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+String sort = "sort_example"; // String | A field for sorting objects in ascending or descending order.
 try {
-    List<ModelPackage> result = apiInstance.packagesList(owner, repo, page, pageSize, query);
+    List<ModelPackage> result = apiInstance.packagesList(owner, repo, page, pageSize, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesList");
@@ -225,6 +288,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| A page number within the paginated result set. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
  **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional]
 
 ### Return type
 
@@ -1482,6 +1546,65 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
+<a name="packagesUploadP2"></a>
+# **packagesUploadP2**
+> AlpinePackageUpload packagesUploadP2(owner, repo, data)
+
+Create a new P2 package
+
+Create a new P2 package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+PackagesUploadP2 data = new PackagesUploadP2(); // PackagesUploadP2 | 
+try {
+    AlpinePackageUpload result = apiInstance.packagesUploadP2(owner, repo, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesUploadP2");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**PackagesUploadP2**](PackagesUploadP2.md)|  | [optional]
+
+### Return type
+
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
 <a name="packagesUploadPython"></a>
 # **packagesUploadPython**
 > AlpinePackageUpload packagesUploadPython(owner, repo, data)
@@ -2692,6 +2815,64 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **data** | [**PackagesValidateuploadNuget**](PackagesValidateuploadNuget.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="packagesValidateUploadP2"></a>
+# **packagesValidateUploadP2**
+> packagesValidateUploadP2(owner, repo, data)
+
+Validate parameters for create P2 package
+
+Validate parameters for create P2 package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+PackagesValidateuploadP2 data = new PackagesValidateuploadP2(); // PackagesValidateuploadP2 | 
+try {
+    apiInstance.packagesValidateUploadP2(owner, repo, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesValidateUploadP2");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**PackagesValidateuploadP2**](PackagesValidateuploadP2.md)|  | [optional]
 
 ### Return type
 

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**packages_copy**](PackagesApi.md#packages_copy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 [**packages_delete**](PackagesApi.md#packages_delete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
+[**packages_dependencies**](PackagesApi.md#packages_dependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
 [**packages_list**](PackagesApi.md#packages_list) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**packages_move**](PackagesApi.md#packages_move) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
@@ -28,6 +29,7 @@ Method | HTTP request | Description
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packages_upload_npm**](PackagesApi.md#packages_upload_npm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
 [**packages_upload_nuget**](PackagesApi.md#packages_upload_nuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
+[**packages_upload_p2**](PackagesApi.md#packages_upload_p2) | **POST** /packages/{owner}/{repo}/upload/p2/ | Create a new P2 package
 [**packages_upload_python**](PackagesApi.md#packages_upload_python) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
 [**packages_upload_raw**](PackagesApi.md#packages_upload_raw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 [**packages_upload_rpm**](PackagesApi.md#packages_upload_rpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
@@ -49,6 +51,7 @@ Method | HTTP request | Description
 [**packages_validate_upload_maven**](PackagesApi.md#packages_validate_upload_maven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packages_validate_upload_npm**](PackagesApi.md#packages_validate_upload_npm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
 [**packages_validate_upload_nuget**](PackagesApi.md#packages_validate_upload_nuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
+[**packages_validate_upload_p2**](PackagesApi.md#packages_validate_upload_p2) | **POST** /packages/{owner}/{repo}/validate-upload/p2/ | Validate parameters for create P2 package
 [**packages_validate_upload_python**](PackagesApi.md#packages_validate_upload_python) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
 [**packages_validate_upload_raw**](PackagesApi.md#packages_validate_upload_raw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 [**packages_validate_upload_rpm**](PackagesApi.md#packages_validate_upload_rpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
@@ -180,6 +183,66 @@ nil (empty response body)
 
 
 
+# **packages_dependencies**
+> PackageDependencies packages_dependencies(owner, repo, identifier)
+
+Get the direct (non-transitive) dependencies list for a package.
+
+Get the direct (non-transitive) dependencies list for a package.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+identifier = "identifier_example" # String | 
+
+
+begin
+  #Get the direct (non-transitive) dependencies list for a package.
+  result = api_instance.packages_dependencies(owner, repo, identifier)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_dependencies: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **identifier** | **String**|  | 
+
+### Return type
+
+[**PackageDependencies**](PackageDependencies.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+
 # **packages_list**
 > Array&lt;Package&gt; packages_list(owner, repo, opts)
 
@@ -208,7 +271,8 @@ repo = "repo_example" # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  query: "query_example" # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+  query: "query_example", # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+  sort: "sort_example" # String | A field for sorting objects in ascending or descending order.
 }
 
 begin
@@ -229,6 +293,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
  **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] 
+ **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] 
 
 ### Return type
 
@@ -1528,6 +1593,67 @@ Name | Type | Description  | Notes
 
 
 
+# **packages_upload_p2**
+> AlpinePackageUpload packages_upload_p2(owner, repo, opts)
+
+Create a new P2 package
+
+Create a new P2 package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesUploadP2.new # PackagesUploadP2 | 
+}
+
+begin
+  #Create a new P2 package
+  result = api_instance.packages_upload_p2(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_p2: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesUploadP2**](PackagesUploadP2.md)|  | [optional] 
+
+### Return type
+
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **packages_upload_python**
 > AlpinePackageUpload packages_upload_python(owner, repo, opts)
 
@@ -2778,6 +2904,66 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**PackagesValidateuploadNuget**](PackagesValidateuploadNuget.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **packages_validate_upload_p2**
+> packages_validate_upload_p2(owner, repo, opts)
+
+Validate parameters for create P2 package
+
+Validate parameters for create P2 package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = "owner_example" # String | 
+
+repo = "repo_example" # String | 
+
+opts = { 
+  data: CloudsmithApi::PackagesValidateuploadP2.new # PackagesValidateuploadP2 | 
+}
+
+begin
+  #Validate parameters for create P2 package
+  api_instance.packages_validate_upload_p2(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_p2: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**PackagesValidateuploadP2**](PackagesValidateuploadP2.md)|  | [optional] 
 
 ### Return type
 

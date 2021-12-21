@@ -58,6 +58,9 @@ public class AlpinePackageUpload implements Serializable {
   @SerializedName("dependencies_checksum_md5")
   private String dependenciesChecksumMd5 = null;
 
+  @SerializedName("dependencies_url")
+  private String dependenciesUrl = null;
+
   @SerializedName("description")
   private String description = null;
 
@@ -359,6 +362,24 @@ public class AlpinePackageUpload implements Serializable {
 
   public void setDependenciesChecksumMd5(String dependenciesChecksumMd5) {
     this.dependenciesChecksumMd5 = dependenciesChecksumMd5;
+  }
+
+  public AlpinePackageUpload dependenciesUrl(String dependenciesUrl) {
+    this.dependenciesUrl = dependenciesUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return dependenciesUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getDependenciesUrl() {
+    return dependenciesUrl;
+  }
+
+  public void setDependenciesUrl(String dependenciesUrl) {
+    this.dependenciesUrl = dependenciesUrl;
   }
 
   public AlpinePackageUpload description(String description) {
@@ -1395,6 +1416,7 @@ public class AlpinePackageUpload implements Serializable {
         Objects.equals(this.checksumSha256, alpinePackageUpload.checksumSha256) &&
         Objects.equals(this.checksumSha512, alpinePackageUpload.checksumSha512) &&
         Objects.equals(this.dependenciesChecksumMd5, alpinePackageUpload.dependenciesChecksumMd5) &&
+        Objects.equals(this.dependenciesUrl, alpinePackageUpload.dependenciesUrl) &&
         Objects.equals(this.description, alpinePackageUpload.description) &&
         Objects.equals(this.distro, alpinePackageUpload.distro) &&
         Objects.equals(this.distroVersion, alpinePackageUpload.distroVersion) &&
@@ -1455,7 +1477,7 @@ public class AlpinePackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1471,6 +1493,7 @@ public class AlpinePackageUpload implements Serializable {
     sb.append("    checksumSha256: ").append(toIndentedString(checksumSha256)).append("\n");
     sb.append("    checksumSha512: ").append(toIndentedString(checksumSha512)).append("\n");
     sb.append("    dependenciesChecksumMd5: ").append(toIndentedString(dependenciesChecksumMd5)).append("\n");
+    sb.append("    dependenciesUrl: ").append(toIndentedString(dependenciesUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");

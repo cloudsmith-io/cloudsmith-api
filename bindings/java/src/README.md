@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>0.57.1</version>
+    <version>1.8.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:0.57.1"
+compile "io.cloudsmith.api:cloudsmith-api:1.8.2"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-0.57.1.jar
+* target/cloudsmith-api-1.8.2.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -138,9 +138,13 @@ Class | Method | HTTP request | Description
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
-*OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{slug}/ | Views for working with organizations.
+*OrgsApi* | [**orgsMembersList**](docs/OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
+*OrgsApi* | [**orgsMembersRead**](docs/OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
+*OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization.
+*OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 *PackagesApi* | [**packagesCopy**](docs/PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 *PackagesApi* | [**packagesDelete**](docs/PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
+*PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
 *PackagesApi* | [**packagesList**](docs/PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 *PackagesApi* | [**packagesMove**](docs/PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 *PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
@@ -163,6 +167,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadMaven**](docs/PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 *PackagesApi* | [**packagesUploadNpm**](docs/PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
 *PackagesApi* | [**packagesUploadNuget**](docs/PackagesApi.md#packagesUploadNuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
+*PackagesApi* | [**packagesUploadP2**](docs/PackagesApi.md#packagesUploadP2) | **POST** /packages/{owner}/{repo}/upload/p2/ | Create a new P2 package
 *PackagesApi* | [**packagesUploadPython**](docs/PackagesApi.md#packagesUploadPython) | **POST** /packages/{owner}/{repo}/upload/python/ | Create a new Python package
 *PackagesApi* | [**packagesUploadRaw**](docs/PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 *PackagesApi* | [**packagesUploadRpm**](docs/PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
@@ -184,6 +189,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadMaven**](docs/PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 *PackagesApi* | [**packagesValidateUploadNpm**](docs/PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
 *PackagesApi* | [**packagesValidateUploadNuget**](docs/PackagesApi.md#packagesValidateUploadNuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
+*PackagesApi* | [**packagesValidateUploadP2**](docs/PackagesApi.md#packagesValidateUploadP2) | **POST** /packages/{owner}/{repo}/validate-upload/p2/ | Validate parameters for create P2 package
 *PackagesApi* | [**packagesValidateUploadPython**](docs/PackagesApi.md#packagesValidateUploadPython) | **POST** /packages/{owner}/{repo}/validate-upload/python/ | Validate parameters for create Python package
 *PackagesApi* | [**packagesValidateUploadRaw**](docs/PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 *PackagesApi* | [**packagesValidateUploadRpm**](docs/PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
@@ -239,7 +245,10 @@ Class | Method | HTTP request | Description
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [Organization](docs/Organization.md)
+ - [OrganizationMembership](docs/OrganizationMembership.md)
  - [PackageCopy](docs/PackageCopy.md)
+ - [PackageDependencies](docs/PackageDependencies.md)
+ - [PackageDependenciesDependencies](docs/PackageDependenciesDependencies.md)
  - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
  - [PackageMove](docs/PackageMove.md)
@@ -263,6 +272,7 @@ Class | Method | HTTP request | Description
  - [PackagesUploadMaven](docs/PackagesUploadMaven.md)
  - [PackagesUploadNpm](docs/PackagesUploadNpm.md)
  - [PackagesUploadNuget](docs/PackagesUploadNuget.md)
+ - [PackagesUploadP2](docs/PackagesUploadP2.md)
  - [PackagesUploadPython](docs/PackagesUploadPython.md)
  - [PackagesUploadRaw](docs/PackagesUploadRaw.md)
  - [PackagesUploadRpm](docs/PackagesUploadRpm.md)
@@ -284,6 +294,7 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadMaven](docs/PackagesValidateuploadMaven.md)
  - [PackagesValidateuploadNpm](docs/PackagesValidateuploadNpm.md)
  - [PackagesValidateuploadNuget](docs/PackagesValidateuploadNuget.md)
+ - [PackagesValidateuploadP2](docs/PackagesValidateuploadP2.md)
  - [PackagesValidateuploadPython](docs/PackagesValidateuploadPython.md)
  - [PackagesValidateuploadRaw](docs/PackagesValidateuploadRaw.md)
  - [PackagesValidateuploadRpm](docs/PackagesValidateuploadRpm.md)

@@ -71,31 +71,202 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Views for working with organizations.
-    # Views for working with organizations.
-    # @param slug 
+    # Get the details for all organization members.
+    # Get the details for all organization members.
+    # @param org 
     # @param [Hash] opts the optional parameters
-    # @return [Organization]
-    def orgs_read(slug, opts = {})
-      data, _status_code, _headers = orgs_read_with_http_info(slug, opts)
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<OrganizationMembership>]
+    def orgs_members_list(org, opts = {})
+      data, _status_code, _headers = orgs_members_list_with_http_info(org, opts)
       return data
     end
 
-    # Views for working with organizations.
-    # Views for working with organizations.
-    # @param slug 
+    # Get the details for all organization members.
+    # Get the details for all organization members.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<OrganizationMembership>, Fixnum, Hash)>] Array<OrganizationMembership> data, response status code and response headers
+    def orgs_members_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: OrgsApi.orgs_members_list ..."
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_members_list"
+      end
+      # resource path
+      local_var_path = "/orgs/{org}/members/".sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<OrganizationMembership>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_members_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the details for a specific organization member.
+    # Get the details for a specific organization member.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationMembership]
+    def orgs_members_read(org, member, opts = {})
+      data, _status_code, _headers = orgs_members_read_with_http_info(org, member, opts)
+      return data
+    end
+
+    # Get the details for a specific organization member.
+    # Get the details for a specific organization member.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationMembership, Fixnum, Hash)>] OrganizationMembership data, response status code and response headers
+    def orgs_members_read_with_http_info(org, member, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: OrgsApi.orgs_members_read ..."
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_members_read"
+      end
+      # verify the required parameter 'member' is set
+      if @api_client.config.client_side_validation && member.nil?
+        fail ArgumentError, "Missing the required parameter 'member' when calling OrgsApi.orgs_members_read"
+      end
+      # resource path
+      local_var_path = "/orgs/{org}/members/{member}/".sub('{' + 'org' + '}', org.to_s).sub('{' + 'member' + '}', member.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationMembership')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_members_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Removes a member from the organization.
+    # Removes a member from the organization.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationMembership]
+    def orgs_members_remove(org, member, opts = {})
+      data, _status_code, _headers = orgs_members_remove_with_http_info(org, member, opts)
+      return data
+    end
+
+    # Removes a member from the organization.
+    # Removes a member from the organization.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationMembership, Fixnum, Hash)>] OrganizationMembership data, response status code and response headers
+    def orgs_members_remove_with_http_info(org, member, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: OrgsApi.orgs_members_remove ..."
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_members_remove"
+      end
+      # verify the required parameter 'member' is set
+      if @api_client.config.client_side_validation && member.nil?
+        fail ArgumentError, "Missing the required parameter 'member' when calling OrgsApi.orgs_members_remove"
+      end
+      # resource path
+      local_var_path = "/orgs/{org}/members/{member}/remove/".sub('{' + 'org' + '}', org.to_s).sub('{' + 'member' + '}', member.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationMembership')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_members_remove\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the details for the specific organization.
+    # Get the details for the specific organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Organization]
+    def orgs_read(org, opts = {})
+      data, _status_code, _headers = orgs_read_with_http_info(org, opts)
+      return data
+    end
+
+    # Get the details for the specific organization.
+    # Get the details for the specific organization.
+    # @param org 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Organization, Fixnum, Hash)>] Organization data, response status code and response headers
-    def orgs_read_with_http_info(slug, opts = {})
+    def orgs_read_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: OrgsApi.orgs_read ..."
       end
-      # verify the required parameter 'slug' is set
-      if @api_client.config.client_side_validation && slug.nil?
-        fail ArgumentError, "Missing the required parameter 'slug' when calling OrgsApi.orgs_read"
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_read"
       end
       # resource path
-      local_var_path = "/orgs/{slug}/".sub('{' + 'slug' + '}', slug.to_s)
+      local_var_path = "/orgs/{org}/".sub('{' + 'org' + '}', org.to_s)
 
       # query parameters
       query_params = {}

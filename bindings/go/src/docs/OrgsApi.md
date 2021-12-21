@@ -5,7 +5,10 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**OrgsList**](OrgsApi.md#OrgsList) | **Get** /orgs/ | Get a list of all the organizations you are associated with.
-[**OrgsRead**](OrgsApi.md#OrgsRead) | **Get** /orgs/{slug}/ | Views for working with organizations.
+[**OrgsMembersList**](OrgsApi.md#OrgsMembersList) | **Get** /orgs/{org}/members/ | Get the details for all organization members.
+[**OrgsMembersRead**](OrgsApi.md#OrgsMembersRead) | **Get** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
+[**OrgsMembersRemove**](OrgsApi.md#OrgsMembersRemove) | **Get** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization.
+[**OrgsRead**](OrgsApi.md#OrgsRead) | **Get** /orgs/{org}/ | Get the details for the specific organization.
 
 
 # **OrgsList**
@@ -38,19 +41,110 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OrgsRead**
-> Organization OrgsRead($slug)
+# **OrgsMembersList**
+> []OrganizationMembership OrgsMembersList($org, $page, $pageSize)
 
-Views for working with organizations.
+Get the details for all organization members.
 
-Views for working with organizations.
+Get the details for all organization members.
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **slug** | **string**|  | 
+ **org** | **string**|  | 
+ **page** | **int32**| A page number within the paginated result set. | [optional] 
+ **pageSize** | **int32**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**[]OrganizationMembership**](OrganizationMembership.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **OrgsMembersRead**
+> OrganizationMembership OrgsMembersRead($org, $member)
+
+Get the details for a specific organization member.
+
+Get the details for a specific organization member.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **string**|  | 
+ **member** | **string**|  | 
+
+### Return type
+
+[**OrganizationMembership**](OrganizationMembership.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **OrgsMembersRemove**
+> OrganizationMembership OrgsMembersRemove($org, $member)
+
+Removes a member from the organization.
+
+Removes a member from the organization.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **string**|  | 
+ **member** | **string**|  | 
+
+### Return type
+
+[**OrganizationMembership**](OrganizationMembership.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **OrgsRead**
+> Organization OrgsRead($org)
+
+Get the details for the specific organization.
+
+Get the details for the specific organization.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **string**|  | 
 
 ### Return type
 

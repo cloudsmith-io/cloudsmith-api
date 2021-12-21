@@ -32,8 +32,11 @@ from .formats_distributions import FormatsDistributions
 from .maven_package_upload import MavenPackageUpload
 from .namespace import Namespace
 from .organization import Organization
+from .organization_membership import OrganizationMembership
 from .package import Package
 from .package_copy import PackageCopy
+from .package_dependencies import PackageDependencies
+from .package_dependencies_dependencies import PackageDependenciesDependencies
 from .package_file_parts_upload import PackageFilePartsUpload
 from .package_file_upload import PackageFileUpload
 from .package_move import PackageMove
@@ -57,6 +60,7 @@ from .packages_upload_luarocks import PackagesUploadLuarocks
 from .packages_upload_maven import PackagesUploadMaven
 from .packages_upload_npm import PackagesUploadNpm
 from .packages_upload_nuget import PackagesUploadNuget
+from .packages_upload_p2 import PackagesUploadP2
 from .packages_upload_python import PackagesUploadPython
 from .packages_upload_raw import PackagesUploadRaw
 from .packages_upload_rpm import PackagesUploadRpm
@@ -78,6 +82,7 @@ from .packages_validateupload_luarocks import PackagesValidateuploadLuarocks
 from .packages_validateupload_maven import PackagesValidateuploadMaven
 from .packages_validateupload_npm import PackagesValidateuploadNpm
 from .packages_validateupload_nuget import PackagesValidateuploadNuget
+from .packages_validateupload_p2 import PackagesValidateuploadP2
 from .packages_validateupload_python import PackagesValidateuploadPython
 from .packages_validateupload_raw import PackagesValidateuploadRaw
 from .packages_validateupload_rpm import PackagesValidateuploadRpm
