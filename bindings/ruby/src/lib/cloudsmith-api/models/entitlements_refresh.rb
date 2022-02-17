@@ -15,6 +15,9 @@ require 'date'
 module CloudsmithApi
 
   class EntitlementsRefresh
+    # If checked, a EULA acceptance is required for this token.
+    attr_accessor :eula_required
+
     # If enabled, the token will allow downloads based on configured restrictions (if any).
     attr_accessor :is_active
 
@@ -58,6 +61,7 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'eula_required' => :'eula_required',
         :'is_active' => :'is_active',
         :'limit_bandwidth' => :'limit_bandwidth',
         :'limit_bandwidth_unit' => :'limit_bandwidth_unit',
@@ -77,6 +81,7 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'eula_required' => :'BOOLEAN',
         :'is_active' => :'BOOLEAN',
         :'limit_bandwidth' => :'Integer',
         :'limit_bandwidth_unit' => :'String',
@@ -100,6 +105,10 @@ module CloudsmithApi
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'eula_required')
+        self.eula_required = attributes[:'eula_required']
+      end
 
       if attributes.has_key?(:'is_active')
         self.is_active = attributes[:'is_active']
@@ -173,6 +182,7 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          eula_required == o.eula_required &&
           is_active == o.is_active &&
           limit_bandwidth == o.limit_bandwidth &&
           limit_bandwidth_unit == o.limit_bandwidth_unit &&
@@ -197,7 +207,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [is_active, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, scheduled_reset_at, scheduled_reset_period, token].hash
+      [eula_required, is_active, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, scheduled_reset_at, scheduled_reset_period, token].hash
     end
 
     # Builds the object from hash

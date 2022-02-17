@@ -12,6 +12,9 @@ package cloudsmith_api
 
 type EntitlementsPartialUpdate struct {
 
+	// If checked, a EULA acceptance is required for this token.
+	EulaRequired bool `json:"eula_required,omitempty"`
+
 	// If enabled, the token will allow downloads based on configured restrictions (if any).
 	IsActive bool `json:"is_active,omitempty"`
 

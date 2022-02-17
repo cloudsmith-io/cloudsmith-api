@@ -50,6 +50,7 @@ from .models.packages_upload_cargo import PackagesUploadCargo
 from .models.packages_upload_cocoapods import PackagesUploadCocoapods
 from .models.packages_upload_composer import PackagesUploadComposer
 from .models.packages_upload_conan import PackagesUploadConan
+from .models.packages_upload_conda import PackagesUploadConda
 from .models.packages_upload_cran import PackagesUploadCran
 from .models.packages_upload_dart import PackagesUploadDart
 from .models.packages_upload_deb import PackagesUploadDeb
@@ -72,6 +73,7 @@ from .models.packages_validateupload_cargo import PackagesValidateuploadCargo
 from .models.packages_validateupload_cocoapods import PackagesValidateuploadCocoapods
 from .models.packages_validateupload_composer import PackagesValidateuploadComposer
 from .models.packages_validateupload_conan import PackagesValidateuploadConan
+from .models.packages_validateupload_conda import PackagesValidateuploadConda
 from .models.packages_validateupload_cran import PackagesValidateuploadCran
 from .models.packages_validateupload_dart import PackagesValidateuploadDart
 from .models.packages_validateupload_deb import PackagesValidateuploadDeb

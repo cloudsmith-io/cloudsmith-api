@@ -35,7 +35,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_list
 
-        Checks feature is within plan before listing results.
+        Lists scan results for a specific namespace.
         """
         pass
 
@@ -43,7 +43,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_list0
 
-        Checks feature is within plan before listing results.
+        Lists scan results for a specific repository.
         """
         pass
 
@@ -51,7 +51,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_list1
 
-        Check package identifier is valid before querying results.
+        Lists scan results for a specific package.
         """
         pass
 
@@ -59,7 +59,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """
         Test case for vulnerabilities_read
 
-        Checks feature is within plan before retrieving results.
+        Returns a Scan Result.
         """
         pass
 

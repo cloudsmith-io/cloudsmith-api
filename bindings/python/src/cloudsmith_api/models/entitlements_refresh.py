@@ -31,6 +31,7 @@ class EntitlementsRefresh(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'eula_required': 'bool',
         'is_active': 'bool',
         'limit_bandwidth': 'int',
         'limit_bandwidth_unit': 'str',
@@ -47,6 +48,7 @@ class EntitlementsRefresh(object):
     }
 
     attribute_map = {
+        'eula_required': 'eula_required',
         'is_active': 'is_active',
         'limit_bandwidth': 'limit_bandwidth',
         'limit_bandwidth_unit': 'limit_bandwidth_unit',
@@ -62,11 +64,12 @@ class EntitlementsRefresh(object):
         'token': 'token'
     }
 
-    def __init__(self, is_active=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, scheduled_reset_at=None, scheduled_reset_period=None, token=None):
+    def __init__(self, eula_required=None, is_active=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, scheduled_reset_at=None, scheduled_reset_period=None, token=None):
         """
         EntitlementsRefresh - a model defined in Swagger
         """
 
+        self._eula_required = None
         self._is_active = None
         self._limit_bandwidth = None
         self._limit_bandwidth_unit = None
@@ -81,6 +84,8 @@ class EntitlementsRefresh(object):
         self._scheduled_reset_period = None
         self._token = None
 
+        if eula_required is not None:
+          self.eula_required = eula_required
         if is_active is not None:
           self.is_active = is_active
         if limit_bandwidth is not None:
@@ -107,6 +112,29 @@ class EntitlementsRefresh(object):
           self.scheduled_reset_period = scheduled_reset_period
         if token is not None:
           self.token = token
+
+    @property
+    def eula_required(self):
+        """
+        Gets the eula_required of this EntitlementsRefresh.
+        If checked, a EULA acceptance is required for this token.
+
+        :return: The eula_required of this EntitlementsRefresh.
+        :rtype: bool
+        """
+        return self._eula_required
+
+    @eula_required.setter
+    def eula_required(self, eula_required):
+        """
+        Sets the eula_required of this EntitlementsRefresh.
+        If checked, a EULA acceptance is required for this token.
+
+        :param eula_required: The eula_required of this EntitlementsRefresh.
+        :type: bool
+        """
+
+        self._eula_required = eula_required
 
     @property
     def is_active(self):

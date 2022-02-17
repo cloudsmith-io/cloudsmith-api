@@ -151,6 +151,14 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_conda(self):
+        """
+        Test case for packages_upload_conda
+
+        Create a new Conda package
+        """
+        pass
+
     def test_packages_upload_cran(self):
         """
         Test case for packages_upload_cran
@@ -324,6 +332,14 @@ class TestPackagesApi(unittest.TestCase):
         Test case for packages_validate_upload_conan
 
         Validate parameters for create Conan package
+        """
+        pass
+
+    def test_packages_validate_upload_conda(self):
+        """
+        Test case for packages_validate_upload_conda
+
+        Validate parameters for create Conda package
         """
         pass
 

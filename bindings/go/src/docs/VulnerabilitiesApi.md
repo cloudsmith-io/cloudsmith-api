@@ -4,18 +4,18 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**VulnerabilitiesList**](VulnerabilitiesApi.md#VulnerabilitiesList) | **Get** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
-[**VulnerabilitiesList0**](VulnerabilitiesApi.md#VulnerabilitiesList0) | **Get** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-[**VulnerabilitiesList1**](VulnerabilitiesApi.md#VulnerabilitiesList1) | **Get** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
-[**VulnerabilitiesRead**](VulnerabilitiesApi.md#VulnerabilitiesRead) | **Get** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
+[**VulnerabilitiesList**](VulnerabilitiesApi.md#VulnerabilitiesList) | **Get** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
+[**VulnerabilitiesList0**](VulnerabilitiesApi.md#VulnerabilitiesList0) | **Get** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
+[**VulnerabilitiesList1**](VulnerabilitiesApi.md#VulnerabilitiesList1) | **Get** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
+[**VulnerabilitiesRead**](VulnerabilitiesApi.md#VulnerabilitiesRead) | **Get** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
 
 
 # **VulnerabilitiesList**
 > []VulnerabilityScanResultsList VulnerabilitiesList($owner, $page, $pageSize)
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific namespace.
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific namespace.
 
 
 ### Parameters
@@ -44,9 +44,9 @@ Name | Type | Description  | Notes
 # **VulnerabilitiesList0**
 > []VulnerabilityScanResultsList VulnerabilitiesList0($owner, $repo, $page, $pageSize)
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific repository.
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific repository.
 
 
 ### Parameters
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 # **VulnerabilitiesList1**
 > []VulnerabilityScanResultsList VulnerabilitiesList1($owner, $repo, $package_, $page, $pageSize)
 
-Check package identifier is valid before querying results.
+Lists scan results for a specific package.
 
-Check package identifier is valid before querying results.
+Lists scan results for a specific package.
 
 
 ### Parameters
@@ -109,9 +109,9 @@ Name | Type | Description  | Notes
 # **VulnerabilitiesRead**
 > VulnerabilityScanResults VulnerabilitiesRead($owner, $repo, $package_, $scanId)
 
-Checks feature is within plan before retrieving results.
+Returns a Scan Result.
 
-Checks feature is within plan before retrieving results.
+Returns a Scan Result.
 
 
 ### Parameters

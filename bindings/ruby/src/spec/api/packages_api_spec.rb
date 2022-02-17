@@ -248,6 +248,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_conda
+  # Create a new Conda package
+  # Create a new Conda package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesUploadConda] :data 
+  # @return [AlpinePackageUpload]
+  describe 'packages_upload_conda test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_cran
   # Create a new CRAN package
   # Create a new CRAN package
@@ -551,6 +565,20 @@ describe 'PackagesApi' do
   # @option opts [PackagesValidateuploadConan] :data 
   # @return [nil]
   describe 'packages_validate_upload_conan test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_conda
+  # Validate parameters for create Conda package
+  # Validate parameters for create Conda package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesValidateuploadConda] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_conda test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

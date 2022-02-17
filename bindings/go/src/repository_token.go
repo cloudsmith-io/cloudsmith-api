@@ -37,6 +37,18 @@ type RepositoryToken struct {
 	EnableUrl string `json:"enable_url,omitempty"`
 
 	// 
+	EulaAccepted interface{} `json:"eula_accepted,omitempty"`
+
+	// The datetime the EULA was accepted at.
+	EulaAcceptedAt string `json:"eula_accepted_at,omitempty"`
+
+	// 
+	EulaAcceptedFrom string `json:"eula_accepted_from,omitempty"`
+
+	// If checked, a EULA acceptance is required for this token.
+	EulaRequired bool `json:"eula_required,omitempty"`
+
+	// 
 	HasLimits bool `json:"has_limits,omitempty"`
 
 	// 

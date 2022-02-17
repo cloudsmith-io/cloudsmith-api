@@ -4,19 +4,19 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vulnerabilitiesList**](VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
-[**vulnerabilitiesList0**](VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-[**vulnerabilitiesList1**](VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
-[**vulnerabilitiesRead**](VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
+[**vulnerabilitiesList**](VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
+[**vulnerabilitiesList0**](VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
+[**vulnerabilitiesList1**](VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
+[**vulnerabilitiesRead**](VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
 
 
 <a name="vulnerabilitiesList"></a>
 # **vulnerabilitiesList**
 > List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesList(owner, page, pageSize)
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific namespace.
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific namespace.
 
 ### Example
 ```java
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 # **vulnerabilitiesList0**
 > List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesList0(owner, repo, page, pageSize)
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific repository.
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific repository.
 
 ### Example
 ```java
@@ -134,9 +134,9 @@ Name | Type | Description  | Notes
 # **vulnerabilitiesList1**
 > List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesList1(owner, repo, _package, page, pageSize)
 
-Check package identifier is valid before querying results.
+Lists scan results for a specific package.
 
-Check package identifier is valid before querying results.
+Lists scan results for a specific package.
 
 ### Example
 ```java
@@ -197,9 +197,9 @@ Name | Type | Description  | Notes
 # **vulnerabilitiesRead**
 > VulnerabilityScanResults vulnerabilitiesRead(owner, repo, _package, scanId)
 
-Checks feature is within plan before retrieving results.
+Returns a Scan Result.
 
-Checks feature is within plan before retrieving results.
+Returns a Scan Result.
 
 ### Example
 ```java

@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.cloudsmith.api</groupId>
     <artifactId>cloudsmith-api</artifactId>
-    <version>1.8.2</version>
+    <version>1.30.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:1.8.2"
+compile "io.cloudsmith.api:cloudsmith-api:1.30.0"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/cloudsmith-api-1.8.2.jar
+* target/cloudsmith-api-1.30.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -157,6 +157,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadCocoapods**](docs/PackagesApi.md#packagesUploadCocoapods) | **POST** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
 *PackagesApi* | [**packagesUploadComposer**](docs/PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 *PackagesApi* | [**packagesUploadConan**](docs/PackagesApi.md#packagesUploadConan) | **POST** /packages/{owner}/{repo}/upload/conan/ | Create a new Conan package
+*PackagesApi* | [**packagesUploadConda**](docs/PackagesApi.md#packagesUploadConda) | **POST** /packages/{owner}/{repo}/upload/conda/ | Create a new Conda package
 *PackagesApi* | [**packagesUploadCran**](docs/PackagesApi.md#packagesUploadCran) | **POST** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
 *PackagesApi* | [**packagesUploadDart**](docs/PackagesApi.md#packagesUploadDart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
@@ -179,6 +180,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadCocoapods**](docs/PackagesApi.md#packagesValidateUploadCocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
 *PackagesApi* | [**packagesValidateUploadComposer**](docs/PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 *PackagesApi* | [**packagesValidateUploadConan**](docs/PackagesApi.md#packagesValidateUploadConan) | **POST** /packages/{owner}/{repo}/validate-upload/conan/ | Validate parameters for create Conan package
+*PackagesApi* | [**packagesValidateUploadConda**](docs/PackagesApi.md#packagesValidateUploadConda) | **POST** /packages/{owner}/{repo}/validate-upload/conda/ | Validate parameters for create Conda package
 *PackagesApi* | [**packagesValidateUploadCran**](docs/PackagesApi.md#packagesValidateUploadCran) | **POST** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
 *PackagesApi* | [**packagesValidateUploadDart**](docs/PackagesApi.md#packagesValidateUploadDart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
@@ -213,10 +215,10 @@ Class | Method | HTTP request | Description
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
 *UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
-*VulnerabilitiesApi* | [**vulnerabilitiesList**](docs/VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
-*VulnerabilitiesApi* | [**vulnerabilitiesList0**](docs/VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-*VulnerabilitiesApi* | [**vulnerabilitiesList1**](docs/VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
-*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
+*VulnerabilitiesApi* | [**vulnerabilitiesList**](docs/VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
+*VulnerabilitiesApi* | [**vulnerabilitiesList0**](docs/VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
+*VulnerabilitiesApi* | [**vulnerabilitiesList1**](docs/VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
+*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
 *WebhooksApi* | [**webhooksCreate**](docs/WebhooksApi.md#webhooksCreate) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
 *WebhooksApi* | [**webhooksDelete**](docs/WebhooksApi.md#webhooksDelete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
 *WebhooksApi* | [**webhooksList**](docs/WebhooksApi.md#webhooksList) | **GET** /webhooks/{owner}/{repo}/ | Get a list of all webhooks in a repository.
@@ -262,6 +264,7 @@ Class | Method | HTTP request | Description
  - [PackagesUploadCocoapods](docs/PackagesUploadCocoapods.md)
  - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
  - [PackagesUploadConan](docs/PackagesUploadConan.md)
+ - [PackagesUploadConda](docs/PackagesUploadConda.md)
  - [PackagesUploadCran](docs/PackagesUploadCran.md)
  - [PackagesUploadDart](docs/PackagesUploadDart.md)
  - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
@@ -284,6 +287,7 @@ Class | Method | HTTP request | Description
  - [PackagesValidateuploadCocoapods](docs/PackagesValidateuploadCocoapods.md)
  - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
  - [PackagesValidateuploadConan](docs/PackagesValidateuploadConan.md)
+ - [PackagesValidateuploadConda](docs/PackagesValidateuploadConda.md)
  - [PackagesValidateuploadCran](docs/PackagesValidateuploadCran.md)
  - [PackagesValidateuploadDart](docs/PackagesValidateuploadDart.md)
  - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)

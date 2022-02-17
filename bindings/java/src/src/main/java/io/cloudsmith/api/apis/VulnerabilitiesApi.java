@@ -153,8 +153,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results.
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific namespace.
+     * Lists scan results for a specific namespace.
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -167,8 +167,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results.
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific namespace.
+     * Lists scan results for a specific namespace.
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -182,8 +182,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results. (asynchronously)
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific namespace. (asynchronously)
+     * Lists scan results for a specific namespace.
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -307,8 +307,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results.
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific repository.
+     * Lists scan results for a specific repository.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -322,8 +322,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results.
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific repository.
+     * Lists scan results for a specific repository.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -338,8 +338,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before listing results. (asynchronously)
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific repository. (asynchronously)
+     * Lists scan results for a specific repository.
      * @param owner  (required)
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -466,8 +466,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Check package identifier is valid before querying results.
-     * Check package identifier is valid before querying results.
+     * Lists scan results for a specific package.
+     * Lists scan results for a specific package.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
@@ -482,8 +482,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Check package identifier is valid before querying results.
-     * Check package identifier is valid before querying results.
+     * Lists scan results for a specific package.
+     * Lists scan results for a specific package.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
@@ -499,8 +499,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Check package identifier is valid before querying results. (asynchronously)
-     * Check package identifier is valid before querying results.
+     * Lists scan results for a specific package. (asynchronously)
+     * Lists scan results for a specific package.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
@@ -624,8 +624,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before retrieving results.
-     * Checks feature is within plan before retrieving results.
+     * Returns a Scan Result.
+     * Returns a Scan Result.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
@@ -639,8 +639,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before retrieving results.
-     * Checks feature is within plan before retrieving results.
+     * Returns a Scan Result.
+     * Returns a Scan Result.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
@@ -655,8 +655,8 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Checks feature is within plan before retrieving results. (asynchronously)
-     * Checks feature is within plan before retrieving results.
+     * Returns a Scan Result. (asynchronously)
+     * Returns a Scan Result.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)

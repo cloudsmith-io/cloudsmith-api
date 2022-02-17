@@ -20,8 +20,8 @@ module CloudsmithApi
       @api_client = api_client
     end
 
-    # Checks feature is within plan before listing results.
-    # Checks feature is within plan before listing results.
+    # Lists scan results for a specific namespace.
+    # Lists scan results for a specific namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
@@ -32,8 +32,8 @@ module CloudsmithApi
       return data
     end
 
-    # Checks feature is within plan before listing results.
-    # Checks feature is within plan before listing results.
+    # Lists scan results for a specific namespace.
+    # Lists scan results for a specific namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
@@ -77,8 +77,8 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Checks feature is within plan before listing results.
-    # Checks feature is within plan before listing results.
+    # Lists scan results for a specific repository.
+    # Lists scan results for a specific repository.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -90,8 +90,8 @@ module CloudsmithApi
       return data
     end
 
-    # Checks feature is within plan before listing results.
-    # Checks feature is within plan before listing results.
+    # Lists scan results for a specific repository.
+    # Lists scan results for a specific repository.
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -140,8 +140,8 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Check package identifier is valid before querying results.
-    # Check package identifier is valid before querying results.
+    # Lists scan results for a specific package.
+    # Lists scan results for a specific package.
     # @param owner 
     # @param repo 
     # @param package 
@@ -154,8 +154,8 @@ module CloudsmithApi
       return data
     end
 
-    # Check package identifier is valid before querying results.
-    # Check package identifier is valid before querying results.
+    # Lists scan results for a specific package.
+    # Lists scan results for a specific package.
     # @param owner 
     # @param repo 
     # @param package 
@@ -209,8 +209,8 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
-    # Checks feature is within plan before retrieving results.
-    # Checks feature is within plan before retrieving results.
+    # Returns a Scan Result.
+    # Returns a Scan Result.
     # @param owner 
     # @param repo 
     # @param package 
@@ -222,8 +222,8 @@ module CloudsmithApi
       return data
     end
 
-    # Checks feature is within plan before retrieving results.
-    # Checks feature is within plan before retrieving results.
+    # Returns a Scan Result.
+    # Returns a Scan Result.
     # @param owner 
     # @param repo 
     # @param package 

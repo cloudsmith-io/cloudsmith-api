@@ -33,6 +33,9 @@ import javax.validation.Valid;
 public class EntitlementsCreate implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("eula_required")
+  private Boolean eulaRequired = null;
+
   @SerializedName("is_active")
   private Boolean isActive = null;
 
@@ -74,6 +77,24 @@ public class EntitlementsCreate implements Serializable {
 
   @SerializedName("token")
   private String token = null;
+
+  public EntitlementsCreate eulaRequired(Boolean eulaRequired) {
+    this.eulaRequired = eulaRequired;
+    return this;
+  }
+
+   /**
+   * If checked, a EULA acceptance is required for this token.
+   * @return eulaRequired
+  **/
+  @ApiModelProperty(value = "If checked, a EULA acceptance is required for this token.")
+  public Boolean getEulaRequired() {
+    return eulaRequired;
+  }
+
+  public void setEulaRequired(Boolean eulaRequired) {
+    this.eulaRequired = eulaRequired;
+  }
 
   public EntitlementsCreate isActive(Boolean isActive) {
     this.isActive = isActive;
@@ -338,7 +359,8 @@ public class EntitlementsCreate implements Serializable {
       return false;
     }
     EntitlementsCreate entitlementsCreate = (EntitlementsCreate) o;
-    return Objects.equals(this.isActive, entitlementsCreate.isActive) &&
+    return Objects.equals(this.eulaRequired, entitlementsCreate.eulaRequired) &&
+        Objects.equals(this.isActive, entitlementsCreate.isActive) &&
         Objects.equals(this.limitBandwidth, entitlementsCreate.limitBandwidth) &&
         Objects.equals(this.limitBandwidthUnit, entitlementsCreate.limitBandwidthUnit) &&
         Objects.equals(this.limitDateRangeFrom, entitlementsCreate.limitDateRangeFrom) &&
@@ -356,7 +378,7 @@ public class EntitlementsCreate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isActive, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, scheduledResetAt, scheduledResetPeriod, token);
+    return Objects.hash(eulaRequired, isActive, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, scheduledResetAt, scheduledResetPeriod, token);
   }
 
 
@@ -365,6 +387,7 @@ public class EntitlementsCreate implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class EntitlementsCreate {\n");
     
+    sb.append("    eulaRequired: ").append(toIndentedString(eulaRequired)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    limitBandwidth: ").append(toIndentedString(limitBandwidth)).append("\n");
     sb.append("    limitBandwidthUnit: ").append(toIndentedString(limitBandwidthUnit)).append("\n");

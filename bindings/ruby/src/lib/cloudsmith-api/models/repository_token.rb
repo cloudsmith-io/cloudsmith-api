@@ -40,6 +40,18 @@ module CloudsmithApi
     attr_accessor :enable_url
 
     # 
+    attr_accessor :eula_accepted
+
+    # The datetime the EULA was accepted at.
+    attr_accessor :eula_accepted_at
+
+    # 
+    attr_accessor :eula_accepted_from
+
+    # If checked, a EULA acceptance is required for this token.
+    attr_accessor :eula_required
+
+    # 
     attr_accessor :has_limits
 
     # 
@@ -132,6 +144,10 @@ module CloudsmithApi
         :'disable_url' => :'disable_url',
         :'downloads' => :'downloads',
         :'enable_url' => :'enable_url',
+        :'eula_accepted' => :'eula_accepted',
+        :'eula_accepted_at' => :'eula_accepted_at',
+        :'eula_accepted_from' => :'eula_accepted_from',
+        :'eula_required' => :'eula_required',
         :'has_limits' => :'has_limits',
         :'identifier' => :'identifier',
         :'is_active' => :'is_active',
@@ -173,6 +189,10 @@ module CloudsmithApi
         :'disable_url' => :'String',
         :'downloads' => :'Integer',
         :'enable_url' => :'String',
+        :'eula_accepted' => :'Object',
+        :'eula_accepted_at' => :'String',
+        :'eula_accepted_from' => :'String',
+        :'eula_required' => :'BOOLEAN',
         :'has_limits' => :'BOOLEAN',
         :'identifier' => :'Integer',
         :'is_active' => :'BOOLEAN',
@@ -241,6 +261,22 @@ module CloudsmithApi
 
       if attributes.has_key?(:'enable_url')
         self.enable_url = attributes[:'enable_url']
+      end
+
+      if attributes.has_key?(:'eula_accepted')
+        self.eula_accepted = attributes[:'eula_accepted']
+      end
+
+      if attributes.has_key?(:'eula_accepted_at')
+        self.eula_accepted_at = attributes[:'eula_accepted_at']
+      end
+
+      if attributes.has_key?(:'eula_accepted_from')
+        self.eula_accepted_from = attributes[:'eula_accepted_from']
+      end
+
+      if attributes.has_key?(:'eula_required')
+        self.eula_required = attributes[:'eula_required']
       end
 
       if attributes.has_key?(:'has_limits')
@@ -384,6 +420,10 @@ module CloudsmithApi
           disable_url == o.disable_url &&
           downloads == o.downloads &&
           enable_url == o.enable_url &&
+          eula_accepted == o.eula_accepted &&
+          eula_accepted_at == o.eula_accepted_at &&
+          eula_accepted_from == o.eula_accepted_from &&
+          eula_required == o.eula_required &&
           has_limits == o.has_limits &&
           identifier == o.identifier &&
           is_active == o.is_active &&
@@ -422,7 +462,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [clients, created_at, created_by, created_by_url, default, disable_url, downloads, enable_url, has_limits, identifier, is_active, is_limited, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, refresh_url, reset_url, scheduled_reset_at, scheduled_reset_period, self_url, slug_perm, token, updated_at, updated_by, updated_by_url, usage, user, user_url].hash
+      [clients, created_at, created_by, created_by_url, default, disable_url, downloads, enable_url, eula_accepted, eula_accepted_at, eula_accepted_from, eula_required, has_limits, identifier, is_active, is_limited, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, refresh_url, reset_url, scheduled_reset_at, scheduled_reset_period, self_url, slug_perm, token, updated_at, updated_by, updated_by_url, usage, user, user_url].hash
     end
 
     # Builds the object from hash

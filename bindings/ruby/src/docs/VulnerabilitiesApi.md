@@ -4,18 +4,18 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vulnerabilities_list**](VulnerabilitiesApi.md#vulnerabilities_list) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
-[**vulnerabilities_list0**](VulnerabilitiesApi.md#vulnerabilities_list0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
-[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
+[**vulnerabilities_list**](VulnerabilitiesApi.md#vulnerabilities_list) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
+[**vulnerabilities_list0**](VulnerabilitiesApi.md#vulnerabilities_list0) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
+[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
+[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
 
 
 # **vulnerabilities_list**
 > Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_list(owner, opts)
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific namespace.
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific namespace.
 
 ### Example
 ```ruby
@@ -39,7 +39,7 @@ opts = {
 }
 
 begin
-  #Checks feature is within plan before listing results.
+  #Lists scan results for a specific namespace.
   result = api_instance.vulnerabilities_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_list0**
 > Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_list0(owner, repo, opts)
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific repository.
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific repository.
 
 ### Example
 ```ruby
@@ -101,7 +101,7 @@ opts = {
 }
 
 begin
-  #Checks feature is within plan before listing results.
+  #Lists scan results for a specific repository.
   result = api_instance.vulnerabilities_list0(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -136,9 +136,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_list1**
 > Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_list1(owner, repo, package, opts)
 
-Check package identifier is valid before querying results.
+Lists scan results for a specific package.
 
-Check package identifier is valid before querying results.
+Lists scan results for a specific package.
 
 ### Example
 ```ruby
@@ -166,7 +166,7 @@ opts = {
 }
 
 begin
-  #Check package identifier is valid before querying results.
+  #Lists scan results for a specific package.
   result = api_instance.vulnerabilities_list1(owner, repo, package, opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -202,9 +202,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_read**
 > VulnerabilityScanResults vulnerabilities_read(owner, repo, package, scan_id)
 
-Checks feature is within plan before retrieving results.
+Returns a Scan Result.
 
-Checks feature is within plan before retrieving results.
+Returns a Scan Result.
 
 ### Example
 ```ruby
@@ -230,7 +230,7 @@ scan_id = "scan_id_example" # String |
 
 
 begin
-  #Checks feature is within plan before retrieving results.
+  #Returns a Scan Result.
   result = api_instance.vulnerabilities_read(owner, repo, package, scan_id)
   p result
 rescue CloudsmithApi::ApiError => e
