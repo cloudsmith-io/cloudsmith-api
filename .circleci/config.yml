@@ -87,10 +87,17 @@ jobs:
         type: string
       language:
         type: string
+      extra_env:
+        type: string
+        default: "EXAMPLE_KEY=EXAMPLE_VALUE"
     docker:
       - image: <<parameters.docker_image>>
     steps:
       - checkout
+      - run:
+          name: "Injecting additional environment variables"
+          command: |
+            [ -n "<<parameters.extra_env>>" ] && echo "export <<parameters.extra_env>>" >> $BASH_ENV
       - restore_bindings:
           language: <<parameters.language>>
       - test_bindings:
@@ -168,12 +175,21 @@ workflows:
       - test:
           requires:
             - build
-          name: "Test Python"
+          name: "Test Python 2.7"
           language: python
+          extra_env: TOXENV=py27
+          docker_image: circleci/python:2.7
+      - test:
+          requires:
+            - build
+          name: "Test Python 3.7"
+          language: python
+          extra_env: TOXENV=py3
           docker_image: circleci/python:3.7
       - deploy_bindings:
           requires:
-            - "Test Python"
+            - "Test Python 2.7"
+            - "Test Python 3.7"
           filters:
             branches:
              only:
