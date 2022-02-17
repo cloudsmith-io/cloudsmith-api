@@ -4,18 +4,18 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vulnerabilities_list**](VulnerabilitiesApi.md#vulnerabilities_list) | **GET** /vulnerabilities/{owner}/ | Checks feature is within plan before listing results.
-[**vulnerabilities_list0**](VulnerabilitiesApi.md#vulnerabilities_list0) | **GET** /vulnerabilities/{owner}/{repo}/ | Checks feature is within plan before listing results.
-[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Check package identifier is valid before querying results.
-[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Checks feature is within plan before retrieving results.
+[**vulnerabilities_list**](VulnerabilitiesApi.md#vulnerabilities_list) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
+[**vulnerabilities_list0**](VulnerabilitiesApi.md#vulnerabilities_list0) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
+[**vulnerabilities_list1**](VulnerabilitiesApi.md#vulnerabilities_list1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
+[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
 
 
 # **vulnerabilities_list**
 > list[VulnerabilityScanResultsList] vulnerabilities_list(owner, page=page, page_size=page_size)
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific namespace.
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific namespace.
 
 ### Example 
 ```python
@@ -37,7 +37,7 @@ page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
 try: 
-    # Checks feature is within plan before listing results.
+    # Lists scan results for a specific namespace.
     api_response = api_instance.vulnerabilities_list(owner, page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:
@@ -70,9 +70,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_list0**
 > list[VulnerabilityScanResultsList] vulnerabilities_list0(owner, repo, page=page, page_size=page_size)
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific repository.
 
-Checks feature is within plan before listing results.
+Lists scan results for a specific repository.
 
 ### Example 
 ```python
@@ -95,7 +95,7 @@ page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
 try: 
-    # Checks feature is within plan before listing results.
+    # Lists scan results for a specific repository.
     api_response = api_instance.vulnerabilities_list0(owner, repo, page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:
@@ -129,9 +129,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_list1**
 > list[VulnerabilityScanResultsList] vulnerabilities_list1(owner, repo, package, page=page, page_size=page_size)
 
-Check package identifier is valid before querying results.
+Lists scan results for a specific package.
 
-Check package identifier is valid before querying results.
+Lists scan results for a specific package.
 
 ### Example 
 ```python
@@ -155,7 +155,7 @@ page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
 try: 
-    # Check package identifier is valid before querying results.
+    # Lists scan results for a specific package.
     api_response = api_instance.vulnerabilities_list1(owner, repo, package, page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:
@@ -190,9 +190,9 @@ Name | Type | Description  | Notes
 # **vulnerabilities_read**
 > VulnerabilityScanResults vulnerabilities_read(owner, repo, package, scan_id)
 
-Checks feature is within plan before retrieving results.
+Returns a Scan Result.
 
-Checks feature is within plan before retrieving results.
+Returns a Scan Result.
 
 ### Example 
 ```python
@@ -215,7 +215,7 @@ package = 'package_example' # str |
 scan_id = 'scan_id_example' # str | 
 
 try: 
-    # Checks feature is within plan before retrieving results.
+    # Returns a Scan Result.
     api_response = api_instance.vulnerabilities_read(owner, repo, package, scan_id)
     pprint(api_response)
 except ApiException as e:

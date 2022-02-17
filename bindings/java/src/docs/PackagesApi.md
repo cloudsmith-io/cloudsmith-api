@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**packagesUploadCocoapods**](PackagesApi.md#packagesUploadCocoapods) | **POST** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
 [**packagesUploadComposer**](PackagesApi.md#packagesUploadComposer) | **POST** /packages/{owner}/{repo}/upload/composer/ | Create a new Composer package
 [**packagesUploadConan**](PackagesApi.md#packagesUploadConan) | **POST** /packages/{owner}/{repo}/upload/conan/ | Create a new Conan package
+[**packagesUploadConda**](PackagesApi.md#packagesUploadConda) | **POST** /packages/{owner}/{repo}/upload/conda/ | Create a new Conda package
 [**packagesUploadCran**](PackagesApi.md#packagesUploadCran) | **POST** /packages/{owner}/{repo}/upload/cran/ | Create a new CRAN package
 [**packagesUploadDart**](PackagesApi.md#packagesUploadDart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 [**packagesUploadDeb**](PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
@@ -41,6 +42,7 @@ Method | HTTP request | Description
 [**packagesValidateUploadCocoapods**](PackagesApi.md#packagesValidateUploadCocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
 [**packagesValidateUploadComposer**](PackagesApi.md#packagesValidateUploadComposer) | **POST** /packages/{owner}/{repo}/validate-upload/composer/ | Validate parameters for create Composer package
 [**packagesValidateUploadConan**](PackagesApi.md#packagesValidateUploadConan) | **POST** /packages/{owner}/{repo}/validate-upload/conan/ | Validate parameters for create Conan package
+[**packagesValidateUploadConda**](PackagesApi.md#packagesValidateUploadConda) | **POST** /packages/{owner}/{repo}/validate-upload/conda/ | Validate parameters for create Conda package
 [**packagesValidateUploadCran**](PackagesApi.md#packagesValidateUploadCran) | **POST** /packages/{owner}/{repo}/validate-upload/cran/ | Validate parameters for create CRAN package
 [**packagesValidateUploadDart**](PackagesApi.md#packagesValidateUploadDart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 [**packagesValidateUploadDeb**](PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
@@ -946,6 +948,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConanPackageUpload**](ConanPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="packagesUploadConda"></a>
+# **packagesUploadConda**
+> AlpinePackageUpload packagesUploadConda(owner, repo, data)
+
+Create a new Conda package
+
+Create a new Conda package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+PackagesUploadConda data = new PackagesUploadConda(); // PackagesUploadConda | 
+try {
+    AlpinePackageUpload result = apiInstance.packagesUploadConda(owner, repo, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesUploadConda");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**PackagesUploadConda**](PackagesUploadConda.md)|  | [optional]
+
+### Return type
+
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -2235,6 +2296,64 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **data** | [**PackagesValidateuploadConan**](PackagesValidateuploadConan.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="packagesValidateUploadConda"></a>
+# **packagesValidateUploadConda**
+> packagesValidateUploadConda(owner, repo, data)
+
+Validate parameters for create Conda package
+
+Validate parameters for create Conda package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+PackagesValidateuploadConda data = new PackagesValidateuploadConda(); // PackagesValidateuploadConda | 
+try {
+    apiInstance.packagesValidateUploadConda(owner, repo, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesValidateUploadConda");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**PackagesValidateuploadConda**](PackagesValidateuploadConda.md)|  | [optional]
 
 ### Return type
 

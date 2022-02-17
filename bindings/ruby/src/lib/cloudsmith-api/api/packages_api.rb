@@ -972,6 +972,67 @@ module CloudsmithApi
       return data, status_code, headers
     end
 
+    # Create a new Conda package
+    # Create a new Conda package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadConda] :data 
+    # @return [AlpinePackageUpload]
+    def packages_upload_conda(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_conda_with_http_info(owner, repo, opts)
+      return data
+    end
+
+    # Create a new Conda package
+    # Create a new Conda package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesUploadConda] :data 
+    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    def packages_upload_conda_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_upload_conda ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_conda"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_conda"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/upload/conda/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AlpinePackageUpload')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_conda\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a new CRAN package
     # Create a new CRAN package
     # @param owner 
@@ -2305,6 +2366,66 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_conan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate parameters for create Conda package
+    # Validate parameters for create Conda package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadConda] :data 
+    # @return [nil]
+    def packages_validate_upload_conda(owner, repo, opts = {})
+      packages_validate_upload_conda_with_http_info(owner, repo, opts)
+      return nil
+    end
+
+    # Validate parameters for create Conda package
+    # Validate parameters for create Conda package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesValidateuploadConda] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_conda_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PackagesApi.packages_validate_upload_conda ..."
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_conda"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_conda"
+      end
+      # resource path
+      local_var_path = "/packages/{owner}/{repo}/validate-upload/conda/".sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_conda\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

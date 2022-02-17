@@ -35,9 +35,9 @@ public class VulnerabilitiesApiTest {
 
     
     /**
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific namespace.
      *
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific namespace.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -53,9 +53,9 @@ public class VulnerabilitiesApiTest {
     }
     
     /**
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific repository.
      *
-     * Checks feature is within plan before listing results.
+     * Lists scan results for a specific repository.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -72,9 +72,9 @@ public class VulnerabilitiesApiTest {
     }
     
     /**
-     * Check package identifier is valid before querying results.
+     * Lists scan results for a specific package.
      *
-     * Check package identifier is valid before querying results.
+     * Lists scan results for a specific package.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -92,9 +92,9 @@ public class VulnerabilitiesApiTest {
     }
     
     /**
-     * Checks feature is within plan before retrieving results.
+     * Returns a Scan Result.
      *
-     * Checks feature is within plan before retrieving results.
+     * Returns a Scan Result.
      *
      * @throws ApiException
      *          if the Api call fails

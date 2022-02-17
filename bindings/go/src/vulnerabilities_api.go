@@ -38,8 +38,8 @@ func NewVulnerabilitiesApiWithBasePath(basePath string) *VulnerabilitiesApi {
 }
 
 /**
- * Checks feature is within plan before listing results.
- * Checks feature is within plan before listing results.
+ * Lists scan results for a specific namespace.
+ * Lists scan results for a specific namespace.
  *
  * @param owner 
  * @param page A page number within the paginated result set.
@@ -105,8 +105,8 @@ func (a VulnerabilitiesApi) VulnerabilitiesList(owner string, page int32, pageSi
 }
 
 /**
- * Checks feature is within plan before listing results.
- * Checks feature is within plan before listing results.
+ * Lists scan results for a specific repository.
+ * Lists scan results for a specific repository.
  *
  * @param owner 
  * @param repo 
@@ -174,8 +174,8 @@ func (a VulnerabilitiesApi) VulnerabilitiesList0(owner string, repo string, page
 }
 
 /**
- * Check package identifier is valid before querying results.
- * Check package identifier is valid before querying results.
+ * Lists scan results for a specific package.
+ * Lists scan results for a specific package.
  *
  * @param owner 
  * @param repo 
@@ -245,8 +245,8 @@ func (a VulnerabilitiesApi) VulnerabilitiesList1(owner string, repo string, pack
 }
 
 /**
- * Checks feature is within plan before retrieving results.
- * Checks feature is within plan before retrieving results.
+ * Returns a Scan Result.
+ * Returns a Scan Result.
  *
  * @param owner 
  * @param repo 

@@ -33,8 +33,8 @@ describe 'VulnerabilitiesApi' do
   end
 
   # unit tests for vulnerabilities_list
-  # Checks feature is within plan before listing results.
-  # Checks feature is within plan before listing results.
+  # Lists scan results for a specific namespace.
+  # Lists scan results for a specific namespace.
   # @param owner 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
@@ -47,8 +47,8 @@ describe 'VulnerabilitiesApi' do
   end
 
   # unit tests for vulnerabilities_list0
-  # Checks feature is within plan before listing results.
-  # Checks feature is within plan before listing results.
+  # Lists scan results for a specific repository.
+  # Lists scan results for a specific repository.
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
@@ -62,8 +62,8 @@ describe 'VulnerabilitiesApi' do
   end
 
   # unit tests for vulnerabilities_list1
-  # Check package identifier is valid before querying results.
-  # Check package identifier is valid before querying results.
+  # Lists scan results for a specific package.
+  # Lists scan results for a specific package.
   # @param owner 
   # @param repo 
   # @param package 
@@ -78,8 +78,8 @@ describe 'VulnerabilitiesApi' do
   end
 
   # unit tests for vulnerabilities_read
-  # Checks feature is within plan before retrieving results.
-  # Checks feature is within plan before retrieving results.
+  # Returns a Scan Result.
+  # Returns a Scan Result.
   # @param owner 
   # @param repo 
   # @param package 

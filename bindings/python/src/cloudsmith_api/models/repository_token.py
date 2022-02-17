@@ -39,6 +39,10 @@ class RepositoryToken(object):
         'disable_url': 'str',
         'downloads': 'int',
         'enable_url': 'str',
+        'eula_accepted': 'object',
+        'eula_accepted_at': 'str',
+        'eula_accepted_from': 'str',
+        'eula_required': 'bool',
         'has_limits': 'bool',
         'identifier': 'int',
         'is_active': 'bool',
@@ -77,6 +81,10 @@ class RepositoryToken(object):
         'disable_url': 'disable_url',
         'downloads': 'downloads',
         'enable_url': 'enable_url',
+        'eula_accepted': 'eula_accepted',
+        'eula_accepted_at': 'eula_accepted_at',
+        'eula_accepted_from': 'eula_accepted_from',
+        'eula_required': 'eula_required',
         'has_limits': 'has_limits',
         'identifier': 'identifier',
         'is_active': 'is_active',
@@ -106,7 +114,7 @@ class RepositoryToken(object):
         'user_url': 'user_url'
     }
 
-    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, disable_url=None, downloads=None, enable_url=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, reset_url=None, scheduled_reset_at=None, scheduled_reset_period=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
+    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, disable_url=None, downloads=None, enable_url=None, eula_accepted=None, eula_accepted_at=None, eula_accepted_from=None, eula_required=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, reset_url=None, scheduled_reset_at=None, scheduled_reset_period=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None):
         """
         RepositoryToken - a model defined in Swagger
         """
@@ -119,6 +127,10 @@ class RepositoryToken(object):
         self._disable_url = None
         self._downloads = None
         self._enable_url = None
+        self._eula_accepted = None
+        self._eula_accepted_at = None
+        self._eula_accepted_from = None
+        self._eula_required = None
         self._has_limits = None
         self._identifier = None
         self._is_active = None
@@ -163,6 +175,14 @@ class RepositoryToken(object):
           self.downloads = downloads
         if enable_url is not None:
           self.enable_url = enable_url
+        if eula_accepted is not None:
+          self.eula_accepted = eula_accepted
+        if eula_accepted_at is not None:
+          self.eula_accepted_at = eula_accepted_at
+        if eula_accepted_from is not None:
+          self.eula_accepted_from = eula_accepted_from
+        if eula_required is not None:
+          self.eula_required = eula_required
         if has_limits is not None:
           self.has_limits = has_limits
         if identifier is not None:
@@ -400,6 +420,98 @@ class RepositoryToken(object):
         """
 
         self._enable_url = enable_url
+
+    @property
+    def eula_accepted(self):
+        """
+        Gets the eula_accepted of this RepositoryToken.
+        
+
+        :return: The eula_accepted of this RepositoryToken.
+        :rtype: object
+        """
+        return self._eula_accepted
+
+    @eula_accepted.setter
+    def eula_accepted(self, eula_accepted):
+        """
+        Sets the eula_accepted of this RepositoryToken.
+        
+
+        :param eula_accepted: The eula_accepted of this RepositoryToken.
+        :type: object
+        """
+
+        self._eula_accepted = eula_accepted
+
+    @property
+    def eula_accepted_at(self):
+        """
+        Gets the eula_accepted_at of this RepositoryToken.
+        The datetime the EULA was accepted at.
+
+        :return: The eula_accepted_at of this RepositoryToken.
+        :rtype: str
+        """
+        return self._eula_accepted_at
+
+    @eula_accepted_at.setter
+    def eula_accepted_at(self, eula_accepted_at):
+        """
+        Sets the eula_accepted_at of this RepositoryToken.
+        The datetime the EULA was accepted at.
+
+        :param eula_accepted_at: The eula_accepted_at of this RepositoryToken.
+        :type: str
+        """
+
+        self._eula_accepted_at = eula_accepted_at
+
+    @property
+    def eula_accepted_from(self):
+        """
+        Gets the eula_accepted_from of this RepositoryToken.
+        
+
+        :return: The eula_accepted_from of this RepositoryToken.
+        :rtype: str
+        """
+        return self._eula_accepted_from
+
+    @eula_accepted_from.setter
+    def eula_accepted_from(self, eula_accepted_from):
+        """
+        Sets the eula_accepted_from of this RepositoryToken.
+        
+
+        :param eula_accepted_from: The eula_accepted_from of this RepositoryToken.
+        :type: str
+        """
+
+        self._eula_accepted_from = eula_accepted_from
+
+    @property
+    def eula_required(self):
+        """
+        Gets the eula_required of this RepositoryToken.
+        If checked, a EULA acceptance is required for this token.
+
+        :return: The eula_required of this RepositoryToken.
+        :rtype: bool
+        """
+        return self._eula_required
+
+    @eula_required.setter
+    def eula_required(self, eula_required):
+        """
+        Sets the eula_required of this RepositoryToken.
+        If checked, a EULA acceptance is required for this token.
+
+        :param eula_required: The eula_required of this RepositoryToken.
+        :type: bool
+        """
+
+        self._eula_required = eula_required
 
     @property
     def has_limits(self):

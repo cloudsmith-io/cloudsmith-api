@@ -57,6 +57,18 @@ public class RepositoryTokenRefresh implements Serializable {
   @SerializedName("enable_url")
   private String enableUrl = null;
 
+  @SerializedName("eula_accepted")
+  private Object eulaAccepted = null;
+
+  @SerializedName("eula_accepted_at")
+  private String eulaAcceptedAt = null;
+
+  @SerializedName("eula_accepted_from")
+  private String eulaAcceptedFrom = null;
+
+  @SerializedName("eula_required")
+  private Boolean eulaRequired = null;
+
   @SerializedName("has_limits")
   private Boolean hasLimits = null;
 
@@ -280,6 +292,78 @@ public class RepositoryTokenRefresh implements Serializable {
 
   public void setEnableUrl(String enableUrl) {
     this.enableUrl = enableUrl;
+  }
+
+  public RepositoryTokenRefresh eulaAccepted(Object eulaAccepted) {
+    this.eulaAccepted = eulaAccepted;
+    return this;
+  }
+
+   /**
+   * 
+   * @return eulaAccepted
+  **/
+  @ApiModelProperty(value = "")
+  public Object getEulaAccepted() {
+    return eulaAccepted;
+  }
+
+  public void setEulaAccepted(Object eulaAccepted) {
+    this.eulaAccepted = eulaAccepted;
+  }
+
+  public RepositoryTokenRefresh eulaAcceptedAt(String eulaAcceptedAt) {
+    this.eulaAcceptedAt = eulaAcceptedAt;
+    return this;
+  }
+
+   /**
+   * The datetime the EULA was accepted at.
+   * @return eulaAcceptedAt
+  **/
+  @ApiModelProperty(value = "The datetime the EULA was accepted at.")
+  public String getEulaAcceptedAt() {
+    return eulaAcceptedAt;
+  }
+
+  public void setEulaAcceptedAt(String eulaAcceptedAt) {
+    this.eulaAcceptedAt = eulaAcceptedAt;
+  }
+
+  public RepositoryTokenRefresh eulaAcceptedFrom(String eulaAcceptedFrom) {
+    this.eulaAcceptedFrom = eulaAcceptedFrom;
+    return this;
+  }
+
+   /**
+   * 
+   * @return eulaAcceptedFrom
+  **/
+  @ApiModelProperty(value = "")
+  public String getEulaAcceptedFrom() {
+    return eulaAcceptedFrom;
+  }
+
+  public void setEulaAcceptedFrom(String eulaAcceptedFrom) {
+    this.eulaAcceptedFrom = eulaAcceptedFrom;
+  }
+
+  public RepositoryTokenRefresh eulaRequired(Boolean eulaRequired) {
+    this.eulaRequired = eulaRequired;
+    return this;
+  }
+
+   /**
+   * If checked, a EULA acceptance is required for this token.
+   * @return eulaRequired
+  **/
+  @ApiModelProperty(value = "If checked, a EULA acceptance is required for this token.")
+  public Boolean getEulaRequired() {
+    return eulaRequired;
+  }
+
+  public void setEulaRequired(Boolean eulaRequired) {
+    this.eulaRequired = eulaRequired;
   }
 
   public RepositoryTokenRefresh hasLimits(Boolean hasLimits) {
@@ -786,6 +870,10 @@ public class RepositoryTokenRefresh implements Serializable {
         Objects.equals(this.disableUrl, repositoryTokenRefresh.disableUrl) &&
         Objects.equals(this.downloads, repositoryTokenRefresh.downloads) &&
         Objects.equals(this.enableUrl, repositoryTokenRefresh.enableUrl) &&
+        Objects.equals(this.eulaAccepted, repositoryTokenRefresh.eulaAccepted) &&
+        Objects.equals(this.eulaAcceptedAt, repositoryTokenRefresh.eulaAcceptedAt) &&
+        Objects.equals(this.eulaAcceptedFrom, repositoryTokenRefresh.eulaAcceptedFrom) &&
+        Objects.equals(this.eulaRequired, repositoryTokenRefresh.eulaRequired) &&
         Objects.equals(this.hasLimits, repositoryTokenRefresh.hasLimits) &&
         Objects.equals(this.identifier, repositoryTokenRefresh.identifier) &&
         Objects.equals(this.isActive, repositoryTokenRefresh.isActive) &&
@@ -817,7 +905,7 @@ public class RepositoryTokenRefresh implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, disableUrl, downloads, enableUrl, hasLimits, identifier, isActive, isLimited, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, resetUrl, scheduledResetAt, scheduledResetPeriod, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
+    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, disableUrl, downloads, enableUrl, eulaAccepted, eulaAcceptedAt, eulaAcceptedFrom, eulaRequired, hasLimits, identifier, isActive, isLimited, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, resetUrl, scheduledResetAt, scheduledResetPeriod, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
   }
 
 
@@ -834,6 +922,10 @@ public class RepositoryTokenRefresh implements Serializable {
     sb.append("    disableUrl: ").append(toIndentedString(disableUrl)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
     sb.append("    enableUrl: ").append(toIndentedString(enableUrl)).append("\n");
+    sb.append("    eulaAccepted: ").append(toIndentedString(eulaAccepted)).append("\n");
+    sb.append("    eulaAcceptedAt: ").append(toIndentedString(eulaAcceptedAt)).append("\n");
+    sb.append("    eulaAcceptedFrom: ").append(toIndentedString(eulaAcceptedFrom)).append("\n");
+    sb.append("    eulaRequired: ").append(toIndentedString(eulaRequired)).append("\n");
     sb.append("    hasLimits: ").append(toIndentedString(hasLimits)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");

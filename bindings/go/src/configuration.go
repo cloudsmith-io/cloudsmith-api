@@ -42,7 +42,7 @@ func NewConfiguration() *Configuration {
 		DefaultHeader: make(map[string]string),
 		APIKey:        make(map[string]string),
 		APIKeyPrefix:  make(map[string]string),
-		UserAgent:     "Swagger-Codegen/1.8.2/go",
+		UserAgent:     "Swagger-Codegen/1.30.0/go",
 		APIClient:     &APIClient{},
 	}
 

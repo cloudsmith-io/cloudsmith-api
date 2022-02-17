@@ -42,8 +42,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list(self, owner, **kwargs):
         """
-        Checks feature is within plan before listing results.
-        Checks feature is within plan before listing results.
+        Lists scan results for a specific namespace.
+        Lists scan results for a specific namespace.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -70,8 +70,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list_with_http_info(self, owner, **kwargs):
         """
-        Checks feature is within plan before listing results.
-        Checks feature is within plan before listing results.
+        Lists scan results for a specific namespace.
+        Lists scan results for a specific namespace.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -148,8 +148,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list0(self, owner, repo, **kwargs):
         """
-        Checks feature is within plan before listing results.
-        Checks feature is within plan before listing results.
+        Lists scan results for a specific repository.
+        Lists scan results for a specific repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -177,8 +177,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list0_with_http_info(self, owner, repo, **kwargs):
         """
-        Checks feature is within plan before listing results.
-        Checks feature is within plan before listing results.
+        Lists scan results for a specific repository.
+        Lists scan results for a specific repository.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -261,8 +261,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list1(self, owner, repo, package, **kwargs):
         """
-        Check package identifier is valid before querying results.
-        Check package identifier is valid before querying results.
+        Lists scan results for a specific package.
+        Lists scan results for a specific package.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -291,8 +291,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_list1_with_http_info(self, owner, repo, package, **kwargs):
         """
-        Check package identifier is valid before querying results.
-        Check package identifier is valid before querying results.
+        Lists scan results for a specific package.
+        Lists scan results for a specific package.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -381,8 +381,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_read(self, owner, repo, package, scan_id, **kwargs):
         """
-        Checks feature is within plan before retrieving results.
-        Checks feature is within plan before retrieving results.
+        Returns a Scan Result.
+        Returns a Scan Result.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -410,8 +410,8 @@ class VulnerabilitiesApi(object):
 
     def vulnerabilities_read_with_http_info(self, owner, repo, package, scan_id, **kwargs):
         """
-        Checks feature is within plan before retrieving results.
-        Checks feature is within plan before retrieving results.
+        Returns a Scan Result.
+        Returns a Scan Result.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.

@@ -52,6 +52,7 @@ import io.cloudsmith.api.models.PackagesUploadCargo;
 import io.cloudsmith.api.models.PackagesUploadCocoapods;
 import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadConan;
+import io.cloudsmith.api.models.PackagesUploadConda;
 import io.cloudsmith.api.models.PackagesUploadCran;
 import io.cloudsmith.api.models.PackagesUploadDart;
 import io.cloudsmith.api.models.PackagesUploadDeb;
@@ -74,6 +75,7 @@ import io.cloudsmith.api.models.PackagesValidateuploadCargo;
 import io.cloudsmith.api.models.PackagesValidateuploadCocoapods;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadConan;
+import io.cloudsmith.api.models.PackagesValidateuploadConda;
 import io.cloudsmith.api.models.PackagesValidateuploadCran;
 import io.cloudsmith.api.models.PackagesValidateuploadDart;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
@@ -2389,6 +2391,155 @@ public class PackagesApi {
 
         com.squareup.okhttp.Call call = packagesUploadConanValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConanPackageUpload>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for packagesUploadConda
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesUploadCondaCall(String owner, String repo, PackagesUploadConda data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+        
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/upload/conda/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesUploadCondaValidateBeforeCall(String owner, String repo, PackagesUploadConda data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, data };
+            Method method = this.getClass().getMethod("packagesUploadCondaWithHttpInfo", String.class, String.class, PackagesUploadConda.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesUploadCondaCall(owner, repo, data, progressListener, progressRequestListener);
+                return call;
+            
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+            
+        
+        
+        
+        
+    }
+
+    /**
+     * Create a new Conda package
+     * Create a new Conda package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return AlpinePackageUpload
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AlpinePackageUpload packagesUploadConda(String owner, String repo, PackagesUploadConda data) throws ApiException {
+        ApiResponse<AlpinePackageUpload> resp = packagesUploadCondaWithHttpInfo(owner, repo, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create a new Conda package
+     * Create a new Conda package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AlpinePackageUpload> packagesUploadCondaWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadConda data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesUploadCondaValidateBeforeCall(owner, repo, data, null, null);
+        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a new Conda package (asynchronously)
+     * Create a new Conda package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesUploadCondaAsync(String owner, String repo, PackagesUploadConda data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesUploadCondaValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -5647,6 +5798,151 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesValidateUploadConanValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for packagesValidateUploadConda
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesValidateUploadCondaCall(String owner, String repo, PackagesValidateuploadConda data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+        
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/validate-upload/conda/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesValidateUploadCondaValidateBeforeCall(String owner, String repo, PackagesValidateuploadConda data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, data };
+            Method method = this.getClass().getMethod("packagesValidateUploadCondaWithHttpInfo", String.class, String.class, PackagesValidateuploadConda.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesValidateUploadCondaCall(owner, repo, data, progressListener, progressRequestListener);
+                return call;
+            
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+            
+        
+        
+        
+        
+    }
+
+    /**
+     * Validate parameters for create Conda package
+     * Validate parameters for create Conda package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void packagesValidateUploadConda(String owner, String repo, PackagesValidateuploadConda data) throws ApiException {
+        packagesValidateUploadCondaWithHttpInfo(owner, repo, data);
+    }
+
+    /**
+     * Validate parameters for create Conda package
+     * Validate parameters for create Conda package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> packagesValidateUploadCondaWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadConda data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesValidateUploadCondaValidateBeforeCall(owner, repo, data, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Validate parameters for create Conda package (asynchronously)
+     * Validate parameters for create Conda package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesValidateUploadCondaAsync(String owner, String repo, PackagesValidateuploadConda data, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesValidateUploadCondaValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

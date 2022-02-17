@@ -30,6 +30,7 @@ import io.cloudsmith.api.models.PackagesUploadCargo;
 import io.cloudsmith.api.models.PackagesUploadCocoapods;
 import io.cloudsmith.api.models.PackagesUploadComposer;
 import io.cloudsmith.api.models.PackagesUploadConan;
+import io.cloudsmith.api.models.PackagesUploadConda;
 import io.cloudsmith.api.models.PackagesUploadCran;
 import io.cloudsmith.api.models.PackagesUploadDart;
 import io.cloudsmith.api.models.PackagesUploadDeb;
@@ -52,6 +53,7 @@ import io.cloudsmith.api.models.PackagesValidateuploadCargo;
 import io.cloudsmith.api.models.PackagesValidateuploadCocoapods;
 import io.cloudsmith.api.models.PackagesValidateuploadComposer;
 import io.cloudsmith.api.models.PackagesValidateuploadConan;
+import io.cloudsmith.api.models.PackagesValidateuploadConda;
 import io.cloudsmith.api.models.PackagesValidateuploadCran;
 import io.cloudsmith.api.models.PackagesValidateuploadDart;
 import io.cloudsmith.api.models.PackagesValidateuploadDeb;
@@ -361,6 +363,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesUploadConan data = null;
         ConanPackageUpload response = api.packagesUploadConan(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Conda package
+     *
+     * Create a new Conda package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadCondaTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesUploadConda data = null;
+        AlpinePackageUpload response = api.packagesUploadConda(owner, repo, data);
 
         // TODO: test validations
     }
@@ -757,6 +777,24 @@ public class PackagesApiTest {
         String repo = null;
         PackagesValidateuploadConan data = null;
         api.packagesValidateUploadConan(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Conda package
+     *
+     * Validate parameters for create Conda package
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadCondaTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        PackagesValidateuploadConda data = null;
+        api.packagesValidateUploadConda(owner, repo, data);
 
         // TODO: test validations
     }
