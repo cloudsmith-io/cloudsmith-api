@@ -17,7 +17,7 @@ Lists scan results for a specific namespace.
 
 Lists scan results for a specific namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -26,17 +26,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.VulnerabilitiesApi()
+api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Lists scan results for a specific namespace.
     api_response = api_instance.vulnerabilities_list(owner, page=page, page_size=page_size)
     pprint(api_response)
@@ -74,7 +75,7 @@ Lists scan results for a specific repository.
 
 Lists scan results for a specific repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -83,18 +84,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.VulnerabilitiesApi()
+api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Lists scan results for a specific repository.
     api_response = api_instance.vulnerabilities_list0(owner, repo, page=page, page_size=page_size)
     pprint(api_response)
@@ -133,7 +135,7 @@ Lists scan results for a specific package.
 
 Lists scan results for a specific package.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -142,19 +144,20 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.VulnerabilitiesApi()
+api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 package = 'package_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Lists scan results for a specific package.
     api_response = api_instance.vulnerabilities_list1(owner, repo, package, page=page, page_size=page_size)
     pprint(api_response)
@@ -194,7 +197,7 @@ Returns a Scan Result.
 
 Returns a Scan Result.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -203,18 +206,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.VulnerabilitiesApi()
+api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 package = 'package_example' # str | 
 scan_id = 'scan_id_example' # str | 
 
-try: 
+try:
     # Returns a Scan Result.
     api_response = api_instance.vulnerabilities_read(owner, repo, package, scan_id)
     pprint(api_response)

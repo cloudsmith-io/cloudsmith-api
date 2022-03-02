@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,61 +13,54 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.webhooks_api import WebhooksApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.webhooks_api import WebhooksApi
 
 
 class TestWebhooksApi(unittest.TestCase):
-    """ WebhooksApi unit test stubs """
+    """WebhooksApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.webhooks_api.WebhooksApi()
+        self.api = cloudsmith_api.api.webhooks_api.WebhooksApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_webhooks_create(self):
-        """
-        Test case for webhooks_create
+        """Test case for webhooks_create
 
-        Create a specific webhook in a repository.
+        Create a specific webhook in a repository.  # noqa: E501
         """
         pass
 
     def test_webhooks_delete(self):
-        """
-        Test case for webhooks_delete
+        """Test case for webhooks_delete
 
-        Delete a specific webhook in a repository.
+        Delete a specific webhook in a repository.  # noqa: E501
         """
         pass
 
     def test_webhooks_list(self):
-        """
-        Test case for webhooks_list
+        """Test case for webhooks_list
 
-        Get a list of all webhooks in a repository.
+        Get a list of all webhooks in a repository.  # noqa: E501
         """
         pass
 
     def test_webhooks_partial_update(self):
-        """
-        Test case for webhooks_partial_update
+        """Test case for webhooks_partial_update
 
-        Update a specific webhook in a repository.
+        Update a specific webhook in a repository.  # noqa: E501
         """
         pass
 
     def test_webhooks_read(self):
-        """
-        Test case for webhooks_read
+        """Test case for webhooks_read
 
-        Views for working with repository webhooks.
+        Views for working with repository webhooks.  # noqa: E501
         """
         pass
 

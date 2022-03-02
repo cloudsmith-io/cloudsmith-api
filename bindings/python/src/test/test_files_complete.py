@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.files_complete import FilesComplete  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.files_complete import FilesComplete
 
 
 class TestFilesComplete(unittest.TestCase):
-    """ FilesComplete unit test stubs """
+    """FilesComplete unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestFilesComplete(unittest.TestCase):
         pass
 
     def testFilesComplete(self):
-        """
-        Test FilesComplete
-        """
+        """Test FilesComplete"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.files_complete.FilesComplete()
+        # model = cloudsmith_api.models.files_complete.FilesComplete()  # noqa: E501
         pass
 
 

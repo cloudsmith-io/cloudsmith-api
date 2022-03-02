@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,29 +13,26 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.status_api import StatusApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.status_api import StatusApi
 
 
 class TestStatusApi(unittest.TestCase):
-    """ StatusApi unit test stubs """
+    """StatusApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.status_api.StatusApi()
+        self.api = cloudsmith_api.api.status_api.StatusApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_status_check_basic(self):
-        """
-        Test case for status_check_basic
+        """Test case for status_check_basic
 
-        Endpoint to check basic API connectivity.
+        Endpoint to check basic API connectivity.  # noqa: E501
         """
         pass
 

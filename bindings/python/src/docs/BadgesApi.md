@@ -8,13 +8,13 @@ Method | HTTP request | Description
 
 
 # **badges_version_list**
-> badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, badge_token=badge_token, cache_seconds=cache_seconds, color=color, label=label, label_color=label_color, logo_color=logo_color, logo_width=logo_width, render=render, shields=shields, show_latest=show_latest, style=style)
+> object badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, badge_token=badge_token, cache_seconds=cache_seconds, color=color, label=label, label_color=label_color, logo_color=logo_color, logo_width=logo_width, render=render, shields=shields, show_latest=show_latest, style=style)
 
 Get latest package version for a package or package group.
 
 Get latest package version for a package or package group.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -23,12 +23,13 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.BadgesApi()
+api_instance = cloudsmith_api.BadgesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 package_format = 'package_format_example' # str | 
@@ -47,9 +48,10 @@ shields = true # bool | If true, a shields response will be generated (optional)
 show_latest = true # bool | If true, for latest version badges a '(latest)' suffix is added (optional)
 style = 'style_example' # str | Override the shields.io badge style value. (optional)
 
-try: 
+try:
     # Get latest package version for a package or package group.
-    api_instance.badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, badge_token=badge_token, cache_seconds=cache_seconds, color=color, label=label, label_color=label_color, logo_color=logo_color, logo_width=logo_width, render=render, shields=shields, show_latest=show_latest, style=style)
+    api_response = api_instance.badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, badge_token=badge_token, cache_seconds=cache_seconds, color=color, label=label, label_color=label_color, logo_color=logo_color, logo_width=logo_width, render=render, shields=shields, show_latest=show_latest, style=style)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling BadgesApi->badges_version_list: %s\n" % e)
 ```
@@ -78,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 

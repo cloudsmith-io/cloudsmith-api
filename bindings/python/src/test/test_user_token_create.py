@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.user_token_create import UserTokenCreate  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.user_token_create import UserTokenCreate
 
 
 class TestUserTokenCreate(unittest.TestCase):
-    """ UserTokenCreate unit test stubs """
+    """UserTokenCreate unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestUserTokenCreate(unittest.TestCase):
         pass
 
     def testUserTokenCreate(self):
-        """
-        Test UserTokenCreate
-        """
+        """Test UserTokenCreate"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.user_token_create.UserTokenCreate()
+        # model = cloudsmith_api.models.user_token_create.UserTokenCreate()  # noqa: E501
         pass
 
 

@@ -18,7 +18,7 @@ Abort a multipart file upload.
 
 Abort a multipart file upload.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -27,18 +27,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.FilesApi()
+api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 data = cloudsmith_api.FilesAbort() # FilesAbort |  (optional)
 
-try: 
+try:
     # Abort a multipart file upload.
     api_instance.files_abort(owner, repo, identifier, data=data)
 except ApiException as e:
@@ -76,7 +77,7 @@ Complete a multipart file upload.
 
 Complete a multipart file upload.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -85,18 +86,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.FilesApi()
+api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 data = cloudsmith_api.FilesComplete() # FilesComplete |  (optional)
 
-try: 
+try:
     # Complete a multipart file upload.
     api_response = api_instance.files_complete(owner, repo, identifier, data=data)
     pprint(api_response)
@@ -135,7 +137,7 @@ Request URL(s) to upload new package file upload(s) to.
 
 Request URL(s) to upload new package file upload(s) to.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -144,17 +146,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.FilesApi()
+api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.FilesCreate() # FilesCreate |  (optional)
 
-try: 
+try:
     # Request URL(s) to upload new package file upload(s) to.
     api_response = api_instance.files_create(owner, repo, data=data)
     pprint(api_response)
@@ -192,7 +195,7 @@ Get upload information for a multipart file upload.
 
 Get upload information for a multipart file upload.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -201,17 +204,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.FilesApi()
+api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Get upload information for a multipart file upload.
     api_response = api_instance.files_info(owner, repo, identifier)
     pprint(api_response)
@@ -249,7 +253,7 @@ Validate parameters used for create.
 
 Validate parameters used for create.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -258,17 +262,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.FilesApi()
+api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.FilesValidate() # FilesValidate |  (optional)
 
-try: 
+try:
     # Validate parameters used for create.
     api_instance.files_validate(owner, repo, data=data)
 except ApiException as e:

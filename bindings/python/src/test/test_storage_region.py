@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.storage_region import StorageRegion  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.storage_region import StorageRegion
 
 
 class TestStorageRegion(unittest.TestCase):
-    """ StorageRegion unit test stubs """
+    """StorageRegion unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestStorageRegion(unittest.TestCase):
         pass
 
     def testStorageRegion(self):
-        """
-        Test StorageRegion
-        """
+        """Test StorageRegion"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.storage_region.StorageRegion()
+        # model = cloudsmith_api.models.storage_region.StorageRegion()  # noqa: E501
         pass
 
 

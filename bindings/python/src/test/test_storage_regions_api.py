@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,37 +13,33 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.storage_regions_api import StorageRegionsApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.storageregions_api import StorageregionsApi
 
 
-class TestStorageregionsApi(unittest.TestCase):
-    """ StorageregionsApi unit test stubs """
+class TestStorageRegionsApi(unittest.TestCase):
+    """StorageRegionsApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.storageregions_api.StorageregionsApi()
+        self.api = cloudsmith_api.api.storage_regions_api.StorageRegionsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_storage_regions_list(self):
-        """
-        Test case for storage_regions_list
+        """Test case for storage_regions_list
 
-        Get a list of all available storage regions.
+        Get a list of all available storage regions.  # noqa: E501
         """
         pass
 
     def test_storage_regions_read(self):
-        """
-        Test case for storage_regions_read
+        """Test case for storage_regions_read
 
-        Get a specific storage region.
+        Get a specific storage region.  # noqa: E501
         """
         pass
 

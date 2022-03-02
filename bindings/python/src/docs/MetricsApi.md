@@ -16,7 +16,7 @@ View for listing entitlement token metrics, across an account.
 
 View for listing entitlement token metrics, across an account.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -25,12 +25,13 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.MetricsApi()
+api_instance = cloudsmith_api.MetricsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
@@ -38,7 +39,7 @@ finish = 'finish_example' # str | Include metrics upto and including this UTC da
 start = 'start_example' # str | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'. (optional)
 tokens = 'tokens_example' # str | A comma seperated list of tokens (slug perm) to include in the results. (optional)
 
-try: 
+try:
     # View for listing entitlement token metrics, across an account.
     api_response = api_instance.metrics_entitlements_list(owner, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
     pprint(api_response)
@@ -79,7 +80,7 @@ View for listing entitlement token metrics, for a repository.
 
 View for listing entitlement token metrics, for a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -88,12 +89,13 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.MetricsApi()
+api_instance = cloudsmith_api.MetricsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
@@ -102,7 +104,7 @@ finish = 'finish_example' # str | Include metrics upto and including this UTC da
 start = 'start_example' # str | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'. (optional)
 tokens = 'tokens_example' # str | A comma seperated list of tokens (slug perm) to include in the results. (optional)
 
-try: 
+try:
     # View for listing entitlement token metrics, for a repository.
     api_response = api_instance.metrics_entitlements_list0(owner, repo, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
     pprint(api_response)
@@ -144,7 +146,7 @@ View for listing package usage metrics, for a repository.
 
 View for listing package usage metrics, for a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -153,12 +155,13 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.MetricsApi()
+api_instance = cloudsmith_api.MetricsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
@@ -167,7 +170,7 @@ finish = 'finish_example' # str | Include metrics upto and including this UTC da
 packages = 'packages_example' # str | A comma seperated list of packages (slug perm) to include in the results. (optional)
 start = 'start_example' # str | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'. (optional)
 
-try: 
+try:
     # View for listing package usage metrics, for a repository.
     api_response = api_instance.metrics_packages_list(owner, repo, page=page, page_size=page_size, finish=finish, packages=packages, start=start)
     pprint(api_response)

@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,101 +13,89 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.entitlements_api import EntitlementsApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.entitlements_api import EntitlementsApi
 
 
 class TestEntitlementsApi(unittest.TestCase):
-    """ EntitlementsApi unit test stubs """
+    """EntitlementsApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.entitlements_api.EntitlementsApi()
+        self.api = cloudsmith_api.api.entitlements_api.EntitlementsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_entitlements_create(self):
-        """
-        Test case for entitlements_create
+        """Test case for entitlements_create
 
-        Create a specific entitlement in a repository.
+        Create a specific entitlement in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_delete(self):
-        """
-        Test case for entitlements_delete
+        """Test case for entitlements_delete
 
-        Delete a specific entitlement in a repository.
+        Delete a specific entitlement in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_disable(self):
-        """
-        Test case for entitlements_disable
+        """Test case for entitlements_disable
 
-        Disable an entitlement token in a repository.
+        Disable an entitlement token in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_enable(self):
-        """
-        Test case for entitlements_enable
+        """Test case for entitlements_enable
 
-        Enable an entitlement token in a repository.
+        Enable an entitlement token in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_list(self):
-        """
-        Test case for entitlements_list
+        """Test case for entitlements_list
 
-        Get a list of all entitlements in a repository.
+        Get a list of all entitlements in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_partial_update(self):
-        """
-        Test case for entitlements_partial_update
+        """Test case for entitlements_partial_update
 
-        Update a specific entitlement in a repository.
+        Update a specific entitlement in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_read(self):
-        """
-        Test case for entitlements_read
+        """Test case for entitlements_read
 
-        Get a specific entitlement in a repository.
+        Get a specific entitlement in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_refresh(self):
-        """
-        Test case for entitlements_refresh
+        """Test case for entitlements_refresh
 
-        Refresh an entitlement token in a repository.
+        Refresh an entitlement token in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_reset(self):
-        """
-        Test case for entitlements_reset
+        """Test case for entitlements_reset
 
-        Reset the statistics for an entitlement token in a repository.
+        Reset the statistics for an entitlement token in a repository.  # noqa: E501
         """
         pass
 
     def test_entitlements_sync(self):
-        """
-        Test case for entitlements_sync
+        """Test case for entitlements_sync
 
-        Synchronise tokens from a source repository.
+        Synchronise tokens from a source repository.  # noqa: E501
         """
         pass
 

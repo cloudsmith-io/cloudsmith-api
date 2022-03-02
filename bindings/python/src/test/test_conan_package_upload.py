@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.conan_package_upload import ConanPackageUpload  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.conan_package_upload import ConanPackageUpload
 
 
 class TestConanPackageUpload(unittest.TestCase):
-    """ ConanPackageUpload unit test stubs """
+    """ConanPackageUpload unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestConanPackageUpload(unittest.TestCase):
         pass
 
     def testConanPackageUpload(self):
-        """
-        Test ConanPackageUpload
-        """
+        """Test ConanPackageUpload"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.conan_package_upload.ConanPackageUpload()
+        # model = cloudsmith_api.models.conan_package_upload.ConanPackageUpload()  # noqa: E501
         pass
 
 

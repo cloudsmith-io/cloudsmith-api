@@ -23,7 +23,7 @@ Create a specific entitlement in a repository.
 
 Create a specific entitlement in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -32,18 +32,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsCreate() # EntitlementsCreate |  (optional)
 
-try: 
+try:
     # Create a specific entitlement in a repository.
     api_response = api_instance.entitlements_create(owner, repo, show_tokens=show_tokens, data=data)
     pprint(api_response)
@@ -82,7 +83,7 @@ Delete a specific entitlement in a repository.
 
 Delete a specific entitlement in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -91,17 +92,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Delete a specific entitlement in a repository.
     api_instance.entitlements_delete(owner, repo, identifier)
 except ApiException as e:
@@ -138,7 +140,7 @@ Disable an entitlement token in a repository.
 
 Disable an entitlement token in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -147,17 +149,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Disable an entitlement token in a repository.
     api_instance.entitlements_disable(owner, repo, identifier)
 except ApiException as e:
@@ -194,7 +197,7 @@ Enable an entitlement token in a repository.
 
 Enable an entitlement token in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -203,17 +206,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Enable an entitlement token in a repository.
     api_instance.entitlements_enable(owner, repo, identifier)
 except ApiException as e:
@@ -250,7 +254,7 @@ Get a list of all entitlements in a repository.
 
 Get a list of all entitlements in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -259,19 +263,20 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 
-try: 
+try:
     # Get a list of all entitlements in a repository.
     api_response = api_instance.entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens)
     pprint(api_response)
@@ -311,7 +316,7 @@ Update a specific entitlement in a repository.
 
 Update a specific entitlement in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -320,19 +325,20 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsPartialUpdate() # EntitlementsPartialUpdate |  (optional)
 
-try: 
+try:
     # Update a specific entitlement in a repository.
     api_response = api_instance.entitlements_partial_update(owner, repo, identifier, show_tokens=show_tokens, data=data)
     pprint(api_response)
@@ -372,7 +378,7 @@ Get a specific entitlement in a repository.
 
 Get a specific entitlement in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -381,18 +387,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 
-try: 
+try:
     # Get a specific entitlement in a repository.
     api_response = api_instance.entitlements_read(owner, repo, identifier, show_tokens=show_tokens)
     pprint(api_response)
@@ -431,7 +438,7 @@ Refresh an entitlement token in a repository.
 
 Refresh an entitlement token in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -440,19 +447,20 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsRefresh() # EntitlementsRefresh |  (optional)
 
-try: 
+try:
     # Refresh an entitlement token in a repository.
     api_response = api_instance.entitlements_refresh(owner, repo, identifier, show_tokens=show_tokens, data=data)
     pprint(api_response)
@@ -492,7 +500,7 @@ Reset the statistics for an entitlement token in a repository.
 
 Reset the statistics for an entitlement token in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -501,18 +509,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 
-try: 
+try:
     # Reset the statistics for an entitlement token in a repository.
     api_instance.entitlements_reset(owner, repo, identifier, show_tokens=show_tokens)
 except ApiException as e:
@@ -550,7 +559,7 @@ Synchronise tokens from a source repository.
 
 Synchronise tokens from a source repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -559,18 +568,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.EntitlementsApi()
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 show_tokens = true # bool | Show entitlement token strings in results (optional)
 data = cloudsmith_api.EntitlementsSync() # EntitlementsSync |  (optional)
 
-try: 
+try:
     # Synchronise tokens from a source repository.
     api_response = api_instance.entitlements_sync(owner, repo, show_tokens=show_tokens, data=data)
     pprint(api_response)

@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,53 +13,47 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.vulnerabilities_api import VulnerabilitiesApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.vulnerabilities_api import VulnerabilitiesApi
 
 
 class TestVulnerabilitiesApi(unittest.TestCase):
-    """ VulnerabilitiesApi unit test stubs """
+    """VulnerabilitiesApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.vulnerabilities_api.VulnerabilitiesApi()
+        self.api = cloudsmith_api.api.vulnerabilities_api.VulnerabilitiesApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_vulnerabilities_list(self):
-        """
-        Test case for vulnerabilities_list
+        """Test case for vulnerabilities_list
 
-        Lists scan results for a specific namespace.
+        Lists scan results for a specific namespace.  # noqa: E501
         """
         pass
 
     def test_vulnerabilities_list0(self):
-        """
-        Test case for vulnerabilities_list0
+        """Test case for vulnerabilities_list0
 
-        Lists scan results for a specific repository.
+        Lists scan results for a specific repository.  # noqa: E501
         """
         pass
 
     def test_vulnerabilities_list1(self):
-        """
-        Test case for vulnerabilities_list1
+        """Test case for vulnerabilities_list1
 
-        Lists scan results for a specific package.
+        Lists scan results for a specific package.  # noqa: E501
         """
         pass
 
     def test_vulnerabilities_read(self):
-        """
-        Test case for vulnerabilities_read
+        """Test case for vulnerabilities_read
 
-        Returns a Scan Result.
+        Returns a Scan Result.  # noqa: E501
         """
         pass
 

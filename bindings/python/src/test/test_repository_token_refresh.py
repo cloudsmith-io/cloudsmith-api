@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.repository_token_refresh import RepositoryTokenRefresh  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.repository_token_refresh import RepositoryTokenRefresh
 
 
 class TestRepositoryTokenRefresh(unittest.TestCase):
-    """ RepositoryTokenRefresh unit test stubs """
+    """RepositoryTokenRefresh unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestRepositoryTokenRefresh(unittest.TestCase):
         pass
 
     def testRepositoryTokenRefresh(self):
-        """
-        Test RepositoryTokenRefresh
-        """
+        """Test RepositoryTokenRefresh"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.repository_token_refresh.RepositoryTokenRefresh()
+        # model = cloudsmith_api.models.repository_token_refresh.RepositoryTokenRefresh()  # noqa: E501
         pass
 
 

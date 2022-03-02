@@ -18,7 +18,7 @@ Create a specific webhook in a repository.
 
 Create a specific webhook in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -27,17 +27,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi()
+api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.WebhooksCreate() # WebhooksCreate |  (optional)
 
-try: 
+try:
     # Create a specific webhook in a repository.
     api_response = api_instance.webhooks_create(owner, repo, data=data)
     pprint(api_response)
@@ -75,7 +76,7 @@ Delete a specific webhook in a repository.
 
 Delete a specific webhook in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -84,17 +85,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi()
+api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Delete a specific webhook in a repository.
     api_instance.webhooks_delete(owner, repo, identifier)
 except ApiException as e:
@@ -131,7 +133,7 @@ Get a list of all webhooks in a repository.
 
 Get a list of all webhooks in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -140,18 +142,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi()
+api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Get a list of all webhooks in a repository.
     api_response = api_instance.webhooks_list(owner, repo, page=page, page_size=page_size)
     pprint(api_response)
@@ -190,7 +193,7 @@ Update a specific webhook in a repository.
 
 Update a specific webhook in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -199,18 +202,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi()
+api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 data = cloudsmith_api.WebhooksPartialUpdate() # WebhooksPartialUpdate |  (optional)
 
-try: 
+try:
     # Update a specific webhook in a repository.
     api_response = api_instance.webhooks_partial_update(owner, repo, identifier, data=data)
     pprint(api_response)
@@ -249,7 +253,7 @@ Views for working with repository webhooks.
 
 Views for working with repository webhooks.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -258,17 +262,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi()
+api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Views for working with repository webhooks.
     api_response = api_instance.webhooks_read(owner, repo, identifier)
     pprint(api_response)

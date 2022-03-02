@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.packages_upload_go import PackagesUploadGo  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.packages_upload_go import PackagesUploadGo
 
 
 class TestPackagesUploadGo(unittest.TestCase):
-    """ PackagesUploadGo unit test stubs """
+    """PackagesUploadGo unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestPackagesUploadGo(unittest.TestCase):
         pass
 
     def testPackagesUploadGo(self):
-        """
-        Test PackagesUploadGo
-        """
+        """Test PackagesUploadGo"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.packages_upload_go.PackagesUploadGo()
+        # model = cloudsmith_api.models.packages_upload_go.PackagesUploadGo()  # noqa: E501
         pass
 
 

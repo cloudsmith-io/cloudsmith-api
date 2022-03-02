@@ -14,7 +14,7 @@ Endpoint to check basic API connectivity.
 
 Endpoint to check basic API connectivity.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -25,7 +25,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = cloudsmith_api.StatusApi()
 
-try: 
+try:
     # Endpoint to check basic API connectivity.
     api_response = api_instance.status_check_basic()
     pprint(api_response)

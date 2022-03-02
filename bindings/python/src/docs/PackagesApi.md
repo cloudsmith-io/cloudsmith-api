@@ -69,7 +69,7 @@ Copy a package to another repository.
 
 Copy a package to another repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -78,18 +78,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 data = cloudsmith_api.PackagesCopy() # PackagesCopy |  (optional)
 
-try: 
+try:
     # Copy a package to another repository.
     api_response = api_instance.packages_copy(owner, repo, identifier, data=data)
     pprint(api_response)
@@ -128,7 +129,7 @@ Delete a specific package in a repository.
 
 Delete a specific package in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -137,17 +138,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Delete a specific package in a repository.
     api_instance.packages_delete(owner, repo, identifier)
 except ApiException as e:
@@ -184,7 +186,7 @@ Get the direct (non-transitive) dependencies list for a package.
 
 Get the direct (non-transitive) dependencies list for a package.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -193,17 +195,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Get the direct (non-transitive) dependencies list for a package.
     api_response = api_instance.packages_dependencies(owner, repo, identifier)
     pprint(api_response)
@@ -241,7 +244,7 @@ Get a list of all packages associated with repository.
 
 Get a list of all packages associated with repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -250,12 +253,13 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
@@ -263,7 +267,7 @@ page_size = 56 # int | Number of results to return per page. (optional)
 query = 'query_example' # str | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional)
 sort = 'sort_example' # str | A field for sorting objects in ascending or descending order. (optional)
 
-try: 
+try:
     # Get a list of all packages associated with repository.
     api_response = api_instance.packages_list(owner, repo, page=page, page_size=page_size, query=query, sort=sort)
     pprint(api_response)
@@ -304,7 +308,7 @@ Move a package to another repository.
 
 Move a package to another repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -313,18 +317,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 data = cloudsmith_api.PackagesMove() # PackagesMove |  (optional)
 
-try: 
+try:
     # Move a package to another repository.
     api_response = api_instance.packages_move(owner, repo, identifier, data=data)
     pprint(api_response)
@@ -363,7 +368,7 @@ Get a specific package in a repository.
 
 Get a specific package in a repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -372,17 +377,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Get a specific package in a repository.
     api_response = api_instance.packages_read(owner, repo, identifier)
     pprint(api_response)
@@ -420,7 +426,7 @@ Schedule a package for resynchronisation.
 
 Schedule a package for resynchronisation.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -429,17 +435,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Schedule a package for resynchronisation.
     api_response = api_instance.packages_resync(owner, repo, identifier)
     pprint(api_response)
@@ -477,7 +484,7 @@ Schedule a package for scanning.
 
 Schedule a package for scanning.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -486,17 +493,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Schedule a package for scanning.
     api_response = api_instance.packages_scan(owner, repo, identifier)
     pprint(api_response)
@@ -534,7 +542,7 @@ Get the synchronisation status for a package.
 
 Get the synchronisation status for a package.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -543,17 +551,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Get the synchronisation status for a package.
     api_response = api_instance.packages_status(owner, repo, identifier)
     pprint(api_response)
@@ -591,7 +600,7 @@ Add/Replace/Remove tags for a package.
 
 Add/Replace/Remove tags for a package.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -600,18 +609,19 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
 data = cloudsmith_api.PackagesTag() # PackagesTag |  (optional)
 
-try: 
+try:
     # Add/Replace/Remove tags for a package.
     api_response = api_instance.packages_tag(owner, repo, identifier, data=data)
     pprint(api_response)
@@ -650,7 +660,7 @@ Create a new Alpine package
 
 Create a new Alpine package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -659,17 +669,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadAlpine() # PackagesUploadAlpine |  (optional)
 
-try: 
+try:
     # Create a new Alpine package
     api_response = api_instance.packages_upload_alpine(owner, repo, data=data)
     pprint(api_response)
@@ -707,7 +718,7 @@ Create a new Cargo package
 
 Create a new Cargo package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -716,17 +727,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadCargo() # PackagesUploadCargo |  (optional)
 
-try: 
+try:
     # Create a new Cargo package
     api_response = api_instance.packages_upload_cargo(owner, repo, data=data)
     pprint(api_response)
@@ -764,7 +776,7 @@ Create a new CocoaPods package
 
 Create a new CocoaPods package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -773,17 +785,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadCocoapods() # PackagesUploadCocoapods |  (optional)
 
-try: 
+try:
     # Create a new CocoaPods package
     api_response = api_instance.packages_upload_cocoapods(owner, repo, data=data)
     pprint(api_response)
@@ -821,7 +834,7 @@ Create a new Composer package
 
 Create a new Composer package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -830,17 +843,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadComposer() # PackagesUploadComposer |  (optional)
 
-try: 
+try:
     # Create a new Composer package
     api_response = api_instance.packages_upload_composer(owner, repo, data=data)
     pprint(api_response)
@@ -878,7 +892,7 @@ Create a new Conan package
 
 Create a new Conan package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -887,17 +901,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadConan() # PackagesUploadConan |  (optional)
 
-try: 
+try:
     # Create a new Conan package
     api_response = api_instance.packages_upload_conan(owner, repo, data=data)
     pprint(api_response)
@@ -935,7 +950,7 @@ Create a new Conda package
 
 Create a new Conda package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -944,17 +959,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadConda() # PackagesUploadConda |  (optional)
 
-try: 
+try:
     # Create a new Conda package
     api_response = api_instance.packages_upload_conda(owner, repo, data=data)
     pprint(api_response)
@@ -992,7 +1008,7 @@ Create a new CRAN package
 
 Create a new CRAN package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1001,17 +1017,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadCran() # PackagesUploadCran |  (optional)
 
-try: 
+try:
     # Create a new CRAN package
     api_response = api_instance.packages_upload_cran(owner, repo, data=data)
     pprint(api_response)
@@ -1049,7 +1066,7 @@ Create a new Dart package
 
 Create a new Dart package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1058,17 +1075,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadDart() # PackagesUploadDart |  (optional)
 
-try: 
+try:
     # Create a new Dart package
     api_response = api_instance.packages_upload_dart(owner, repo, data=data)
     pprint(api_response)
@@ -1106,7 +1124,7 @@ Create a new Debian package
 
 Create a new Debian package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1115,17 +1133,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadDeb() # PackagesUploadDeb |  (optional)
 
-try: 
+try:
     # Create a new Debian package
     api_response = api_instance.packages_upload_deb(owner, repo, data=data)
     pprint(api_response)
@@ -1163,7 +1182,7 @@ Create a new Docker package
 
 Create a new Docker package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1172,17 +1191,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadDocker() # PackagesUploadDocker |  (optional)
 
-try: 
+try:
     # Create a new Docker package
     api_response = api_instance.packages_upload_docker(owner, repo, data=data)
     pprint(api_response)
@@ -1220,7 +1240,7 @@ Create a new Go package
 
 Create a new Go package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1229,17 +1249,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadGo() # PackagesUploadGo |  (optional)
 
-try: 
+try:
     # Create a new Go package
     api_response = api_instance.packages_upload_go(owner, repo, data=data)
     pprint(api_response)
@@ -1277,7 +1298,7 @@ Create a new Helm package
 
 Create a new Helm package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1286,17 +1307,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadHelm() # PackagesUploadHelm |  (optional)
 
-try: 
+try:
     # Create a new Helm package
     api_response = api_instance.packages_upload_helm(owner, repo, data=data)
     pprint(api_response)
@@ -1334,7 +1356,7 @@ Create a new LuaRocks package
 
 Create a new LuaRocks package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1343,17 +1365,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadLuarocks() # PackagesUploadLuarocks |  (optional)
 
-try: 
+try:
     # Create a new LuaRocks package
     api_response = api_instance.packages_upload_luarocks(owner, repo, data=data)
     pprint(api_response)
@@ -1391,7 +1414,7 @@ Create a new Maven package
 
 Create a new Maven package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1400,17 +1423,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadMaven() # PackagesUploadMaven |  (optional)
 
-try: 
+try:
     # Create a new Maven package
     api_response = api_instance.packages_upload_maven(owner, repo, data=data)
     pprint(api_response)
@@ -1448,7 +1472,7 @@ Create a new npm package
 
 Create a new npm package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1457,17 +1481,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadNpm() # PackagesUploadNpm |  (optional)
 
-try: 
+try:
     # Create a new npm package
     api_response = api_instance.packages_upload_npm(owner, repo, data=data)
     pprint(api_response)
@@ -1505,7 +1530,7 @@ Create a new NuGet package
 
 Create a new NuGet package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1514,17 +1539,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadNuget() # PackagesUploadNuget |  (optional)
 
-try: 
+try:
     # Create a new NuGet package
     api_response = api_instance.packages_upload_nuget(owner, repo, data=data)
     pprint(api_response)
@@ -1562,7 +1588,7 @@ Create a new P2 package
 
 Create a new P2 package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1571,17 +1597,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadP2() # PackagesUploadP2 |  (optional)
 
-try: 
+try:
     # Create a new P2 package
     api_response = api_instance.packages_upload_p2(owner, repo, data=data)
     pprint(api_response)
@@ -1619,7 +1646,7 @@ Create a new Python package
 
 Create a new Python package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1628,17 +1655,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadPython() # PackagesUploadPython |  (optional)
 
-try: 
+try:
     # Create a new Python package
     api_response = api_instance.packages_upload_python(owner, repo, data=data)
     pprint(api_response)
@@ -1676,7 +1704,7 @@ Create a new Raw package
 
 Create a new Raw package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1685,17 +1713,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadRaw() # PackagesUploadRaw |  (optional)
 
-try: 
+try:
     # Create a new Raw package
     api_response = api_instance.packages_upload_raw(owner, repo, data=data)
     pprint(api_response)
@@ -1733,7 +1762,7 @@ Create a new RedHat package
 
 Create a new RedHat package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1742,17 +1771,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadRpm() # PackagesUploadRpm |  (optional)
 
-try: 
+try:
     # Create a new RedHat package
     api_response = api_instance.packages_upload_rpm(owner, repo, data=data)
     pprint(api_response)
@@ -1790,7 +1820,7 @@ Create a new Ruby package
 
 Create a new Ruby package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1799,17 +1829,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadRuby() # PackagesUploadRuby |  (optional)
 
-try: 
+try:
     # Create a new Ruby package
     api_response = api_instance.packages_upload_ruby(owner, repo, data=data)
     pprint(api_response)
@@ -1847,7 +1878,7 @@ Create a new Terraform package
 
 Create a new Terraform package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1856,17 +1887,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadTerraform() # PackagesUploadTerraform |  (optional)
 
-try: 
+try:
     # Create a new Terraform package
     api_response = api_instance.packages_upload_terraform(owner, repo, data=data)
     pprint(api_response)
@@ -1904,7 +1936,7 @@ Create a new Vagrant package
 
 Create a new Vagrant package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1913,17 +1945,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesUploadVagrant() # PackagesUploadVagrant |  (optional)
 
-try: 
+try:
     # Create a new Vagrant package
     api_response = api_instance.packages_upload_vagrant(owner, repo, data=data)
     pprint(api_response)
@@ -1961,7 +1994,7 @@ Validate parameters for create Alpine package
 
 Validate parameters for create Alpine package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -1970,17 +2003,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadAlpine() # PackagesValidateuploadAlpine |  (optional)
 
-try: 
+try:
     # Validate parameters for create Alpine package
     api_instance.packages_validate_upload_alpine(owner, repo, data=data)
 except ApiException as e:
@@ -2017,7 +2051,7 @@ Validate parameters for create Cargo package
 
 Validate parameters for create Cargo package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2026,17 +2060,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadCargo() # PackagesValidateuploadCargo |  (optional)
 
-try: 
+try:
     # Validate parameters for create Cargo package
     api_instance.packages_validate_upload_cargo(owner, repo, data=data)
 except ApiException as e:
@@ -2073,7 +2108,7 @@ Validate parameters for create CocoaPods package
 
 Validate parameters for create CocoaPods package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2082,17 +2117,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadCocoapods() # PackagesValidateuploadCocoapods |  (optional)
 
-try: 
+try:
     # Validate parameters for create CocoaPods package
     api_instance.packages_validate_upload_cocoapods(owner, repo, data=data)
 except ApiException as e:
@@ -2129,7 +2165,7 @@ Validate parameters for create Composer package
 
 Validate parameters for create Composer package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2138,17 +2174,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadComposer() # PackagesValidateuploadComposer |  (optional)
 
-try: 
+try:
     # Validate parameters for create Composer package
     api_instance.packages_validate_upload_composer(owner, repo, data=data)
 except ApiException as e:
@@ -2185,7 +2222,7 @@ Validate parameters for create Conan package
 
 Validate parameters for create Conan package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2194,17 +2231,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadConan() # PackagesValidateuploadConan |  (optional)
 
-try: 
+try:
     # Validate parameters for create Conan package
     api_instance.packages_validate_upload_conan(owner, repo, data=data)
 except ApiException as e:
@@ -2241,7 +2279,7 @@ Validate parameters for create Conda package
 
 Validate parameters for create Conda package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2250,17 +2288,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadConda() # PackagesValidateuploadConda |  (optional)
 
-try: 
+try:
     # Validate parameters for create Conda package
     api_instance.packages_validate_upload_conda(owner, repo, data=data)
 except ApiException as e:
@@ -2297,7 +2336,7 @@ Validate parameters for create CRAN package
 
 Validate parameters for create CRAN package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2306,17 +2345,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadCran() # PackagesValidateuploadCran |  (optional)
 
-try: 
+try:
     # Validate parameters for create CRAN package
     api_instance.packages_validate_upload_cran(owner, repo, data=data)
 except ApiException as e:
@@ -2353,7 +2393,7 @@ Validate parameters for create Dart package
 
 Validate parameters for create Dart package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2362,17 +2402,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadDart() # PackagesValidateuploadDart |  (optional)
 
-try: 
+try:
     # Validate parameters for create Dart package
     api_instance.packages_validate_upload_dart(owner, repo, data=data)
 except ApiException as e:
@@ -2409,7 +2450,7 @@ Validate parameters for create Debian package
 
 Validate parameters for create Debian package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2418,17 +2459,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadDeb() # PackagesValidateuploadDeb |  (optional)
 
-try: 
+try:
     # Validate parameters for create Debian package
     api_instance.packages_validate_upload_deb(owner, repo, data=data)
 except ApiException as e:
@@ -2465,7 +2507,7 @@ Validate parameters for create Docker package
 
 Validate parameters for create Docker package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2474,17 +2516,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadDocker() # PackagesValidateuploadDocker |  (optional)
 
-try: 
+try:
     # Validate parameters for create Docker package
     api_instance.packages_validate_upload_docker(owner, repo, data=data)
 except ApiException as e:
@@ -2521,7 +2564,7 @@ Validate parameters for create Go package
 
 Validate parameters for create Go package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2530,17 +2573,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadGo() # PackagesValidateuploadGo |  (optional)
 
-try: 
+try:
     # Validate parameters for create Go package
     api_instance.packages_validate_upload_go(owner, repo, data=data)
 except ApiException as e:
@@ -2577,7 +2621,7 @@ Validate parameters for create Helm package
 
 Validate parameters for create Helm package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2586,17 +2630,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadHelm() # PackagesValidateuploadHelm |  (optional)
 
-try: 
+try:
     # Validate parameters for create Helm package
     api_instance.packages_validate_upload_helm(owner, repo, data=data)
 except ApiException as e:
@@ -2633,7 +2678,7 @@ Validate parameters for create LuaRocks package
 
 Validate parameters for create LuaRocks package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2642,17 +2687,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadLuarocks() # PackagesValidateuploadLuarocks |  (optional)
 
-try: 
+try:
     # Validate parameters for create LuaRocks package
     api_instance.packages_validate_upload_luarocks(owner, repo, data=data)
 except ApiException as e:
@@ -2689,7 +2735,7 @@ Validate parameters for create Maven package
 
 Validate parameters for create Maven package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2698,17 +2744,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadMaven() # PackagesValidateuploadMaven |  (optional)
 
-try: 
+try:
     # Validate parameters for create Maven package
     api_instance.packages_validate_upload_maven(owner, repo, data=data)
 except ApiException as e:
@@ -2745,7 +2792,7 @@ Validate parameters for create npm package
 
 Validate parameters for create npm package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2754,17 +2801,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadNpm() # PackagesValidateuploadNpm |  (optional)
 
-try: 
+try:
     # Validate parameters for create npm package
     api_instance.packages_validate_upload_npm(owner, repo, data=data)
 except ApiException as e:
@@ -2801,7 +2849,7 @@ Validate parameters for create NuGet package
 
 Validate parameters for create NuGet package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2810,17 +2858,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadNuget() # PackagesValidateuploadNuget |  (optional)
 
-try: 
+try:
     # Validate parameters for create NuGet package
     api_instance.packages_validate_upload_nuget(owner, repo, data=data)
 except ApiException as e:
@@ -2857,7 +2906,7 @@ Validate parameters for create P2 package
 
 Validate parameters for create P2 package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2866,17 +2915,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadP2() # PackagesValidateuploadP2 |  (optional)
 
-try: 
+try:
     # Validate parameters for create P2 package
     api_instance.packages_validate_upload_p2(owner, repo, data=data)
 except ApiException as e:
@@ -2913,7 +2963,7 @@ Validate parameters for create Python package
 
 Validate parameters for create Python package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2922,17 +2972,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadPython() # PackagesValidateuploadPython |  (optional)
 
-try: 
+try:
     # Validate parameters for create Python package
     api_instance.packages_validate_upload_python(owner, repo, data=data)
 except ApiException as e:
@@ -2969,7 +3020,7 @@ Validate parameters for create Raw package
 
 Validate parameters for create Raw package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -2978,17 +3029,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadRaw() # PackagesValidateuploadRaw |  (optional)
 
-try: 
+try:
     # Validate parameters for create Raw package
     api_instance.packages_validate_upload_raw(owner, repo, data=data)
 except ApiException as e:
@@ -3025,7 +3077,7 @@ Validate parameters for create RedHat package
 
 Validate parameters for create RedHat package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3034,17 +3086,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadRpm() # PackagesValidateuploadRpm |  (optional)
 
-try: 
+try:
     # Validate parameters for create RedHat package
     api_instance.packages_validate_upload_rpm(owner, repo, data=data)
 except ApiException as e:
@@ -3081,7 +3134,7 @@ Validate parameters for create Ruby package
 
 Validate parameters for create Ruby package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3090,17 +3143,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadRuby() # PackagesValidateuploadRuby |  (optional)
 
-try: 
+try:
     # Validate parameters for create Ruby package
     api_instance.packages_validate_upload_ruby(owner, repo, data=data)
 except ApiException as e:
@@ -3137,7 +3191,7 @@ Validate parameters for create Terraform package
 
 Validate parameters for create Terraform package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3146,17 +3200,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadTerraform() # PackagesValidateuploadTerraform |  (optional)
 
-try: 
+try:
     # Validate parameters for create Terraform package
     api_instance.packages_validate_upload_terraform(owner, repo, data=data)
 except ApiException as e:
@@ -3193,7 +3248,7 @@ Validate parameters for create Vagrant package
 
 Validate parameters for create Vagrant package
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -3202,17 +3257,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi()
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 data = cloudsmith_api.PackagesValidateuploadVagrant() # PackagesValidateuploadVagrant |  (optional)
 
-try: 
+try:
     # Validate parameters for create Vagrant package
     api_instance.packages_validate_upload_vagrant(owner, repo, data=data)
 except ApiException as e:

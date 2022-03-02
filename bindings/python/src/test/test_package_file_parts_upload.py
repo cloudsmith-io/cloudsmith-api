@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.package_file_parts_upload import PackageFilePartsUpload  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.package_file_parts_upload import PackageFilePartsUpload
 
 
 class TestPackageFilePartsUpload(unittest.TestCase):
-    """ PackageFilePartsUpload unit test stubs """
+    """PackageFilePartsUpload unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestPackageFilePartsUpload(unittest.TestCase):
         pass
 
     def testPackageFilePartsUpload(self):
-        """
-        Test PackageFilePartsUpload
-        """
+        """Test PackageFilePartsUpload"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.package_file_parts_upload.PackageFilePartsUpload()
+        # model = cloudsmith_api.models.package_file_parts_upload.PackageFilePartsUpload()  # noqa: E501
         pass
 
 

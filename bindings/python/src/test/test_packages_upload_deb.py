@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.packages_upload_deb import PackagesUploadDeb  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.packages_upload_deb import PackagesUploadDeb
 
 
 class TestPackagesUploadDeb(unittest.TestCase):
-    """ PackagesUploadDeb unit test stubs """
+    """PackagesUploadDeb unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestPackagesUploadDeb(unittest.TestCase):
         pass
 
     def testPackagesUploadDeb(self):
-        """
-        Test PackagesUploadDeb
-        """
+        """Test PackagesUploadDeb"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.packages_upload_deb.PackagesUploadDeb()
+        # model = cloudsmith_api.models.packages_upload_deb.PackagesUploadDeb()  # noqa: E501
         pass
 
 

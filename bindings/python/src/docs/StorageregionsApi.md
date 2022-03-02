@@ -1,11 +1,11 @@
-# cloudsmith_api.StorageregionsApi
+# cloudsmith_api.StorageRegionsApi
 
 All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**storage_regions_list**](StorageregionsApi.md#storage_regions_list) | **GET** /storage-regions/ | Get a list of all available storage regions.
-[**storage_regions_read**](StorageregionsApi.md#storage_regions_read) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
+[**storage_regions_list**](StorageRegionsApi.md#storage_regions_list) | **GET** /storage-regions/ | Get a list of all available storage regions.
+[**storage_regions_read**](StorageRegionsApi.md#storage_regions_read) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
 
 
 # **storage_regions_list**
@@ -15,7 +15,7 @@ Get a list of all available storage regions.
 
 Get a list of all available storage regions.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -24,19 +24,20 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.StorageregionsApi()
+api_instance = cloudsmith_api.StorageRegionsApi(cloudsmith_api.ApiClient(configuration))
 
-try: 
+try:
     # Get a list of all available storage regions.
     api_response = api_instance.storage_regions_list()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling StorageregionsApi->storage_regions_list: %s\n" % e)
+    print("Exception when calling StorageRegionsApi->storage_regions_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -64,7 +65,7 @@ Get a specific storage region.
 
 Get a specific storage region.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -73,20 +74,21 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.StorageregionsApi()
+api_instance = cloudsmith_api.StorageRegionsApi(cloudsmith_api.ApiClient(configuration))
 slug = 'slug_example' # str | 
 
-try: 
+try:
     # Get a specific storage region.
     api_response = api_instance.storage_regions_read(slug)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling StorageregionsApi->storage_regions_read: %s\n" % e)
+    print("Exception when calling StorageRegionsApi->storage_regions_read: %s\n" % e)
 ```
 
 ### Parameters
