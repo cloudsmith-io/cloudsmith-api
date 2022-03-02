@@ -9,14 +9,12 @@ Method | HTTP request | Description
 
 
 # **UserSelf**
-> UserBrief UserSelf()
-
+> UserBrief UserSelf(ctx, )
 Provide a brief for the current user (if any).
 
 Provide a brief for the current user (if any).
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -35,18 +33,24 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UserTokenCreate**
-> UserAuthToken UserTokenCreate($data)
-
+> UserAuthToken UserTokenCreate(ctx, optional)
 Retrieve the API key/token for the authenticated user.
 
 Retrieve the API key/token for the authenticated user.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UserTokenCreate**](UserTokenCreate.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***UserApiUserTokenCreateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a UserApiUserTokenCreateOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**optional.Interface of UserTokenCreate**](UserTokenCreate.md)|  | 
 
 ### Return type
 

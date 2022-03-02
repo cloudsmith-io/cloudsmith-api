@@ -9,14 +9,12 @@ Method | HTTP request | Description
 
 
 # **DistrosList**
-> []Distribution DistrosList()
-
+> []Distribution DistrosList(ctx, )
 Get a list of all supported distributions.
 
 Get a list of all supported distributions.
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -35,18 +33,17 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DistrosRead**
-> Distribution DistrosRead($slug)
-
+> Distribution DistrosRead(ctx, slug)
 View for viewing/listing distributions.
 
 View for viewing/listing distributions.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **slug** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **slug** | **string**|  | 
 
 ### Return type
 

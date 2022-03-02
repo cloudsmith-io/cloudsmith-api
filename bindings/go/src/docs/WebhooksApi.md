@@ -12,20 +12,28 @@ Method | HTTP request | Description
 
 
 # **WebhooksCreate**
-> RepositoryWebhook WebhooksCreate($owner, $repo, $data)
-
+> RepositoryWebhook WebhooksCreate(ctx, owner, repo, optional)
 Create a specific webhook in a repository.
 
 Create a specific webhook in a repository.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **data** | [**WebhooksCreate**](WebhooksCreate.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+ **optional** | ***WebhooksApiWebhooksCreateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a WebhooksApiWebhooksCreateOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **data** | [**optional.Interface of WebhooksCreate**](WebhooksCreate.md)|  | 
 
 ### Return type
 
@@ -43,24 +51,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **WebhooksDelete**
-> WebhooksDelete($owner, $repo, $identifier)
-
+> WebhooksDelete(ctx, owner, repo, identifier)
 Delete a specific webhook in a repository.
 
 Delete a specific webhook in a repository.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **identifier** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **identifier** | **string**|  | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -74,21 +81,29 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **WebhooksList**
-> []RepositoryWebhook WebhooksList($owner, $repo, $page, $pageSize)
-
+> []RepositoryWebhook WebhooksList(ctx, owner, repo, optional)
 Get a list of all webhooks in a repository.
 
 Get a list of all webhooks in a repository.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+ **optional** | ***WebhooksApiWebhooksListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a WebhooksApiWebhooksListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -106,21 +121,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **WebhooksPartialUpdate**
-> RepositoryWebhook WebhooksPartialUpdate($owner, $repo, $identifier, $data)
-
+> RepositoryWebhook WebhooksPartialUpdate(ctx, owner, repo, identifier, optional)
 Update a specific webhook in a repository.
 
 Update a specific webhook in a repository.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **identifier** | **string**|  | 
- **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **identifier** | **string**|  | 
+ **optional** | ***WebhooksApiWebhooksPartialUpdateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a WebhooksApiWebhooksPartialUpdateOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **data** | [**optional.Interface of WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -138,20 +162,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **WebhooksRead**
-> RepositoryWebhook WebhooksRead($owner, $repo, $identifier)
-
+> RepositoryWebhook WebhooksRead(ctx, owner, repo, identifier)
 Views for working with repository webhooks.
 
 Views for working with repository webhooks.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **identifier** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **identifier** | **string**|  | 
 
 ### Return type
 

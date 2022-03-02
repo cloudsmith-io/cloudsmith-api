@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **LimitNumDownloads** | **int32** | The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. | [optional] [default to null]
 **LimitPackageQuery** | **string** | The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. | [optional] [default to null]
 **LimitPathQuery** | **string** | The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash. | [optional] [default to null]
-**Metadata** | [**interface{}**](interface{}.md) | None | [optional] [default to null]
+**Metadata** | **interface{}** | None | [optional] [default to null]
 **Name** | **string** | None | [default to null]
 **ScheduledResetAt** | **string** | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. | [optional] [default to null]
 **ScheduledResetPeriod** | **string** | None | [optional] [default to null]

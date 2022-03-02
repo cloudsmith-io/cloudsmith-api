@@ -12,25 +12,34 @@ Method | HTTP request | Description
 
 
 # **FilesAbort**
-> FilesAbort($owner, $repo, $identifier, $data)
-
+> FilesAbort(ctx, owner, repo, identifier, optional)
 Abort a multipart file upload.
 
 Abort a multipart file upload.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **identifier** | **string**|  | 
- **data** | [**FilesAbort**](FilesAbort.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **identifier** | **string**|  | 
+ **optional** | ***FilesApiFilesAbortOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FilesApiFilesAbortOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **data** | [**optional.Interface of FilesAbort**](FilesAbort.md)|  | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -44,21 +53,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FilesComplete**
-> PackageFileUpload FilesComplete($owner, $repo, $identifier, $data)
-
+> PackageFileUpload FilesComplete(ctx, owner, repo, identifier, optional)
 Complete a multipart file upload.
 
 Complete a multipart file upload.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **identifier** | **string**|  | 
- **data** | [**FilesComplete**](FilesComplete.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **identifier** | **string**|  | 
+ **optional** | ***FilesApiFilesCompleteOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FilesApiFilesCompleteOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **data** | [**optional.Interface of FilesComplete**](FilesComplete.md)|  | 
 
 ### Return type
 
@@ -76,20 +94,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FilesCreate**
-> PackageFileUpload FilesCreate($owner, $repo, $data)
-
+> PackageFileUpload FilesCreate(ctx, owner, repo, optional)
 Request URL(s) to upload new package file upload(s) to.
 
 Request URL(s) to upload new package file upload(s) to.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **data** | [**FilesCreate**](FilesCreate.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+ **optional** | ***FilesApiFilesCreateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FilesApiFilesCreateOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **data** | [**optional.Interface of FilesCreate**](FilesCreate.md)|  | 
 
 ### Return type
 
@@ -107,20 +133,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FilesInfo**
-> PackageFilePartsUpload FilesInfo($owner, $repo, $identifier)
-
+> PackageFilePartsUpload FilesInfo(ctx, owner, repo, identifier)
 Get upload information for a multipart file upload.
 
 Get upload information for a multipart file upload.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **identifier** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **identifier** | **string**|  | 
 
 ### Return type
 
@@ -138,24 +163,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FilesValidate**
-> FilesValidate($owner, $repo, $data)
-
+> FilesValidate(ctx, owner, repo, optional)
 Validate parameters used for create.
 
 Validate parameters used for create.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **data** | [**FilesValidate**](FilesValidate.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+ **optional** | ***FilesApiFilesValidateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FilesApiFilesValidateOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **data** | [**optional.Interface of FilesValidate**](FilesValidate.md)|  | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

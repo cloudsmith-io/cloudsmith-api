@@ -11,20 +11,27 @@ Method | HTTP request | Description
 
 
 # **VulnerabilitiesList**
-> []VulnerabilityScanResultsList VulnerabilitiesList($owner, $page, $pageSize)
-
+> []VulnerabilityScanResultsList VulnerabilitiesList(ctx, owner, optional)
 Lists scan results for a specific namespace.
 
 Lists scan results for a specific namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+ **optional** | ***VulnerabilitiesApiVulnerabilitiesListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a VulnerabilitiesApiVulnerabilitiesListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -42,21 +49,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **VulnerabilitiesList0**
-> []VulnerabilityScanResultsList VulnerabilitiesList0($owner, $repo, $page, $pageSize)
-
+> []VulnerabilityScanResultsList VulnerabilitiesList0(ctx, owner, repo, optional)
 Lists scan results for a specific repository.
 
 Lists scan results for a specific repository.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+ **optional** | ***VulnerabilitiesApiVulnerabilitiesList0Opts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a VulnerabilitiesApiVulnerabilitiesList0Opts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -74,22 +89,31 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **VulnerabilitiesList1**
-> []VulnerabilityScanResultsList VulnerabilitiesList1($owner, $repo, $package_, $page, $pageSize)
-
+> []VulnerabilityScanResultsList VulnerabilitiesList1(ctx, owner, repo, package_, optional)
 Lists scan results for a specific package.
 
 Lists scan results for a specific package.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **package_** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **package_** | **string**|  | 
+ **optional** | ***VulnerabilitiesApiVulnerabilitiesList1Opts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a VulnerabilitiesApiVulnerabilitiesList1Opts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -107,21 +131,20 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **VulnerabilitiesRead**
-> VulnerabilityScanResults VulnerabilitiesRead($owner, $repo, $package_, $scanId)
-
+> VulnerabilityScanResults VulnerabilitiesRead(ctx, owner, repo, package_, scanId)
 Returns a Scan Result.
 
 Returns a Scan Result.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **package_** | **string**|  | 
- **scanId** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **package_** | **string**|  | 
+  **scanId** | **string**|  | 
 
 ### Return type
 

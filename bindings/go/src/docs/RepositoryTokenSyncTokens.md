@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **DisableUrl** | **string** |  | [optional] [default to null]
 **Downloads** | **int32** |  | [optional] [default to null]
 **EnableUrl** | **string** |  | [optional] [default to null]
-**EulaAccepted** | [**interface{}**](interface{}.md) |  | [optional] [default to null]
+**EulaAccepted** | **interface{}** |  | [optional] [default to null]
 **EulaAcceptedAt** | **string** | The datetime the EULA was accepted at. | [optional] [default to null]
 **EulaAcceptedFrom** | **string** |  | [optional] [default to null]
 **EulaRequired** | **bool** | If checked, a EULA acceptance is required for this token. | [optional] [default to null]
