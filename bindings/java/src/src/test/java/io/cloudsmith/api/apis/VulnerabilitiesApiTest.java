@@ -13,12 +13,12 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Status;
 import io.cloudsmith.api.models.VulnerabilityScanResults;
 import io.cloudsmith.api.models.VulnerabilityScanResultsList;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class VulnerabilitiesApiTest {
      *
      * Lists scan results for a specific namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void vulnerabilitiesListTest() throws ApiException {
+    public void vulnerabilitiesListTest() throws Exception {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
@@ -57,11 +57,11 @@ public class VulnerabilitiesApiTest {
      *
      * Lists scan results for a specific repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void vulnerabilitiesList0Test() throws ApiException {
+    public void vulnerabilitiesList0Test() throws Exception {
         String owner = null;
         String repo = null;
         Integer page = null;
@@ -76,11 +76,11 @@ public class VulnerabilitiesApiTest {
      *
      * Lists scan results for a specific package.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void vulnerabilitiesList1Test() throws ApiException {
+    public void vulnerabilitiesList1Test() throws Exception {
         String owner = null;
         String repo = null;
         String _package = null;
@@ -96,11 +96,11 @@ public class VulnerabilitiesApiTest {
      *
      * Returns a Scan Result.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void vulnerabilitiesReadTest() throws ApiException {
+    public void vulnerabilitiesReadTest() throws Exception {
         String owner = null;
         String repo = null;
         String _package = null;

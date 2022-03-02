@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,7 +53,7 @@ public class RepositoryWebhook implements Serializable {
   private String disableReasonStr = null;
 
   @SerializedName("events")
-  private List<String> events = new ArrayList<String>();
+  private List<String> events = new ArrayList<>();
 
   @SerializedName("identifier")
   private Integer identifier = null;
@@ -103,7 +104,7 @@ public class RepositoryWebhook implements Serializable {
   private String targetUrl = null;
 
   @SerializedName("templates")
-  private List<WebhooksownerrepoTemplates> templates = new ArrayList<WebhooksownerrepoTemplates>();
+  private List<WebhooksownerrepoTemplates> templates = new ArrayList<>();
 
   @SerializedName("updated_at")
   private String updatedAt = null;
@@ -259,7 +260,7 @@ public class RepositoryWebhook implements Serializable {
    * @return isActive
   **/
   @ApiModelProperty(value = "If enabled, the webhook will trigger on events and send payloads to the configured target URL.")
-  public Boolean getIsActive() {
+  public Boolean isIsActive() {
     return isActive;
   }
 
@@ -277,7 +278,7 @@ public class RepositoryWebhook implements Serializable {
    * @return isLastResponseBad
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsLastResponseBad() {
+  public Boolean isIsLastResponseBad() {
     return isLastResponseBad;
   }
 
@@ -609,7 +610,7 @@ public class RepositoryWebhook implements Serializable {
    * @return verifySsl
   **/
   @ApiModelProperty(value = "If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.")
-  public Boolean getVerifySsl() {
+  public Boolean isVerifySsl() {
     return verifySsl;
   }
 
@@ -708,6 +709,6 @@ public class RepositoryWebhook implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

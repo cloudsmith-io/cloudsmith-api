@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -187,7 +188,7 @@ public class Repository implements Serializable {
 
   public Repository addGpgKeysItem(ReposGpgKeys gpgKeysItem) {
     if (this.gpgKeys == null) {
-      this.gpgKeys = new ArrayList<ReposGpgKeys>();
+      this.gpgKeys = new ArrayList<>();
     }
     this.gpgKeys.add(gpgKeysItem);
     return this;
@@ -217,7 +218,7 @@ public class Repository implements Serializable {
    * @return indexFiles
   **/
   @ApiModelProperty(value = "If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.")
-  public Boolean getIndexFiles() {
+  public Boolean isIndexFiles() {
     return indexFiles;
   }
 
@@ -235,7 +236,7 @@ public class Repository implements Serializable {
    * @return isOpenSource
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsOpenSource() {
+  public Boolean isIsOpenSource() {
     return isOpenSource;
   }
 
@@ -253,7 +254,7 @@ public class Repository implements Serializable {
    * @return isPrivate
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsPrivate() {
+  public Boolean isIsPrivate() {
     return isPrivate;
   }
 
@@ -271,7 +272,7 @@ public class Repository implements Serializable {
    * @return isPublic
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsPublic() {
+  public Boolean isIsPublic() {
     return isPublic;
   }
 
@@ -635,6 +636,6 @@ public class Repository implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -173,7 +174,7 @@ public class Distribution implements Serializable {
 
   public Distribution addVersionsItem(DistrosVersions versionsItem) {
     if (this.versions == null) {
-      this.versions = new ArrayList<DistrosVersions>();
+      this.versions = new ArrayList<>();
     }
     this.versions.add(versionsItem);
     return this;
@@ -244,6 +245,6 @@ public class Distribution implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

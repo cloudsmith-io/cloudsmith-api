@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -72,7 +73,7 @@ public class PackagesTag implements Serializable {
    * @return isImmutable
   **/
   @ApiModelProperty(value = "If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.")
-  public Boolean getIsImmutable() {
+  public Boolean isIsImmutable() {
     return isImmutable;
   }
 
@@ -87,7 +88,7 @@ public class PackagesTag implements Serializable {
 
   public PackagesTag addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -149,6 +150,6 @@ public class PackagesTag implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

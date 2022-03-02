@@ -13,11 +13,11 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Format;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class FormatsApiTest {
      *
      * Get a list of all supported package formats.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void formatsListTest() throws ApiException {
+    public void formatsListTest() throws Exception {
         List<Format> response = api.formatsList();
 
         // TODO: test validations
@@ -53,11 +53,11 @@ public class FormatsApiTest {
      *
      * Get a specific supported package format.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void formatsReadTest() throws ApiException {
+    public void formatsReadTest() throws Exception {
         String slug = null;
         Format response = api.formatsRead(slug);
 

@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,7 +46,7 @@ public class ResourcesRateCheck implements Serializable {
    * Rate limit values per resource
    * @return resources
   **/
-  @ApiModelProperty(example = "{\"core\":{\"interval\":5.123456789,\"limit\":3600,\"remaining\":3595,\"reset\":1645137695,\"reset_iso_8601\":\"2022-02-17T22:41:35.992934+00:00\",\"throttled\":false}}", value = "Rate limit values per resource")
+  @ApiModelProperty(example = "{\"core\":{\"interval\":5.123456789,\"limit\":3600,\"remaining\":3595,\"reset\":1646240053,\"reset_iso_8601\":\"2022-03-02T16:54:13.483698+00:00\",\"throttled\":false}}", value = "Rate limit values per resource")
   public Object getResources() {
     return resources;
   }
@@ -93,6 +94,6 @@ public class ResourcesRateCheck implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -64,7 +65,7 @@ public class UserBrief implements Serializable {
    * @return authenticated
   **/
   @ApiModelProperty(example = "true", value = "If true then you're logged in as a user.")
-  public Boolean getAuthenticated() {
+  public Boolean isAuthenticated() {
     return authenticated;
   }
 
@@ -231,6 +232,6 @@ public class UserBrief implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

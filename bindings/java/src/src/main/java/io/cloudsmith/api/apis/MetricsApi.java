@@ -80,22 +80,23 @@ public class MetricsApi {
      */
     public com.squareup.okhttp.Call metricsEntitlementsListCall(String owner, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/metrics/entitlements/{owner}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
         if (finish != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "finish", finish));
+        localVarQueryParams.addAll(apiClient.parameterToPair("finish", finish));
         if (start != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+        localVarQueryParams.addAll(apiClient.parameterToPair("start", start));
         if (tokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "tokens", tokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("tokens", tokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -126,9 +127,9 @@ public class MetricsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call metricsEntitlementsListValidateBeforeCall(String owner, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -143,7 +144,7 @@ public class MetricsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = metricsEntitlementsListCall(owner, page, pageSize, finish, start, tokens, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -154,11 +155,7 @@ public class MetricsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -251,23 +248,24 @@ public class MetricsApi {
      */
     public com.squareup.okhttp.Call metricsEntitlementsList0Call(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/metrics/entitlements/{owner}/{repo}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
         if (finish != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "finish", finish));
+        localVarQueryParams.addAll(apiClient.parameterToPair("finish", finish));
         if (start != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+        localVarQueryParams.addAll(apiClient.parameterToPair("start", start));
         if (tokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "tokens", tokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("tokens", tokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -298,9 +296,9 @@ public class MetricsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call metricsEntitlementsList0ValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -315,7 +313,7 @@ public class MetricsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = metricsEntitlementsList0Call(owner, repo, page, pageSize, finish, start, tokens, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -326,11 +324,7 @@ public class MetricsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -426,23 +420,24 @@ public class MetricsApi {
      */
     public com.squareup.okhttp.Call metricsPackagesListCall(String owner, String repo, Integer page, Integer pageSize, String finish, String packages, String start, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/metrics/packages/{owner}/{repo}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
         if (finish != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "finish", finish));
+        localVarQueryParams.addAll(apiClient.parameterToPair("finish", finish));
         if (packages != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "packages", packages));
+        localVarQueryParams.addAll(apiClient.parameterToPair("packages", packages));
         if (start != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+        localVarQueryParams.addAll(apiClient.parameterToPair("start", start));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -473,9 +468,9 @@ public class MetricsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call metricsPackagesListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, String finish, String packages, String start, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -490,7 +485,7 @@ public class MetricsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = metricsPackagesListCall(owner, repo, page, pageSize, finish, packages, start, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -501,11 +496,7 @@ public class MetricsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**

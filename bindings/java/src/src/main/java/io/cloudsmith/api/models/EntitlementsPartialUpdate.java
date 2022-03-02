@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -88,7 +89,7 @@ public class EntitlementsPartialUpdate implements Serializable {
    * @return eulaRequired
   **/
   @ApiModelProperty(value = "If checked, a EULA acceptance is required for this token.")
-  public Boolean getEulaRequired() {
+  public Boolean isEulaRequired() {
     return eulaRequired;
   }
 
@@ -106,7 +107,7 @@ public class EntitlementsPartialUpdate implements Serializable {
    * @return isActive
   **/
   @ApiModelProperty(value = "If enabled, the token will allow downloads based on configured restrictions (if any).")
-  public Boolean getIsActive() {
+  public Boolean isIsActive() {
     return isActive;
   }
 
@@ -415,6 +416,6 @@ public class EntitlementsPartialUpdate implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

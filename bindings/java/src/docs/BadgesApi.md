@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="badgesVersionList"></a>
 # **badgesVersionList**
-> badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style)
+> Object badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style)
 
 Get latest package version for a package or package group.
 
@@ -51,7 +51,8 @@ Boolean shields = true; // Boolean | If true, a shields response will be generat
 Boolean showLatest = true; // Boolean | If true, for latest version badges a '(latest)' suffix is added
 String style = "style_example"; // String | Override the shields.io badge style value.
 try {
-    apiInstance.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+    Object result = apiInstance.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BadgesApi#badgesVersionList");
     e.printStackTrace();
@@ -82,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Object**
 
 ### Authorization
 

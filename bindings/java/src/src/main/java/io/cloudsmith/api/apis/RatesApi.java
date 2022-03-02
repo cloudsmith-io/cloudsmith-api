@@ -73,11 +73,12 @@ public class RatesApi {
      */
     public com.squareup.okhttp.Call ratesLimitsListCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/rates/limits/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -108,9 +109,9 @@ public class RatesApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call ratesLimitsListValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -125,7 +126,7 @@ public class RatesApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = ratesLimitsListCall(progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -136,11 +137,7 @@ public class RatesApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**

@@ -89,7 +89,7 @@ public class BadgesApi {
      */
     public com.squareup.okhttp.Call badgesVersionListCall(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -100,28 +100,29 @@ public class BadgesApi {
             .replaceAll("\\{" + "package_identifiers" + "\\}", apiClient.escapeString(packageIdentifiers.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (badgeToken != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "badge_token", badgeToken));
+        localVarQueryParams.addAll(apiClient.parameterToPair("badge_token", badgeToken));
         if (cacheSeconds != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "cacheSeconds", cacheSeconds));
+        localVarQueryParams.addAll(apiClient.parameterToPair("cacheSeconds", cacheSeconds));
         if (color != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "color", color));
+        localVarQueryParams.addAll(apiClient.parameterToPair("color", color));
         if (label != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "label", label));
+        localVarQueryParams.addAll(apiClient.parameterToPair("label", label));
         if (labelColor != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "labelColor", labelColor));
+        localVarQueryParams.addAll(apiClient.parameterToPair("labelColor", labelColor));
         if (logoColor != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoColor", logoColor));
+        localVarQueryParams.addAll(apiClient.parameterToPair("logoColor", logoColor));
         if (logoWidth != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoWidth", logoWidth));
+        localVarQueryParams.addAll(apiClient.parameterToPair("logoWidth", logoWidth));
         if (render != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "render", render));
+        localVarQueryParams.addAll(apiClient.parameterToPair("render", render));
         if (shields != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "shields", shields));
+        localVarQueryParams.addAll(apiClient.parameterToPair("shields", shields));
         if (showLatest != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_latest", showLatest));
+        localVarQueryParams.addAll(apiClient.parameterToPair("show_latest", showLatest));
         if (style != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "style", style));
+        localVarQueryParams.addAll(apiClient.parameterToPair("style", style));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -152,9 +153,9 @@ public class BadgesApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call badgesVersionListValidateBeforeCall(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -169,7 +170,7 @@ public class BadgesApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = badgesVersionListCall(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -180,11 +181,7 @@ public class BadgesApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -207,10 +204,12 @@ public class BadgesApi {
      * @param shields If true, a shields response will be generated (optional)
      * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional)
      * @param style Override the shields.io badge style value. (optional)
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void badgesVersionList(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style) throws ApiException {
-        badgesVersionListWithHttpInfo(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+    public Object badgesVersionList(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style) throws ApiException {
+        ApiResponse<Object> resp = badgesVersionListWithHttpInfo(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+        return resp.getData();
     }
 
     /**
@@ -233,12 +232,13 @@ public class BadgesApi {
      * @param shields If true, a shields response will be generated (optional)
      * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional)
      * @param style Override the shields.io badge style value. (optional)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> badgesVersionListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String packageFormat,  @NotNull String packageName,  @NotNull String packageVersion,  @NotNull String packageIdentifiers,  String badgeToken,  String cacheSeconds,  String color,  String label,  String labelColor,  String logoColor,  String logoWidth,  Boolean render,  Boolean shields,  Boolean showLatest,  String style) throws ApiException {
+    public ApiResponse<Object> badgesVersionListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String packageFormat,  @NotNull String packageName,  @NotNull String packageVersion,  @NotNull String packageIdentifiers,  String badgeToken,  String cacheSeconds,  String color,  String label,  String labelColor,  String logoColor,  String logoWidth,  Boolean render,  Boolean shields,  Boolean showLatest,  String style) throws ApiException {
         com.squareup.okhttp.Call call = badgesVersionListValidateBeforeCall(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style, null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -265,7 +265,7 @@ public class BadgesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call badgesVersionListAsync(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call badgesVersionListAsync(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -287,7 +287,8 @@ public class BadgesApi {
         }
 
         com.squareup.okhttp.Call call = badgesVersionListValidateBeforeCall(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
 }

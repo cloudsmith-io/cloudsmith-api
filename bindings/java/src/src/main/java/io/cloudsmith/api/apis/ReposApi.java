@@ -77,15 +77,16 @@ public class ReposApi {
      */
     public com.squareup.okhttp.Call reposAllListCall(Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/repos/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -116,9 +117,9 @@ public class ReposApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call reposAllListValidateBeforeCall(Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -133,7 +134,7 @@ public class ReposApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = reposAllListCall(page, pageSize, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -144,11 +145,7 @@ public class ReposApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -224,12 +221,13 @@ public class ReposApi {
      */
     public com.squareup.okhttp.Call reposCreateCall(String owner, ReposCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
-        
+
         // create path and map variables
         String localVarPath = "/repos/{owner}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -260,9 +258,9 @@ public class ReposApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call reposCreateValidateBeforeCall(String owner, ReposCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -277,7 +275,7 @@ public class ReposApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = reposCreateCall(owner, data, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -288,11 +286,7 @@ public class ReposApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -368,13 +362,14 @@ public class ReposApi {
      */
     public com.squareup.okhttp.Call reposDeleteCall(String owner, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/repos/{owner}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -405,9 +400,9 @@ public class ReposApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call reposDeleteValidateBeforeCall(String owner, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -422,7 +417,7 @@ public class ReposApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = reposDeleteCall(owner, identifier, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -433,11 +428,7 @@ public class ReposApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -510,16 +501,17 @@ public class ReposApi {
      */
     public com.squareup.okhttp.Call reposListCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/repos/{owner}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -550,9 +542,9 @@ public class ReposApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call reposListValidateBeforeCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -567,7 +559,7 @@ public class ReposApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = reposListCall(owner, page, pageSize, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -578,11 +570,7 @@ public class ReposApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -662,13 +650,14 @@ public class ReposApi {
      */
     public com.squareup.okhttp.Call reposPartialUpdateCall(String owner, String identifier, ReposPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
-        
+
         // create path and map variables
         String localVarPath = "/repos/{owner}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -699,9 +688,9 @@ public class ReposApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call reposPartialUpdateValidateBeforeCall(String owner, String identifier, ReposPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -716,7 +705,7 @@ public class ReposApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = reposPartialUpdateCall(owner, identifier, data, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -727,11 +716,7 @@ public class ReposApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -810,13 +795,14 @@ public class ReposApi {
      */
     public com.squareup.okhttp.Call reposReadCall(String owner, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/repos/{owner}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -847,9 +833,9 @@ public class ReposApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call reposReadValidateBeforeCall(String owner, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -864,7 +850,7 @@ public class ReposApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = reposReadCall(owner, identifier, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -875,11 +861,7 @@ public class ReposApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**

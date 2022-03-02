@@ -73,11 +73,12 @@ public class StatusApi {
      */
     public com.squareup.okhttp.Call statusCheckBasicCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/status/check/basic/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -108,9 +109,9 @@ public class StatusApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call statusCheckBasicValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -125,7 +126,7 @@ public class StatusApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = statusCheckBasicCall(progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -136,11 +137,7 @@ public class StatusApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**

@@ -13,10 +13,10 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,11 +37,11 @@ public class BadgesApiTest {
      *
      * Get latest package version for a package or package group.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void badgesVersionListTest() throws ApiException {
+    public void badgesVersionListTest() throws Exception {
         String owner = null;
         String repo = null;
         String packageFormat = null;
@@ -59,7 +59,7 @@ public class BadgesApiTest {
         Boolean shields = null;
         Boolean showLatest = null;
         String style = null;
-        api.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+        Object response = api.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
 
         // TODO: test validations
     }

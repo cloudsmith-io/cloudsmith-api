@@ -78,13 +78,14 @@ public class WebhooksApi {
      */
     public com.squareup.okhttp.Call webhooksCreateCall(String owner, String repo, WebhooksCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
-        
+
         // create path and map variables
         String localVarPath = "/webhooks/{owner}/{repo}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -115,9 +116,9 @@ public class WebhooksApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call webhooksCreateValidateBeforeCall(String owner, String repo, WebhooksCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -132,7 +133,7 @@ public class WebhooksApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = webhooksCreateCall(owner, repo, data, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -143,11 +144,7 @@ public class WebhooksApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -227,7 +224,7 @@ public class WebhooksApi {
      */
     public com.squareup.okhttp.Call webhooksDeleteCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/webhooks/{owner}/{repo}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -235,6 +232,7 @@ public class WebhooksApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -265,9 +263,9 @@ public class WebhooksApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call webhooksDeleteValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -282,7 +280,7 @@ public class WebhooksApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = webhooksDeleteCall(owner, repo, identifier, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -293,11 +291,7 @@ public class WebhooksApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -374,17 +368,18 @@ public class WebhooksApi {
      */
     public com.squareup.okhttp.Call webhooksListCall(String owner, String repo, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/webhooks/{owner}/{repo}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -415,9 +410,9 @@ public class WebhooksApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call webhooksListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -432,7 +427,7 @@ public class WebhooksApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = webhooksListCall(owner, repo, page, pageSize, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -443,11 +438,7 @@ public class WebhooksApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -531,7 +522,7 @@ public class WebhooksApi {
      */
     public com.squareup.okhttp.Call webhooksPartialUpdateCall(String owner, String repo, String identifier, WebhooksPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
-        
+
         // create path and map variables
         String localVarPath = "/webhooks/{owner}/{repo}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -539,6 +530,7 @@ public class WebhooksApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -569,9 +561,9 @@ public class WebhooksApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call webhooksPartialUpdateValidateBeforeCall(String owner, String repo, String identifier, WebhooksPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -586,7 +578,7 @@ public class WebhooksApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = webhooksPartialUpdateCall(owner, repo, identifier, data, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -597,11 +589,7 @@ public class WebhooksApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -684,7 +672,7 @@ public class WebhooksApi {
      */
     public com.squareup.okhttp.Call webhooksReadCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/webhooks/{owner}/{repo}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -692,6 +680,7 @@ public class WebhooksApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -722,9 +711,9 @@ public class WebhooksApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call webhooksReadValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -739,7 +728,7 @@ public class WebhooksApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = webhooksReadCall(owner, repo, identifier, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -750,11 +739,7 @@ public class WebhooksApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**

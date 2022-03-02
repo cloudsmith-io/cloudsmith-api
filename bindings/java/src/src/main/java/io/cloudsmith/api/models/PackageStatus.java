@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -88,7 +89,7 @@ public class PackageStatus implements Serializable {
    * @return isSyncAwaiting
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncAwaiting() {
+  public Boolean isIsSyncAwaiting() {
     return isSyncAwaiting;
   }
 
@@ -106,7 +107,7 @@ public class PackageStatus implements Serializable {
    * @return isSyncCompleted
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncCompleted() {
+  public Boolean isIsSyncCompleted() {
     return isSyncCompleted;
   }
 
@@ -124,7 +125,7 @@ public class PackageStatus implements Serializable {
    * @return isSyncFailed
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncFailed() {
+  public Boolean isIsSyncFailed() {
     return isSyncFailed;
   }
 
@@ -142,7 +143,7 @@ public class PackageStatus implements Serializable {
    * @return isSyncInFlight
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncInFlight() {
+  public Boolean isIsSyncInFlight() {
     return isSyncInFlight;
   }
 
@@ -160,7 +161,7 @@ public class PackageStatus implements Serializable {
    * @return isSyncInProgress
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncInProgress() {
+  public Boolean isIsSyncInProgress() {
     return isSyncInProgress;
   }
 
@@ -415,6 +416,6 @@ public class PackageStatus implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

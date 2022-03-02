@@ -13,11 +13,11 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Status;
 import io.cloudsmith.api.models.UserProfile;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class UsersApiTest {
      *
      * Provide a brief for the specified user (if any).
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void usersProfileReadTest() throws ApiException {
+    public void usersProfileReadTest() throws Exception {
         String slug = null;
         UserProfile response = api.usersProfileRead(slug);
 

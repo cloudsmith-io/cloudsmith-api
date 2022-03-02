@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,7 +47,7 @@ public class RepositoryTokenSync implements Serializable {
 
   public RepositoryTokenSync addTokensItem(RepositoryTokenSyncTokens tokensItem) {
     if (this.tokens == null) {
-      this.tokens = new ArrayList<RepositoryTokenSyncTokens>();
+      this.tokens = new ArrayList<>();
     }
     this.tokens.add(tokensItem);
     return this;
@@ -105,6 +106,6 @@ public class RepositoryTokenSync implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

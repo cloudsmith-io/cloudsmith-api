@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -232,7 +233,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
    * @return _default
   **/
   @ApiModelProperty(value = "If selected this is the default token for this repository.")
-  public Boolean getDefault() {
+  public Boolean isDefault() {
     return _default;
   }
 
@@ -358,7 +359,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
    * @return eulaRequired
   **/
   @ApiModelProperty(value = "If checked, a EULA acceptance is required for this token.")
-  public Boolean getEulaRequired() {
+  public Boolean isEulaRequired() {
     return eulaRequired;
   }
 
@@ -376,7 +377,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
    * @return hasLimits
   **/
   @ApiModelProperty(value = "")
-  public Boolean getHasLimits() {
+  public Boolean isHasLimits() {
     return hasLimits;
   }
 
@@ -412,7 +413,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
    * @return isActive
   **/
   @ApiModelProperty(value = "If enabled, the token will allow downloads based on configured restrictions (if any).")
-  public Boolean getIsActive() {
+  public Boolean isIsActive() {
     return isActive;
   }
 
@@ -430,7 +431,7 @@ public class RepositoryTokenSyncTokens implements Serializable {
    * @return isLimited
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsLimited() {
+  public Boolean isIsLimited() {
     return isLimited;
   }
 
@@ -967,6 +968,6 @@ public class RepositoryTokenSyncTokens implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

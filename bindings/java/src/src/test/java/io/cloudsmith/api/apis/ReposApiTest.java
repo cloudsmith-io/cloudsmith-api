@@ -13,13 +13,13 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.ReposCreate;
 import io.cloudsmith.api.models.ReposPartialUpdate;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class ReposApiTest {
      *
      * Get a list of all repositories associated with current user.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void reposAllListTest() throws ApiException {
+    public void reposAllListTest() throws Exception {
         Integer page = null;
         Integer pageSize = null;
         List<Repository> response = api.reposAllList(page, pageSize);
@@ -57,11 +57,11 @@ public class ReposApiTest {
      *
      * Create a new repository in a given namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void reposCreateTest() throws ApiException {
+    public void reposCreateTest() throws Exception {
         String owner = null;
         ReposCreate data = null;
         Repository response = api.reposCreate(owner, data);
@@ -74,11 +74,11 @@ public class ReposApiTest {
      *
      * Delete a repository in a given namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void reposDeleteTest() throws ApiException {
+    public void reposDeleteTest() throws Exception {
         String owner = null;
         String identifier = null;
         api.reposDelete(owner, identifier);
@@ -91,11 +91,11 @@ public class ReposApiTest {
      *
      * Get a list of all repositories within a namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void reposListTest() throws ApiException {
+    public void reposListTest() throws Exception {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
@@ -109,11 +109,11 @@ public class ReposApiTest {
      *
      * Update details about a repository in a given namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void reposPartialUpdateTest() throws ApiException {
+    public void reposPartialUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
         ReposPartialUpdate data = null;
@@ -127,11 +127,11 @@ public class ReposApiTest {
      *
      * Get a specific repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void reposReadTest() throws ApiException {
+    public void reposReadTest() throws Exception {
         String owner = null;
         String identifier = null;
         Repository response = api.reposRead(owner, identifier);

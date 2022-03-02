@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -79,7 +80,7 @@ public class WebhooksPartialUpdate implements Serializable {
 
   public WebhooksPartialUpdate addEventsItem(String eventsItem) {
     if (this.events == null) {
-      this.events = new ArrayList<String>();
+      this.events = new ArrayList<>();
     }
     this.events.add(eventsItem);
     return this;
@@ -108,7 +109,7 @@ public class WebhooksPartialUpdate implements Serializable {
    * @return isActive
   **/
   @ApiModelProperty(value = "If enabled, the webhook will trigger on events and send payloads to the configured target URL.")
-  public Boolean getIsActive() {
+  public Boolean isIsActive() {
     return isActive;
   }
 
@@ -267,7 +268,7 @@ public class WebhooksPartialUpdate implements Serializable {
 
   public WebhooksPartialUpdate addTemplatesItem(WebhooksownerrepoTemplates templatesItem) {
     if (this.templates == null) {
-      this.templates = new ArrayList<WebhooksownerrepoTemplates>();
+      this.templates = new ArrayList<>();
     }
     this.templates.add(templatesItem);
     return this;
@@ -297,7 +298,7 @@ public class WebhooksPartialUpdate implements Serializable {
    * @return verifySsl
   **/
   @ApiModelProperty(value = "If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.")
-  public Boolean getVerifySsl() {
+  public Boolean isVerifySsl() {
     return verifySsl;
   }
 
@@ -366,6 +367,6 @@ public class WebhooksPartialUpdate implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

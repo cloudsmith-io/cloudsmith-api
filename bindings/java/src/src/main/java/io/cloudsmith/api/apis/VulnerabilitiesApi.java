@@ -77,16 +77,17 @@ public class VulnerabilitiesApi {
      */
     public com.squareup.okhttp.Call vulnerabilitiesListCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/vulnerabilities/{owner}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -117,9 +118,9 @@ public class VulnerabilitiesApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call vulnerabilitiesListValidateBeforeCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -134,7 +135,7 @@ public class VulnerabilitiesApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = vulnerabilitiesListCall(owner, page, pageSize, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -145,11 +146,7 @@ public class VulnerabilitiesApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -230,17 +227,18 @@ public class VulnerabilitiesApi {
      */
     public com.squareup.okhttp.Call vulnerabilitiesList0Call(String owner, String repo, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/vulnerabilities/{owner}/{repo}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -271,9 +269,9 @@ public class VulnerabilitiesApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call vulnerabilitiesList0ValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -288,7 +286,7 @@ public class VulnerabilitiesApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = vulnerabilitiesList0Call(owner, repo, page, pageSize, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -299,11 +297,7 @@ public class VulnerabilitiesApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -388,7 +382,7 @@ public class VulnerabilitiesApi {
      */
     public com.squareup.okhttp.Call vulnerabilitiesList1Call(String owner, String repo, String _package, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/vulnerabilities/{owner}/{repo}/{package}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -396,10 +390,11 @@ public class VulnerabilitiesApi {
             .replaceAll("\\{" + "package" + "\\}", apiClient.escapeString(_package.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -430,9 +425,9 @@ public class VulnerabilitiesApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call vulnerabilitiesList1ValidateBeforeCall(String owner, String repo, String _package, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -447,7 +442,7 @@ public class VulnerabilitiesApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = vulnerabilitiesList1Call(owner, repo, _package, page, pageSize, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -458,11 +453,7 @@ public class VulnerabilitiesApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -549,7 +540,7 @@ public class VulnerabilitiesApi {
      */
     public com.squareup.okhttp.Call vulnerabilitiesReadCall(String owner, String repo, String _package, String scanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/vulnerabilities/{owner}/{repo}/{package}/{scan_id}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -558,6 +549,7 @@ public class VulnerabilitiesApi {
             .replaceAll("\\{" + "scan_id" + "\\}", apiClient.escapeString(scanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -588,9 +580,9 @@ public class VulnerabilitiesApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call vulnerabilitiesReadValidateBeforeCall(String owner, String repo, String _package, String scanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -605,7 +597,7 @@ public class VulnerabilitiesApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = vulnerabilitiesReadCall(owner, repo, _package, scanId, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -616,11 +608,7 @@ public class VulnerabilitiesApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
