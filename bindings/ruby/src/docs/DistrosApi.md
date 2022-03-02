@@ -77,7 +77,7 @@ end
 
 api_instance = CloudsmithApi::DistrosApi.new
 
-slug = "slug_example" # String | 
+slug = 'slug_example' # String | 
 
 
 begin

@@ -31,7 +31,7 @@ end
 
 api_instance = CloudsmithApi::QuotaApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
 
 begin
@@ -85,7 +85,7 @@ end
 
 api_instance = CloudsmithApi::QuotaApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
 
 begin
@@ -139,7 +139,7 @@ end
 
 api_instance = CloudsmithApi::QuotaApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
 
 begin
@@ -193,7 +193,7 @@ end
 
 api_instance = CloudsmithApi::QuotaApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
 
 begin

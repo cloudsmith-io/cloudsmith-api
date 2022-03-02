@@ -32,11 +32,11 @@ end
 
 api_instance = CloudsmithApi::FilesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   data: CloudsmithApi::FilesAbort.new # FilesAbort | 
@@ -95,11 +95,11 @@ end
 
 api_instance = CloudsmithApi::FilesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   data: CloudsmithApi::FilesComplete.new # FilesComplete | 
@@ -159,9 +159,9 @@ end
 
 api_instance = CloudsmithApi::FilesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::FilesCreate.new # FilesCreate | 
@@ -220,11 +220,11 @@ end
 
 api_instance = CloudsmithApi::FilesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -280,9 +280,9 @@ end
 
 api_instance = CloudsmithApi::FilesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::FilesValidate.new # FilesValidate | 

@@ -77,7 +77,7 @@ end
 
 api_instance = CloudsmithApi::FormatsApi.new
 
-slug = "slug_example" # String | 
+slug = 'slug_example' # String | 
 
 
 begin

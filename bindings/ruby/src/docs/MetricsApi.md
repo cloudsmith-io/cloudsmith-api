@@ -30,14 +30,14 @@ end
 
 api_instance = CloudsmithApi::MetricsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  finish: "finish_example", # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
-  start: "start_example", # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
-  tokens: "tokens_example" # String | A comma seperated list of tokens (slug perm) to include in the results.
+  finish: 'finish_example', # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+  start: 'start_example', # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+  tokens: 'tokens_example' # String | A comma seperated list of tokens (slug perm) to include in the results.
 }
 
 begin
@@ -96,16 +96,16 @@ end
 
 api_instance = CloudsmithApi::MetricsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  finish: "finish_example", # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
-  start: "start_example", # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
-  tokens: "tokens_example" # String | A comma seperated list of tokens (slug perm) to include in the results.
+  finish: 'finish_example', # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+  start: 'start_example', # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+  tokens: 'tokens_example' # String | A comma seperated list of tokens (slug perm) to include in the results.
 }
 
 begin
@@ -165,16 +165,16 @@ end
 
 api_instance = CloudsmithApi::MetricsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  finish: "finish_example", # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
-  packages: "packages_example", # String | A comma seperated list of packages (slug perm) to include in the results.
-  start: "start_example" # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+  finish: 'finish_example', # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
+  packages: 'packages_example', # String | A comma seperated list of packages (slug perm) to include in the results.
+  start: 'start_example' # String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 }
 
 begin

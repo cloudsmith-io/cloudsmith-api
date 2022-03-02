@@ -31,7 +31,7 @@ end
 
 api_instance = CloudsmithApi::VulnerabilitiesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
@@ -91,9 +91,9 @@ end
 
 api_instance = CloudsmithApi::VulnerabilitiesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
@@ -154,11 +154,11 @@ end
 
 api_instance = CloudsmithApi::VulnerabilitiesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-package = "package_example" # String | 
+package = 'package_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
@@ -220,13 +220,13 @@ end
 
 api_instance = CloudsmithApi::VulnerabilitiesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-package = "package_example" # String | 
+package = 'package_example' # String | 
 
-scan_id = "scan_id_example" # String | 
+scan_id = 'scan_id_example' # String | 
 
 
 begin

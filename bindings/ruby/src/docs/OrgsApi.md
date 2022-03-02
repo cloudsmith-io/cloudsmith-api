@@ -89,7 +89,7 @@ end
 
 api_instance = CloudsmithApi::OrgsApi.new
 
-org = "org_example" # String | 
+org = 'org_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
@@ -149,9 +149,9 @@ end
 
 api_instance = CloudsmithApi::OrgsApi.new
 
-org = "org_example" # String | 
+org = 'org_example' # String | 
 
-member = "member_example" # String | 
+member = 'member_example' # String | 
 
 
 begin
@@ -206,9 +206,9 @@ end
 
 api_instance = CloudsmithApi::OrgsApi.new
 
-org = "org_example" # String | 
+org = 'org_example' # String | 
 
-member = "member_example" # String | 
+member = 'member_example' # String | 
 
 
 begin
@@ -263,7 +263,7 @@ end
 
 api_instance = CloudsmithApi::OrgsApi.new
 
-org = "org_example" # String | 
+org = 'org_example' # String | 
 
 
 begin
