@@ -7669,8 +7669,8 @@ definitions:
             interval: 5.123456789
             limit: 3600
             remaining: 3595
-            reset: 1646245163
-            reset_iso_8601: "2022-03-02T18:19:23.540952+00:00"
+            reset: 1646245156
+            reset_iso_8601: "2022-03-02T18:19:16.259727+00:00"
             throttled: false
         description: "Rate limit values per resource"
         properties: {}
@@ -7680,8 +7680,8 @@ definitions:
           interval: 5.123456789
           limit: 3600
           remaining: 3595
-          reset: 1646245163
-          reset_iso_8601: "2022-03-02T18:19:23.540952+00:00"
+          reset: 1646245156
+          reset_iso_8601: "2022-03-02T18:19:16.259727+00:00"
           throttled: false
   UserBrief:
     type: "object"

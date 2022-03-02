@@ -34,3 +34,4 @@ $root_dir/bin/swagger-codegen-cli generate \
 # should resolve this and other issues properly.
 
 sed -i 's/	\"fmt\"/	\"fmt\"\n	\"github.com\/antihax\/optional\"/g' $src_dir/api_files.go
+sed -i 's/	\"strings\"/	\"strings\"\n	\"github.com\/antihax\/optional\"/g' $src_dir/api_user.go
