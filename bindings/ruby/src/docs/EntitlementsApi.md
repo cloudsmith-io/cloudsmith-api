@@ -37,9 +37,9 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   show_tokens: true, # BOOLEAN | Show entitlement token strings in results
@@ -100,11 +100,11 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -159,11 +159,11 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -218,11 +218,11 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -277,9 +277,9 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
@@ -342,11 +342,11 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   show_tokens: true, # BOOLEAN | Show entitlement token strings in results
@@ -408,11 +408,11 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   show_tokens: true # BOOLEAN | Show entitlement token strings in results
@@ -472,11 +472,11 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   show_tokens: true, # BOOLEAN | Show entitlement token strings in results
@@ -538,11 +538,11 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   show_tokens: true # BOOLEAN | Show entitlement token strings in results
@@ -601,9 +601,9 @@ end
 
 api_instance = CloudsmithApi::EntitlementsApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   show_tokens: true, # BOOLEAN | Show entitlement token strings in results

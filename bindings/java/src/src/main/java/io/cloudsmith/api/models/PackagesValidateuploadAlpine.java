@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -93,7 +94,7 @@ public class PackagesValidateuploadAlpine implements Serializable {
    * @return republish
   **/
   @ApiModelProperty(value = "If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-  public Boolean getRepublish() {
+  public Boolean isRepublish() {
     return republish;
   }
 
@@ -164,6 +165,6 @@ public class PackagesValidateuploadAlpine implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

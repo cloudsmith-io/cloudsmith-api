@@ -13,7 +13,6 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.AlpinePackageUpload;
 import io.cloudsmith.api.models.ConanPackageUpload;
 import io.cloudsmith.api.models.MavenPackageUpload;
@@ -77,6 +76,7 @@ import io.cloudsmith.api.models.VagrantPackageUpload;
 import org.junit.Test;
 import org.junit.Ignore;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -96,11 +96,11 @@ public class PackagesApiTest {
      *
      * Copy a package to another repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesCopyTest() throws ApiException {
+    public void packagesCopyTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -115,11 +115,11 @@ public class PackagesApiTest {
      *
      * Delete a specific package in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesDeleteTest() throws ApiException {
+    public void packagesDeleteTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -133,11 +133,11 @@ public class PackagesApiTest {
      *
      * Get the direct (non-transitive) dependencies list for a package.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesDependenciesTest() throws ApiException {
+    public void packagesDependenciesTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -151,11 +151,11 @@ public class PackagesApiTest {
      *
      * Get a list of all packages associated with repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesListTest() throws ApiException {
+    public void packagesListTest() throws Exception {
         String owner = null;
         String repo = null;
         Integer page = null;
@@ -172,11 +172,11 @@ public class PackagesApiTest {
      *
      * Move a package to another repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesMoveTest() throws ApiException {
+    public void packagesMoveTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -191,11 +191,11 @@ public class PackagesApiTest {
      *
      * Get a specific package in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesReadTest() throws ApiException {
+    public void packagesReadTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -209,11 +209,11 @@ public class PackagesApiTest {
      *
      * Schedule a package for resynchronisation.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesResyncTest() throws ApiException {
+    public void packagesResyncTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -227,11 +227,11 @@ public class PackagesApiTest {
      *
      * Schedule a package for scanning.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesScanTest() throws ApiException {
+    public void packagesScanTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -245,11 +245,11 @@ public class PackagesApiTest {
      *
      * Get the synchronisation status for a package.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesStatusTest() throws ApiException {
+    public void packagesStatusTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -263,11 +263,11 @@ public class PackagesApiTest {
      *
      * Add/Replace/Remove tags for a package.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesTagTest() throws ApiException {
+    public void packagesTagTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -282,11 +282,11 @@ public class PackagesApiTest {
      *
      * Create a new Alpine package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadAlpineTest() throws ApiException {
+    public void packagesUploadAlpineTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadAlpine data = null;
@@ -300,11 +300,11 @@ public class PackagesApiTest {
      *
      * Create a new Cargo package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadCargoTest() throws ApiException {
+    public void packagesUploadCargoTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadCargo data = null;
@@ -318,11 +318,11 @@ public class PackagesApiTest {
      *
      * Create a new CocoaPods package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadCocoapodsTest() throws ApiException {
+    public void packagesUploadCocoapodsTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadCocoapods data = null;
@@ -336,11 +336,11 @@ public class PackagesApiTest {
      *
      * Create a new Composer package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadComposerTest() throws ApiException {
+    public void packagesUploadComposerTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadComposer data = null;
@@ -354,11 +354,11 @@ public class PackagesApiTest {
      *
      * Create a new Conan package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadConanTest() throws ApiException {
+    public void packagesUploadConanTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadConan data = null;
@@ -372,11 +372,11 @@ public class PackagesApiTest {
      *
      * Create a new Conda package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadCondaTest() throws ApiException {
+    public void packagesUploadCondaTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadConda data = null;
@@ -390,11 +390,11 @@ public class PackagesApiTest {
      *
      * Create a new CRAN package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadCranTest() throws ApiException {
+    public void packagesUploadCranTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadCran data = null;
@@ -408,11 +408,11 @@ public class PackagesApiTest {
      *
      * Create a new Dart package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadDartTest() throws ApiException {
+    public void packagesUploadDartTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadDart data = null;
@@ -426,11 +426,11 @@ public class PackagesApiTest {
      *
      * Create a new Debian package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadDebTest() throws ApiException {
+    public void packagesUploadDebTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadDeb data = null;
@@ -444,11 +444,11 @@ public class PackagesApiTest {
      *
      * Create a new Docker package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadDockerTest() throws ApiException {
+    public void packagesUploadDockerTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadDocker data = null;
@@ -462,11 +462,11 @@ public class PackagesApiTest {
      *
      * Create a new Go package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadGoTest() throws ApiException {
+    public void packagesUploadGoTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadGo data = null;
@@ -480,11 +480,11 @@ public class PackagesApiTest {
      *
      * Create a new Helm package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadHelmTest() throws ApiException {
+    public void packagesUploadHelmTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadHelm data = null;
@@ -498,11 +498,11 @@ public class PackagesApiTest {
      *
      * Create a new LuaRocks package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadLuarocksTest() throws ApiException {
+    public void packagesUploadLuarocksTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadLuarocks data = null;
@@ -516,11 +516,11 @@ public class PackagesApiTest {
      *
      * Create a new Maven package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadMavenTest() throws ApiException {
+    public void packagesUploadMavenTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadMaven data = null;
@@ -534,11 +534,11 @@ public class PackagesApiTest {
      *
      * Create a new npm package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadNpmTest() throws ApiException {
+    public void packagesUploadNpmTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadNpm data = null;
@@ -552,11 +552,11 @@ public class PackagesApiTest {
      *
      * Create a new NuGet package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadNugetTest() throws ApiException {
+    public void packagesUploadNugetTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadNuget data = null;
@@ -570,11 +570,11 @@ public class PackagesApiTest {
      *
      * Create a new P2 package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadP2Test() throws ApiException {
+    public void packagesUploadP2Test() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadP2 data = null;
@@ -588,11 +588,11 @@ public class PackagesApiTest {
      *
      * Create a new Python package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadPythonTest() throws ApiException {
+    public void packagesUploadPythonTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadPython data = null;
@@ -606,11 +606,11 @@ public class PackagesApiTest {
      *
      * Create a new Raw package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadRawTest() throws ApiException {
+    public void packagesUploadRawTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadRaw data = null;
@@ -624,11 +624,11 @@ public class PackagesApiTest {
      *
      * Create a new RedHat package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadRpmTest() throws ApiException {
+    public void packagesUploadRpmTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadRpm data = null;
@@ -642,11 +642,11 @@ public class PackagesApiTest {
      *
      * Create a new Ruby package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadRubyTest() throws ApiException {
+    public void packagesUploadRubyTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadRuby data = null;
@@ -660,11 +660,11 @@ public class PackagesApiTest {
      *
      * Create a new Terraform package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadTerraformTest() throws ApiException {
+    public void packagesUploadTerraformTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadTerraform data = null;
@@ -678,11 +678,11 @@ public class PackagesApiTest {
      *
      * Create a new Vagrant package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesUploadVagrantTest() throws ApiException {
+    public void packagesUploadVagrantTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesUploadVagrant data = null;
@@ -696,11 +696,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Alpine package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadAlpineTest() throws ApiException {
+    public void packagesValidateUploadAlpineTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadAlpine data = null;
@@ -714,11 +714,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Cargo package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadCargoTest() throws ApiException {
+    public void packagesValidateUploadCargoTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadCargo data = null;
@@ -732,11 +732,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create CocoaPods package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadCocoapodsTest() throws ApiException {
+    public void packagesValidateUploadCocoapodsTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadCocoapods data = null;
@@ -750,11 +750,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Composer package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadComposerTest() throws ApiException {
+    public void packagesValidateUploadComposerTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadComposer data = null;
@@ -768,11 +768,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Conan package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadConanTest() throws ApiException {
+    public void packagesValidateUploadConanTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadConan data = null;
@@ -786,11 +786,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Conda package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadCondaTest() throws ApiException {
+    public void packagesValidateUploadCondaTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadConda data = null;
@@ -804,11 +804,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create CRAN package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadCranTest() throws ApiException {
+    public void packagesValidateUploadCranTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadCran data = null;
@@ -822,11 +822,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Dart package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadDartTest() throws ApiException {
+    public void packagesValidateUploadDartTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadDart data = null;
@@ -840,11 +840,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Debian package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadDebTest() throws ApiException {
+    public void packagesValidateUploadDebTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadDeb data = null;
@@ -858,11 +858,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Docker package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadDockerTest() throws ApiException {
+    public void packagesValidateUploadDockerTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadDocker data = null;
@@ -876,11 +876,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Go package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadGoTest() throws ApiException {
+    public void packagesValidateUploadGoTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadGo data = null;
@@ -894,11 +894,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Helm package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadHelmTest() throws ApiException {
+    public void packagesValidateUploadHelmTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadHelm data = null;
@@ -912,11 +912,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create LuaRocks package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadLuarocksTest() throws ApiException {
+    public void packagesValidateUploadLuarocksTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadLuarocks data = null;
@@ -930,11 +930,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Maven package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadMavenTest() throws ApiException {
+    public void packagesValidateUploadMavenTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadMaven data = null;
@@ -948,11 +948,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create npm package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadNpmTest() throws ApiException {
+    public void packagesValidateUploadNpmTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadNpm data = null;
@@ -966,11 +966,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create NuGet package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadNugetTest() throws ApiException {
+    public void packagesValidateUploadNugetTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadNuget data = null;
@@ -984,11 +984,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create P2 package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadP2Test() throws ApiException {
+    public void packagesValidateUploadP2Test() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadP2 data = null;
@@ -1002,11 +1002,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Python package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadPythonTest() throws ApiException {
+    public void packagesValidateUploadPythonTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadPython data = null;
@@ -1020,11 +1020,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Raw package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadRawTest() throws ApiException {
+    public void packagesValidateUploadRawTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadRaw data = null;
@@ -1038,11 +1038,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create RedHat package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadRpmTest() throws ApiException {
+    public void packagesValidateUploadRpmTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadRpm data = null;
@@ -1056,11 +1056,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Ruby package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadRubyTest() throws ApiException {
+    public void packagesValidateUploadRubyTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadRuby data = null;
@@ -1074,11 +1074,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Terraform package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadTerraformTest() throws ApiException {
+    public void packagesValidateUploadTerraformTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadTerraform data = null;
@@ -1092,11 +1092,11 @@ public class PackagesApiTest {
      *
      * Validate parameters for create Vagrant package
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void packagesValidateUploadVagrantTest() throws ApiException {
+    public void packagesValidateUploadVagrantTest() throws Exception {
         String owner = null;
         String repo = null;
         PackagesValidateuploadVagrant data = null;

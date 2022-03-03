@@ -18,7 +18,7 @@ Get a list of all the organizations you are associated with.
 
 Get a list of all the organizations you are associated with.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -27,16 +27,17 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.OrgsApi()
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Get a list of all the organizations you are associated with.
     api_response = api_instance.orgs_list(page=page, page_size=page_size)
     pprint(api_response)
@@ -73,7 +74,7 @@ Get the details for all organization members.
 
 Get the details for all organization members.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -82,17 +83,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.OrgsApi()
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Get the details for all organization members.
     api_response = api_instance.orgs_members_list(org, page=page, page_size=page_size)
     pprint(api_response)
@@ -130,7 +132,7 @@ Get the details for a specific organization member.
 
 Get the details for a specific organization member.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -139,16 +141,17 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.OrgsApi()
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
 member = 'member_example' # str | 
 
-try: 
+try:
     # Get the details for a specific organization member.
     api_response = api_instance.orgs_members_read(org, member)
     pprint(api_response)
@@ -185,7 +188,7 @@ Removes a member from the organization.
 
 Removes a member from the organization.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -194,16 +197,17 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.OrgsApi()
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
 member = 'member_example' # str | 
 
-try: 
+try:
     # Removes a member from the organization.
     api_response = api_instance.orgs_members_remove(org, member)
     pprint(api_response)
@@ -240,7 +244,7 @@ Get the details for the specific organization.
 
 Get the details for the specific organization.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -249,15 +253,16 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.OrgsApi()
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
 
-try: 
+try:
     # Get the details for the specific organization.
     api_response = api_instance.orgs_read(org)
     pprint(api_response)

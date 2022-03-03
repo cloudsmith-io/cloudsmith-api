@@ -9,19 +9,25 @@ Method | HTTP request | Description
 
 
 # **NamespacesList**
-> []Namespace NamespacesList($page, $pageSize)
-
+> []Namespace NamespacesList(ctx, optional)
 Get a list of all namespaces the user belongs to.
 
 Get a list of all namespaces the user belongs to.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***NamespacesApiNamespacesListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a NamespacesApiNamespacesListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -39,18 +45,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **NamespacesRead**
-> Namespace NamespacesRead($slug)
-
+> Namespace NamespacesRead(ctx, slug)
 Views for working with namespaces.
 
 Views for working with namespaces.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **slug** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **slug** | **string**|  | 
 
 ### Return type
 

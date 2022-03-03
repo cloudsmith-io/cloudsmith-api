@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,37 +13,33 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.formats_api import FormatsApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.formats_api import FormatsApi
 
 
 class TestFormatsApi(unittest.TestCase):
-    """ FormatsApi unit test stubs """
+    """FormatsApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.formats_api.FormatsApi()
+        self.api = cloudsmith_api.api.formats_api.FormatsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_formats_list(self):
-        """
-        Test case for formats_list
+        """Test case for formats_list
 
-        Get a list of all supported package formats.
+        Get a list of all supported package formats.  # noqa: E501
         """
         pass
 
     def test_formats_read(self):
-        """
-        Test case for formats_read
+        """Test case for formats_read
 
-        Get a specific supported package format.
+        Get a specific supported package format.  # noqa: E501
         """
         pass
 

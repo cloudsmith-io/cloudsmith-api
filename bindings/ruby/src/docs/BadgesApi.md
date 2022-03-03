@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **badges_version_list**
-> badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
+> Object badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
 
 Get latest package version for a package or package group.
 
@@ -28,35 +28,36 @@ end
 
 api_instance = CloudsmithApi::BadgesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-package_format = "package_format_example" # String | 
+package_format = 'package_format_example' # String | 
 
-package_name = "package_name_example" # String | 
+package_name = 'package_name_example' # String | 
 
-package_version = "package_version_example" # String | 
+package_version = 'package_version_example' # String | 
 
-package_identifiers = "package_identifiers_example" # String | 
+package_identifiers = 'package_identifiers_example' # String | 
 
 opts = { 
-  badge_token: "badge_token_example", # String | Badge token to authenticate for private packages
-  cache_seconds: "cache_seconds_example", # String | Override the shields.io badge cacheSeconds value.
-  color: "color_example", # String | Override the shields.io badge color value.
-  label: "label_example", # String | Override the shields.io badge label value.
-  label_color: "label_color_example", # String | Override the shields.io badge labelColor value.
-  logo_color: "logo_color_example", # String | Override the shields.io badge logoColor value.
-  logo_width: "logo_width_example", # String | Override the shields.io badge logoWidth value.
+  badge_token: 'badge_token_example', # String | Badge token to authenticate for private packages
+  cache_seconds: 'cache_seconds_example', # String | Override the shields.io badge cacheSeconds value.
+  color: 'color_example', # String | Override the shields.io badge color value.
+  label: 'label_example', # String | Override the shields.io badge label value.
+  label_color: 'label_color_example', # String | Override the shields.io badge labelColor value.
+  logo_color: 'logo_color_example', # String | Override the shields.io badge logoColor value.
+  logo_width: 'logo_width_example', # String | Override the shields.io badge logoWidth value.
   render: true, # BOOLEAN | If true, badge will be rendered
   shields: true, # BOOLEAN | If true, a shields response will be generated
   show_latest: true, # BOOLEAN | If true, for latest version badges a '(latest)' suffix is added
-  style: "style_example" # String | Override the shields.io badge style value.
+  style: 'style_example' # String | Override the shields.io badge style value.
 }
 
 begin
   #Get latest package version for a package or package group.
-  api_instance.badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
+  result = api_instance.badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
+  p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling BadgesApi->badges_version_list: #{e}"
 end
@@ -86,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**Object**
 
 ### Authorization
 

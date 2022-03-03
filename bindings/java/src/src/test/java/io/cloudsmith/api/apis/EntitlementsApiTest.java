@@ -13,7 +13,6 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.EntitlementsCreate;
 import io.cloudsmith.api.models.EntitlementsPartialUpdate;
 import io.cloudsmith.api.models.EntitlementsRefresh;
@@ -24,6 +23,7 @@ import io.cloudsmith.api.models.RepositoryTokenSync;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,11 +44,11 @@ public class EntitlementsApiTest {
      *
      * Create a specific entitlement in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsCreateTest() throws ApiException {
+    public void entitlementsCreateTest() throws Exception {
         String owner = null;
         String repo = null;
         Boolean showTokens = null;
@@ -63,11 +63,11 @@ public class EntitlementsApiTest {
      *
      * Delete a specific entitlement in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsDeleteTest() throws ApiException {
+    public void entitlementsDeleteTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -81,11 +81,11 @@ public class EntitlementsApiTest {
      *
      * Disable an entitlement token in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsDisableTest() throws ApiException {
+    public void entitlementsDisableTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -99,11 +99,11 @@ public class EntitlementsApiTest {
      *
      * Enable an entitlement token in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsEnableTest() throws ApiException {
+    public void entitlementsEnableTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -117,11 +117,11 @@ public class EntitlementsApiTest {
      *
      * Get a list of all entitlements in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsListTest() throws ApiException {
+    public void entitlementsListTest() throws Exception {
         String owner = null;
         String repo = null;
         Integer page = null;
@@ -137,11 +137,11 @@ public class EntitlementsApiTest {
      *
      * Update a specific entitlement in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsPartialUpdateTest() throws ApiException {
+    public void entitlementsPartialUpdateTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -157,11 +157,11 @@ public class EntitlementsApiTest {
      *
      * Get a specific entitlement in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsReadTest() throws ApiException {
+    public void entitlementsReadTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -176,11 +176,11 @@ public class EntitlementsApiTest {
      *
      * Refresh an entitlement token in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsRefreshTest() throws ApiException {
+    public void entitlementsRefreshTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -196,11 +196,11 @@ public class EntitlementsApiTest {
      *
      * Reset the statistics for an entitlement token in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsResetTest() throws ApiException {
+    public void entitlementsResetTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -215,11 +215,11 @@ public class EntitlementsApiTest {
      *
      * Synchronise tokens from a source repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void entitlementsSyncTest() throws ApiException {
+    public void entitlementsSyncTest() throws Exception {
         String owner = null;
         String repo = null;
         Boolean showTokens = null;

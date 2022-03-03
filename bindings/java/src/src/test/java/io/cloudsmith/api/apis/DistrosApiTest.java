@@ -13,11 +13,11 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Distribution;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class DistrosApiTest {
      *
      * Get a list of all supported distributions.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void distrosListTest() throws ApiException {
+    public void distrosListTest() throws Exception {
         List<Distribution> response = api.distrosList();
 
         // TODO: test validations
@@ -53,11 +53,11 @@ public class DistrosApiTest {
      *
      * View for viewing/listing distributions.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void distrosReadTest() throws ApiException {
+    public void distrosReadTest() throws Exception {
         String slug = null;
         Distribution response = api.distrosRead(slug);
 

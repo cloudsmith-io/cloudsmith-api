@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,69 +13,61 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.repos_api import ReposApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.repos_api import ReposApi
 
 
 class TestReposApi(unittest.TestCase):
-    """ ReposApi unit test stubs """
+    """ReposApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.repos_api.ReposApi()
+        self.api = cloudsmith_api.api.repos_api.ReposApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_repos_all_list(self):
-        """
-        Test case for repos_all_list
+        """Test case for repos_all_list
 
-        Get a list of all repositories associated with current user.
+        Get a list of all repositories associated with current user.  # noqa: E501
         """
         pass
 
     def test_repos_create(self):
-        """
-        Test case for repos_create
+        """Test case for repos_create
 
-        Create a new repository in a given namespace.
+        Create a new repository in a given namespace.  # noqa: E501
         """
         pass
 
     def test_repos_delete(self):
-        """
-        Test case for repos_delete
+        """Test case for repos_delete
 
-        Delete a repository in a given namespace.
+        Delete a repository in a given namespace.  # noqa: E501
         """
         pass
 
     def test_repos_list(self):
-        """
-        Test case for repos_list
+        """Test case for repos_list
 
-        Get a list of all repositories within a namespace.
+        Get a list of all repositories within a namespace.  # noqa: E501
         """
         pass
 
     def test_repos_partial_update(self):
-        """
-        Test case for repos_partial_update
+        """Test case for repos_partial_update
 
-        Update details about a repository in a given namespace.
+        Update details about a repository in a given namespace.  # noqa: E501
         """
         pass
 
     def test_repos_read(self):
-        """
-        Test case for repos_read
+        """Test case for repos_read
 
-        Get a specific repository.
+        Get a specific repository.  # noqa: E501
         """
         pass
 

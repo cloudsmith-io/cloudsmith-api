@@ -13,11 +13,11 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Status;
 import io.cloudsmith.api.models.StatusBasic;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class StatusApiTest {
      *
      * Endpoint to check basic API connectivity.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void statusCheckBasicTest() throws ApiException {
+    public void statusCheckBasicTest() throws Exception {
         StatusBasic response = api.statusCheckBasic();
 
         // TODO: test validations

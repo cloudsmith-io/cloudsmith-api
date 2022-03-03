@@ -13,12 +13,12 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Quota;
 import io.cloudsmith.api.models.QuotaHistory;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class QuotaApiTest {
      *
      * Quota history for a given namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void quotaHistoryReadTest() throws ApiException {
+    public void quotaHistoryReadTest() throws Exception {
         String owner = null;
         QuotaHistory response = api.quotaHistoryRead(owner);
 
@@ -55,11 +55,11 @@ public class QuotaApiTest {
      *
      * Open-source Quota history for a given namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void quotaOssHistoryReadTest() throws ApiException {
+    public void quotaOssHistoryReadTest() throws Exception {
         String owner = null;
         QuotaHistory response = api.quotaOssHistoryRead(owner);
 
@@ -71,11 +71,11 @@ public class QuotaApiTest {
      *
      * Open-source Quota usage for a given namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void quotaOssReadTest() throws ApiException {
+    public void quotaOssReadTest() throws Exception {
         String owner = null;
         Quota response = api.quotaOssRead(owner);
 
@@ -87,11 +87,11 @@ public class QuotaApiTest {
      *
      * Quota usage for a given namespace.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void quotaReadTest() throws ApiException {
+    public void quotaReadTest() throws Exception {
         String owner = null;
         Quota response = api.quotaRead(owner);
 

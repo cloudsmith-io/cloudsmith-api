@@ -10,23 +10,30 @@ Method | HTTP request | Description
 
 
 # **MetricsEntitlementsList**
-> EntitlementUsageMetrics MetricsEntitlementsList($owner, $page, $pageSize, $finish, $start, $tokens)
-
+> EntitlementUsageMetrics MetricsEntitlementsList(ctx, owner, optional)
 View for listing entitlement token metrics, across an account.
 
 View for listing entitlement token metrics, across an account.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **finish** | **string**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **start** | **string**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **tokens** | **string**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+ **optional** | ***MetricsApiMetricsEntitlementsListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a MetricsApiMetricsEntitlementsListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
+ **finish** | **optional.String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | 
+ **start** | **optional.String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | 
+ **tokens** | **optional.String**| A comma seperated list of tokens (slug perm) to include in the results. | 
 
 ### Return type
 
@@ -44,24 +51,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **MetricsEntitlementsList0**
-> EntitlementUsageMetrics MetricsEntitlementsList0($owner, $repo, $page, $pageSize, $finish, $start, $tokens)
-
+> EntitlementUsageMetrics MetricsEntitlementsList0(ctx, owner, repo, optional)
 View for listing entitlement token metrics, for a repository.
 
 View for listing entitlement token metrics, for a repository.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **finish** | **string**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **start** | **string**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **tokens** | **string**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+ **optional** | ***MetricsApiMetricsEntitlementsList0Opts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a MetricsApiMetricsEntitlementsList0Opts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
+ **finish** | **optional.String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | 
+ **start** | **optional.String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | 
+ **tokens** | **optional.String**| A comma seperated list of tokens (slug perm) to include in the results. | 
 
 ### Return type
 
@@ -79,24 +94,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **MetricsPackagesList**
-> PackageUsageMetrics MetricsPackagesList($owner, $repo, $page, $pageSize, $finish, $packages, $start)
-
+> PackageUsageMetrics MetricsPackagesList(ctx, owner, repo, optional)
 View for listing package usage metrics, for a repository.
 
 View for listing package usage metrics, for a repository.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
- **finish** | **string**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **packages** | **string**| A comma seperated list of packages (slug perm) to include in the results. | [optional] 
- **start** | **string**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+ **optional** | ***MetricsApiMetricsPackagesListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a MetricsApiMetricsPackagesListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
+ **finish** | **optional.String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | 
+ **packages** | **optional.String**| A comma seperated list of packages (slug perm) to include in the results. | 
+ **start** | **optional.String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | 
 
 ### Return type
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+
 self=$(readlink -f $BASH_SOURCE)
 self_dir="$(dirname $self)"
 root_dir=$(readlink -f "$self_dir/../..")
@@ -22,10 +24,10 @@ upload_to_pypi() {
   distribution_filepath="dist/${project_underscore}-${api_version}-py2.py3-none-any.whl"
 
   if [[ "$CI" == "true" ]]
-  then 
+  then
     twine upload -u csm-api-bot -p "$PYPI_PASSWORD" --skip-existing --non-interactive "$distribution_filepath"
   else
-    twine upload --skip-existing --non-interactive "$distribution_filepath" 
+    twine upload --skip-existing --non-interactive "$distribution_filepath"
   fi
 }
 

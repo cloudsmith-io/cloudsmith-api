@@ -12,19 +12,25 @@ Method | HTTP request | Description
 
 
 # **OrgsList**
-> []Organization OrgsList($page, $pageSize)
-
+> []Organization OrgsList(ctx, optional)
 Get a list of all the organizations you are associated with.
 
 Get a list of all the organizations you are associated with.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***OrgsApiOrgsListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a OrgsApiOrgsListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -42,20 +48,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **OrgsMembersList**
-> []OrganizationMembership OrgsMembersList($org, $page, $pageSize)
-
+> []OrganizationMembership OrgsMembersList(ctx, org, optional)
 Get the details for all organization members.
 
 Get the details for all organization members.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **org** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **org** | **string**|  | 
+ **optional** | ***OrgsApiOrgsMembersListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a OrgsApiOrgsMembersListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -73,19 +86,18 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **OrgsMembersRead**
-> OrganizationMembership OrgsMembersRead($org, $member)
-
+> OrganizationMembership OrgsMembersRead(ctx, org, member)
 Get the details for a specific organization member.
 
 Get the details for a specific organization member.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **org** | **string**|  | 
- **member** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **org** | **string**|  | 
+  **member** | **string**|  | 
 
 ### Return type
 
@@ -103,19 +115,18 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **OrgsMembersRemove**
-> OrganizationMembership OrgsMembersRemove($org, $member)
-
+> OrganizationMembership OrgsMembersRemove(ctx, org, member)
 Removes a member from the organization.
 
 Removes a member from the organization.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **org** | **string**|  | 
- **member** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **org** | **string**|  | 
+  **member** | **string**|  | 
 
 ### Return type
 
@@ -133,18 +144,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **OrgsRead**
-> Organization OrgsRead($org)
-
+> Organization OrgsRead(ctx, org)
 Get the details for the specific organization.
 
 Get the details for the specific organization.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **org** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **org** | **string**|  | 
 
 ### Return type
 

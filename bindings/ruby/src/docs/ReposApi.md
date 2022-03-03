@@ -90,7 +90,7 @@ end
 
 api_instance = CloudsmithApi::ReposApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
 opts = { 
   data: CloudsmithApi::ReposCreate.new # ReposCreate | 
@@ -148,9 +148,9 @@ end
 
 api_instance = CloudsmithApi::ReposApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -204,7 +204,7 @@ end
 
 api_instance = CloudsmithApi::ReposApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
@@ -264,9 +264,9 @@ end
 
 api_instance = CloudsmithApi::ReposApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   data: CloudsmithApi::ReposPartialUpdate.new # ReposPartialUpdate | 
@@ -325,9 +325,9 @@ end
 
 api_instance = CloudsmithApi::ReposApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin

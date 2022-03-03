@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.packagesownerrepo_architectures import PackagesownerrepoArchitectures  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.packagesownerrepo_architectures import PackagesownerrepoArchitectures
 
 
 class TestPackagesownerrepoArchitectures(unittest.TestCase):
-    """ PackagesownerrepoArchitectures unit test stubs """
+    """PackagesownerrepoArchitectures unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestPackagesownerrepoArchitectures(unittest.TestCase):
         pass
 
     def testPackagesownerrepoArchitectures(self):
-        """
-        Test PackagesownerrepoArchitectures
-        """
+        """Test PackagesownerrepoArchitectures"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.packagesownerrepo_architectures.PackagesownerrepoArchitectures()
+        # model = cloudsmith_api.models.packagesownerrepo_architectures.PackagesownerrepoArchitectures()  # noqa: E501
         pass
 
 

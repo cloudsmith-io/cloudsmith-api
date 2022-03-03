@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,7 +38,7 @@ public class PackageDependencies implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("dependencies")
-  private List<PackageDependenciesDependencies> dependencies = new ArrayList<PackageDependenciesDependencies>();
+  private List<PackageDependenciesDependencies> dependencies = new ArrayList<>();
 
   public PackageDependencies dependencies(List<PackageDependenciesDependencies> dependencies) {
     this.dependencies = dependencies;
@@ -103,6 +104,6 @@ public class PackageDependencies implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -28,7 +28,7 @@ end
 
 api_instance = CloudsmithApi::UsersApi.new
 
-slug = "slug_example" # String | 
+slug = 'slug_example' # String | 
 
 
 begin

@@ -13,13 +13,13 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.RepositoryWebhook;
 import io.cloudsmith.api.models.Status;
 import io.cloudsmith.api.models.WebhooksCreate;
 import io.cloudsmith.api.models.WebhooksPartialUpdate;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +40,11 @@ public class WebhooksApiTest {
      *
      * Create a specific webhook in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void webhooksCreateTest() throws ApiException {
+    public void webhooksCreateTest() throws Exception {
         String owner = null;
         String repo = null;
         WebhooksCreate data = null;
@@ -58,11 +58,11 @@ public class WebhooksApiTest {
      *
      * Delete a specific webhook in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void webhooksDeleteTest() throws ApiException {
+    public void webhooksDeleteTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -76,11 +76,11 @@ public class WebhooksApiTest {
      *
      * Get a list of all webhooks in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void webhooksListTest() throws ApiException {
+    public void webhooksListTest() throws Exception {
         String owner = null;
         String repo = null;
         Integer page = null;
@@ -95,11 +95,11 @@ public class WebhooksApiTest {
      *
      * Update a specific webhook in a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void webhooksPartialUpdateTest() throws ApiException {
+    public void webhooksPartialUpdateTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -114,11 +114,11 @@ public class WebhooksApiTest {
      *
      * Views for working with repository webhooks.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void webhooksReadTest() throws ApiException {
+    public void webhooksReadTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;

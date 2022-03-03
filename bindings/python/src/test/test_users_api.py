@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,29 +13,26 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.users_api import UsersApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.users_api import UsersApi
 
 
 class TestUsersApi(unittest.TestCase):
-    """ UsersApi unit test stubs """
+    """UsersApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.users_api.UsersApi()
+        self.api = cloudsmith_api.api.users_api.UsersApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_users_profile_read(self):
-        """
-        Test case for users_profile_read
+        """Test case for users_profile_read
 
-        Provide a brief for the specified user (if any).
+        Provide a brief for the specified user (if any).  # noqa: E501
         """
         pass
 

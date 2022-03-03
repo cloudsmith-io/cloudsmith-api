@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,7 +44,7 @@ public class Format implements Serializable {
   private List<FormatsDistributions> distributions = null;
 
   @SerializedName("extensions")
-  private List<String> extensions = new ArrayList<String>();
+  private List<String> extensions = new ArrayList<>();
 
   @SerializedName("name")
   private String name = null;
@@ -89,7 +90,7 @@ public class Format implements Serializable {
 
   public Format addDistributionsItem(FormatsDistributions distributionsItem) {
     if (this.distributions == null) {
-      this.distributions = new ArrayList<FormatsDistributions>();
+      this.distributions = new ArrayList<>();
     }
     this.distributions.add(distributionsItem);
     return this;
@@ -163,7 +164,7 @@ public class Format implements Serializable {
   **/
   @NotNull
   @ApiModelProperty(required = true, value = "If true the package format is a premium-only feature")
-  public Boolean getPremium() {
+  public Boolean isPremium() {
     return premium;
   }
 
@@ -300,6 +301,6 @@ public class Format implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

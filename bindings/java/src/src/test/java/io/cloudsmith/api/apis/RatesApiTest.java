@@ -13,11 +13,11 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.ResourcesRateCheck;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class RatesApiTest {
      *
      * Endpoint to check rate limits for current user.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void ratesLimitsListTest() throws ApiException {
+    public void ratesLimitsListTest() throws Exception {
         ResourcesRateCheck response = api.ratesLimitsList();
 
         // TODO: test validations

@@ -15,7 +15,7 @@ Get a list of all namespaces the user belongs to.
 
 Get a list of all namespaces the user belongs to.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -24,16 +24,17 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.NamespacesApi()
+api_instance = cloudsmith_api.NamespacesApi(cloudsmith_api.ApiClient(configuration))
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Get a list of all namespaces the user belongs to.
     api_response = api_instance.namespaces_list(page=page, page_size=page_size)
     pprint(api_response)
@@ -70,7 +71,7 @@ Views for working with namespaces.
 
 Views for working with namespaces.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -79,15 +80,16 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.NamespacesApi()
+api_instance = cloudsmith_api.NamespacesApi(cloudsmith_api.ApiClient(configuration))
 slug = 'slug_example' # str | 
 
-try: 
+try:
     # Views for working with namespaces.
     api_response = api_instance.namespaces_read(slug)
     pprint(api_response)

@@ -8,18 +8,17 @@ Method | HTTP request | Description
 
 
 # **UsersProfileRead**
-> UserProfile UsersProfileRead($slug)
-
+> UserProfile UsersProfileRead(ctx, slug)
 Provide a brief for the specified user (if any).
 
 Provide a brief for the specified user (if any).
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **slug** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **slug** | **string**|  | 
 
 ### Return type
 

@@ -83,11 +83,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesCopy.new # PackagesCopy | 
@@ -147,11 +147,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -206,11 +206,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -266,15 +266,15 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  query: "query_example", # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
-  sort: "sort_example" # String | A field for sorting objects in ascending or descending order.
+  query: 'query_example', # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+  sort: 'sort_example' # String | A field for sorting objects in ascending or descending order.
 }
 
 begin
@@ -333,11 +333,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesMove.new # PackagesMove | 
@@ -397,11 +397,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -457,11 +457,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -517,11 +517,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -577,11 +577,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -637,11 +637,11 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesTag.new # PackagesTag | 
@@ -701,9 +701,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadAlpine.new # PackagesUploadAlpine | 
@@ -762,9 +762,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadCargo.new # PackagesUploadCargo | 
@@ -823,9 +823,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadCocoapods.new # PackagesUploadCocoapods | 
@@ -884,9 +884,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadComposer.new # PackagesUploadComposer | 
@@ -945,9 +945,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadConan.new # PackagesUploadConan | 
@@ -1006,9 +1006,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadConda.new # PackagesUploadConda | 
@@ -1067,9 +1067,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadCran.new # PackagesUploadCran | 
@@ -1128,9 +1128,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadDart.new # PackagesUploadDart | 
@@ -1189,9 +1189,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadDeb.new # PackagesUploadDeb | 
@@ -1250,9 +1250,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadDocker.new # PackagesUploadDocker | 
@@ -1311,9 +1311,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadGo.new # PackagesUploadGo | 
@@ -1372,9 +1372,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadHelm.new # PackagesUploadHelm | 
@@ -1433,9 +1433,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadLuarocks.new # PackagesUploadLuarocks | 
@@ -1494,9 +1494,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadMaven.new # PackagesUploadMaven | 
@@ -1555,9 +1555,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadNpm.new # PackagesUploadNpm | 
@@ -1616,9 +1616,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadNuget.new # PackagesUploadNuget | 
@@ -1677,9 +1677,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadP2.new # PackagesUploadP2 | 
@@ -1738,9 +1738,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadPython.new # PackagesUploadPython | 
@@ -1799,9 +1799,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadRaw.new # PackagesUploadRaw | 
@@ -1860,9 +1860,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadRpm.new # PackagesUploadRpm | 
@@ -1921,9 +1921,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadRuby.new # PackagesUploadRuby | 
@@ -1982,9 +1982,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadTerraform.new # PackagesUploadTerraform | 
@@ -2043,9 +2043,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesUploadVagrant.new # PackagesUploadVagrant | 
@@ -2104,9 +2104,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadAlpine.new # PackagesValidateuploadAlpine | 
@@ -2164,9 +2164,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadCargo.new # PackagesValidateuploadCargo | 
@@ -2224,9 +2224,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadCocoapods.new # PackagesValidateuploadCocoapods | 
@@ -2284,9 +2284,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadComposer.new # PackagesValidateuploadComposer | 
@@ -2344,9 +2344,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadConan.new # PackagesValidateuploadConan | 
@@ -2404,9 +2404,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadConda.new # PackagesValidateuploadConda | 
@@ -2464,9 +2464,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadCran.new # PackagesValidateuploadCran | 
@@ -2524,9 +2524,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadDart.new # PackagesValidateuploadDart | 
@@ -2584,9 +2584,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadDeb.new # PackagesValidateuploadDeb | 
@@ -2644,9 +2644,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadDocker.new # PackagesValidateuploadDocker | 
@@ -2704,9 +2704,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadGo.new # PackagesValidateuploadGo | 
@@ -2764,9 +2764,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadHelm.new # PackagesValidateuploadHelm | 
@@ -2824,9 +2824,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadLuarocks.new # PackagesValidateuploadLuarocks | 
@@ -2884,9 +2884,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadMaven.new # PackagesValidateuploadMaven | 
@@ -2944,9 +2944,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadNpm.new # PackagesValidateuploadNpm | 
@@ -3004,9 +3004,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadNuget.new # PackagesValidateuploadNuget | 
@@ -3064,9 +3064,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadP2.new # PackagesValidateuploadP2 | 
@@ -3124,9 +3124,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadPython.new # PackagesValidateuploadPython | 
@@ -3184,9 +3184,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadRaw.new # PackagesValidateuploadRaw | 
@@ -3244,9 +3244,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadRpm.new # PackagesValidateuploadRpm | 
@@ -3304,9 +3304,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadRuby.new # PackagesValidateuploadRuby | 
@@ -3364,9 +3364,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadTerraform.new # PackagesValidateuploadTerraform | 
@@ -3424,9 +3424,9 @@ end
 
 api_instance = CloudsmithApi::PackagesApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::PackagesValidateuploadVagrant.new # PackagesValidateuploadVagrant | 

@@ -17,7 +17,7 @@ Quota history for a given namespace.
 
 Quota history for a given namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -26,15 +26,16 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.QuotaApi()
+api_instance = cloudsmith_api.QuotaApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 
-try: 
+try:
     # Quota history for a given namespace.
     api_response = api_instance.quota_history_read(owner)
     pprint(api_response)
@@ -70,7 +71,7 @@ Open-source Quota history for a given namespace.
 
 Open-source Quota history for a given namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -79,15 +80,16 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.QuotaApi()
+api_instance = cloudsmith_api.QuotaApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 
-try: 
+try:
     # Open-source Quota history for a given namespace.
     api_response = api_instance.quota_oss_history_read(owner)
     pprint(api_response)
@@ -123,7 +125,7 @@ Open-source Quota usage for a given namespace.
 
 Open-source Quota usage for a given namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -132,15 +134,16 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.QuotaApi()
+api_instance = cloudsmith_api.QuotaApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 
-try: 
+try:
     # Open-source Quota usage for a given namespace.
     api_response = api_instance.quota_oss_read(owner)
     pprint(api_response)
@@ -176,7 +179,7 @@ Quota usage for a given namespace.
 
 Quota usage for a given namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -185,15 +188,16 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.QuotaApi()
+api_instance = cloudsmith_api.QuotaApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 
-try: 
+try:
     # Quota usage for a given namespace.
     api_response = api_instance.quota_read(owner)
     pprint(api_response)

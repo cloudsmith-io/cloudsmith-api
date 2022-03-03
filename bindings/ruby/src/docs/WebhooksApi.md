@@ -32,9 +32,9 @@ end
 
 api_instance = CloudsmithApi::WebhooksApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   data: CloudsmithApi::WebhooksCreate.new # WebhooksCreate | 
@@ -93,11 +93,11 @@ end
 
 api_instance = CloudsmithApi::WebhooksApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
@@ -152,9 +152,9 @@ end
 
 api_instance = CloudsmithApi::WebhooksApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
@@ -215,11 +215,11 @@ end
 
 api_instance = CloudsmithApi::WebhooksApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 opts = { 
   data: CloudsmithApi::WebhooksPartialUpdate.new # WebhooksPartialUpdate | 
@@ -279,11 +279,11 @@ end
 
 api_instance = CloudsmithApi::WebhooksApi.new
 
-owner = "owner_example" # String | 
+owner = 'owner_example' # String | 
 
-repo = "repo_example" # String | 
+repo = 'repo_example' # String | 
 
-identifier = "identifier_example" # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin

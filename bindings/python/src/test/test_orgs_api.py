@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,61 +13,54 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.orgs_api import OrgsApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.orgs_api import OrgsApi
 
 
 class TestOrgsApi(unittest.TestCase):
-    """ OrgsApi unit test stubs """
+    """OrgsApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.orgs_api.OrgsApi()
+        self.api = cloudsmith_api.api.orgs_api.OrgsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_orgs_list(self):
-        """
-        Test case for orgs_list
+        """Test case for orgs_list
 
-        Get a list of all the organizations you are associated with.
+        Get a list of all the organizations you are associated with.  # noqa: E501
         """
         pass
 
     def test_orgs_members_list(self):
-        """
-        Test case for orgs_members_list
+        """Test case for orgs_members_list
 
-        Get the details for all organization members.
+        Get the details for all organization members.  # noqa: E501
         """
         pass
 
     def test_orgs_members_read(self):
-        """
-        Test case for orgs_members_read
+        """Test case for orgs_members_read
 
-        Get the details for a specific organization member.
+        Get the details for a specific organization member.  # noqa: E501
         """
         pass
 
     def test_orgs_members_remove(self):
-        """
-        Test case for orgs_members_remove
+        """Test case for orgs_members_remove
 
-        Removes a member from the organization.
+        Removes a member from the organization.  # noqa: E501
         """
         pass
 
     def test_orgs_read(self):
-        """
-        Test case for orgs_read
+        """Test case for orgs_read
 
-        Get the details for the specific organization.
+        Get the details for the specific organization.  # noqa: E501
         """
         pass
 

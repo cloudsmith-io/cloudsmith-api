@@ -13,12 +13,12 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.EntitlementUsageMetrics;
 import io.cloudsmith.api.models.PackageUsageMetrics;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class MetricsApiTest {
      *
      * View for listing entitlement token metrics, across an account.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void metricsEntitlementsListTest() throws ApiException {
+    public void metricsEntitlementsListTest() throws Exception {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
@@ -60,11 +60,11 @@ public class MetricsApiTest {
      *
      * View for listing entitlement token metrics, for a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void metricsEntitlementsList0Test() throws ApiException {
+    public void metricsEntitlementsList0Test() throws Exception {
         String owner = null;
         String repo = null;
         Integer page = null;
@@ -82,11 +82,11 @@ public class MetricsApiTest {
      *
      * View for listing package usage metrics, for a repository.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void metricsPackagesListTest() throws ApiException {
+    public void metricsPackagesListTest() throws Exception {
         String owner = null;
         String repo = null;
         Integer page = null;

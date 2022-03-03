@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+
 self=$(readlink -f $BASH_SOURCE)
 self_dir=$(dirname $self)
 root_dir=$(readlink -f "$self_dir/../..")
@@ -24,3 +26,12 @@ $root_dir/bin/swagger-codegen-cli generate \
     -l go \
     -o $src_dir \
     $common_codegen_options
+
+
+# Apply fixes for missing imports
+#
+# This is a temporary measure as a larger API/swagger update is due soon which
+# should resolve this and other issues properly.
+
+sed -i 's/	\"fmt\"/	\"fmt\"\n	\"github.com\/antihax\/optional\"/g' $src_dir/api_files.go
+sed -i 's/	\"strings\"/	\"strings\"\n	\"github.com\/antihax\/optional\"/g' $src_dir/api_user.go

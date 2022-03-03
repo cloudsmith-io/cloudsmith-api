@@ -13,7 +13,6 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.FilesAbort;
 import io.cloudsmith.api.models.FilesComplete;
 import io.cloudsmith.api.models.FilesCreate;
@@ -23,6 +22,7 @@ import io.cloudsmith.api.models.PackageFileUpload;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,11 +43,11 @@ public class FilesApiTest {
      *
      * Abort a multipart file upload.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filesAbortTest() throws ApiException {
+    public void filesAbortTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -62,11 +62,11 @@ public class FilesApiTest {
      *
      * Complete a multipart file upload.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filesCompleteTest() throws ApiException {
+    public void filesCompleteTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -81,11 +81,11 @@ public class FilesApiTest {
      *
      * Request URL(s) to upload new package file upload(s) to.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filesCreateTest() throws ApiException {
+    public void filesCreateTest() throws Exception {
         String owner = null;
         String repo = null;
         FilesCreate data = null;
@@ -99,11 +99,11 @@ public class FilesApiTest {
      *
      * Get upload information for a multipart file upload.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filesInfoTest() throws ApiException {
+    public void filesInfoTest() throws Exception {
         String owner = null;
         String repo = null;
         String identifier = null;
@@ -117,11 +117,11 @@ public class FilesApiTest {
      *
      * Validate parameters used for create.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void filesValidateTest() throws ApiException {
+    public void filesValidateTest() throws Exception {
         String owner = null;
         String repo = null;
         FilesValidate data = null;

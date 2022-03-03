@@ -13,11 +13,11 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Status;
 import io.cloudsmith.api.models.StorageRegion;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class StorageRegionsApiTest {
      *
      * Get a list of all available storage regions.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void storageRegionsListTest() throws ApiException {
+    public void storageRegionsListTest() throws Exception {
         List<StorageRegion> response = api.storageRegionsList();
 
         // TODO: test validations
@@ -53,11 +53,11 @@ public class StorageRegionsApiTest {
      *
      * Get a specific storage region.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void storageRegionsReadTest() throws ApiException {
+    public void storageRegionsReadTest() throws Exception {
         String slug = null;
         StorageRegion response = api.storageRegionsRead(slug);
 

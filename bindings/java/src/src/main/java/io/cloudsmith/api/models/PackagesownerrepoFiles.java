@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -211,7 +212,7 @@ public class PackagesownerrepoFiles implements Serializable {
    * @return isDownloadable
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsDownloadable() {
+  public Boolean isIsDownloadable() {
     return isDownloadable;
   }
 
@@ -229,7 +230,7 @@ public class PackagesownerrepoFiles implements Serializable {
    * @return isPrimary
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsPrimary() {
+  public Boolean isIsPrimary() {
     return isPrimary;
   }
 
@@ -247,7 +248,7 @@ public class PackagesownerrepoFiles implements Serializable {
    * @return isSynchronised
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSynchronised() {
+  public Boolean isIsSynchronised() {
     return isSynchronised;
   }
 
@@ -392,6 +393,6 @@ public class PackagesownerrepoFiles implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

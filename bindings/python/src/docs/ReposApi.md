@@ -19,7 +19,7 @@ Get a list of all repositories associated with current user.
 
 Get a list of all repositories associated with current user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -28,16 +28,17 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.ReposApi()
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Get a list of all repositories associated with current user.
     api_response = api_instance.repos_all_list(page=page, page_size=page_size)
     pprint(api_response)
@@ -74,7 +75,7 @@ Create a new repository in a given namespace.
 
 Create a new repository in a given namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -83,16 +84,17 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.ReposApi()
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 data = cloudsmith_api.ReposCreate() # ReposCreate |  (optional)
 
-try: 
+try:
     # Create a new repository in a given namespace.
     api_response = api_instance.repos_create(owner, data=data)
     pprint(api_response)
@@ -129,7 +131,7 @@ Delete a repository in a given namespace.
 
 Delete a repository in a given namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -138,16 +140,17 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.ReposApi()
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Delete a repository in a given namespace.
     api_instance.repos_delete(owner, identifier)
 except ApiException as e:
@@ -183,7 +186,7 @@ Get a list of all repositories within a namespace.
 
 Get a list of all repositories within a namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -192,17 +195,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.ReposApi()
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
-try: 
+try:
     # Get a list of all repositories within a namespace.
     api_response = api_instance.repos_list(owner, page=page, page_size=page_size)
     pprint(api_response)
@@ -240,7 +244,7 @@ Update details about a repository in a given namespace.
 
 Update details about a repository in a given namespace.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -249,17 +253,18 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.ReposApi()
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
 data = cloudsmith_api.ReposPartialUpdate() # ReposPartialUpdate |  (optional)
 
-try: 
+try:
     # Update details about a repository in a given namespace.
     api_response = api_instance.repos_partial_update(owner, identifier, data=data)
     pprint(api_response)
@@ -297,7 +302,7 @@ Get a specific repository.
 
 Get a specific repository.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -306,16 +311,17 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.ReposApi()
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
 
-try: 
+try:
     # Get a specific repository.
     api_response = api_instance.repos_read(owner, identifier)
     pprint(api_response)

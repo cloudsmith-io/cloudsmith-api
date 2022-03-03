@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,29 +13,26 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.rates_api import RatesApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.rates_api import RatesApi
 
 
 class TestRatesApi(unittest.TestCase):
-    """ RatesApi unit test stubs """
+    """RatesApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.rates_api.RatesApi()
+        self.api = cloudsmith_api.api.rates_api.RatesApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_rates_limits_list(self):
-        """
-        Test case for rates_limits_list
+        """Test case for rates_limits_list
 
-        Endpoint to check rate limits for current user.
+        Endpoint to check rate limits for current user.  # noqa: E501
         """
         pass
 

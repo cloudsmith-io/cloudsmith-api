@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,37 +13,33 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.namespaces_api import NamespacesApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.namespaces_api import NamespacesApi
 
 
 class TestNamespacesApi(unittest.TestCase):
-    """ NamespacesApi unit test stubs """
+    """NamespacesApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.namespaces_api.NamespacesApi()
+        self.api = cloudsmith_api.api.namespaces_api.NamespacesApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_namespaces_list(self):
-        """
-        Test case for namespaces_list
+        """Test case for namespaces_list
 
-        Get a list of all namespaces the user belongs to.
+        Get a list of all namespaces the user belongs to.  # noqa: E501
         """
         pass
 
     def test_namespaces_read(self):
-        """
-        Test case for namespaces_read
+        """Test case for namespaces_read
 
-        Views for working with namespaces.
+        Views for working with namespaces.  # noqa: E501
         """
         pass
 

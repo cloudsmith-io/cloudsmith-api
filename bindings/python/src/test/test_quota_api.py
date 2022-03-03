@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,53 +13,47 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.quota_api import QuotaApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.quota_api import QuotaApi
 
 
 class TestQuotaApi(unittest.TestCase):
-    """ QuotaApi unit test stubs """
+    """QuotaApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.quota_api.QuotaApi()
+        self.api = cloudsmith_api.api.quota_api.QuotaApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_quota_history_read(self):
-        """
-        Test case for quota_history_read
+        """Test case for quota_history_read
 
-        Quota history for a given namespace.
+        Quota history for a given namespace.  # noqa: E501
         """
         pass
 
     def test_quota_oss_history_read(self):
-        """
-        Test case for quota_oss_history_read
+        """Test case for quota_oss_history_read
 
-        Open-source Quota history for a given namespace.
+        Open-source Quota history for a given namespace.  # noqa: E501
         """
         pass
 
     def test_quota_oss_read(self):
-        """
-        Test case for quota_oss_read
+        """Test case for quota_oss_read
 
-        Open-source Quota usage for a given namespace.
+        Open-source Quota usage for a given namespace.  # noqa: E501
         """
         pass
 
     def test_quota_read(self):
-        """
-        Test case for quota_read
+        """Test case for quota_read
 
-        Quota usage for a given namespace.
+        Quota usage for a given namespace.  # noqa: E501
         """
         pass
 

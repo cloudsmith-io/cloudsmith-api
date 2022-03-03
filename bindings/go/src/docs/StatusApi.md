@@ -8,14 +8,12 @@ Method | HTTP request | Description
 
 
 # **StatusCheckBasic**
-> StatusBasic StatusCheckBasic()
-
+> StatusBasic StatusCheckBasic(ctx, )
 Endpoint to check basic API connectivity.
 
 Endpoint to check basic API connectivity.
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type

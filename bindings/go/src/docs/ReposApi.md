@@ -13,19 +13,25 @@ Method | HTTP request | Description
 
 
 # **ReposAllList**
-> []Repository ReposAllList($page, $pageSize)
-
+> []Repository ReposAllList(ctx, optional)
 Get a list of all repositories associated with current user.
 
 Get a list of all repositories associated with current user.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***ReposApiReposAllListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ReposApiReposAllListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -43,19 +49,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposCreate**
-> Repository ReposCreate($owner, $data)
-
+> Repository ReposCreate(ctx, owner, optional)
 Create a new repository in a given namespace.
 
 Create a new repository in a given namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **data** | [**ReposCreate**](ReposCreate.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+ **optional** | ***ReposApiReposCreateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ReposApiReposCreateOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **data** | [**optional.Interface of ReposCreate**](ReposCreate.md)|  | 
 
 ### Return type
 
@@ -73,23 +86,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposDelete**
-> ReposDelete($owner, $identifier)
-
+> ReposDelete(ctx, owner, identifier)
 Delete a repository in a given namespace.
 
 Delete a repository in a given namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **identifier** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **identifier** | **string**|  | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -103,20 +115,27 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposList**
-> []Repository ReposList($owner, $page, $pageSize)
-
+> []Repository ReposList(ctx, owner, optional)
 Get a list of all repositories within a namespace.
 
 Get a list of all repositories within a namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **page** | **int32**| A page number within the paginated result set. | [optional] 
- **pageSize** | **int32**| Number of results to return per page. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+ **optional** | ***ReposApiReposListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ReposApiReposListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **page** | **optional.Int32**| A page number within the paginated result set. | 
+ **pageSize** | **optional.Int32**| Number of results to return per page. | 
 
 ### Return type
 
@@ -134,20 +153,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposPartialUpdate**
-> Repository ReposPartialUpdate($owner, $identifier, $data)
-
+> Repository ReposPartialUpdate(ctx, owner, identifier, optional)
 Update details about a repository in a given namespace.
 
 Update details about a repository in a given namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **identifier** | **string**|  | 
- **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **identifier** | **string**|  | 
+ **optional** | ***ReposApiReposPartialUpdateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ReposApiReposPartialUpdateOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **data** | [**optional.Interface of ReposPartialUpdate**](ReposPartialUpdate.md)|  | 
 
 ### Return type
 
@@ -165,19 +192,18 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposRead**
-> Repository ReposRead($owner, $identifier)
-
+> Repository ReposRead(ctx, owner, identifier)
 Get a specific repository.
 
 Get a specific repository.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **identifier** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **identifier** | **string**|  | 
 
 ### Return type
 

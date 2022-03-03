@@ -13,11 +13,11 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Namespace;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,11 +38,11 @@ public class NamespacesApiTest {
      *
      * Get a list of all namespaces the user belongs to.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void namespacesListTest() throws ApiException {
+    public void namespacesListTest() throws Exception {
         Integer page = null;
         Integer pageSize = null;
         List<Namespace> response = api.namespacesList(page, pageSize);
@@ -55,11 +55,11 @@ public class NamespacesApiTest {
      *
      * Views for working with namespaces.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void namespacesReadTest() throws ApiException {
+    public void namespacesReadTest() throws Exception {
         String slug = null;
         Namespace response = api.namespacesRead(slug);
 

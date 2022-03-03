@@ -1,11 +1,11 @@
-# CloudsmithApi::StorageregionsApi
+# CloudsmithApi::StorageRegionsApi
 
 All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**storage_regions_list**](StorageregionsApi.md#storage_regions_list) | **GET** /storage-regions/ | Get a list of all available storage regions.
-[**storage_regions_read**](StorageregionsApi.md#storage_regions_read) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
+[**storage_regions_list**](StorageRegionsApi.md#storage_regions_list) | **GET** /storage-regions/ | Get a list of all available storage regions.
+[**storage_regions_read**](StorageRegionsApi.md#storage_regions_read) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
 
 
 # **storage_regions_list**
@@ -27,14 +27,14 @@ CloudsmithApi.configure do |config|
   #config.api_key_prefix['X-Api-Key'] = 'Bearer'
 end
 
-api_instance = CloudsmithApi::StorageregionsApi.new
+api_instance = CloudsmithApi::StorageRegionsApi.new
 
 begin
   #Get a list of all available storage regions.
   result = api_instance.storage_regions_list
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling StorageregionsApi->storage_regions_list: #{e}"
+  puts "Exception when calling StorageRegionsApi->storage_regions_list: #{e}"
 end
 ```
 
@@ -75,9 +75,9 @@ CloudsmithApi.configure do |config|
   #config.api_key_prefix['X-Api-Key'] = 'Bearer'
 end
 
-api_instance = CloudsmithApi::StorageregionsApi.new
+api_instance = CloudsmithApi::StorageRegionsApi.new
 
-slug = "slug_example" # String | 
+slug = 'slug_example' # String | 
 
 
 begin
@@ -85,7 +85,7 @@ begin
   result = api_instance.storage_regions_read(slug)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling StorageregionsApi->storage_regions_read: #{e}"
+  puts "Exception when calling StorageRegionsApi->storage_regions_read: #{e}"
 end
 ```
 

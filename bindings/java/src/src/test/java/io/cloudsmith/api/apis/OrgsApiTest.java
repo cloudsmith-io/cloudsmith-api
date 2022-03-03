@@ -13,12 +13,12 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.ApiException;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationMembership;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +39,11 @@ public class OrgsApiTest {
      *
      * Get a list of all the organizations you are associated with.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void orgsListTest() throws ApiException {
+    public void orgsListTest() throws Exception {
         Integer page = null;
         Integer pageSize = null;
         List<Organization> response = api.orgsList(page, pageSize);
@@ -56,11 +56,11 @@ public class OrgsApiTest {
      *
      * Get the details for all organization members.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void orgsMembersListTest() throws ApiException {
+    public void orgsMembersListTest() throws Exception {
         String org = null;
         Integer page = null;
         Integer pageSize = null;
@@ -74,11 +74,11 @@ public class OrgsApiTest {
      *
      * Get the details for a specific organization member.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void orgsMembersReadTest() throws ApiException {
+    public void orgsMembersReadTest() throws Exception {
         String org = null;
         String member = null;
         OrganizationMembership response = api.orgsMembersRead(org, member);
@@ -91,11 +91,11 @@ public class OrgsApiTest {
      *
      * Removes a member from the organization.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void orgsMembersRemoveTest() throws ApiException {
+    public void orgsMembersRemoveTest() throws Exception {
         String org = null;
         String member = null;
         OrganizationMembership response = api.orgsMembersRemove(org, member);
@@ -108,11 +108,11 @@ public class OrgsApiTest {
      *
      * Get the details for the specific organization.
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void orgsReadTest() throws ApiException {
+    public void orgsReadTest() throws Exception {
         String org = null;
         Organization response = api.orgsRead(org);
 

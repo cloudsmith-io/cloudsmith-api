@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,7 +67,7 @@ public class StatusBasic implements Serializable {
    * The current version for the Cloudsmith service.
    * @return version
   **/
-  @ApiModelProperty(example = "1.30.0", value = "The current version for the Cloudsmith service.")
+  @ApiModelProperty(example = "1.33.7", value = "The current version for the Cloudsmith service.")
   public String getVersion() {
     return version;
   }
@@ -116,6 +117,6 @@ public class StatusBasic implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

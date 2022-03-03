@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -91,7 +92,7 @@ public class OrganizationMembership implements Serializable {
    * @return hasTwoFactor
   **/
   @ApiModelProperty(value = "")
-  public Boolean getHasTwoFactor() {
+  public Boolean isHasTwoFactor() {
     return hasTwoFactor;
   }
 
@@ -300,6 +301,6 @@ public class OrganizationMembership implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

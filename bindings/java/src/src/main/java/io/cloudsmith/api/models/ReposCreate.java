@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -79,7 +80,7 @@ public class ReposCreate implements Serializable {
    * @return indexFiles
   **/
   @ApiModelProperty(value = "If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.")
-  public Boolean getIndexFiles() {
+  public Boolean isIndexFiles() {
     return indexFiles;
   }
 
@@ -209,6 +210,6 @@ public class ReposCreate implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

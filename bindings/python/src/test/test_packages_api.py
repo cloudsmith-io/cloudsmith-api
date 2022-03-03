@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,469 +13,411 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.packages_api import PackagesApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.packages_api import PackagesApi
 
 
 class TestPackagesApi(unittest.TestCase):
-    """ PackagesApi unit test stubs """
+    """PackagesApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.packages_api.PackagesApi()
+        self.api = cloudsmith_api.api.packages_api.PackagesApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_packages_copy(self):
-        """
-        Test case for packages_copy
+        """Test case for packages_copy
 
-        Copy a package to another repository.
+        Copy a package to another repository.  # noqa: E501
         """
         pass
 
     def test_packages_delete(self):
-        """
-        Test case for packages_delete
+        """Test case for packages_delete
 
-        Delete a specific package in a repository.
+        Delete a specific package in a repository.  # noqa: E501
         """
         pass
 
     def test_packages_dependencies(self):
-        """
-        Test case for packages_dependencies
+        """Test case for packages_dependencies
 
-        Get the direct (non-transitive) dependencies list for a package.
+        Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
         """
         pass
 
     def test_packages_list(self):
-        """
-        Test case for packages_list
+        """Test case for packages_list
 
-        Get a list of all packages associated with repository.
+        Get a list of all packages associated with repository.  # noqa: E501
         """
         pass
 
     def test_packages_move(self):
-        """
-        Test case for packages_move
+        """Test case for packages_move
 
-        Move a package to another repository.
+        Move a package to another repository.  # noqa: E501
         """
         pass
 
     def test_packages_read(self):
-        """
-        Test case for packages_read
+        """Test case for packages_read
 
-        Get a specific package in a repository.
+        Get a specific package in a repository.  # noqa: E501
         """
         pass
 
     def test_packages_resync(self):
-        """
-        Test case for packages_resync
+        """Test case for packages_resync
 
-        Schedule a package for resynchronisation.
+        Schedule a package for resynchronisation.  # noqa: E501
         """
         pass
 
     def test_packages_scan(self):
-        """
-        Test case for packages_scan
+        """Test case for packages_scan
 
-        Schedule a package for scanning.
+        Schedule a package for scanning.  # noqa: E501
         """
         pass
 
     def test_packages_status(self):
-        """
-        Test case for packages_status
+        """Test case for packages_status
 
-        Get the synchronisation status for a package.
+        Get the synchronisation status for a package.  # noqa: E501
         """
         pass
 
     def test_packages_tag(self):
-        """
-        Test case for packages_tag
+        """Test case for packages_tag
 
-        Add/Replace/Remove tags for a package.
+        Add/Replace/Remove tags for a package.  # noqa: E501
         """
         pass
 
     def test_packages_upload_alpine(self):
-        """
-        Test case for packages_upload_alpine
+        """Test case for packages_upload_alpine
 
-        Create a new Alpine package
+        Create a new Alpine package  # noqa: E501
         """
         pass
 
     def test_packages_upload_cargo(self):
-        """
-        Test case for packages_upload_cargo
+        """Test case for packages_upload_cargo
 
-        Create a new Cargo package
+        Create a new Cargo package  # noqa: E501
         """
         pass
 
     def test_packages_upload_cocoapods(self):
-        """
-        Test case for packages_upload_cocoapods
+        """Test case for packages_upload_cocoapods
 
-        Create a new CocoaPods package
+        Create a new CocoaPods package  # noqa: E501
         """
         pass
 
     def test_packages_upload_composer(self):
-        """
-        Test case for packages_upload_composer
+        """Test case for packages_upload_composer
 
-        Create a new Composer package
+        Create a new Composer package  # noqa: E501
         """
         pass
 
     def test_packages_upload_conan(self):
-        """
-        Test case for packages_upload_conan
+        """Test case for packages_upload_conan
 
-        Create a new Conan package
+        Create a new Conan package  # noqa: E501
         """
         pass
 
     def test_packages_upload_conda(self):
-        """
-        Test case for packages_upload_conda
+        """Test case for packages_upload_conda
 
-        Create a new Conda package
+        Create a new Conda package  # noqa: E501
         """
         pass
 
     def test_packages_upload_cran(self):
-        """
-        Test case for packages_upload_cran
+        """Test case for packages_upload_cran
 
-        Create a new CRAN package
+        Create a new CRAN package  # noqa: E501
         """
         pass
 
     def test_packages_upload_dart(self):
-        """
-        Test case for packages_upload_dart
+        """Test case for packages_upload_dart
 
-        Create a new Dart package
+        Create a new Dart package  # noqa: E501
         """
         pass
 
     def test_packages_upload_deb(self):
-        """
-        Test case for packages_upload_deb
+        """Test case for packages_upload_deb
 
-        Create a new Debian package
+        Create a new Debian package  # noqa: E501
         """
         pass
 
     def test_packages_upload_docker(self):
-        """
-        Test case for packages_upload_docker
+        """Test case for packages_upload_docker
 
-        Create a new Docker package
+        Create a new Docker package  # noqa: E501
         """
         pass
 
     def test_packages_upload_go(self):
-        """
-        Test case for packages_upload_go
+        """Test case for packages_upload_go
 
-        Create a new Go package
+        Create a new Go package  # noqa: E501
         """
         pass
 
     def test_packages_upload_helm(self):
-        """
-        Test case for packages_upload_helm
+        """Test case for packages_upload_helm
 
-        Create a new Helm package
+        Create a new Helm package  # noqa: E501
         """
         pass
 
     def test_packages_upload_luarocks(self):
-        """
-        Test case for packages_upload_luarocks
+        """Test case for packages_upload_luarocks
 
-        Create a new LuaRocks package
+        Create a new LuaRocks package  # noqa: E501
         """
         pass
 
     def test_packages_upload_maven(self):
-        """
-        Test case for packages_upload_maven
+        """Test case for packages_upload_maven
 
-        Create a new Maven package
+        Create a new Maven package  # noqa: E501
         """
         pass
 
     def test_packages_upload_npm(self):
-        """
-        Test case for packages_upload_npm
+        """Test case for packages_upload_npm
 
-        Create a new npm package
+        Create a new npm package  # noqa: E501
         """
         pass
 
     def test_packages_upload_nuget(self):
-        """
-        Test case for packages_upload_nuget
+        """Test case for packages_upload_nuget
 
-        Create a new NuGet package
+        Create a new NuGet package  # noqa: E501
         """
         pass
 
     def test_packages_upload_p2(self):
-        """
-        Test case for packages_upload_p2
+        """Test case for packages_upload_p2
 
-        Create a new P2 package
+        Create a new P2 package  # noqa: E501
         """
         pass
 
     def test_packages_upload_python(self):
-        """
-        Test case for packages_upload_python
+        """Test case for packages_upload_python
 
-        Create a new Python package
+        Create a new Python package  # noqa: E501
         """
         pass
 
     def test_packages_upload_raw(self):
-        """
-        Test case for packages_upload_raw
+        """Test case for packages_upload_raw
 
-        Create a new Raw package
+        Create a new Raw package  # noqa: E501
         """
         pass
 
     def test_packages_upload_rpm(self):
-        """
-        Test case for packages_upload_rpm
+        """Test case for packages_upload_rpm
 
-        Create a new RedHat package
+        Create a new RedHat package  # noqa: E501
         """
         pass
 
     def test_packages_upload_ruby(self):
-        """
-        Test case for packages_upload_ruby
+        """Test case for packages_upload_ruby
 
-        Create a new Ruby package
+        Create a new Ruby package  # noqa: E501
         """
         pass
 
     def test_packages_upload_terraform(self):
-        """
-        Test case for packages_upload_terraform
+        """Test case for packages_upload_terraform
 
-        Create a new Terraform package
+        Create a new Terraform package  # noqa: E501
         """
         pass
 
     def test_packages_upload_vagrant(self):
-        """
-        Test case for packages_upload_vagrant
+        """Test case for packages_upload_vagrant
 
-        Create a new Vagrant package
+        Create a new Vagrant package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_alpine(self):
-        """
-        Test case for packages_validate_upload_alpine
+        """Test case for packages_validate_upload_alpine
 
-        Validate parameters for create Alpine package
+        Validate parameters for create Alpine package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_cargo(self):
-        """
-        Test case for packages_validate_upload_cargo
+        """Test case for packages_validate_upload_cargo
 
-        Validate parameters for create Cargo package
+        Validate parameters for create Cargo package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_cocoapods(self):
-        """
-        Test case for packages_validate_upload_cocoapods
+        """Test case for packages_validate_upload_cocoapods
 
-        Validate parameters for create CocoaPods package
+        Validate parameters for create CocoaPods package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_composer(self):
-        """
-        Test case for packages_validate_upload_composer
+        """Test case for packages_validate_upload_composer
 
-        Validate parameters for create Composer package
+        Validate parameters for create Composer package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_conan(self):
-        """
-        Test case for packages_validate_upload_conan
+        """Test case for packages_validate_upload_conan
 
-        Validate parameters for create Conan package
+        Validate parameters for create Conan package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_conda(self):
-        """
-        Test case for packages_validate_upload_conda
+        """Test case for packages_validate_upload_conda
 
-        Validate parameters for create Conda package
+        Validate parameters for create Conda package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_cran(self):
-        """
-        Test case for packages_validate_upload_cran
+        """Test case for packages_validate_upload_cran
 
-        Validate parameters for create CRAN package
+        Validate parameters for create CRAN package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_dart(self):
-        """
-        Test case for packages_validate_upload_dart
+        """Test case for packages_validate_upload_dart
 
-        Validate parameters for create Dart package
+        Validate parameters for create Dart package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_deb(self):
-        """
-        Test case for packages_validate_upload_deb
+        """Test case for packages_validate_upload_deb
 
-        Validate parameters for create Debian package
+        Validate parameters for create Debian package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_docker(self):
-        """
-        Test case for packages_validate_upload_docker
+        """Test case for packages_validate_upload_docker
 
-        Validate parameters for create Docker package
+        Validate parameters for create Docker package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_go(self):
-        """
-        Test case for packages_validate_upload_go
+        """Test case for packages_validate_upload_go
 
-        Validate parameters for create Go package
+        Validate parameters for create Go package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_helm(self):
-        """
-        Test case for packages_validate_upload_helm
+        """Test case for packages_validate_upload_helm
 
-        Validate parameters for create Helm package
+        Validate parameters for create Helm package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_luarocks(self):
-        """
-        Test case for packages_validate_upload_luarocks
+        """Test case for packages_validate_upload_luarocks
 
-        Validate parameters for create LuaRocks package
+        Validate parameters for create LuaRocks package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_maven(self):
-        """
-        Test case for packages_validate_upload_maven
+        """Test case for packages_validate_upload_maven
 
-        Validate parameters for create Maven package
+        Validate parameters for create Maven package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_npm(self):
-        """
-        Test case for packages_validate_upload_npm
+        """Test case for packages_validate_upload_npm
 
-        Validate parameters for create npm package
+        Validate parameters for create npm package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_nuget(self):
-        """
-        Test case for packages_validate_upload_nuget
+        """Test case for packages_validate_upload_nuget
 
-        Validate parameters for create NuGet package
+        Validate parameters for create NuGet package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_p2(self):
-        """
-        Test case for packages_validate_upload_p2
+        """Test case for packages_validate_upload_p2
 
-        Validate parameters for create P2 package
+        Validate parameters for create P2 package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_python(self):
-        """
-        Test case for packages_validate_upload_python
+        """Test case for packages_validate_upload_python
 
-        Validate parameters for create Python package
+        Validate parameters for create Python package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_raw(self):
-        """
-        Test case for packages_validate_upload_raw
+        """Test case for packages_validate_upload_raw
 
-        Validate parameters for create Raw package
+        Validate parameters for create Raw package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_rpm(self):
-        """
-        Test case for packages_validate_upload_rpm
+        """Test case for packages_validate_upload_rpm
 
-        Validate parameters for create RedHat package
+        Validate parameters for create RedHat package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_ruby(self):
-        """
-        Test case for packages_validate_upload_ruby
+        """Test case for packages_validate_upload_ruby
 
-        Validate parameters for create Ruby package
+        Validate parameters for create Ruby package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_terraform(self):
-        """
-        Test case for packages_validate_upload_terraform
+        """Test case for packages_validate_upload_terraform
 
-        Validate parameters for create Terraform package
+        Validate parameters for create Terraform package  # noqa: E501
         """
         pass
 
     def test_packages_validate_upload_vagrant(self):
-        """
-        Test case for packages_validate_upload_vagrant
+        """Test case for packages_validate_upload_vagrant
 
-        Validate parameters for create Vagrant package
+        Validate parameters for create Vagrant package  # noqa: E501
         """
         pass
 

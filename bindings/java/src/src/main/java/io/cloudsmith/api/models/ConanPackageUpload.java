@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -242,7 +243,7 @@ public class ConanPackageUpload implements Serializable {
 
   public ConanPackageUpload addArchitecturesItem(PackagesownerrepoArchitectures architecturesItem) {
     if (this.architectures == null) {
-      this.architectures = new ArrayList<PackagesownerrepoArchitectures>();
+      this.architectures = new ArrayList<>();
     }
     this.architectures.add(architecturesItem);
     return this;
@@ -557,7 +558,7 @@ public class ConanPackageUpload implements Serializable {
 
   public ConanPackageUpload addFilesItem(PackagesownerrepoFiles filesItem) {
     if (this.files == null) {
-      this.files = new ArrayList<PackagesownerrepoFiles>();
+      this.files = new ArrayList<>();
     }
     this.files.add(filesItem);
     return this;
@@ -641,7 +642,7 @@ public class ConanPackageUpload implements Serializable {
    * @return indexed
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIndexed() {
+  public Boolean isIndexed() {
     return indexed;
   }
 
@@ -659,7 +660,7 @@ public class ConanPackageUpload implements Serializable {
    * @return isSyncAwaiting
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncAwaiting() {
+  public Boolean isIsSyncAwaiting() {
     return isSyncAwaiting;
   }
 
@@ -677,7 +678,7 @@ public class ConanPackageUpload implements Serializable {
    * @return isSyncCompleted
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncCompleted() {
+  public Boolean isIsSyncCompleted() {
     return isSyncCompleted;
   }
 
@@ -695,7 +696,7 @@ public class ConanPackageUpload implements Serializable {
    * @return isSyncFailed
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncFailed() {
+  public Boolean isIsSyncFailed() {
     return isSyncFailed;
   }
 
@@ -713,7 +714,7 @@ public class ConanPackageUpload implements Serializable {
    * @return isSyncInFlight
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncInFlight() {
+  public Boolean isIsSyncInFlight() {
     return isSyncInFlight;
   }
 
@@ -731,7 +732,7 @@ public class ConanPackageUpload implements Serializable {
    * @return isSyncInProgress
   **/
   @ApiModelProperty(value = "")
-  public Boolean getIsSyncInProgress() {
+  public Boolean isIsSyncInProgress() {
     return isSyncInProgress;
   }
 
@@ -1610,6 +1611,6 @@ public class ConanPackageUpload implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

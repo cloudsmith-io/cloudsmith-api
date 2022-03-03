@@ -15,7 +15,7 @@ Get a list of all supported package formats.
 
 Get a list of all supported package formats.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -24,14 +24,15 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.FormatsApi()
+api_instance = cloudsmith_api.FormatsApi(cloudsmith_api.ApiClient(configuration))
 
-try: 
+try:
     # Get a list of all supported package formats.
     api_response = api_instance.formats_list()
     pprint(api_response)
@@ -64,7 +65,7 @@ Get a specific supported package format.
 
 Get a specific supported package format.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -73,15 +74,16 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.FormatsApi()
+api_instance = cloudsmith_api.FormatsApi(cloudsmith_api.ApiClient(configuration))
 slug = 'slug_example' # str | 
 
-try: 
+try:
     # Get a specific supported package format.
     api_response = api_instance.formats_read(slug)
     pprint(api_response)

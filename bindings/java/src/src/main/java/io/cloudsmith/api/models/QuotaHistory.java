@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,7 +38,7 @@ public class QuotaHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("history")
-  private List<QuotaHistoryHistory> history = new ArrayList<QuotaHistoryHistory>();
+  private List<QuotaHistoryHistory> history = new ArrayList<>();
 
   public QuotaHistory history(List<QuotaHistoryHistory> history) {
     this.history = history;
@@ -103,6 +104,6 @@ public class QuotaHistory implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

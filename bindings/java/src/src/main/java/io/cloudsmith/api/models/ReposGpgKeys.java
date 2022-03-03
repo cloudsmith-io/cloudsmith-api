@@ -14,6 +14,7 @@
 package io.cloudsmith.api.models;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -64,7 +65,7 @@ public class ReposGpgKeys implements Serializable {
    * @return active
   **/
   @ApiModelProperty(value = "If selected this is the active key for this repository.")
-  public Boolean getActive() {
+  public Boolean isActive() {
     return active;
   }
 
@@ -118,7 +119,7 @@ public class ReposGpgKeys implements Serializable {
    * @return _default
   **/
   @ApiModelProperty(value = "If selected this is the default key for this repository.")
-  public Boolean getDefault() {
+  public Boolean isDefault() {
     return _default;
   }
 
@@ -231,6 +232,6 @@ public class ReposGpgKeys implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

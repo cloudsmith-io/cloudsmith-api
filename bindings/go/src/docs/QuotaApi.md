@@ -11,18 +11,17 @@ Method | HTTP request | Description
 
 
 # **QuotaHistoryRead**
-> QuotaHistory QuotaHistoryRead($owner)
-
+> QuotaHistory QuotaHistoryRead(ctx, owner)
 Quota history for a given namespace.
 
 Quota history for a given namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
 
 ### Return type
 
@@ -40,18 +39,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **QuotaOssHistoryRead**
-> QuotaHistory QuotaOssHistoryRead($owner)
-
+> QuotaHistory QuotaOssHistoryRead(ctx, owner)
 Open-source Quota history for a given namespace.
 
 Open-source Quota history for a given namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
 
 ### Return type
 
@@ -69,18 +67,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **QuotaOssRead**
-> Quota QuotaOssRead($owner)
-
+> Quota QuotaOssRead(ctx, owner)
 Open-source Quota usage for a given namespace.
 
 Open-source Quota usage for a given namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
 
 ### Return type
 
@@ -98,18 +95,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **QuotaRead**
-> Quota QuotaRead($owner)
-
+> Quota QuotaRead(ctx, owner)
 Quota usage for a given namespace.
 
 Quota usage for a given namespace.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
 
 ### Return type
 

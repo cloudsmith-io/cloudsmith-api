@@ -8,38 +8,50 @@ Method | HTTP request | Description
 
 
 # **BadgesVersionList**
-> BadgesVersionList($owner, $repo, $packageFormat, $packageName, $packageVersion, $packageIdentifiers, $badgeToken, $cacheSeconds, $color, $label, $labelColor, $logoColor, $logoWidth, $render, $shields, $showLatest, $style)
-
+> interface{} BadgesVersionList(ctx, owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, optional)
 Get latest package version for a package or package group.
 
 Get latest package version for a package or package group.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **string**|  | 
- **repo** | **string**|  | 
- **packageFormat** | **string**|  | 
- **packageName** | **string**|  | 
- **packageVersion** | **string**|  | 
- **packageIdentifiers** | **string**|  | 
- **badgeToken** | **string**| Badge token to authenticate for private packages | [optional] 
- **cacheSeconds** | **string**| Override the shields.io badge cacheSeconds value. | [optional] 
- **color** | **string**| Override the shields.io badge color value. | [optional] 
- **label** | **string**| Override the shields.io badge label value. | [optional] 
- **labelColor** | **string**| Override the shields.io badge labelColor value. | [optional] 
- **logoColor** | **string**| Override the shields.io badge logoColor value. | [optional] 
- **logoWidth** | **string**| Override the shields.io badge logoWidth value. | [optional] 
- **render** | **bool**| If true, badge will be rendered | [optional] 
- **shields** | **bool**| If true, a shields response will be generated | [optional] 
- **showLatest** | **bool**| If true, for latest version badges a &#39;(latest)&#39; suffix is added | [optional] 
- **style** | **string**| Override the shields.io badge style value. | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **packageFormat** | **string**|  | 
+  **packageName** | **string**|  | 
+  **packageVersion** | **string**|  | 
+  **packageIdentifiers** | **string**|  | 
+ **optional** | ***BadgesApiBadgesVersionListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a BadgesApiBadgesVersionListOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+
+ **badgeToken** | **optional.String**| Badge token to authenticate for private packages | 
+ **cacheSeconds** | **optional.String**| Override the shields.io badge cacheSeconds value. | 
+ **color** | **optional.String**| Override the shields.io badge color value. | 
+ **label** | **optional.String**| Override the shields.io badge label value. | 
+ **labelColor** | **optional.String**| Override the shields.io badge labelColor value. | 
+ **logoColor** | **optional.String**| Override the shields.io badge logoColor value. | 
+ **logoWidth** | **optional.String**| Override the shields.io badge logoWidth value. | 
+ **render** | **optional.Bool**| If true, badge will be rendered | 
+ **shields** | **optional.Bool**| If true, a shields response will be generated | 
+ **showLatest** | **optional.Bool**| If true, for latest version badges a &#39;(latest)&#39; suffix is added | 
+ **style** | **optional.String**| Override the shields.io badge style value. | 
 
 ### Return type
 
-void (empty response body)
+**interface{}**
 
 ### Authorization
 

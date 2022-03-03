@@ -8,14 +8,12 @@ Method | HTTP request | Description
 
 
 # **RatesLimitsList**
-> ResourcesRateCheck RatesLimitsList()
-
+> ResourcesRateCheck RatesLimitsList(ctx, )
 Endpoint to check rate limits for current user.
 
 Endpoint to check rate limits for current user.
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type

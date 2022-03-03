@@ -15,7 +15,7 @@ Provide a brief for the current user (if any).
 
 Provide a brief for the current user (if any).
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -24,14 +24,15 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.UserApi()
+api_instance = cloudsmith_api.UserApi(cloudsmith_api.ApiClient(configuration))
 
-try: 
+try:
     # Provide a brief for the current user (if any).
     api_response = api_instance.user_self()
     pprint(api_response)
@@ -64,7 +65,7 @@ Retrieve the API key/token for the authenticated user.
 
 Retrieve the API key/token for the authenticated user.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -73,15 +74,16 @@ from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apikey
-cloudsmith_api.configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# cloudsmith_api.configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudsmith_api.UserApi()
+api_instance = cloudsmith_api.UserApi(cloudsmith_api.ApiClient(configuration))
 data = cloudsmith_api.UserTokenCreate() # UserTokenCreate |  (optional)
 
-try: 
+try:
     # Retrieve the API key/token for the authenticated user.
     api_response = api_instance.user_token_create(data=data)
     pprint(api_response)

@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,37 +13,33 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.api.distros_api import DistrosApi  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.apis.distros_api import DistrosApi
 
 
 class TestDistrosApi(unittest.TestCase):
-    """ DistrosApi unit test stubs """
+    """DistrosApi unit test stubs"""
 
     def setUp(self):
-        self.api = cloudsmith_api.apis.distros_api.DistrosApi()
+        self.api = cloudsmith_api.api.distros_api.DistrosApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
     def test_distros_list(self):
-        """
-        Test case for distros_list
+        """Test case for distros_list
 
-        Get a list of all supported distributions.
+        Get a list of all supported distributions.  # noqa: E501
         """
         pass
 
     def test_distros_read(self):
-        """
-        Test case for distros_read
+        """Test case for distros_read
 
-        View for viewing/listing distributions.
+        View for viewing/listing distributions.  # noqa: E501
         """
         pass
 

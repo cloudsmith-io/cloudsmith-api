@@ -3,7 +3,7 @@
 """
     Cloudsmith API
 
-    The API to the Cloudsmith Service
+    The API to the Cloudsmith Service  # noqa: E501
 
     OpenAPI spec version: v1
     Contact: support@cloudsmith.io
@@ -13,17 +13,15 @@
 
 from __future__ import absolute_import
 
-import os
-import sys
 import unittest
 
 import cloudsmith_api
+from cloudsmith_api.models.user_profile import UserProfile  # noqa: E501
 from cloudsmith_api.rest import ApiException
-from cloudsmith_api.models.user_profile import UserProfile
 
 
 class TestUserProfile(unittest.TestCase):
-    """ UserProfile unit test stubs """
+    """UserProfile unit test stubs"""
 
     def setUp(self):
         pass
@@ -32,11 +30,9 @@ class TestUserProfile(unittest.TestCase):
         pass
 
     def testUserProfile(self):
-        """
-        Test UserProfile
-        """
+        """Test UserProfile"""
         # FIXME: construct object with mandatory attributes with example values
-        #model = cloudsmith_api.models.user_profile.UserProfile()
+        # model = cloudsmith_api.models.user_profile.UserProfile()  # noqa: E501
         pass
 
 

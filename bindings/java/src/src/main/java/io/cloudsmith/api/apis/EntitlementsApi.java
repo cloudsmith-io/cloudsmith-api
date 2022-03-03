@@ -83,15 +83,16 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsCreateCall(String owner, String repo, Boolean showTokens, EntitlementsCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (showTokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_tokens", showTokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("show_tokens", showTokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -122,9 +123,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsCreateValidateBeforeCall(String owner, String repo, Boolean showTokens, EntitlementsCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -139,7 +140,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsCreateCall(owner, repo, showTokens, data, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -150,11 +151,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -237,7 +234,7 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsDeleteCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -245,6 +242,7 @@ public class EntitlementsApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -275,9 +273,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsDeleteValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -292,7 +290,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsDeleteCall(owner, repo, identifier, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -303,11 +301,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -383,7 +377,7 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsDisableCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/disable/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -391,6 +385,7 @@ public class EntitlementsApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -421,9 +416,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsDisableValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -438,7 +433,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsDisableCall(owner, repo, identifier, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -449,11 +444,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -529,7 +520,7 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsEnableCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/enable/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -537,6 +528,7 @@ public class EntitlementsApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -567,9 +559,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsEnableValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -584,7 +576,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsEnableCall(owner, repo, identifier, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -595,11 +587,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -677,19 +665,20 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsListCall(String owner, String repo, Integer page, Integer pageSize, Boolean showTokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
         if (showTokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_tokens", showTokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("show_tokens", showTokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -720,9 +709,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, Boolean showTokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -737,7 +726,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsListCall(owner, repo, page, pageSize, showTokens, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -748,11 +737,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -840,7 +825,7 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsPartialUpdateCall(String owner, String repo, String identifier, Boolean showTokens, EntitlementsPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -848,8 +833,9 @@ public class EntitlementsApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (showTokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_tokens", showTokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("show_tokens", showTokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -880,9 +866,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsPartialUpdateValidateBeforeCall(String owner, String repo, String identifier, Boolean showTokens, EntitlementsPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -897,7 +883,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsPartialUpdateCall(owner, repo, identifier, showTokens, data, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -908,11 +894,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -999,7 +981,7 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsReadCall(String owner, String repo, String identifier, Boolean showTokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -1007,8 +989,9 @@ public class EntitlementsApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (showTokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_tokens", showTokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("show_tokens", showTokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1039,9 +1022,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsReadValidateBeforeCall(String owner, String repo, String identifier, Boolean showTokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -1056,7 +1039,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsReadCall(owner, repo, identifier, showTokens, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -1067,11 +1050,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -1156,7 +1135,7 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsRefreshCall(String owner, String repo, String identifier, Boolean showTokens, EntitlementsRefresh data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/refresh/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -1164,8 +1143,9 @@ public class EntitlementsApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (showTokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_tokens", showTokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("show_tokens", showTokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1196,9 +1176,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsRefreshValidateBeforeCall(String owner, String repo, String identifier, Boolean showTokens, EntitlementsRefresh data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -1213,7 +1193,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsRefreshCall(owner, repo, identifier, showTokens, data, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -1224,11 +1204,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -1315,7 +1291,7 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsResetCall(String owner, String repo, String identifier, Boolean showTokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/{identifier}/reset/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
@@ -1323,8 +1299,9 @@ public class EntitlementsApi {
             .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (showTokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_tokens", showTokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("show_tokens", showTokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1355,9 +1332,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsResetValidateBeforeCall(String owner, String repo, String identifier, Boolean showTokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -1372,7 +1349,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsResetCall(owner, repo, identifier, showTokens, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -1383,11 +1360,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
@@ -1467,15 +1440,16 @@ public class EntitlementsApi {
      */
     public com.squareup.okhttp.Call entitlementsSyncCall(String owner, String repo, Boolean showTokens, EntitlementsSync data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
-        
+
         // create path and map variables
         String localVarPath = "/entitlements/{owner}/{repo}/sync/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (showTokens != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_tokens", showTokens));
+        localVarQueryParams.addAll(apiClient.parameterToPair("show_tokens", showTokens));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1506,9 +1480,9 @@ public class EntitlementsApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call entitlementsSyncValidateBeforeCall(String owner, String repo, Boolean showTokens, EntitlementsSync data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -1523,7 +1497,7 @@ public class EntitlementsApi {
             if (violations.size() == 0) {
                 com.squareup.okhttp.Call call = entitlementsSyncCall(owner, repo, showTokens, data, progressListener, progressRequestListener);
                 return call;
-            
+
             } else {
                 throw new BeanValidationException((Set) violations);
             }
@@ -1534,11 +1508,7 @@ public class EntitlementsApi {
             e.printStackTrace();
             throw new ApiException(e.getMessage());
         }
-            
-        
-        
-        
-        
+
     }
 
     /**
