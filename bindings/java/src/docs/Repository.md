@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **numDownloads** | **Integer** | The number of downloads for packages in the repository. |  [optional]
 **packageCount** | **Integer** | The number of packages in the repository. |  [optional]
 **packageGroupCount** | **Integer** | The number of groups in the repository. |  [optional]
-**repositoryType** | **String** | The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time. |  [optional]
+**repositoryType** | **Integer** | The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time. |  [optional]
 **repositoryTypeStr** | **String** | The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users. |  [optional]
 **selfHtmlUrl** | **String** | Website URL for this repository. |  [optional]
 **selfUrl** | **String** | API endpoint where data about this repository can be retrieved. |  [optional]

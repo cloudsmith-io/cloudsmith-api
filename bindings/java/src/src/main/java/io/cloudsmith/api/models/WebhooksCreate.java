@@ -47,10 +47,10 @@ public class WebhooksCreate implements Serializable {
   private String packageQuery = null;
 
   @SerializedName("request_body_format")
-  private String requestBodyFormat = null;
+  private Integer requestBodyFormat = null;
 
   @SerializedName("request_body_template_format")
-  private String requestBodyTemplateFormat = null;
+  private Integer requestBodyTemplateFormat = null;
 
   @SerializedName("request_content_type")
   private String requestContentType = null;
@@ -133,7 +133,7 @@ public class WebhooksCreate implements Serializable {
     this.packageQuery = packageQuery;
   }
 
-  public WebhooksCreate requestBodyFormat(String requestBodyFormat) {
+  public WebhooksCreate requestBodyFormat(Integer requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
     return this;
   }
@@ -143,15 +143,15 @@ public class WebhooksCreate implements Serializable {
    * @return requestBodyFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public String getRequestBodyFormat() {
+  public Integer getRequestBodyFormat() {
     return requestBodyFormat;
   }
 
-  public void setRequestBodyFormat(String requestBodyFormat) {
+  public void setRequestBodyFormat(Integer requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
   }
 
-  public WebhooksCreate requestBodyTemplateFormat(String requestBodyTemplateFormat) {
+  public WebhooksCreate requestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
     return this;
   }
@@ -161,11 +161,11 @@ public class WebhooksCreate implements Serializable {
    * @return requestBodyTemplateFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public String getRequestBodyTemplateFormat() {
+  public Integer getRequestBodyTemplateFormat() {
     return requestBodyTemplateFormat;
   }
 
-  public void setRequestBodyTemplateFormat(String requestBodyTemplateFormat) {
+  public void setRequestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
   }
 
