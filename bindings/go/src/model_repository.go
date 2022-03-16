@@ -42,7 +42,7 @@ type Repository struct {
 	// The number of groups in the repository.
 	PackageGroupCount int32 `json:"package_group_count,omitempty"`
 	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
-	RepositoryType string `json:"repository_type,omitempty"`
+	RepositoryType int32 `json:"repository_type,omitempty"`
 	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 	RepositoryTypeStr string `json:"repository_type_str,omitempty"`
 	// Website URL for this repository.

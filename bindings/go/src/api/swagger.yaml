@@ -5464,7 +5464,7 @@ definitions:
         type: "integer"
         description: ""
       package_type:
-        type: "string"
+        type: "integer"
         description: "The type of package contents."
       release:
         type: "string"
@@ -5506,7 +5506,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -5515,7 +5515,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -5578,7 +5578,7 @@ definitions:
       security_scan_status_updated_at: "security_scan_status_updated_at"
       checksum_sha256: "checksum_sha256"
       release: "release"
-      package_type: "package_type"
+      package_type: 5
       repository: "repository"
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
@@ -5632,7 +5632,7 @@ definitions:
       conan_prefix: "my-repository"
       num_files: 1
       conan_channel: "alpha"
-      status: "status"
+      status: 7
       checksum_sha512: "checksum_sha512"
       distro: "{}"
       extension: "extension"
@@ -5653,7 +5653,7 @@ definitions:
       summary: "summary"
       checksum_sha1: "checksum_sha1"
       checksum_md5: "checksum_md5"
-      sync_progress: 5
+      sync_progress: 9
       is_sync_awaiting: true
       uploader_url: "uploader_url"
       self_html_url: "self_html_url"
@@ -5663,7 +5663,7 @@ definitions:
       security_scan_completed_at: "security_scan_completed_at"
       is_sync_in_progress: true
       stage_str: "stage_str"
-      stage: "stage"
+      stage: 2
       format_url: "format_url"
       dependencies_url: "dependencies_url"
       namespace: "namespace"
@@ -6150,7 +6150,7 @@ definitions:
         type: "integer"
         description: ""
       package_type:
-        type: "string"
+        type: "integer"
         description: "The type of package contents."
       release:
         type: "string"
@@ -6192,7 +6192,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -6201,7 +6201,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -6269,7 +6269,7 @@ definitions:
       security_scan_status_updated_at: "security_scan_status_updated_at"
       checksum_sha256: "checksum_sha256"
       release: "release"
-      package_type: "package_type"
+      package_type: 5
       repository: "repository"
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
@@ -6322,7 +6322,7 @@ definitions:
         signature_url: "signature_url"
         tag: "tag"
       num_files: 1
-      status: "status"
+      status: 7
       checksum_sha512: "checksum_sha512"
       distro: "{}"
       extension: "extension"
@@ -6343,7 +6343,7 @@ definitions:
       summary: "summary"
       checksum_sha1: "checksum_sha1"
       checksum_md5: "checksum_md5"
-      sync_progress: 5
+      sync_progress: 9
       is_sync_awaiting: true
       uploader_url: "uploader_url"
       self_html_url: "self_html_url"
@@ -6353,7 +6353,7 @@ definitions:
       security_scan_completed_at: "security_scan_completed_at"
       is_sync_in_progress: true
       stage_str: "stage_str"
-      stage: "stage"
+      stage: 2
       format_url: "format_url"
       dependencies_url: "dependencies_url"
       namespace: "namespace"
@@ -6601,7 +6601,7 @@ definitions:
         type: "integer"
         description: ""
       package_type:
-        type: "string"
+        type: "integer"
         description: "The type of package contents."
       release:
         type: "string"
@@ -6643,7 +6643,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -6652,7 +6652,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -6720,7 +6720,7 @@ definitions:
       security_scan_status_updated_at: "security_scan_status_updated_at"
       checksum_sha256: "checksum_sha256"
       release: "release"
-      package_type: "package_type"
+      package_type: 2
       repository: "repository"
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
@@ -6738,7 +6738,7 @@ definitions:
       tags: "{}"
       license: "license"
       filename: "filename"
-      size: 2
+      size: 7
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
       name: "name"
@@ -6773,7 +6773,7 @@ definitions:
         signature_url: "signature_url"
         tag: "tag"
       num_files: 5
-      status: "status"
+      status: 3
       checksum_sha512: "checksum_sha512"
       distro: "{}"
       extension: "extension"
@@ -6794,7 +6794,7 @@ definitions:
       summary: "summary"
       checksum_sha1: "checksum_sha1"
       checksum_md5: "checksum_md5"
-      sync_progress: 7
+      sync_progress: 2
       is_sync_awaiting: true
       uploader_url: "uploader_url"
       self_html_url: "self_html_url"
@@ -6804,7 +6804,7 @@ definitions:
       security_scan_completed_at: "security_scan_completed_at"
       is_sync_in_progress: true
       stage_str: "stage_str"
-      stage: "stage"
+      stage: 9
       format_url: "format_url"
       dependencies_url: "dependencies_url"
       namespace: "namespace"
@@ -7117,7 +7117,7 @@ definitions:
         type: "integer"
         description: ""
       package_type:
-        type: "string"
+        type: "integer"
         description: "The type of package contents."
       provider:
         type: "string"
@@ -7163,7 +7163,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -7172,7 +7172,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -7235,7 +7235,7 @@ definitions:
       security_scan_status_updated_at: "security_scan_status_updated_at"
       checksum_sha256: "checksum_sha256"
       release: "release"
-      package_type: "package_type"
+      package_type: 5
       repository: "repository"
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
@@ -7287,7 +7287,7 @@ definitions:
         signature_url: "signature_url"
         tag: "tag"
       num_files: 1
-      status: "status"
+      status: 7
       checksum_sha512: "checksum_sha512"
       distro: "{}"
       extension: "extension"
@@ -7309,7 +7309,7 @@ definitions:
       summary: "summary"
       checksum_sha1: "checksum_sha1"
       checksum_md5: "checksum_md5"
-      sync_progress: 5
+      sync_progress: 9
       is_sync_awaiting: true
       uploader_url: "uploader_url"
       self_html_url: "self_html_url"
@@ -7319,7 +7319,7 @@ definitions:
       security_scan_completed_at: "security_scan_completed_at"
       is_sync_in_progress: true
       stage_str: "stage_str"
-      stage: "stage"
+      stage: 2
       format_url: "format_url"
       dependencies_url: "dependencies_url"
       namespace: "namespace"
@@ -7346,7 +7346,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -7355,7 +7355,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -7375,7 +7375,7 @@ definitions:
         description: "Synchronisation progress (from 0-100)"
     example:
       status_str: "status_str"
-      sync_progress: 0
+      sync_progress: 1
       is_sync_awaiting: true
       is_sync_completed: true
       self_url: "self_url"
@@ -7383,11 +7383,11 @@ definitions:
       is_sync_in_progress: true
       stage_str: "stage_str"
       stage_updated_at: "stage_updated_at"
-      stage: "stage"
+      stage: 0
       sync_finished_at: "sync_finished_at"
       is_sync_failed: true
       status_reason: "status_reason"
-      status: "status"
+      status: 6
       status_updated_at: "status_updated_at"
   PackagesValidateuploadP2:
     type: "object"
@@ -7669,8 +7669,8 @@ definitions:
             interval: 5.123456789
             limit: 3600
             remaining: 3595
-            reset: 1646245156
-            reset_iso_8601: "2022-03-02T18:19:16.259727+00:00"
+            reset: 1647442238
+            reset_iso_8601: "2022-03-16T14:50:38.603327+00:00"
             throttled: false
         description: "Rate limit values per resource"
         properties: {}
@@ -7680,8 +7680,8 @@ definitions:
           interval: 5.123456789
           limit: 3600
           remaining: 3595
-          reset: 1646245156
-          reset_iso_8601: "2022-03-02T18:19:16.259727+00:00"
+          reset: 1647442238
+          reset_iso_8601: "2022-03-16T14:50:38.603327+00:00"
           throttled: false
   UserBrief:
     type: "object"
@@ -8186,7 +8186,7 @@ definitions:
         type: "integer"
         description: "The number of groups in the repository."
       repository_type:
-        type: "string"
+        type: "integer"
         description: "The repository type changes how it is accessed and billed. Private\
           \ repositories can only be used on paid plans, but are visible only to you\
           \ or authorised delegates. Open-Source repositories are always visible to\
@@ -8231,7 +8231,7 @@ definitions:
       deleted_at: "deleted_at"
       index_files: true
       num_downloads: 0
-      repository_type: "repository_type"
+      repository_type: 5
       self_url: "self_url"
       package_count: 6
       storage_region: "storage_region"
@@ -8532,7 +8532,7 @@ definitions:
         type: "integer"
         description: ""
       package_type:
-        type: "string"
+        type: "integer"
         description: "The type of package contents."
       release:
         type: "string"
@@ -8574,7 +8574,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -8583,7 +8583,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -8651,7 +8651,7 @@ definitions:
       security_scan_status_updated_at: "security_scan_status_updated_at"
       checksum_sha256: "checksum_sha256"
       release: "release"
-      package_type: "package_type"
+      package_type: 5
       repository: "repository"
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
@@ -8704,7 +8704,7 @@ definitions:
         signature_url: "signature_url"
         tag: "tag"
       num_files: 1
-      status: "status"
+      status: 7
       checksum_sha512: "checksum_sha512"
       distro: "{}"
       extension: "extension"
@@ -8725,7 +8725,7 @@ definitions:
       summary: "summary"
       checksum_sha1: "checksum_sha1"
       checksum_md5: "checksum_md5"
-      sync_progress: 5
+      sync_progress: 9
       is_sync_awaiting: true
       uploader_url: "uploader_url"
       self_html_url: "self_html_url"
@@ -8735,7 +8735,7 @@ definitions:
       security_scan_completed_at: "security_scan_completed_at"
       is_sync_in_progress: true
       stage_str: "stage_str"
-      stage: "stage"
+      stage: 2
       format_url: "format_url"
       dependencies_url: "dependencies_url"
       namespace: "namespace"
@@ -8865,7 +8865,7 @@ definitions:
         type: "integer"
         description: ""
       package_type:
-        type: "string"
+        type: "integer"
         description: "The type of package contents."
       release:
         type: "string"
@@ -8907,7 +8907,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -8916,7 +8916,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -8978,7 +8978,7 @@ definitions:
       security_scan_status_updated_at: "security_scan_status_updated_at"
       checksum_sha256: "checksum_sha256"
       release: "release"
-      package_type: "package_type"
+      package_type: 5
       repository: "repository"
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
@@ -9030,7 +9030,7 @@ definitions:
         signature_url: "signature_url"
         tag: "tag"
       num_files: 1
-      status: "status"
+      status: 7
       checksum_sha512: "checksum_sha512"
       distro: "{}"
       extension: "extension"
@@ -9051,7 +9051,7 @@ definitions:
       summary: "summary"
       checksum_sha1: "checksum_sha1"
       checksum_md5: "checksum_md5"
-      sync_progress: 5
+      sync_progress: 9
       is_sync_awaiting: true
       uploader_url: "uploader_url"
       self_html_url: "self_html_url"
@@ -9061,7 +9061,7 @@ definitions:
       security_scan_completed_at: "security_scan_completed_at"
       is_sync_in_progress: true
       stage_str: "stage_str"
-      stage: "stage"
+      stage: 2
       format_url: "format_url"
       dependencies_url: "dependencies_url"
       namespace: "namespace"
@@ -9197,11 +9197,11 @@ definitions:
         description: "The message describing the state of the API."
       version:
         type: "string"
-        example: "1.33.7"
+        example: "1.42.3"
         description: "The current version for the Cloudsmith service."
     example:
       detail: "Cloudsmith API is operational."
-      version: "1.33.7"
+      version: "1.42.3"
   ReposPartialUpdate:
     type: "object"
     properties:
@@ -9359,7 +9359,7 @@ definitions:
         type: "integer"
         description: ""
       package_type:
-        type: "string"
+        type: "integer"
         description: "The type of package contents."
       release:
         type: "string"
@@ -9401,7 +9401,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -9410,7 +9410,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -9474,7 +9474,7 @@ definitions:
       security_scan_status_updated_at: "security_scan_status_updated_at"
       checksum_sha256: "checksum_sha256"
       release: "release"
-      package_type: "package_type"
+      package_type: 5
       repository: "repository"
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
@@ -9526,7 +9526,7 @@ definitions:
         signature_url: "signature_url"
         tag: "tag"
       num_files: 1
-      status: "status"
+      status: 7
       checksum_sha512: "checksum_sha512"
       distro: "{}"
       extension: "extension"
@@ -9547,7 +9547,7 @@ definitions:
       summary: "My Package File"
       checksum_sha1: "checksum_sha1"
       checksum_md5: "checksum_md5"
-      sync_progress: 5
+      sync_progress: 9
       is_sync_awaiting: true
       uploader_url: "uploader_url"
       self_html_url: "self_html_url"
@@ -9557,7 +9557,7 @@ definitions:
       security_scan_completed_at: "security_scan_completed_at"
       is_sync_in_progress: true
       stage_str: "stage_str"
-      stage: "stage"
+      stage: 2
       format_url: "format_url"
       dependencies_url: "dependencies_url"
       namespace: "namespace"
@@ -10041,7 +10041,7 @@ definitions:
         type: "integer"
         description: ""
       package_type:
-        type: "string"
+        type: "integer"
         description: "The type of package contents."
       packaging:
         type: "string"
@@ -10086,7 +10086,7 @@ definitions:
         type: "string"
         description: ""
       stage:
-        type: "string"
+        type: "integer"
         description: "The synchronisation (in progress) stage of the package."
       stage_str:
         type: "string"
@@ -10095,7 +10095,7 @@ definitions:
         type: "string"
         description: "The datetime the package stage was updated at."
       status:
-        type: "string"
+        type: "integer"
         description: "The synchronisation status of the package."
       status_reason:
         type: "string"
@@ -10158,7 +10158,7 @@ definitions:
       checksum_sha256: "checksum_sha256"
       release: "release"
       artifact_id: "cloudsmith-example"
-      package_type: "package_type"
+      package_type: 5
       repository: "repository"
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
@@ -10210,7 +10210,7 @@ definitions:
         signature_url: "signature_url"
         tag: "tag"
       num_files: 1
-      status: "status"
+      status: 7
       checksum_sha512: "checksum_sha512"
       distro: "{}"
       extension: "extension"
@@ -10231,7 +10231,7 @@ definitions:
       summary: "summary"
       checksum_sha1: "checksum_sha1"
       checksum_md5: "checksum_md5"
-      sync_progress: 5
+      sync_progress: 9
       is_sync_awaiting: true
       packaging: "packaging"
       uploader_url: "uploader_url"
@@ -10242,7 +10242,7 @@ definitions:
       security_scan_completed_at: "security_scan_completed_at"
       is_sync_in_progress: true
       stage_str: "stage_str"
-      stage: "stage"
+      stage: 2
       format_url: "format_url"
       group_id: "io.cloudsmith.example"
       dependencies_url: "dependencies_url"
@@ -10361,7 +10361,7 @@ definitions:
         type: "string"
         description: ""
       disable_reason:
-        type: "string"
+        type: "integer"
         description: ""
       disable_reason_str:
         type: "string"
@@ -10399,13 +10399,13 @@ definitions:
           \ supports boolean logic operators such as OR/AND/NOT and parentheses for\
           \ grouping. If a package does not match, the webhook will not fire."
       request_body_format:
-        type: "string"
+        type: "integer"
         description: "The format of the payloads for webhook requests."
       request_body_format_str:
         type: "string"
         description: ""
       request_body_template_format:
-        type: "string"
+        type: "integer"
         description: "The format of the payloads for webhook requests."
       request_body_template_format_str:
         type: "string"
@@ -10453,28 +10453,28 @@ definitions:
       last_response_status_str: "last_response_status_str"
       target_url: "target_url"
       created_at: "created_at"
-      last_response_status: 6
+      last_response_status: 1
       request_body_template_format_str: "request_body_template_format_str"
       request_content_type: "request_content_type"
       updated_at: "updated_at"
       request_body_format_str: "request_body_format_str"
-      num_sent: 1
-      request_body_template_format: "request_body_template_format"
+      num_sent: 5
+      request_body_template_format: 2
       events:
       - "events"
       - "events"
       disable_reason_str: "disable_reason_str"
-      identifier: 0
+      identifier: 6
       package_query: "package_query"
       is_active: true
-      disable_reason: "disable_reason"
+      disable_reason: 0
       created_by_url: "created_by_url"
       templates:
       - template: "template"
         event: "event"
       - template: "template"
         event: "event"
-      request_body_format: "request_body_format"
+      request_body_format: 5
       slug_perm: "slug_perm"
       created_by: "created_by"
       self_url: "self_url"
@@ -10551,10 +10551,10 @@ definitions:
           \ supports boolean logic operators such as OR/AND/NOT and parentheses for\
           \ grouping. If a package does not match, the webhook will not fire."
       request_body_format:
-        type: "string"
+        type: "integer"
         description: "The format of the payloads for webhook requests."
       request_body_template_format:
-        type: "string"
+        type: "integer"
         description: "The format of the payloads for webhook requests."
       request_content_type:
         type: "string"
@@ -10606,8 +10606,8 @@ definitions:
         event: "event"
       secret_header: "secret_header"
       secret_value: "secret_value"
-      request_body_format: "request_body_format"
-      request_body_template_format: "request_body_template_format"
+      request_body_format: 0
+      request_body_template_format: 6
       events:
       - "events"
       - "events"
@@ -10757,10 +10757,10 @@ definitions:
           \ supports boolean logic operators such as OR/AND/NOT and parentheses for\
           \ grouping. If a package does not match, the webhook will not fire."
       request_body_format:
-        type: "string"
+        type: "integer"
         description: "The format of the payloads for webhook requests."
       request_body_template_format:
-        type: "string"
+        type: "integer"
         description: "The format of the payloads for webhook requests."
       request_content_type:
         type: "string"
@@ -10812,8 +10812,8 @@ definitions:
         event: "event"
       secret_header: "secret_header"
       secret_value: "secret_value"
-      request_body_format: "request_body_format"
-      request_body_template_format: "request_body_template_format"
+      request_body_format: 0
+      request_body_template_format: 6
       events:
       - "events"
       - "events"
