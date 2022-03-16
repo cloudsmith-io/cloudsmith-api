@@ -134,7 +134,7 @@ module CloudsmithApi
         :'num_downloads' => :'Integer',
         :'package_count' => :'Integer',
         :'package_group_count' => :'Integer',
-        :'repository_type' => :'String',
+        :'repository_type' => :'Integer',
         :'repository_type_str' => :'String',
         :'self_html_url' => :'String',
         :'self_url' => :'String',
