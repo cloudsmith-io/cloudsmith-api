@@ -36,7 +36,7 @@ class RepositoryWebhook(object):
         'created_at': 'str',
         'created_by': 'str',
         'created_by_url': 'str',
-        'disable_reason': 'str',
+        'disable_reason': 'int',
         'disable_reason_str': 'str',
         'events': 'list[str]',
         'identifier': 'int',
@@ -46,9 +46,9 @@ class RepositoryWebhook(object):
         'last_response_status_str': 'str',
         'num_sent': 'int',
         'package_query': 'str',
-        'request_body_format': 'str',
+        'request_body_format': 'int',
         'request_body_format_str': 'str',
-        'request_body_template_format': 'str',
+        'request_body_template_format': 'int',
         'request_body_template_format_str': 'str',
         'request_content_type': 'str',
         'secret_header': 'str',
@@ -255,7 +255,7 @@ class RepositoryWebhook(object):
           # noqa: E501
 
         :return: The disable_reason of this RepositoryWebhook.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._disable_reason
 
@@ -266,7 +266,7 @@ class RepositoryWebhook(object):
           # noqa: E501
 
         :param disable_reason: The disable_reason of this RepositoryWebhook.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._disable_reason = disable_reason
@@ -487,7 +487,7 @@ class RepositoryWebhook(object):
         The format of the payloads for webhook requests.  # noqa: E501
 
         :return: The request_body_format of this RepositoryWebhook.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._request_body_format
 
@@ -498,7 +498,7 @@ class RepositoryWebhook(object):
         The format of the payloads for webhook requests.  # noqa: E501
 
         :param request_body_format: The request_body_format of this RepositoryWebhook.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._request_body_format = request_body_format
@@ -533,7 +533,7 @@ class RepositoryWebhook(object):
         The format of the payloads for webhook requests.  # noqa: E501
 
         :return: The request_body_template_format of this RepositoryWebhook.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._request_body_template_format
 
@@ -544,7 +544,7 @@ class RepositoryWebhook(object):
         The format of the payloads for webhook requests.  # noqa: E501
 
         :param request_body_template_format: The request_body_template_format of this RepositoryWebhook.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._request_body_template_format = request_body_template_format
