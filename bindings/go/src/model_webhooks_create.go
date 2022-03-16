@@ -18,9 +18,9 @@ type WebhooksCreate struct {
 	// The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
 	PackageQuery string `json:"package_query,omitempty"`
 	// The format of the payloads for webhook requests.
-	RequestBodyFormat string `json:"request_body_format,omitempty"`
+	RequestBodyFormat int32 `json:"request_body_format,omitempty"`
 	// The format of the payloads for webhook requests.
-	RequestBodyTemplateFormat string `json:"request_body_template_format,omitempty"`
+	RequestBodyTemplateFormat int32 `json:"request_body_template_format,omitempty"`
 	// The value that will be sent for the 'Content Type' header. 
 	RequestContentType string `json:"request_content_type,omitempty"`
 	// The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.

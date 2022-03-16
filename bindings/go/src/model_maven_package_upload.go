@@ -76,7 +76,7 @@ type MavenPackageUpload struct {
 	// 
 	NumFiles int32 `json:"num_files,omitempty"`
 	// The type of package contents.
-	PackageType string `json:"package_type,omitempty"`
+	PackageType int32 `json:"package_type,omitempty"`
 	// Artifact's Maven packaging type.
 	Packaging string `json:"packaging,omitempty"`
 	// The release of the package version (if any).
@@ -106,13 +106,13 @@ type MavenPackageUpload struct {
 	// 
 	SlugPerm string `json:"slug_perm,omitempty"`
 	// The synchronisation (in progress) stage of the package.
-	Stage string `json:"stage,omitempty"`
+	Stage int32 `json:"stage,omitempty"`
 	// 
 	StageStr string `json:"stage_str,omitempty"`
 	// The datetime the package stage was updated at.
 	StageUpdatedAt string `json:"stage_updated_at,omitempty"`
 	// The synchronisation status of the package.
-	Status string `json:"status,omitempty"`
+	Status int32 `json:"status,omitempty"`
 	// A textual description for the synchronous status reason (if any
 	StatusReason string `json:"status_reason,omitempty"`
 	// 
