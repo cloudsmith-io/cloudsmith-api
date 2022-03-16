@@ -65,7 +65,7 @@ class MavenPackageUpload(object):
         'namespace': 'str',
         'namespace_url': 'str',
         'num_files': 'int',
-        'package_type': 'str',
+        'package_type': 'int',
         'packaging': 'str',
         'release': 'str',
         'repository': 'str',
@@ -80,10 +80,10 @@ class MavenPackageUpload(object):
         'size': 'int',
         'slug': 'str',
         'slug_perm': 'str',
-        'stage': 'str',
+        'stage': 'int',
         'stage_str': 'str',
         'stage_updated_at': 'str',
-        'status': 'str',
+        'status': 'int',
         'status_reason': 'str',
         'status_str': 'str',
         'status_updated_at': 'str',
@@ -1125,7 +1125,7 @@ class MavenPackageUpload(object):
         The type of package contents.  # noqa: E501
 
         :return: The package_type of this MavenPackageUpload.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._package_type
 
@@ -1136,7 +1136,7 @@ class MavenPackageUpload(object):
         The type of package contents.  # noqa: E501
 
         :param package_type: The package_type of this MavenPackageUpload.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._package_type = package_type
@@ -1470,7 +1470,7 @@ class MavenPackageUpload(object):
         The synchronisation (in progress) stage of the package.  # noqa: E501
 
         :return: The stage of this MavenPackageUpload.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._stage
 
@@ -1481,7 +1481,7 @@ class MavenPackageUpload(object):
         The synchronisation (in progress) stage of the package.  # noqa: E501
 
         :param stage: The stage of this MavenPackageUpload.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._stage = stage
@@ -1539,7 +1539,7 @@ class MavenPackageUpload(object):
         The synchronisation status of the package.  # noqa: E501
 
         :return: The status of this MavenPackageUpload.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._status
 
@@ -1550,7 +1550,7 @@ class MavenPackageUpload(object):
         The synchronisation status of the package.  # noqa: E501
 
         :param status: The status of this MavenPackageUpload.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._status = status

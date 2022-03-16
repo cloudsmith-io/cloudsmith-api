@@ -36,8 +36,8 @@ class WebhooksCreate(object):
         'events': 'list[str]',
         'is_active': 'bool',
         'package_query': 'str',
-        'request_body_format': 'str',
-        'request_body_template_format': 'str',
+        'request_body_format': 'int',
+        'request_body_template_format': 'int',
         'request_content_type': 'str',
         'secret_header': 'str',
         'secret_value': 'str',
@@ -182,7 +182,7 @@ class WebhooksCreate(object):
         The format of the payloads for webhook requests.  # noqa: E501
 
         :return: The request_body_format of this WebhooksCreate.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._request_body_format
 
@@ -193,7 +193,7 @@ class WebhooksCreate(object):
         The format of the payloads for webhook requests.  # noqa: E501
 
         :param request_body_format: The request_body_format of this WebhooksCreate.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._request_body_format = request_body_format
@@ -205,7 +205,7 @@ class WebhooksCreate(object):
         The format of the payloads for webhook requests.  # noqa: E501
 
         :return: The request_body_template_format of this WebhooksCreate.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._request_body_template_format
 
@@ -216,7 +216,7 @@ class WebhooksCreate(object):
         The format of the payloads for webhook requests.  # noqa: E501
 
         :param request_body_template_format: The request_body_template_format of this WebhooksCreate.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._request_body_template_format = request_body_template_format
