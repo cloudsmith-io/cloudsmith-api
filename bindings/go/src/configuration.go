@@ -63,7 +63,7 @@ func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://api.cloudsmith.io/v1",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "Swagger-Codegen/1.42.3/go",
+		UserAgent:     "Swagger-Codegen/1.61.3/go",
 	}
 	return cfg
 }

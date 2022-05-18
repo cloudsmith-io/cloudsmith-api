@@ -592,6 +592,121 @@ class PackagesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def packages_quarantine(self, owner, repo, identifier, **kwargs):  # noqa: E501
+        """Quarantine or restore a package.  # noqa: E501
+
+        Quarantine or restore a package.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.packages_quarantine(owner, repo, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :param PackagesQuarantine data:
+        :return: Package
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.packages_quarantine_with_http_info(owner, repo, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.packages_quarantine_with_http_info(owner, repo, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def packages_quarantine_with_http_info(self, owner, repo, identifier, **kwargs):  # noqa: E501
+        """Quarantine or restore a package.  # noqa: E501
+
+        Quarantine or restore a package.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.packages_quarantine_with_http_info(owner, repo, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str repo:  (required)
+        :param str identifier:  (required)
+        :param PackagesQuarantine data:
+        :return: Package
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'identifier', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_quarantine" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `packages_quarantine`")  # noqa: E501
+        # verify the required parameter 'repo' is set
+        if self.api_client.client_side_validation and ('repo' not in params or
+                                                       params['repo'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `repo` when calling `packages_quarantine`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `packages_quarantine`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'repo' in params:
+            path_params['repo'] = params['repo']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/packages/{owner}/{repo}/{identifier}/quarantine/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Package',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def packages_read(self, owner, repo, identifier, **kwargs):  # noqa: E501
         """Get a specific package in a repository.  # noqa: E501
 

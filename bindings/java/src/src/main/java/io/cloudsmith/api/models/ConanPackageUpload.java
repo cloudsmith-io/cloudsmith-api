@@ -104,6 +104,12 @@ public class ConanPackageUpload implements Serializable {
   @SerializedName("indexed")
   private Boolean indexed = null;
 
+  @SerializedName("is_downloadable")
+  private Boolean isDownloadable = null;
+
+  @SerializedName("is_quarantined")
+  private Boolean isQuarantined = null;
+
   @SerializedName("is_sync_awaiting")
   private Boolean isSyncAwaiting = null;
 
@@ -648,6 +654,42 @@ public class ConanPackageUpload implements Serializable {
 
   public void setIndexed(Boolean indexed) {
     this.indexed = indexed;
+  }
+
+  public ConanPackageUpload isDownloadable(Boolean isDownloadable) {
+    this.isDownloadable = isDownloadable;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isDownloadable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDownloadable() {
+    return isDownloadable;
+  }
+
+  public void setIsDownloadable(Boolean isDownloadable) {
+    this.isDownloadable = isDownloadable;
+  }
+
+  public ConanPackageUpload isQuarantined(Boolean isQuarantined) {
+    this.isQuarantined = isQuarantined;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isQuarantined
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsQuarantined() {
+    return isQuarantined;
+  }
+
+  public void setIsQuarantined(Boolean isQuarantined) {
+    this.isQuarantined = isQuarantined;
   }
 
   public ConanPackageUpload isSyncAwaiting(Boolean isSyncAwaiting) {
@@ -1474,6 +1516,8 @@ public class ConanPackageUpload implements Serializable {
         Objects.equals(this.formatUrl, conanPackageUpload.formatUrl) &&
         Objects.equals(this.identifierPerm, conanPackageUpload.identifierPerm) &&
         Objects.equals(this.indexed, conanPackageUpload.indexed) &&
+        Objects.equals(this.isDownloadable, conanPackageUpload.isDownloadable) &&
+        Objects.equals(this.isQuarantined, conanPackageUpload.isQuarantined) &&
         Objects.equals(this.isSyncAwaiting, conanPackageUpload.isSyncAwaiting) &&
         Objects.equals(this.isSyncCompleted, conanPackageUpload.isSyncCompleted) &&
         Objects.equals(this.isSyncFailed, conanPackageUpload.isSyncFailed) &&
@@ -1522,7 +1566,7 @@ public class ConanPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1553,6 +1597,8 @@ public class ConanPackageUpload implements Serializable {
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
     sb.append("    identifierPerm: ").append(toIndentedString(identifierPerm)).append("\n");
     sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
+    sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
+    sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
     sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");

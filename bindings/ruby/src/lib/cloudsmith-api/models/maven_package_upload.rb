@@ -81,6 +81,12 @@ module CloudsmithApi
     attr_accessor :indexed
 
     # 
+    attr_accessor :is_downloadable
+
+    # 
+    attr_accessor :is_quarantined
+
+    # 
     attr_accessor :is_sync_awaiting
 
     # 
@@ -240,6 +246,8 @@ module CloudsmithApi
         :'group_id' => :'group_id',
         :'identifier_perm' => :'identifier_perm',
         :'indexed' => :'indexed',
+        :'is_downloadable' => :'is_downloadable',
+        :'is_quarantined' => :'is_quarantined',
         :'is_sync_awaiting' => :'is_sync_awaiting',
         :'is_sync_completed' => :'is_sync_completed',
         :'is_sync_failed' => :'is_sync_failed',
@@ -313,6 +321,8 @@ module CloudsmithApi
         :'group_id' => :'String',
         :'identifier_perm' => :'String',
         :'indexed' => :'BOOLEAN',
+        :'is_downloadable' => :'BOOLEAN',
+        :'is_quarantined' => :'BOOLEAN',
         :'is_sync_awaiting' => :'BOOLEAN',
         :'is_sync_completed' => :'BOOLEAN',
         :'is_sync_failed' => :'BOOLEAN',
@@ -459,6 +469,14 @@ module CloudsmithApi
 
       if attributes.has_key?(:'indexed')
         self.indexed = attributes[:'indexed']
+      end
+
+      if attributes.has_key?(:'is_downloadable')
+        self.is_downloadable = attributes[:'is_downloadable']
+      end
+
+      if attributes.has_key?(:'is_quarantined')
+        self.is_quarantined = attributes[:'is_quarantined']
       end
 
       if attributes.has_key?(:'is_sync_awaiting')
@@ -682,6 +700,8 @@ module CloudsmithApi
           group_id == o.group_id &&
           identifier_perm == o.identifier_perm &&
           indexed == o.indexed &&
+          is_downloadable == o.is_downloadable &&
+          is_quarantined == o.is_quarantined &&
           is_sync_awaiting == o.is_sync_awaiting &&
           is_sync_completed == o.is_sync_completed &&
           is_sync_failed == o.is_sync_failed &&
@@ -738,7 +758,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+      [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, packaging, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
     end
 
     # Builds the object from hash

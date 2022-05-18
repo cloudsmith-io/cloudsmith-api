@@ -51,7 +51,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param [Hash] opts the optional parameters
   # @option opts [ReposCreate] :data 
-  # @return [Repository]
+  # @return [RepositoryCreate]
   describe 'repos_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

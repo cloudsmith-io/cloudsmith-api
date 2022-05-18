@@ -74,7 +74,7 @@ module CloudsmithApi
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [ReposCreate] :data 
-    # @return [Repository]
+    # @return [RepositoryCreate]
     def repos_create(owner, opts = {})
       data, _status_code, _headers = repos_create_with_http_info(owner, opts)
       data
@@ -85,7 +85,7 @@ module CloudsmithApi
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [ReposCreate] :data 
-    # @return [Array<(Repository, Fixnum, Hash)>] Repository data, response status code and response headers
+    # @return [Array<(RepositoryCreate, Fixnum, Hash)>] RepositoryCreate data, response status code and response headers
     def repos_create_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_create ...'
@@ -117,7 +117,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Repository')
+        :return_type => 'RepositoryCreate')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

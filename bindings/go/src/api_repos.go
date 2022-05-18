@@ -171,20 +171,20 @@ Create a new repository in a given namespace.
  * @param optional nil or *ReposApiReposCreateOpts - Optional Parameters:
      * @param "Data" (optional.Interface of ReposCreate) - 
 
-@return Repository
+@return RepositoryCreate
 */
 
 type ReposApiReposCreateOpts struct { 
 	Data optional.Interface
 }
 
-func (a *ReposApiService) ReposCreate(ctx context.Context, owner string, localVarOptionals *ReposApiReposCreateOpts) (Repository, *http.Response, error) {
+func (a *ReposApiService) ReposCreate(ctx context.Context, owner string, localVarOptionals *ReposApiReposCreateOpts) (RepositoryCreate, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue Repository
+		localVarReturnValue RepositoryCreate
 	)
 
 	// create path and map variables
@@ -263,7 +263,7 @@ func (a *ReposApiService) ReposCreate(ctx context.Context, owner string, localVa
 		}
 		
 		if localVarHttpResponse.StatusCode == 201 {
-			var v Repository
+			var v RepositoryCreate
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()

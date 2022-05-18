@@ -151,7 +151,7 @@ class ReposCreate(object):
     def repository_type_str(self):
         """Gets the repository_type_str of this ReposCreate.  # noqa: E501
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.  # noqa: E501
+                 The repository type changes how it is accessed and billed.         Private repositories can only be used on paid plans, but are visible         only to you or authorised delegates. Public repositories are free to         use on all plans and visible to all Cloudsmith users.           # noqa: E501
 
         :return: The repository_type_str of this ReposCreate.  # noqa: E501
         :rtype: str
@@ -162,7 +162,7 @@ class ReposCreate(object):
     def repository_type_str(self, repository_type_str):
         """Sets the repository_type_str of this ReposCreate.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.  # noqa: E501
+                 The repository type changes how it is accessed and billed.         Private repositories can only be used on paid plans, but are visible         only to you or authorised delegates. Public repositories are free to         use on all plans and visible to all Cloudsmith users.           # noqa: E501
 
         :param repository_type_str: The repository_type_str of this ReposCreate.  # noqa: E501
         :type: str

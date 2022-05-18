@@ -64,6 +64,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_quarantine(self):
+        """Test case for packages_quarantine
+
+        Quarantine or restore a package.  # noqa: E501
+        """
+        pass
+
     def test_packages_read(self):
         """Test case for packages_read
 

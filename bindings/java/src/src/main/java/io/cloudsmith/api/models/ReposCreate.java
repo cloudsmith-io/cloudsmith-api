@@ -113,10 +113,10 @@ public class ReposCreate implements Serializable {
   }
 
    /**
-   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
+   *          The repository type changes how it is accessed and billed.         Private repositories can only be used on paid plans, but are visible         only to you or authorised delegates. Public repositories are free to         use on all plans and visible to all Cloudsmith users.         
    * @return repositoryTypeStr
   **/
-  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.")
+  @ApiModelProperty(value = "         The repository type changes how it is accessed and billed.         Private repositories can only be used on paid plans, but are visible         only to you or authorised delegates. Public repositories are free to         use on all plans and visible to all Cloudsmith users.         ")
   public String getRepositoryTypeStr() {
     return repositoryTypeStr;
   }

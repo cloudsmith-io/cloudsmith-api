@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>1.42.3</version>
+  <version>1.61.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:1.42.3"
+compile "io.cloudsmith.api:cloudsmith-api:1.61.3"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-1.42.3.jar`
+* `target/cloudsmith-api-1.61.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
 *PackagesApi* | [**packagesList**](docs/PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 *PackagesApi* | [**packagesMove**](docs/PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
+*PackagesApi* | [**packagesQuarantine**](docs/PackagesApi.md#packagesQuarantine) | **POST** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or restore a package.
 *PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 *PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 *PackagesApi* | [**packagesScan**](docs/PackagesApi.md#packagesScan) | **POST** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
@@ -273,6 +274,7 @@ Class | Method | HTTP request | Description
  - [PackageUsageMetrics](docs/PackageUsageMetrics.md)
  - [PackagesCopy](docs/PackagesCopy.md)
  - [PackagesMove](docs/PackagesMove.md)
+ - [PackagesQuarantine](docs/PackagesQuarantine.md)
  - [PackagesTag](docs/PackagesTag.md)
  - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
  - [PackagesUploadCargo](docs/PackagesUploadCargo.md)
@@ -330,6 +332,7 @@ Class | Method | HTTP request | Description
  - [ReposGpgKeys](docs/ReposGpgKeys.md)
  - [ReposPartialUpdate](docs/ReposPartialUpdate.md)
  - [Repository](docs/Repository.md)
+ - [RepositoryCreate](docs/RepositoryCreate.md)
  - [RepositoryToken](docs/RepositoryToken.md)
  - [RepositoryTokenRefresh](docs/RepositoryTokenRefresh.md)
  - [RepositoryTokenSync](docs/RepositoryTokenSync.md)

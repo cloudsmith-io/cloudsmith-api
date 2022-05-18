@@ -4027,6 +4027,57 @@ paths:
           description: "Missing or invalid parameters (see detail)"
           schema:
             $ref: "#/definitions/Status"
+  /packages/{owner}/{repo}/{identifier}/quarantine/:
+    post:
+      tags:
+      - "packages"
+      summary: "Quarantine or restore a package."
+      description: "Quarantine or restore a package."
+      operationId: "packages_quarantine"
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "owner"
+        in: "path"
+        description: ""
+        required: true
+        type: "string"
+        x-exportParamName: "Owner"
+      - name: "repo"
+        in: "path"
+        description: ""
+        required: true
+        type: "string"
+        x-exportParamName: "Repo"
+      - name: "identifier"
+        in: "path"
+        description: ""
+        required: true
+        type: "string"
+        x-exportParamName: "Identifier"
+      - in: "body"
+        name: "data"
+        required: false
+        schema:
+          $ref: "#/definitions/PackagesQuarantine"
+        x-exportParamName: "Data"
+      security:
+      - token: []
+      - apikey: []
+      - csrf_token: []
+      responses:
+        "200":
+          description: "Changed the package's quarantine status"
+          schema:
+            $ref: "#/definitions/Package"
+        "400":
+          description: "The package is in the wrong state for the requested operation"
+          schema:
+            $ref: "#/definitions/Status"
+        "422":
+          description: "Missing or invalid parameters (see detail)"
+          schema:
+            $ref: "#/definitions/Status"
   /packages/{owner}/{repo}/{identifier}/resync/:
     post:
       tags:
@@ -4477,7 +4528,7 @@ paths:
         "201":
           description: "The repository was created"
           schema:
-            $ref: "#/definitions/Repository"
+            $ref: "#/definitions/RepositoryCreate"
         "400":
           description: "Request could not be processed (see detail)"
           schema:
@@ -5432,6 +5483,12 @@ definitions:
       indexed:
         type: "boolean"
         description: ""
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
+        type: "boolean"
+        description: ""
       is_sync_awaiting:
         type: "boolean"
         description: ""
@@ -5583,6 +5640,7 @@ definitions:
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
       tags_immutable: "{}"
+      is_quarantined: true
       slug: "slug"
       security_scan_started_at: "security_scan_started_at"
       security_scan_status: "security_scan_status"
@@ -5598,6 +5656,7 @@ definitions:
       size: 5
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
+      is_downloadable: true
       name: "conan_package.tgz"
       sync_finished_at: "sync_finished_at"
       files:
@@ -6119,6 +6178,12 @@ definitions:
       indexed:
         type: "boolean"
         description: ""
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
+        type: "boolean"
+        description: ""
       is_sync_awaiting:
         type: "boolean"
         description: ""
@@ -6274,6 +6339,7 @@ definitions:
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
       tags_immutable: "{}"
+      is_quarantined: true
       slug: "slug"
       security_scan_started_at: "security_scan_started_at"
       security_scan_status: "security_scan_status"
@@ -6290,6 +6356,7 @@ definitions:
       size: 5
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
+      is_downloadable: true
       name: "name"
       sync_finished_at: "sync_finished_at"
       files:
@@ -6570,6 +6637,12 @@ definitions:
       indexed:
         type: "boolean"
         description: ""
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
+        type: "boolean"
+        description: ""
       is_sync_awaiting:
         type: "boolean"
         description: ""
@@ -6725,6 +6798,7 @@ definitions:
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
       tags_immutable: "{}"
+      is_quarantined: true
       slug: "slug"
       security_scan_started_at: "security_scan_started_at"
       security_scan_status: "security_scan_status"
@@ -6741,6 +6815,7 @@ definitions:
       size: 7
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
+      is_downloadable: true
       name: "name"
       sync_finished_at: "sync_finished_at"
       files:
@@ -7085,6 +7160,12 @@ definitions:
       indexed:
         type: "boolean"
         description: ""
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
+        type: "boolean"
+        description: ""
       is_sync_awaiting:
         type: "boolean"
         description: ""
@@ -7240,6 +7321,7 @@ definitions:
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
       tags_immutable: "{}"
+      is_quarantined: true
       slug: "slug"
       security_scan_started_at: "security_scan_started_at"
       security_scan_status: "security_scan_status"
@@ -7255,6 +7337,7 @@ definitions:
       size: 5
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
+      is_downloadable: true
       name: "tcl"
       sync_finished_at: "sync_finished_at"
       files:
@@ -7327,6 +7410,12 @@ definitions:
   PackageStatus:
     type: "object"
     properties:
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
+        type: "boolean"
+        description: ""
       is_sync_awaiting:
         type: "boolean"
         description: ""
@@ -7384,8 +7473,10 @@ definitions:
       stage_str: "stage_str"
       stage_updated_at: "stage_updated_at"
       stage: 0
+      is_downloadable: true
       sync_finished_at: "sync_finished_at"
       is_sync_failed: true
+      is_quarantined: true
       status_reason: "status_reason"
       status: 6
       status_updated_at: "status_updated_at"
@@ -7669,8 +7760,8 @@ definitions:
             interval: 5.123456789
             limit: 3600
             remaining: 3595
-            reset: 1647442238
-            reset_iso_8601: "2022-03-16T14:50:38.603327+00:00"
+            reset: 1652887902
+            reset_iso_8601: "2022-05-18T15:31:42.671525+00:00"
             throttled: false
         description: "Rate limit values per resource"
         properties: {}
@@ -7680,8 +7771,8 @@ definitions:
           interval: 5.123456789
           limit: 3600
           remaining: 3595
-          reset: 1647442238
-          reset_iso_8601: "2022-03-16T14:50:38.603327+00:00"
+          reset: 1652887902
+          reset_iso_8601: "2022-05-18T15:31:42.671525+00:00"
           throttled: false
   UserBrief:
     type: "object"
@@ -8349,10 +8440,11 @@ definitions:
         description: "A descriptive name for the repository."
       repository_type_str:
         type: "string"
-        description: "The repository type changes how it is accessed and billed. Private\
-          \ repositories can only be used on paid plans, but are visible only to you\
-          \ or authorised delegates. Public repositories are free to use on all plans\
-          \ and visible to all Cloudsmith users."
+        description: "\n        The repository type changes how it is accessed and\
+          \ billed.\n        Private repositories can only be used on paid plans,\
+          \ but are visible\n        only to you or authorised delegates. Public repositories\
+          \ are free to\n        use on all plans and visible to all Cloudsmith users.\n\
+          \        "
       slug:
         type: "string"
         description: "The slug identifies the repository in URIs."
@@ -8499,6 +8591,12 @@ definitions:
         type: "string"
         description: "Unique and permanent identifier for the package."
       indexed:
+        type: "boolean"
+        description: ""
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
         type: "boolean"
         description: ""
       is_sync_awaiting:
@@ -8656,6 +8754,7 @@ definitions:
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
       tags_immutable: "{}"
+      is_quarantined: true
       slug: "slug"
       security_scan_started_at: "security_scan_started_at"
       security_scan_status: "security_scan_status"
@@ -8672,6 +8771,7 @@ definitions:
       size: 5
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
+      is_downloadable: true
       name: "name"
       sync_finished_at: "sync_finished_at"
       files:
@@ -8834,6 +8934,12 @@ definitions:
       indexed:
         type: "boolean"
         description: ""
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
+        type: "boolean"
+        description: ""
       is_sync_awaiting:
         type: "boolean"
         description: ""
@@ -8983,6 +9089,7 @@ definitions:
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
       tags_immutable: "{}"
+      is_quarantined: true
       slug: "slug"
       security_scan_started_at: "security_scan_started_at"
       security_scan_status: "security_scan_status"
@@ -8998,6 +9105,7 @@ definitions:
       size: 5
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
+      is_downloadable: true
       name: "name"
       sync_finished_at: "sync_finished_at"
       files:
@@ -9188,6 +9296,138 @@ definitions:
     example:
       name: "name"
       description: "description"
+  RepositoryCreate:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      cdn_url:
+        type: "string"
+        description: "Base URL from which packages and other artifacts are downloaded."
+      created_at:
+        type: "string"
+        description: ""
+      deleted_at:
+        type: "string"
+        description: ""
+      description:
+        type: "string"
+        description: "A description of the repository's purpose/contents."
+      gpg_keys:
+        type: "array"
+        description: ""
+        title: "Gpg keysList"
+        items:
+          $ref: "#/definitions/repos_gpg_keys"
+      index_files:
+        type: "boolean"
+        description: "If checked, files contained in packages will be indexed, which\
+          \ increase the synchronisation time required for packages. Note that it\
+          \ is recommended you keep this enabled unless the synchronisation time is\
+          \ significantly impacted."
+      is_open_source:
+        type: "boolean"
+        description: ""
+      is_private:
+        type: "boolean"
+        description: ""
+      is_public:
+        type: "boolean"
+        description: ""
+      name:
+        type: "string"
+        description: "A descriptive name for the repository."
+      namespace:
+        type: "string"
+        description: "Namespace to which this repository belongs."
+      namespace_url:
+        type: "string"
+        description: "API endpoint where data about this namespace can be retrieved."
+      num_downloads:
+        type: "integer"
+        description: "The number of downloads for packages in the repository."
+      package_count:
+        type: "integer"
+        description: "The number of packages in the repository."
+      package_group_count:
+        type: "integer"
+        description: "The number of groups in the repository."
+      repository_type:
+        type: "integer"
+        description: "The repository type changes how it is accessed and billed. Private\
+          \ repositories can only be used on paid plans, but are visible only to you\
+          \ or authorised delegates. Open-Source repositories are always visible to\
+          \ everyone and are restricted by licensing, but are free to use and come\
+          \ with generous bandwidth/storage. You can only select Open-Source at repository\
+          \ creation time."
+      repository_type_str:
+        type: "string"
+        description: "\n        The repository type changes how it is accessed and\
+          \ billed.\n        Private repositories can only be used on paid plans,\
+          \ but are visible\n        only to you or authorised delegates. Public repositories\
+          \ are free to\n        use on all plans and visible to all Cloudsmith users.\n\
+          \        "
+      self_html_url:
+        type: "string"
+        description: "Website URL for this repository."
+      self_url:
+        type: "string"
+        description: "API endpoint where data about this repository can be retrieved."
+      size:
+        type: "integer"
+        description: "The calculated size of the repository."
+      size_str:
+        type: "string"
+        description: "The calculated size of the repository (human readable)."
+      slug:
+        type: "string"
+        description: "The slug identifies the repository in URIs."
+      slug_perm:
+        type: "string"
+        description: "The slug_perm immutably identifies the repository. It will never\
+          \ change once a repository has been created."
+      storage_region:
+        type: "string"
+        description: "The Cloudsmith region in which package files are stored."
+    example:
+      is_private: true
+      created_at: "created_at"
+      description: "description"
+      namespace_url: "namespace_url"
+      self_html_url: "self_html_url"
+      slug_perm: "slug_perm"
+      deleted_at: "deleted_at"
+      index_files: true
+      num_downloads: 0
+      repository_type: 5
+      self_url: "self_url"
+      package_count: 6
+      storage_region: "storage_region"
+      size_str: "size_str"
+      package_group_count: 1
+      size: 5
+      cdn_url: "cdn_url"
+      repository_type_str: "repository_type_str"
+      gpg_keys:
+      - public_key: "public_key"
+        default: true
+        fingerprint: "fingerprint"
+        active: true
+        created_at: "created_at"
+        comment: "comment"
+        fingerprint_short: "fingerprint_short"
+      - public_key: "public_key"
+        default: true
+        fingerprint: "fingerprint"
+        active: true
+        created_at: "created_at"
+        comment: "comment"
+        fingerprint_short: "fingerprint_short"
+      is_open_source: true
+      is_public: true
+      name: "name"
+      namespace: "namespace"
+      slug: "slug"
   StatusBasic:
     type: "object"
     properties:
@@ -9197,11 +9437,11 @@ definitions:
         description: "The message describing the state of the API."
       version:
         type: "string"
-        example: "1.42.3"
+        example: "1.61.3"
         description: "The current version for the Cloudsmith service."
     example:
       detail: "Cloudsmith API is operational."
-      version: "1.42.3"
+      version: "1.61.3"
   ReposPartialUpdate:
     type: "object"
     properties:
@@ -9325,6 +9565,12 @@ definitions:
         type: "string"
         description: "Unique and permanent identifier for the package."
       indexed:
+        type: "boolean"
+        description: ""
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
         type: "boolean"
         description: ""
       is_sync_awaiting:
@@ -9479,6 +9725,7 @@ definitions:
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
       tags_immutable: "{}"
+      is_quarantined: true
       slug: "slug"
       security_scan_started_at: "security_scan_started_at"
       security_scan_status: "security_scan_status"
@@ -9494,6 +9741,7 @@ definitions:
       size: 5
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
+      is_downloadable: true
       name: "my-package"
       sync_finished_at: "sync_finished_at"
       files:
@@ -10010,6 +10258,12 @@ definitions:
       indexed:
         type: "boolean"
         description: ""
+      is_downloadable:
+        type: "boolean"
+        description: ""
+      is_quarantined:
+        type: "boolean"
+        description: ""
       is_sync_awaiting:
         type: "boolean"
         description: ""
@@ -10163,6 +10417,7 @@ definitions:
       identifier_perm: "identifier_perm"
       stage_updated_at: "stage_updated_at"
       tags_immutable: "{}"
+      is_quarantined: true
       slug: "slug"
       security_scan_started_at: "security_scan_started_at"
       security_scan_status: "security_scan_status"
@@ -10178,6 +10433,7 @@ definitions:
       size: 5
       cdn_url: "cdn_url"
       uploaded_at: "uploaded_at"
+      is_downloadable: true
       name: "name"
       sync_finished_at: "sync_finished_at"
       files:
@@ -10626,6 +10882,15 @@ definitions:
     example:
       label: "label"
       slug: "slug"
+  PackagesQuarantine:
+    type: "object"
+    properties:
+      restore:
+        type: "boolean"
+        description: "If true, the package be restored from quarantine."
+    title: "PackagesQuarantine"
+    example:
+      restore: true
   QuotaHistory_history:
     type: "object"
     properties:

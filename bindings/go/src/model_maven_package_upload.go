@@ -56,6 +56,10 @@ type MavenPackageUpload struct {
 	// 
 	Indexed bool `json:"indexed,omitempty"`
 	// 
+	IsDownloadable bool `json:"is_downloadable,omitempty"`
+	// 
+	IsQuarantined bool `json:"is_quarantined,omitempty"`
+	// 
 	IsSyncAwaiting bool `json:"is_sync_awaiting,omitempty"`
 	// 
 	IsSyncCompleted bool `json:"is_sync_completed,omitempty"`

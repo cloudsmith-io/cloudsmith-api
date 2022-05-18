@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **formatUrl** | **String** |  |  [optional]
 **identifierPerm** | **String** | Unique and permanent identifier for the package. |  [optional]
 **indexed** | **Boolean** |  |  [optional]
+**isDownloadable** | **Boolean** |  |  [optional]
+**isQuarantined** | **Boolean** |  |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]
 **isSyncFailed** | **Boolean** |  |  [optional]

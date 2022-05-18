@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 
 # **repos_create**
-> Repository repos_create(owner, opts)
+> RepositoryCreate repos_create(owner, opts)
 
 Create a new repository in a given namespace.
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Repository**](Repository.md)
+[**RepositoryCreate**](RepositoryCreate.md)
 
 ### Authorization
 

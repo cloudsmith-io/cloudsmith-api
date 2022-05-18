@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **groupId** | **String** | Artifact&#39;s group ID. |  [optional]
 **identifierPerm** | **String** | Unique and permanent identifier for the package. |  [optional]
 **indexed** | **Boolean** |  |  [optional]
+**isDownloadable** | **Boolean** |  |  [optional]
+**isQuarantined** | **Boolean** |  |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]
 **isSyncFailed** | **Boolean** |  |  [optional]

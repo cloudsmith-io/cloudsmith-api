@@ -16,6 +16,7 @@ package io.cloudsmith.api.apis;
 import io.cloudsmith.api.models.ReposCreate;
 import io.cloudsmith.api.models.ReposPartialUpdate;
 import io.cloudsmith.api.models.Repository;
+import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -64,7 +65,7 @@ public class ReposApiTest {
     public void reposCreateTest() throws Exception {
         String owner = null;
         ReposCreate data = null;
-        Repository response = api.reposCreate(owner, data);
+        RepositoryCreate response = api.reposCreate(owner, data);
 
         // TODO: test validations
     }

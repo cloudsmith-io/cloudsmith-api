@@ -39,6 +39,7 @@ import java.lang.reflect.Type;
 import io.cloudsmith.api.models.ReposCreate;
 import io.cloudsmith.api.models.ReposPartialUpdate;
 import io.cloudsmith.api.models.Repository;
+import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.Status;
 
 import java.lang.reflect.Type;
@@ -294,11 +295,11 @@ public class ReposApi {
      * Create a new repository in a given namespace.
      * @param owner  (required)
      * @param data  (optional)
-     * @return Repository
+     * @return RepositoryCreate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Repository reposCreate(String owner, ReposCreate data) throws ApiException {
-        ApiResponse<Repository> resp = reposCreateWithHttpInfo(owner, data);
+    public RepositoryCreate reposCreate(String owner, ReposCreate data) throws ApiException {
+        ApiResponse<RepositoryCreate> resp = reposCreateWithHttpInfo(owner, data);
         return resp.getData();
     }
 
@@ -307,12 +308,12 @@ public class ReposApi {
      * Create a new repository in a given namespace.
      * @param owner  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;Repository&gt;
+     * @return ApiResponse&lt;RepositoryCreate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Repository> reposCreateWithHttpInfo( @NotNull String owner,  ReposCreate data) throws ApiException {
+    public ApiResponse<RepositoryCreate> reposCreateWithHttpInfo( @NotNull String owner,  ReposCreate data) throws ApiException {
         com.squareup.okhttp.Call call = reposCreateValidateBeforeCall(owner, data, null, null);
-        Type localVarReturnType = new TypeToken<Repository>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryCreate>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -325,7 +326,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposCreateAsync(String owner, ReposCreate data, final ApiCallback<Repository> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposCreateAsync(String owner, ReposCreate data, final ApiCallback<RepositoryCreate> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -347,7 +348,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposCreateValidateBeforeCall(owner, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Repository>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryCreate>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

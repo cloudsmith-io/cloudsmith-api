@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="reposCreate"></a>
 # **reposCreate**
-> Repository reposCreate(owner, data)
+> RepositoryCreate reposCreate(owner, data)
 
 Create a new repository in a given namespace.
 
@@ -98,7 +98,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 ReposCreate data = new ReposCreate(); // ReposCreate | 
 try {
-    Repository result = apiInstance.reposCreate(owner, data);
+    RepositoryCreate result = apiInstance.reposCreate(owner, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposCreate");
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Repository**](Repository.md)
+[**RepositoryCreate**](RepositoryCreate.md)
 
 ### Authorization
 

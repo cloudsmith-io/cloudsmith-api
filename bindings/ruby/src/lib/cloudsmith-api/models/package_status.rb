@@ -15,6 +15,12 @@ require 'date'
 module CloudsmithApi
   class PackageStatus
     # 
+    attr_accessor :is_downloadable
+
+    # 
+    attr_accessor :is_quarantined
+
+    # 
     attr_accessor :is_sync_awaiting
 
     # 
@@ -62,6 +68,8 @@ module CloudsmithApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'is_downloadable' => :'is_downloadable',
+        :'is_quarantined' => :'is_quarantined',
         :'is_sync_awaiting' => :'is_sync_awaiting',
         :'is_sync_completed' => :'is_sync_completed',
         :'is_sync_failed' => :'is_sync_failed',
@@ -83,6 +91,8 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'is_downloadable' => :'BOOLEAN',
+        :'is_quarantined' => :'BOOLEAN',
         :'is_sync_awaiting' => :'BOOLEAN',
         :'is_sync_completed' => :'BOOLEAN',
         :'is_sync_failed' => :'BOOLEAN',
@@ -108,6 +118,14 @@ module CloudsmithApi
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'is_downloadable')
+        self.is_downloadable = attributes[:'is_downloadable']
+      end
+
+      if attributes.has_key?(:'is_quarantined')
+        self.is_quarantined = attributes[:'is_quarantined']
+      end
 
       if attributes.has_key?(:'is_sync_awaiting')
         self.is_sync_awaiting = attributes[:'is_sync_awaiting']
@@ -188,6 +206,8 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          is_downloadable == o.is_downloadable &&
+          is_quarantined == o.is_quarantined &&
           is_sync_awaiting == o.is_sync_awaiting &&
           is_sync_completed == o.is_sync_completed &&
           is_sync_failed == o.is_sync_failed &&
@@ -214,7 +234,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, self_url, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, sync_finished_at, sync_progress].hash
+      [is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, self_url, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, sync_finished_at, sync_progress].hash
     end
 
     # Builds the object from hash

@@ -98,6 +98,12 @@ public class VagrantPackageUpload implements Serializable {
   @SerializedName("indexed")
   private Boolean indexed = null;
 
+  @SerializedName("is_downloadable")
+  private Boolean isDownloadable = null;
+
+  @SerializedName("is_quarantined")
+  private Boolean isQuarantined = null;
+
   @SerializedName("is_sync_awaiting")
   private Boolean isSyncAwaiting = null;
 
@@ -609,6 +615,42 @@ public class VagrantPackageUpload implements Serializable {
 
   public void setIndexed(Boolean indexed) {
     this.indexed = indexed;
+  }
+
+  public VagrantPackageUpload isDownloadable(Boolean isDownloadable) {
+    this.isDownloadable = isDownloadable;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isDownloadable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDownloadable() {
+    return isDownloadable;
+  }
+
+  public void setIsDownloadable(Boolean isDownloadable) {
+    this.isDownloadable = isDownloadable;
+  }
+
+  public VagrantPackageUpload isQuarantined(Boolean isQuarantined) {
+    this.isQuarantined = isQuarantined;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isQuarantined
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsQuarantined() {
+    return isQuarantined;
+  }
+
+  public void setIsQuarantined(Boolean isQuarantined) {
+    this.isQuarantined = isQuarantined;
   }
 
   public VagrantPackageUpload isSyncAwaiting(Boolean isSyncAwaiting) {
@@ -1454,6 +1496,8 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.formatUrl, vagrantPackageUpload.formatUrl) &&
         Objects.equals(this.identifierPerm, vagrantPackageUpload.identifierPerm) &&
         Objects.equals(this.indexed, vagrantPackageUpload.indexed) &&
+        Objects.equals(this.isDownloadable, vagrantPackageUpload.isDownloadable) &&
+        Objects.equals(this.isQuarantined, vagrantPackageUpload.isQuarantined) &&
         Objects.equals(this.isSyncAwaiting, vagrantPackageUpload.isSyncAwaiting) &&
         Objects.equals(this.isSyncCompleted, vagrantPackageUpload.isSyncCompleted) &&
         Objects.equals(this.isSyncFailed, vagrantPackageUpload.isSyncFailed) &&
@@ -1503,7 +1547,7 @@ public class VagrantPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, provider, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, provider, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1532,6 +1576,8 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
     sb.append("    identifierPerm: ").append(toIndentedString(identifierPerm)).append("\n");
     sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
+    sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
+    sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
     sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");

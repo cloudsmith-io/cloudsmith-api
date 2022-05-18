@@ -69,6 +69,7 @@ from cloudsmith_api.models.package_status import PackageStatus
 from cloudsmith_api.models.package_usage_metrics import PackageUsageMetrics
 from cloudsmith_api.models.packages_copy import PackagesCopy
 from cloudsmith_api.models.packages_move import PackagesMove
+from cloudsmith_api.models.packages_quarantine import PackagesQuarantine
 from cloudsmith_api.models.packages_tag import PackagesTag
 from cloudsmith_api.models.packages_upload_alpine import PackagesUploadAlpine
 from cloudsmith_api.models.packages_upload_cargo import PackagesUploadCargo
@@ -126,6 +127,7 @@ from cloudsmith_api.models.repos_create import ReposCreate
 from cloudsmith_api.models.repos_gpg_keys import ReposGpgKeys
 from cloudsmith_api.models.repos_partial_update import ReposPartialUpdate
 from cloudsmith_api.models.repository import Repository
+from cloudsmith_api.models.repository_create import RepositoryCreate
 from cloudsmith_api.models.repository_token import RepositoryToken
 from cloudsmith_api.models.repository_token_refresh import RepositoryTokenRefresh
 from cloudsmith_api.models.repository_token_sync import RepositoryTokenSync

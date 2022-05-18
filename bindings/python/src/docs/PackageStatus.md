@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**is_downloadable** | **bool** |  | [optional] 
+**is_quarantined** | **bool** |  | [optional] 
 **is_sync_awaiting** | **bool** |  | [optional] 
 **is_sync_completed** | **bool** |  | [optional] 
 **is_sync_failed** | **bool** |  | [optional] 

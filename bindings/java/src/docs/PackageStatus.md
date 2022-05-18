@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**isDownloadable** | **Boolean** |  |  [optional]
+**isQuarantined** | **Boolean** |  |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]
 **isSyncFailed** | **Boolean** |  |  [optional]

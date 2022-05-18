@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReposCreate**
-> Repository ReposCreate(ctx, owner, optional)
+> RepositoryCreate ReposCreate(ctx, owner, optional)
 Create a new repository in a given namespace.
 
 Create a new repository in a given namespace.
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Repository**](Repository.md)
+[**RepositoryCreate**](RepositoryCreate.md)
 
 ### Authorization
 

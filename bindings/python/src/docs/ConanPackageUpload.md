@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **format_url** | **str** |  | [optional] 
 **identifier_perm** | **str** | Unique and permanent identifier for the package. | [optional] 
 **indexed** | **bool** |  | [optional] 
+**is_downloadable** | **bool** |  | [optional] 
+**is_quarantined** | **bool** |  | [optional] 
 **is_sync_awaiting** | **bool** |  | [optional] 
 **is_sync_completed** | **bool** |  | [optional] 
 **is_sync_failed** | **bool** |  | [optional] 

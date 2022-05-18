@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_create**
-> Repository repos_create(owner, data=data)
+> RepositoryCreate repos_create(owner, data=data)
 
 Create a new repository in a given namespace.
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Repository**](Repository.md)
+[**RepositoryCreate**](RepositoryCreate.md)
 
 ### Authorization
 

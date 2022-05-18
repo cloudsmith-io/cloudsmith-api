@@ -23,7 +23,7 @@ module CloudsmithApi
     # A descriptive name for the repository.
     attr_accessor :name
 
-    # The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
+    #          The repository type changes how it is accessed and billed.         Private repositories can only be used on paid plans, but are visible         only to you or authorised delegates. Public repositories are free to         use on all plans and visible to all Cloudsmith users.         
     attr_accessor :repository_type_str
 
     # The slug identifies the repository in URIs.

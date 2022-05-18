@@ -17,7 +17,7 @@ type ReposCreate struct {
 	IndexFiles bool `json:"index_files,omitempty"`
 	// A descriptive name for the repository.
 	Name string `json:"name"`
-	// The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
+	//          The repository type changes how it is accessed and billed.         Private repositories can only be used on paid plans, but are visible         only to you or authorised delegates. Public repositories are free to         use on all plans and visible to all Cloudsmith users.         
 	RepositoryTypeStr string `json:"repository_type_str,omitempty"`
 	// The slug identifies the repository in URIs.
 	Slug string `json:"slug,omitempty"`

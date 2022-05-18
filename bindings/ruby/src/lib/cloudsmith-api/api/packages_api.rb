@@ -342,6 +342,72 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Quarantine or restore a package.
+    # Quarantine or restore a package.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesQuarantine] :data 
+    # @return [Package]
+    def packages_quarantine(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_quarantine_with_http_info(owner, repo, identifier, opts)
+      data
+    end
+
+    # Quarantine or restore a package.
+    # Quarantine or restore a package.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackagesQuarantine] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_quarantine_with_http_info(owner, repo, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PackagesApi.packages_quarantine ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_quarantine"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_quarantine"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_quarantine"
+      end
+      # resource path
+      local_var_path = '/packages/{owner}/{repo}/{identifier}/quarantine/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_quarantine\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get a specific package in a repository.
     # Get a specific package in a repository.
     # @param owner 

@@ -55,6 +55,8 @@ class ConanPackageUpload(object):
         'format_url': 'str',
         'identifier_perm': 'str',
         'indexed': 'bool',
+        'is_downloadable': 'bool',
+        'is_quarantined': 'bool',
         'is_sync_awaiting': 'bool',
         'is_sync_completed': 'bool',
         'is_sync_failed': 'bool',
@@ -124,6 +126,8 @@ class ConanPackageUpload(object):
         'format_url': 'format_url',
         'identifier_perm': 'identifier_perm',
         'indexed': 'indexed',
+        'is_downloadable': 'is_downloadable',
+        'is_quarantined': 'is_quarantined',
         'is_sync_awaiting': 'is_sync_awaiting',
         'is_sync_completed': 'is_sync_completed',
         'is_sync_failed': 'is_sync_failed',
@@ -170,7 +174,7 @@ class ConanPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """ConanPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -198,6 +202,8 @@ class ConanPackageUpload(object):
         self._format_url = None
         self._identifier_perm = None
         self._indexed = None
+        self._is_downloadable = None
+        self._is_quarantined = None
         self._is_sync_awaiting = None
         self._is_sync_completed = None
         self._is_sync_failed = None
@@ -288,6 +294,10 @@ class ConanPackageUpload(object):
             self.identifier_perm = identifier_perm
         if indexed is not None:
             self.indexed = indexed
+        if is_downloadable is not None:
+            self.is_downloadable = is_downloadable
+        if is_quarantined is not None:
+            self.is_quarantined = is_quarantined
         if is_sync_awaiting is not None:
             self.is_sync_awaiting = is_sync_awaiting
         if is_sync_completed is not None:
@@ -882,6 +892,52 @@ class ConanPackageUpload(object):
         """
 
         self._indexed = indexed
+
+    @property
+    def is_downloadable(self):
+        """Gets the is_downloadable of this ConanPackageUpload.  # noqa: E501
+
+          # noqa: E501
+
+        :return: The is_downloadable of this ConanPackageUpload.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_downloadable
+
+    @is_downloadable.setter
+    def is_downloadable(self, is_downloadable):
+        """Sets the is_downloadable of this ConanPackageUpload.
+
+          # noqa: E501
+
+        :param is_downloadable: The is_downloadable of this ConanPackageUpload.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_downloadable = is_downloadable
+
+    @property
+    def is_quarantined(self):
+        """Gets the is_quarantined of this ConanPackageUpload.  # noqa: E501
+
+          # noqa: E501
+
+        :return: The is_quarantined of this ConanPackageUpload.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_quarantined
+
+    @is_quarantined.setter
+    def is_quarantined(self, is_quarantined):
+        """Sets the is_quarantined of this ConanPackageUpload.
+
+          # noqa: E501
+
+        :param is_quarantined: The is_quarantined of this ConanPackageUpload.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_quarantined = is_quarantined
 
     @property
     def is_sync_awaiting(self):

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**PackagesDependencies**](PackagesApi.md#PackagesDependencies) | **Get** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
 [**PackagesList**](PackagesApi.md#PackagesList) | **Get** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**PackagesMove**](PackagesApi.md#PackagesMove) | **Post** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
+[**PackagesQuarantine**](PackagesApi.md#PackagesQuarantine) | **Post** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or restore a package.
 [**PackagesRead**](PackagesApi.md#PackagesRead) | **Get** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**PackagesResync**](PackagesApi.md#PackagesResync) | **Post** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 [**PackagesScan**](PackagesApi.md#PackagesScan) | **Post** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
@@ -234,6 +235,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PackageMove**](PackageMove.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PackagesQuarantine**
+> ModelPackage PackagesQuarantine(ctx, owner, repo, identifier, optional)
+Quarantine or restore a package.
+
+Quarantine or restore a package.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**|  | 
+  **repo** | **string**|  | 
+  **identifier** | **string**|  | 
+ **optional** | ***PackagesApiPackagesQuarantineOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a PackagesApiPackagesQuarantineOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **data** | [**optional.Interface of PackagesQuarantine**](PackagesQuarantine.md)|  | 
+
+### Return type
+
+[**ModelPackage**](Package.md)
 
 ### Authorization
 

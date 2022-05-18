@@ -23,6 +23,7 @@ import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackagesCopy;
 import io.cloudsmith.api.models.PackagesMove;
+import io.cloudsmith.api.models.PackagesQuarantine;
 import io.cloudsmith.api.models.PackagesTag;
 import io.cloudsmith.api.models.PackagesUploadAlpine;
 import io.cloudsmith.api.models.PackagesUploadCargo;
@@ -182,6 +183,25 @@ public class PackagesApiTest {
         String identifier = null;
         PackagesMove data = null;
         PackageMove response = api.packagesMove(owner, repo, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Quarantine or restore a package.
+     *
+     * Quarantine or restore a package.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesQuarantineTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        PackagesQuarantine data = null;
+        ModelPackage response = api.packagesQuarantine(owner, repo, identifier, data);
 
         // TODO: test validations
     }

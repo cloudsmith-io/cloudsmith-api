@@ -33,6 +33,8 @@ class PackageStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'is_downloadable': 'bool',
+        'is_quarantined': 'bool',
         'is_sync_awaiting': 'bool',
         'is_sync_completed': 'bool',
         'is_sync_failed': 'bool',
@@ -51,6 +53,8 @@ class PackageStatus(object):
     }
 
     attribute_map = {
+        'is_downloadable': 'is_downloadable',
+        'is_quarantined': 'is_quarantined',
         'is_sync_awaiting': 'is_sync_awaiting',
         'is_sync_completed': 'is_sync_completed',
         'is_sync_failed': 'is_sync_failed',
@@ -68,12 +72,14 @@ class PackageStatus(object):
         'sync_progress': 'sync_progress'
     }
 
-    def __init__(self, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, self_url=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, sync_finished_at=None, sync_progress=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, self_url=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, sync_finished_at=None, sync_progress=None, _configuration=None):  # noqa: E501
         """PackageStatus - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._is_downloadable = None
+        self._is_quarantined = None
         self._is_sync_awaiting = None
         self._is_sync_completed = None
         self._is_sync_failed = None
@@ -91,6 +97,10 @@ class PackageStatus(object):
         self._sync_progress = None
         self.discriminator = None
 
+        if is_downloadable is not None:
+            self.is_downloadable = is_downloadable
+        if is_quarantined is not None:
+            self.is_quarantined = is_quarantined
         if is_sync_awaiting is not None:
             self.is_sync_awaiting = is_sync_awaiting
         if is_sync_completed is not None:
@@ -121,6 +131,52 @@ class PackageStatus(object):
             self.sync_finished_at = sync_finished_at
         if sync_progress is not None:
             self.sync_progress = sync_progress
+
+    @property
+    def is_downloadable(self):
+        """Gets the is_downloadable of this PackageStatus.  # noqa: E501
+
+          # noqa: E501
+
+        :return: The is_downloadable of this PackageStatus.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_downloadable
+
+    @is_downloadable.setter
+    def is_downloadable(self, is_downloadable):
+        """Sets the is_downloadable of this PackageStatus.
+
+          # noqa: E501
+
+        :param is_downloadable: The is_downloadable of this PackageStatus.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_downloadable = is_downloadable
+
+    @property
+    def is_quarantined(self):
+        """Gets the is_quarantined of this PackageStatus.  # noqa: E501
+
+          # noqa: E501
+
+        :return: The is_quarantined of this PackageStatus.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_quarantined
+
+    @is_quarantined.setter
+    def is_quarantined(self, is_quarantined):
+        """Sets the is_quarantined of this PackageStatus.
+
+          # noqa: E501
+
+        :param is_quarantined: The is_quarantined of this PackageStatus.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_quarantined = is_quarantined
 
     @property
     def is_sync_awaiting(self):

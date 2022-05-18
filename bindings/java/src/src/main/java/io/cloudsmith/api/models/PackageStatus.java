@@ -34,6 +34,12 @@ import javax.validation.Valid;
 public class PackageStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("is_downloadable")
+  private Boolean isDownloadable = null;
+
+  @SerializedName("is_quarantined")
+  private Boolean isQuarantined = null;
+
   @SerializedName("is_sync_awaiting")
   private Boolean isSyncAwaiting = null;
 
@@ -78,6 +84,42 @@ public class PackageStatus implements Serializable {
 
   @SerializedName("sync_progress")
   private Integer syncProgress = null;
+
+  public PackageStatus isDownloadable(Boolean isDownloadable) {
+    this.isDownloadable = isDownloadable;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isDownloadable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDownloadable() {
+    return isDownloadable;
+  }
+
+  public void setIsDownloadable(Boolean isDownloadable) {
+    this.isDownloadable = isDownloadable;
+  }
+
+  public PackageStatus isQuarantined(Boolean isQuarantined) {
+    this.isQuarantined = isQuarantined;
+    return this;
+  }
+
+   /**
+   * 
+   * @return isQuarantined
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsQuarantined() {
+    return isQuarantined;
+  }
+
+  public void setIsQuarantined(Boolean isQuarantined) {
+    this.isQuarantined = isQuarantined;
+  }
 
   public PackageStatus isSyncAwaiting(Boolean isSyncAwaiting) {
     this.isSyncAwaiting = isSyncAwaiting;
@@ -359,7 +401,9 @@ public class PackageStatus implements Serializable {
       return false;
     }
     PackageStatus packageStatus = (PackageStatus) o;
-    return Objects.equals(this.isSyncAwaiting, packageStatus.isSyncAwaiting) &&
+    return Objects.equals(this.isDownloadable, packageStatus.isDownloadable) &&
+        Objects.equals(this.isQuarantined, packageStatus.isQuarantined) &&
+        Objects.equals(this.isSyncAwaiting, packageStatus.isSyncAwaiting) &&
         Objects.equals(this.isSyncCompleted, packageStatus.isSyncCompleted) &&
         Objects.equals(this.isSyncFailed, packageStatus.isSyncFailed) &&
         Objects.equals(this.isSyncInFlight, packageStatus.isSyncInFlight) &&
@@ -378,7 +422,7 @@ public class PackageStatus implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, selfUrl, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, syncFinishedAt, syncProgress);
+    return Objects.hash(isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, selfUrl, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, syncFinishedAt, syncProgress);
   }
 
 
@@ -387,6 +431,8 @@ public class PackageStatus implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackageStatus {\n");
     
+    sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
+    sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
     sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");

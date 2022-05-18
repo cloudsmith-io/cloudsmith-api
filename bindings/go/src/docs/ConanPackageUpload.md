@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **FormatUrl** | **string** |  | [optional] [default to null]
 **IdentifierPerm** | **string** | Unique and permanent identifier for the package. | [optional] [default to null]
 **Indexed** | **bool** |  | [optional] [default to null]
+**IsDownloadable** | **bool** |  | [optional] [default to null]
+**IsQuarantined** | **bool** |  | [optional] [default to null]
 **IsSyncAwaiting** | **bool** |  | [optional] [default to null]
 **IsSyncCompleted** | **bool** |  | [optional] [default to null]
 **IsSyncFailed** | **bool** |  | [optional] [default to null]

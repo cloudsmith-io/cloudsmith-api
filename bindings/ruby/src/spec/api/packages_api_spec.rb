@@ -107,6 +107,21 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_quarantine
+  # Quarantine or restore a package.
+  # Quarantine or restore a package.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackagesQuarantine] :data 
+  # @return [Package]
+  describe 'packages_quarantine test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_read
   # Get a specific package in a repository.
   # Get a specific package in a repository.
