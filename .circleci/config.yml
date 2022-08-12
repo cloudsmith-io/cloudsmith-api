@@ -78,20 +78,6 @@ workflows:
           language: java
           docker_image: cimg/openjdk:8.0
       - test:
-          name: "Test Go"
-          language: go
-          docker_image: cimg/go:1.13
-      - deploy_bindings:
-          requires:
-            - "Test Go"
-          filters:
-            branches:
-             only:
-               - master
-          name: "Deploy Go"
-          language: go
-          docker_image: cimg/go:1.13
-      - test:
           name: "Test Ruby"
           language: ruby
           docker_image: cimg/ruby:2.6
