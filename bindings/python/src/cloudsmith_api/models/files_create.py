@@ -134,6 +134,13 @@ class FilesCreate(object):
         :param method: The method of this FilesCreate.  # noqa: E501
         :type: str
         """
+        allowed_values = ["put_parts", "put", "post", "presigned", "unsigned_put"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                method not in allowed_values):
+            raise ValueError(
+                "Invalid value for `method` ({0}), must be one of {1}"  # noqa: E501
+                .format(method, allowed_values)
+            )
 
         self._method = method
 

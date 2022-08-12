@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from cloudsmith_api.api.audit_log_api import AuditLogApi
 from cloudsmith_api.api.badges_api import BadgesApi
 from cloudsmith_api.api.distros_api import DistrosApi
 from cloudsmith_api.api.entitlements_api import EntitlementsApi

@@ -46,8 +46,59 @@ public class OrganizationMembership implements Serializable {
   @SerializedName("last_login_at")
   private String lastLoginAt = null;
 
+  /**
+   * 
+   */
+  @JsonAdapter(RoleEnum.Adapter.class)
+  public enum RoleEnum {
+    OWNER("Owner"),
+    
+    MANAGER("Manager"),
+    
+    MEMBER("Member"),
+    
+    COLLABORATOR("Collaborator");
+
+    private String value;
+
+    RoleEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RoleEnum fromValue(String text) {
+      for (RoleEnum b : RoleEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RoleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RoleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RoleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RoleEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("role")
-  private String role = null;
+  private RoleEnum role = null;
 
   @SerializedName("user")
   private String user = null;
@@ -61,8 +112,55 @@ public class OrganizationMembership implements Serializable {
   @SerializedName("user_url")
   private String userUrl = null;
 
+  /**
+   * 
+   */
+  @JsonAdapter(VisibilityEnum.Adapter.class)
+  public enum VisibilityEnum {
+    PUBLIC("Public"),
+    
+    PRIVATE("Private");
+
+    private String value;
+
+    VisibilityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VisibilityEnum fromValue(String text) {
+      for (VisibilityEnum b : VisibilityEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<VisibilityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VisibilityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VisibilityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VisibilityEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("visibility")
-  private String visibility = null;
+  private VisibilityEnum visibility = null;
 
   public OrganizationMembership email(String email) {
     this.email = email;
@@ -136,7 +234,7 @@ public class OrganizationMembership implements Serializable {
     this.lastLoginAt = lastLoginAt;
   }
 
-  public OrganizationMembership role(String role) {
+  public OrganizationMembership role(RoleEnum role) {
     this.role = role;
     return this;
   }
@@ -146,11 +244,11 @@ public class OrganizationMembership implements Serializable {
    * @return role
   **/
   @ApiModelProperty(value = "")
-  public String getRole() {
+  public RoleEnum getRole() {
     return role;
   }
 
-  public void setRole(String role) {
+  public void setRole(RoleEnum role) {
     this.role = role;
   }
 
@@ -226,7 +324,7 @@ public class OrganizationMembership implements Serializable {
     this.userUrl = userUrl;
   }
 
-  public OrganizationMembership visibility(String visibility) {
+  public OrganizationMembership visibility(VisibilityEnum visibility) {
     this.visibility = visibility;
     return this;
   }
@@ -236,11 +334,11 @@ public class OrganizationMembership implements Serializable {
    * @return visibility
   **/
   @ApiModelProperty(value = "")
-  public String getVisibility() {
+  public VisibilityEnum getVisibility() {
     return visibility;
   }
 
-  public void setVisibility(String visibility) {
+  public void setVisibility(VisibilityEnum visibility) {
     this.visibility = visibility;
   }
 

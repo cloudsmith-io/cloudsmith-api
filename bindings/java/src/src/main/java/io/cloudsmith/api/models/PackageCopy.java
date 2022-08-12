@@ -152,8 +152,67 @@ public class PackageCopy implements Serializable {
   @SerializedName("security_scan_started_at")
   private String securityScanStartedAt = null;
 
+  /**
+   * 
+   */
+  @JsonAdapter(SecurityScanStatusEnum.Adapter.class)
+  public enum SecurityScanStatusEnum {
+    AWAITING_SECURITY_SCAN("Awaiting Security Scan"),
+    
+    SECURITY_SCANNING_IN_PROGRESS("Security Scanning in Progress"),
+    
+    SCAN_DETECTED_VULNERABILITIES("Scan Detected Vulnerabilities"),
+    
+    SCAN_DETECTED_NO_VULNERABILITIES("Scan Detected No Vulnerabilities"),
+    
+    SECURITY_SCANNING_DISABLED("Security Scanning Disabled"),
+    
+    SECURITY_SCANNING_FAILED("Security Scanning Failed"),
+    
+    SECURITY_SCANNING_SKIPPED("Security Scanning Skipped"),
+    
+    SECURITY_SCANNING_NOT_SUPPORTED("Security Scanning Not Supported");
+
+    private String value;
+
+    SecurityScanStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SecurityScanStatusEnum fromValue(String text) {
+      for (SecurityScanStatusEnum b : SecurityScanStatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SecurityScanStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SecurityScanStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SecurityScanStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SecurityScanStatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("security_scan_status")
-  private String securityScanStatus = null;
+  private SecurityScanStatusEnum securityScanStatus = null;
 
   @SerializedName("security_scan_status_updated_at")
   private String securityScanStatusUpdatedAt = null;
@@ -941,7 +1000,7 @@ public class PackageCopy implements Serializable {
     this.securityScanStartedAt = securityScanStartedAt;
   }
 
-  public PackageCopy securityScanStatus(String securityScanStatus) {
+  public PackageCopy securityScanStatus(SecurityScanStatusEnum securityScanStatus) {
     this.securityScanStatus = securityScanStatus;
     return this;
   }
@@ -951,11 +1010,11 @@ public class PackageCopy implements Serializable {
    * @return securityScanStatus
   **/
   @ApiModelProperty(value = "")
-  public String getSecurityScanStatus() {
+  public SecurityScanStatusEnum getSecurityScanStatus() {
     return securityScanStatus;
   }
 
-  public void setSecurityScanStatus(String securityScanStatus) {
+  public void setSecurityScanStatus(SecurityScanStatusEnum securityScanStatus) {
     this.securityScanStatus = securityScanStatus;
   }
 

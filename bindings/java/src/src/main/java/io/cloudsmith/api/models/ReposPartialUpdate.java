@@ -34,20 +34,649 @@ import javax.validation.Valid;
 public class ReposPartialUpdate implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("contextual_auth_realm")
+  private Boolean contextualAuthRealm = null;
+
+  @SerializedName("copy_own")
+  private Boolean copyOwn = null;
+
+  /**
+   * This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
+   */
+  @JsonAdapter(CopyPackagesEnum.Adapter.class)
+  public enum CopyPackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
+
+    private String value;
+
+    CopyPackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CopyPackagesEnum fromValue(String text) {
+      for (CopyPackagesEnum b : CopyPackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<CopyPackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CopyPackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CopyPackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return CopyPackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("copy_packages")
+  private CopyPackagesEnum copyPackages = null;
+
+  /**
+   * This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
+   */
+  @JsonAdapter(DefaultPrivilegeEnum.Adapter.class)
+  public enum DefaultPrivilegeEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read"),
+    
+    NONE("None");
+
+    private String value;
+
+    DefaultPrivilegeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DefaultPrivilegeEnum fromValue(String text) {
+      for (DefaultPrivilegeEnum b : DefaultPrivilegeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DefaultPrivilegeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DefaultPrivilegeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DefaultPrivilegeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DefaultPrivilegeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("default_privilege")
+  private DefaultPrivilegeEnum defaultPrivilege = null;
+
+  @SerializedName("delete_own")
+  private Boolean deleteOwn = null;
+
+  /**
+   * This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
+   */
+  @JsonAdapter(DeletePackagesEnum.Adapter.class)
+  public enum DeletePackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write");
+
+    private String value;
+
+    DeletePackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DeletePackagesEnum fromValue(String text) {
+      for (DeletePackagesEnum b : DeletePackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DeletePackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeletePackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DeletePackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DeletePackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("delete_packages")
+  private DeletePackagesEnum deletePackages = null;
+
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("docker_refresh_tokens_enabled")
+  private Boolean dockerRefreshTokensEnabled = null;
 
   @SerializedName("index_files")
   private Boolean indexFiles = null;
 
+  @SerializedName("move_own")
+  private Boolean moveOwn = null;
+
+  /**
+   * This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.
+   */
+  @JsonAdapter(MovePackagesEnum.Adapter.class)
+  public enum MovePackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
+
+    private String value;
+
+    MovePackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MovePackagesEnum fromValue(String text) {
+      for (MovePackagesEnum b : MovePackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MovePackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MovePackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MovePackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MovePackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("move_packages")
+  private MovePackagesEnum movePackages = null;
+
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("proxy_npmjs")
+  private Boolean proxyNpmjs = null;
+
+  @SerializedName("proxy_pypi")
+  private Boolean proxyPypi = null;
+
+  @SerializedName("raw_package_index_enabled")
+  private Boolean rawPackageIndexEnabled = null;
+
+  @SerializedName("raw_package_index_signatures_enabled")
+  private Boolean rawPackageIndexSignaturesEnabled = null;
+
+  /**
+   * This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.
+   */
+  @JsonAdapter(ReplacePackagesEnum.Adapter.class)
+  public enum ReplacePackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write");
+
+    private String value;
+
+    ReplacePackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ReplacePackagesEnum fromValue(String text) {
+      for (ReplacePackagesEnum b : ReplacePackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ReplacePackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReplacePackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ReplacePackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ReplacePackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("replace_packages")
+  private ReplacePackagesEnum replacePackages = null;
+
+  @SerializedName("replace_packages_by_default")
+  private Boolean replacePackagesByDefault = null;
+
+  /**
+   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
+   */
+  @JsonAdapter(RepositoryTypeStrEnum.Adapter.class)
+  public enum RepositoryTypeStrEnum {
+    PUBLIC("Public"),
+    
+    PRIVATE("Private"),
+    
+    OPEN_SOURCE("Open-Source");
+
+    private String value;
+
+    RepositoryTypeStrEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RepositoryTypeStrEnum fromValue(String text) {
+      for (RepositoryTypeStrEnum b : RepositoryTypeStrEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RepositoryTypeStrEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RepositoryTypeStrEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RepositoryTypeStrEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RepositoryTypeStrEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("repository_type_str")
-  private String repositoryTypeStr = null;
+  private RepositoryTypeStrEnum repositoryTypeStr = null;
+
+  @SerializedName("resync_own")
+  private Boolean resyncOwn = null;
+
+  /**
+   * This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.
+   */
+  @JsonAdapter(ResyncPackagesEnum.Adapter.class)
+  public enum ResyncPackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write");
+
+    private String value;
+
+    ResyncPackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ResyncPackagesEnum fromValue(String text) {
+      for (ResyncPackagesEnum b : ResyncPackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ResyncPackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResyncPackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ResyncPackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ResyncPackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("resync_packages")
+  private ResyncPackagesEnum resyncPackages = null;
+
+  @SerializedName("scan_own")
+  private Boolean scanOwn = null;
+
+  /**
+   * This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.
+   */
+  @JsonAdapter(ScanPackagesEnum.Adapter.class)
+  public enum ScanPackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
+
+    private String value;
+
+    ScanPackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ScanPackagesEnum fromValue(String text) {
+      for (ScanPackagesEnum b : ScanPackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ScanPackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ScanPackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ScanPackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ScanPackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("scan_packages")
+  private ScanPackagesEnum scanPackages = null;
+
+  @SerializedName("show_setup_all")
+  private Boolean showSetupAll = null;
 
   @SerializedName("slug")
   private String slug = null;
+
+  @SerializedName("strict_npm_validation")
+  private Boolean strictNpmValidation = null;
+
+  @SerializedName("use_debian_labels")
+  private Boolean useDebianLabels = null;
+
+  @SerializedName("use_default_cargo_upstream")
+  private Boolean useDefaultCargoUpstream = null;
+
+  @SerializedName("use_noarch_packages")
+  private Boolean useNoarchPackages = null;
+
+  @SerializedName("use_source_packages")
+  private Boolean useSourcePackages = null;
+
+  @SerializedName("use_vulnerability_scanning")
+  private Boolean useVulnerabilityScanning = null;
+
+  @SerializedName("user_entitlements_enabled")
+  private Boolean userEntitlementsEnabled = null;
+
+  /**
+   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
+   */
+  @JsonAdapter(ViewStatisticsEnum.Adapter.class)
+  public enum ViewStatisticsEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
+
+    private String value;
+
+    ViewStatisticsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ViewStatisticsEnum fromValue(String text) {
+      for (ViewStatisticsEnum b : ViewStatisticsEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ViewStatisticsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ViewStatisticsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ViewStatisticsEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ViewStatisticsEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("view_statistics")
+  private ViewStatisticsEnum viewStatistics = null;
+
+  public ReposPartialUpdate contextualAuthRealm(Boolean contextualAuthRealm) {
+    this.contextualAuthRealm = contextualAuthRealm;
+    return this;
+  }
+
+   /**
+   * If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the &#39;WWW-Authenticate&#39; header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.
+   * @return contextualAuthRealm
+  **/
+  @ApiModelProperty(value = "If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.")
+  public Boolean isContextualAuthRealm() {
+    return contextualAuthRealm;
+  }
+
+  public void setContextualAuthRealm(Boolean contextualAuthRealm) {
+    this.contextualAuthRealm = contextualAuthRealm;
+  }
+
+  public ReposPartialUpdate copyOwn(Boolean copyOwn) {
+    this.copyOwn = copyOwn;
+    return this;
+  }
+
+   /**
+   * If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org.
+   * @return copyOwn
+  **/
+  @ApiModelProperty(value = "If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
+  public Boolean isCopyOwn() {
+    return copyOwn;
+  }
+
+  public void setCopyOwn(Boolean copyOwn) {
+    this.copyOwn = copyOwn;
+  }
+
+  public ReposPartialUpdate copyPackages(CopyPackagesEnum copyPackages) {
+    this.copyPackages = copyPackages;
+    return this;
+  }
+
+   /**
+   * This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
+   * @return copyPackages
+  **/
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.")
+  public CopyPackagesEnum getCopyPackages() {
+    return copyPackages;
+  }
+
+  public void setCopyPackages(CopyPackagesEnum copyPackages) {
+    this.copyPackages = copyPackages;
+  }
+
+  public ReposPartialUpdate defaultPrivilege(DefaultPrivilegeEnum defaultPrivilege) {
+    this.defaultPrivilege = defaultPrivilege;
+    return this;
+  }
+
+   /**
+   * This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
+   * @return defaultPrivilege
+  **/
+  @ApiModelProperty(value = "This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.")
+  public DefaultPrivilegeEnum getDefaultPrivilege() {
+    return defaultPrivilege;
+  }
+
+  public void setDefaultPrivilege(DefaultPrivilegeEnum defaultPrivilege) {
+    this.defaultPrivilege = defaultPrivilege;
+  }
+
+  public ReposPartialUpdate deleteOwn(Boolean deleteOwn) {
+    this.deleteOwn = deleteOwn;
+    return this;
+  }
+
+   /**
+   * If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org.
+   * @return deleteOwn
+  **/
+  @ApiModelProperty(value = "If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
+  public Boolean isDeleteOwn() {
+    return deleteOwn;
+  }
+
+  public void setDeleteOwn(Boolean deleteOwn) {
+    this.deleteOwn = deleteOwn;
+  }
+
+  public ReposPartialUpdate deletePackages(DeletePackagesEnum deletePackages) {
+    this.deletePackages = deletePackages;
+    return this;
+  }
+
+   /**
+   * This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
+   * @return deletePackages
+  **/
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.")
+  public DeletePackagesEnum getDeletePackages() {
+    return deletePackages;
+  }
+
+  public void setDeletePackages(DeletePackagesEnum deletePackages) {
+    this.deletePackages = deletePackages;
+  }
 
   public ReposPartialUpdate description(String description) {
     this.description = description;
@@ -65,6 +694,24 @@ public class ReposPartialUpdate implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ReposPartialUpdate dockerRefreshTokensEnabled(Boolean dockerRefreshTokensEnabled) {
+    this.dockerRefreshTokensEnabled = dockerRefreshTokensEnabled;
+    return this;
+  }
+
+   /**
+   * If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.
+   * @return dockerRefreshTokensEnabled
+  **/
+  @ApiModelProperty(value = "If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.")
+  public Boolean isDockerRefreshTokensEnabled() {
+    return dockerRefreshTokensEnabled;
+  }
+
+  public void setDockerRefreshTokensEnabled(Boolean dockerRefreshTokensEnabled) {
+    this.dockerRefreshTokensEnabled = dockerRefreshTokensEnabled;
   }
 
   public ReposPartialUpdate indexFiles(Boolean indexFiles) {
@@ -85,6 +732,42 @@ public class ReposPartialUpdate implements Serializable {
     this.indexFiles = indexFiles;
   }
 
+  public ReposPartialUpdate moveOwn(Boolean moveOwn) {
+    this.moveOwn = moveOwn;
+    return this;
+  }
+
+   /**
+   * If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org.
+   * @return moveOwn
+  **/
+  @ApiModelProperty(value = "If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
+  public Boolean isMoveOwn() {
+    return moveOwn;
+  }
+
+  public void setMoveOwn(Boolean moveOwn) {
+    this.moveOwn = moveOwn;
+  }
+
+  public ReposPartialUpdate movePackages(MovePackagesEnum movePackages) {
+    this.movePackages = movePackages;
+    return this;
+  }
+
+   /**
+   * This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.
+   * @return movePackages
+  **/
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.")
+  public MovePackagesEnum getMovePackages() {
+    return movePackages;
+  }
+
+  public void setMovePackages(MovePackagesEnum movePackages) {
+    this.movePackages = movePackages;
+  }
+
   public ReposPartialUpdate name(String name) {
     this.name = name;
     return this;
@@ -103,7 +786,115 @@ public class ReposPartialUpdate implements Serializable {
     this.name = name;
   }
 
-  public ReposPartialUpdate repositoryTypeStr(String repositoryTypeStr) {
+  public ReposPartialUpdate proxyNpmjs(Boolean proxyNpmjs) {
+    this.proxyNpmjs = proxyNpmjs;
+    return this;
+  }
+
+   /**
+   * If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.
+   * @return proxyNpmjs
+  **/
+  @ApiModelProperty(value = "If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.")
+  public Boolean isProxyNpmjs() {
+    return proxyNpmjs;
+  }
+
+  public void setProxyNpmjs(Boolean proxyNpmjs) {
+    this.proxyNpmjs = proxyNpmjs;
+  }
+
+  public ReposPartialUpdate proxyPypi(Boolean proxyPypi) {
+    this.proxyPypi = proxyPypi;
+    return this;
+  }
+
+   /**
+   * If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.
+   * @return proxyPypi
+  **/
+  @ApiModelProperty(value = "If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.")
+  public Boolean isProxyPypi() {
+    return proxyPypi;
+  }
+
+  public void setProxyPypi(Boolean proxyPypi) {
+    this.proxyPypi = proxyPypi;
+  }
+
+  public ReposPartialUpdate rawPackageIndexEnabled(Boolean rawPackageIndexEnabled) {
+    this.rawPackageIndexEnabled = rawPackageIndexEnabled;
+    return this;
+  }
+
+   /**
+   * If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.
+   * @return rawPackageIndexEnabled
+  **/
+  @ApiModelProperty(value = "If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.")
+  public Boolean isRawPackageIndexEnabled() {
+    return rawPackageIndexEnabled;
+  }
+
+  public void setRawPackageIndexEnabled(Boolean rawPackageIndexEnabled) {
+    this.rawPackageIndexEnabled = rawPackageIndexEnabled;
+  }
+
+  public ReposPartialUpdate rawPackageIndexSignaturesEnabled(Boolean rawPackageIndexSignaturesEnabled) {
+    this.rawPackageIndexSignaturesEnabled = rawPackageIndexSignaturesEnabled;
+    return this;
+  }
+
+   /**
+   * If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.
+   * @return rawPackageIndexSignaturesEnabled
+  **/
+  @ApiModelProperty(value = "If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.")
+  public Boolean isRawPackageIndexSignaturesEnabled() {
+    return rawPackageIndexSignaturesEnabled;
+  }
+
+  public void setRawPackageIndexSignaturesEnabled(Boolean rawPackageIndexSignaturesEnabled) {
+    this.rawPackageIndexSignaturesEnabled = rawPackageIndexSignaturesEnabled;
+  }
+
+  public ReposPartialUpdate replacePackages(ReplacePackagesEnum replacePackages) {
+    this.replacePackages = replacePackages;
+    return this;
+  }
+
+   /**
+   * This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.
+   * @return replacePackages
+  **/
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.")
+  public ReplacePackagesEnum getReplacePackages() {
+    return replacePackages;
+  }
+
+  public void setReplacePackages(ReplacePackagesEnum replacePackages) {
+    this.replacePackages = replacePackages;
+  }
+
+  public ReposPartialUpdate replacePackagesByDefault(Boolean replacePackagesByDefault) {
+    this.replacePackagesByDefault = replacePackagesByDefault;
+    return this;
+  }
+
+   /**
+   * If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don&#39;t own.
+   * @return replacePackagesByDefault
+  **/
+  @ApiModelProperty(value = "If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.")
+  public Boolean isReplacePackagesByDefault() {
+    return replacePackagesByDefault;
+  }
+
+  public void setReplacePackagesByDefault(Boolean replacePackagesByDefault) {
+    this.replacePackagesByDefault = replacePackagesByDefault;
+  }
+
+  public ReposPartialUpdate repositoryTypeStr(RepositoryTypeStrEnum repositoryTypeStr) {
     this.repositoryTypeStr = repositoryTypeStr;
     return this;
   }
@@ -113,12 +904,102 @@ public class ReposPartialUpdate implements Serializable {
    * @return repositoryTypeStr
   **/
   @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.")
-  public String getRepositoryTypeStr() {
+  public RepositoryTypeStrEnum getRepositoryTypeStr() {
     return repositoryTypeStr;
   }
 
-  public void setRepositoryTypeStr(String repositoryTypeStr) {
+  public void setRepositoryTypeStr(RepositoryTypeStrEnum repositoryTypeStr) {
     this.repositoryTypeStr = repositoryTypeStr;
+  }
+
+  public ReposPartialUpdate resyncOwn(Boolean resyncOwn) {
+    this.resyncOwn = resyncOwn;
+    return this;
+  }
+
+   /**
+   * If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org.
+   * @return resyncOwn
+  **/
+  @ApiModelProperty(value = "If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
+  public Boolean isResyncOwn() {
+    return resyncOwn;
+  }
+
+  public void setResyncOwn(Boolean resyncOwn) {
+    this.resyncOwn = resyncOwn;
+  }
+
+  public ReposPartialUpdate resyncPackages(ResyncPackagesEnum resyncPackages) {
+    this.resyncPackages = resyncPackages;
+    return this;
+  }
+
+   /**
+   * This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.
+   * @return resyncPackages
+  **/
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.")
+  public ResyncPackagesEnum getResyncPackages() {
+    return resyncPackages;
+  }
+
+  public void setResyncPackages(ResyncPackagesEnum resyncPackages) {
+    this.resyncPackages = resyncPackages;
+  }
+
+  public ReposPartialUpdate scanOwn(Boolean scanOwn) {
+    this.scanOwn = scanOwn;
+    return this;
+  }
+
+   /**
+   * If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org.
+   * @return scanOwn
+  **/
+  @ApiModelProperty(value = "If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
+  public Boolean isScanOwn() {
+    return scanOwn;
+  }
+
+  public void setScanOwn(Boolean scanOwn) {
+    this.scanOwn = scanOwn;
+  }
+
+  public ReposPartialUpdate scanPackages(ScanPackagesEnum scanPackages) {
+    this.scanPackages = scanPackages;
+    return this;
+  }
+
+   /**
+   * This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.
+   * @return scanPackages
+  **/
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.")
+  public ScanPackagesEnum getScanPackages() {
+    return scanPackages;
+  }
+
+  public void setScanPackages(ScanPackagesEnum scanPackages) {
+    this.scanPackages = scanPackages;
+  }
+
+  public ReposPartialUpdate showSetupAll(Boolean showSetupAll) {
+    this.showSetupAll = showSetupAll;
+    return this;
+  }
+
+   /**
+   * If checked, the Set Me Up help for all formats will always be shown, even if you don&#39;t have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.
+   * @return showSetupAll
+  **/
+  @ApiModelProperty(value = "If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.")
+  public Boolean isShowSetupAll() {
+    return showSetupAll;
+  }
+
+  public void setShowSetupAll(Boolean showSetupAll) {
+    this.showSetupAll = showSetupAll;
   }
 
   public ReposPartialUpdate slug(String slug) {
@@ -139,6 +1020,150 @@ public class ReposPartialUpdate implements Serializable {
     this.slug = slug;
   }
 
+  public ReposPartialUpdate strictNpmValidation(Boolean strictNpmValidation) {
+    this.strictNpmValidation = strictNpmValidation;
+    return this;
+  }
+
+   /**
+   * If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can&#39;t guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
+   * @return strictNpmValidation
+  **/
+  @ApiModelProperty(value = "If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!")
+  public Boolean isStrictNpmValidation() {
+    return strictNpmValidation;
+  }
+
+  public void setStrictNpmValidation(Boolean strictNpmValidation) {
+    this.strictNpmValidation = strictNpmValidation;
+  }
+
+  public ReposPartialUpdate useDebianLabels(Boolean useDebianLabels) {
+    this.useDebianLabels = useDebianLabels;
+    return this;
+  }
+
+   /**
+   * If checked, a &#39;Label&#39; field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of &#39;source&#x3D;t-&lt;identifier&gt;&#39;; or &#39;source&#x3D;none&#39; if no token was used. You can use this to help with pinning.
+   * @return useDebianLabels
+  **/
+  @ApiModelProperty(value = "If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.")
+  public Boolean isUseDebianLabels() {
+    return useDebianLabels;
+  }
+
+  public void setUseDebianLabels(Boolean useDebianLabels) {
+    this.useDebianLabels = useDebianLabels;
+  }
+
+  public ReposPartialUpdate useDefaultCargoUpstream(Boolean useDefaultCargoUpstream) {
+    this.useDefaultCargoUpstream = useDefaultCargoUpstream;
+    return this;
+  }
+
+   /**
+   * If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \&quot;registry\&quot; will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \&quot;registry\&quot; values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.
+   * @return useDefaultCargoUpstream
+  **/
+  @ApiModelProperty(value = "If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.")
+  public Boolean isUseDefaultCargoUpstream() {
+    return useDefaultCargoUpstream;
+  }
+
+  public void setUseDefaultCargoUpstream(Boolean useDefaultCargoUpstream) {
+    this.useDefaultCargoUpstream = useDefaultCargoUpstream;
+  }
+
+  public ReposPartialUpdate useNoarchPackages(Boolean useNoarchPackages) {
+    this.useNoarchPackages = useNoarchPackages;
+    return this;
+  }
+
+   /**
+   * If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).
+   * @return useNoarchPackages
+  **/
+  @ApiModelProperty(value = "If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).")
+  public Boolean isUseNoarchPackages() {
+    return useNoarchPackages;
+  }
+
+  public void setUseNoarchPackages(Boolean useNoarchPackages) {
+    this.useNoarchPackages = useNoarchPackages;
+  }
+
+  public ReposPartialUpdate useSourcePackages(Boolean useSourcePackages) {
+    this.useSourcePackages = useSourcePackages;
+    return this;
+  }
+
+   /**
+   * If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.
+   * @return useSourcePackages
+  **/
+  @ApiModelProperty(value = "If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.")
+  public Boolean isUseSourcePackages() {
+    return useSourcePackages;
+  }
+
+  public void setUseSourcePackages(Boolean useSourcePackages) {
+    this.useSourcePackages = useSourcePackages;
+  }
+
+  public ReposPartialUpdate useVulnerabilityScanning(Boolean useVulnerabilityScanning) {
+    this.useVulnerabilityScanning = useVulnerabilityScanning;
+    return this;
+  }
+
+   /**
+   * If checked, vulnerability scanning will be enabled for all supported packages within this repository.
+   * @return useVulnerabilityScanning
+  **/
+  @ApiModelProperty(value = "If checked, vulnerability scanning will be enabled for all supported packages within this repository.")
+  public Boolean isUseVulnerabilityScanning() {
+    return useVulnerabilityScanning;
+  }
+
+  public void setUseVulnerabilityScanning(Boolean useVulnerabilityScanning) {
+    this.useVulnerabilityScanning = useVulnerabilityScanning;
+  }
+
+  public ReposPartialUpdate userEntitlementsEnabled(Boolean userEntitlementsEnabled) {
+    this.userEntitlementsEnabled = userEntitlementsEnabled;
+    return this;
+  }
+
+   /**
+   * If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.
+   * @return userEntitlementsEnabled
+  **/
+  @ApiModelProperty(value = "If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.")
+  public Boolean isUserEntitlementsEnabled() {
+    return userEntitlementsEnabled;
+  }
+
+  public void setUserEntitlementsEnabled(Boolean userEntitlementsEnabled) {
+    this.userEntitlementsEnabled = userEntitlementsEnabled;
+  }
+
+  public ReposPartialUpdate viewStatistics(ViewStatisticsEnum viewStatistics) {
+    this.viewStatistics = viewStatistics;
+    return this;
+  }
+
+   /**
+   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
+   * @return viewStatistics
+  **/
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
+  public ViewStatisticsEnum getViewStatistics() {
+    return viewStatistics;
+  }
+
+  public void setViewStatistics(ViewStatisticsEnum viewStatistics) {
+    this.viewStatistics = viewStatistics;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,16 +1174,44 @@ public class ReposPartialUpdate implements Serializable {
       return false;
     }
     ReposPartialUpdate reposPartialUpdate = (ReposPartialUpdate) o;
-    return Objects.equals(this.description, reposPartialUpdate.description) &&
+    return Objects.equals(this.contextualAuthRealm, reposPartialUpdate.contextualAuthRealm) &&
+        Objects.equals(this.copyOwn, reposPartialUpdate.copyOwn) &&
+        Objects.equals(this.copyPackages, reposPartialUpdate.copyPackages) &&
+        Objects.equals(this.defaultPrivilege, reposPartialUpdate.defaultPrivilege) &&
+        Objects.equals(this.deleteOwn, reposPartialUpdate.deleteOwn) &&
+        Objects.equals(this.deletePackages, reposPartialUpdate.deletePackages) &&
+        Objects.equals(this.description, reposPartialUpdate.description) &&
+        Objects.equals(this.dockerRefreshTokensEnabled, reposPartialUpdate.dockerRefreshTokensEnabled) &&
         Objects.equals(this.indexFiles, reposPartialUpdate.indexFiles) &&
+        Objects.equals(this.moveOwn, reposPartialUpdate.moveOwn) &&
+        Objects.equals(this.movePackages, reposPartialUpdate.movePackages) &&
         Objects.equals(this.name, reposPartialUpdate.name) &&
+        Objects.equals(this.proxyNpmjs, reposPartialUpdate.proxyNpmjs) &&
+        Objects.equals(this.proxyPypi, reposPartialUpdate.proxyPypi) &&
+        Objects.equals(this.rawPackageIndexEnabled, reposPartialUpdate.rawPackageIndexEnabled) &&
+        Objects.equals(this.rawPackageIndexSignaturesEnabled, reposPartialUpdate.rawPackageIndexSignaturesEnabled) &&
+        Objects.equals(this.replacePackages, reposPartialUpdate.replacePackages) &&
+        Objects.equals(this.replacePackagesByDefault, reposPartialUpdate.replacePackagesByDefault) &&
         Objects.equals(this.repositoryTypeStr, reposPartialUpdate.repositoryTypeStr) &&
-        Objects.equals(this.slug, reposPartialUpdate.slug);
+        Objects.equals(this.resyncOwn, reposPartialUpdate.resyncOwn) &&
+        Objects.equals(this.resyncPackages, reposPartialUpdate.resyncPackages) &&
+        Objects.equals(this.scanOwn, reposPartialUpdate.scanOwn) &&
+        Objects.equals(this.scanPackages, reposPartialUpdate.scanPackages) &&
+        Objects.equals(this.showSetupAll, reposPartialUpdate.showSetupAll) &&
+        Objects.equals(this.slug, reposPartialUpdate.slug) &&
+        Objects.equals(this.strictNpmValidation, reposPartialUpdate.strictNpmValidation) &&
+        Objects.equals(this.useDebianLabels, reposPartialUpdate.useDebianLabels) &&
+        Objects.equals(this.useDefaultCargoUpstream, reposPartialUpdate.useDefaultCargoUpstream) &&
+        Objects.equals(this.useNoarchPackages, reposPartialUpdate.useNoarchPackages) &&
+        Objects.equals(this.useSourcePackages, reposPartialUpdate.useSourcePackages) &&
+        Objects.equals(this.useVulnerabilityScanning, reposPartialUpdate.useVulnerabilityScanning) &&
+        Objects.equals(this.userEntitlementsEnabled, reposPartialUpdate.userEntitlementsEnabled) &&
+        Objects.equals(this.viewStatistics, reposPartialUpdate.viewStatistics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, indexFiles, name, repositoryTypeStr, slug);
+    return Objects.hash(contextualAuthRealm, copyOwn, copyPackages, defaultPrivilege, deleteOwn, deletePackages, description, dockerRefreshTokensEnabled, indexFiles, moveOwn, movePackages, name, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, useDebianLabels, useDefaultCargoUpstream, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -167,11 +1220,39 @@ public class ReposPartialUpdate implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReposPartialUpdate {\n");
     
+    sb.append("    contextualAuthRealm: ").append(toIndentedString(contextualAuthRealm)).append("\n");
+    sb.append("    copyOwn: ").append(toIndentedString(copyOwn)).append("\n");
+    sb.append("    copyPackages: ").append(toIndentedString(copyPackages)).append("\n");
+    sb.append("    defaultPrivilege: ").append(toIndentedString(defaultPrivilege)).append("\n");
+    sb.append("    deleteOwn: ").append(toIndentedString(deleteOwn)).append("\n");
+    sb.append("    deletePackages: ").append(toIndentedString(deletePackages)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dockerRefreshTokensEnabled: ").append(toIndentedString(dockerRefreshTokensEnabled)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
+    sb.append("    moveOwn: ").append(toIndentedString(moveOwn)).append("\n");
+    sb.append("    movePackages: ").append(toIndentedString(movePackages)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    proxyNpmjs: ").append(toIndentedString(proxyNpmjs)).append("\n");
+    sb.append("    proxyPypi: ").append(toIndentedString(proxyPypi)).append("\n");
+    sb.append("    rawPackageIndexEnabled: ").append(toIndentedString(rawPackageIndexEnabled)).append("\n");
+    sb.append("    rawPackageIndexSignaturesEnabled: ").append(toIndentedString(rawPackageIndexSignaturesEnabled)).append("\n");
+    sb.append("    replacePackages: ").append(toIndentedString(replacePackages)).append("\n");
+    sb.append("    replacePackagesByDefault: ").append(toIndentedString(replacePackagesByDefault)).append("\n");
     sb.append("    repositoryTypeStr: ").append(toIndentedString(repositoryTypeStr)).append("\n");
+    sb.append("    resyncOwn: ").append(toIndentedString(resyncOwn)).append("\n");
+    sb.append("    resyncPackages: ").append(toIndentedString(resyncPackages)).append("\n");
+    sb.append("    scanOwn: ").append(toIndentedString(scanOwn)).append("\n");
+    sb.append("    scanPackages: ").append(toIndentedString(scanPackages)).append("\n");
+    sb.append("    showSetupAll: ").append(toIndentedString(showSetupAll)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    strictNpmValidation: ").append(toIndentedString(strictNpmValidation)).append("\n");
+    sb.append("    useDebianLabels: ").append(toIndentedString(useDebianLabels)).append("\n");
+    sb.append("    useDefaultCargoUpstream: ").append(toIndentedString(useDefaultCargoUpstream)).append("\n");
+    sb.append("    useNoarchPackages: ").append(toIndentedString(useNoarchPackages)).append("\n");
+    sb.append("    useSourcePackages: ").append(toIndentedString(useSourcePackages)).append("\n");
+    sb.append("    useVulnerabilityScanning: ").append(toIndentedString(useVulnerabilityScanning)).append("\n");
+    sb.append("    userEntitlementsEnabled: ").append(toIndentedString(userEntitlementsEnabled)).append("\n");
+    sb.append("    viewStatistics: ").append(toIndentedString(viewStatistics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -95,9 +95,9 @@ public class FilesApiTest {
     }
     
     /**
-     * Get upload information for a multipart file upload.
+     * Get upload information to perform a multipart file upload.
      *
-     * Get upload information for a multipart file upload.
+     * Get upload information to perform a multipart file upload.
      *
      * @throws Exception
      *          if the Api call fails
@@ -107,7 +107,9 @@ public class FilesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageFilePartsUpload response = api.filesInfo(owner, repo, identifier);
+        String filename = null;
+        Integer partNumber = null;
+        PackageFilePartsUpload response = api.filesInfo(owner, repo, identifier, filename, partNumber);
 
         // TODO: test validations
     }

@@ -26,6 +26,28 @@ module CloudsmithApi
     # SHA256 checksum for a PUT-based package file upload.
     attr_accessor :sha256_checksum
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -86,7 +108,19 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       return false if @filename.nil?
+      method_validator = EnumAttributeValidator.new('String', ['put_parts', 'put', 'post', 'presigned', 'unsigned_put'])
+      return false unless method_validator.valid?(@method)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] method Object to be assigned
+    def method=(method)
+      validator = EnumAttributeValidator.new('String', ['put_parts', 'put', 'post', 'presigned', 'unsigned_put'])
+      unless validator.valid?(method)
+        fail ArgumentError, 'invalid value for "method", must be one of #{validator.allowable_values}.'
+      end
+      @method = method
     end
 
     # Checks equality by comparing each attribute.

@@ -281,6 +281,10 @@ describe 'MavenPackageUpload' do
   describe 'test attribute "security_scan_status"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Awaiting Security Scan", "Security Scanning in Progress", "Scan Detected Vulnerabilities", "Scan Detected No Vulnerabilities", "Security Scanning Disabled", "Security Scanning Failed", "Security Scanning Skipped", "Security Scanning Not Supported"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.security_scan_status = value }.not_to raise_error
+      # end
     end
   end
 

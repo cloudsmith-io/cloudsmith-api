@@ -518,12 +518,14 @@ public class FilesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param filename The filename of the file being uploaded (required)
+     * @param partNumber The part number to be uploaded next (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call filesInfoCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call filesInfoCall(String owner, String repo, String identifier, String filename, Integer partNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -534,6 +536,10 @@ public class FilesApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (filename != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("filename", filename));
+        if (partNumber != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("part_number", partNumber));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -568,18 +574,18 @@ public class FilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call filesInfoValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call filesInfoValidateBeforeCall(String owner, String repo, String identifier, String filename, Integer partNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, identifier };
-            Method method = this.getClass().getMethod("filesInfoWithHttpInfo", String.class, String.class, String.class);
+            Object[] parameterValues = { owner, repo, identifier, filename, partNumber };
+            Method method = this.getClass().getMethod("filesInfoWithHttpInfo", String.class, String.class, String.class, String.class, Integer.class);
             Set<ConstraintViolation<FilesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = filesInfoCall(owner, repo, identifier, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = filesInfoCall(owner, repo, identifier, filename, partNumber, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -596,45 +602,51 @@ public class FilesApi {
     }
 
     /**
-     * Get upload information for a multipart file upload.
-     * Get upload information for a multipart file upload.
+     * Get upload information to perform a multipart file upload.
+     * Get upload information to perform a multipart file upload.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param filename The filename of the file being uploaded (required)
+     * @param partNumber The part number to be uploaded next (optional)
      * @return PackageFilePartsUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageFilePartsUpload filesInfo(String owner, String repo, String identifier) throws ApiException {
-        ApiResponse<PackageFilePartsUpload> resp = filesInfoWithHttpInfo(owner, repo, identifier);
+    public PackageFilePartsUpload filesInfo(String owner, String repo, String identifier, String filename, Integer partNumber) throws ApiException {
+        ApiResponse<PackageFilePartsUpload> resp = filesInfoWithHttpInfo(owner, repo, identifier, filename, partNumber);
         return resp.getData();
     }
 
     /**
-     * Get upload information for a multipart file upload.
-     * Get upload information for a multipart file upload.
+     * Get upload information to perform a multipart file upload.
+     * Get upload information to perform a multipart file upload.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param filename The filename of the file being uploaded (required)
+     * @param partNumber The part number to be uploaded next (optional)
      * @return ApiResponse&lt;PackageFilePartsUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageFilePartsUpload> filesInfoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
-        com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, null, null);
+    public ApiResponse<PackageFilePartsUpload> filesInfoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  @NotNull String filename,  Integer partNumber) throws ApiException {
+        com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, filename, partNumber, null, null);
         Type localVarReturnType = new TypeToken<PackageFilePartsUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get upload information for a multipart file upload. (asynchronously)
-     * Get upload information for a multipart file upload.
+     * Get upload information to perform a multipart file upload. (asynchronously)
+     * Get upload information to perform a multipart file upload.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param filename The filename of the file being uploaded (required)
+     * @param partNumber The part number to be uploaded next (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call filesInfoAsync(String owner, String repo, String identifier, final ApiCallback<PackageFilePartsUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call filesInfoAsync(String owner, String repo, String identifier, String filename, Integer partNumber, final ApiCallback<PackageFilePartsUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -655,7 +667,7 @@ public class FilesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, filename, partNumber, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PackageFilePartsUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

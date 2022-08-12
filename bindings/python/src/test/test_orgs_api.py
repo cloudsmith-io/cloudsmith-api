@@ -29,6 +29,34 @@ class TestOrgsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_orgs_invites_create(self):
+        """Test case for orgs_invites_create
+
+        Create an organization invite for a specific user  # noqa: E501
+        """
+        pass
+
+    def test_orgs_invites_delete(self):
+        """Test case for orgs_invites_delete
+
+        Delete a specific organization invite  # noqa: E501
+        """
+        pass
+
+    def test_orgs_invites_extend(self):
+        """Test case for orgs_invites_extend
+
+        Extend an organization invite.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_invites_list(self):
+        """Test case for orgs_invites_list
+
+        Get a list of all invites for an organization.  # noqa: E501
+        """
+        pass
+
     def test_orgs_list(self):
         """Test case for orgs_list
 
@@ -61,6 +89,62 @@ class TestOrgsApi(unittest.TestCase):
         """Test case for orgs_read
 
         Get the details for the specific organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_saml_group_sync_create(self):
+        """Test case for orgs_saml_group_sync_create
+
+        Create a new SAML Group Sync mapping within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_saml_group_sync_delete(self):
+        """Test case for orgs_saml_group_sync_delete
+
+        Delete a SAML Group Sync mapping from an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_saml_group_sync_list(self):
+        """Test case for orgs_saml_group_sync_list
+
+        Get the details of all SAML Group Sync mapping within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_teams_create(self):
+        """Test case for orgs_teams_create
+
+        Create a team for this organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_teams_delete(self):
+        """Test case for orgs_teams_delete
+
+        Delete a specific team in a organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_teams_list(self):
+        """Test case for orgs_teams_list
+
+        Get the details of all teams within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_teams_partial_update(self):
+        """Test case for orgs_teams_partial_update
+
+        Update a specific team in a organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_teams_read(self):
+        """Test case for orgs_teams_read
+
+        Viewset for working with Organization teams.  # noqa: E501
         """
         pass
 

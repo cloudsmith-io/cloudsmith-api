@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**files_abort**](FilesApi.md#files_abort) | **POST** /files/{owner}/{repo}/{identifier}/abort/ | Abort a multipart file upload.
 [**files_complete**](FilesApi.md#files_complete) | **POST** /files/{owner}/{repo}/{identifier}/complete/ | Complete a multipart file upload.
 [**files_create**](FilesApi.md#files_create) | **POST** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
-[**files_info**](FilesApi.md#files_info) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information for a multipart file upload.
+[**files_info**](FilesApi.md#files_info) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information to perform a multipart file upload.
 [**files_validate**](FilesApi.md#files_validate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 
 
@@ -189,11 +189,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **files_info**
-> PackageFilePartsUpload files_info(owner, repo, identifier)
+> PackageFilePartsUpload files_info(owner, repo, identifier, filename, part_number=part_number)
 
-Get upload information for a multipart file upload.
+Get upload information to perform a multipart file upload.
 
-Get upload information for a multipart file upload.
+Get upload information to perform a multipart file upload.
 
 ### Example
 ```python
@@ -214,10 +214,12 @@ api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
+filename = 'filename_example' # str | The filename of the file being uploaded
+part_number = 56 # int | The part number to be uploaded next (optional)
 
 try:
-    # Get upload information for a multipart file upload.
-    api_response = api_instance.files_info(owner, repo, identifier)
+    # Get upload information to perform a multipart file upload.
+    api_response = api_instance.files_info(owner, repo, identifier, filename, part_number=part_number)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling FilesApi->files_info: %s\n" % e)
@@ -230,6 +232,8 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
+ **filename** | **str**| The filename of the file being uploaded | 
+ **part_number** | **int**| The part number to be uploaded next | [optional] 
 
 ### Return type
 

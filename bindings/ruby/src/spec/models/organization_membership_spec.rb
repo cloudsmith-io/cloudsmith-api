@@ -59,6 +59,10 @@ describe 'OrganizationMembership' do
   describe 'test attribute "role"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Owner", "Manager", "Member", "Collaborator"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.role = value }.not_to raise_error
+      # end
     end
   end
 
@@ -89,6 +93,10 @@ describe 'OrganizationMembership' do
   describe 'test attribute "visibility"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Public", "Private"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.visibility = value }.not_to raise_error
+      # end
     end
   end
 

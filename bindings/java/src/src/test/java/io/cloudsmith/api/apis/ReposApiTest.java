@@ -14,9 +14,14 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ReposCreate;
+import io.cloudsmith.api.models.ReposGpgCreate;
 import io.cloudsmith.api.models.ReposPartialUpdate;
+import io.cloudsmith.api.models.ReposRsaCreate;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
+import io.cloudsmith.api.models.RepositoryGpgKey;
+import io.cloudsmith.api.models.RepositoryPrivilegeList;
+import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -88,6 +93,58 @@ public class ReposApiTest {
     }
     
     /**
+     * Set the active GPG key for the Repository.
+     *
+     * Set the active GPG key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGpgCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        ReposGpgCreate data = null;
+        RepositoryGpgKey response = api.reposGpgCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the active GPG key for the Repository.
+     *
+     * Retrieve the active GPG key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGpgListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryGpgKey response = api.reposGpgList(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Regenerate GPG Key for the Repository.
+     *
+     * Regenerate GPG Key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGpgRegenerateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryGpgKey response = api.reposGpgRegenerate(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a list of all repositories within a namespace.
      *
      * Get a list of all repositories within a namespace.
@@ -124,6 +181,74 @@ public class ReposApiTest {
     }
     
     /**
+     * Remove the specified repository privileges.
+     *
+     * Remove the specified repository privileges.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposPrivilegesDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        api.reposPrivilegesDelete(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all explicity created privileges for the repository.
+     *
+     * List all explicity created privileges for the repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposPrivilegesListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        List<RepositoryPrivilegeList> response = api.reposPrivilegesList(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update the specified repository privileges.
+     *
+     * Update the specified repository privileges.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposPrivilegesPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        api.reposPrivilegesPartialUpdate(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Replace all existing repository privileges with those specified.
+     *
+     * Replace all existing repository privileges with those specified.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposPrivilegesUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryPrivilegeList response = api.reposPrivilegesUpdate(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a specific repository.
      *
      * Get a specific repository.
@@ -136,6 +261,58 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         Repository response = api.reposRead(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set the active RSA key for the Repository.
+     *
+     * Set the active RSA key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposRsaCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        ReposRsaCreate data = null;
+        RepositoryRsaKey response = api.reposRsaCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the active RSA key for the Repository.
+     *
+     * Retrieve the active RSA key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposRsaListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryRsaKey response = api.reposRsaList(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Regenerate RSA Key for the Repository.
+     *
+     * Regenerate RSA Key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposRsaRegenerateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryRsaKey response = api.reposRsaRegenerate(owner, identifier);
 
         // TODO: test validations
     }

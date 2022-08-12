@@ -53,7 +53,7 @@ class TestFilesApi(unittest.TestCase):
     def test_files_info(self):
         """Test case for files_info
 
-        Get upload information for a multipart file upload.  # noqa: E501
+        Get upload information to perform a multipart file upload.  # noqa: E501
         """
         pass
 

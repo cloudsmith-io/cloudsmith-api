@@ -40,8 +40,61 @@ public class FilesValidate implements Serializable {
   @SerializedName("md5_checksum")
   private String md5Checksum = null;
 
+  /**
+   * The method to use for package file upload.
+   */
+  @JsonAdapter(MethodEnum.Adapter.class)
+  public enum MethodEnum {
+    PUT_PARTS("put_parts"),
+    
+    PUT("put"),
+    
+    POST("post"),
+    
+    PRESIGNED("presigned"),
+    
+    UNSIGNED_PUT("unsigned_put");
+
+    private String value;
+
+    MethodEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MethodEnum fromValue(String text) {
+      for (MethodEnum b : MethodEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MethodEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MethodEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MethodEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MethodEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("method")
-  private String method = null;
+  private MethodEnum method = null;
 
   @SerializedName("sha256_checksum")
   private String sha256Checksum = null;
@@ -83,7 +136,7 @@ public class FilesValidate implements Serializable {
     this.md5Checksum = md5Checksum;
   }
 
-  public FilesValidate method(String method) {
+  public FilesValidate method(MethodEnum method) {
     this.method = method;
     return this;
   }
@@ -93,11 +146,11 @@ public class FilesValidate implements Serializable {
    * @return method
   **/
   @ApiModelProperty(value = "The method to use for package file upload.")
-  public String getMethod() {
+  public MethodEnum getMethod() {
     return method;
   }
 
-  public void setMethod(String method) {
+  public void setMethod(MethodEnum method) {
     this.method = method;
   }
 

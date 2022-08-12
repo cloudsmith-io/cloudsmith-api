@@ -209,6 +209,13 @@ class OrganizationMembership(object):
         :param role: The role of this OrganizationMembership.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Owner", "Manager", "Member", "Collaborator"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                role not in allowed_values):
+            raise ValueError(
+                "Invalid value for `role` ({0}), must be one of {1}"  # noqa: E501
+                .format(role, allowed_values)
+            )
 
         self._role = role
 
@@ -324,6 +331,13 @@ class OrganizationMembership(object):
         :param visibility: The visibility of this OrganizationMembership.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Public", "Private"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                visibility not in allowed_values):
+            raise ValueError(
+                "Invalid value for `visibility` ({0}), must be one of {1}"  # noqa: E501
+                .format(visibility, allowed_values)
+            )
 
         self._visibility = visibility
 

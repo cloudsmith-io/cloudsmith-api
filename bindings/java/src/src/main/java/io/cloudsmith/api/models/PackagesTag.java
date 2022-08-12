@@ -36,8 +36,59 @@ import javax.validation.Valid;
 public class PackagesTag implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * None
+   */
+  @JsonAdapter(ActionEnum.Adapter.class)
+  public enum ActionEnum {
+    ADD("add"),
+    
+    CLEAR("clear"),
+    
+    REMOVE("remove"),
+    
+    REPLACE("replace");
+
+    private String value;
+
+    ActionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ActionEnum fromValue(String text) {
+      for (ActionEnum b : ActionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ActionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ActionEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("action")
-  private String action = null;
+  private ActionEnum action = null;
 
   @SerializedName("is_immutable")
   private Boolean isImmutable = null;
@@ -45,7 +96,7 @@ public class PackagesTag implements Serializable {
   @SerializedName("tags")
   private List<String> tags = null;
 
-  public PackagesTag action(String action) {
+  public PackagesTag action(ActionEnum action) {
     this.action = action;
     return this;
   }
@@ -55,11 +106,11 @@ public class PackagesTag implements Serializable {
    * @return action
   **/
   @ApiModelProperty(value = "None")
-  public String getAction() {
+  public ActionEnum getAction() {
     return action;
   }
 
-  public void setAction(String action) {
+  public void setAction(ActionEnum action) {
     this.action = action;
   }
 

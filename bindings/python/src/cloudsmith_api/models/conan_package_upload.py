@@ -1327,6 +1327,13 @@ class ConanPackageUpload(object):
         :param security_scan_status: The security_scan_status of this ConanPackageUpload.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Awaiting Security Scan", "Security Scanning in Progress", "Scan Detected Vulnerabilities", "Scan Detected No Vulnerabilities", "Security Scanning Disabled", "Security Scanning Failed", "Security Scanning Skipped", "Security Scanning Not Supported"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                security_scan_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `security_scan_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(security_scan_status, allowed_values)
+            )
 
         self._security_scan_status = security_scan_status
 

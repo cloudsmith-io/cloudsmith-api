@@ -77,12 +77,14 @@ describe 'FilesApi' do
   end
 
   # unit tests for files_info
-  # Get upload information for a multipart file upload.
-  # Get upload information for a multipart file upload.
+  # Get upload information to perform a multipart file upload.
+  # Get upload information to perform a multipart file upload.
   # @param owner 
   # @param repo 
   # @param identifier 
+  # @param filename The filename of the file being uploaded
   # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :part_number The part number to be uploaded next
   # @return [PackageFilePartsUpload]
   describe 'files_info test' do
     it 'should work' do

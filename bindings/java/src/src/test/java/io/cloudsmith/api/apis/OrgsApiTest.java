@@ -14,7 +14,15 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.Organization;
+import io.cloudsmith.api.models.OrganizationGroupSync;
+import io.cloudsmith.api.models.OrganizationInvite;
 import io.cloudsmith.api.models.OrganizationMembership;
+import io.cloudsmith.api.models.OrganizationTeam;
+import io.cloudsmith.api.models.OrgsInvitesCreate;
+import io.cloudsmith.api.models.OrgsInvitesExtend;
+import io.cloudsmith.api.models.OrgsSamlgroupsyncCreate;
+import io.cloudsmith.api.models.OrgsTeamsCreate;
+import io.cloudsmith.api.models.OrgsTeamsPartialUpdate;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -33,6 +41,76 @@ public class OrgsApiTest {
 
     private final OrgsApi api = new OrgsApi();
 
+    
+    /**
+     * Create an organization invite for a specific user
+     *
+     * Create an organization invite for a specific user
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsInvitesCreateTest() throws Exception {
+        String org = null;
+        OrgsInvitesCreate data = null;
+        OrganizationInvite response = api.orgsInvitesCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a specific organization invite
+     *
+     * Delete a specific organization invite
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsInvitesDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsInvitesDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Extend an organization invite.
+     *
+     * Extend an organization invite.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsInvitesExtendTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrgsInvitesExtend data = null;
+        OrganizationInvite response = api.orgsInvitesExtend(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a list of all invites for an organization.
+     *
+     * Get a list of all invites for an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsInvitesListTest() throws Exception {
+        String org = null;
+        Integer page = null;
+        Integer pageSize = null;
+        List<OrganizationInvite> response = api.orgsInvitesList(org, page, pageSize);
+
+        // TODO: test validations
+    }
     
     /**
      * Get a list of all the organizations you are associated with.
@@ -115,6 +193,145 @@ public class OrgsApiTest {
     public void orgsReadTest() throws Exception {
         String org = null;
         Organization response = api.orgsRead(org);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new SAML Group Sync mapping within an organization.
+     *
+     * Create a new SAML Group Sync mapping within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsSamlGroupSyncCreateTest() throws Exception {
+        String org = null;
+        OrgsSamlgroupsyncCreate data = null;
+        OrganizationGroupSync response = api.orgsSamlGroupSyncCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a SAML Group Sync mapping from an organization.
+     *
+     * Delete a SAML Group Sync mapping from an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsSamlGroupSyncDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsSamlGroupSyncDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the details of all SAML Group Sync mapping within an organization.
+     *
+     * Get the details of all SAML Group Sync mapping within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsSamlGroupSyncListTest() throws Exception {
+        String org = null;
+        Integer page = null;
+        Integer pageSize = null;
+        List<OrganizationGroupSync> response = api.orgsSamlGroupSyncList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a team for this organization.
+     *
+     * Create a team for this organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsTeamsCreateTest() throws Exception {
+        String org = null;
+        OrgsTeamsCreate data = null;
+        OrganizationTeam response = api.orgsTeamsCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a specific team in a organization.
+     *
+     * Delete a specific team in a organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsTeamsDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsTeamsDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the details of all teams within an organization.
+     *
+     * Get the details of all teams within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsTeamsListTest() throws Exception {
+        String org = null;
+        Integer page = null;
+        Integer pageSize = null;
+        List<OrganizationTeam> response = api.orgsTeamsList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a specific team in a organization.
+     *
+     * Update a specific team in a organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsTeamsPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrgsTeamsPartialUpdate data = null;
+        OrganizationTeam response = api.orgsTeamsPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Viewset for working with Organization teams.
+     *
+     * Viewset for working with Organization teams.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsTeamsReadTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationTeam response = api.orgsTeamsRead(org, slugPerm);
 
         // TODO: test validations
     }
