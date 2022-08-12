@@ -322,6 +322,311 @@ class ReposApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def repos_gpg_create(self, owner, identifier, **kwargs):  # noqa: E501
+        """Set the active GPG key for the Repository.  # noqa: E501
+
+        Set the active GPG key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_gpg_create(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :param ReposGpgCreate data:
+        :return: RepositoryGpgKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_gpg_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_gpg_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_gpg_create_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Set the active GPG key for the Repository.  # noqa: E501
+
+        Set the active GPG key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_gpg_create_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :param ReposGpgCreate data:
+        :return: RepositoryGpgKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_gpg_create" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_gpg_create`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_gpg_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/gpg/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RepositoryGpgKey',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_gpg_list(self, owner, identifier, **kwargs):  # noqa: E501
+        """Retrieve the active GPG key for the Repository.  # noqa: E501
+
+        Retrieve the active GPG key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_gpg_list(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryGpgKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_gpg_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_gpg_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_gpg_list_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Retrieve the active GPG key for the Repository.  # noqa: E501
+
+        Retrieve the active GPG key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_gpg_list_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryGpgKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_gpg_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_gpg_list`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_gpg_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/gpg/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RepositoryGpgKey',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_gpg_regenerate(self, owner, identifier, **kwargs):  # noqa: E501
+        """Regenerate GPG Key for the Repository.  # noqa: E501
+
+        Regenerate GPG Key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_gpg_regenerate(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryGpgKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_gpg_regenerate_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_gpg_regenerate_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_gpg_regenerate_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Regenerate GPG Key for the Repository.  # noqa: E501
+
+        Regenerate GPG Key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_gpg_regenerate_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryGpgKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_gpg_regenerate" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_gpg_regenerate`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_gpg_regenerate`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/gpg/regenerate/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RepositoryGpgKey',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def repos_list(self, owner, **kwargs):  # noqa: E501
         """Get a list of all repositories within a namespace.  # noqa: E501
 
@@ -528,6 +833,402 @@ class ReposApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def repos_privileges_delete(self, owner, identifier, **kwargs):  # noqa: E501
+        """Remove the specified repository privileges.  # noqa: E501
+
+        Remove the specified repository privileges.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_privileges_delete(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_privileges_delete_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_privileges_delete_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_privileges_delete_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Remove the specified repository privileges.  # noqa: E501
+
+        Remove the specified repository privileges.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_privileges_delete_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_privileges_delete" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_privileges_delete`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_privileges_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/privileges', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_privileges_list(self, owner, identifier, **kwargs):  # noqa: E501
+        """List all explicity created privileges for the repository.  # noqa: E501
+
+        List all explicity created privileges for the repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_privileges_list(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: list[RepositoryPrivilegeList]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_privileges_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_privileges_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_privileges_list_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """List all explicity created privileges for the repository.  # noqa: E501
+
+        List all explicity created privileges for the repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_privileges_list_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: list[RepositoryPrivilegeList]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_privileges_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_privileges_list`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_privileges_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/privileges', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[RepositoryPrivilegeList]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_privileges_partial_update(self, owner, identifier, **kwargs):  # noqa: E501
+        """Update the specified repository privileges.  # noqa: E501
+
+        Update the specified repository privileges.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_privileges_partial_update(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_privileges_partial_update_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_privileges_partial_update_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_privileges_partial_update_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Update the specified repository privileges.  # noqa: E501
+
+        Update the specified repository privileges.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_privileges_partial_update_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_privileges_partial_update" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_privileges_partial_update`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_privileges_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/privileges', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_privileges_update(self, owner, identifier, **kwargs):  # noqa: E501
+        """Replace all existing repository privileges with those specified.  # noqa: E501
+
+        Replace all existing repository privileges with those specified.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_privileges_update(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryPrivilegeList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_privileges_update_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_privileges_update_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_privileges_update_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Replace all existing repository privileges with those specified.  # noqa: E501
+
+        Replace all existing repository privileges with those specified.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_privileges_update_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryPrivilegeList
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_privileges_update" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_privileges_update`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_privileges_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/privileges', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RepositoryPrivilegeList',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def repos_read(self, owner, identifier, **kwargs):  # noqa: E501
         """Get a specific repository.  # noqa: E501
 
@@ -620,6 +1321,311 @@ class ReposApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Repository',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_rsa_create(self, owner, identifier, **kwargs):  # noqa: E501
+        """Set the active RSA key for the Repository.  # noqa: E501
+
+        Set the active RSA key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_rsa_create(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :param ReposRsaCreate data:
+        :return: RepositoryRsaKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_rsa_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_rsa_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_rsa_create_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Set the active RSA key for the Repository.  # noqa: E501
+
+        Set the active RSA key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_rsa_create_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :param ReposRsaCreate data:
+        :return: RepositoryRsaKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_rsa_create" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_rsa_create`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_rsa_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/rsa/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RepositoryRsaKey',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_rsa_list(self, owner, identifier, **kwargs):  # noqa: E501
+        """Retrieve the active RSA key for the Repository.  # noqa: E501
+
+        Retrieve the active RSA key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_rsa_list(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryRsaKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_rsa_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_rsa_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_rsa_list_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Retrieve the active RSA key for the Repository.  # noqa: E501
+
+        Retrieve the active RSA key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_rsa_list_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryRsaKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_rsa_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_rsa_list`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_rsa_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/rsa/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RepositoryRsaKey',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_rsa_regenerate(self, owner, identifier, **kwargs):  # noqa: E501
+        """Regenerate RSA Key for the Repository.  # noqa: E501
+
+        Regenerate RSA Key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_rsa_regenerate(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryRsaKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_rsa_regenerate_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_rsa_regenerate_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_rsa_regenerate_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Regenerate RSA Key for the Repository.  # noqa: E501
+
+        Regenerate RSA Key for the Repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_rsa_regenerate_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner:  (required)
+        :param str identifier:  (required)
+        :return: RepositoryRsaKey
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_rsa_regenerate" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_rsa_regenerate`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_rsa_regenerate`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/rsa/regenerate/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RepositoryRsaKey',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

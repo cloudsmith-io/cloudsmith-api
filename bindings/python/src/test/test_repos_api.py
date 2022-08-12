@@ -50,6 +50,27 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_gpg_create(self):
+        """Test case for repos_gpg_create
+
+        Set the active GPG key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_gpg_list(self):
+        """Test case for repos_gpg_list
+
+        Retrieve the active GPG key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_gpg_regenerate(self):
+        """Test case for repos_gpg_regenerate
+
+        Regenerate GPG Key for the Repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_list(self):
         """Test case for repos_list
 
@@ -64,10 +85,59 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_privileges_delete(self):
+        """Test case for repos_privileges_delete
+
+        Remove the specified repository privileges.  # noqa: E501
+        """
+        pass
+
+    def test_repos_privileges_list(self):
+        """Test case for repos_privileges_list
+
+        List all explicity created privileges for the repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_privileges_partial_update(self):
+        """Test case for repos_privileges_partial_update
+
+        Update the specified repository privileges.  # noqa: E501
+        """
+        pass
+
+    def test_repos_privileges_update(self):
+        """Test case for repos_privileges_update
+
+        Replace all existing repository privileges with those specified.  # noqa: E501
+        """
+        pass
+
     def test_repos_read(self):
         """Test case for repos_read
 
         Get a specific repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_rsa_create(self):
+        """Test case for repos_rsa_create
+
+        Set the active RSA key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_rsa_list(self):
+        """Test case for repos_rsa_list
+
+        Retrieve the active RSA key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_rsa_regenerate(self):
+        """Test case for repos_rsa_regenerate
+
+        Regenerate RSA Key for the Repository.  # noqa: E501
         """
         pass
 

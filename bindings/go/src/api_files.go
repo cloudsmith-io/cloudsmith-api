@@ -32,16 +32,16 @@ type FilesApiService service
 FilesApiService Abort a multipart file upload.
 Abort a multipart file upload.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param owner 
- * @param repo 
- * @param identifier 
+ * @param owner
+ * @param repo
+ * @param identifier
  * @param optional nil or *FilesApiFilesAbortOpts - Optional Parameters:
-     * @param "Data" (optional.Interface of FilesAbort) - 
+     * @param "Data" (optional.Interface of FilesAbort) -
 
 
 */
 
-type FilesApiFilesAbortOpts struct { 
+type FilesApiFilesAbortOpts struct {
 	Data optional.Interface
 }
 
@@ -51,7 +51,7 @@ func (a *FilesApiService) FilesAbort(ctx context.Context, owner string, repo str
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		
+
 	)
 
 	// create path and map variables
@@ -83,7 +83,7 @@ func (a *FilesApiService) FilesAbort(ctx context.Context, owner string, repo str
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Data.IsSet() {
-		
+
 		localVarOptionalData, localVarOptionalDataok := localVarOptionals.Data.Value().(FilesAbort)
 		if !localVarOptionalDataok {
 				return nil, reportError("data should be FilesAbort")
@@ -100,7 +100,7 @@ func (a *FilesApiService) FilesAbort(ctx context.Context, owner string, repo str
 				key = auth.Key
 			}
 			localVarHeaderParams["X-Api-Key"] = key
-			
+
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -125,7 +125,7 @@ func (a *FilesApiService) FilesAbort(ctx context.Context, owner string, repo str
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 400 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -136,7 +136,7 @@ func (a *FilesApiService) FilesAbort(ctx context.Context, owner string, repo str
 				newErr.model = v
 				return localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 404 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -147,7 +147,7 @@ func (a *FilesApiService) FilesAbort(ctx context.Context, owner string, repo str
 				newErr.model = v
 				return localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 422 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -158,7 +158,7 @@ func (a *FilesApiService) FilesAbort(ctx context.Context, owner string, repo str
 				newErr.model = v
 				return localVarHttpResponse, newErr
 		}
-		
+
 		return localVarHttpResponse, newErr
 	}
 
@@ -169,16 +169,16 @@ func (a *FilesApiService) FilesAbort(ctx context.Context, owner string, repo str
 FilesApiService Complete a multipart file upload.
 Complete a multipart file upload.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param owner 
- * @param repo 
- * @param identifier 
+ * @param owner
+ * @param repo
+ * @param identifier
  * @param optional nil or *FilesApiFilesCompleteOpts - Optional Parameters:
-     * @param "Data" (optional.Interface of FilesComplete) - 
+     * @param "Data" (optional.Interface of FilesComplete) -
 
 @return PackageFileUpload
 */
 
-type FilesApiFilesCompleteOpts struct { 
+type FilesApiFilesCompleteOpts struct {
 	Data optional.Interface
 }
 
@@ -220,7 +220,7 @@ func (a *FilesApiService) FilesComplete(ctx context.Context, owner string, repo 
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Data.IsSet() {
-		
+
 		localVarOptionalData, localVarOptionalDataok := localVarOptionals.Data.Value().(FilesComplete)
 		if !localVarOptionalDataok {
 				return localVarReturnValue, nil, reportError("data should be FilesComplete")
@@ -237,7 +237,7 @@ func (a *FilesApiService) FilesComplete(ctx context.Context, owner string, repo 
 				key = auth.Key
 			}
 			localVarHeaderParams["X-Api-Key"] = key
-			
+
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -267,7 +267,7 @@ func (a *FilesApiService) FilesComplete(ctx context.Context, owner string, repo 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 201 {
 			var v PackageFileUpload
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -278,7 +278,7 @@ func (a *FilesApiService) FilesComplete(ctx context.Context, owner string, repo 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 400 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -289,7 +289,7 @@ func (a *FilesApiService) FilesComplete(ctx context.Context, owner string, repo 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 404 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -300,7 +300,7 @@ func (a *FilesApiService) FilesComplete(ctx context.Context, owner string, repo 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 422 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -311,7 +311,7 @@ func (a *FilesApiService) FilesComplete(ctx context.Context, owner string, repo 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -322,15 +322,15 @@ func (a *FilesApiService) FilesComplete(ctx context.Context, owner string, repo 
 FilesApiService Request URL(s) to upload new package file upload(s) to.
 Request URL(s) to upload new package file upload(s) to.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param owner 
- * @param repo 
+ * @param owner
+ * @param repo
  * @param optional nil or *FilesApiFilesCreateOpts - Optional Parameters:
-     * @param "Data" (optional.Interface of FilesCreate) - 
+     * @param "Data" (optional.Interface of FilesCreate) -
 
 @return PackageFileUpload
 */
 
-type FilesApiFilesCreateOpts struct { 
+type FilesApiFilesCreateOpts struct {
 	Data optional.Interface
 }
 
@@ -371,7 +371,7 @@ func (a *FilesApiService) FilesCreate(ctx context.Context, owner string, repo st
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Data.IsSet() {
-		
+
 		localVarOptionalData, localVarOptionalDataok := localVarOptionals.Data.Value().(FilesCreate)
 		if !localVarOptionalDataok {
 				return localVarReturnValue, nil, reportError("data should be FilesCreate")
@@ -388,7 +388,7 @@ func (a *FilesApiService) FilesCreate(ctx context.Context, owner string, repo st
 				key = auth.Key
 			}
 			localVarHeaderParams["X-Api-Key"] = key
-			
+
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -418,7 +418,7 @@ func (a *FilesApiService) FilesCreate(ctx context.Context, owner string, repo st
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 202 {
 			var v PackageFileUpload
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -429,7 +429,7 @@ func (a *FilesApiService) FilesCreate(ctx context.Context, owner string, repo st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 400 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -440,7 +440,7 @@ func (a *FilesApiService) FilesCreate(ctx context.Context, owner string, repo st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 404 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -451,7 +451,7 @@ func (a *FilesApiService) FilesCreate(ctx context.Context, owner string, repo st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 422 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -462,7 +462,7 @@ func (a *FilesApiService) FilesCreate(ctx context.Context, owner string, repo st
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -470,16 +470,24 @@ func (a *FilesApiService) FilesCreate(ctx context.Context, owner string, repo st
 }
 
 /*
-FilesApiService Get upload information for a multipart file upload.
-Get upload information for a multipart file upload.
+FilesApiService Get upload information to perform a multipart file upload.
+Get upload information to perform a multipart file upload.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param owner 
- * @param repo 
- * @param identifier 
+ * @param owner
+ * @param repo
+ * @param identifier
+ * @param filename The filename of the file being uploaded
+ * @param optional nil or *FilesApiFilesInfoOpts - Optional Parameters:
+     * @param "PartNumber" (optional.Int32) -  The part number to be uploaded next
 
 @return PackageFilePartsUpload
 */
-func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo string, identifier string) (PackageFilePartsUpload, *http.Response, error) {
+
+type FilesApiFilesInfoOpts struct {
+	PartNumber optional.Int32
+}
+
+func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo string, identifier string, filename string, localVarOptionals *FilesApiFilesInfoOpts) (PackageFilePartsUpload, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -498,6 +506,10 @@ func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo stri
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	localVarQueryParams.Add("filename", parameterToString(filename, ""))
+	if localVarOptionals != nil && localVarOptionals.PartNumber.IsSet() {
+		localVarQueryParams.Add("part_number", parameterToString(localVarOptionals.PartNumber.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 
@@ -525,7 +537,7 @@ func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo stri
 				key = auth.Key
 			}
 			localVarHeaderParams["X-Api-Key"] = key
-			
+
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -555,7 +567,7 @@ func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo stri
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v PackageFilePartsUpload
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -566,7 +578,7 @@ func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo stri
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 400 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -577,7 +589,7 @@ func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo stri
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 404 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -588,7 +600,7 @@ func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo stri
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 422 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -599,7 +611,7 @@ func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo stri
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -610,15 +622,15 @@ func (a *FilesApiService) FilesInfo(ctx context.Context, owner string, repo stri
 FilesApiService Validate parameters used for create.
 Validate parameters used for create.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param owner 
- * @param repo 
+ * @param owner
+ * @param repo
  * @param optional nil or *FilesApiFilesValidateOpts - Optional Parameters:
-     * @param "Data" (optional.Interface of FilesValidate) - 
+     * @param "Data" (optional.Interface of FilesValidate) -
 
 
 */
 
-type FilesApiFilesValidateOpts struct { 
+type FilesApiFilesValidateOpts struct {
 	Data optional.Interface
 }
 
@@ -628,7 +640,7 @@ func (a *FilesApiService) FilesValidate(ctx context.Context, owner string, repo 
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		
+
 	)
 
 	// create path and map variables
@@ -659,7 +671,7 @@ func (a *FilesApiService) FilesValidate(ctx context.Context, owner string, repo 
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Data.IsSet() {
-		
+
 		localVarOptionalData, localVarOptionalDataok := localVarOptionals.Data.Value().(FilesValidate)
 		if !localVarOptionalDataok {
 				return nil, reportError("data should be FilesValidate")
@@ -676,7 +688,7 @@ func (a *FilesApiService) FilesValidate(ctx context.Context, owner string, repo 
 				key = auth.Key
 			}
 			localVarHeaderParams["X-Api-Key"] = key
-			
+
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -701,7 +713,7 @@ func (a *FilesApiService) FilesValidate(ctx context.Context, owner string, repo 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 400 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -712,7 +724,7 @@ func (a *FilesApiService) FilesValidate(ctx context.Context, owner string, repo 
 				newErr.model = v
 				return localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 404 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -723,7 +735,7 @@ func (a *FilesApiService) FilesValidate(ctx context.Context, owner string, repo 
 				newErr.model = v
 				return localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 422 {
 			var v Status
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -734,7 +746,7 @@ func (a *FilesApiService) FilesValidate(ctx context.Context, owner string, repo 
 				newErr.model = v
 				return localVarHttpResponse, newErr
 		}
-		
+
 		return localVarHttpResponse, newErr
 	}
 

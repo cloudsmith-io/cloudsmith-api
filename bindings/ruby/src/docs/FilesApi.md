@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**files_abort**](FilesApi.md#files_abort) | **POST** /files/{owner}/{repo}/{identifier}/abort/ | Abort a multipart file upload.
 [**files_complete**](FilesApi.md#files_complete) | **POST** /files/{owner}/{repo}/{identifier}/complete/ | Complete a multipart file upload.
 [**files_create**](FilesApi.md#files_create) | **POST** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
-[**files_info**](FilesApi.md#files_info) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information for a multipart file upload.
+[**files_info**](FilesApi.md#files_info) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information to perform a multipart file upload.
 [**files_validate**](FilesApi.md#files_validate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 
 
@@ -200,11 +200,11 @@ Name | Type | Description  | Notes
 
 
 # **files_info**
-> PackageFilePartsUpload files_info(owner, repo, identifier)
+> PackageFilePartsUpload files_info(owner, repo, identifier, filename, opts)
 
-Get upload information for a multipart file upload.
+Get upload information to perform a multipart file upload.
 
-Get upload information for a multipart file upload.
+Get upload information to perform a multipart file upload.
 
 ### Example
 ```ruby
@@ -226,10 +226,15 @@ repo = 'repo_example' # String |
 
 identifier = 'identifier_example' # String | 
 
+filename = 'filename_example' # String | The filename of the file being uploaded
+
+opts = { 
+  part_number: 56 # Integer | The part number to be uploaded next
+}
 
 begin
-  #Get upload information for a multipart file upload.
-  result = api_instance.files_info(owner, repo, identifier)
+  #Get upload information to perform a multipart file upload.
+  result = api_instance.files_info(owner, repo, identifier, filename, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling FilesApi->files_info: #{e}"
@@ -243,6 +248,8 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
+ **filename** | **String**| The filename of the file being uploaded | 
+ **part_number** | **Integer**| The part number to be uploaded next | [optional] 
 
 ### Return type
 

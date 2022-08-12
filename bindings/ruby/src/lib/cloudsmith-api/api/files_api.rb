@@ -210,26 +210,30 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Get upload information for a multipart file upload.
-    # Get upload information for a multipart file upload.
+    # Get upload information to perform a multipart file upload.
+    # Get upload information to perform a multipart file upload.
     # @param owner 
     # @param repo 
     # @param identifier 
+    # @param filename The filename of the file being uploaded
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :part_number The part number to be uploaded next
     # @return [PackageFilePartsUpload]
-    def files_info(owner, repo, identifier, opts = {})
-      data, _status_code, _headers = files_info_with_http_info(owner, repo, identifier, opts)
+    def files_info(owner, repo, identifier, filename, opts = {})
+      data, _status_code, _headers = files_info_with_http_info(owner, repo, identifier, filename, opts)
       data
     end
 
-    # Get upload information for a multipart file upload.
-    # Get upload information for a multipart file upload.
+    # Get upload information to perform a multipart file upload.
+    # Get upload information to perform a multipart file upload.
     # @param owner 
     # @param repo 
     # @param identifier 
+    # @param filename The filename of the file being uploaded
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :part_number The part number to be uploaded next
     # @return [Array<(PackageFilePartsUpload, Fixnum, Hash)>] PackageFilePartsUpload data, response status code and response headers
-    def files_info_with_http_info(owner, repo, identifier, opts = {})
+    def files_info_with_http_info(owner, repo, identifier, filename, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.files_info ...'
       end
@@ -245,11 +249,17 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && identifier.nil?
         fail ArgumentError, "Missing the required parameter 'identifier' when calling FilesApi.files_info"
       end
+      # verify the required parameter 'filename' is set
+      if @api_client.config.client_side_validation && filename.nil?
+        fail ArgumentError, "Missing the required parameter 'filename' when calling FilesApi.files_info"
+      end
       # resource path
       local_var_path = '/files/{owner}/{repo}/{identifier}/info/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}
+      query_params[:'filename'] = filename
+      query_params[:'part_number'] = opts[:'part_number'] if !opts[:'part_number'].nil?
 
       # header parameters
       header_params = {}

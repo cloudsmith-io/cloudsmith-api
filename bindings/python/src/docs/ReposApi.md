@@ -7,9 +7,19 @@ Method | HTTP request | Description
 [**repos_all_list**](ReposApi.md#repos_all_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
+[**repos_gpg_create**](ReposApi.md#repos_gpg_create) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
+[**repos_gpg_list**](ReposApi.md#repos_gpg_list) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
+[**repos_gpg_regenerate**](ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
 [**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
+[**repos_privileges_delete**](ReposApi.md#repos_privileges_delete) | **DELETE** /repos/{owner}/{identifier}/privileges | Remove the specified repository privileges.
+[**repos_privileges_list**](ReposApi.md#repos_privileges_list) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
+[**repos_privileges_partial_update**](ReposApi.md#repos_privileges_partial_update) | **PATCH** /repos/{owner}/{identifier}/privileges | Update the specified repository privileges.
+[**repos_privileges_update**](ReposApi.md#repos_privileges_update) | **PUT** /repos/{owner}/{identifier}/privileges | Replace all existing repository privileges with those specified.
 [**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
+[**repos_rsa_create**](ReposApi.md#repos_rsa_create) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
+[**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
+[**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
 
 
 # **repos_all_list**
@@ -179,6 +189,176 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **repos_gpg_create**
+> RepositoryGpgKey repos_gpg_create(owner, identifier, data=data)
+
+Set the active GPG key for the Repository.
+
+Set the active GPG key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.ReposGpgCreate() # ReposGpgCreate |  (optional)
+
+try:
+    # Set the active GPG key for the Repository.
+    api_response = api_instance.repos_gpg_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_gpg_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**ReposGpgCreate**](ReposGpgCreate.md)|  | [optional] 
+
+### Return type
+
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_gpg_list**
+> RepositoryGpgKey repos_gpg_list(owner, identifier)
+
+Retrieve the active GPG key for the Repository.
+
+Retrieve the active GPG key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Retrieve the active GPG key for the Repository.
+    api_response = api_instance.repos_gpg_list(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_gpg_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_gpg_regenerate**
+> RepositoryGpgKey repos_gpg_regenerate(owner, identifier)
+
+Regenerate GPG Key for the Repository.
+
+Regenerate GPG Key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Regenerate GPG Key for the Repository.
+    api_response = api_instance.repos_gpg_regenerate(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_gpg_regenerate: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **repos_list**
 > list[Repository] repos_list(owner, page=page, page_size=page_size)
 
@@ -295,6 +475,228 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **repos_privileges_delete**
+> repos_privileges_delete(owner, identifier)
+
+Remove the specified repository privileges.
+
+Remove the specified repository privileges.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Remove the specified repository privileges.
+    api_instance.repos_privileges_delete(owner, identifier)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_privileges_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_privileges_list**
+> list[RepositoryPrivilegeList] repos_privileges_list(owner, identifier)
+
+List all explicity created privileges for the repository.
+
+List all explicity created privileges for the repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # List all explicity created privileges for the repository.
+    api_response = api_instance.repos_privileges_list(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_privileges_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**list[RepositoryPrivilegeList]**](RepositoryPrivilegeList.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_privileges_partial_update**
+> repos_privileges_partial_update(owner, identifier)
+
+Update the specified repository privileges.
+
+Update the specified repository privileges.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Update the specified repository privileges.
+    api_instance.repos_privileges_partial_update(owner, identifier)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_privileges_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_privileges_update**
+> RepositoryPrivilegeList repos_privileges_update(owner, identifier)
+
+Replace all existing repository privileges with those specified.
+
+Replace all existing repository privileges with those specified.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Replace all existing repository privileges with those specified.
+    api_response = api_instance.repos_privileges_update(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_privileges_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryPrivilegeList**](RepositoryPrivilegeList.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **repos_read**
 > Repository repos_read(owner, identifier)
 
@@ -339,6 +741,176 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Repository**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_rsa_create**
+> RepositoryRsaKey repos_rsa_create(owner, identifier, data=data)
+
+Set the active RSA key for the Repository.
+
+Set the active RSA key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.ReposRsaCreate() # ReposRsaCreate |  (optional)
+
+try:
+    # Set the active RSA key for the Repository.
+    api_response = api_instance.repos_rsa_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_rsa_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**ReposRsaCreate**](ReposRsaCreate.md)|  | [optional] 
+
+### Return type
+
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_rsa_list**
+> RepositoryRsaKey repos_rsa_list(owner, identifier)
+
+Retrieve the active RSA key for the Repository.
+
+Retrieve the active RSA key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Retrieve the active RSA key for the Repository.
+    api_response = api_instance.repos_rsa_list(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_rsa_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_rsa_regenerate**
+> RepositoryRsaKey repos_rsa_regenerate(owner, identifier)
+
+Regenerate RSA Key for the Repository.
+
+Regenerate RSA Key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Regenerate RSA Key for the Repository.
+    api_response = api_instance.repos_rsa_regenerate(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_rsa_regenerate: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
 
 ### Authorization
 

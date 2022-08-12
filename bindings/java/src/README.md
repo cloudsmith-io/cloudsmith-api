@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>1.61.3</version>
+  <version>1.120.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:1.61.3"
+compile "io.cloudsmith.api:cloudsmith-api:1.120.3"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-1.61.3.jar`
+* `target/cloudsmith-api-1.120.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -75,12 +75,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 import io.cloudsmith.api.*;
 import io.cloudsmith.api.auth.*;
 import io.cloudsmith.api.models.*;
-import io.cloudsmith.api.apis.BadgesApi;
+import io.cloudsmith.api.apis.AuditLogApi;
 
 import java.io.File;
 import java.util.*;
 
-public class BadgesApiExample {
+public class AuditLogApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -91,29 +91,16 @@ public class BadgesApiExample {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //apikey.setApiKeyPrefix("Token");
 
-        BadgesApi apiInstance = new BadgesApi();
+        AuditLogApi apiInstance = new AuditLogApi();
         String owner = "owner_example"; // String | 
-        String repo = "repo_example"; // String | 
-        String packageFormat = "packageFormat_example"; // String | 
-        String packageName = "packageName_example"; // String | 
-        String packageVersion = "packageVersion_example"; // String | 
-        String packageIdentifiers = "packageIdentifiers_example"; // String | 
-        String badgeToken = "badgeToken_example"; // String | Badge token to authenticate for private packages
-        String cacheSeconds = "cacheSeconds_example"; // String | Override the shields.io badge cacheSeconds value.
-        String color = "color_example"; // String | Override the shields.io badge color value.
-        String label = "label_example"; // String | Override the shields.io badge label value.
-        String labelColor = "labelColor_example"; // String | Override the shields.io badge labelColor value.
-        String logoColor = "logoColor_example"; // String | Override the shields.io badge logoColor value.
-        String logoWidth = "logoWidth_example"; // String | Override the shields.io badge logoWidth value.
-        Boolean render = true; // Boolean | If true, badge will be rendered
-        Boolean shields = true; // Boolean | If true, a shields response will be generated
-        Boolean showLatest = true; // Boolean | If true, for latest version badges a '(latest)' suffix is added
-        String style = "style_example"; // String | Override the shields.io badge style value.
+        Integer page = 56; // Integer | A page number within the paginated result set.
+        Integer pageSize = 56; // Integer | Number of results to return per page.
+        String query = "query_example"; // String | A search term for querying events, actors, or timestamps of log records.
         try {
-            Object result = apiInstance.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+            List<NamespaceAuditLog> result = apiInstance.auditLogList(owner, page, pageSize, query);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BadgesApi#badgesVersionList");
+            System.err.println("Exception when calling AuditLogApi#auditLogList");
             e.printStackTrace();
         }
     }
@@ -127,6 +114,8 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuditLogApi* | [**auditLogList**](docs/AuditLogApi.md#auditLogList) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
+*AuditLogApi* | [**auditLogList0**](docs/AuditLogApi.md#auditLogList0) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
 *BadgesApi* | [**badgesVersionList**](docs/BadgesApi.md#badgesVersionList) | **GET** /badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/ | Get latest package version for a package or package group.
 *DistrosApi* | [**distrosList**](docs/DistrosApi.md#distrosList) | **GET** /distros/ | Get a list of all supported distributions.
 *DistrosApi* | [**distrosRead**](docs/DistrosApi.md#distrosRead) | **GET** /distros/{slug}/ | View for viewing/listing distributions.
@@ -143,7 +132,7 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**filesAbort**](docs/FilesApi.md#filesAbort) | **POST** /files/{owner}/{repo}/{identifier}/abort/ | Abort a multipart file upload.
 *FilesApi* | [**filesComplete**](docs/FilesApi.md#filesComplete) | **POST** /files/{owner}/{repo}/{identifier}/complete/ | Complete a multipart file upload.
 *FilesApi* | [**filesCreate**](docs/FilesApi.md#filesCreate) | **POST** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
-*FilesApi* | [**filesInfo**](docs/FilesApi.md#filesInfo) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information for a multipart file upload.
+*FilesApi* | [**filesInfo**](docs/FilesApi.md#filesInfo) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information to perform a multipart file upload.
 *FilesApi* | [**filesValidate**](docs/FilesApi.md#filesValidate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 *FormatsApi* | [**formatsList**](docs/FormatsApi.md#formatsList) | **GET** /formats/ | Get a list of all supported package formats.
 *FormatsApi* | [**formatsRead**](docs/FormatsApi.md#formatsRead) | **GET** /formats/{slug}/ | Get a specific supported package format.
@@ -152,11 +141,23 @@ Class | Method | HTTP request | Description
 *MetricsApi* | [**metricsPackagesList**](docs/MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
+*OrgsApi* | [**orgsInvitesCreate**](docs/OrgsApi.md#orgsInvitesCreate) | **POST** /orgs/{org}/invites/ | Create an organization invite for a specific user
+*OrgsApi* | [**orgsInvitesDelete**](docs/OrgsApi.md#orgsInvitesDelete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite
+*OrgsApi* | [**orgsInvitesExtend**](docs/OrgsApi.md#orgsInvitesExtend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
+*OrgsApi* | [**orgsInvitesList**](docs/OrgsApi.md#orgsInvitesList) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 *OrgsApi* | [**orgsMembersList**](docs/OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
 *OrgsApi* | [**orgsMembersRead**](docs/OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 *OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization.
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
+*OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
+*OrgsApi* | [**orgsSamlGroupSyncDelete**](docs/OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
+*OrgsApi* | [**orgsSamlGroupSyncList**](docs/OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
+*OrgsApi* | [**orgsTeamsCreate**](docs/OrgsApi.md#orgsTeamsCreate) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
+*OrgsApi* | [**orgsTeamsDelete**](docs/OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{slug_perm}/ | Delete a specific team in a organization.
+*OrgsApi* | [**orgsTeamsList**](docs/OrgsApi.md#orgsTeamsList) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
+*OrgsApi* | [**orgsTeamsPartialUpdate**](docs/OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{slug_perm}/ | Update a specific team in a organization.
+*OrgsApi* | [**orgsTeamsRead**](docs/OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{slug_perm}/ | Viewset for working with Organization teams.
 *PackagesApi* | [**packagesCopy**](docs/PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 *PackagesApi* | [**packagesDelete**](docs/PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 *PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
@@ -222,9 +223,19 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposAllList**](docs/ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 *ReposApi* | [**reposCreate**](docs/ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 *ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
+*ReposApi* | [**reposGpgCreate**](docs/ReposApi.md#reposGpgCreate) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
+*ReposApi* | [**reposGpgList**](docs/ReposApi.md#reposGpgList) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
+*ReposApi* | [**reposGpgRegenerate**](docs/ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
 *ReposApi* | [**reposList**](docs/ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 *ReposApi* | [**reposPartialUpdate**](docs/ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
+*ReposApi* | [**reposPrivilegesDelete**](docs/ReposApi.md#reposPrivilegesDelete) | **DELETE** /repos/{owner}/{identifier}/privileges | Remove the specified repository privileges.
+*ReposApi* | [**reposPrivilegesList**](docs/ReposApi.md#reposPrivilegesList) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
+*ReposApi* | [**reposPrivilegesPartialUpdate**](docs/ReposApi.md#reposPrivilegesPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/privileges | Update the specified repository privileges.
+*ReposApi* | [**reposPrivilegesUpdate**](docs/ReposApi.md#reposPrivilegesUpdate) | **PUT** /repos/{owner}/{identifier}/privileges | Replace all existing repository privileges with those specified.
 *ReposApi* | [**reposRead**](docs/ReposApi.md#reposRead) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
+*ReposApi* | [**reposRsaCreate**](docs/ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
+*ReposApi* | [**reposRsaList**](docs/ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
+*ReposApi* | [**reposRsaRegenerate**](docs/ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
 *StatusApi* | [**statusCheckBasic**](docs/StatusApi.md#statusCheckBasic) | **GET** /status/check/basic/ | Endpoint to check basic API connectivity.
 *StorageRegionsApi* | [**storageRegionsList**](docs/StorageRegionsApi.md#storageRegionsList) | **GET** /storage-regions/ | Get a list of all available storage regions.
 *StorageRegionsApi* | [**storageRegionsRead**](docs/StorageRegionsApi.md#storageRegionsRead) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
@@ -262,8 +273,17 @@ Class | Method | HTTP request | Description
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
+ - [NamespaceAuditLog](docs/NamespaceAuditLog.md)
  - [Organization](docs/Organization.md)
+ - [OrganizationGroupSync](docs/OrganizationGroupSync.md)
+ - [OrganizationInvite](docs/OrganizationInvite.md)
  - [OrganizationMembership](docs/OrganizationMembership.md)
+ - [OrganizationTeam](docs/OrganizationTeam.md)
+ - [OrgsInvitesCreate](docs/OrgsInvitesCreate.md)
+ - [OrgsInvitesExtend](docs/OrgsInvitesExtend.md)
+ - [OrgsSamlgroupsyncCreate](docs/OrgsSamlgroupsyncCreate.md)
+ - [OrgsTeamsCreate](docs/OrgsTeamsCreate.md)
+ - [OrgsTeamsPartialUpdate](docs/OrgsTeamsPartialUpdate.md)
  - [PackageCopy](docs/PackageCopy.md)
  - [PackageDependencies](docs/PackageDependencies.md)
  - [PackageDependenciesDependencies](docs/PackageDependenciesDependencies.md)
@@ -329,10 +349,16 @@ Class | Method | HTTP request | Description
  - [QuotaHistoryHistory](docs/QuotaHistoryHistory.md)
  - [RawPackageUpload](docs/RawPackageUpload.md)
  - [ReposCreate](docs/ReposCreate.md)
+ - [ReposGpgCreate](docs/ReposGpgCreate.md)
  - [ReposGpgKeys](docs/ReposGpgKeys.md)
  - [ReposPartialUpdate](docs/ReposPartialUpdate.md)
+ - [ReposRsaCreate](docs/ReposRsaCreate.md)
  - [Repository](docs/Repository.md)
+ - [RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [RepositoryCreate](docs/RepositoryCreate.md)
+ - [RepositoryGpgKey](docs/RepositoryGpgKey.md)
+ - [RepositoryPrivilegeList](docs/RepositoryPrivilegeList.md)
+ - [RepositoryRsaKey](docs/RepositoryRsaKey.md)
  - [RepositoryToken](docs/RepositoryToken.md)
  - [RepositoryTokenRefresh](docs/RepositoryTokenRefresh.md)
  - [RepositoryTokenSync](docs/RepositoryTokenSync.md)

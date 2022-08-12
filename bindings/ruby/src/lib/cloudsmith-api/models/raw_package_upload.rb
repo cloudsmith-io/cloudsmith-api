@@ -212,6 +212,28 @@ module CloudsmithApi
     # 
     attr_accessor :vulnerability_scan_results_url
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -643,7 +665,19 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      security_scan_status_validator = EnumAttributeValidator.new('String', ['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported'])
+      return false unless security_scan_status_validator.valid?(@security_scan_status)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] security_scan_status Object to be assigned
+    def security_scan_status=(security_scan_status)
+      validator = EnumAttributeValidator.new('String', ['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported'])
+      unless validator.valid?(security_scan_status)
+        fail ArgumentError, 'invalid value for "security_scan_status", must be one of #{validator.allowable_values}.'
+      end
+      @security_scan_status = security_scan_status
     end
 
     # Checks equality by comparing each attribute.

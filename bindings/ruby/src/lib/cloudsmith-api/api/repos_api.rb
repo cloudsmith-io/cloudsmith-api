@@ -178,6 +178,178 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Set the active GPG key for the Repository.
+    # Set the active GPG key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ReposGpgCreate] :data 
+    # @return [RepositoryGpgKey]
+    def repos_gpg_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_gpg_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Set the active GPG key for the Repository.
+    # Set the active GPG key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ReposGpgCreate] :data 
+    # @return [Array<(RepositoryGpgKey, Fixnum, Hash)>] RepositoryGpgKey data, response status code and response headers
+    def repos_gpg_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_gpg_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_gpg_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_gpg_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/gpg/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryGpgKey')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_gpg_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the active GPG key for the Repository.
+    # Retrieve the active GPG key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryGpgKey]
+    def repos_gpg_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_gpg_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Retrieve the active GPG key for the Repository.
+    # Retrieve the active GPG key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryGpgKey, Fixnum, Hash)>] RepositoryGpgKey data, response status code and response headers
+    def repos_gpg_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_gpg_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_gpg_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_gpg_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/gpg/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryGpgKey')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_gpg_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Regenerate GPG Key for the Repository.
+    # Regenerate GPG Key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryGpgKey]
+    def repos_gpg_regenerate(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_gpg_regenerate_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Regenerate GPG Key for the Repository.
+    # Regenerate GPG Key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryGpgKey, Fixnum, Hash)>] RepositoryGpgKey data, response status code and response headers
+    def repos_gpg_regenerate_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_gpg_regenerate ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_gpg_regenerate"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_gpg_regenerate"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/gpg/regenerate/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryGpgKey')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_gpg_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get a list of all repositories within a namespace.
     # Get a list of all repositories within a namespace.
     # @param owner 
@@ -294,6 +466,228 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Remove the specified repository privileges.
+    # Remove the specified repository privileges.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_privileges_delete(owner, identifier, opts = {})
+      repos_privileges_delete_with_http_info(owner, identifier, opts)
+      nil
+    end
+
+    # Remove the specified repository privileges.
+    # Remove the specified repository privileges.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_privileges_delete_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_privileges_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_privileges_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_privileges_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/privileges'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_privileges_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List all explicity created privileges for the repository.
+    # List all explicity created privileges for the repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<RepositoryPrivilegeList>]
+    def repos_privileges_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_privileges_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List all explicity created privileges for the repository.
+    # List all explicity created privileges for the repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<RepositoryPrivilegeList>, Fixnum, Hash)>] Array<RepositoryPrivilegeList> data, response status code and response headers
+    def repos_privileges_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_privileges_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_privileges_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_privileges_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/privileges'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<RepositoryPrivilegeList>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_privileges_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update the specified repository privileges.
+    # Update the specified repository privileges.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_privileges_partial_update(owner, identifier, opts = {})
+      repos_privileges_partial_update_with_http_info(owner, identifier, opts)
+      nil
+    end
+
+    # Update the specified repository privileges.
+    # Update the specified repository privileges.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_privileges_partial_update_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_privileges_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_privileges_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_privileges_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/privileges'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_privileges_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Replace all existing repository privileges with those specified.
+    # Replace all existing repository privileges with those specified.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryPrivilegeList]
+    def repos_privileges_update(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_privileges_update_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Replace all existing repository privileges with those specified.
+    # Replace all existing repository privileges with those specified.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryPrivilegeList, Fixnum, Hash)>] RepositoryPrivilegeList data, response status code and response headers
+    def repos_privileges_update_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_privileges_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_privileges_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_privileges_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/privileges'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryPrivilegeList')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_privileges_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get a specific repository.
     # Get a specific repository.
     # @param owner 
@@ -347,6 +741,178 @@ module CloudsmithApi
         :return_type => 'Repository')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Set the active RSA key for the Repository.
+    # Set the active RSA key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ReposRsaCreate] :data 
+    # @return [RepositoryRsaKey]
+    def repos_rsa_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_rsa_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Set the active RSA key for the Repository.
+    # Set the active RSA key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ReposRsaCreate] :data 
+    # @return [Array<(RepositoryRsaKey, Fixnum, Hash)>] RepositoryRsaKey data, response status code and response headers
+    def repos_rsa_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_rsa_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_rsa_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_rsa_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/rsa/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryRsaKey')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_rsa_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the active RSA key for the Repository.
+    # Retrieve the active RSA key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryRsaKey]
+    def repos_rsa_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_rsa_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Retrieve the active RSA key for the Repository.
+    # Retrieve the active RSA key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryRsaKey, Fixnum, Hash)>] RepositoryRsaKey data, response status code and response headers
+    def repos_rsa_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_rsa_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_rsa_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_rsa_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/rsa/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryRsaKey')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_rsa_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Regenerate RSA Key for the Repository.
+    # Regenerate RSA Key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryRsaKey]
+    def repos_rsa_regenerate(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_rsa_regenerate_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Regenerate RSA Key for the Repository.
+    # Regenerate RSA Key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryRsaKey, Fixnum, Hash)>] RepositoryRsaKey data, response status code and response headers
+    def repos_rsa_regenerate_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_rsa_regenerate ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_rsa_regenerate"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_rsa_regenerate"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/rsa/regenerate/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryRsaKey')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_rsa_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -33,44 +33,343 @@ class ReposPartialUpdate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'contextual_auth_realm': 'bool',
+        'copy_own': 'bool',
+        'copy_packages': 'str',
+        'default_privilege': 'str',
+        'delete_own': 'bool',
+        'delete_packages': 'str',
         'description': 'str',
+        'docker_refresh_tokens_enabled': 'bool',
         'index_files': 'bool',
+        'move_own': 'bool',
+        'move_packages': 'str',
         'name': 'str',
+        'proxy_npmjs': 'bool',
+        'proxy_pypi': 'bool',
+        'raw_package_index_enabled': 'bool',
+        'raw_package_index_signatures_enabled': 'bool',
+        'replace_packages': 'str',
+        'replace_packages_by_default': 'bool',
         'repository_type_str': 'str',
-        'slug': 'str'
+        'resync_own': 'bool',
+        'resync_packages': 'str',
+        'scan_own': 'bool',
+        'scan_packages': 'str',
+        'show_setup_all': 'bool',
+        'slug': 'str',
+        'strict_npm_validation': 'bool',
+        'use_debian_labels': 'bool',
+        'use_default_cargo_upstream': 'bool',
+        'use_noarch_packages': 'bool',
+        'use_source_packages': 'bool',
+        'use_vulnerability_scanning': 'bool',
+        'user_entitlements_enabled': 'bool',
+        'view_statistics': 'str'
     }
 
     attribute_map = {
+        'contextual_auth_realm': 'contextual_auth_realm',
+        'copy_own': 'copy_own',
+        'copy_packages': 'copy_packages',
+        'default_privilege': 'default_privilege',
+        'delete_own': 'delete_own',
+        'delete_packages': 'delete_packages',
         'description': 'description',
+        'docker_refresh_tokens_enabled': 'docker_refresh_tokens_enabled',
         'index_files': 'index_files',
+        'move_own': 'move_own',
+        'move_packages': 'move_packages',
         'name': 'name',
+        'proxy_npmjs': 'proxy_npmjs',
+        'proxy_pypi': 'proxy_pypi',
+        'raw_package_index_enabled': 'raw_package_index_enabled',
+        'raw_package_index_signatures_enabled': 'raw_package_index_signatures_enabled',
+        'replace_packages': 'replace_packages',
+        'replace_packages_by_default': 'replace_packages_by_default',
         'repository_type_str': 'repository_type_str',
-        'slug': 'slug'
+        'resync_own': 'resync_own',
+        'resync_packages': 'resync_packages',
+        'scan_own': 'scan_own',
+        'scan_packages': 'scan_packages',
+        'show_setup_all': 'show_setup_all',
+        'slug': 'slug',
+        'strict_npm_validation': 'strict_npm_validation',
+        'use_debian_labels': 'use_debian_labels',
+        'use_default_cargo_upstream': 'use_default_cargo_upstream',
+        'use_noarch_packages': 'use_noarch_packages',
+        'use_source_packages': 'use_source_packages',
+        'use_vulnerability_scanning': 'use_vulnerability_scanning',
+        'user_entitlements_enabled': 'user_entitlements_enabled',
+        'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, description=None, index_files=None, name=None, repository_type_str=None, slug=None, _configuration=None):  # noqa: E501
+    def __init__(self, contextual_auth_realm=None, copy_own=None, copy_packages=None, default_privilege=None, delete_own=None, delete_packages=None, description=None, docker_refresh_tokens_enabled=None, index_files=None, move_own=None, move_packages=None, name=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages=None, replace_packages_by_default=None, repository_type_str=None, resync_own=None, resync_packages=None, scan_own=None, scan_packages=None, show_setup_all=None, slug=None, strict_npm_validation=None, use_debian_labels=None, use_default_cargo_upstream=None, use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics=None, _configuration=None):  # noqa: E501
         """ReposPartialUpdate - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._contextual_auth_realm = None
+        self._copy_own = None
+        self._copy_packages = None
+        self._default_privilege = None
+        self._delete_own = None
+        self._delete_packages = None
         self._description = None
+        self._docker_refresh_tokens_enabled = None
         self._index_files = None
+        self._move_own = None
+        self._move_packages = None
         self._name = None
+        self._proxy_npmjs = None
+        self._proxy_pypi = None
+        self._raw_package_index_enabled = None
+        self._raw_package_index_signatures_enabled = None
+        self._replace_packages = None
+        self._replace_packages_by_default = None
         self._repository_type_str = None
+        self._resync_own = None
+        self._resync_packages = None
+        self._scan_own = None
+        self._scan_packages = None
+        self._show_setup_all = None
         self._slug = None
+        self._strict_npm_validation = None
+        self._use_debian_labels = None
+        self._use_default_cargo_upstream = None
+        self._use_noarch_packages = None
+        self._use_source_packages = None
+        self._use_vulnerability_scanning = None
+        self._user_entitlements_enabled = None
+        self._view_statistics = None
         self.discriminator = None
 
+        if contextual_auth_realm is not None:
+            self.contextual_auth_realm = contextual_auth_realm
+        if copy_own is not None:
+            self.copy_own = copy_own
+        if copy_packages is not None:
+            self.copy_packages = copy_packages
+        if default_privilege is not None:
+            self.default_privilege = default_privilege
+        if delete_own is not None:
+            self.delete_own = delete_own
+        if delete_packages is not None:
+            self.delete_packages = delete_packages
         if description is not None:
             self.description = description
+        if docker_refresh_tokens_enabled is not None:
+            self.docker_refresh_tokens_enabled = docker_refresh_tokens_enabled
         if index_files is not None:
             self.index_files = index_files
+        if move_own is not None:
+            self.move_own = move_own
+        if move_packages is not None:
+            self.move_packages = move_packages
         if name is not None:
             self.name = name
+        if proxy_npmjs is not None:
+            self.proxy_npmjs = proxy_npmjs
+        if proxy_pypi is not None:
+            self.proxy_pypi = proxy_pypi
+        if raw_package_index_enabled is not None:
+            self.raw_package_index_enabled = raw_package_index_enabled
+        if raw_package_index_signatures_enabled is not None:
+            self.raw_package_index_signatures_enabled = raw_package_index_signatures_enabled
+        if replace_packages is not None:
+            self.replace_packages = replace_packages
+        if replace_packages_by_default is not None:
+            self.replace_packages_by_default = replace_packages_by_default
         if repository_type_str is not None:
             self.repository_type_str = repository_type_str
+        if resync_own is not None:
+            self.resync_own = resync_own
+        if resync_packages is not None:
+            self.resync_packages = resync_packages
+        if scan_own is not None:
+            self.scan_own = scan_own
+        if scan_packages is not None:
+            self.scan_packages = scan_packages
+        if show_setup_all is not None:
+            self.show_setup_all = show_setup_all
         if slug is not None:
             self.slug = slug
+        if strict_npm_validation is not None:
+            self.strict_npm_validation = strict_npm_validation
+        if use_debian_labels is not None:
+            self.use_debian_labels = use_debian_labels
+        if use_default_cargo_upstream is not None:
+            self.use_default_cargo_upstream = use_default_cargo_upstream
+        if use_noarch_packages is not None:
+            self.use_noarch_packages = use_noarch_packages
+        if use_source_packages is not None:
+            self.use_source_packages = use_source_packages
+        if use_vulnerability_scanning is not None:
+            self.use_vulnerability_scanning = use_vulnerability_scanning
+        if user_entitlements_enabled is not None:
+            self.user_entitlements_enabled = user_entitlements_enabled
+        if view_statistics is not None:
+            self.view_statistics = view_statistics
+
+    @property
+    def contextual_auth_realm(self):
+        """Gets the contextual_auth_realm of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.  # noqa: E501
+
+        :return: The contextual_auth_realm of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contextual_auth_realm
+
+    @contextual_auth_realm.setter
+    def contextual_auth_realm(self, contextual_auth_realm):
+        """Sets the contextual_auth_realm of this ReposPartialUpdate.
+
+        If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.  # noqa: E501
+
+        :param contextual_auth_realm: The contextual_auth_realm of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._contextual_auth_realm = contextual_auth_realm
+
+    @property
+    def copy_own(self):
+        """Gets the copy_own of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :return: The copy_own of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._copy_own
+
+    @copy_own.setter
+    def copy_own(self, copy_own):
+        """Sets the copy_own of this ReposPartialUpdate.
+
+        If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :param copy_own: The copy_own of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._copy_own = copy_own
+
+    @property
+    def copy_packages(self):
+        """Gets the copy_packages of this ReposPartialUpdate.  # noqa: E501
+
+        This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.  # noqa: E501
+
+        :return: The copy_packages of this ReposPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._copy_packages
+
+    @copy_packages.setter
+    def copy_packages(self, copy_packages):
+        """Sets the copy_packages of this ReposPartialUpdate.
+
+        This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.  # noqa: E501
+
+        :param copy_packages: The copy_packages of this ReposPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                copy_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `copy_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(copy_packages, allowed_values)
+            )
+
+        self._copy_packages = copy_packages
+
+    @property
+    def default_privilege(self):
+        """Gets the default_privilege of this ReposPartialUpdate.  # noqa: E501
+
+        This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.  # noqa: E501
+
+        :return: The default_privilege of this ReposPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_privilege
+
+    @default_privilege.setter
+    def default_privilege(self, default_privilege):
+        """Sets the default_privilege of this ReposPartialUpdate.
+
+        This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.  # noqa: E501
+
+        :param default_privilege: The default_privilege of this ReposPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Admin", "Write", "Read", "None"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                default_privilege not in allowed_values):
+            raise ValueError(
+                "Invalid value for `default_privilege` ({0}), must be one of {1}"  # noqa: E501
+                .format(default_privilege, allowed_values)
+            )
+
+        self._default_privilege = default_privilege
+
+    @property
+    def delete_own(self):
+        """Gets the delete_own of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :return: The delete_own of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_own
+
+    @delete_own.setter
+    def delete_own(self, delete_own):
+        """Sets the delete_own of this ReposPartialUpdate.
+
+        If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :param delete_own: The delete_own of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._delete_own = delete_own
+
+    @property
+    def delete_packages(self):
+        """Gets the delete_packages of this ReposPartialUpdate.  # noqa: E501
+
+        This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.  # noqa: E501
+
+        :return: The delete_packages of this ReposPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._delete_packages
+
+    @delete_packages.setter
+    def delete_packages(self, delete_packages):
+        """Sets the delete_packages of this ReposPartialUpdate.
+
+        This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.  # noqa: E501
+
+        :param delete_packages: The delete_packages of this ReposPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Admin", "Write"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                delete_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `delete_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(delete_packages, allowed_values)
+            )
+
+        self._delete_packages = delete_packages
 
     @property
     def description(self):
@@ -96,6 +395,29 @@ class ReposPartialUpdate(object):
         self._description = description
 
     @property
+    def docker_refresh_tokens_enabled(self):
+        """Gets the docker_refresh_tokens_enabled of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.  # noqa: E501
+
+        :return: The docker_refresh_tokens_enabled of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._docker_refresh_tokens_enabled
+
+    @docker_refresh_tokens_enabled.setter
+    def docker_refresh_tokens_enabled(self, docker_refresh_tokens_enabled):
+        """Sets the docker_refresh_tokens_enabled of this ReposPartialUpdate.
+
+        If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.  # noqa: E501
+
+        :param docker_refresh_tokens_enabled: The docker_refresh_tokens_enabled of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._docker_refresh_tokens_enabled = docker_refresh_tokens_enabled
+
+    @property
     def index_files(self):
         """Gets the index_files of this ReposPartialUpdate.  # noqa: E501
 
@@ -117,6 +439,59 @@ class ReposPartialUpdate(object):
         """
 
         self._index_files = index_files
+
+    @property
+    def move_own(self):
+        """Gets the move_own of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :return: The move_own of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._move_own
+
+    @move_own.setter
+    def move_own(self, move_own):
+        """Sets the move_own of this ReposPartialUpdate.
+
+        If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :param move_own: The move_own of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._move_own = move_own
+
+    @property
+    def move_packages(self):
+        """Gets the move_packages of this ReposPartialUpdate.  # noqa: E501
+
+        This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.  # noqa: E501
+
+        :return: The move_packages of this ReposPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._move_packages
+
+    @move_packages.setter
+    def move_packages(self, move_packages):
+        """Sets the move_packages of this ReposPartialUpdate.
+
+        This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.  # noqa: E501
+
+        :param move_packages: The move_packages of this ReposPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                move_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `move_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(move_packages, allowed_values)
+            )
+
+        self._move_packages = move_packages
 
     @property
     def name(self):
@@ -142,6 +517,151 @@ class ReposPartialUpdate(object):
         self._name = name
 
     @property
+    def proxy_npmjs(self):
+        """Gets the proxy_npmjs of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.  # noqa: E501
+
+        :return: The proxy_npmjs of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._proxy_npmjs
+
+    @proxy_npmjs.setter
+    def proxy_npmjs(self, proxy_npmjs):
+        """Sets the proxy_npmjs of this ReposPartialUpdate.
+
+        If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.  # noqa: E501
+
+        :param proxy_npmjs: The proxy_npmjs of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._proxy_npmjs = proxy_npmjs
+
+    @property
+    def proxy_pypi(self):
+        """Gets the proxy_pypi of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.  # noqa: E501
+
+        :return: The proxy_pypi of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._proxy_pypi
+
+    @proxy_pypi.setter
+    def proxy_pypi(self, proxy_pypi):
+        """Sets the proxy_pypi of this ReposPartialUpdate.
+
+        If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.  # noqa: E501
+
+        :param proxy_pypi: The proxy_pypi of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._proxy_pypi = proxy_pypi
+
+    @property
+    def raw_package_index_enabled(self):
+        """Gets the raw_package_index_enabled of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.  # noqa: E501
+
+        :return: The raw_package_index_enabled of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._raw_package_index_enabled
+
+    @raw_package_index_enabled.setter
+    def raw_package_index_enabled(self, raw_package_index_enabled):
+        """Sets the raw_package_index_enabled of this ReposPartialUpdate.
+
+        If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.  # noqa: E501
+
+        :param raw_package_index_enabled: The raw_package_index_enabled of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._raw_package_index_enabled = raw_package_index_enabled
+
+    @property
+    def raw_package_index_signatures_enabled(self):
+        """Gets the raw_package_index_signatures_enabled of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.  # noqa: E501
+
+        :return: The raw_package_index_signatures_enabled of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._raw_package_index_signatures_enabled
+
+    @raw_package_index_signatures_enabled.setter
+    def raw_package_index_signatures_enabled(self, raw_package_index_signatures_enabled):
+        """Sets the raw_package_index_signatures_enabled of this ReposPartialUpdate.
+
+        If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.  # noqa: E501
+
+        :param raw_package_index_signatures_enabled: The raw_package_index_signatures_enabled of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._raw_package_index_signatures_enabled = raw_package_index_signatures_enabled
+
+    @property
+    def replace_packages(self):
+        """Gets the replace_packages of this ReposPartialUpdate.  # noqa: E501
+
+        This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.  # noqa: E501
+
+        :return: The replace_packages of this ReposPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._replace_packages
+
+    @replace_packages.setter
+    def replace_packages(self, replace_packages):
+        """Sets the replace_packages of this ReposPartialUpdate.
+
+        This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.  # noqa: E501
+
+        :param replace_packages: The replace_packages of this ReposPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Admin", "Write"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                replace_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `replace_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(replace_packages, allowed_values)
+            )
+
+        self._replace_packages = replace_packages
+
+    @property
+    def replace_packages_by_default(self):
+        """Gets the replace_packages_by_default of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.  # noqa: E501
+
+        :return: The replace_packages_by_default of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._replace_packages_by_default
+
+    @replace_packages_by_default.setter
+    def replace_packages_by_default(self, replace_packages_by_default):
+        """Sets the replace_packages_by_default of this ReposPartialUpdate.
+
+        If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.  # noqa: E501
+
+        :param replace_packages_by_default: The replace_packages_by_default of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._replace_packages_by_default = replace_packages_by_default
+
+    @property
     def repository_type_str(self):
         """Gets the repository_type_str of this ReposPartialUpdate.  # noqa: E501
 
@@ -161,8 +681,144 @@ class ReposPartialUpdate(object):
         :param repository_type_str: The repository_type_str of this ReposPartialUpdate.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Public", "Private", "Open-Source"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                repository_type_str not in allowed_values):
+            raise ValueError(
+                "Invalid value for `repository_type_str` ({0}), must be one of {1}"  # noqa: E501
+                .format(repository_type_str, allowed_values)
+            )
 
         self._repository_type_str = repository_type_str
+
+    @property
+    def resync_own(self):
+        """Gets the resync_own of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :return: The resync_own of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._resync_own
+
+    @resync_own.setter
+    def resync_own(self, resync_own):
+        """Sets the resync_own of this ReposPartialUpdate.
+
+        If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :param resync_own: The resync_own of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._resync_own = resync_own
+
+    @property
+    def resync_packages(self):
+        """Gets the resync_packages of this ReposPartialUpdate.  # noqa: E501
+
+        This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.  # noqa: E501
+
+        :return: The resync_packages of this ReposPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._resync_packages
+
+    @resync_packages.setter
+    def resync_packages(self, resync_packages):
+        """Sets the resync_packages of this ReposPartialUpdate.
+
+        This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.  # noqa: E501
+
+        :param resync_packages: The resync_packages of this ReposPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Admin", "Write"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resync_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resync_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(resync_packages, allowed_values)
+            )
+
+        self._resync_packages = resync_packages
+
+    @property
+    def scan_own(self):
+        """Gets the scan_own of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :return: The scan_own of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._scan_own
+
+    @scan_own.setter
+    def scan_own(self, scan_own):
+        """Sets the scan_own of this ReposPartialUpdate.
+
+        If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+
+        :param scan_own: The scan_own of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._scan_own = scan_own
+
+    @property
+    def scan_packages(self):
+        """Gets the scan_packages of this ReposPartialUpdate.  # noqa: E501
+
+        This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.  # noqa: E501
+
+        :return: The scan_packages of this ReposPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._scan_packages
+
+    @scan_packages.setter
+    def scan_packages(self, scan_packages):
+        """Sets the scan_packages of this ReposPartialUpdate.
+
+        This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.  # noqa: E501
+
+        :param scan_packages: The scan_packages of this ReposPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scan_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `scan_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(scan_packages, allowed_values)
+            )
+
+        self._scan_packages = scan_packages
+
+    @property
+    def show_setup_all(self):
+        """Gets the show_setup_all of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.  # noqa: E501
+
+        :return: The show_setup_all of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_setup_all
+
+    @show_setup_all.setter
+    def show_setup_all(self, show_setup_all):
+        """Sets the show_setup_all of this ReposPartialUpdate.
+
+        If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.  # noqa: E501
+
+        :param show_setup_all: The show_setup_all of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._show_setup_all = show_setup_all
 
     @property
     def slug(self):
@@ -186,6 +842,197 @@ class ReposPartialUpdate(object):
         """
 
         self._slug = slug
+
+    @property
+    def strict_npm_validation(self):
+        """Gets the strict_npm_validation of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!  # noqa: E501
+
+        :return: The strict_npm_validation of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._strict_npm_validation
+
+    @strict_npm_validation.setter
+    def strict_npm_validation(self, strict_npm_validation):
+        """Sets the strict_npm_validation of this ReposPartialUpdate.
+
+        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!  # noqa: E501
+
+        :param strict_npm_validation: The strict_npm_validation of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._strict_npm_validation = strict_npm_validation
+
+    @property
+    def use_debian_labels(self):
+        """Gets the use_debian_labels of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.  # noqa: E501
+
+        :return: The use_debian_labels of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_debian_labels
+
+    @use_debian_labels.setter
+    def use_debian_labels(self, use_debian_labels):
+        """Sets the use_debian_labels of this ReposPartialUpdate.
+
+        If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.  # noqa: E501
+
+        :param use_debian_labels: The use_debian_labels of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_debian_labels = use_debian_labels
+
+    @property
+    def use_default_cargo_upstream(self):
+        """Gets the use_default_cargo_upstream of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.  # noqa: E501
+
+        :return: The use_default_cargo_upstream of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_default_cargo_upstream
+
+    @use_default_cargo_upstream.setter
+    def use_default_cargo_upstream(self, use_default_cargo_upstream):
+        """Sets the use_default_cargo_upstream of this ReposPartialUpdate.
+
+        If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.  # noqa: E501
+
+        :param use_default_cargo_upstream: The use_default_cargo_upstream of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_default_cargo_upstream = use_default_cargo_upstream
+
+    @property
+    def use_noarch_packages(self):
+        """Gets the use_noarch_packages of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).  # noqa: E501
+
+        :return: The use_noarch_packages of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_noarch_packages
+
+    @use_noarch_packages.setter
+    def use_noarch_packages(self, use_noarch_packages):
+        """Sets the use_noarch_packages of this ReposPartialUpdate.
+
+        If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).  # noqa: E501
+
+        :param use_noarch_packages: The use_noarch_packages of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_noarch_packages = use_noarch_packages
+
+    @property
+    def use_source_packages(self):
+        """Gets the use_source_packages of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.  # noqa: E501
+
+        :return: The use_source_packages of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_source_packages
+
+    @use_source_packages.setter
+    def use_source_packages(self, use_source_packages):
+        """Sets the use_source_packages of this ReposPartialUpdate.
+
+        If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.  # noqa: E501
+
+        :param use_source_packages: The use_source_packages of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_source_packages = use_source_packages
+
+    @property
+    def use_vulnerability_scanning(self):
+        """Gets the use_vulnerability_scanning of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, vulnerability scanning will be enabled for all supported packages within this repository.  # noqa: E501
+
+        :return: The use_vulnerability_scanning of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_vulnerability_scanning
+
+    @use_vulnerability_scanning.setter
+    def use_vulnerability_scanning(self, use_vulnerability_scanning):
+        """Sets the use_vulnerability_scanning of this ReposPartialUpdate.
+
+        If checked, vulnerability scanning will be enabled for all supported packages within this repository.  # noqa: E501
+
+        :param use_vulnerability_scanning: The use_vulnerability_scanning of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_vulnerability_scanning = use_vulnerability_scanning
+
+    @property
+    def user_entitlements_enabled(self):
+        """Gets the user_entitlements_enabled of this ReposPartialUpdate.  # noqa: E501
+
+        If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.  # noqa: E501
+
+        :return: The user_entitlements_enabled of this ReposPartialUpdate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._user_entitlements_enabled
+
+    @user_entitlements_enabled.setter
+    def user_entitlements_enabled(self, user_entitlements_enabled):
+        """Sets the user_entitlements_enabled of this ReposPartialUpdate.
+
+        If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.  # noqa: E501
+
+        :param user_entitlements_enabled: The user_entitlements_enabled of this ReposPartialUpdate.  # noqa: E501
+        :type: bool
+        """
+
+        self._user_entitlements_enabled = user_entitlements_enabled
+
+    @property
+    def view_statistics(self):
+        """Gets the view_statistics of this ReposPartialUpdate.  # noqa: E501
+
+        This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.  # noqa: E501
+
+        :return: The view_statistics of this ReposPartialUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._view_statistics
+
+    @view_statistics.setter
+    def view_statistics(self, view_statistics):
+        """Sets the view_statistics of this ReposPartialUpdate.
+
+        This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.  # noqa: E501
+
+        :param view_statistics: The view_statistics of this ReposPartialUpdate.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                view_statistics not in allowed_values):
+            raise ValueError(
+                "Invalid value for `view_statistics` ({0}), must be one of {1}"  # noqa: E501
+                .format(view_statistics, allowed_values)
+            )
+
+        self._view_statistics = view_statistics
 
     def to_dict(self):
         """Returns the model properties as a dict"""

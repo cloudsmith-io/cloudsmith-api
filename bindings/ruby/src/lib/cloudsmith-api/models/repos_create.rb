@@ -14,17 +14,77 @@ require 'date'
 
 module CloudsmithApi
   class ReposCreate
+    # If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.
+    attr_accessor :contextual_auth_realm
+
+    # If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+    attr_accessor :copy_own
+
+    # This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
+    attr_accessor :copy_packages
+
+    # This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
+    attr_accessor :default_privilege
+
+    # If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+    attr_accessor :delete_own
+
+    # This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
+    attr_accessor :delete_packages
+
     # A description of the repository's purpose/contents.
     attr_accessor :description
+
+    # If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.
+    attr_accessor :docker_refresh_tokens_enabled
 
     # If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
     attr_accessor :index_files
 
+    # If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+    attr_accessor :move_own
+
+    # This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.
+    attr_accessor :move_packages
+
     # A descriptive name for the repository.
     attr_accessor :name
 
-    #          The repository type changes how it is accessed and billed.         Private repositories can only be used on paid plans, but are visible         only to you or authorised delegates. Public repositories are free to         use on all plans and visible to all Cloudsmith users.         
+    # If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.
+    attr_accessor :proxy_npmjs
+
+    # If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.
+    attr_accessor :proxy_pypi
+
+    # If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.
+    attr_accessor :raw_package_index_enabled
+
+    # If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.
+    attr_accessor :raw_package_index_signatures_enabled
+
+    # This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.
+    attr_accessor :replace_packages
+
+    # If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.
+    attr_accessor :replace_packages_by_default
+
+    # The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
     attr_accessor :repository_type_str
+
+    # If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+    attr_accessor :resync_own
+
+    # This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.
+    attr_accessor :resync_packages
+
+    # If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+    attr_accessor :scan_own
+
+    # This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.
+    attr_accessor :scan_packages
+
+    # If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.
+    attr_accessor :show_setup_all
 
     # The slug identifies the repository in URIs.
     attr_accessor :slug
@@ -32,27 +92,129 @@ module CloudsmithApi
     # The Cloudsmith region in which package files are stored.
     attr_accessor :storage_region
 
+    # If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
+    attr_accessor :strict_npm_validation
+
+    # If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.
+    attr_accessor :use_debian_labels
+
+    # If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.
+    attr_accessor :use_default_cargo_upstream
+
+    # If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).
+    attr_accessor :use_noarch_packages
+
+    # If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.
+    attr_accessor :use_source_packages
+
+    # If checked, vulnerability scanning will be enabled for all supported packages within this repository.
+    attr_accessor :use_vulnerability_scanning
+
+    # If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.
+    attr_accessor :user_entitlements_enabled
+
+    # This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.
+    attr_accessor :view_statistics
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'contextual_auth_realm' => :'contextual_auth_realm',
+        :'copy_own' => :'copy_own',
+        :'copy_packages' => :'copy_packages',
+        :'default_privilege' => :'default_privilege',
+        :'delete_own' => :'delete_own',
+        :'delete_packages' => :'delete_packages',
         :'description' => :'description',
+        :'docker_refresh_tokens_enabled' => :'docker_refresh_tokens_enabled',
         :'index_files' => :'index_files',
+        :'move_own' => :'move_own',
+        :'move_packages' => :'move_packages',
         :'name' => :'name',
+        :'proxy_npmjs' => :'proxy_npmjs',
+        :'proxy_pypi' => :'proxy_pypi',
+        :'raw_package_index_enabled' => :'raw_package_index_enabled',
+        :'raw_package_index_signatures_enabled' => :'raw_package_index_signatures_enabled',
+        :'replace_packages' => :'replace_packages',
+        :'replace_packages_by_default' => :'replace_packages_by_default',
         :'repository_type_str' => :'repository_type_str',
+        :'resync_own' => :'resync_own',
+        :'resync_packages' => :'resync_packages',
+        :'scan_own' => :'scan_own',
+        :'scan_packages' => :'scan_packages',
+        :'show_setup_all' => :'show_setup_all',
         :'slug' => :'slug',
-        :'storage_region' => :'storage_region'
+        :'storage_region' => :'storage_region',
+        :'strict_npm_validation' => :'strict_npm_validation',
+        :'use_debian_labels' => :'use_debian_labels',
+        :'use_default_cargo_upstream' => :'use_default_cargo_upstream',
+        :'use_noarch_packages' => :'use_noarch_packages',
+        :'use_source_packages' => :'use_source_packages',
+        :'use_vulnerability_scanning' => :'use_vulnerability_scanning',
+        :'user_entitlements_enabled' => :'user_entitlements_enabled',
+        :'view_statistics' => :'view_statistics'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'contextual_auth_realm' => :'BOOLEAN',
+        :'copy_own' => :'BOOLEAN',
+        :'copy_packages' => :'String',
+        :'default_privilege' => :'String',
+        :'delete_own' => :'BOOLEAN',
+        :'delete_packages' => :'String',
         :'description' => :'String',
+        :'docker_refresh_tokens_enabled' => :'BOOLEAN',
         :'index_files' => :'BOOLEAN',
+        :'move_own' => :'BOOLEAN',
+        :'move_packages' => :'String',
         :'name' => :'String',
+        :'proxy_npmjs' => :'BOOLEAN',
+        :'proxy_pypi' => :'BOOLEAN',
+        :'raw_package_index_enabled' => :'BOOLEAN',
+        :'raw_package_index_signatures_enabled' => :'BOOLEAN',
+        :'replace_packages' => :'String',
+        :'replace_packages_by_default' => :'BOOLEAN',
         :'repository_type_str' => :'String',
+        :'resync_own' => :'BOOLEAN',
+        :'resync_packages' => :'String',
+        :'scan_own' => :'BOOLEAN',
+        :'scan_packages' => :'String',
+        :'show_setup_all' => :'BOOLEAN',
         :'slug' => :'String',
-        :'storage_region' => :'String'
+        :'storage_region' => :'String',
+        :'strict_npm_validation' => :'BOOLEAN',
+        :'use_debian_labels' => :'BOOLEAN',
+        :'use_default_cargo_upstream' => :'BOOLEAN',
+        :'use_noarch_packages' => :'BOOLEAN',
+        :'use_source_packages' => :'BOOLEAN',
+        :'use_vulnerability_scanning' => :'BOOLEAN',
+        :'user_entitlements_enabled' => :'BOOLEAN',
+        :'view_statistics' => :'String'
       }
     end
 
@@ -64,20 +226,100 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+      if attributes.has_key?(:'contextual_auth_realm')
+        self.contextual_auth_realm = attributes[:'contextual_auth_realm']
+      end
+
+      if attributes.has_key?(:'copy_own')
+        self.copy_own = attributes[:'copy_own']
+      end
+
+      if attributes.has_key?(:'copy_packages')
+        self.copy_packages = attributes[:'copy_packages']
+      end
+
+      if attributes.has_key?(:'default_privilege')
+        self.default_privilege = attributes[:'default_privilege']
+      end
+
+      if attributes.has_key?(:'delete_own')
+        self.delete_own = attributes[:'delete_own']
+      end
+
+      if attributes.has_key?(:'delete_packages')
+        self.delete_packages = attributes[:'delete_packages']
+      end
+
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'docker_refresh_tokens_enabled')
+        self.docker_refresh_tokens_enabled = attributes[:'docker_refresh_tokens_enabled']
       end
 
       if attributes.has_key?(:'index_files')
         self.index_files = attributes[:'index_files']
       end
 
+      if attributes.has_key?(:'move_own')
+        self.move_own = attributes[:'move_own']
+      end
+
+      if attributes.has_key?(:'move_packages')
+        self.move_packages = attributes[:'move_packages']
+      end
+
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'proxy_npmjs')
+        self.proxy_npmjs = attributes[:'proxy_npmjs']
+      end
+
+      if attributes.has_key?(:'proxy_pypi')
+        self.proxy_pypi = attributes[:'proxy_pypi']
+      end
+
+      if attributes.has_key?(:'raw_package_index_enabled')
+        self.raw_package_index_enabled = attributes[:'raw_package_index_enabled']
+      end
+
+      if attributes.has_key?(:'raw_package_index_signatures_enabled')
+        self.raw_package_index_signatures_enabled = attributes[:'raw_package_index_signatures_enabled']
+      end
+
+      if attributes.has_key?(:'replace_packages')
+        self.replace_packages = attributes[:'replace_packages']
+      end
+
+      if attributes.has_key?(:'replace_packages_by_default')
+        self.replace_packages_by_default = attributes[:'replace_packages_by_default']
+      end
+
       if attributes.has_key?(:'repository_type_str')
         self.repository_type_str = attributes[:'repository_type_str']
+      end
+
+      if attributes.has_key?(:'resync_own')
+        self.resync_own = attributes[:'resync_own']
+      end
+
+      if attributes.has_key?(:'resync_packages')
+        self.resync_packages = attributes[:'resync_packages']
+      end
+
+      if attributes.has_key?(:'scan_own')
+        self.scan_own = attributes[:'scan_own']
+      end
+
+      if attributes.has_key?(:'scan_packages')
+        self.scan_packages = attributes[:'scan_packages']
+      end
+
+      if attributes.has_key?(:'show_setup_all')
+        self.show_setup_all = attributes[:'show_setup_all']
       end
 
       if attributes.has_key?(:'slug')
@@ -86,6 +328,38 @@ module CloudsmithApi
 
       if attributes.has_key?(:'storage_region')
         self.storage_region = attributes[:'storage_region']
+      end
+
+      if attributes.has_key?(:'strict_npm_validation')
+        self.strict_npm_validation = attributes[:'strict_npm_validation']
+      end
+
+      if attributes.has_key?(:'use_debian_labels')
+        self.use_debian_labels = attributes[:'use_debian_labels']
+      end
+
+      if attributes.has_key?(:'use_default_cargo_upstream')
+        self.use_default_cargo_upstream = attributes[:'use_default_cargo_upstream']
+      end
+
+      if attributes.has_key?(:'use_noarch_packages')
+        self.use_noarch_packages = attributes[:'use_noarch_packages']
+      end
+
+      if attributes.has_key?(:'use_source_packages')
+        self.use_source_packages = attributes[:'use_source_packages']
+      end
+
+      if attributes.has_key?(:'use_vulnerability_scanning')
+        self.use_vulnerability_scanning = attributes[:'use_vulnerability_scanning']
+      end
+
+      if attributes.has_key?(:'user_entitlements_enabled')
+        self.user_entitlements_enabled = attributes[:'user_entitlements_enabled']
+      end
+
+      if attributes.has_key?(:'view_statistics')
+        self.view_statistics = attributes[:'view_statistics']
       end
     end
 
@@ -103,8 +377,104 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      copy_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+      return false unless copy_packages_validator.valid?(@copy_packages)
+      default_privilege_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
+      return false unless default_privilege_validator.valid?(@default_privilege)
+      delete_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+      return false unless delete_packages_validator.valid?(@delete_packages)
+      move_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+      return false unless move_packages_validator.valid?(@move_packages)
       return false if @name.nil?
+      replace_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+      return false unless replace_packages_validator.valid?(@replace_packages)
+      resync_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+      return false unless resync_packages_validator.valid?(@resync_packages)
+      scan_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+      return false unless scan_packages_validator.valid?(@scan_packages)
+      view_statistics_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+      return false unless view_statistics_validator.valid?(@view_statistics)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] copy_packages Object to be assigned
+    def copy_packages=(copy_packages)
+      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+      unless validator.valid?(copy_packages)
+        fail ArgumentError, 'invalid value for "copy_packages", must be one of #{validator.allowable_values}.'
+      end
+      @copy_packages = copy_packages
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] default_privilege Object to be assigned
+    def default_privilege=(default_privilege)
+      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
+      unless validator.valid?(default_privilege)
+        fail ArgumentError, 'invalid value for "default_privilege", must be one of #{validator.allowable_values}.'
+      end
+      @default_privilege = default_privilege
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] delete_packages Object to be assigned
+    def delete_packages=(delete_packages)
+      validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+      unless validator.valid?(delete_packages)
+        fail ArgumentError, 'invalid value for "delete_packages", must be one of #{validator.allowable_values}.'
+      end
+      @delete_packages = delete_packages
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] move_packages Object to be assigned
+    def move_packages=(move_packages)
+      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+      unless validator.valid?(move_packages)
+        fail ArgumentError, 'invalid value for "move_packages", must be one of #{validator.allowable_values}.'
+      end
+      @move_packages = move_packages
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] replace_packages Object to be assigned
+    def replace_packages=(replace_packages)
+      validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+      unless validator.valid?(replace_packages)
+        fail ArgumentError, 'invalid value for "replace_packages", must be one of #{validator.allowable_values}.'
+      end
+      @replace_packages = replace_packages
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] resync_packages Object to be assigned
+    def resync_packages=(resync_packages)
+      validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+      unless validator.valid?(resync_packages)
+        fail ArgumentError, 'invalid value for "resync_packages", must be one of #{validator.allowable_values}.'
+      end
+      @resync_packages = resync_packages
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] scan_packages Object to be assigned
+    def scan_packages=(scan_packages)
+      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+      unless validator.valid?(scan_packages)
+        fail ArgumentError, 'invalid value for "scan_packages", must be one of #{validator.allowable_values}.'
+      end
+      @scan_packages = scan_packages
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] view_statistics Object to be assigned
+    def view_statistics=(view_statistics)
+      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+      unless validator.valid?(view_statistics)
+        fail ArgumentError, 'invalid value for "view_statistics", must be one of #{validator.allowable_values}.'
+      end
+      @view_statistics = view_statistics
     end
 
     # Checks equality by comparing each attribute.
@@ -112,12 +482,40 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          contextual_auth_realm == o.contextual_auth_realm &&
+          copy_own == o.copy_own &&
+          copy_packages == o.copy_packages &&
+          default_privilege == o.default_privilege &&
+          delete_own == o.delete_own &&
+          delete_packages == o.delete_packages &&
           description == o.description &&
+          docker_refresh_tokens_enabled == o.docker_refresh_tokens_enabled &&
           index_files == o.index_files &&
+          move_own == o.move_own &&
+          move_packages == o.move_packages &&
           name == o.name &&
+          proxy_npmjs == o.proxy_npmjs &&
+          proxy_pypi == o.proxy_pypi &&
+          raw_package_index_enabled == o.raw_package_index_enabled &&
+          raw_package_index_signatures_enabled == o.raw_package_index_signatures_enabled &&
+          replace_packages == o.replace_packages &&
+          replace_packages_by_default == o.replace_packages_by_default &&
           repository_type_str == o.repository_type_str &&
+          resync_own == o.resync_own &&
+          resync_packages == o.resync_packages &&
+          scan_own == o.scan_own &&
+          scan_packages == o.scan_packages &&
+          show_setup_all == o.show_setup_all &&
           slug == o.slug &&
-          storage_region == o.storage_region
+          storage_region == o.storage_region &&
+          strict_npm_validation == o.strict_npm_validation &&
+          use_debian_labels == o.use_debian_labels &&
+          use_default_cargo_upstream == o.use_default_cargo_upstream &&
+          use_noarch_packages == o.use_noarch_packages &&
+          use_source_packages == o.use_source_packages &&
+          use_vulnerability_scanning == o.use_vulnerability_scanning &&
+          user_entitlements_enabled == o.user_entitlements_enabled &&
+          view_statistics == o.view_statistics
     end
 
     # @see the `==` method
@@ -129,7 +527,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, index_files, name, repository_type_str, slug, storage_region].hash
+      [contextual_auth_realm, copy_own, copy_packages, default_privilege, delete_own, delete_packages, description, docker_refresh_tokens_enabled, index_files, move_own, move_packages, name, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, show_setup_all, slug, storage_region, strict_npm_validation, use_debian_labels, use_default_cargo_upstream, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
     end
 
     # Builds the object from hash

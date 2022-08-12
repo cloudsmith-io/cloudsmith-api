@@ -370,49 +370,53 @@ class FilesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def files_info(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Get upload information for a multipart file upload.  # noqa: E501
+    def files_info(self, owner, repo, identifier, filename, **kwargs):  # noqa: E501
+        """Get upload information to perform a multipart file upload.  # noqa: E501
 
-        Get upload information for a multipart file upload.  # noqa: E501
+        Get upload information to perform a multipart file upload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.files_info(owner, repo, identifier, async_req=True)
+        >>> thread = api.files_info(owner, repo, identifier, filename, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
+        :param str filename: The filename of the file being uploaded (required)
+        :param int part_number: The part number to be uploaded next
         :return: PackageFilePartsUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.files_info_with_http_info(owner, repo, identifier, **kwargs)  # noqa: E501
+            return self.files_info_with_http_info(owner, repo, identifier, filename, **kwargs)  # noqa: E501
         else:
-            (data) = self.files_info_with_http_info(owner, repo, identifier, **kwargs)  # noqa: E501
+            (data) = self.files_info_with_http_info(owner, repo, identifier, filename, **kwargs)  # noqa: E501
             return data
 
-    def files_info_with_http_info(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Get upload information for a multipart file upload.  # noqa: E501
+    def files_info_with_http_info(self, owner, repo, identifier, filename, **kwargs):  # noqa: E501
+        """Get upload information to perform a multipart file upload.  # noqa: E501
 
-        Get upload information for a multipart file upload.  # noqa: E501
+        Get upload information to perform a multipart file upload.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.files_info_with_http_info(owner, repo, identifier, async_req=True)
+        >>> thread = api.files_info_with_http_info(owner, repo, identifier, filename, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str owner:  (required)
         :param str repo:  (required)
         :param str identifier:  (required)
+        :param str filename: The filename of the file being uploaded (required)
+        :param int part_number: The part number to be uploaded next
         :return: PackageFilePartsUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier']  # noqa: E501
+        all_params = ['owner', 'repo', 'identifier', 'filename', 'part_number']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -439,6 +443,10 @@ class FilesApi(object):
         if self.api_client.client_side_validation and ('identifier' not in params or
                                                        params['identifier'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `identifier` when calling `files_info`")  # noqa: E501
+        # verify the required parameter 'filename' is set
+        if self.api_client.client_side_validation and ('filename' not in params or
+                                                       params['filename'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `filename` when calling `files_info`")  # noqa: E501
 
         collection_formats = {}
 
@@ -451,6 +459,10 @@ class FilesApi(object):
             path_params['identifier'] = params['identifier']  # noqa: E501
 
         query_params = []
+        if 'filename' in params:
+            query_params.append(('filename', params['filename']))  # noqa: E501
+        if 'part_number' in params:
+            query_params.append(('part_number', params['part_number']))  # noqa: E501
 
         header_params = {}
 

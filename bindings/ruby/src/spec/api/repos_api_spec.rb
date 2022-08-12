@@ -71,6 +71,46 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_gpg_create
+  # Set the active GPG key for the Repository.
+  # Set the active GPG key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ReposGpgCreate] :data 
+  # @return [RepositoryGpgKey]
+  describe 'repos_gpg_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_gpg_list
+  # Retrieve the active GPG key for the Repository.
+  # Retrieve the active GPG key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryGpgKey]
+  describe 'repos_gpg_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_gpg_regenerate
+  # Regenerate GPG Key for the Repository.
+  # Regenerate GPG Key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryGpgKey]
+  describe 'repos_gpg_regenerate test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_list
   # Get a list of all repositories within a namespace.
   # Get a list of all repositories within a namespace.
@@ -99,6 +139,58 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_privileges_delete
+  # Remove the specified repository privileges.
+  # Remove the specified repository privileges.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_privileges_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_privileges_list
+  # List all explicity created privileges for the repository.
+  # List all explicity created privileges for the repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [Array<RepositoryPrivilegeList>]
+  describe 'repos_privileges_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_privileges_partial_update
+  # Update the specified repository privileges.
+  # Update the specified repository privileges.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_privileges_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_privileges_update
+  # Replace all existing repository privileges with those specified.
+  # Replace all existing repository privileges with those specified.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryPrivilegeList]
+  describe 'repos_privileges_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_read
   # Get a specific repository.
   # Get a specific repository.
@@ -107,6 +199,46 @@ describe 'ReposApi' do
   # @param [Hash] opts the optional parameters
   # @return [Repository]
   describe 'repos_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_rsa_create
+  # Set the active RSA key for the Repository.
+  # Set the active RSA key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ReposRsaCreate] :data 
+  # @return [RepositoryRsaKey]
+  describe 'repos_rsa_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_rsa_list
+  # Retrieve the active RSA key for the Repository.
+  # Retrieve the active RSA key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryRsaKey]
+  describe 'repos_rsa_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_rsa_regenerate
+  # Regenerate RSA Key for the Repository.
+  # Regenerate RSA Key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryRsaKey]
+  describe 'repos_rsa_regenerate test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

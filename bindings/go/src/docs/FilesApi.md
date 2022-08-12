@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**FilesAbort**](FilesApi.md#FilesAbort) | **Post** /files/{owner}/{repo}/{identifier}/abort/ | Abort a multipart file upload.
 [**FilesComplete**](FilesApi.md#FilesComplete) | **Post** /files/{owner}/{repo}/{identifier}/complete/ | Complete a multipart file upload.
 [**FilesCreate**](FilesApi.md#FilesCreate) | **Post** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
-[**FilesInfo**](FilesApi.md#FilesInfo) | **Get** /files/{owner}/{repo}/{identifier}/info/ | Get upload information for a multipart file upload.
+[**FilesInfo**](FilesApi.md#FilesInfo) | **Get** /files/{owner}/{repo}/{identifier}/info/ | Get upload information to perform a multipart file upload.
 [**FilesValidate**](FilesApi.md#FilesValidate) | **Post** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 
 
@@ -133,10 +133,10 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FilesInfo**
-> PackageFilePartsUpload FilesInfo(ctx, owner, repo, identifier)
-Get upload information for a multipart file upload.
+> PackageFilePartsUpload FilesInfo(ctx, owner, repo, identifier, filename, optional)
+Get upload information to perform a multipart file upload.
 
-Get upload information for a multipart file upload.
+Get upload information to perform a multipart file upload.
 
 ### Required Parameters
 
@@ -146,6 +146,19 @@ Name | Type | Description  | Notes
   **owner** | **string**|  | 
   **repo** | **string**|  | 
   **identifier** | **string**|  | 
+  **filename** | **string**| The filename of the file being uploaded | 
+ **optional** | ***FilesApiFilesInfoOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a FilesApiFilesInfoOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+ **partNumber** | **optional.Int32**| The part number to be uploaded next | 
 
 ### Return type
 

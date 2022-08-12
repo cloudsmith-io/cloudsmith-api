@@ -82,6 +82,13 @@ class PackagesTag(object):
         :param action: The action of this PackagesTag.  # noqa: E501
         :type: str
         """
+        allowed_values = ["add", "clear", "remove", "replace"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `action` ({0}), must be one of {1}"  # noqa: E501
+                .format(action, allowed_values)
+            )
 
         self._action = action
 

@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**filesAbort**](FilesApi.md#filesAbort) | **POST** /files/{owner}/{repo}/{identifier}/abort/ | Abort a multipart file upload.
 [**filesComplete**](FilesApi.md#filesComplete) | **POST** /files/{owner}/{repo}/{identifier}/complete/ | Complete a multipart file upload.
 [**filesCreate**](FilesApi.md#filesCreate) | **POST** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
-[**filesInfo**](FilesApi.md#filesInfo) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information for a multipart file upload.
+[**filesInfo**](FilesApi.md#filesInfo) | **GET** /files/{owner}/{repo}/{identifier}/info/ | Get upload information to perform a multipart file upload.
 [**filesValidate**](FilesApi.md#filesValidate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 
 
@@ -193,11 +193,11 @@ Name | Type | Description  | Notes
 
 <a name="filesInfo"></a>
 # **filesInfo**
-> PackageFilePartsUpload filesInfo(owner, repo, identifier)
+> PackageFilePartsUpload filesInfo(owner, repo, identifier, filename, partNumber)
 
-Get upload information for a multipart file upload.
+Get upload information to perform a multipart file upload.
 
-Get upload information for a multipart file upload.
+Get upload information to perform a multipart file upload.
 
 ### Example
 ```java
@@ -220,8 +220,10 @@ FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
+String filename = "filename_example"; // String | The filename of the file being uploaded
+Integer partNumber = 56; // Integer | The part number to be uploaded next
 try {
-    PackageFilePartsUpload result = apiInstance.filesInfo(owner, repo, identifier);
+    PackageFilePartsUpload result = apiInstance.filesInfo(owner, repo, identifier, filename, partNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FilesApi#filesInfo");
@@ -236,6 +238,8 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
+ **filename** | **String**| The filename of the file being uploaded |
+ **partNumber** | **Integer**| The part number to be uploaded next | [optional]
 
 ### Return type
 
