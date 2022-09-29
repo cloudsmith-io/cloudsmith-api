@@ -71,11 +71,11 @@ class OrganizationGroupSync(object):
 
     @property
     def idp_key(self):
-        """Gets the idp_key of this OrganizationGroupSync.  # noqa: E501
+        """Gets the idp_key of this OrganizationGroupSync.
 
-          # noqa: E501
+        
 
-        :return: The idp_key of this OrganizationGroupSync.  # noqa: E501
+        :return: The idp_key of this OrganizationGroupSync.
         :rtype: str
         """
         return self._idp_key
@@ -84,9 +84,9 @@ class OrganizationGroupSync(object):
     def idp_key(self, idp_key):
         """Sets the idp_key of this OrganizationGroupSync.
 
-          # noqa: E501
+        
 
-        :param idp_key: The idp_key of this OrganizationGroupSync.  # noqa: E501
+        :param idp_key: The idp_key of this OrganizationGroupSync.
         :type: str
         """
         if self._configuration.client_side_validation and idp_key is None:
@@ -96,11 +96,11 @@ class OrganizationGroupSync(object):
 
     @property
     def idp_value(self):
-        """Gets the idp_value of this OrganizationGroupSync.  # noqa: E501
+        """Gets the idp_value of this OrganizationGroupSync.
 
-          # noqa: E501
+        
 
-        :return: The idp_value of this OrganizationGroupSync.  # noqa: E501
+        :return: The idp_value of this OrganizationGroupSync.
         :rtype: str
         """
         return self._idp_value
@@ -109,9 +109,9 @@ class OrganizationGroupSync(object):
     def idp_value(self, idp_value):
         """Sets the idp_value of this OrganizationGroupSync.
 
-          # noqa: E501
+        
 
-        :param idp_value: The idp_value of this OrganizationGroupSync.  # noqa: E501
+        :param idp_value: The idp_value of this OrganizationGroupSync.
         :type: str
         """
         if self._configuration.client_side_validation and idp_value is None:
@@ -121,11 +121,11 @@ class OrganizationGroupSync(object):
 
     @property
     def role(self):
-        """Gets the role of this OrganizationGroupSync.  # noqa: E501
+        """Gets the role of this OrganizationGroupSync.
 
-                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.           # noqa: E501
+                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.         
 
-        :return: The role of this OrganizationGroupSync.  # noqa: E501
+        :return: The role of this OrganizationGroupSync.
         :rtype: str
         """
         return self._role
@@ -134,9 +134,9 @@ class OrganizationGroupSync(object):
     def role(self, role):
         """Sets the role of this OrganizationGroupSync.
 
-                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.           # noqa: E501
+                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.         
 
-        :param role: The role of this OrganizationGroupSync.  # noqa: E501
+        :param role: The role of this OrganizationGroupSync.
         :type: str
         """
 
@@ -144,11 +144,11 @@ class OrganizationGroupSync(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this OrganizationGroupSync.  # noqa: E501
+        """Gets the slug_perm of this OrganizationGroupSync.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this OrganizationGroupSync.  # noqa: E501
+        :return: The slug_perm of this OrganizationGroupSync.
         :rtype: str
         """
         return self._slug_perm
@@ -157,9 +157,9 @@ class OrganizationGroupSync(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this OrganizationGroupSync.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this OrganizationGroupSync.  # noqa: E501
+        :param slug_perm: The slug_perm of this OrganizationGroupSync.
         :type: str
         """
 
@@ -167,11 +167,11 @@ class OrganizationGroupSync(object):
 
     @property
     def team(self):
-        """Gets the team of this OrganizationGroupSync.  # noqa: E501
+        """Gets the team of this OrganizationGroupSync.
 
-          # noqa: E501
+        
 
-        :return: The team of this OrganizationGroupSync.  # noqa: E501
+        :return: The team of this OrganizationGroupSync.
         :rtype: str
         """
         return self._team
@@ -180,9 +180,9 @@ class OrganizationGroupSync(object):
     def team(self, team):
         """Sets the team of this OrganizationGroupSync.
 
-          # noqa: E501
+        
 
-        :param team: The team of this OrganizationGroupSync.  # noqa: E501
+        :param team: The team of this OrganizationGroupSync.
         :type: str
         """
         if self._configuration.client_side_validation and team is None:
@@ -238,3 +238,4 @@ class OrganizationGroupSync(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

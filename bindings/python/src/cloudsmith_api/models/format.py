@@ -88,11 +88,11 @@ class Format(object):
 
     @property
     def description(self):
-        """Gets the description of this Format.  # noqa: E501
+        """Gets the description of this Format.
 
-        Description of the package format  # noqa: E501
+        Description of the package format
 
-        :return: The description of this Format.  # noqa: E501
+        :return: The description of this Format.
         :rtype: str
         """
         return self._description
@@ -101,9 +101,9 @@ class Format(object):
     def description(self, description):
         """Sets the description of this Format.
 
-        Description of the package format  # noqa: E501
+        Description of the package format
 
-        :param description: The description of this Format.  # noqa: E501
+        :param description: The description of this Format.
         :type: str
         """
         if self._configuration.client_side_validation and description is None:
@@ -113,11 +113,11 @@ class Format(object):
 
     @property
     def distributions(self):
-        """Gets the distributions of this Format.  # noqa: E501
+        """Gets the distributions of this Format.
 
-        The distributions supported by this package format  # noqa: E501
+        The distributions supported by this package format
 
-        :return: The distributions of this Format.  # noqa: E501
+        :return: The distributions of this Format.
         :rtype: list[FormatsDistributions]
         """
         return self._distributions
@@ -126,9 +126,9 @@ class Format(object):
     def distributions(self, distributions):
         """Sets the distributions of this Format.
 
-        The distributions supported by this package format  # noqa: E501
+        The distributions supported by this package format
 
-        :param distributions: The distributions of this Format.  # noqa: E501
+        :param distributions: The distributions of this Format.
         :type: list[FormatsDistributions]
         """
 
@@ -136,11 +136,11 @@ class Format(object):
 
     @property
     def extensions(self):
-        """Gets the extensions of this Format.  # noqa: E501
+        """Gets the extensions of this Format.
 
-        A non-exhaustive list of extensions supported  # noqa: E501
+        A non-exhaustive list of extensions supported
 
-        :return: The extensions of this Format.  # noqa: E501
+        :return: The extensions of this Format.
         :rtype: list[str]
         """
         return self._extensions
@@ -149,9 +149,9 @@ class Format(object):
     def extensions(self, extensions):
         """Sets the extensions of this Format.
 
-        A non-exhaustive list of extensions supported  # noqa: E501
+        A non-exhaustive list of extensions supported
 
-        :param extensions: The extensions of this Format.  # noqa: E501
+        :param extensions: The extensions of this Format.
         :type: list[str]
         """
         if self._configuration.client_side_validation and extensions is None:
@@ -161,11 +161,11 @@ class Format(object):
 
     @property
     def name(self):
-        """Gets the name of this Format.  # noqa: E501
+        """Gets the name of this Format.
 
-        Name for the package format  # noqa: E501
+        Name for the package format
 
-        :return: The name of this Format.  # noqa: E501
+        :return: The name of this Format.
         :rtype: str
         """
         return self._name
@@ -174,9 +174,9 @@ class Format(object):
     def name(self, name):
         """Sets the name of this Format.
 
-        Name for the package format  # noqa: E501
+        Name for the package format
 
-        :param name: The name of this Format.  # noqa: E501
+        :param name: The name of this Format.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
@@ -186,11 +186,11 @@ class Format(object):
 
     @property
     def premium(self):
-        """Gets the premium of this Format.  # noqa: E501
+        """Gets the premium of this Format.
 
-        If true the package format is a premium-only feature  # noqa: E501
+        If true the package format is a premium-only feature
 
-        :return: The premium of this Format.  # noqa: E501
+        :return: The premium of this Format.
         :rtype: bool
         """
         return self._premium
@@ -199,9 +199,9 @@ class Format(object):
     def premium(self, premium):
         """Sets the premium of this Format.
 
-        If true the package format is a premium-only feature  # noqa: E501
+        If true the package format is a premium-only feature
 
-        :param premium: The premium of this Format.  # noqa: E501
+        :param premium: The premium of this Format.
         :type: bool
         """
         if self._configuration.client_side_validation and premium is None:
@@ -211,11 +211,11 @@ class Format(object):
 
     @property
     def premium_plan_id(self):
-        """Gets the premium_plan_id of this Format.  # noqa: E501
+        """Gets the premium_plan_id of this Format.
 
-        The minimum plan id required for this package format  # noqa: E501
+        The minimum plan id required for this package format
 
-        :return: The premium_plan_id of this Format.  # noqa: E501
+        :return: The premium_plan_id of this Format.
         :rtype: str
         """
         return self._premium_plan_id
@@ -224,9 +224,9 @@ class Format(object):
     def premium_plan_id(self, premium_plan_id):
         """Sets the premium_plan_id of this Format.
 
-        The minimum plan id required for this package format  # noqa: E501
+        The minimum plan id required for this package format
 
-        :param premium_plan_id: The premium_plan_id of this Format.  # noqa: E501
+        :param premium_plan_id: The premium_plan_id of this Format.
         :type: str
         """
 
@@ -234,11 +234,11 @@ class Format(object):
 
     @property
     def premium_plan_name(self):
-        """Gets the premium_plan_name of this Format.  # noqa: E501
+        """Gets the premium_plan_name of this Format.
 
-        The minimum plan name required for this package format  # noqa: E501
+        The minimum plan name required for this package format
 
-        :return: The premium_plan_name of this Format.  # noqa: E501
+        :return: The premium_plan_name of this Format.
         :rtype: str
         """
         return self._premium_plan_name
@@ -247,9 +247,9 @@ class Format(object):
     def premium_plan_name(self, premium_plan_name):
         """Sets the premium_plan_name of this Format.
 
-        The minimum plan name required for this package format  # noqa: E501
+        The minimum plan name required for this package format
 
-        :param premium_plan_name: The premium_plan_name of this Format.  # noqa: E501
+        :param premium_plan_name: The premium_plan_name of this Format.
         :type: str
         """
 
@@ -257,11 +257,11 @@ class Format(object):
 
     @property
     def slug(self):
-        """Gets the slug of this Format.  # noqa: E501
+        """Gets the slug of this Format.
 
-        Slug for the package format  # noqa: E501
+        Slug for the package format
 
-        :return: The slug of this Format.  # noqa: E501
+        :return: The slug of this Format.
         :rtype: str
         """
         return self._slug
@@ -270,9 +270,9 @@ class Format(object):
     def slug(self, slug):
         """Sets the slug of this Format.
 
-        Slug for the package format  # noqa: E501
+        Slug for the package format
 
-        :param slug: The slug of this Format.  # noqa: E501
+        :param slug: The slug of this Format.
         :type: str
         """
         if self._configuration.client_side_validation and slug is None:
@@ -282,11 +282,11 @@ class Format(object):
 
     @property
     def supports(self):
-        """Gets the supports of this Format.  # noqa: E501
+        """Gets the supports of this Format.
 
-        A set of what the package format supports  # noqa: E501
+        A set of what the package format supports
 
-        :return: The supports of this Format.  # noqa: E501
+        :return: The supports of this Format.
         :rtype: object
         """
         return self._supports
@@ -295,9 +295,9 @@ class Format(object):
     def supports(self, supports):
         """Sets the supports of this Format.
 
-        A set of what the package format supports  # noqa: E501
+        A set of what the package format supports
 
-        :param supports: The supports of this Format.  # noqa: E501
+        :param supports: The supports of this Format.
         :type: object
         """
         if self._configuration.client_side_validation and supports is None:
@@ -353,3 +353,4 @@ class Format(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

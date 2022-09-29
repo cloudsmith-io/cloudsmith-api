@@ -64,6 +64,13 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_members_delete(self):
+        """Test case for orgs_members_delete
+
+        Removes a member from the organization.  # noqa: E501
+        """
+        pass
+
     def test_orgs_members_list(self):
         """Test case for orgs_members_list
 
@@ -81,7 +88,7 @@ class TestOrgsApi(unittest.TestCase):
     def test_orgs_members_remove(self):
         """Test case for orgs_members_remove
 
-        Removes a member from the organization.  # noqa: E501
+        Removes a member from the organization (deprecated, use DELETE instead).  # noqa: E501
         """
         pass
 
@@ -134,6 +141,27 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_teams_members_create(self):
+        """Test case for orgs_teams_members_create
+
+        Add users to a team.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_teams_members_list(self):
+        """Test case for orgs_teams_members_list
+
+        List all members for the team.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_teams_members_update(self):
+        """Test case for orgs_teams_members_update
+
+        Replace all team members.  # noqa: E501
+        """
+        pass
+
     def test_orgs_teams_partial_update(self):
         """Test case for orgs_teams_partial_update
 
@@ -144,7 +172,7 @@ class TestOrgsApi(unittest.TestCase):
     def test_orgs_teams_read(self):
         """Test case for orgs_teams_read
 
-        Viewset for working with Organization teams.  # noqa: E501
+        Get the details for the specific team.  # noqa: E501
         """
         pass
 

@@ -99,6 +99,19 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_members_delete
+  # Removes a member from the organization.
+  # Removes a member from the organization.
+  # @param org 
+  # @param member 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'orgs_members_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_members_list
   # Get the details for all organization members.
   # Get the details for all organization members.
@@ -127,12 +140,12 @@ describe 'OrgsApi' do
   end
 
   # unit tests for orgs_members_remove
-  # Removes a member from the organization.
-  # Removes a member from the organization.
+  # Removes a member from the organization (deprecated, use DELETE instead).
+  # Removes a member from the organization (deprecated, use DELETE instead).
   # @param org 
   # @param member 
   # @param [Hash] opts the optional parameters
-  # @return [OrganizationMembership]
+  # @return [nil]
   describe 'orgs_members_remove test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -208,7 +221,7 @@ describe 'OrgsApi' do
   # Delete a specific team in a organization.
   # Delete a specific team in a organization.
   # @param org 
-  # @param slug_perm 
+  # @param team 
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'orgs_teams_delete test' do
@@ -231,11 +244,52 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_teams_members_create
+  # Add users to a team.
+  # Add users to a team.
+  # @param org 
+  # @param team 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrgsTeamsMembersCreate] :data 
+  # @return [OrganizationTeamMembers]
+  describe 'orgs_teams_members_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_teams_members_list
+  # List all members for the team.
+  # List all members for the team.
+  # @param org 
+  # @param team 
+  # @param [Hash] opts the optional parameters
+  # @return [OrganizationTeamMembers]
+  describe 'orgs_teams_members_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_teams_members_update
+  # Replace all team members.
+  # Replace all team members.
+  # @param org 
+  # @param team 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrgsTeamsMembersUpdate] :data 
+  # @return [nil]
+  describe 'orgs_teams_members_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_teams_partial_update
   # Update a specific team in a organization.
   # Update a specific team in a organization.
   # @param org 
-  # @param slug_perm 
+  # @param team 
   # @param [Hash] opts the optional parameters
   # @option opts [OrgsTeamsPartialUpdate] :data 
   # @return [OrganizationTeam]
@@ -246,10 +300,10 @@ describe 'OrgsApi' do
   end
 
   # unit tests for orgs_teams_read
-  # Viewset for working with Organization teams.
-  # Viewset for working with Organization teams.
+  # Get the details for the specific team.
+  # Get the details for the specific team.
   # @param org 
-  # @param slug_perm 
+  # @param team 
   # @param [Hash] opts the optional parameters
   # @return [OrganizationTeam]
   describe 'orgs_teams_read test' do

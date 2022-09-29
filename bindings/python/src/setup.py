@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "cloudsmith-api"
-VERSION = "1.120.3"
+VERSION = "1.142.3"
 # To install the library, run the following
 #
 # python setup.py install

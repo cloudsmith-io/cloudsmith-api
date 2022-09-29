@@ -69,11 +69,11 @@ class OrgsTeamsPartialUpdate(object):
 
     @property
     def description(self):
-        """Gets the description of this OrgsTeamsPartialUpdate.  # noqa: E501
+        """Gets the description of this OrgsTeamsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The description of this OrgsTeamsPartialUpdate.  # noqa: E501
+        :return: The description of this OrgsTeamsPartialUpdate.
         :rtype: str
         """
         return self._description
@@ -82,9 +82,9 @@ class OrgsTeamsPartialUpdate(object):
     def description(self, description):
         """Sets the description of this OrgsTeamsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param description: The description of this OrgsTeamsPartialUpdate.  # noqa: E501
+        :param description: The description of this OrgsTeamsPartialUpdate.
         :type: str
         """
 
@@ -92,11 +92,11 @@ class OrgsTeamsPartialUpdate(object):
 
     @property
     def name(self):
-        """Gets the name of this OrgsTeamsPartialUpdate.  # noqa: E501
+        """Gets the name of this OrgsTeamsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The name of this OrgsTeamsPartialUpdate.  # noqa: E501
+        :return: The name of this OrgsTeamsPartialUpdate.
         :rtype: str
         """
         return self._name
@@ -105,9 +105,9 @@ class OrgsTeamsPartialUpdate(object):
     def name(self, name):
         """Sets the name of this OrgsTeamsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param name: The name of this OrgsTeamsPartialUpdate.  # noqa: E501
+        :param name: The name of this OrgsTeamsPartialUpdate.
         :type: str
         """
 
@@ -115,11 +115,11 @@ class OrgsTeamsPartialUpdate(object):
 
     @property
     def slug(self):
-        """Gets the slug of this OrgsTeamsPartialUpdate.  # noqa: E501
+        """Gets the slug of this OrgsTeamsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The slug of this OrgsTeamsPartialUpdate.  # noqa: E501
+        :return: The slug of this OrgsTeamsPartialUpdate.
         :rtype: str
         """
         return self._slug
@@ -128,9 +128,9 @@ class OrgsTeamsPartialUpdate(object):
     def slug(self, slug):
         """Sets the slug of this OrgsTeamsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param slug: The slug of this OrgsTeamsPartialUpdate.  # noqa: E501
+        :param slug: The slug of this OrgsTeamsPartialUpdate.
         :type: str
         """
 
@@ -138,11 +138,11 @@ class OrgsTeamsPartialUpdate(object):
 
     @property
     def visibility(self):
-        """Gets the visibility of this OrgsTeamsPartialUpdate.  # noqa: E501
+        """Gets the visibility of this OrgsTeamsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The visibility of this OrgsTeamsPartialUpdate.  # noqa: E501
+        :return: The visibility of this OrgsTeamsPartialUpdate.
         :rtype: str
         """
         return self._visibility
@@ -151,9 +151,9 @@ class OrgsTeamsPartialUpdate(object):
     def visibility(self, visibility):
         """Sets the visibility of this OrgsTeamsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param visibility: The visibility of this OrgsTeamsPartialUpdate.  # noqa: E501
+        :param visibility: The visibility of this OrgsTeamsPartialUpdate.
         :type: str
         """
         allowed_values = ["Visible", "Hidden"]  # noqa: E501
@@ -214,3 +214,4 @@ class OrgsTeamsPartialUpdate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

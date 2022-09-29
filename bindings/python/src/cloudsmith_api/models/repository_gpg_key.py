@@ -83,11 +83,11 @@ class RepositoryGpgKey(object):
 
     @property
     def active(self):
-        """Gets the active of this RepositoryGpgKey.  # noqa: E501
+        """Gets the active of this RepositoryGpgKey.
 
-        If selected this is the active key for this repository.  # noqa: E501
+        If selected this is the active key for this repository.
 
-        :return: The active of this RepositoryGpgKey.  # noqa: E501
+        :return: The active of this RepositoryGpgKey.
         :rtype: bool
         """
         return self._active
@@ -96,9 +96,9 @@ class RepositoryGpgKey(object):
     def active(self, active):
         """Sets the active of this RepositoryGpgKey.
 
-        If selected this is the active key for this repository.  # noqa: E501
+        If selected this is the active key for this repository.
 
-        :param active: The active of this RepositoryGpgKey.  # noqa: E501
+        :param active: The active of this RepositoryGpgKey.
         :type: bool
         """
 
@@ -106,11 +106,11 @@ class RepositoryGpgKey(object):
 
     @property
     def comment(self):
-        """Gets the comment of this RepositoryGpgKey.  # noqa: E501
+        """Gets the comment of this RepositoryGpgKey.
 
-          # noqa: E501
+        
 
-        :return: The comment of this RepositoryGpgKey.  # noqa: E501
+        :return: The comment of this RepositoryGpgKey.
         :rtype: str
         """
         return self._comment
@@ -119,9 +119,9 @@ class RepositoryGpgKey(object):
     def comment(self, comment):
         """Sets the comment of this RepositoryGpgKey.
 
-          # noqa: E501
+        
 
-        :param comment: The comment of this RepositoryGpgKey.  # noqa: E501
+        :param comment: The comment of this RepositoryGpgKey.
         :type: str
         """
         if self._configuration.client_side_validation and comment is None:
@@ -131,11 +131,11 @@ class RepositoryGpgKey(object):
 
     @property
     def created_at(self):
-        """Gets the created_at of this RepositoryGpgKey.  # noqa: E501
+        """Gets the created_at of this RepositoryGpgKey.
 
-          # noqa: E501
+        
 
-        :return: The created_at of this RepositoryGpgKey.  # noqa: E501
+        :return: The created_at of this RepositoryGpgKey.
         :rtype: str
         """
         return self._created_at
@@ -144,9 +144,9 @@ class RepositoryGpgKey(object):
     def created_at(self, created_at):
         """Sets the created_at of this RepositoryGpgKey.
 
-          # noqa: E501
+        
 
-        :param created_at: The created_at of this RepositoryGpgKey.  # noqa: E501
+        :param created_at: The created_at of this RepositoryGpgKey.
         :type: str
         """
 
@@ -154,11 +154,11 @@ class RepositoryGpgKey(object):
 
     @property
     def default(self):
-        """Gets the default of this RepositoryGpgKey.  # noqa: E501
+        """Gets the default of this RepositoryGpgKey.
 
-        If selected this is the default key for this repository.  # noqa: E501
+        If selected this is the default key for this repository.
 
-        :return: The default of this RepositoryGpgKey.  # noqa: E501
+        :return: The default of this RepositoryGpgKey.
         :rtype: bool
         """
         return self._default
@@ -167,9 +167,9 @@ class RepositoryGpgKey(object):
     def default(self, default):
         """Sets the default of this RepositoryGpgKey.
 
-        If selected this is the default key for this repository.  # noqa: E501
+        If selected this is the default key for this repository.
 
-        :param default: The default of this RepositoryGpgKey.  # noqa: E501
+        :param default: The default of this RepositoryGpgKey.
         :type: bool
         """
 
@@ -177,11 +177,11 @@ class RepositoryGpgKey(object):
 
     @property
     def fingerprint(self):
-        """Gets the fingerprint of this RepositoryGpgKey.  # noqa: E501
+        """Gets the fingerprint of this RepositoryGpgKey.
 
-        The long identifier used by GPG for this key.  # noqa: E501
+        The long identifier used by GPG for this key.
 
-        :return: The fingerprint of this RepositoryGpgKey.  # noqa: E501
+        :return: The fingerprint of this RepositoryGpgKey.
         :rtype: str
         """
         return self._fingerprint
@@ -190,9 +190,9 @@ class RepositoryGpgKey(object):
     def fingerprint(self, fingerprint):
         """Sets the fingerprint of this RepositoryGpgKey.
 
-        The long identifier used by GPG for this key.  # noqa: E501
+        The long identifier used by GPG for this key.
 
-        :param fingerprint: The fingerprint of this RepositoryGpgKey.  # noqa: E501
+        :param fingerprint: The fingerprint of this RepositoryGpgKey.
         :type: str
         """
 
@@ -200,11 +200,11 @@ class RepositoryGpgKey(object):
 
     @property
     def fingerprint_short(self):
-        """Gets the fingerprint_short of this RepositoryGpgKey.  # noqa: E501
+        """Gets the fingerprint_short of this RepositoryGpgKey.
 
-          # noqa: E501
+        
 
-        :return: The fingerprint_short of this RepositoryGpgKey.  # noqa: E501
+        :return: The fingerprint_short of this RepositoryGpgKey.
         :rtype: str
         """
         return self._fingerprint_short
@@ -213,9 +213,9 @@ class RepositoryGpgKey(object):
     def fingerprint_short(self, fingerprint_short):
         """Sets the fingerprint_short of this RepositoryGpgKey.
 
-          # noqa: E501
+        
 
-        :param fingerprint_short: The fingerprint_short of this RepositoryGpgKey.  # noqa: E501
+        :param fingerprint_short: The fingerprint_short of this RepositoryGpgKey.
         :type: str
         """
 
@@ -223,11 +223,11 @@ class RepositoryGpgKey(object):
 
     @property
     def public_key(self):
-        """Gets the public_key of this RepositoryGpgKey.  # noqa: E501
+        """Gets the public_key of this RepositoryGpgKey.
 
-        The public key given to repository users.  # noqa: E501
+        The public key given to repository users.
 
-        :return: The public_key of this RepositoryGpgKey.  # noqa: E501
+        :return: The public_key of this RepositoryGpgKey.
         :rtype: str
         """
         return self._public_key
@@ -236,9 +236,9 @@ class RepositoryGpgKey(object):
     def public_key(self, public_key):
         """Sets the public_key of this RepositoryGpgKey.
 
-        The public key given to repository users.  # noqa: E501
+        The public key given to repository users.
 
-        :param public_key: The public_key of this RepositoryGpgKey.  # noqa: E501
+        :param public_key: The public_key of this RepositoryGpgKey.
         :type: str
         """
 
@@ -292,3 +292,4 @@ class RepositoryGpgKey(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

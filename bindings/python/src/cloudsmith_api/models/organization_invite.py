@@ -94,11 +94,11 @@ class OrganizationInvite(object):
 
     @property
     def email(self):
-        """Gets the email of this OrganizationInvite.  # noqa: E501
+        """Gets the email of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The email of this OrganizationInvite.  # noqa: E501
+        :return: The email of this OrganizationInvite.
         :rtype: str
         """
         return self._email
@@ -107,9 +107,9 @@ class OrganizationInvite(object):
     def email(self, email):
         """Sets the email of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param email: The email of this OrganizationInvite.  # noqa: E501
+        :param email: The email of this OrganizationInvite.
         :type: str
         """
 
@@ -117,11 +117,11 @@ class OrganizationInvite(object):
 
     @property
     def expires_at(self):
-        """Gets the expires_at of this OrganizationInvite.  # noqa: E501
+        """Gets the expires_at of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The expires_at of this OrganizationInvite.  # noqa: E501
+        :return: The expires_at of this OrganizationInvite.
         :rtype: str
         """
         return self._expires_at
@@ -130,9 +130,9 @@ class OrganizationInvite(object):
     def expires_at(self, expires_at):
         """Sets the expires_at of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param expires_at: The expires_at of this OrganizationInvite.  # noqa: E501
+        :param expires_at: The expires_at of this OrganizationInvite.
         :type: str
         """
 
@@ -140,11 +140,11 @@ class OrganizationInvite(object):
 
     @property
     def inviter(self):
-        """Gets the inviter of this OrganizationInvite.  # noqa: E501
+        """Gets the inviter of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The inviter of this OrganizationInvite.  # noqa: E501
+        :return: The inviter of this OrganizationInvite.
         :rtype: str
         """
         return self._inviter
@@ -153,9 +153,9 @@ class OrganizationInvite(object):
     def inviter(self, inviter):
         """Sets the inviter of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param inviter: The inviter of this OrganizationInvite.  # noqa: E501
+        :param inviter: The inviter of this OrganizationInvite.
         :type: str
         """
 
@@ -163,11 +163,11 @@ class OrganizationInvite(object):
 
     @property
     def inviter_url(self):
-        """Gets the inviter_url of this OrganizationInvite.  # noqa: E501
+        """Gets the inviter_url of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The inviter_url of this OrganizationInvite.  # noqa: E501
+        :return: The inviter_url of this OrganizationInvite.
         :rtype: str
         """
         return self._inviter_url
@@ -176,9 +176,9 @@ class OrganizationInvite(object):
     def inviter_url(self, inviter_url):
         """Sets the inviter_url of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param inviter_url: The inviter_url of this OrganizationInvite.  # noqa: E501
+        :param inviter_url: The inviter_url of this OrganizationInvite.
         :type: str
         """
 
@@ -186,11 +186,11 @@ class OrganizationInvite(object):
 
     @property
     def org(self):
-        """Gets the org of this OrganizationInvite.  # noqa: E501
+        """Gets the org of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The org of this OrganizationInvite.  # noqa: E501
+        :return: The org of this OrganizationInvite.
         :rtype: str
         """
         return self._org
@@ -199,9 +199,9 @@ class OrganizationInvite(object):
     def org(self, org):
         """Sets the org of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param org: The org of this OrganizationInvite.  # noqa: E501
+        :param org: The org of this OrganizationInvite.
         :type: str
         """
 
@@ -209,11 +209,11 @@ class OrganizationInvite(object):
 
     @property
     def role(self):
-        """Gets the role of this OrganizationInvite.  # noqa: E501
+        """Gets the role of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The role of this OrganizationInvite.  # noqa: E501
+        :return: The role of this OrganizationInvite.
         :rtype: str
         """
         return self._role
@@ -222,9 +222,9 @@ class OrganizationInvite(object):
     def role(self, role):
         """Sets the role of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param role: The role of this OrganizationInvite.  # noqa: E501
+        :param role: The role of this OrganizationInvite.
         :type: str
         """
         allowed_values = ["Owner", "Manager", "Member", "Collaborator"]  # noqa: E501
@@ -239,11 +239,11 @@ class OrganizationInvite(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this OrganizationInvite.  # noqa: E501
+        """Gets the slug_perm of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this OrganizationInvite.  # noqa: E501
+        :return: The slug_perm of this OrganizationInvite.
         :rtype: str
         """
         return self._slug_perm
@@ -252,9 +252,9 @@ class OrganizationInvite(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this OrganizationInvite.  # noqa: E501
+        :param slug_perm: The slug_perm of this OrganizationInvite.
         :type: str
         """
 
@@ -262,11 +262,11 @@ class OrganizationInvite(object):
 
     @property
     def user(self):
-        """Gets the user of this OrganizationInvite.  # noqa: E501
+        """Gets the user of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The user of this OrganizationInvite.  # noqa: E501
+        :return: The user of this OrganizationInvite.
         :rtype: str
         """
         return self._user
@@ -275,9 +275,9 @@ class OrganizationInvite(object):
     def user(self, user):
         """Sets the user of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param user: The user of this OrganizationInvite.  # noqa: E501
+        :param user: The user of this OrganizationInvite.
         :type: str
         """
 
@@ -285,11 +285,11 @@ class OrganizationInvite(object):
 
     @property
     def user_url(self):
-        """Gets the user_url of this OrganizationInvite.  # noqa: E501
+        """Gets the user_url of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :return: The user_url of this OrganizationInvite.  # noqa: E501
+        :return: The user_url of this OrganizationInvite.
         :rtype: str
         """
         return self._user_url
@@ -298,9 +298,9 @@ class OrganizationInvite(object):
     def user_url(self, user_url):
         """Sets the user_url of this OrganizationInvite.
 
-          # noqa: E501
+        
 
-        :param user_url: The user_url of this OrganizationInvite.  # noqa: E501
+        :param user_url: The user_url of this OrganizationInvite.
         :type: str
         """
 
@@ -354,3 +354,4 @@ class OrganizationInvite(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

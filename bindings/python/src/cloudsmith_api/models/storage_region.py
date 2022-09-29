@@ -57,11 +57,11 @@ class StorageRegion(object):
 
     @property
     def label(self):
-        """Gets the label of this StorageRegion.  # noqa: E501
+        """Gets the label of this StorageRegion.
 
-        Name of the storage region  # noqa: E501
+        Name of the storage region
 
-        :return: The label of this StorageRegion.  # noqa: E501
+        :return: The label of this StorageRegion.
         :rtype: str
         """
         return self._label
@@ -70,9 +70,9 @@ class StorageRegion(object):
     def label(self, label):
         """Sets the label of this StorageRegion.
 
-        Name of the storage region  # noqa: E501
+        Name of the storage region
 
-        :param label: The label of this StorageRegion.  # noqa: E501
+        :param label: The label of this StorageRegion.
         :type: str
         """
         if self._configuration.client_side_validation and label is None:
@@ -82,11 +82,11 @@ class StorageRegion(object):
 
     @property
     def slug(self):
-        """Gets the slug of this StorageRegion.  # noqa: E501
+        """Gets the slug of this StorageRegion.
 
-        Slug for the storage region  # noqa: E501
+        Slug for the storage region
 
-        :return: The slug of this StorageRegion.  # noqa: E501
+        :return: The slug of this StorageRegion.
         :rtype: str
         """
         return self._slug
@@ -95,9 +95,9 @@ class StorageRegion(object):
     def slug(self, slug):
         """Sets the slug of this StorageRegion.
 
-        Slug for the storage region  # noqa: E501
+        Slug for the storage region
 
-        :param slug: The slug of this StorageRegion.  # noqa: E501
+        :param slug: The slug of this StorageRegion.
         :type: str
         """
         if self._configuration.client_side_validation and slug is None:
@@ -153,3 +153,4 @@ class StorageRegion(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

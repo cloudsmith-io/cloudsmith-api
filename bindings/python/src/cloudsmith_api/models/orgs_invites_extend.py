@@ -69,11 +69,11 @@ class OrgsInvitesExtend(object):
 
     @property
     def email(self):
-        """Gets the email of this OrgsInvitesExtend.  # noqa: E501
+        """Gets the email of this OrgsInvitesExtend.
 
-        None  # noqa: E501
+        None
 
-        :return: The email of this OrgsInvitesExtend.  # noqa: E501
+        :return: The email of this OrgsInvitesExtend.
         :rtype: str
         """
         return self._email
@@ -82,9 +82,9 @@ class OrgsInvitesExtend(object):
     def email(self, email):
         """Sets the email of this OrgsInvitesExtend.
 
-        None  # noqa: E501
+        None
 
-        :param email: The email of this OrgsInvitesExtend.  # noqa: E501
+        :param email: The email of this OrgsInvitesExtend.
         :type: str
         """
 
@@ -92,11 +92,11 @@ class OrgsInvitesExtend(object):
 
     @property
     def inviter(self):
-        """Gets the inviter of this OrgsInvitesExtend.  # noqa: E501
+        """Gets the inviter of this OrgsInvitesExtend.
 
-        None  # noqa: E501
+        None
 
-        :return: The inviter of this OrgsInvitesExtend.  # noqa: E501
+        :return: The inviter of this OrgsInvitesExtend.
         :rtype: str
         """
         return self._inviter
@@ -105,9 +105,9 @@ class OrgsInvitesExtend(object):
     def inviter(self, inviter):
         """Sets the inviter of this OrgsInvitesExtend.
 
-        None  # noqa: E501
+        None
 
-        :param inviter: The inviter of this OrgsInvitesExtend.  # noqa: E501
+        :param inviter: The inviter of this OrgsInvitesExtend.
         :type: str
         """
 
@@ -115,11 +115,11 @@ class OrgsInvitesExtend(object):
 
     @property
     def role(self):
-        """Gets the role of this OrgsInvitesExtend.  # noqa: E501
+        """Gets the role of this OrgsInvitesExtend.
 
-        None  # noqa: E501
+        None
 
-        :return: The role of this OrgsInvitesExtend.  # noqa: E501
+        :return: The role of this OrgsInvitesExtend.
         :rtype: str
         """
         return self._role
@@ -128,9 +128,9 @@ class OrgsInvitesExtend(object):
     def role(self, role):
         """Sets the role of this OrgsInvitesExtend.
 
-        None  # noqa: E501
+        None
 
-        :param role: The role of this OrgsInvitesExtend.  # noqa: E501
+        :param role: The role of this OrgsInvitesExtend.
         :type: str
         """
         allowed_values = ["Owner", "Manager", "Member", "Collaborator"]  # noqa: E501
@@ -145,11 +145,11 @@ class OrgsInvitesExtend(object):
 
     @property
     def user(self):
-        """Gets the user of this OrgsInvitesExtend.  # noqa: E501
+        """Gets the user of this OrgsInvitesExtend.
 
-        None  # noqa: E501
+        None
 
-        :return: The user of this OrgsInvitesExtend.  # noqa: E501
+        :return: The user of this OrgsInvitesExtend.
         :rtype: str
         """
         return self._user
@@ -158,9 +158,9 @@ class OrgsInvitesExtend(object):
     def user(self, user):
         """Sets the user of this OrgsInvitesExtend.
 
-        None  # noqa: E501
+        None
 
-        :param user: The user of this OrgsInvitesExtend.  # noqa: E501
+        :param user: The user of this OrgsInvitesExtend.
         :type: str
         """
 
@@ -214,3 +214,4 @@ class OrgsInvitesExtend(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

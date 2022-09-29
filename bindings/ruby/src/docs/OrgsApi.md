@@ -9,18 +9,22 @@ Method | HTTP request | Description
 [**orgs_invites_extend**](OrgsApi.md#orgs_invites_extend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
 [**orgs_invites_list**](OrgsApi.md#orgs_invites_list) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
 [**orgs_list**](OrgsApi.md#orgs_list) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
+[**orgs_members_delete**](OrgsApi.md#orgs_members_delete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 [**orgs_members_list**](OrgsApi.md#orgs_members_list) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
 [**orgs_members_read**](OrgsApi.md#orgs_members_read) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
-[**orgs_members_remove**](OrgsApi.md#orgs_members_remove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization.
+[**orgs_members_remove**](OrgsApi.md#orgs_members_remove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
 [**orgs_read**](OrgsApi.md#orgs_read) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 [**orgs_saml_group_sync_create**](OrgsApi.md#orgs_saml_group_sync_create) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgs_saml_group_sync_delete**](OrgsApi.md#orgs_saml_group_sync_delete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 [**orgs_saml_group_sync_list**](OrgsApi.md#orgs_saml_group_sync_list) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
 [**orgs_teams_create**](OrgsApi.md#orgs_teams_create) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
-[**orgs_teams_delete**](OrgsApi.md#orgs_teams_delete) | **DELETE** /orgs/{org}/teams/{slug_perm}/ | Delete a specific team in a organization.
+[**orgs_teams_delete**](OrgsApi.md#orgs_teams_delete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization.
 [**orgs_teams_list**](OrgsApi.md#orgs_teams_list) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
-[**orgs_teams_partial_update**](OrgsApi.md#orgs_teams_partial_update) | **PATCH** /orgs/{org}/teams/{slug_perm}/ | Update a specific team in a organization.
-[**orgs_teams_read**](OrgsApi.md#orgs_teams_read) | **GET** /orgs/{org}/teams/{slug_perm}/ | Viewset for working with Organization teams.
+[**orgs_teams_members_create**](OrgsApi.md#orgs_teams_members_create) | **POST** /orgs/{org}/teams/{team}/members | Add users to a team.
+[**orgs_teams_members_list**](OrgsApi.md#orgs_teams_members_list) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team.
+[**orgs_teams_members_update**](OrgsApi.md#orgs_teams_members_update) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
+[**orgs_teams_partial_update**](OrgsApi.md#orgs_teams_partial_update) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
+[**orgs_teams_read**](OrgsApi.md#orgs_teams_read) | **GET** /orgs/{org}/teams/{team}/ | Get the details for the specific team.
 
 
 # **orgs_invites_create**
@@ -315,6 +319,62 @@ Name | Type | Description  | Notes
 
 
 
+# **orgs_members_delete**
+> orgs_members_delete(org, member)
+
+Removes a member from the organization.
+
+Removes a member from the organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+member = 'member_example' # String | 
+
+
+begin
+  #Removes a member from the organization.
+  api_instance.orgs_members_delete(org, member)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_members_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **member** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+
 # **orgs_members_list**
 > Array&lt;OrganizationMembership&gt; orgs_members_list(org, opts)
 
@@ -433,11 +493,11 @@ Name | Type | Description  | Notes
 
 
 # **orgs_members_remove**
-> OrganizationMembership orgs_members_remove(org, member)
+> orgs_members_remove(org, member)
 
-Removes a member from the organization.
+Removes a member from the organization (deprecated, use DELETE instead).
 
-Removes a member from the organization.
+Removes a member from the organization (deprecated, use DELETE instead).
 
 ### Example
 ```ruby
@@ -459,9 +519,8 @@ member = 'member_example' # String |
 
 
 begin
-  #Removes a member from the organization.
-  result = api_instance.orgs_members_remove(org, member)
-  p result
+  #Removes a member from the organization (deprecated, use DELETE instead).
+  api_instance.orgs_members_remove(org, member)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling OrgsApi->orgs_members_remove: #{e}"
 end
@@ -476,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationMembership**](OrganizationMembership.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -776,7 +835,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_delete**
-> orgs_teams_delete(org, slug_perm)
+> orgs_teams_delete(org, team)
 
 Delete a specific team in a organization.
 
@@ -798,12 +857,12 @@ api_instance = CloudsmithApi::OrgsApi.new
 
 org = 'org_example' # String | 
 
-slug_perm = 'slug_perm_example' # String | 
+team = 'team_example' # String | 
 
 
 begin
   #Delete a specific team in a organization.
-  api_instance.orgs_teams_delete(org, slug_perm)
+  api_instance.orgs_teams_delete(org, team)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling OrgsApi->orgs_teams_delete: #{e}"
 end
@@ -814,7 +873,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
- **slug_perm** | **String**|  | 
+ **team** | **String**|  | 
 
 ### Return type
 
@@ -891,8 +950,186 @@ Name | Type | Description  | Notes
 
 
 
+# **orgs_teams_members_create**
+> OrganizationTeamMembers orgs_teams_members_create(org, team, opts)
+
+Add users to a team.
+
+Add users to a team.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+team = 'team_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrgsTeamsMembersCreate.new # OrgsTeamsMembersCreate | 
+}
+
+begin
+  #Add users to a team.
+  result = api_instance.orgs_teams_members_create(org, team, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_teams_members_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **team** | **String**|  | 
+ **data** | [**OrgsTeamsMembersCreate**](OrgsTeamsMembersCreate.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **orgs_teams_members_list**
+> OrganizationTeamMembers orgs_teams_members_list(org, team)
+
+List all members for the team.
+
+List all members for the team.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+team = 'team_example' # String | 
+
+
+begin
+  #List all members for the team.
+  result = api_instance.orgs_teams_members_list(org, team)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_teams_members_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **team** | **String**|  | 
+
+### Return type
+
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+
+# **orgs_teams_members_update**
+> orgs_teams_members_update(org, team, opts)
+
+Replace all team members.
+
+Replace all team members.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+team = 'team_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrgsTeamsMembersUpdate.new # OrgsTeamsMembersUpdate | 
+}
+
+begin
+  #Replace all team members.
+  api_instance.orgs_teams_members_update(org, team, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_teams_members_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **team** | **String**|  | 
+ **data** | [**OrgsTeamsMembersUpdate**](OrgsTeamsMembersUpdate.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
 # **orgs_teams_partial_update**
-> OrganizationTeam orgs_teams_partial_update(org, slug_perm, opts)
+> OrganizationTeam orgs_teams_partial_update(org, team, opts)
 
 Update a specific team in a organization.
 
@@ -914,7 +1151,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 
 org = 'org_example' # String | 
 
-slug_perm = 'slug_perm_example' # String | 
+team = 'team_example' # String | 
 
 opts = { 
   data: CloudsmithApi::OrgsTeamsPartialUpdate.new # OrgsTeamsPartialUpdate | 
@@ -922,7 +1159,7 @@ opts = {
 
 begin
   #Update a specific team in a organization.
-  result = api_instance.orgs_teams_partial_update(org, slug_perm, opts)
+  result = api_instance.orgs_teams_partial_update(org, team, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling OrgsApi->orgs_teams_partial_update: #{e}"
@@ -934,7 +1171,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
- **slug_perm** | **String**|  | 
+ **team** | **String**|  | 
  **data** | [**OrgsTeamsPartialUpdate**](OrgsTeamsPartialUpdate.md)|  | [optional] 
 
 ### Return type
@@ -953,11 +1190,11 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_read**
-> OrganizationTeam orgs_teams_read(org, slug_perm)
+> OrganizationTeam orgs_teams_read(org, team)
 
-Viewset for working with Organization teams.
+Get the details for the specific team.
 
-Viewset for working with Organization teams.
+Get the details for the specific team.
 
 ### Example
 ```ruby
@@ -975,12 +1212,12 @@ api_instance = CloudsmithApi::OrgsApi.new
 
 org = 'org_example' # String | 
 
-slug_perm = 'slug_perm_example' # String | 
+team = 'team_example' # String | 
 
 
 begin
-  #Viewset for working with Organization teams.
-  result = api_instance.orgs_teams_read(org, slug_perm)
+  #Get the details for the specific team.
+  result = api_instance.orgs_teams_read(org, team)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling OrgsApi->orgs_teams_read: #{e}"
@@ -992,7 +1229,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
- **slug_perm** | **String**|  | 
+ **team** | **String**|  | 
 
 ### Return type
 

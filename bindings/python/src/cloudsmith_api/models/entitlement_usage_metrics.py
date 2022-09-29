@@ -53,11 +53,11 @@ class EntitlementUsageMetrics(object):
 
     @property
     def tokens(self):
-        """Gets the tokens of this EntitlementUsageMetrics.  # noqa: E501
+        """Gets the tokens of this EntitlementUsageMetrics.
 
-          # noqa: E501
+        
 
-        :return: The tokens of this EntitlementUsageMetrics.  # noqa: E501
+        :return: The tokens of this EntitlementUsageMetrics.
         :rtype: object
         """
         return self._tokens
@@ -66,9 +66,9 @@ class EntitlementUsageMetrics(object):
     def tokens(self, tokens):
         """Sets the tokens of this EntitlementUsageMetrics.
 
-          # noqa: E501
+        
 
-        :param tokens: The tokens of this EntitlementUsageMetrics.  # noqa: E501
+        :param tokens: The tokens of this EntitlementUsageMetrics.
         :type: object
         """
         if self._configuration.client_side_validation and tokens is None:
@@ -124,3 +124,4 @@ class EntitlementUsageMetrics(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

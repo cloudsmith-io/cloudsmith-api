@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import cloudsmith_api
-from cloudsmith_api.models.repository_privilege_list import RepositoryPrivilegeList  # noqa: E501
+from cloudsmith_api.models.repository_privilege_input import RepositoryPrivilegeInput  # noqa: E501
 from cloudsmith_api.rest import ApiException
 
 
-class TestRepositoryPrivilegeList(unittest.TestCase):
-    """RepositoryPrivilegeList unit test stubs"""
+class TestRepositoryPrivilegeInput(unittest.TestCase):
+    """RepositoryPrivilegeInput unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestRepositoryPrivilegeList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRepositoryPrivilegeList(self):
-        """Test RepositoryPrivilegeList"""
+    def testRepositoryPrivilegeInput(self):
+        """Test RepositoryPrivilegeInput"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = cloudsmith_api.models.repository_privilege_list.RepositoryPrivilegeList()  # noqa: E501
+        # model = cloudsmith_api.models.repository_privilege_input.RepositoryPrivilegeInput()  # noqa: E501
         pass
 
 

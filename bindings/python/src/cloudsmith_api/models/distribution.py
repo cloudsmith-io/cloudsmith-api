@@ -83,11 +83,11 @@ class Distribution(object):
 
     @property
     def format(self):
-        """Gets the format of this Distribution.  # noqa: E501
+        """Gets the format of this Distribution.
 
-          # noqa: E501
+        
 
-        :return: The format of this Distribution.  # noqa: E501
+        :return: The format of this Distribution.
         :rtype: str
         """
         return self._format
@@ -96,9 +96,9 @@ class Distribution(object):
     def format(self, format):
         """Sets the format of this Distribution.
 
-          # noqa: E501
+        
 
-        :param format: The format of this Distribution.  # noqa: E501
+        :param format: The format of this Distribution.
         :type: str
         """
 
@@ -106,11 +106,11 @@ class Distribution(object):
 
     @property
     def format_url(self):
-        """Gets the format_url of this Distribution.  # noqa: E501
+        """Gets the format_url of this Distribution.
 
-          # noqa: E501
+        
 
-        :return: The format_url of this Distribution.  # noqa: E501
+        :return: The format_url of this Distribution.
         :rtype: str
         """
         return self._format_url
@@ -119,9 +119,9 @@ class Distribution(object):
     def format_url(self, format_url):
         """Sets the format_url of this Distribution.
 
-          # noqa: E501
+        
 
-        :param format_url: The format_url of this Distribution.  # noqa: E501
+        :param format_url: The format_url of this Distribution.
         :type: str
         """
 
@@ -129,11 +129,11 @@ class Distribution(object):
 
     @property
     def name(self):
-        """Gets the name of this Distribution.  # noqa: E501
+        """Gets the name of this Distribution.
 
-          # noqa: E501
+        
 
-        :return: The name of this Distribution.  # noqa: E501
+        :return: The name of this Distribution.
         :rtype: str
         """
         return self._name
@@ -142,9 +142,9 @@ class Distribution(object):
     def name(self, name):
         """Sets the name of this Distribution.
 
-          # noqa: E501
+        
 
-        :param name: The name of this Distribution.  # noqa: E501
+        :param name: The name of this Distribution.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
@@ -154,11 +154,11 @@ class Distribution(object):
 
     @property
     def self_url(self):
-        """Gets the self_url of this Distribution.  # noqa: E501
+        """Gets the self_url of this Distribution.
 
-          # noqa: E501
+        
 
-        :return: The self_url of this Distribution.  # noqa: E501
+        :return: The self_url of this Distribution.
         :rtype: str
         """
         return self._self_url
@@ -167,9 +167,9 @@ class Distribution(object):
     def self_url(self, self_url):
         """Sets the self_url of this Distribution.
 
-          # noqa: E501
+        
 
-        :param self_url: The self_url of this Distribution.  # noqa: E501
+        :param self_url: The self_url of this Distribution.
         :type: str
         """
 
@@ -177,11 +177,11 @@ class Distribution(object):
 
     @property
     def slug(self):
-        """Gets the slug of this Distribution.  # noqa: E501
+        """Gets the slug of this Distribution.
 
-        The slug identifier for this distribution  # noqa: E501
+        The slug identifier for this distribution
 
-        :return: The slug of this Distribution.  # noqa: E501
+        :return: The slug of this Distribution.
         :rtype: str
         """
         return self._slug
@@ -190,9 +190,9 @@ class Distribution(object):
     def slug(self, slug):
         """Sets the slug of this Distribution.
 
-        The slug identifier for this distribution  # noqa: E501
+        The slug identifier for this distribution
 
-        :param slug: The slug of this Distribution.  # noqa: E501
+        :param slug: The slug of this Distribution.
         :type: str
         """
 
@@ -200,11 +200,11 @@ class Distribution(object):
 
     @property
     def variants(self):
-        """Gets the variants of this Distribution.  # noqa: E501
+        """Gets the variants of this Distribution.
 
-          # noqa: E501
+        
 
-        :return: The variants of this Distribution.  # noqa: E501
+        :return: The variants of this Distribution.
         :rtype: str
         """
         return self._variants
@@ -213,9 +213,9 @@ class Distribution(object):
     def variants(self, variants):
         """Sets the variants of this Distribution.
 
-          # noqa: E501
+        
 
-        :param variants: The variants of this Distribution.  # noqa: E501
+        :param variants: The variants of this Distribution.
         :type: str
         """
 
@@ -223,11 +223,11 @@ class Distribution(object):
 
     @property
     def versions(self):
-        """Gets the versions of this Distribution.  # noqa: E501
+        """Gets the versions of this Distribution.
 
-        A list of the versions for this distribution  # noqa: E501
+        A list of the versions for this distribution
 
-        :return: The versions of this Distribution.  # noqa: E501
+        :return: The versions of this Distribution.
         :rtype: list[DistrosVersions]
         """
         return self._versions
@@ -236,9 +236,9 @@ class Distribution(object):
     def versions(self, versions):
         """Sets the versions of this Distribution.
 
-        A list of the versions for this distribution  # noqa: E501
+        A list of the versions for this distribution
 
-        :param versions: The versions of this Distribution.  # noqa: E501
+        :param versions: The versions of this Distribution.
         :type: list[DistrosVersions]
         """
 
@@ -292,3 +292,4 @@ class Distribution(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

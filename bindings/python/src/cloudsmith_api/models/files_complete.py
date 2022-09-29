@@ -68,11 +68,11 @@ class FilesComplete(object):
 
     @property
     def filename(self):
-        """Gets the filename of this FilesComplete.  # noqa: E501
+        """Gets the filename of this FilesComplete.
 
-        Filename for the package file upload.  # noqa: E501
+        Filename for the package file upload.
 
-        :return: The filename of this FilesComplete.  # noqa: E501
+        :return: The filename of this FilesComplete.
         :rtype: str
         """
         return self._filename
@@ -81,9 +81,9 @@ class FilesComplete(object):
     def filename(self, filename):
         """Sets the filename of this FilesComplete.
 
-        Filename for the package file upload.  # noqa: E501
+        Filename for the package file upload.
 
-        :param filename: The filename of this FilesComplete.  # noqa: E501
+        :param filename: The filename of this FilesComplete.
         :type: str
         """
         if self._configuration.client_side_validation and filename is None:
@@ -93,11 +93,11 @@ class FilesComplete(object):
 
     @property
     def md5_checksum(self):
-        """Gets the md5_checksum of this FilesComplete.  # noqa: E501
+        """Gets the md5_checksum of this FilesComplete.
 
-        MD5 checksum for a POST-based package file upload.  # noqa: E501
+        MD5 checksum for a POST-based package file upload.
 
-        :return: The md5_checksum of this FilesComplete.  # noqa: E501
+        :return: The md5_checksum of this FilesComplete.
         :rtype: str
         """
         return self._md5_checksum
@@ -106,9 +106,9 @@ class FilesComplete(object):
     def md5_checksum(self, md5_checksum):
         """Sets the md5_checksum of this FilesComplete.
 
-        MD5 checksum for a POST-based package file upload.  # noqa: E501
+        MD5 checksum for a POST-based package file upload.
 
-        :param md5_checksum: The md5_checksum of this FilesComplete.  # noqa: E501
+        :param md5_checksum: The md5_checksum of this FilesComplete.
         :type: str
         """
 
@@ -116,11 +116,11 @@ class FilesComplete(object):
 
     @property
     def method(self):
-        """Gets the method of this FilesComplete.  # noqa: E501
+        """Gets the method of this FilesComplete.
 
-        The method to use for package file upload.  # noqa: E501
+        The method to use for package file upload.
 
-        :return: The method of this FilesComplete.  # noqa: E501
+        :return: The method of this FilesComplete.
         :rtype: str
         """
         return self._method
@@ -129,9 +129,9 @@ class FilesComplete(object):
     def method(self, method):
         """Sets the method of this FilesComplete.
 
-        The method to use for package file upload.  # noqa: E501
+        The method to use for package file upload.
 
-        :param method: The method of this FilesComplete.  # noqa: E501
+        :param method: The method of this FilesComplete.
         :type: str
         """
         allowed_values = ["put_parts", "put", "post", "presigned", "unsigned_put"]  # noqa: E501
@@ -146,11 +146,11 @@ class FilesComplete(object):
 
     @property
     def sha256_checksum(self):
-        """Gets the sha256_checksum of this FilesComplete.  # noqa: E501
+        """Gets the sha256_checksum of this FilesComplete.
 
-        SHA256 checksum for a PUT-based package file upload.  # noqa: E501
+        SHA256 checksum for a PUT-based package file upload.
 
-        :return: The sha256_checksum of this FilesComplete.  # noqa: E501
+        :return: The sha256_checksum of this FilesComplete.
         :rtype: str
         """
         return self._sha256_checksum
@@ -159,9 +159,9 @@ class FilesComplete(object):
     def sha256_checksum(self, sha256_checksum):
         """Sets the sha256_checksum of this FilesComplete.
 
-        SHA256 checksum for a PUT-based package file upload.  # noqa: E501
+        SHA256 checksum for a PUT-based package file upload.
 
-        :param sha256_checksum: The sha256_checksum of this FilesComplete.  # noqa: E501
+        :param sha256_checksum: The sha256_checksum of this FilesComplete.
         :type: str
         """
 
@@ -215,3 +215,4 @@ class FilesComplete(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

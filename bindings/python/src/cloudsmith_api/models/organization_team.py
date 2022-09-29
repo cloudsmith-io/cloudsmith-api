@@ -73,11 +73,11 @@ class OrganizationTeam(object):
 
     @property
     def description(self):
-        """Gets the description of this OrganizationTeam.  # noqa: E501
+        """Gets the description of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :return: The description of this OrganizationTeam.  # noqa: E501
+        :return: The description of this OrganizationTeam.
         :rtype: str
         """
         return self._description
@@ -86,9 +86,9 @@ class OrganizationTeam(object):
     def description(self, description):
         """Sets the description of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :param description: The description of this OrganizationTeam.  # noqa: E501
+        :param description: The description of this OrganizationTeam.
         :type: str
         """
 
@@ -96,11 +96,11 @@ class OrganizationTeam(object):
 
     @property
     def name(self):
-        """Gets the name of this OrganizationTeam.  # noqa: E501
+        """Gets the name of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :return: The name of this OrganizationTeam.  # noqa: E501
+        :return: The name of this OrganizationTeam.
         :rtype: str
         """
         return self._name
@@ -109,9 +109,9 @@ class OrganizationTeam(object):
     def name(self, name):
         """Sets the name of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :param name: The name of this OrganizationTeam.  # noqa: E501
+        :param name: The name of this OrganizationTeam.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
@@ -121,11 +121,11 @@ class OrganizationTeam(object):
 
     @property
     def slug(self):
-        """Gets the slug of this OrganizationTeam.  # noqa: E501
+        """Gets the slug of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :return: The slug of this OrganizationTeam.  # noqa: E501
+        :return: The slug of this OrganizationTeam.
         :rtype: str
         """
         return self._slug
@@ -134,9 +134,9 @@ class OrganizationTeam(object):
     def slug(self, slug):
         """Sets the slug of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :param slug: The slug of this OrganizationTeam.  # noqa: E501
+        :param slug: The slug of this OrganizationTeam.
         :type: str
         """
 
@@ -144,11 +144,11 @@ class OrganizationTeam(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this OrganizationTeam.  # noqa: E501
+        """Gets the slug_perm of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this OrganizationTeam.  # noqa: E501
+        :return: The slug_perm of this OrganizationTeam.
         :rtype: str
         """
         return self._slug_perm
@@ -157,9 +157,9 @@ class OrganizationTeam(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this OrganizationTeam.  # noqa: E501
+        :param slug_perm: The slug_perm of this OrganizationTeam.
         :type: str
         """
 
@@ -167,11 +167,11 @@ class OrganizationTeam(object):
 
     @property
     def visibility(self):
-        """Gets the visibility of this OrganizationTeam.  # noqa: E501
+        """Gets the visibility of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :return: The visibility of this OrganizationTeam.  # noqa: E501
+        :return: The visibility of this OrganizationTeam.
         :rtype: str
         """
         return self._visibility
@@ -180,9 +180,9 @@ class OrganizationTeam(object):
     def visibility(self, visibility):
         """Sets the visibility of this OrganizationTeam.
 
-          # noqa: E501
+        
 
-        :param visibility: The visibility of this OrganizationTeam.  # noqa: E501
+        :param visibility: The visibility of this OrganizationTeam.
         :type: str
         """
         allowed_values = ["Visible", "Hidden"]  # noqa: E501
@@ -243,3 +243,4 @@ class OrganizationTeam(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

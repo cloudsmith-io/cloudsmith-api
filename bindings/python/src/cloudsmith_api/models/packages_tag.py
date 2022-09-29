@@ -64,11 +64,11 @@ class PackagesTag(object):
 
     @property
     def action(self):
-        """Gets the action of this PackagesTag.  # noqa: E501
+        """Gets the action of this PackagesTag.
 
-        None  # noqa: E501
+        None
 
-        :return: The action of this PackagesTag.  # noqa: E501
+        :return: The action of this PackagesTag.
         :rtype: str
         """
         return self._action
@@ -77,9 +77,9 @@ class PackagesTag(object):
     def action(self, action):
         """Sets the action of this PackagesTag.
 
-        None  # noqa: E501
+        None
 
-        :param action: The action of this PackagesTag.  # noqa: E501
+        :param action: The action of this PackagesTag.
         :type: str
         """
         allowed_values = ["add", "clear", "remove", "replace"]  # noqa: E501
@@ -94,11 +94,11 @@ class PackagesTag(object):
 
     @property
     def is_immutable(self):
-        """Gets the is_immutable of this PackagesTag.  # noqa: E501
+        """Gets the is_immutable of this PackagesTag.
 
-        If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.  # noqa: E501
+        If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.
 
-        :return: The is_immutable of this PackagesTag.  # noqa: E501
+        :return: The is_immutable of this PackagesTag.
         :rtype: bool
         """
         return self._is_immutable
@@ -107,9 +107,9 @@ class PackagesTag(object):
     def is_immutable(self, is_immutable):
         """Sets the is_immutable of this PackagesTag.
 
-        If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.  # noqa: E501
+        If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.
 
-        :param is_immutable: The is_immutable of this PackagesTag.  # noqa: E501
+        :param is_immutable: The is_immutable of this PackagesTag.
         :type: bool
         """
 
@@ -117,11 +117,11 @@ class PackagesTag(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesTag.  # noqa: E501
+        """Gets the tags of this PackagesTag.
 
-        A list of tags to apply the action to. Not required for clears.  # noqa: E501
+        A list of tags to apply the action to. Not required for clears.
 
-        :return: The tags of this PackagesTag.  # noqa: E501
+        :return: The tags of this PackagesTag.
         :rtype: list[str]
         """
         return self._tags
@@ -130,9 +130,9 @@ class PackagesTag(object):
     def tags(self, tags):
         """Sets the tags of this PackagesTag.
 
-        A list of tags to apply the action to. Not required for clears.  # noqa: E501
+        A list of tags to apply the action to. Not required for clears.
 
-        :param tags: The tags of this PackagesTag.  # noqa: E501
+        :param tags: The tags of this PackagesTag.
         :type: list[str]
         """
 
@@ -186,3 +186,4 @@ class PackagesTag(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

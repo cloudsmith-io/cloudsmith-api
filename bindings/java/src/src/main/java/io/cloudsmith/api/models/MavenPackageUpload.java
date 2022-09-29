@@ -140,6 +140,12 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("num_files")
   private Integer numFiles = null;
 
+  @SerializedName("origin_repository")
+  private String originRepository = null;
+
+  @SerializedName("origin_repository_url")
+  private String originRepositoryUrl = null;
+
   @SerializedName("package_type")
   private Integer packageType = null;
 
@@ -934,6 +940,42 @@ public class MavenPackageUpload implements Serializable {
     this.numFiles = numFiles;
   }
 
+  public MavenPackageUpload originRepository(String originRepository) {
+    this.originRepository = originRepository;
+    return this;
+  }
+
+   /**
+   * 
+   * @return originRepository
+  **/
+  @ApiModelProperty(value = "")
+  public String getOriginRepository() {
+    return originRepository;
+  }
+
+  public void setOriginRepository(String originRepository) {
+    this.originRepository = originRepository;
+  }
+
+  public MavenPackageUpload originRepositoryUrl(String originRepositoryUrl) {
+    this.originRepositoryUrl = originRepositoryUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return originRepositoryUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getOriginRepositoryUrl() {
+    return originRepositoryUrl;
+  }
+
+  public void setOriginRepositoryUrl(String originRepositoryUrl) {
+    this.originRepositoryUrl = originRepositoryUrl;
+  }
+
   public MavenPackageUpload packageType(Integer packageType) {
     this.packageType = packageType;
     return this;
@@ -1608,6 +1650,8 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.namespace, mavenPackageUpload.namespace) &&
         Objects.equals(this.namespaceUrl, mavenPackageUpload.namespaceUrl) &&
         Objects.equals(this.numFiles, mavenPackageUpload.numFiles) &&
+        Objects.equals(this.originRepository, mavenPackageUpload.originRepository) &&
+        Objects.equals(this.originRepositoryUrl, mavenPackageUpload.originRepositoryUrl) &&
         Objects.equals(this.packageType, mavenPackageUpload.packageType) &&
         Objects.equals(this.packaging, mavenPackageUpload.packaging) &&
         Objects.equals(this.release, mavenPackageUpload.release) &&
@@ -1647,7 +1691,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, packaging, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1690,6 +1734,8 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
     sb.append("    numFiles: ").append(toIndentedString(numFiles)).append("\n");
+    sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
+    sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");

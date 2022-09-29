@@ -65,6 +65,8 @@ class RawPackageUpload(object):
         'namespace': 'str',
         'namespace_url': 'str',
         'num_files': 'int',
+        'origin_repository': 'str',
+        'origin_repository_url': 'str',
         'package_type': 'int',
         'release': 'str',
         'repository': 'str',
@@ -134,6 +136,8 @@ class RawPackageUpload(object):
         'namespace': 'namespace',
         'namespace_url': 'namespace_url',
         'num_files': 'num_files',
+        'origin_repository': 'origin_repository',
+        'origin_repository_url': 'origin_repository_url',
         'package_type': 'package_type',
         'release': 'release',
         'repository': 'repository',
@@ -170,7 +174,7 @@ class RawPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """RawPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -208,6 +212,8 @@ class RawPackageUpload(object):
         self._namespace = None
         self._namespace_url = None
         self._num_files = None
+        self._origin_repository = None
+        self._origin_repository_url = None
         self._package_type = None
         self._release = None
         self._repository = None
@@ -308,6 +314,10 @@ class RawPackageUpload(object):
             self.namespace_url = namespace_url
         if num_files is not None:
             self.num_files = num_files
+        if origin_repository is not None:
+            self.origin_repository = origin_repository
+        if origin_repository_url is not None:
+            self.origin_repository_url = origin_repository_url
         if package_type is not None:
             self.package_type = package_type
         if release is not None:
@@ -379,11 +389,11 @@ class RawPackageUpload(object):
 
     @property
     def architectures(self):
-        """Gets the architectures of this RawPackageUpload.  # noqa: E501
+        """Gets the architectures of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The architectures of this RawPackageUpload.  # noqa: E501
+        :return: The architectures of this RawPackageUpload.
         :rtype: list[PackagesownerrepoArchitectures]
         """
         return self._architectures
@@ -392,9 +402,9 @@ class RawPackageUpload(object):
     def architectures(self, architectures):
         """Sets the architectures of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param architectures: The architectures of this RawPackageUpload.  # noqa: E501
+        :param architectures: The architectures of this RawPackageUpload.
         :type: list[PackagesownerrepoArchitectures]
         """
 
@@ -402,11 +412,11 @@ class RawPackageUpload(object):
 
     @property
     def cdn_url(self):
-        """Gets the cdn_url of this RawPackageUpload.  # noqa: E501
+        """Gets the cdn_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The cdn_url of this RawPackageUpload.  # noqa: E501
+        :return: The cdn_url of this RawPackageUpload.
         :rtype: str
         """
         return self._cdn_url
@@ -415,9 +425,9 @@ class RawPackageUpload(object):
     def cdn_url(self, cdn_url):
         """Sets the cdn_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param cdn_url: The cdn_url of this RawPackageUpload.  # noqa: E501
+        :param cdn_url: The cdn_url of this RawPackageUpload.
         :type: str
         """
 
@@ -425,11 +435,11 @@ class RawPackageUpload(object):
 
     @property
     def checksum_md5(self):
-        """Gets the checksum_md5 of this RawPackageUpload.  # noqa: E501
+        """Gets the checksum_md5 of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The checksum_md5 of this RawPackageUpload.  # noqa: E501
+        :return: The checksum_md5 of this RawPackageUpload.
         :rtype: str
         """
         return self._checksum_md5
@@ -438,9 +448,9 @@ class RawPackageUpload(object):
     def checksum_md5(self, checksum_md5):
         """Sets the checksum_md5 of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param checksum_md5: The checksum_md5 of this RawPackageUpload.  # noqa: E501
+        :param checksum_md5: The checksum_md5 of this RawPackageUpload.
         :type: str
         """
 
@@ -448,11 +458,11 @@ class RawPackageUpload(object):
 
     @property
     def checksum_sha1(self):
-        """Gets the checksum_sha1 of this RawPackageUpload.  # noqa: E501
+        """Gets the checksum_sha1 of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha1 of this RawPackageUpload.  # noqa: E501
+        :return: The checksum_sha1 of this RawPackageUpload.
         :rtype: str
         """
         return self._checksum_sha1
@@ -461,9 +471,9 @@ class RawPackageUpload(object):
     def checksum_sha1(self, checksum_sha1):
         """Sets the checksum_sha1 of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param checksum_sha1: The checksum_sha1 of this RawPackageUpload.  # noqa: E501
+        :param checksum_sha1: The checksum_sha1 of this RawPackageUpload.
         :type: str
         """
 
@@ -471,11 +481,11 @@ class RawPackageUpload(object):
 
     @property
     def checksum_sha256(self):
-        """Gets the checksum_sha256 of this RawPackageUpload.  # noqa: E501
+        """Gets the checksum_sha256 of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha256 of this RawPackageUpload.  # noqa: E501
+        :return: The checksum_sha256 of this RawPackageUpload.
         :rtype: str
         """
         return self._checksum_sha256
@@ -484,9 +494,9 @@ class RawPackageUpload(object):
     def checksum_sha256(self, checksum_sha256):
         """Sets the checksum_sha256 of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param checksum_sha256: The checksum_sha256 of this RawPackageUpload.  # noqa: E501
+        :param checksum_sha256: The checksum_sha256 of this RawPackageUpload.
         :type: str
         """
 
@@ -494,11 +504,11 @@ class RawPackageUpload(object):
 
     @property
     def checksum_sha512(self):
-        """Gets the checksum_sha512 of this RawPackageUpload.  # noqa: E501
+        """Gets the checksum_sha512 of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha512 of this RawPackageUpload.  # noqa: E501
+        :return: The checksum_sha512 of this RawPackageUpload.
         :rtype: str
         """
         return self._checksum_sha512
@@ -507,9 +517,9 @@ class RawPackageUpload(object):
     def checksum_sha512(self, checksum_sha512):
         """Sets the checksum_sha512 of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param checksum_sha512: The checksum_sha512 of this RawPackageUpload.  # noqa: E501
+        :param checksum_sha512: The checksum_sha512 of this RawPackageUpload.
         :type: str
         """
 
@@ -517,11 +527,11 @@ class RawPackageUpload(object):
 
     @property
     def dependencies_checksum_md5(self):
-        """Gets the dependencies_checksum_md5 of this RawPackageUpload.  # noqa: E501
+        """Gets the dependencies_checksum_md5 of this RawPackageUpload.
 
-        A checksum of all of the package's dependencies.  # noqa: E501
+        A checksum of all of the package's dependencies.
 
-        :return: The dependencies_checksum_md5 of this RawPackageUpload.  # noqa: E501
+        :return: The dependencies_checksum_md5 of this RawPackageUpload.
         :rtype: str
         """
         return self._dependencies_checksum_md5
@@ -530,9 +540,9 @@ class RawPackageUpload(object):
     def dependencies_checksum_md5(self, dependencies_checksum_md5):
         """Sets the dependencies_checksum_md5 of this RawPackageUpload.
 
-        A checksum of all of the package's dependencies.  # noqa: E501
+        A checksum of all of the package's dependencies.
 
-        :param dependencies_checksum_md5: The dependencies_checksum_md5 of this RawPackageUpload.  # noqa: E501
+        :param dependencies_checksum_md5: The dependencies_checksum_md5 of this RawPackageUpload.
         :type: str
         """
 
@@ -540,11 +550,11 @@ class RawPackageUpload(object):
 
     @property
     def dependencies_url(self):
-        """Gets the dependencies_url of this RawPackageUpload.  # noqa: E501
+        """Gets the dependencies_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The dependencies_url of this RawPackageUpload.  # noqa: E501
+        :return: The dependencies_url of this RawPackageUpload.
         :rtype: str
         """
         return self._dependencies_url
@@ -553,9 +563,9 @@ class RawPackageUpload(object):
     def dependencies_url(self, dependencies_url):
         """Sets the dependencies_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param dependencies_url: The dependencies_url of this RawPackageUpload.  # noqa: E501
+        :param dependencies_url: The dependencies_url of this RawPackageUpload.
         :type: str
         """
 
@@ -563,11 +573,11 @@ class RawPackageUpload(object):
 
     @property
     def description(self):
-        """Gets the description of this RawPackageUpload.  # noqa: E501
+        """Gets the description of this RawPackageUpload.
 
-        A textual description of this package.  # noqa: E501
+        A textual description of this package.
 
-        :return: The description of this RawPackageUpload.  # noqa: E501
+        :return: The description of this RawPackageUpload.
         :rtype: str
         """
         return self._description
@@ -576,9 +586,9 @@ class RawPackageUpload(object):
     def description(self, description):
         """Sets the description of this RawPackageUpload.
 
-        A textual description of this package.  # noqa: E501
+        A textual description of this package.
 
-        :param description: The description of this RawPackageUpload.  # noqa: E501
+        :param description: The description of this RawPackageUpload.
         :type: str
         """
 
@@ -586,11 +596,11 @@ class RawPackageUpload(object):
 
     @property
     def distro(self):
-        """Gets the distro of this RawPackageUpload.  # noqa: E501
+        """Gets the distro of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The distro of this RawPackageUpload.  # noqa: E501
+        :return: The distro of this RawPackageUpload.
         :rtype: object
         """
         return self._distro
@@ -599,9 +609,9 @@ class RawPackageUpload(object):
     def distro(self, distro):
         """Sets the distro of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param distro: The distro of this RawPackageUpload.  # noqa: E501
+        :param distro: The distro of this RawPackageUpload.
         :type: object
         """
 
@@ -609,11 +619,11 @@ class RawPackageUpload(object):
 
     @property
     def distro_version(self):
-        """Gets the distro_version of this RawPackageUpload.  # noqa: E501
+        """Gets the distro_version of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The distro_version of this RawPackageUpload.  # noqa: E501
+        :return: The distro_version of this RawPackageUpload.
         :rtype: object
         """
         return self._distro_version
@@ -622,9 +632,9 @@ class RawPackageUpload(object):
     def distro_version(self, distro_version):
         """Sets the distro_version of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param distro_version: The distro_version of this RawPackageUpload.  # noqa: E501
+        :param distro_version: The distro_version of this RawPackageUpload.
         :type: object
         """
 
@@ -632,11 +642,11 @@ class RawPackageUpload(object):
 
     @property
     def downloads(self):
-        """Gets the downloads of this RawPackageUpload.  # noqa: E501
+        """Gets the downloads of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The downloads of this RawPackageUpload.  # noqa: E501
+        :return: The downloads of this RawPackageUpload.
         :rtype: int
         """
         return self._downloads
@@ -645,9 +655,9 @@ class RawPackageUpload(object):
     def downloads(self, downloads):
         """Sets the downloads of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param downloads: The downloads of this RawPackageUpload.  # noqa: E501
+        :param downloads: The downloads of this RawPackageUpload.
         :type: int
         """
 
@@ -655,11 +665,11 @@ class RawPackageUpload(object):
 
     @property
     def epoch(self):
-        """Gets the epoch of this RawPackageUpload.  # noqa: E501
+        """Gets the epoch of this RawPackageUpload.
 
-        The epoch of the package version (if any).  # noqa: E501
+        The epoch of the package version (if any).
 
-        :return: The epoch of this RawPackageUpload.  # noqa: E501
+        :return: The epoch of this RawPackageUpload.
         :rtype: int
         """
         return self._epoch
@@ -668,9 +678,9 @@ class RawPackageUpload(object):
     def epoch(self, epoch):
         """Sets the epoch of this RawPackageUpload.
 
-        The epoch of the package version (if any).  # noqa: E501
+        The epoch of the package version (if any).
 
-        :param epoch: The epoch of this RawPackageUpload.  # noqa: E501
+        :param epoch: The epoch of this RawPackageUpload.
         :type: int
         """
 
@@ -678,11 +688,11 @@ class RawPackageUpload(object):
 
     @property
     def extension(self):
-        """Gets the extension of this RawPackageUpload.  # noqa: E501
+        """Gets the extension of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The extension of this RawPackageUpload.  # noqa: E501
+        :return: The extension of this RawPackageUpload.
         :rtype: str
         """
         return self._extension
@@ -691,9 +701,9 @@ class RawPackageUpload(object):
     def extension(self, extension):
         """Sets the extension of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param extension: The extension of this RawPackageUpload.  # noqa: E501
+        :param extension: The extension of this RawPackageUpload.
         :type: str
         """
 
@@ -701,11 +711,11 @@ class RawPackageUpload(object):
 
     @property
     def filename(self):
-        """Gets the filename of this RawPackageUpload.  # noqa: E501
+        """Gets the filename of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The filename of this RawPackageUpload.  # noqa: E501
+        :return: The filename of this RawPackageUpload.
         :rtype: str
         """
         return self._filename
@@ -714,9 +724,9 @@ class RawPackageUpload(object):
     def filename(self, filename):
         """Sets the filename of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param filename: The filename of this RawPackageUpload.  # noqa: E501
+        :param filename: The filename of this RawPackageUpload.
         :type: str
         """
 
@@ -724,11 +734,11 @@ class RawPackageUpload(object):
 
     @property
     def files(self):
-        """Gets the files of this RawPackageUpload.  # noqa: E501
+        """Gets the files of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The files of this RawPackageUpload.  # noqa: E501
+        :return: The files of this RawPackageUpload.
         :rtype: list[PackagesownerrepoFiles]
         """
         return self._files
@@ -737,9 +747,9 @@ class RawPackageUpload(object):
     def files(self, files):
         """Sets the files of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param files: The files of this RawPackageUpload.  # noqa: E501
+        :param files: The files of this RawPackageUpload.
         :type: list[PackagesownerrepoFiles]
         """
 
@@ -747,11 +757,11 @@ class RawPackageUpload(object):
 
     @property
     def format(self):
-        """Gets the format of this RawPackageUpload.  # noqa: E501
+        """Gets the format of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The format of this RawPackageUpload.  # noqa: E501
+        :return: The format of this RawPackageUpload.
         :rtype: str
         """
         return self._format
@@ -760,9 +770,9 @@ class RawPackageUpload(object):
     def format(self, format):
         """Sets the format of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param format: The format of this RawPackageUpload.  # noqa: E501
+        :param format: The format of this RawPackageUpload.
         :type: str
         """
 
@@ -770,11 +780,11 @@ class RawPackageUpload(object):
 
     @property
     def format_url(self):
-        """Gets the format_url of this RawPackageUpload.  # noqa: E501
+        """Gets the format_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The format_url of this RawPackageUpload.  # noqa: E501
+        :return: The format_url of this RawPackageUpload.
         :rtype: str
         """
         return self._format_url
@@ -783,9 +793,9 @@ class RawPackageUpload(object):
     def format_url(self, format_url):
         """Sets the format_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param format_url: The format_url of this RawPackageUpload.  # noqa: E501
+        :param format_url: The format_url of this RawPackageUpload.
         :type: str
         """
 
@@ -793,11 +803,11 @@ class RawPackageUpload(object):
 
     @property
     def identifier_perm(self):
-        """Gets the identifier_perm of this RawPackageUpload.  # noqa: E501
+        """Gets the identifier_perm of this RawPackageUpload.
 
-        Unique and permanent identifier for the package.  # noqa: E501
+        Unique and permanent identifier for the package.
 
-        :return: The identifier_perm of this RawPackageUpload.  # noqa: E501
+        :return: The identifier_perm of this RawPackageUpload.
         :rtype: str
         """
         return self._identifier_perm
@@ -806,9 +816,9 @@ class RawPackageUpload(object):
     def identifier_perm(self, identifier_perm):
         """Sets the identifier_perm of this RawPackageUpload.
 
-        Unique and permanent identifier for the package.  # noqa: E501
+        Unique and permanent identifier for the package.
 
-        :param identifier_perm: The identifier_perm of this RawPackageUpload.  # noqa: E501
+        :param identifier_perm: The identifier_perm of this RawPackageUpload.
         :type: str
         """
 
@@ -816,11 +826,11 @@ class RawPackageUpload(object):
 
     @property
     def indexed(self):
-        """Gets the indexed of this RawPackageUpload.  # noqa: E501
+        """Gets the indexed of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The indexed of this RawPackageUpload.  # noqa: E501
+        :return: The indexed of this RawPackageUpload.
         :rtype: bool
         """
         return self._indexed
@@ -829,9 +839,9 @@ class RawPackageUpload(object):
     def indexed(self, indexed):
         """Sets the indexed of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param indexed: The indexed of this RawPackageUpload.  # noqa: E501
+        :param indexed: The indexed of this RawPackageUpload.
         :type: bool
         """
 
@@ -839,11 +849,11 @@ class RawPackageUpload(object):
 
     @property
     def is_downloadable(self):
-        """Gets the is_downloadable of this RawPackageUpload.  # noqa: E501
+        """Gets the is_downloadable of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_downloadable of this RawPackageUpload.  # noqa: E501
+        :return: The is_downloadable of this RawPackageUpload.
         :rtype: bool
         """
         return self._is_downloadable
@@ -852,9 +862,9 @@ class RawPackageUpload(object):
     def is_downloadable(self, is_downloadable):
         """Sets the is_downloadable of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_downloadable: The is_downloadable of this RawPackageUpload.  # noqa: E501
+        :param is_downloadable: The is_downloadable of this RawPackageUpload.
         :type: bool
         """
 
@@ -862,11 +872,11 @@ class RawPackageUpload(object):
 
     @property
     def is_quarantined(self):
-        """Gets the is_quarantined of this RawPackageUpload.  # noqa: E501
+        """Gets the is_quarantined of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_quarantined of this RawPackageUpload.  # noqa: E501
+        :return: The is_quarantined of this RawPackageUpload.
         :rtype: bool
         """
         return self._is_quarantined
@@ -875,9 +885,9 @@ class RawPackageUpload(object):
     def is_quarantined(self, is_quarantined):
         """Sets the is_quarantined of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_quarantined: The is_quarantined of this RawPackageUpload.  # noqa: E501
+        :param is_quarantined: The is_quarantined of this RawPackageUpload.
         :type: bool
         """
 
@@ -885,11 +895,11 @@ class RawPackageUpload(object):
 
     @property
     def is_sync_awaiting(self):
-        """Gets the is_sync_awaiting of this RawPackageUpload.  # noqa: E501
+        """Gets the is_sync_awaiting of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_awaiting of this RawPackageUpload.  # noqa: E501
+        :return: The is_sync_awaiting of this RawPackageUpload.
         :rtype: bool
         """
         return self._is_sync_awaiting
@@ -898,9 +908,9 @@ class RawPackageUpload(object):
     def is_sync_awaiting(self, is_sync_awaiting):
         """Sets the is_sync_awaiting of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_awaiting: The is_sync_awaiting of this RawPackageUpload.  # noqa: E501
+        :param is_sync_awaiting: The is_sync_awaiting of this RawPackageUpload.
         :type: bool
         """
 
@@ -908,11 +918,11 @@ class RawPackageUpload(object):
 
     @property
     def is_sync_completed(self):
-        """Gets the is_sync_completed of this RawPackageUpload.  # noqa: E501
+        """Gets the is_sync_completed of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_completed of this RawPackageUpload.  # noqa: E501
+        :return: The is_sync_completed of this RawPackageUpload.
         :rtype: bool
         """
         return self._is_sync_completed
@@ -921,9 +931,9 @@ class RawPackageUpload(object):
     def is_sync_completed(self, is_sync_completed):
         """Sets the is_sync_completed of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_completed: The is_sync_completed of this RawPackageUpload.  # noqa: E501
+        :param is_sync_completed: The is_sync_completed of this RawPackageUpload.
         :type: bool
         """
 
@@ -931,11 +941,11 @@ class RawPackageUpload(object):
 
     @property
     def is_sync_failed(self):
-        """Gets the is_sync_failed of this RawPackageUpload.  # noqa: E501
+        """Gets the is_sync_failed of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_failed of this RawPackageUpload.  # noqa: E501
+        :return: The is_sync_failed of this RawPackageUpload.
         :rtype: bool
         """
         return self._is_sync_failed
@@ -944,9 +954,9 @@ class RawPackageUpload(object):
     def is_sync_failed(self, is_sync_failed):
         """Sets the is_sync_failed of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_failed: The is_sync_failed of this RawPackageUpload.  # noqa: E501
+        :param is_sync_failed: The is_sync_failed of this RawPackageUpload.
         :type: bool
         """
 
@@ -954,11 +964,11 @@ class RawPackageUpload(object):
 
     @property
     def is_sync_in_flight(self):
-        """Gets the is_sync_in_flight of this RawPackageUpload.  # noqa: E501
+        """Gets the is_sync_in_flight of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_in_flight of this RawPackageUpload.  # noqa: E501
+        :return: The is_sync_in_flight of this RawPackageUpload.
         :rtype: bool
         """
         return self._is_sync_in_flight
@@ -967,9 +977,9 @@ class RawPackageUpload(object):
     def is_sync_in_flight(self, is_sync_in_flight):
         """Sets the is_sync_in_flight of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_in_flight: The is_sync_in_flight of this RawPackageUpload.  # noqa: E501
+        :param is_sync_in_flight: The is_sync_in_flight of this RawPackageUpload.
         :type: bool
         """
 
@@ -977,11 +987,11 @@ class RawPackageUpload(object):
 
     @property
     def is_sync_in_progress(self):
-        """Gets the is_sync_in_progress of this RawPackageUpload.  # noqa: E501
+        """Gets the is_sync_in_progress of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_in_progress of this RawPackageUpload.  # noqa: E501
+        :return: The is_sync_in_progress of this RawPackageUpload.
         :rtype: bool
         """
         return self._is_sync_in_progress
@@ -990,9 +1000,9 @@ class RawPackageUpload(object):
     def is_sync_in_progress(self, is_sync_in_progress):
         """Sets the is_sync_in_progress of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_in_progress: The is_sync_in_progress of this RawPackageUpload.  # noqa: E501
+        :param is_sync_in_progress: The is_sync_in_progress of this RawPackageUpload.
         :type: bool
         """
 
@@ -1000,11 +1010,11 @@ class RawPackageUpload(object):
 
     @property
     def license(self):
-        """Gets the license of this RawPackageUpload.  # noqa: E501
+        """Gets the license of this RawPackageUpload.
 
-        The license of this package.  # noqa: E501
+        The license of this package.
 
-        :return: The license of this RawPackageUpload.  # noqa: E501
+        :return: The license of this RawPackageUpload.
         :rtype: str
         """
         return self._license
@@ -1013,9 +1023,9 @@ class RawPackageUpload(object):
     def license(self, license):
         """Sets the license of this RawPackageUpload.
 
-        The license of this package.  # noqa: E501
+        The license of this package.
 
-        :param license: The license of this RawPackageUpload.  # noqa: E501
+        :param license: The license of this RawPackageUpload.
         :type: str
         """
 
@@ -1023,11 +1033,11 @@ class RawPackageUpload(object):
 
     @property
     def name(self):
-        """Gets the name of this RawPackageUpload.  # noqa: E501
+        """Gets the name of this RawPackageUpload.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :return: The name of this RawPackageUpload.  # noqa: E501
+        :return: The name of this RawPackageUpload.
         :rtype: str
         """
         return self._name
@@ -1036,9 +1046,9 @@ class RawPackageUpload(object):
     def name(self, name):
         """Sets the name of this RawPackageUpload.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :param name: The name of this RawPackageUpload.  # noqa: E501
+        :param name: The name of this RawPackageUpload.
         :type: str
         """
 
@@ -1046,11 +1056,11 @@ class RawPackageUpload(object):
 
     @property
     def namespace(self):
-        """Gets the namespace of this RawPackageUpload.  # noqa: E501
+        """Gets the namespace of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The namespace of this RawPackageUpload.  # noqa: E501
+        :return: The namespace of this RawPackageUpload.
         :rtype: str
         """
         return self._namespace
@@ -1059,9 +1069,9 @@ class RawPackageUpload(object):
     def namespace(self, namespace):
         """Sets the namespace of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param namespace: The namespace of this RawPackageUpload.  # noqa: E501
+        :param namespace: The namespace of this RawPackageUpload.
         :type: str
         """
 
@@ -1069,11 +1079,11 @@ class RawPackageUpload(object):
 
     @property
     def namespace_url(self):
-        """Gets the namespace_url of this RawPackageUpload.  # noqa: E501
+        """Gets the namespace_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The namespace_url of this RawPackageUpload.  # noqa: E501
+        :return: The namespace_url of this RawPackageUpload.
         :rtype: str
         """
         return self._namespace_url
@@ -1082,9 +1092,9 @@ class RawPackageUpload(object):
     def namespace_url(self, namespace_url):
         """Sets the namespace_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param namespace_url: The namespace_url of this RawPackageUpload.  # noqa: E501
+        :param namespace_url: The namespace_url of this RawPackageUpload.
         :type: str
         """
 
@@ -1092,11 +1102,11 @@ class RawPackageUpload(object):
 
     @property
     def num_files(self):
-        """Gets the num_files of this RawPackageUpload.  # noqa: E501
+        """Gets the num_files of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The num_files of this RawPackageUpload.  # noqa: E501
+        :return: The num_files of this RawPackageUpload.
         :rtype: int
         """
         return self._num_files
@@ -1105,21 +1115,67 @@ class RawPackageUpload(object):
     def num_files(self, num_files):
         """Sets the num_files of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param num_files: The num_files of this RawPackageUpload.  # noqa: E501
+        :param num_files: The num_files of this RawPackageUpload.
         :type: int
         """
 
         self._num_files = num_files
 
     @property
+    def origin_repository(self):
+        """Gets the origin_repository of this RawPackageUpload.
+
+        
+
+        :return: The origin_repository of this RawPackageUpload.
+        :rtype: str
+        """
+        return self._origin_repository
+
+    @origin_repository.setter
+    def origin_repository(self, origin_repository):
+        """Sets the origin_repository of this RawPackageUpload.
+
+        
+
+        :param origin_repository: The origin_repository of this RawPackageUpload.
+        :type: str
+        """
+
+        self._origin_repository = origin_repository
+
+    @property
+    def origin_repository_url(self):
+        """Gets the origin_repository_url of this RawPackageUpload.
+
+        
+
+        :return: The origin_repository_url of this RawPackageUpload.
+        :rtype: str
+        """
+        return self._origin_repository_url
+
+    @origin_repository_url.setter
+    def origin_repository_url(self, origin_repository_url):
+        """Sets the origin_repository_url of this RawPackageUpload.
+
+        
+
+        :param origin_repository_url: The origin_repository_url of this RawPackageUpload.
+        :type: str
+        """
+
+        self._origin_repository_url = origin_repository_url
+
+    @property
     def package_type(self):
-        """Gets the package_type of this RawPackageUpload.  # noqa: E501
+        """Gets the package_type of this RawPackageUpload.
 
-        The type of package contents.  # noqa: E501
+        The type of package contents.
 
-        :return: The package_type of this RawPackageUpload.  # noqa: E501
+        :return: The package_type of this RawPackageUpload.
         :rtype: int
         """
         return self._package_type
@@ -1128,9 +1184,9 @@ class RawPackageUpload(object):
     def package_type(self, package_type):
         """Sets the package_type of this RawPackageUpload.
 
-        The type of package contents.  # noqa: E501
+        The type of package contents.
 
-        :param package_type: The package_type of this RawPackageUpload.  # noqa: E501
+        :param package_type: The package_type of this RawPackageUpload.
         :type: int
         """
 
@@ -1138,11 +1194,11 @@ class RawPackageUpload(object):
 
     @property
     def release(self):
-        """Gets the release of this RawPackageUpload.  # noqa: E501
+        """Gets the release of this RawPackageUpload.
 
-        The release of the package version (if any).  # noqa: E501
+        The release of the package version (if any).
 
-        :return: The release of this RawPackageUpload.  # noqa: E501
+        :return: The release of this RawPackageUpload.
         :rtype: str
         """
         return self._release
@@ -1151,9 +1207,9 @@ class RawPackageUpload(object):
     def release(self, release):
         """Sets the release of this RawPackageUpload.
 
-        The release of the package version (if any).  # noqa: E501
+        The release of the package version (if any).
 
-        :param release: The release of this RawPackageUpload.  # noqa: E501
+        :param release: The release of this RawPackageUpload.
         :type: str
         """
 
@@ -1161,11 +1217,11 @@ class RawPackageUpload(object):
 
     @property
     def repository(self):
-        """Gets the repository of this RawPackageUpload.  # noqa: E501
+        """Gets the repository of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The repository of this RawPackageUpload.  # noqa: E501
+        :return: The repository of this RawPackageUpload.
         :rtype: str
         """
         return self._repository
@@ -1174,9 +1230,9 @@ class RawPackageUpload(object):
     def repository(self, repository):
         """Sets the repository of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param repository: The repository of this RawPackageUpload.  # noqa: E501
+        :param repository: The repository of this RawPackageUpload.
         :type: str
         """
 
@@ -1184,11 +1240,11 @@ class RawPackageUpload(object):
 
     @property
     def repository_url(self):
-        """Gets the repository_url of this RawPackageUpload.  # noqa: E501
+        """Gets the repository_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The repository_url of this RawPackageUpload.  # noqa: E501
+        :return: The repository_url of this RawPackageUpload.
         :rtype: str
         """
         return self._repository_url
@@ -1197,9 +1253,9 @@ class RawPackageUpload(object):
     def repository_url(self, repository_url):
         """Sets the repository_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param repository_url: The repository_url of this RawPackageUpload.  # noqa: E501
+        :param repository_url: The repository_url of this RawPackageUpload.
         :type: str
         """
 
@@ -1207,11 +1263,11 @@ class RawPackageUpload(object):
 
     @property
     def security_scan_completed_at(self):
-        """Gets the security_scan_completed_at of this RawPackageUpload.  # noqa: E501
+        """Gets the security_scan_completed_at of this RawPackageUpload.
 
-        The datetime the security scanning was completed.  # noqa: E501
+        The datetime the security scanning was completed.
 
-        :return: The security_scan_completed_at of this RawPackageUpload.  # noqa: E501
+        :return: The security_scan_completed_at of this RawPackageUpload.
         :rtype: str
         """
         return self._security_scan_completed_at
@@ -1220,9 +1276,9 @@ class RawPackageUpload(object):
     def security_scan_completed_at(self, security_scan_completed_at):
         """Sets the security_scan_completed_at of this RawPackageUpload.
 
-        The datetime the security scanning was completed.  # noqa: E501
+        The datetime the security scanning was completed.
 
-        :param security_scan_completed_at: The security_scan_completed_at of this RawPackageUpload.  # noqa: E501
+        :param security_scan_completed_at: The security_scan_completed_at of this RawPackageUpload.
         :type: str
         """
 
@@ -1230,11 +1286,11 @@ class RawPackageUpload(object):
 
     @property
     def security_scan_started_at(self):
-        """Gets the security_scan_started_at of this RawPackageUpload.  # noqa: E501
+        """Gets the security_scan_started_at of this RawPackageUpload.
 
-        The datetime the security scanning was started.  # noqa: E501
+        The datetime the security scanning was started.
 
-        :return: The security_scan_started_at of this RawPackageUpload.  # noqa: E501
+        :return: The security_scan_started_at of this RawPackageUpload.
         :rtype: str
         """
         return self._security_scan_started_at
@@ -1243,9 +1299,9 @@ class RawPackageUpload(object):
     def security_scan_started_at(self, security_scan_started_at):
         """Sets the security_scan_started_at of this RawPackageUpload.
 
-        The datetime the security scanning was started.  # noqa: E501
+        The datetime the security scanning was started.
 
-        :param security_scan_started_at: The security_scan_started_at of this RawPackageUpload.  # noqa: E501
+        :param security_scan_started_at: The security_scan_started_at of this RawPackageUpload.
         :type: str
         """
 
@@ -1253,11 +1309,11 @@ class RawPackageUpload(object):
 
     @property
     def security_scan_status(self):
-        """Gets the security_scan_status of this RawPackageUpload.  # noqa: E501
+        """Gets the security_scan_status of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The security_scan_status of this RawPackageUpload.  # noqa: E501
+        :return: The security_scan_status of this RawPackageUpload.
         :rtype: str
         """
         return self._security_scan_status
@@ -1266,9 +1322,9 @@ class RawPackageUpload(object):
     def security_scan_status(self, security_scan_status):
         """Sets the security_scan_status of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param security_scan_status: The security_scan_status of this RawPackageUpload.  # noqa: E501
+        :param security_scan_status: The security_scan_status of this RawPackageUpload.
         :type: str
         """
         allowed_values = ["Awaiting Security Scan", "Security Scanning in Progress", "Scan Detected Vulnerabilities", "Scan Detected No Vulnerabilities", "Security Scanning Disabled", "Security Scanning Failed", "Security Scanning Skipped", "Security Scanning Not Supported"]  # noqa: E501
@@ -1283,11 +1339,11 @@ class RawPackageUpload(object):
 
     @property
     def security_scan_status_updated_at(self):
-        """Gets the security_scan_status_updated_at of this RawPackageUpload.  # noqa: E501
+        """Gets the security_scan_status_updated_at of this RawPackageUpload.
 
-        The datetime the security scanning status was updated.  # noqa: E501
+        The datetime the security scanning status was updated.
 
-        :return: The security_scan_status_updated_at of this RawPackageUpload.  # noqa: E501
+        :return: The security_scan_status_updated_at of this RawPackageUpload.
         :rtype: str
         """
         return self._security_scan_status_updated_at
@@ -1296,9 +1352,9 @@ class RawPackageUpload(object):
     def security_scan_status_updated_at(self, security_scan_status_updated_at):
         """Sets the security_scan_status_updated_at of this RawPackageUpload.
 
-        The datetime the security scanning status was updated.  # noqa: E501
+        The datetime the security scanning status was updated.
 
-        :param security_scan_status_updated_at: The security_scan_status_updated_at of this RawPackageUpload.  # noqa: E501
+        :param security_scan_status_updated_at: The security_scan_status_updated_at of this RawPackageUpload.
         :type: str
         """
 
@@ -1306,11 +1362,11 @@ class RawPackageUpload(object):
 
     @property
     def self_html_url(self):
-        """Gets the self_html_url of this RawPackageUpload.  # noqa: E501
+        """Gets the self_html_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The self_html_url of this RawPackageUpload.  # noqa: E501
+        :return: The self_html_url of this RawPackageUpload.
         :rtype: str
         """
         return self._self_html_url
@@ -1319,9 +1375,9 @@ class RawPackageUpload(object):
     def self_html_url(self, self_html_url):
         """Sets the self_html_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param self_html_url: The self_html_url of this RawPackageUpload.  # noqa: E501
+        :param self_html_url: The self_html_url of this RawPackageUpload.
         :type: str
         """
 
@@ -1329,11 +1385,11 @@ class RawPackageUpload(object):
 
     @property
     def self_url(self):
-        """Gets the self_url of this RawPackageUpload.  # noqa: E501
+        """Gets the self_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The self_url of this RawPackageUpload.  # noqa: E501
+        :return: The self_url of this RawPackageUpload.
         :rtype: str
         """
         return self._self_url
@@ -1342,9 +1398,9 @@ class RawPackageUpload(object):
     def self_url(self, self_url):
         """Sets the self_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param self_url: The self_url of this RawPackageUpload.  # noqa: E501
+        :param self_url: The self_url of this RawPackageUpload.
         :type: str
         """
 
@@ -1352,11 +1408,11 @@ class RawPackageUpload(object):
 
     @property
     def signature_url(self):
-        """Gets the signature_url of this RawPackageUpload.  # noqa: E501
+        """Gets the signature_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The signature_url of this RawPackageUpload.  # noqa: E501
+        :return: The signature_url of this RawPackageUpload.
         :rtype: str
         """
         return self._signature_url
@@ -1365,9 +1421,9 @@ class RawPackageUpload(object):
     def signature_url(self, signature_url):
         """Sets the signature_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param signature_url: The signature_url of this RawPackageUpload.  # noqa: E501
+        :param signature_url: The signature_url of this RawPackageUpload.
         :type: str
         """
 
@@ -1375,11 +1431,11 @@ class RawPackageUpload(object):
 
     @property
     def size(self):
-        """Gets the size of this RawPackageUpload.  # noqa: E501
+        """Gets the size of this RawPackageUpload.
 
-        The calculated size of the package.  # noqa: E501
+        The calculated size of the package.
 
-        :return: The size of this RawPackageUpload.  # noqa: E501
+        :return: The size of this RawPackageUpload.
         :rtype: int
         """
         return self._size
@@ -1388,9 +1444,9 @@ class RawPackageUpload(object):
     def size(self, size):
         """Sets the size of this RawPackageUpload.
 
-        The calculated size of the package.  # noqa: E501
+        The calculated size of the package.
 
-        :param size: The size of this RawPackageUpload.  # noqa: E501
+        :param size: The size of this RawPackageUpload.
         :type: int
         """
 
@@ -1398,11 +1454,11 @@ class RawPackageUpload(object):
 
     @property
     def slug(self):
-        """Gets the slug of this RawPackageUpload.  # noqa: E501
+        """Gets the slug of this RawPackageUpload.
 
-        The public unique identifier for the package.  # noqa: E501
+        The public unique identifier for the package.
 
-        :return: The slug of this RawPackageUpload.  # noqa: E501
+        :return: The slug of this RawPackageUpload.
         :rtype: str
         """
         return self._slug
@@ -1411,9 +1467,9 @@ class RawPackageUpload(object):
     def slug(self, slug):
         """Sets the slug of this RawPackageUpload.
 
-        The public unique identifier for the package.  # noqa: E501
+        The public unique identifier for the package.
 
-        :param slug: The slug of this RawPackageUpload.  # noqa: E501
+        :param slug: The slug of this RawPackageUpload.
         :type: str
         """
 
@@ -1421,11 +1477,11 @@ class RawPackageUpload(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this RawPackageUpload.  # noqa: E501
+        """Gets the slug_perm of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this RawPackageUpload.  # noqa: E501
+        :return: The slug_perm of this RawPackageUpload.
         :rtype: str
         """
         return self._slug_perm
@@ -1434,9 +1490,9 @@ class RawPackageUpload(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this RawPackageUpload.  # noqa: E501
+        :param slug_perm: The slug_perm of this RawPackageUpload.
         :type: str
         """
 
@@ -1444,11 +1500,11 @@ class RawPackageUpload(object):
 
     @property
     def stage(self):
-        """Gets the stage of this RawPackageUpload.  # noqa: E501
+        """Gets the stage of this RawPackageUpload.
 
-        The synchronisation (in progress) stage of the package.  # noqa: E501
+        The synchronisation (in progress) stage of the package.
 
-        :return: The stage of this RawPackageUpload.  # noqa: E501
+        :return: The stage of this RawPackageUpload.
         :rtype: int
         """
         return self._stage
@@ -1457,9 +1513,9 @@ class RawPackageUpload(object):
     def stage(self, stage):
         """Sets the stage of this RawPackageUpload.
 
-        The synchronisation (in progress) stage of the package.  # noqa: E501
+        The synchronisation (in progress) stage of the package.
 
-        :param stage: The stage of this RawPackageUpload.  # noqa: E501
+        :param stage: The stage of this RawPackageUpload.
         :type: int
         """
 
@@ -1467,11 +1523,11 @@ class RawPackageUpload(object):
 
     @property
     def stage_str(self):
-        """Gets the stage_str of this RawPackageUpload.  # noqa: E501
+        """Gets the stage_str of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The stage_str of this RawPackageUpload.  # noqa: E501
+        :return: The stage_str of this RawPackageUpload.
         :rtype: str
         """
         return self._stage_str
@@ -1480,9 +1536,9 @@ class RawPackageUpload(object):
     def stage_str(self, stage_str):
         """Sets the stage_str of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param stage_str: The stage_str of this RawPackageUpload.  # noqa: E501
+        :param stage_str: The stage_str of this RawPackageUpload.
         :type: str
         """
 
@@ -1490,11 +1546,11 @@ class RawPackageUpload(object):
 
     @property
     def stage_updated_at(self):
-        """Gets the stage_updated_at of this RawPackageUpload.  # noqa: E501
+        """Gets the stage_updated_at of this RawPackageUpload.
 
-        The datetime the package stage was updated at.  # noqa: E501
+        The datetime the package stage was updated at.
 
-        :return: The stage_updated_at of this RawPackageUpload.  # noqa: E501
+        :return: The stage_updated_at of this RawPackageUpload.
         :rtype: str
         """
         return self._stage_updated_at
@@ -1503,9 +1559,9 @@ class RawPackageUpload(object):
     def stage_updated_at(self, stage_updated_at):
         """Sets the stage_updated_at of this RawPackageUpload.
 
-        The datetime the package stage was updated at.  # noqa: E501
+        The datetime the package stage was updated at.
 
-        :param stage_updated_at: The stage_updated_at of this RawPackageUpload.  # noqa: E501
+        :param stage_updated_at: The stage_updated_at of this RawPackageUpload.
         :type: str
         """
 
@@ -1513,11 +1569,11 @@ class RawPackageUpload(object):
 
     @property
     def status(self):
-        """Gets the status of this RawPackageUpload.  # noqa: E501
+        """Gets the status of this RawPackageUpload.
 
-        The synchronisation status of the package.  # noqa: E501
+        The synchronisation status of the package.
 
-        :return: The status of this RawPackageUpload.  # noqa: E501
+        :return: The status of this RawPackageUpload.
         :rtype: int
         """
         return self._status
@@ -1526,9 +1582,9 @@ class RawPackageUpload(object):
     def status(self, status):
         """Sets the status of this RawPackageUpload.
 
-        The synchronisation status of the package.  # noqa: E501
+        The synchronisation status of the package.
 
-        :param status: The status of this RawPackageUpload.  # noqa: E501
+        :param status: The status of this RawPackageUpload.
         :type: int
         """
 
@@ -1536,11 +1592,11 @@ class RawPackageUpload(object):
 
     @property
     def status_reason(self):
-        """Gets the status_reason of this RawPackageUpload.  # noqa: E501
+        """Gets the status_reason of this RawPackageUpload.
 
-        A textual description for the synchronous status reason (if any  # noqa: E501
+        A textual description for the synchronous status reason (if any
 
-        :return: The status_reason of this RawPackageUpload.  # noqa: E501
+        :return: The status_reason of this RawPackageUpload.
         :rtype: str
         """
         return self._status_reason
@@ -1549,9 +1605,9 @@ class RawPackageUpload(object):
     def status_reason(self, status_reason):
         """Sets the status_reason of this RawPackageUpload.
 
-        A textual description for the synchronous status reason (if any  # noqa: E501
+        A textual description for the synchronous status reason (if any
 
-        :param status_reason: The status_reason of this RawPackageUpload.  # noqa: E501
+        :param status_reason: The status_reason of this RawPackageUpload.
         :type: str
         """
 
@@ -1559,11 +1615,11 @@ class RawPackageUpload(object):
 
     @property
     def status_str(self):
-        """Gets the status_str of this RawPackageUpload.  # noqa: E501
+        """Gets the status_str of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The status_str of this RawPackageUpload.  # noqa: E501
+        :return: The status_str of this RawPackageUpload.
         :rtype: str
         """
         return self._status_str
@@ -1572,9 +1628,9 @@ class RawPackageUpload(object):
     def status_str(self, status_str):
         """Sets the status_str of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param status_str: The status_str of this RawPackageUpload.  # noqa: E501
+        :param status_str: The status_str of this RawPackageUpload.
         :type: str
         """
 
@@ -1582,11 +1638,11 @@ class RawPackageUpload(object):
 
     @property
     def status_updated_at(self):
-        """Gets the status_updated_at of this RawPackageUpload.  # noqa: E501
+        """Gets the status_updated_at of this RawPackageUpload.
 
-        The datetime the package status was updated at.  # noqa: E501
+        The datetime the package status was updated at.
 
-        :return: The status_updated_at of this RawPackageUpload.  # noqa: E501
+        :return: The status_updated_at of this RawPackageUpload.
         :rtype: str
         """
         return self._status_updated_at
@@ -1595,9 +1651,9 @@ class RawPackageUpload(object):
     def status_updated_at(self, status_updated_at):
         """Sets the status_updated_at of this RawPackageUpload.
 
-        The datetime the package status was updated at.  # noqa: E501
+        The datetime the package status was updated at.
 
-        :param status_updated_at: The status_updated_at of this RawPackageUpload.  # noqa: E501
+        :param status_updated_at: The status_updated_at of this RawPackageUpload.
         :type: str
         """
 
@@ -1605,11 +1661,11 @@ class RawPackageUpload(object):
 
     @property
     def status_url(self):
-        """Gets the status_url of this RawPackageUpload.  # noqa: E501
+        """Gets the status_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The status_url of this RawPackageUpload.  # noqa: E501
+        :return: The status_url of this RawPackageUpload.
         :rtype: str
         """
         return self._status_url
@@ -1618,9 +1674,9 @@ class RawPackageUpload(object):
     def status_url(self, status_url):
         """Sets the status_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param status_url: The status_url of this RawPackageUpload.  # noqa: E501
+        :param status_url: The status_url of this RawPackageUpload.
         :type: str
         """
 
@@ -1628,11 +1684,11 @@ class RawPackageUpload(object):
 
     @property
     def subtype(self):
-        """Gets the subtype of this RawPackageUpload.  # noqa: E501
+        """Gets the subtype of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The subtype of this RawPackageUpload.  # noqa: E501
+        :return: The subtype of this RawPackageUpload.
         :rtype: str
         """
         return self._subtype
@@ -1641,9 +1697,9 @@ class RawPackageUpload(object):
     def subtype(self, subtype):
         """Sets the subtype of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param subtype: The subtype of this RawPackageUpload.  # noqa: E501
+        :param subtype: The subtype of this RawPackageUpload.
         :type: str
         """
 
@@ -1651,11 +1707,11 @@ class RawPackageUpload(object):
 
     @property
     def summary(self):
-        """Gets the summary of this RawPackageUpload.  # noqa: E501
+        """Gets the summary of this RawPackageUpload.
 
-        A one-liner synopsis of this package.  # noqa: E501
+        A one-liner synopsis of this package.
 
-        :return: The summary of this RawPackageUpload.  # noqa: E501
+        :return: The summary of this RawPackageUpload.
         :rtype: str
         """
         return self._summary
@@ -1664,9 +1720,9 @@ class RawPackageUpload(object):
     def summary(self, summary):
         """Sets the summary of this RawPackageUpload.
 
-        A one-liner synopsis of this package.  # noqa: E501
+        A one-liner synopsis of this package.
 
-        :param summary: The summary of this RawPackageUpload.  # noqa: E501
+        :param summary: The summary of this RawPackageUpload.
         :type: str
         """
 
@@ -1674,11 +1730,11 @@ class RawPackageUpload(object):
 
     @property
     def sync_finished_at(self):
-        """Gets the sync_finished_at of this RawPackageUpload.  # noqa: E501
+        """Gets the sync_finished_at of this RawPackageUpload.
 
-        The datetime the package sync was finished at.  # noqa: E501
+        The datetime the package sync was finished at.
 
-        :return: The sync_finished_at of this RawPackageUpload.  # noqa: E501
+        :return: The sync_finished_at of this RawPackageUpload.
         :rtype: str
         """
         return self._sync_finished_at
@@ -1687,9 +1743,9 @@ class RawPackageUpload(object):
     def sync_finished_at(self, sync_finished_at):
         """Sets the sync_finished_at of this RawPackageUpload.
 
-        The datetime the package sync was finished at.  # noqa: E501
+        The datetime the package sync was finished at.
 
-        :param sync_finished_at: The sync_finished_at of this RawPackageUpload.  # noqa: E501
+        :param sync_finished_at: The sync_finished_at of this RawPackageUpload.
         :type: str
         """
 
@@ -1697,11 +1753,11 @@ class RawPackageUpload(object):
 
     @property
     def sync_progress(self):
-        """Gets the sync_progress of this RawPackageUpload.  # noqa: E501
+        """Gets the sync_progress of this RawPackageUpload.
 
-        Synchronisation progress (from 0-100)  # noqa: E501
+        Synchronisation progress (from 0-100)
 
-        :return: The sync_progress of this RawPackageUpload.  # noqa: E501
+        :return: The sync_progress of this RawPackageUpload.
         :rtype: int
         """
         return self._sync_progress
@@ -1710,9 +1766,9 @@ class RawPackageUpload(object):
     def sync_progress(self, sync_progress):
         """Sets the sync_progress of this RawPackageUpload.
 
-        Synchronisation progress (from 0-100)  # noqa: E501
+        Synchronisation progress (from 0-100)
 
-        :param sync_progress: The sync_progress of this RawPackageUpload.  # noqa: E501
+        :param sync_progress: The sync_progress of this RawPackageUpload.
         :type: int
         """
 
@@ -1720,11 +1776,11 @@ class RawPackageUpload(object):
 
     @property
     def tags_immutable(self):
-        """Gets the tags_immutable of this RawPackageUpload.  # noqa: E501
+        """Gets the tags_immutable of this RawPackageUpload.
 
-        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.  # noqa: E501
+        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
 
-        :return: The tags_immutable of this RawPackageUpload.  # noqa: E501
+        :return: The tags_immutable of this RawPackageUpload.
         :rtype: object
         """
         return self._tags_immutable
@@ -1733,9 +1789,9 @@ class RawPackageUpload(object):
     def tags_immutable(self, tags_immutable):
         """Sets the tags_immutable of this RawPackageUpload.
 
-        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.  # noqa: E501
+        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
 
-        :param tags_immutable: The tags_immutable of this RawPackageUpload.  # noqa: E501
+        :param tags_immutable: The tags_immutable of this RawPackageUpload.
         :type: object
         """
 
@@ -1743,11 +1799,11 @@ class RawPackageUpload(object):
 
     @property
     def type_display(self):
-        """Gets the type_display of this RawPackageUpload.  # noqa: E501
+        """Gets the type_display of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The type_display of this RawPackageUpload.  # noqa: E501
+        :return: The type_display of this RawPackageUpload.
         :rtype: str
         """
         return self._type_display
@@ -1756,9 +1812,9 @@ class RawPackageUpload(object):
     def type_display(self, type_display):
         """Sets the type_display of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param type_display: The type_display of this RawPackageUpload.  # noqa: E501
+        :param type_display: The type_display of this RawPackageUpload.
         :type: str
         """
 
@@ -1766,11 +1822,11 @@ class RawPackageUpload(object):
 
     @property
     def uploaded_at(self):
-        """Gets the uploaded_at of this RawPackageUpload.  # noqa: E501
+        """Gets the uploaded_at of this RawPackageUpload.
 
-        The date this package was uploaded.  # noqa: E501
+        The date this package was uploaded.
 
-        :return: The uploaded_at of this RawPackageUpload.  # noqa: E501
+        :return: The uploaded_at of this RawPackageUpload.
         :rtype: str
         """
         return self._uploaded_at
@@ -1779,9 +1835,9 @@ class RawPackageUpload(object):
     def uploaded_at(self, uploaded_at):
         """Sets the uploaded_at of this RawPackageUpload.
 
-        The date this package was uploaded.  # noqa: E501
+        The date this package was uploaded.
 
-        :param uploaded_at: The uploaded_at of this RawPackageUpload.  # noqa: E501
+        :param uploaded_at: The uploaded_at of this RawPackageUpload.
         :type: str
         """
 
@@ -1789,11 +1845,11 @@ class RawPackageUpload(object):
 
     @property
     def uploader(self):
-        """Gets the uploader of this RawPackageUpload.  # noqa: E501
+        """Gets the uploader of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The uploader of this RawPackageUpload.  # noqa: E501
+        :return: The uploader of this RawPackageUpload.
         :rtype: str
         """
         return self._uploader
@@ -1802,9 +1858,9 @@ class RawPackageUpload(object):
     def uploader(self, uploader):
         """Sets the uploader of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param uploader: The uploader of this RawPackageUpload.  # noqa: E501
+        :param uploader: The uploader of this RawPackageUpload.
         :type: str
         """
 
@@ -1812,11 +1868,11 @@ class RawPackageUpload(object):
 
     @property
     def uploader_url(self):
-        """Gets the uploader_url of this RawPackageUpload.  # noqa: E501
+        """Gets the uploader_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The uploader_url of this RawPackageUpload.  # noqa: E501
+        :return: The uploader_url of this RawPackageUpload.
         :rtype: str
         """
         return self._uploader_url
@@ -1825,9 +1881,9 @@ class RawPackageUpload(object):
     def uploader_url(self, uploader_url):
         """Sets the uploader_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param uploader_url: The uploader_url of this RawPackageUpload.  # noqa: E501
+        :param uploader_url: The uploader_url of this RawPackageUpload.
         :type: str
         """
 
@@ -1835,11 +1891,11 @@ class RawPackageUpload(object):
 
     @property
     def version(self):
-        """Gets the version of this RawPackageUpload.  # noqa: E501
+        """Gets the version of this RawPackageUpload.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :return: The version of this RawPackageUpload.  # noqa: E501
+        :return: The version of this RawPackageUpload.
         :rtype: str
         """
         return self._version
@@ -1848,9 +1904,9 @@ class RawPackageUpload(object):
     def version(self, version):
         """Sets the version of this RawPackageUpload.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :param version: The version of this RawPackageUpload.  # noqa: E501
+        :param version: The version of this RawPackageUpload.
         :type: str
         """
 
@@ -1858,11 +1914,11 @@ class RawPackageUpload(object):
 
     @property
     def version_orig(self):
-        """Gets the version_orig of this RawPackageUpload.  # noqa: E501
+        """Gets the version_orig of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The version_orig of this RawPackageUpload.  # noqa: E501
+        :return: The version_orig of this RawPackageUpload.
         :rtype: str
         """
         return self._version_orig
@@ -1871,9 +1927,9 @@ class RawPackageUpload(object):
     def version_orig(self, version_orig):
         """Sets the version_orig of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param version_orig: The version_orig of this RawPackageUpload.  # noqa: E501
+        :param version_orig: The version_orig of this RawPackageUpload.
         :type: str
         """
 
@@ -1881,11 +1937,11 @@ class RawPackageUpload(object):
 
     @property
     def vulnerability_scan_results_url(self):
-        """Gets the vulnerability_scan_results_url of this RawPackageUpload.  # noqa: E501
+        """Gets the vulnerability_scan_results_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The vulnerability_scan_results_url of this RawPackageUpload.  # noqa: E501
+        :return: The vulnerability_scan_results_url of this RawPackageUpload.
         :rtype: str
         """
         return self._vulnerability_scan_results_url
@@ -1894,9 +1950,9 @@ class RawPackageUpload(object):
     def vulnerability_scan_results_url(self, vulnerability_scan_results_url):
         """Sets the vulnerability_scan_results_url of this RawPackageUpload.
 
-          # noqa: E501
+        
 
-        :param vulnerability_scan_results_url: The vulnerability_scan_results_url of this RawPackageUpload.  # noqa: E501
+        :param vulnerability_scan_results_url: The vulnerability_scan_results_url of this RawPackageUpload.
         :type: str
         """
 
@@ -1950,3 +2006,4 @@ class RawPackageUpload(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

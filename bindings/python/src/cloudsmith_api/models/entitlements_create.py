@@ -123,11 +123,11 @@ class EntitlementsCreate(object):
 
     @property
     def eula_required(self):
-        """Gets the eula_required of this EntitlementsCreate.  # noqa: E501
+        """Gets the eula_required of this EntitlementsCreate.
 
-        If checked, a EULA acceptance is required for this token.  # noqa: E501
+        If checked, a EULA acceptance is required for this token.
 
-        :return: The eula_required of this EntitlementsCreate.  # noqa: E501
+        :return: The eula_required of this EntitlementsCreate.
         :rtype: bool
         """
         return self._eula_required
@@ -136,9 +136,9 @@ class EntitlementsCreate(object):
     def eula_required(self, eula_required):
         """Sets the eula_required of this EntitlementsCreate.
 
-        If checked, a EULA acceptance is required for this token.  # noqa: E501
+        If checked, a EULA acceptance is required for this token.
 
-        :param eula_required: The eula_required of this EntitlementsCreate.  # noqa: E501
+        :param eula_required: The eula_required of this EntitlementsCreate.
         :type: bool
         """
 
@@ -146,11 +146,11 @@ class EntitlementsCreate(object):
 
     @property
     def is_active(self):
-        """Gets the is_active of this EntitlementsCreate.  # noqa: E501
+        """Gets the is_active of this EntitlementsCreate.
 
-        If enabled, the token will allow downloads based on configured restrictions (if any).  # noqa: E501
+        If enabled, the token will allow downloads based on configured restrictions (if any).
 
-        :return: The is_active of this EntitlementsCreate.  # noqa: E501
+        :return: The is_active of this EntitlementsCreate.
         :rtype: bool
         """
         return self._is_active
@@ -159,9 +159,9 @@ class EntitlementsCreate(object):
     def is_active(self, is_active):
         """Sets the is_active of this EntitlementsCreate.
 
-        If enabled, the token will allow downloads based on configured restrictions (if any).  # noqa: E501
+        If enabled, the token will allow downloads based on configured restrictions (if any).
 
-        :param is_active: The is_active of this EntitlementsCreate.  # noqa: E501
+        :param is_active: The is_active of this EntitlementsCreate.
         :type: bool
         """
 
@@ -169,11 +169,11 @@ class EntitlementsCreate(object):
 
     @property
     def limit_bandwidth(self):
-        """Gets the limit_bandwidth of this EntitlementsCreate.  # noqa: E501
+        """Gets the limit_bandwidth of this EntitlementsCreate.
 
-        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.   # noqa: E501
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 
-        :return: The limit_bandwidth of this EntitlementsCreate.  # noqa: E501
+        :return: The limit_bandwidth of this EntitlementsCreate.
         :rtype: int
         """
         return self._limit_bandwidth
@@ -182,9 +182,9 @@ class EntitlementsCreate(object):
     def limit_bandwidth(self, limit_bandwidth):
         """Sets the limit_bandwidth of this EntitlementsCreate.
 
-        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.   # noqa: E501
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 
-        :param limit_bandwidth: The limit_bandwidth of this EntitlementsCreate.  # noqa: E501
+        :param limit_bandwidth: The limit_bandwidth of this EntitlementsCreate.
         :type: int
         """
 
@@ -192,11 +192,11 @@ class EntitlementsCreate(object):
 
     @property
     def limit_bandwidth_unit(self):
-        """Gets the limit_bandwidth_unit of this EntitlementsCreate.  # noqa: E501
+        """Gets the limit_bandwidth_unit of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The limit_bandwidth_unit of this EntitlementsCreate.  # noqa: E501
+        :return: The limit_bandwidth_unit of this EntitlementsCreate.
         :rtype: str
         """
         return self._limit_bandwidth_unit
@@ -205,9 +205,9 @@ class EntitlementsCreate(object):
     def limit_bandwidth_unit(self, limit_bandwidth_unit):
         """Sets the limit_bandwidth_unit of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param limit_bandwidth_unit: The limit_bandwidth_unit of this EntitlementsCreate.  # noqa: E501
+        :param limit_bandwidth_unit: The limit_bandwidth_unit of this EntitlementsCreate.
         :type: str
         """
         allowed_values = ["Byte", "Kilobyte", "Megabyte", "Gigabyte", "Terabyte", "Petabyte", "Exabyte", "Zettabyte", "Yottabyte"]  # noqa: E501
@@ -222,11 +222,11 @@ class EntitlementsCreate(object):
 
     @property
     def limit_date_range_from(self):
-        """Gets the limit_date_range_from of this EntitlementsCreate.  # noqa: E501
+        """Gets the limit_date_range_from of this EntitlementsCreate.
 
-        The starting date/time the token is allowed to be used from.  # noqa: E501
+        The starting date/time the token is allowed to be used from.
 
-        :return: The limit_date_range_from of this EntitlementsCreate.  # noqa: E501
+        :return: The limit_date_range_from of this EntitlementsCreate.
         :rtype: str
         """
         return self._limit_date_range_from
@@ -235,9 +235,9 @@ class EntitlementsCreate(object):
     def limit_date_range_from(self, limit_date_range_from):
         """Sets the limit_date_range_from of this EntitlementsCreate.
 
-        The starting date/time the token is allowed to be used from.  # noqa: E501
+        The starting date/time the token is allowed to be used from.
 
-        :param limit_date_range_from: The limit_date_range_from of this EntitlementsCreate.  # noqa: E501
+        :param limit_date_range_from: The limit_date_range_from of this EntitlementsCreate.
         :type: str
         """
 
@@ -245,11 +245,11 @@ class EntitlementsCreate(object):
 
     @property
     def limit_date_range_to(self):
-        """Gets the limit_date_range_to of this EntitlementsCreate.  # noqa: E501
+        """Gets the limit_date_range_to of this EntitlementsCreate.
 
-        The ending date/time the token is allowed to be used until.  # noqa: E501
+        The ending date/time the token is allowed to be used until.
 
-        :return: The limit_date_range_to of this EntitlementsCreate.  # noqa: E501
+        :return: The limit_date_range_to of this EntitlementsCreate.
         :rtype: str
         """
         return self._limit_date_range_to
@@ -258,9 +258,9 @@ class EntitlementsCreate(object):
     def limit_date_range_to(self, limit_date_range_to):
         """Sets the limit_date_range_to of this EntitlementsCreate.
 
-        The ending date/time the token is allowed to be used until.  # noqa: E501
+        The ending date/time the token is allowed to be used until.
 
-        :param limit_date_range_to: The limit_date_range_to of this EntitlementsCreate.  # noqa: E501
+        :param limit_date_range_to: The limit_date_range_to of this EntitlementsCreate.
         :type: str
         """
 
@@ -268,11 +268,11 @@ class EntitlementsCreate(object):
 
     @property
     def limit_num_clients(self):
-        """Gets the limit_num_clients of this EntitlementsCreate.  # noqa: E501
+        """Gets the limit_num_clients of this EntitlementsCreate.
 
-        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  # noqa: E501
+        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
 
-        :return: The limit_num_clients of this EntitlementsCreate.  # noqa: E501
+        :return: The limit_num_clients of this EntitlementsCreate.
         :rtype: int
         """
         return self._limit_num_clients
@@ -281,9 +281,9 @@ class EntitlementsCreate(object):
     def limit_num_clients(self, limit_num_clients):
         """Sets the limit_num_clients of this EntitlementsCreate.
 
-        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  # noqa: E501
+        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
 
-        :param limit_num_clients: The limit_num_clients of this EntitlementsCreate.  # noqa: E501
+        :param limit_num_clients: The limit_num_clients of this EntitlementsCreate.
         :type: int
         """
 
@@ -291,11 +291,11 @@ class EntitlementsCreate(object):
 
     @property
     def limit_num_downloads(self):
-        """Gets the limit_num_downloads of this EntitlementsCreate.  # noqa: E501
+        """Gets the limit_num_downloads of this EntitlementsCreate.
 
-        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  # noqa: E501
+        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
 
-        :return: The limit_num_downloads of this EntitlementsCreate.  # noqa: E501
+        :return: The limit_num_downloads of this EntitlementsCreate.
         :rtype: int
         """
         return self._limit_num_downloads
@@ -304,9 +304,9 @@ class EntitlementsCreate(object):
     def limit_num_downloads(self, limit_num_downloads):
         """Sets the limit_num_downloads of this EntitlementsCreate.
 
-        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  # noqa: E501
+        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
 
-        :param limit_num_downloads: The limit_num_downloads of this EntitlementsCreate.  # noqa: E501
+        :param limit_num_downloads: The limit_num_downloads of this EntitlementsCreate.
         :type: int
         """
 
@@ -314,11 +314,11 @@ class EntitlementsCreate(object):
 
     @property
     def limit_package_query(self):
-        """Gets the limit_package_query of this EntitlementsCreate.  # noqa: E501
+        """Gets the limit_package_query of this EntitlementsCreate.
 
-        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.  # noqa: E501
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
 
-        :return: The limit_package_query of this EntitlementsCreate.  # noqa: E501
+        :return: The limit_package_query of this EntitlementsCreate.
         :rtype: str
         """
         return self._limit_package_query
@@ -327,9 +327,9 @@ class EntitlementsCreate(object):
     def limit_package_query(self, limit_package_query):
         """Sets the limit_package_query of this EntitlementsCreate.
 
-        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.  # noqa: E501
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
 
-        :param limit_package_query: The limit_package_query of this EntitlementsCreate.  # noqa: E501
+        :param limit_package_query: The limit_package_query of this EntitlementsCreate.
         :type: str
         """
 
@@ -337,11 +337,11 @@ class EntitlementsCreate(object):
 
     @property
     def limit_path_query(self):
-        """Gets the limit_path_query of this EntitlementsCreate.  # noqa: E501
+        """Gets the limit_path_query of this EntitlementsCreate.
 
-        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.  # noqa: E501
+        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
 
-        :return: The limit_path_query of this EntitlementsCreate.  # noqa: E501
+        :return: The limit_path_query of this EntitlementsCreate.
         :rtype: str
         """
         return self._limit_path_query
@@ -350,9 +350,9 @@ class EntitlementsCreate(object):
     def limit_path_query(self, limit_path_query):
         """Sets the limit_path_query of this EntitlementsCreate.
 
-        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.  # noqa: E501
+        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
 
-        :param limit_path_query: The limit_path_query of this EntitlementsCreate.  # noqa: E501
+        :param limit_path_query: The limit_path_query of this EntitlementsCreate.
         :type: str
         """
 
@@ -360,11 +360,11 @@ class EntitlementsCreate(object):
 
     @property
     def metadata(self):
-        """Gets the metadata of this EntitlementsCreate.  # noqa: E501
+        """Gets the metadata of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The metadata of this EntitlementsCreate.  # noqa: E501
+        :return: The metadata of this EntitlementsCreate.
         :rtype: object
         """
         return self._metadata
@@ -373,9 +373,9 @@ class EntitlementsCreate(object):
     def metadata(self, metadata):
         """Sets the metadata of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param metadata: The metadata of this EntitlementsCreate.  # noqa: E501
+        :param metadata: The metadata of this EntitlementsCreate.
         :type: object
         """
 
@@ -383,11 +383,11 @@ class EntitlementsCreate(object):
 
     @property
     def name(self):
-        """Gets the name of this EntitlementsCreate.  # noqa: E501
+        """Gets the name of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The name of this EntitlementsCreate.  # noqa: E501
+        :return: The name of this EntitlementsCreate.
         :rtype: str
         """
         return self._name
@@ -396,9 +396,9 @@ class EntitlementsCreate(object):
     def name(self, name):
         """Sets the name of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param name: The name of this EntitlementsCreate.  # noqa: E501
+        :param name: The name of this EntitlementsCreate.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
@@ -408,11 +408,11 @@ class EntitlementsCreate(object):
 
     @property
     def scheduled_reset_at(self):
-        """Gets the scheduled_reset_at of this EntitlementsCreate.  # noqa: E501
+        """Gets the scheduled_reset_at of this EntitlementsCreate.
 
-        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.  # noqa: E501
+        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
 
-        :return: The scheduled_reset_at of this EntitlementsCreate.  # noqa: E501
+        :return: The scheduled_reset_at of this EntitlementsCreate.
         :rtype: str
         """
         return self._scheduled_reset_at
@@ -421,9 +421,9 @@ class EntitlementsCreate(object):
     def scheduled_reset_at(self, scheduled_reset_at):
         """Sets the scheduled_reset_at of this EntitlementsCreate.
 
-        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.  # noqa: E501
+        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
 
-        :param scheduled_reset_at: The scheduled_reset_at of this EntitlementsCreate.  # noqa: E501
+        :param scheduled_reset_at: The scheduled_reset_at of this EntitlementsCreate.
         :type: str
         """
 
@@ -431,11 +431,11 @@ class EntitlementsCreate(object):
 
     @property
     def scheduled_reset_period(self):
-        """Gets the scheduled_reset_period of this EntitlementsCreate.  # noqa: E501
+        """Gets the scheduled_reset_period of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The scheduled_reset_period of this EntitlementsCreate.  # noqa: E501
+        :return: The scheduled_reset_period of this EntitlementsCreate.
         :rtype: str
         """
         return self._scheduled_reset_period
@@ -444,9 +444,9 @@ class EntitlementsCreate(object):
     def scheduled_reset_period(self, scheduled_reset_period):
         """Sets the scheduled_reset_period of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param scheduled_reset_period: The scheduled_reset_period of this EntitlementsCreate.  # noqa: E501
+        :param scheduled_reset_period: The scheduled_reset_period of this EntitlementsCreate.
         :type: str
         """
         allowed_values = ["Never Reset", "Daily", "Weekly", "Fortnightly", "Monthly", "Bi-Monthly", "Quarterly", "Every 6 months", "Annual"]  # noqa: E501
@@ -461,11 +461,11 @@ class EntitlementsCreate(object):
 
     @property
     def token(self):
-        """Gets the token of this EntitlementsCreate.  # noqa: E501
+        """Gets the token of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The token of this EntitlementsCreate.  # noqa: E501
+        :return: The token of this EntitlementsCreate.
         :rtype: str
         """
         return self._token
@@ -474,9 +474,9 @@ class EntitlementsCreate(object):
     def token(self, token):
         """Sets the token of this EntitlementsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param token: The token of this EntitlementsCreate.  # noqa: E501
+        :param token: The token of this EntitlementsCreate.
         :type: str
         """
 
@@ -530,3 +530,4 @@ class EntitlementsCreate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

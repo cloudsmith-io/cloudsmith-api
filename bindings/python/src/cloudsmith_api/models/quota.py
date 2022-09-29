@@ -53,11 +53,11 @@ class Quota(object):
 
     @property
     def usage(self):
-        """Gets the usage of this Quota.  # noqa: E501
+        """Gets the usage of this Quota.
 
-          # noqa: E501
+        
 
-        :return: The usage of this Quota.  # noqa: E501
+        :return: The usage of this Quota.
         :rtype: object
         """
         return self._usage
@@ -66,9 +66,9 @@ class Quota(object):
     def usage(self, usage):
         """Sets the usage of this Quota.
 
-          # noqa: E501
+        
 
-        :param usage: The usage of this Quota.  # noqa: E501
+        :param usage: The usage of this Quota.
         :type: object
         """
         if self._configuration.client_side_validation and usage is None:
@@ -124,3 +124,4 @@ class Quota(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

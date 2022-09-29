@@ -69,11 +69,11 @@ class FormatsDistributions(object):
 
     @property
     def name(self):
-        """Gets the name of this FormatsDistributions.  # noqa: E501
+        """Gets the name of this FormatsDistributions.
 
-          # noqa: E501
+        
 
-        :return: The name of this FormatsDistributions.  # noqa: E501
+        :return: The name of this FormatsDistributions.
         :rtype: str
         """
         return self._name
@@ -82,9 +82,9 @@ class FormatsDistributions(object):
     def name(self, name):
         """Sets the name of this FormatsDistributions.
 
-          # noqa: E501
+        
 
-        :param name: The name of this FormatsDistributions.  # noqa: E501
+        :param name: The name of this FormatsDistributions.
         :type: str
         """
 
@@ -92,11 +92,11 @@ class FormatsDistributions(object):
 
     @property
     def self_url(self):
-        """Gets the self_url of this FormatsDistributions.  # noqa: E501
+        """Gets the self_url of this FormatsDistributions.
 
-          # noqa: E501
+        
 
-        :return: The self_url of this FormatsDistributions.  # noqa: E501
+        :return: The self_url of this FormatsDistributions.
         :rtype: str
         """
         return self._self_url
@@ -105,9 +105,9 @@ class FormatsDistributions(object):
     def self_url(self, self_url):
         """Sets the self_url of this FormatsDistributions.
 
-          # noqa: E501
+        
 
-        :param self_url: The self_url of this FormatsDistributions.  # noqa: E501
+        :param self_url: The self_url of this FormatsDistributions.
         :type: str
         """
 
@@ -115,11 +115,11 @@ class FormatsDistributions(object):
 
     @property
     def slug(self):
-        """Gets the slug of this FormatsDistributions.  # noqa: E501
+        """Gets the slug of this FormatsDistributions.
 
-        The slug identifier for this distribution  # noqa: E501
+        The slug identifier for this distribution
 
-        :return: The slug of this FormatsDistributions.  # noqa: E501
+        :return: The slug of this FormatsDistributions.
         :rtype: str
         """
         return self._slug
@@ -128,9 +128,9 @@ class FormatsDistributions(object):
     def slug(self, slug):
         """Sets the slug of this FormatsDistributions.
 
-        The slug identifier for this distribution  # noqa: E501
+        The slug identifier for this distribution
 
-        :param slug: The slug of this FormatsDistributions.  # noqa: E501
+        :param slug: The slug of this FormatsDistributions.
         :type: str
         """
 
@@ -138,11 +138,11 @@ class FormatsDistributions(object):
 
     @property
     def variants(self):
-        """Gets the variants of this FormatsDistributions.  # noqa: E501
+        """Gets the variants of this FormatsDistributions.
 
-          # noqa: E501
+        
 
-        :return: The variants of this FormatsDistributions.  # noqa: E501
+        :return: The variants of this FormatsDistributions.
         :rtype: str
         """
         return self._variants
@@ -151,9 +151,9 @@ class FormatsDistributions(object):
     def variants(self, variants):
         """Sets the variants of this FormatsDistributions.
 
-          # noqa: E501
+        
 
-        :param variants: The variants of this FormatsDistributions.  # noqa: E501
+        :param variants: The variants of this FormatsDistributions.
         :type: str
         """
 
@@ -207,3 +207,4 @@ class FormatsDistributions(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

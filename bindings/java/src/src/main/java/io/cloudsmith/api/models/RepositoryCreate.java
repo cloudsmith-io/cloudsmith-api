@@ -40,6 +40,58 @@ public class RepositoryCreate implements Serializable {
   @SerializedName("cdn_url")
   private String cdnUrl = null;
 
+  /**
+   * The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+   */
+  @JsonAdapter(ContentKindEnum.Adapter.class)
+  public enum ContentKindEnum {
+    STANDARD("Standard"),
+    
+    DISTRIBUTION("Distribution"),
+    
+    UPSTREAM("Upstream");
+
+    private String value;
+
+    ContentKindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ContentKindEnum fromValue(String text) {
+      for (ContentKindEnum b : ContentKindEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ContentKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ContentKindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ContentKindEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ContentKindEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("content_kind")
+  private ContentKindEnum contentKind = null;
+
   @SerializedName("contextual_auth_realm")
   private Boolean contextualAuthRealm = null;
 
@@ -213,6 +265,9 @@ public class RepositoryCreate implements Serializable {
 
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("distributes")
+  private List<String> distributes = null;
 
   @SerializedName("docker_refresh_tokens_enabled")
   private Boolean dockerRefreshTokensEnabled = null;
@@ -530,7 +585,7 @@ public class RepositoryCreate implements Serializable {
   private Boolean userEntitlementsEnabled = null;
 
   /**
-   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
+   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
    */
   @JsonAdapter(ViewStatisticsEnum.Adapter.class)
   public enum ViewStatisticsEnum {
@@ -597,6 +652,24 @@ public class RepositoryCreate implements Serializable {
 
   public void setCdnUrl(String cdnUrl) {
     this.cdnUrl = cdnUrl;
+  }
+
+  public RepositoryCreate contentKind(ContentKindEnum contentKind) {
+    this.contentKind = contentKind;
+    return this;
+  }
+
+   /**
+   * The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+   * @return contentKind
+  **/
+  @ApiModelProperty(value = "The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.")
+  public ContentKindEnum getContentKind() {
+    return contentKind;
+  }
+
+  public void setContentKind(ContentKindEnum contentKind) {
+    this.contentKind = contentKind;
   }
 
   public RepositoryCreate contextualAuthRealm(Boolean contextualAuthRealm) {
@@ -759,6 +832,32 @@ public class RepositoryCreate implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public RepositoryCreate distributes(List<String> distributes) {
+    this.distributes = distributes;
+    return this;
+  }
+
+  public RepositoryCreate addDistributesItem(String distributesItem) {
+    if (this.distributes == null) {
+      this.distributes = new ArrayList<>();
+    }
+    this.distributes.add(distributesItem);
+    return this;
+  }
+
+   /**
+   * The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.
+   * @return distributes
+  **/
+  @ApiModelProperty(value = "The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.")
+  public List<String> getDistributes() {
+    return distributes;
+  }
+
+  public void setDistributes(List<String> distributes) {
+    this.distributes = distributes;
   }
 
   public RepositoryCreate dockerRefreshTokensEnabled(Boolean dockerRefreshTokensEnabled) {
@@ -1515,10 +1614,10 @@ public class RepositoryCreate implements Serializable {
   }
 
    /**
-   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
+   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
    * @return viewStatistics
   **/
-  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
   public ViewStatisticsEnum getViewStatistics() {
     return viewStatistics;
   }
@@ -1538,6 +1637,7 @@ public class RepositoryCreate implements Serializable {
     }
     RepositoryCreate repositoryCreate = (RepositoryCreate) o;
     return Objects.equals(this.cdnUrl, repositoryCreate.cdnUrl) &&
+        Objects.equals(this.contentKind, repositoryCreate.contentKind) &&
         Objects.equals(this.contextualAuthRealm, repositoryCreate.contextualAuthRealm) &&
         Objects.equals(this.copyOwn, repositoryCreate.copyOwn) &&
         Objects.equals(this.copyPackages, repositoryCreate.copyPackages) &&
@@ -1547,6 +1647,7 @@ public class RepositoryCreate implements Serializable {
         Objects.equals(this.deletePackages, repositoryCreate.deletePackages) &&
         Objects.equals(this.deletedAt, repositoryCreate.deletedAt) &&
         Objects.equals(this.description, repositoryCreate.description) &&
+        Objects.equals(this.distributes, repositoryCreate.distributes) &&
         Objects.equals(this.dockerRefreshTokensEnabled, repositoryCreate.dockerRefreshTokensEnabled) &&
         Objects.equals(this.gpgKeys, repositoryCreate.gpgKeys) &&
         Objects.equals(this.indexFiles, repositoryCreate.indexFiles) &&
@@ -1593,7 +1694,7 @@ public class RepositoryCreate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnUrl, contextualAuthRealm, copyOwn, copyPackages, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, dockerRefreshTokensEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, moveOwn, movePackages, name, namespace, namespaceUrl, numDownloads, packageCount, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, useDebianLabels, useDefaultCargoUpstream, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, moveOwn, movePackages, name, namespace, namespaceUrl, numDownloads, packageCount, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, useDebianLabels, useDefaultCargoUpstream, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1603,6 +1704,7 @@ public class RepositoryCreate implements Serializable {
     sb.append("class RepositoryCreate {\n");
     
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
+    sb.append("    contentKind: ").append(toIndentedString(contentKind)).append("\n");
     sb.append("    contextualAuthRealm: ").append(toIndentedString(contextualAuthRealm)).append("\n");
     sb.append("    copyOwn: ").append(toIndentedString(copyOwn)).append("\n");
     sb.append("    copyPackages: ").append(toIndentedString(copyPackages)).append("\n");
@@ -1612,6 +1714,7 @@ public class RepositoryCreate implements Serializable {
     sb.append("    deletePackages: ").append(toIndentedString(deletePackages)).append("\n");
     sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    distributes: ").append(toIndentedString(distributes)).append("\n");
     sb.append("    dockerRefreshTokensEnabled: ").append(toIndentedString(dockerRefreshTokensEnabled)).append("\n");
     sb.append("    gpgKeys: ").append(toIndentedString(gpgKeys)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");

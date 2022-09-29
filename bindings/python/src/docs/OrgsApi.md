@@ -9,18 +9,22 @@ Method | HTTP request | Description
 [**orgs_invites_extend**](OrgsApi.md#orgs_invites_extend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
 [**orgs_invites_list**](OrgsApi.md#orgs_invites_list) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
 [**orgs_list**](OrgsApi.md#orgs_list) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
+[**orgs_members_delete**](OrgsApi.md#orgs_members_delete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 [**orgs_members_list**](OrgsApi.md#orgs_members_list) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
 [**orgs_members_read**](OrgsApi.md#orgs_members_read) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
-[**orgs_members_remove**](OrgsApi.md#orgs_members_remove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization.
+[**orgs_members_remove**](OrgsApi.md#orgs_members_remove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
 [**orgs_read**](OrgsApi.md#orgs_read) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 [**orgs_saml_group_sync_create**](OrgsApi.md#orgs_saml_group_sync_create) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgs_saml_group_sync_delete**](OrgsApi.md#orgs_saml_group_sync_delete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 [**orgs_saml_group_sync_list**](OrgsApi.md#orgs_saml_group_sync_list) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
 [**orgs_teams_create**](OrgsApi.md#orgs_teams_create) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
-[**orgs_teams_delete**](OrgsApi.md#orgs_teams_delete) | **DELETE** /orgs/{org}/teams/{slug_perm}/ | Delete a specific team in a organization.
+[**orgs_teams_delete**](OrgsApi.md#orgs_teams_delete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization.
 [**orgs_teams_list**](OrgsApi.md#orgs_teams_list) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
-[**orgs_teams_partial_update**](OrgsApi.md#orgs_teams_partial_update) | **PATCH** /orgs/{org}/teams/{slug_perm}/ | Update a specific team in a organization.
-[**orgs_teams_read**](OrgsApi.md#orgs_teams_read) | **GET** /orgs/{org}/teams/{slug_perm}/ | Viewset for working with Organization teams.
+[**orgs_teams_members_create**](OrgsApi.md#orgs_teams_members_create) | **POST** /orgs/{org}/teams/{team}/members | Add users to a team.
+[**orgs_teams_members_list**](OrgsApi.md#orgs_teams_members_list) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team.
+[**orgs_teams_members_update**](OrgsApi.md#orgs_teams_members_update) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
+[**orgs_teams_partial_update**](OrgsApi.md#orgs_teams_partial_update) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
+[**orgs_teams_read**](OrgsApi.md#orgs_teams_read) | **GET** /orgs/{org}/teams/{team}/ | Get the details for the specific team.
 
 
 # **orgs_invites_create**
@@ -306,6 +310,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **orgs_members_delete**
+> orgs_members_delete(org, member)
+
+Removes a member from the organization.
+
+Removes a member from the organization.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+member = 'member_example' # str | 
+
+try:
+    # Removes a member from the organization.
+    api_instance.orgs_members_delete(org, member)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_members_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **member** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **orgs_members_list**
 > list[OrganizationMembership] orgs_members_list(org, page=page, page_size=page_size)
 
@@ -421,11 +480,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_members_remove**
-> OrganizationMembership orgs_members_remove(org, member)
+> orgs_members_remove(org, member)
 
-Removes a member from the organization.
+Removes a member from the organization (deprecated, use DELETE instead).
 
-Removes a member from the organization.
+Removes a member from the organization (deprecated, use DELETE instead).
 
 ### Example
 ```python
@@ -447,9 +506,8 @@ org = 'org_example' # str |
 member = 'member_example' # str | 
 
 try:
-    # Removes a member from the organization.
-    api_response = api_instance.orgs_members_remove(org, member)
-    pprint(api_response)
+    # Removes a member from the organization (deprecated, use DELETE instead).
+    api_instance.orgs_members_remove(org, member)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_members_remove: %s\n" % e)
 ```
@@ -463,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationMembership**](OrganizationMembership.md)
+void (empty response body)
 
 ### Authorization
 
@@ -756,7 +814,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_delete**
-> orgs_teams_delete(org, slug_perm)
+> orgs_teams_delete(org, team)
 
 Delete a specific team in a organization.
 
@@ -779,11 +837,11 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+team = 'team_example' # str | 
 
 try:
     # Delete a specific team in a organization.
-    api_instance.orgs_teams_delete(org, slug_perm)
+    api_instance.orgs_teams_delete(org, team)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_teams_delete: %s\n" % e)
 ```
@@ -793,7 +851,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **str**|  | 
- **slug_perm** | **str**|  | 
+ **team** | **str**|  | 
 
 ### Return type
 
@@ -868,8 +926,179 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **orgs_teams_members_create**
+> OrganizationTeamMembers orgs_teams_members_create(org, team, data=data)
+
+Add users to a team.
+
+Add users to a team.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+team = 'team_example' # str | 
+data = cloudsmith_api.OrgsTeamsMembersCreate() # OrgsTeamsMembersCreate |  (optional)
+
+try:
+    # Add users to a team.
+    api_response = api_instance.orgs_teams_members_create(org, team, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_teams_members_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **team** | **str**|  | 
+ **data** | [**OrgsTeamsMembersCreate**](OrgsTeamsMembersCreate.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_teams_members_list**
+> OrganizationTeamMembers orgs_teams_members_list(org, team)
+
+List all members for the team.
+
+List all members for the team.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+team = 'team_example' # str | 
+
+try:
+    # List all members for the team.
+    api_response = api_instance.orgs_teams_members_list(org, team)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_teams_members_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **team** | **str**|  | 
+
+### Return type
+
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_teams_members_update**
+> orgs_teams_members_update(org, team, data=data)
+
+Replace all team members.
+
+Replace all team members.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+team = 'team_example' # str | 
+data = cloudsmith_api.OrgsTeamsMembersUpdate() # OrgsTeamsMembersUpdate |  (optional)
+
+try:
+    # Replace all team members.
+    api_instance.orgs_teams_members_update(org, team, data=data)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_teams_members_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **team** | **str**|  | 
+ **data** | [**OrgsTeamsMembersUpdate**](OrgsTeamsMembersUpdate.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **orgs_teams_partial_update**
-> OrganizationTeam orgs_teams_partial_update(org, slug_perm, data=data)
+> OrganizationTeam orgs_teams_partial_update(org, team, data=data)
 
 Update a specific team in a organization.
 
@@ -892,12 +1121,12 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+team = 'team_example' # str | 
 data = cloudsmith_api.OrgsTeamsPartialUpdate() # OrgsTeamsPartialUpdate |  (optional)
 
 try:
     # Update a specific team in a organization.
-    api_response = api_instance.orgs_teams_partial_update(org, slug_perm, data=data)
+    api_response = api_instance.orgs_teams_partial_update(org, team, data=data)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_teams_partial_update: %s\n" % e)
@@ -908,7 +1137,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **str**|  | 
- **slug_perm** | **str**|  | 
+ **team** | **str**|  | 
  **data** | [**OrgsTeamsPartialUpdate**](OrgsTeamsPartialUpdate.md)|  | [optional] 
 
 ### Return type
@@ -927,11 +1156,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_read**
-> OrganizationTeam orgs_teams_read(org, slug_perm)
+> OrganizationTeam orgs_teams_read(org, team)
 
-Viewset for working with Organization teams.
+Get the details for the specific team.
 
-Viewset for working with Organization teams.
+Get the details for the specific team.
 
 ### Example
 ```python
@@ -950,11 +1179,11 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+team = 'team_example' # str | 
 
 try:
-    # Viewset for working with Organization teams.
-    api_response = api_instance.orgs_teams_read(org, slug_perm)
+    # Get the details for the specific team.
+    api_response = api_instance.orgs_teams_read(org, team)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_teams_read: %s\n" % e)
@@ -965,7 +1194,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **str**|  | 
- **slug_perm** | **str**|  | 
+ **team** | **str**|  | 
 
 ### Return type
 

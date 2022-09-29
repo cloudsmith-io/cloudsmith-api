@@ -68,11 +68,11 @@ class PackagesUploadNpm(object):
 
     @property
     def npm_dist_tag(self):
-        """Gets the npm_dist_tag of this PackagesUploadNpm.  # noqa: E501
+        """Gets the npm_dist_tag of this PackagesUploadNpm.
 
-        The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.  # noqa: E501
+        The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
 
-        :return: The npm_dist_tag of this PackagesUploadNpm.  # noqa: E501
+        :return: The npm_dist_tag of this PackagesUploadNpm.
         :rtype: str
         """
         return self._npm_dist_tag
@@ -81,9 +81,9 @@ class PackagesUploadNpm(object):
     def npm_dist_tag(self, npm_dist_tag):
         """Sets the npm_dist_tag of this PackagesUploadNpm.
 
-        The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.  # noqa: E501
+        The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
 
-        :param npm_dist_tag: The npm_dist_tag of this PackagesUploadNpm.  # noqa: E501
+        :param npm_dist_tag: The npm_dist_tag of this PackagesUploadNpm.
         :type: str
         """
 
@@ -91,11 +91,11 @@ class PackagesUploadNpm(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesUploadNpm.  # noqa: E501
+        """Gets the package_file of this PackagesUploadNpm.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesUploadNpm.  # noqa: E501
+        :return: The package_file of this PackagesUploadNpm.
         :rtype: str
         """
         return self._package_file
@@ -104,9 +104,9 @@ class PackagesUploadNpm(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesUploadNpm.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesUploadNpm.  # noqa: E501
+        :param package_file: The package_file of this PackagesUploadNpm.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -116,11 +116,11 @@ class PackagesUploadNpm(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesUploadNpm.  # noqa: E501
+        """Gets the republish of this PackagesUploadNpm.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesUploadNpm.  # noqa: E501
+        :return: The republish of this PackagesUploadNpm.
         :rtype: bool
         """
         return self._republish
@@ -129,9 +129,9 @@ class PackagesUploadNpm(object):
     def republish(self, republish):
         """Sets the republish of this PackagesUploadNpm.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesUploadNpm.  # noqa: E501
+        :param republish: The republish of this PackagesUploadNpm.
         :type: bool
         """
 
@@ -139,11 +139,11 @@ class PackagesUploadNpm(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesUploadNpm.  # noqa: E501
+        """Gets the tags of this PackagesUploadNpm.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesUploadNpm.  # noqa: E501
+        :return: The tags of this PackagesUploadNpm.
         :rtype: str
         """
         return self._tags
@@ -152,9 +152,9 @@ class PackagesUploadNpm(object):
     def tags(self, tags):
         """Sets the tags of this PackagesUploadNpm.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesUploadNpm.  # noqa: E501
+        :param tags: The tags of this PackagesUploadNpm.
         :type: str
         """
 
@@ -208,3 +208,4 @@ class PackagesUploadNpm(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

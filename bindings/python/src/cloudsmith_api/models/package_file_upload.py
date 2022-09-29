@@ -74,11 +74,11 @@ class PackageFileUpload(object):
 
     @property
     def identifier(self):
-        """Gets the identifier of this PackageFileUpload.  # noqa: E501
+        """Gets the identifier of this PackageFileUpload.
 
-        The identifier for the file to use when creating packages  # noqa: E501
+        The identifier for the file to use when creating packages
 
-        :return: The identifier of this PackageFileUpload.  # noqa: E501
+        :return: The identifier of this PackageFileUpload.
         :rtype: str
         """
         return self._identifier
@@ -87,9 +87,9 @@ class PackageFileUpload(object):
     def identifier(self, identifier):
         """Sets the identifier of this PackageFileUpload.
 
-        The identifier for the file to use when creating packages  # noqa: E501
+        The identifier for the file to use when creating packages
 
-        :param identifier: The identifier of this PackageFileUpload.  # noqa: E501
+        :param identifier: The identifier of this PackageFileUpload.
         :type: str
         """
 
@@ -97,11 +97,11 @@ class PackageFileUpload(object):
 
     @property
     def upload_fields(self):
-        """Gets the upload_fields of this PackageFileUpload.  # noqa: E501
+        """Gets the upload_fields of this PackageFileUpload.
 
-        The dictionary of fields that must be sent with POST uploads  # noqa: E501
+        The dictionary of fields that must be sent with POST uploads
 
-        :return: The upload_fields of this PackageFileUpload.  # noqa: E501
+        :return: The upload_fields of this PackageFileUpload.
         :rtype: object
         """
         return self._upload_fields
@@ -110,9 +110,9 @@ class PackageFileUpload(object):
     def upload_fields(self, upload_fields):
         """Sets the upload_fields of this PackageFileUpload.
 
-        The dictionary of fields that must be sent with POST uploads  # noqa: E501
+        The dictionary of fields that must be sent with POST uploads
 
-        :param upload_fields: The upload_fields of this PackageFileUpload.  # noqa: E501
+        :param upload_fields: The upload_fields of this PackageFileUpload.
         :type: object
         """
 
@@ -120,11 +120,11 @@ class PackageFileUpload(object):
 
     @property
     def upload_headers(self):
-        """Gets the upload_headers of this PackageFileUpload.  # noqa: E501
+        """Gets the upload_headers of this PackageFileUpload.
 
-        The dictionary of headers that must be sent with uploads  # noqa: E501
+        The dictionary of headers that must be sent with uploads
 
-        :return: The upload_headers of this PackageFileUpload.  # noqa: E501
+        :return: The upload_headers of this PackageFileUpload.
         :rtype: object
         """
         return self._upload_headers
@@ -133,9 +133,9 @@ class PackageFileUpload(object):
     def upload_headers(self, upload_headers):
         """Sets the upload_headers of this PackageFileUpload.
 
-        The dictionary of headers that must be sent with uploads  # noqa: E501
+        The dictionary of headers that must be sent with uploads
 
-        :param upload_headers: The upload_headers of this PackageFileUpload.  # noqa: E501
+        :param upload_headers: The upload_headers of this PackageFileUpload.
         :type: object
         """
 
@@ -143,11 +143,11 @@ class PackageFileUpload(object):
 
     @property
     def upload_querystring(self):
-        """Gets the upload_querystring of this PackageFileUpload.  # noqa: E501
+        """Gets the upload_querystring of this PackageFileUpload.
 
-        The querystring to use for the next-step POST or PUT upload  # noqa: E501
+        The querystring to use for the next-step POST or PUT upload
 
-        :return: The upload_querystring of this PackageFileUpload.  # noqa: E501
+        :return: The upload_querystring of this PackageFileUpload.
         :rtype: str
         """
         return self._upload_querystring
@@ -156,9 +156,9 @@ class PackageFileUpload(object):
     def upload_querystring(self, upload_querystring):
         """Sets the upload_querystring of this PackageFileUpload.
 
-        The querystring to use for the next-step POST or PUT upload  # noqa: E501
+        The querystring to use for the next-step POST or PUT upload
 
-        :param upload_querystring: The upload_querystring of this PackageFileUpload.  # noqa: E501
+        :param upload_querystring: The upload_querystring of this PackageFileUpload.
         :type: str
         """
 
@@ -166,11 +166,11 @@ class PackageFileUpload(object):
 
     @property
     def upload_url(self):
-        """Gets the upload_url of this PackageFileUpload.  # noqa: E501
+        """Gets the upload_url of this PackageFileUpload.
 
-        The URL to use for the next-step POST or PUT upload  # noqa: E501
+        The URL to use for the next-step POST or PUT upload
 
-        :return: The upload_url of this PackageFileUpload.  # noqa: E501
+        :return: The upload_url of this PackageFileUpload.
         :rtype: str
         """
         return self._upload_url
@@ -179,9 +179,9 @@ class PackageFileUpload(object):
     def upload_url(self, upload_url):
         """Sets the upload_url of this PackageFileUpload.
 
-        The URL to use for the next-step POST or PUT upload  # noqa: E501
+        The URL to use for the next-step POST or PUT upload
 
-        :param upload_url: The upload_url of this PackageFileUpload.  # noqa: E501
+        :param upload_url: The upload_url of this PackageFileUpload.
         :type: str
         """
 
@@ -235,3 +235,4 @@ class PackageFileUpload(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

@@ -53,11 +53,11 @@ class PackageDependencies(object):
 
     @property
     def dependencies(self):
-        """Gets the dependencies of this PackageDependencies.  # noqa: E501
+        """Gets the dependencies of this PackageDependencies.
 
-          # noqa: E501
+        
 
-        :return: The dependencies of this PackageDependencies.  # noqa: E501
+        :return: The dependencies of this PackageDependencies.
         :rtype: list[PackageDependenciesDependencies]
         """
         return self._dependencies
@@ -66,9 +66,9 @@ class PackageDependencies(object):
     def dependencies(self, dependencies):
         """Sets the dependencies of this PackageDependencies.
 
-          # noqa: E501
+        
 
-        :param dependencies: The dependencies of this PackageDependencies.  # noqa: E501
+        :param dependencies: The dependencies of this PackageDependencies.
         :type: list[PackageDependenciesDependencies]
         """
         if self._configuration.client_side_validation and dependencies is None:
@@ -124,3 +124,4 @@ class PackageDependencies(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

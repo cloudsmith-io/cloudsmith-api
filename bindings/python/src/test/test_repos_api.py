@@ -85,13 +85,6 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
-    def test_repos_privileges_delete(self):
-        """Test case for repos_privileges_delete
-
-        Remove the specified repository privileges.  # noqa: E501
-        """
-        pass
-
     def test_repos_privileges_list(self):
         """Test case for repos_privileges_list
 
@@ -102,7 +95,7 @@ class TestReposApi(unittest.TestCase):
     def test_repos_privileges_partial_update(self):
         """Test case for repos_privileges_partial_update
 
-        Update the specified repository privileges.  # noqa: E501
+        Modify privileges for the repository.  # noqa: E501
         """
         pass
 

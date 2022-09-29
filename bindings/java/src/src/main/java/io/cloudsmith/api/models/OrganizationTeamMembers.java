@@ -20,39 +20,49 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.OrganizationTeamMembersMembers;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RepositoryPrivilegeList
+ * OrganizationTeamMembers
  */
 
-public class RepositoryPrivilegeList implements Serializable {
+public class OrganizationTeamMembers implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("privileges")
-  private String privileges = null;
+  @SerializedName("members")
+  private List<OrganizationTeamMembersMembers> members = new ArrayList<>();
 
-  public RepositoryPrivilegeList privileges(String privileges) {
-    this.privileges = privileges;
+  public OrganizationTeamMembers members(List<OrganizationTeamMembersMembers> members) {
+    this.members = members;
+    return this;
+  }
+
+  public OrganizationTeamMembers addMembersItem(OrganizationTeamMembersMembers membersItem) {
+    this.members.add(membersItem);
     return this;
   }
 
    /**
-   * List of objects with explicit privileges to the repository.
-   * @return privileges
+   * The team members
+   * @return members
   **/
-  @ApiModelProperty(value = "List of objects with explicit privileges to the repository.")
-  public String getPrivileges() {
-    return privileges;
+  @NotNull
+  @Valid
+  @ApiModelProperty(required = true, value = "The team members")
+  public List<OrganizationTeamMembersMembers> getMembers() {
+    return members;
   }
 
-  public void setPrivileges(String privileges) {
-    this.privileges = privileges;
+  public void setMembers(List<OrganizationTeamMembersMembers> members) {
+    this.members = members;
   }
 
 
@@ -64,22 +74,22 @@ public class RepositoryPrivilegeList implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RepositoryPrivilegeList repositoryPrivilegeList = (RepositoryPrivilegeList) o;
-    return Objects.equals(this.privileges, repositoryPrivilegeList.privileges);
+    OrganizationTeamMembers organizationTeamMembers = (OrganizationTeamMembers) o;
+    return Objects.equals(this.members, organizationTeamMembers.members);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(privileges);
+    return Objects.hash(members);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RepositoryPrivilegeList {\n");
+    sb.append("class OrganizationTeamMembers {\n");
     
-    sb.append("    privileges: ").append(toIndentedString(privileges)).append("\n");
+    sb.append("    members: ").append(toIndentedString(members)).append("\n");
     sb.append("}");
     return sb.toString();
   }

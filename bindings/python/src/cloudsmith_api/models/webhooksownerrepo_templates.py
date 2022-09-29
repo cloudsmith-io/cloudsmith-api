@@ -59,11 +59,11 @@ class WebhooksownerrepoTemplates(object):
 
     @property
     def event(self):
-        """Gets the event of this WebhooksownerrepoTemplates.  # noqa: E501
+        """Gets the event of this WebhooksownerrepoTemplates.
 
-          # noqa: E501
+        
 
-        :return: The event of this WebhooksownerrepoTemplates.  # noqa: E501
+        :return: The event of this WebhooksownerrepoTemplates.
         :rtype: str
         """
         return self._event
@@ -72,9 +72,9 @@ class WebhooksownerrepoTemplates(object):
     def event(self, event):
         """Sets the event of this WebhooksownerrepoTemplates.
 
-          # noqa: E501
+        
 
-        :param event: The event of this WebhooksownerrepoTemplates.  # noqa: E501
+        :param event: The event of this WebhooksownerrepoTemplates.
         :type: str
         """
 
@@ -82,11 +82,11 @@ class WebhooksownerrepoTemplates(object):
 
     @property
     def template(self):
-        """Gets the template of this WebhooksownerrepoTemplates.  # noqa: E501
+        """Gets the template of this WebhooksownerrepoTemplates.
 
-          # noqa: E501
+        
 
-        :return: The template of this WebhooksownerrepoTemplates.  # noqa: E501
+        :return: The template of this WebhooksownerrepoTemplates.
         :rtype: str
         """
         return self._template
@@ -95,9 +95,9 @@ class WebhooksownerrepoTemplates(object):
     def template(self, template):
         """Sets the template of this WebhooksownerrepoTemplates.
 
-          # noqa: E501
+        
 
-        :param template: The template of this WebhooksownerrepoTemplates.  # noqa: E501
+        :param template: The template of this WebhooksownerrepoTemplates.
         :type: str
         """
 
@@ -151,3 +151,4 @@ class WebhooksownerrepoTemplates(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

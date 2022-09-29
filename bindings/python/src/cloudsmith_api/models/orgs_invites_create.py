@@ -74,11 +74,11 @@ class OrgsInvitesCreate(object):
 
     @property
     def email(self):
-        """Gets the email of this OrgsInvitesCreate.  # noqa: E501
+        """Gets the email of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The email of this OrgsInvitesCreate.  # noqa: E501
+        :return: The email of this OrgsInvitesCreate.
         :rtype: str
         """
         return self._email
@@ -87,9 +87,9 @@ class OrgsInvitesCreate(object):
     def email(self, email):
         """Sets the email of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :param email: The email of this OrgsInvitesCreate.  # noqa: E501
+        :param email: The email of this OrgsInvitesCreate.
         :type: str
         """
 
@@ -97,11 +97,11 @@ class OrgsInvitesCreate(object):
 
     @property
     def inviter(self):
-        """Gets the inviter of this OrgsInvitesCreate.  # noqa: E501
+        """Gets the inviter of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The inviter of this OrgsInvitesCreate.  # noqa: E501
+        :return: The inviter of this OrgsInvitesCreate.
         :rtype: str
         """
         return self._inviter
@@ -110,9 +110,9 @@ class OrgsInvitesCreate(object):
     def inviter(self, inviter):
         """Sets the inviter of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :param inviter: The inviter of this OrgsInvitesCreate.  # noqa: E501
+        :param inviter: The inviter of this OrgsInvitesCreate.
         :type: str
         """
 
@@ -120,11 +120,11 @@ class OrgsInvitesCreate(object):
 
     @property
     def role(self):
-        """Gets the role of this OrgsInvitesCreate.  # noqa: E501
+        """Gets the role of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The role of this OrgsInvitesCreate.  # noqa: E501
+        :return: The role of this OrgsInvitesCreate.
         :rtype: str
         """
         return self._role
@@ -133,9 +133,9 @@ class OrgsInvitesCreate(object):
     def role(self, role):
         """Sets the role of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :param role: The role of this OrgsInvitesCreate.  # noqa: E501
+        :param role: The role of this OrgsInvitesCreate.
         :type: str
         """
         allowed_values = ["Owner", "Manager", "Member", "Collaborator"]  # noqa: E501
@@ -150,11 +150,11 @@ class OrgsInvitesCreate(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this OrgsInvitesCreate.  # noqa: E501
+        """Gets the slug_perm of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The slug_perm of this OrgsInvitesCreate.  # noqa: E501
+        :return: The slug_perm of this OrgsInvitesCreate.
         :rtype: str
         """
         return self._slug_perm
@@ -163,9 +163,9 @@ class OrgsInvitesCreate(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :param slug_perm: The slug_perm of this OrgsInvitesCreate.  # noqa: E501
+        :param slug_perm: The slug_perm of this OrgsInvitesCreate.
         :type: str
         """
 
@@ -173,11 +173,11 @@ class OrgsInvitesCreate(object):
 
     @property
     def user(self):
-        """Gets the user of this OrgsInvitesCreate.  # noqa: E501
+        """Gets the user of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The user of this OrgsInvitesCreate.  # noqa: E501
+        :return: The user of this OrgsInvitesCreate.
         :rtype: str
         """
         return self._user
@@ -186,9 +186,9 @@ class OrgsInvitesCreate(object):
     def user(self, user):
         """Sets the user of this OrgsInvitesCreate.
 
-        None  # noqa: E501
+        None
 
-        :param user: The user of this OrgsInvitesCreate.  # noqa: E501
+        :param user: The user of this OrgsInvitesCreate.
         :type: str
         """
 
@@ -242,3 +242,4 @@ class OrgsInvitesCreate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

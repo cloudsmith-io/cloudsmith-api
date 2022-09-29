@@ -12,9 +12,8 @@ Method | HTTP request | Description
 [**reposGpgRegenerate**](ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
 [**reposList**](ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**reposPartialUpdate**](ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
-[**reposPrivilegesDelete**](ReposApi.md#reposPrivilegesDelete) | **DELETE** /repos/{owner}/{identifier}/privileges | Remove the specified repository privileges.
 [**reposPrivilegesList**](ReposApi.md#reposPrivilegesList) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
-[**reposPrivilegesPartialUpdate**](ReposApi.md#reposPrivilegesPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/privileges | Update the specified repository privileges.
+[**reposPrivilegesPartialUpdate**](ReposApi.md#reposPrivilegesPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository.
 [**reposPrivilegesUpdate**](ReposApi.md#reposPrivilegesUpdate) | **PUT** /repos/{owner}/{identifier}/privileges | Replace all existing repository privileges with those specified.
 [**reposRead**](ReposApi.md#reposRead) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
 [**reposRsaCreate**](ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
@@ -483,65 +482,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
-<a name="reposPrivilegesDelete"></a>
-# **reposPrivilegesDelete**
-> reposPrivilegesDelete(owner, identifier)
-
-Remove the specified repository privileges.
-
-Remove the specified repository privileges.
-
-### Example
-```java
-// Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.ReposApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
-
-ReposApi apiInstance = new ReposApi();
-String owner = "owner_example"; // String | 
-String identifier = "identifier_example"; // String | 
-try {
-    apiInstance.reposPrivilegesDelete(owner, identifier);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ReposApi#reposPrivilegesDelete");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  |
- **identifier** | **String**|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
 <a name="reposPrivilegesList"></a>
 # **reposPrivilegesList**
-> List&lt;RepositoryPrivilegeList&gt; reposPrivilegesList(owner, identifier)
+> RepositoryPrivilegeInput reposPrivilegesList(owner, identifier, page, pageSize)
 
 List all explicity created privileges for the repository.
 
@@ -567,8 +510,10 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
+Integer page = 56; // Integer | A page number within the paginated result set.
+Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<RepositoryPrivilegeList> result = apiInstance.reposPrivilegesList(owner, identifier);
+    RepositoryPrivilegeInput result = apiInstance.reposPrivilegesList(owner, identifier, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposPrivilegesList");
@@ -582,10 +527,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
+ **page** | **Integer**| A page number within the paginated result set. | [optional]
+ **pageSize** | **Integer**| Number of results to return per page. | [optional]
 
 ### Return type
 
-[**List&lt;RepositoryPrivilegeList&gt;**](RepositoryPrivilegeList.md)
+[**RepositoryPrivilegeInput**](RepositoryPrivilegeInput.md)
 
 ### Authorization
 
@@ -598,11 +545,11 @@ Name | Type | Description  | Notes
 
 <a name="reposPrivilegesPartialUpdate"></a>
 # **reposPrivilegesPartialUpdate**
-> reposPrivilegesPartialUpdate(owner, identifier)
+> reposPrivilegesPartialUpdate(owner, identifier, data)
 
-Update the specified repository privileges.
+Modify privileges for the repository.
 
-Update the specified repository privileges.
+Modify privileges for the repository.
 
 ### Example
 ```java
@@ -624,8 +571,9 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
+ReposPrivilegesPartialUpdate data = new ReposPrivilegesPartialUpdate(); // ReposPrivilegesPartialUpdate | 
 try {
-    apiInstance.reposPrivilegesPartialUpdate(owner, identifier);
+    apiInstance.reposPrivilegesPartialUpdate(owner, identifier, data);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposPrivilegesPartialUpdate");
     e.printStackTrace();
@@ -638,6 +586,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
+ **data** | [**ReposPrivilegesPartialUpdate**](ReposPrivilegesPartialUpdate.md)|  | [optional]
 
 ### Return type
 
@@ -649,12 +598,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 <a name="reposPrivilegesUpdate"></a>
 # **reposPrivilegesUpdate**
-> RepositoryPrivilegeList reposPrivilegesUpdate(owner, identifier)
+> reposPrivilegesUpdate(owner, identifier, data)
 
 Replace all existing repository privileges with those specified.
 
@@ -680,9 +629,9 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
+ReposPrivilegesUpdate data = new ReposPrivilegesUpdate(); // ReposPrivilegesUpdate | 
 try {
-    RepositoryPrivilegeList result = apiInstance.reposPrivilegesUpdate(owner, identifier);
-    System.out.println(result);
+    apiInstance.reposPrivilegesUpdate(owner, identifier, data);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposPrivilegesUpdate");
     e.printStackTrace();
@@ -695,10 +644,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
+ **data** | [**ReposPrivilegesUpdate**](ReposPrivilegesUpdate.md)|  | [optional]
 
 ### Return type
 
-[**RepositoryPrivilegeList**](RepositoryPrivilegeList.md)
+null (empty response body)
 
 ### Authorization
 
@@ -706,7 +656,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 <a name="reposRead"></a>

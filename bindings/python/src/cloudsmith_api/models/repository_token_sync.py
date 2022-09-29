@@ -54,11 +54,11 @@ class RepositoryTokenSync(object):
 
     @property
     def tokens(self):
-        """Gets the tokens of this RepositoryTokenSync.  # noqa: E501
+        """Gets the tokens of this RepositoryTokenSync.
 
-        The entitlements that have been synchronised.  # noqa: E501
+        The entitlements that have been synchronised.
 
-        :return: The tokens of this RepositoryTokenSync.  # noqa: E501
+        :return: The tokens of this RepositoryTokenSync.
         :rtype: list[RepositoryTokenSyncTokens]
         """
         return self._tokens
@@ -67,9 +67,9 @@ class RepositoryTokenSync(object):
     def tokens(self, tokens):
         """Sets the tokens of this RepositoryTokenSync.
 
-        The entitlements that have been synchronised.  # noqa: E501
+        The entitlements that have been synchronised.
 
-        :param tokens: The tokens of this RepositoryTokenSync.  # noqa: E501
+        :param tokens: The tokens of this RepositoryTokenSync.
         :type: list[RepositoryTokenSyncTokens]
         """
 
@@ -123,3 +123,4 @@ class RepositoryTokenSync(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

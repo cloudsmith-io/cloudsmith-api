@@ -54,11 +54,11 @@ class PackagesQuarantine(object):
 
     @property
     def restore(self):
-        """Gets the restore of this PackagesQuarantine.  # noqa: E501
+        """Gets the restore of this PackagesQuarantine.
 
-        If true, the package be restored from quarantine.  # noqa: E501
+        If true, the package be restored from quarantine.
 
-        :return: The restore of this PackagesQuarantine.  # noqa: E501
+        :return: The restore of this PackagesQuarantine.
         :rtype: bool
         """
         return self._restore
@@ -67,9 +67,9 @@ class PackagesQuarantine(object):
     def restore(self, restore):
         """Sets the restore of this PackagesQuarantine.
 
-        If true, the package be restored from quarantine.  # noqa: E501
+        If true, the package be restored from quarantine.
 
-        :param restore: The restore of this PackagesQuarantine.  # noqa: E501
+        :param restore: The restore of this PackagesQuarantine.
         :type: bool
         """
 
@@ -123,3 +123,4 @@ class PackagesQuarantine(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

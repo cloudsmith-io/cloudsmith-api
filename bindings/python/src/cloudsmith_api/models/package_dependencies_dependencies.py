@@ -69,11 +69,11 @@ class PackageDependenciesDependencies(object):
 
     @property
     def dep_type(self):
-        """Gets the dep_type of this PackageDependenciesDependencies.  # noqa: E501
+        """Gets the dep_type of this PackageDependenciesDependencies.
 
-          # noqa: E501
+        
 
-        :return: The dep_type of this PackageDependenciesDependencies.  # noqa: E501
+        :return: The dep_type of this PackageDependenciesDependencies.
         :rtype: str
         """
         return self._dep_type
@@ -82,9 +82,9 @@ class PackageDependenciesDependencies(object):
     def dep_type(self, dep_type):
         """Sets the dep_type of this PackageDependenciesDependencies.
 
-          # noqa: E501
+        
 
-        :param dep_type: The dep_type of this PackageDependenciesDependencies.  # noqa: E501
+        :param dep_type: The dep_type of this PackageDependenciesDependencies.
         :type: str
         """
 
@@ -92,11 +92,11 @@ class PackageDependenciesDependencies(object):
 
     @property
     def name(self):
-        """Gets the name of this PackageDependenciesDependencies.  # noqa: E501
+        """Gets the name of this PackageDependenciesDependencies.
 
-        The name of the package dependency.  # noqa: E501
+        The name of the package dependency.
 
-        :return: The name of this PackageDependenciesDependencies.  # noqa: E501
+        :return: The name of this PackageDependenciesDependencies.
         :rtype: str
         """
         return self._name
@@ -105,9 +105,9 @@ class PackageDependenciesDependencies(object):
     def name(self, name):
         """Sets the name of this PackageDependenciesDependencies.
 
-        The name of the package dependency.  # noqa: E501
+        The name of the package dependency.
 
-        :param name: The name of this PackageDependenciesDependencies.  # noqa: E501
+        :param name: The name of this PackageDependenciesDependencies.
         :type: str
         """
 
@@ -115,11 +115,11 @@ class PackageDependenciesDependencies(object):
 
     @property
     def operator(self):
-        """Gets the operator of this PackageDependenciesDependencies.  # noqa: E501
+        """Gets the operator of this PackageDependenciesDependencies.
 
-          # noqa: E501
+        
 
-        :return: The operator of this PackageDependenciesDependencies.  # noqa: E501
+        :return: The operator of this PackageDependenciesDependencies.
         :rtype: str
         """
         return self._operator
@@ -128,9 +128,9 @@ class PackageDependenciesDependencies(object):
     def operator(self, operator):
         """Sets the operator of this PackageDependenciesDependencies.
 
-          # noqa: E501
+        
 
-        :param operator: The operator of this PackageDependenciesDependencies.  # noqa: E501
+        :param operator: The operator of this PackageDependenciesDependencies.
         :type: str
         """
 
@@ -138,11 +138,11 @@ class PackageDependenciesDependencies(object):
 
     @property
     def version(self):
-        """Gets the version of this PackageDependenciesDependencies.  # noqa: E501
+        """Gets the version of this PackageDependenciesDependencies.
 
-        The raw dependency version (if any).  # noqa: E501
+        The raw dependency version (if any).
 
-        :return: The version of this PackageDependenciesDependencies.  # noqa: E501
+        :return: The version of this PackageDependenciesDependencies.
         :rtype: str
         """
         return self._version
@@ -151,9 +151,9 @@ class PackageDependenciesDependencies(object):
     def version(self, version):
         """Sets the version of this PackageDependenciesDependencies.
 
-        The raw dependency version (if any).  # noqa: E501
+        The raw dependency version (if any).
 
-        :param version: The version of this PackageDependenciesDependencies.  # noqa: E501
+        :param version: The version of this PackageDependenciesDependencies.
         :type: str
         """
 
@@ -207,3 +207,4 @@ class PackageDependenciesDependencies(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

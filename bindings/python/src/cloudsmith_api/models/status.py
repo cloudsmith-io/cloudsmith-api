@@ -53,11 +53,11 @@ class Status(object):
 
     @property
     def detail(self):
-        """Gets the detail of this Status.  # noqa: E501
+        """Gets the detail of this Status.
 
-        An extended message for the response.  # noqa: E501
+        An extended message for the response.
 
-        :return: The detail of this Status.  # noqa: E501
+        :return: The detail of this Status.
         :rtype: str
         """
         return self._detail
@@ -66,9 +66,9 @@ class Status(object):
     def detail(self, detail):
         """Sets the detail of this Status.
 
-        An extended message for the response.  # noqa: E501
+        An extended message for the response.
 
-        :param detail: The detail of this Status.  # noqa: E501
+        :param detail: The detail of this Status.
         :type: str
         """
         if self._configuration.client_side_validation and detail is None:
@@ -124,3 +124,4 @@ class Status(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

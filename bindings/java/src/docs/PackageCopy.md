@@ -36,6 +36,8 @@ Name | Type | Description | Notes
 **namespace** | **String** |  |  [optional]
 **namespaceUrl** | **String** |  |  [optional]
 **numFiles** | **Integer** |  |  [optional]
+**originRepository** | **String** |  |  [optional]
+**originRepositoryUrl** | **String** |  |  [optional]
 **packageType** | **Integer** | The type of package contents. |  [optional]
 **release** | **String** | The release of the package version (if any). |  [optional]
 **repository** | **String** | The repository the package will be copied to. |  [optional]

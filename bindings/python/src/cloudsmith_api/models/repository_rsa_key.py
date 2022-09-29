@@ -79,11 +79,11 @@ class RepositoryRsaKey(object):
 
     @property
     def active(self):
-        """Gets the active of this RepositoryRsaKey.  # noqa: E501
+        """Gets the active of this RepositoryRsaKey.
 
-        If selected this is the active key for this repository.  # noqa: E501
+        If selected this is the active key for this repository.
 
-        :return: The active of this RepositoryRsaKey.  # noqa: E501
+        :return: The active of this RepositoryRsaKey.
         :rtype: bool
         """
         return self._active
@@ -92,9 +92,9 @@ class RepositoryRsaKey(object):
     def active(self, active):
         """Sets the active of this RepositoryRsaKey.
 
-        If selected this is the active key for this repository.  # noqa: E501
+        If selected this is the active key for this repository.
 
-        :param active: The active of this RepositoryRsaKey.  # noqa: E501
+        :param active: The active of this RepositoryRsaKey.
         :type: bool
         """
 
@@ -102,11 +102,11 @@ class RepositoryRsaKey(object):
 
     @property
     def created_at(self):
-        """Gets the created_at of this RepositoryRsaKey.  # noqa: E501
+        """Gets the created_at of this RepositoryRsaKey.
 
-          # noqa: E501
+        
 
-        :return: The created_at of this RepositoryRsaKey.  # noqa: E501
+        :return: The created_at of this RepositoryRsaKey.
         :rtype: str
         """
         return self._created_at
@@ -115,9 +115,9 @@ class RepositoryRsaKey(object):
     def created_at(self, created_at):
         """Sets the created_at of this RepositoryRsaKey.
 
-          # noqa: E501
+        
 
-        :param created_at: The created_at of this RepositoryRsaKey.  # noqa: E501
+        :param created_at: The created_at of this RepositoryRsaKey.
         :type: str
         """
 
@@ -125,11 +125,11 @@ class RepositoryRsaKey(object):
 
     @property
     def default(self):
-        """Gets the default of this RepositoryRsaKey.  # noqa: E501
+        """Gets the default of this RepositoryRsaKey.
 
-        If selected this is the default key for this repository.  # noqa: E501
+        If selected this is the default key for this repository.
 
-        :return: The default of this RepositoryRsaKey.  # noqa: E501
+        :return: The default of this RepositoryRsaKey.
         :rtype: bool
         """
         return self._default
@@ -138,9 +138,9 @@ class RepositoryRsaKey(object):
     def default(self, default):
         """Sets the default of this RepositoryRsaKey.
 
-        If selected this is the default key for this repository.  # noqa: E501
+        If selected this is the default key for this repository.
 
-        :param default: The default of this RepositoryRsaKey.  # noqa: E501
+        :param default: The default of this RepositoryRsaKey.
         :type: bool
         """
 
@@ -148,11 +148,11 @@ class RepositoryRsaKey(object):
 
     @property
     def fingerprint(self):
-        """Gets the fingerprint of this RepositoryRsaKey.  # noqa: E501
+        """Gets the fingerprint of this RepositoryRsaKey.
 
-        The long identifier used by RSA for this key.  # noqa: E501
+        The long identifier used by RSA for this key.
 
-        :return: The fingerprint of this RepositoryRsaKey.  # noqa: E501
+        :return: The fingerprint of this RepositoryRsaKey.
         :rtype: str
         """
         return self._fingerprint
@@ -161,9 +161,9 @@ class RepositoryRsaKey(object):
     def fingerprint(self, fingerprint):
         """Sets the fingerprint of this RepositoryRsaKey.
 
-        The long identifier used by RSA for this key.  # noqa: E501
+        The long identifier used by RSA for this key.
 
-        :param fingerprint: The fingerprint of this RepositoryRsaKey.  # noqa: E501
+        :param fingerprint: The fingerprint of this RepositoryRsaKey.
         :type: str
         """
 
@@ -171,11 +171,11 @@ class RepositoryRsaKey(object):
 
     @property
     def fingerprint_short(self):
-        """Gets the fingerprint_short of this RepositoryRsaKey.  # noqa: E501
+        """Gets the fingerprint_short of this RepositoryRsaKey.
 
-          # noqa: E501
+        
 
-        :return: The fingerprint_short of this RepositoryRsaKey.  # noqa: E501
+        :return: The fingerprint_short of this RepositoryRsaKey.
         :rtype: str
         """
         return self._fingerprint_short
@@ -184,9 +184,9 @@ class RepositoryRsaKey(object):
     def fingerprint_short(self, fingerprint_short):
         """Sets the fingerprint_short of this RepositoryRsaKey.
 
-          # noqa: E501
+        
 
-        :param fingerprint_short: The fingerprint_short of this RepositoryRsaKey.  # noqa: E501
+        :param fingerprint_short: The fingerprint_short of this RepositoryRsaKey.
         :type: str
         """
 
@@ -194,11 +194,11 @@ class RepositoryRsaKey(object):
 
     @property
     def public_key(self):
-        """Gets the public_key of this RepositoryRsaKey.  # noqa: E501
+        """Gets the public_key of this RepositoryRsaKey.
 
-        The public key given to repository users.  # noqa: E501
+        The public key given to repository users.
 
-        :return: The public_key of this RepositoryRsaKey.  # noqa: E501
+        :return: The public_key of this RepositoryRsaKey.
         :rtype: str
         """
         return self._public_key
@@ -207,9 +207,9 @@ class RepositoryRsaKey(object):
     def public_key(self, public_key):
         """Sets the public_key of this RepositoryRsaKey.
 
-        The public key given to repository users.  # noqa: E501
+        The public key given to repository users.
 
-        :param public_key: The public_key of this RepositoryRsaKey.  # noqa: E501
+        :param public_key: The public_key of this RepositoryRsaKey.
         :type: str
         """
 
@@ -263,3 +263,4 @@ class RepositoryRsaKey(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

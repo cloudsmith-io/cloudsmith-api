@@ -95,11 +95,11 @@ class PackagesUploadConan(object):
 
     @property
     def conan_channel(self):
-        """Gets the conan_channel of this PackagesUploadConan.  # noqa: E501
+        """Gets the conan_channel of this PackagesUploadConan.
 
-        Conan channel.  # noqa: E501
+        Conan channel.
 
-        :return: The conan_channel of this PackagesUploadConan.  # noqa: E501
+        :return: The conan_channel of this PackagesUploadConan.
         :rtype: str
         """
         return self._conan_channel
@@ -108,9 +108,9 @@ class PackagesUploadConan(object):
     def conan_channel(self, conan_channel):
         """Sets the conan_channel of this PackagesUploadConan.
 
-        Conan channel.  # noqa: E501
+        Conan channel.
 
-        :param conan_channel: The conan_channel of this PackagesUploadConan.  # noqa: E501
+        :param conan_channel: The conan_channel of this PackagesUploadConan.
         :type: str
         """
 
@@ -118,11 +118,11 @@ class PackagesUploadConan(object):
 
     @property
     def conan_prefix(self):
-        """Gets the conan_prefix of this PackagesUploadConan.  # noqa: E501
+        """Gets the conan_prefix of this PackagesUploadConan.
 
-        Conan prefix (User).  # noqa: E501
+        Conan prefix (User).
 
-        :return: The conan_prefix of this PackagesUploadConan.  # noqa: E501
+        :return: The conan_prefix of this PackagesUploadConan.
         :rtype: str
         """
         return self._conan_prefix
@@ -131,9 +131,9 @@ class PackagesUploadConan(object):
     def conan_prefix(self, conan_prefix):
         """Sets the conan_prefix of this PackagesUploadConan.
 
-        Conan prefix (User).  # noqa: E501
+        Conan prefix (User).
 
-        :param conan_prefix: The conan_prefix of this PackagesUploadConan.  # noqa: E501
+        :param conan_prefix: The conan_prefix of this PackagesUploadConan.
         :type: str
         """
 
@@ -141,11 +141,11 @@ class PackagesUploadConan(object):
 
     @property
     def info_file(self):
-        """Gets the info_file of this PackagesUploadConan.  # noqa: E501
+        """Gets the info_file of this PackagesUploadConan.
 
-        The info file is an python file containing the package metadata.  # noqa: E501
+        The info file is an python file containing the package metadata.
 
-        :return: The info_file of this PackagesUploadConan.  # noqa: E501
+        :return: The info_file of this PackagesUploadConan.
         :rtype: str
         """
         return self._info_file
@@ -154,9 +154,9 @@ class PackagesUploadConan(object):
     def info_file(self, info_file):
         """Sets the info_file of this PackagesUploadConan.
 
-        The info file is an python file containing the package metadata.  # noqa: E501
+        The info file is an python file containing the package metadata.
 
-        :param info_file: The info_file of this PackagesUploadConan.  # noqa: E501
+        :param info_file: The info_file of this PackagesUploadConan.
         :type: str
         """
         if self._configuration.client_side_validation and info_file is None:
@@ -166,11 +166,11 @@ class PackagesUploadConan(object):
 
     @property
     def manifest_file(self):
-        """Gets the manifest_file of this PackagesUploadConan.  # noqa: E501
+        """Gets the manifest_file of this PackagesUploadConan.
 
-        The info file is an python file containing the package metadata.  # noqa: E501
+        The info file is an python file containing the package metadata.
 
-        :return: The manifest_file of this PackagesUploadConan.  # noqa: E501
+        :return: The manifest_file of this PackagesUploadConan.
         :rtype: str
         """
         return self._manifest_file
@@ -179,9 +179,9 @@ class PackagesUploadConan(object):
     def manifest_file(self, manifest_file):
         """Sets the manifest_file of this PackagesUploadConan.
 
-        The info file is an python file containing the package metadata.  # noqa: E501
+        The info file is an python file containing the package metadata.
 
-        :param manifest_file: The manifest_file of this PackagesUploadConan.  # noqa: E501
+        :param manifest_file: The manifest_file of this PackagesUploadConan.
         :type: str
         """
         if self._configuration.client_side_validation and manifest_file is None:
@@ -191,11 +191,11 @@ class PackagesUploadConan(object):
 
     @property
     def metadata_file(self):
-        """Gets the metadata_file of this PackagesUploadConan.  # noqa: E501
+        """Gets the metadata_file of this PackagesUploadConan.
 
-        The conan file is an python file containing the package metadata.  # noqa: E501
+        The conan file is an python file containing the package metadata.
 
-        :return: The metadata_file of this PackagesUploadConan.  # noqa: E501
+        :return: The metadata_file of this PackagesUploadConan.
         :rtype: str
         """
         return self._metadata_file
@@ -204,9 +204,9 @@ class PackagesUploadConan(object):
     def metadata_file(self, metadata_file):
         """Sets the metadata_file of this PackagesUploadConan.
 
-        The conan file is an python file containing the package metadata.  # noqa: E501
+        The conan file is an python file containing the package metadata.
 
-        :param metadata_file: The metadata_file of this PackagesUploadConan.  # noqa: E501
+        :param metadata_file: The metadata_file of this PackagesUploadConan.
         :type: str
         """
         if self._configuration.client_side_validation and metadata_file is None:
@@ -216,11 +216,11 @@ class PackagesUploadConan(object):
 
     @property
     def name(self):
-        """Gets the name of this PackagesUploadConan.  # noqa: E501
+        """Gets the name of this PackagesUploadConan.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :return: The name of this PackagesUploadConan.  # noqa: E501
+        :return: The name of this PackagesUploadConan.
         :rtype: str
         """
         return self._name
@@ -229,9 +229,9 @@ class PackagesUploadConan(object):
     def name(self, name):
         """Sets the name of this PackagesUploadConan.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :param name: The name of this PackagesUploadConan.  # noqa: E501
+        :param name: The name of this PackagesUploadConan.
         :type: str
         """
 
@@ -239,11 +239,11 @@ class PackagesUploadConan(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesUploadConan.  # noqa: E501
+        """Gets the package_file of this PackagesUploadConan.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesUploadConan.  # noqa: E501
+        :return: The package_file of this PackagesUploadConan.
         :rtype: str
         """
         return self._package_file
@@ -252,9 +252,9 @@ class PackagesUploadConan(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesUploadConan.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesUploadConan.  # noqa: E501
+        :param package_file: The package_file of this PackagesUploadConan.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -264,11 +264,11 @@ class PackagesUploadConan(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesUploadConan.  # noqa: E501
+        """Gets the republish of this PackagesUploadConan.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesUploadConan.  # noqa: E501
+        :return: The republish of this PackagesUploadConan.
         :rtype: bool
         """
         return self._republish
@@ -277,9 +277,9 @@ class PackagesUploadConan(object):
     def republish(self, republish):
         """Sets the republish of this PackagesUploadConan.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesUploadConan.  # noqa: E501
+        :param republish: The republish of this PackagesUploadConan.
         :type: bool
         """
 
@@ -287,11 +287,11 @@ class PackagesUploadConan(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesUploadConan.  # noqa: E501
+        """Gets the tags of this PackagesUploadConan.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesUploadConan.  # noqa: E501
+        :return: The tags of this PackagesUploadConan.
         :rtype: str
         """
         return self._tags
@@ -300,9 +300,9 @@ class PackagesUploadConan(object):
     def tags(self, tags):
         """Sets the tags of this PackagesUploadConan.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesUploadConan.  # noqa: E501
+        :param tags: The tags of this PackagesUploadConan.
         :type: str
         """
 
@@ -310,11 +310,11 @@ class PackagesUploadConan(object):
 
     @property
     def version(self):
-        """Gets the version of this PackagesUploadConan.  # noqa: E501
+        """Gets the version of this PackagesUploadConan.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :return: The version of this PackagesUploadConan.  # noqa: E501
+        :return: The version of this PackagesUploadConan.
         :rtype: str
         """
         return self._version
@@ -323,9 +323,9 @@ class PackagesUploadConan(object):
     def version(self, version):
         """Sets the version of this PackagesUploadConan.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :param version: The version of this PackagesUploadConan.  # noqa: E501
+        :param version: The version of this PackagesUploadConan.
         :type: str
         """
 
@@ -379,3 +379,4 @@ class PackagesUploadConan(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

@@ -59,11 +59,11 @@ class UserTokenCreate(object):
 
     @property
     def email(self):
-        """Gets the email of this UserTokenCreate.  # noqa: E501
+        """Gets the email of this UserTokenCreate.
 
-        Email address to authenticate with  # noqa: E501
+        Email address to authenticate with
 
-        :return: The email of this UserTokenCreate.  # noqa: E501
+        :return: The email of this UserTokenCreate.
         :rtype: str
         """
         return self._email
@@ -72,9 +72,9 @@ class UserTokenCreate(object):
     def email(self, email):
         """Sets the email of this UserTokenCreate.
 
-        Email address to authenticate with  # noqa: E501
+        Email address to authenticate with
 
-        :param email: The email of this UserTokenCreate.  # noqa: E501
+        :param email: The email of this UserTokenCreate.
         :type: str
         """
 
@@ -82,11 +82,11 @@ class UserTokenCreate(object):
 
     @property
     def password(self):
-        """Gets the password of this UserTokenCreate.  # noqa: E501
+        """Gets the password of this UserTokenCreate.
 
-        Password to authenticate with  # noqa: E501
+        Password to authenticate with
 
-        :return: The password of this UserTokenCreate.  # noqa: E501
+        :return: The password of this UserTokenCreate.
         :rtype: str
         """
         return self._password
@@ -95,9 +95,9 @@ class UserTokenCreate(object):
     def password(self, password):
         """Sets the password of this UserTokenCreate.
 
-        Password to authenticate with  # noqa: E501
+        Password to authenticate with
 
-        :param password: The password of this UserTokenCreate.  # noqa: E501
+        :param password: The password of this UserTokenCreate.
         :type: str
         """
 
@@ -151,3 +151,4 @@ class UserTokenCreate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

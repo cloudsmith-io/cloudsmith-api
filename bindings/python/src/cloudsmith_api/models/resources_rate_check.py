@@ -54,11 +54,11 @@ class ResourcesRateCheck(object):
 
     @property
     def resources(self):
-        """Gets the resources of this ResourcesRateCheck.  # noqa: E501
+        """Gets the resources of this ResourcesRateCheck.
 
-        Rate limit values per resource  # noqa: E501
+        Rate limit values per resource
 
-        :return: The resources of this ResourcesRateCheck.  # noqa: E501
+        :return: The resources of this ResourcesRateCheck.
         :rtype: object
         """
         return self._resources
@@ -67,9 +67,9 @@ class ResourcesRateCheck(object):
     def resources(self, resources):
         """Sets the resources of this ResourcesRateCheck.
 
-        Rate limit values per resource  # noqa: E501
+        Rate limit values per resource
 
-        :param resources: The resources of this ResourcesRateCheck.  # noqa: E501
+        :param resources: The resources of this ResourcesRateCheck.
         :type: object
         """
 
@@ -123,3 +123,4 @@ class ResourcesRateCheck(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

@@ -75,11 +75,11 @@ class PackagesValidateuploadVagrant(object):
 
     @property
     def name(self):
-        """Gets the name of this PackagesValidateuploadVagrant.  # noqa: E501
+        """Gets the name of this PackagesValidateuploadVagrant.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :return: The name of this PackagesValidateuploadVagrant.  # noqa: E501
+        :return: The name of this PackagesValidateuploadVagrant.
         :rtype: str
         """
         return self._name
@@ -88,9 +88,9 @@ class PackagesValidateuploadVagrant(object):
     def name(self, name):
         """Sets the name of this PackagesValidateuploadVagrant.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :param name: The name of this PackagesValidateuploadVagrant.  # noqa: E501
+        :param name: The name of this PackagesValidateuploadVagrant.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
@@ -100,11 +100,11 @@ class PackagesValidateuploadVagrant(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesValidateuploadVagrant.  # noqa: E501
+        """Gets the package_file of this PackagesValidateuploadVagrant.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesValidateuploadVagrant.  # noqa: E501
+        :return: The package_file of this PackagesValidateuploadVagrant.
         :rtype: str
         """
         return self._package_file
@@ -113,9 +113,9 @@ class PackagesValidateuploadVagrant(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesValidateuploadVagrant.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesValidateuploadVagrant.  # noqa: E501
+        :param package_file: The package_file of this PackagesValidateuploadVagrant.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -125,11 +125,11 @@ class PackagesValidateuploadVagrant(object):
 
     @property
     def provider(self):
-        """Gets the provider of this PackagesValidateuploadVagrant.  # noqa: E501
+        """Gets the provider of this PackagesValidateuploadVagrant.
 
-        The virtual machine provider for the box.  # noqa: E501
+        The virtual machine provider for the box.
 
-        :return: The provider of this PackagesValidateuploadVagrant.  # noqa: E501
+        :return: The provider of this PackagesValidateuploadVagrant.
         :rtype: str
         """
         return self._provider
@@ -138,9 +138,9 @@ class PackagesValidateuploadVagrant(object):
     def provider(self, provider):
         """Sets the provider of this PackagesValidateuploadVagrant.
 
-        The virtual machine provider for the box.  # noqa: E501
+        The virtual machine provider for the box.
 
-        :param provider: The provider of this PackagesValidateuploadVagrant.  # noqa: E501
+        :param provider: The provider of this PackagesValidateuploadVagrant.
         :type: str
         """
         if self._configuration.client_side_validation and provider is None:
@@ -150,11 +150,11 @@ class PackagesValidateuploadVagrant(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesValidateuploadVagrant.  # noqa: E501
+        """Gets the republish of this PackagesValidateuploadVagrant.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesValidateuploadVagrant.  # noqa: E501
+        :return: The republish of this PackagesValidateuploadVagrant.
         :rtype: bool
         """
         return self._republish
@@ -163,9 +163,9 @@ class PackagesValidateuploadVagrant(object):
     def republish(self, republish):
         """Sets the republish of this PackagesValidateuploadVagrant.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesValidateuploadVagrant.  # noqa: E501
+        :param republish: The republish of this PackagesValidateuploadVagrant.
         :type: bool
         """
 
@@ -173,11 +173,11 @@ class PackagesValidateuploadVagrant(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesValidateuploadVagrant.  # noqa: E501
+        """Gets the tags of this PackagesValidateuploadVagrant.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesValidateuploadVagrant.  # noqa: E501
+        :return: The tags of this PackagesValidateuploadVagrant.
         :rtype: str
         """
         return self._tags
@@ -186,9 +186,9 @@ class PackagesValidateuploadVagrant(object):
     def tags(self, tags):
         """Sets the tags of this PackagesValidateuploadVagrant.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesValidateuploadVagrant.  # noqa: E501
+        :param tags: The tags of this PackagesValidateuploadVagrant.
         :type: str
         """
 
@@ -196,11 +196,11 @@ class PackagesValidateuploadVagrant(object):
 
     @property
     def version(self):
-        """Gets the version of this PackagesValidateuploadVagrant.  # noqa: E501
+        """Gets the version of this PackagesValidateuploadVagrant.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :return: The version of this PackagesValidateuploadVagrant.  # noqa: E501
+        :return: The version of this PackagesValidateuploadVagrant.
         :rtype: str
         """
         return self._version
@@ -209,9 +209,9 @@ class PackagesValidateuploadVagrant(object):
     def version(self, version):
         """Sets the version of this PackagesValidateuploadVagrant.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :param version: The version of this PackagesValidateuploadVagrant.  # noqa: E501
+        :param version: The version of this PackagesValidateuploadVagrant.
         :type: str
         """
         if self._configuration.client_side_validation and version is None:
@@ -267,3 +267,4 @@ class PackagesValidateuploadVagrant(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

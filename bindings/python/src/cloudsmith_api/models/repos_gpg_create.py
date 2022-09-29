@@ -58,11 +58,11 @@ class ReposGpgCreate(object):
 
     @property
     def gpg_passphrase(self):
-        """Gets the gpg_passphrase of this ReposGpgCreate.  # noqa: E501
+        """Gets the gpg_passphrase of this ReposGpgCreate.
 
-        The GPG passphrase used for signing.  # noqa: E501
+        The GPG passphrase used for signing.
 
-        :return: The gpg_passphrase of this ReposGpgCreate.  # noqa: E501
+        :return: The gpg_passphrase of this ReposGpgCreate.
         :rtype: str
         """
         return self._gpg_passphrase
@@ -71,9 +71,9 @@ class ReposGpgCreate(object):
     def gpg_passphrase(self, gpg_passphrase):
         """Sets the gpg_passphrase of this ReposGpgCreate.
 
-        The GPG passphrase used for signing.  # noqa: E501
+        The GPG passphrase used for signing.
 
-        :param gpg_passphrase: The gpg_passphrase of this ReposGpgCreate.  # noqa: E501
+        :param gpg_passphrase: The gpg_passphrase of this ReposGpgCreate.
         :type: str
         """
 
@@ -81,11 +81,11 @@ class ReposGpgCreate(object):
 
     @property
     def gpg_private_key(self):
-        """Gets the gpg_private_key of this ReposGpgCreate.  # noqa: E501
+        """Gets the gpg_private_key of this ReposGpgCreate.
 
-        The GPG private key.  # noqa: E501
+        The GPG private key.
 
-        :return: The gpg_private_key of this ReposGpgCreate.  # noqa: E501
+        :return: The gpg_private_key of this ReposGpgCreate.
         :rtype: str
         """
         return self._gpg_private_key
@@ -94,9 +94,9 @@ class ReposGpgCreate(object):
     def gpg_private_key(self, gpg_private_key):
         """Sets the gpg_private_key of this ReposGpgCreate.
 
-        The GPG private key.  # noqa: E501
+        The GPG private key.
 
-        :param gpg_private_key: The gpg_private_key of this ReposGpgCreate.  # noqa: E501
+        :param gpg_private_key: The gpg_private_key of this ReposGpgCreate.
         :type: str
         """
         if self._configuration.client_side_validation and gpg_private_key is None:
@@ -152,3 +152,4 @@ class ReposGpgCreate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

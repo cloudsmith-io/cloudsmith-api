@@ -294,6 +294,61 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Removes a member from the organization.
+    # Removes a member from the organization.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_members_delete(org, member, opts = {})
+      orgs_members_delete_with_http_info(org, member, opts)
+      nil
+    end
+
+    # Removes a member from the organization.
+    # Removes a member from the organization.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_members_delete_with_http_info(org, member, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_members_delete ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_members_delete"
+      end
+      # verify the required parameter 'member' is set
+      if @api_client.config.client_side_validation && member.nil?
+        fail ArgumentError, "Missing the required parameter 'member' when calling OrgsApi.orgs_members_delete"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/members/{member}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'member' + '}', member.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_members_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get the details for all organization members.
     # Get the details for all organization members.
     # @param org 
@@ -406,23 +461,23 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Removes a member from the organization.
-    # Removes a member from the organization.
+    # Removes a member from the organization (deprecated, use DELETE instead).
+    # Removes a member from the organization (deprecated, use DELETE instead).
     # @param org 
     # @param member 
     # @param [Hash] opts the optional parameters
-    # @return [OrganizationMembership]
+    # @return [nil]
     def orgs_members_remove(org, member, opts = {})
-      data, _status_code, _headers = orgs_members_remove_with_http_info(org, member, opts)
-      data
+      orgs_members_remove_with_http_info(org, member, opts)
+      nil
     end
 
-    # Removes a member from the organization.
-    # Removes a member from the organization.
+    # Removes a member from the organization (deprecated, use DELETE instead).
+    # Removes a member from the organization (deprecated, use DELETE instead).
     # @param org 
     # @param member 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OrganizationMembership, Fixnum, Hash)>] OrganizationMembership data, response status code and response headers
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def orgs_members_remove_with_http_info(org, member, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_members_remove ...'
@@ -455,8 +510,7 @@ module CloudsmithApi
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'OrganizationMembership')
+        :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_members_remove\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -734,21 +788,21 @@ module CloudsmithApi
     # Delete a specific team in a organization.
     # Delete a specific team in a organization.
     # @param org 
-    # @param slug_perm 
+    # @param team 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def orgs_teams_delete(org, slug_perm, opts = {})
-      orgs_teams_delete_with_http_info(org, slug_perm, opts)
+    def orgs_teams_delete(org, team, opts = {})
+      orgs_teams_delete_with_http_info(org, team, opts)
       nil
     end
 
     # Delete a specific team in a organization.
     # Delete a specific team in a organization.
     # @param org 
-    # @param slug_perm 
+    # @param team 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def orgs_teams_delete_with_http_info(org, slug_perm, opts = {})
+    def orgs_teams_delete_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_delete ...'
       end
@@ -756,12 +810,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && org.nil?
         fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_teams_delete"
       end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_teams_delete"
+      # verify the required parameter 'team' is set
+      if @api_client.config.client_side_validation && team.nil?
+        fail ArgumentError, "Missing the required parameter 'team' when calling OrgsApi.orgs_teams_delete"
       end
       # resource path
-      local_var_path = '/orgs/{org}/teams/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+      local_var_path = '/orgs/{org}/teams/{team}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'team' + '}', team.to_s)
 
       # query parameters
       query_params = {}
@@ -842,26 +896,201 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Add users to a team.
+    # Add users to a team.
+    # @param org 
+    # @param team 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrgsTeamsMembersCreate] :data 
+    # @return [OrganizationTeamMembers]
+    def orgs_teams_members_create(org, team, opts = {})
+      data, _status_code, _headers = orgs_teams_members_create_with_http_info(org, team, opts)
+      data
+    end
+
+    # Add users to a team.
+    # Add users to a team.
+    # @param org 
+    # @param team 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrgsTeamsMembersCreate] :data 
+    # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
+    def orgs_teams_members_create_with_http_info(org, team, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_members_create ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_teams_members_create"
+      end
+      # verify the required parameter 'team' is set
+      if @api_client.config.client_side_validation && team.nil?
+        fail ArgumentError, "Missing the required parameter 'team' when calling OrgsApi.orgs_teams_members_create"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/teams/{team}/members'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'team' + '}', team.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationTeamMembers')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_members_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List all members for the team.
+    # List all members for the team.
+    # @param org 
+    # @param team 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationTeamMembers]
+    def orgs_teams_members_list(org, team, opts = {})
+      data, _status_code, _headers = orgs_teams_members_list_with_http_info(org, team, opts)
+      data
+    end
+
+    # List all members for the team.
+    # List all members for the team.
+    # @param org 
+    # @param team 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
+    def orgs_teams_members_list_with_http_info(org, team, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_members_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_teams_members_list"
+      end
+      # verify the required parameter 'team' is set
+      if @api_client.config.client_side_validation && team.nil?
+        fail ArgumentError, "Missing the required parameter 'team' when calling OrgsApi.orgs_teams_members_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/teams/{team}/members'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'team' + '}', team.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationTeamMembers')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_members_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Replace all team members.
+    # Replace all team members.
+    # @param org 
+    # @param team 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrgsTeamsMembersUpdate] :data 
+    # @return [nil]
+    def orgs_teams_members_update(org, team, opts = {})
+      orgs_teams_members_update_with_http_info(org, team, opts)
+      nil
+    end
+
+    # Replace all team members.
+    # Replace all team members.
+    # @param org 
+    # @param team 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrgsTeamsMembersUpdate] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_teams_members_update_with_http_info(org, team, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_members_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_teams_members_update"
+      end
+      # verify the required parameter 'team' is set
+      if @api_client.config.client_side_validation && team.nil?
+        fail ArgumentError, "Missing the required parameter 'team' when calling OrgsApi.orgs_teams_members_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/teams/{team}/members'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'team' + '}', team.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_members_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Update a specific team in a organization.
     # Update a specific team in a organization.
     # @param org 
-    # @param slug_perm 
+    # @param team 
     # @param [Hash] opts the optional parameters
     # @option opts [OrgsTeamsPartialUpdate] :data 
     # @return [OrganizationTeam]
-    def orgs_teams_partial_update(org, slug_perm, opts = {})
-      data, _status_code, _headers = orgs_teams_partial_update_with_http_info(org, slug_perm, opts)
+    def orgs_teams_partial_update(org, team, opts = {})
+      data, _status_code, _headers = orgs_teams_partial_update_with_http_info(org, team, opts)
       data
     end
 
     # Update a specific team in a organization.
     # Update a specific team in a organization.
     # @param org 
-    # @param slug_perm 
+    # @param team 
     # @param [Hash] opts the optional parameters
     # @option opts [OrgsTeamsPartialUpdate] :data 
     # @return [Array<(OrganizationTeam, Fixnum, Hash)>] OrganizationTeam data, response status code and response headers
-    def orgs_teams_partial_update_with_http_info(org, slug_perm, opts = {})
+    def orgs_teams_partial_update_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_partial_update ...'
       end
@@ -869,12 +1098,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && org.nil?
         fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_teams_partial_update"
       end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_teams_partial_update"
+      # verify the required parameter 'team' is set
+      if @api_client.config.client_side_validation && team.nil?
+        fail ArgumentError, "Missing the required parameter 'team' when calling OrgsApi.orgs_teams_partial_update"
       end
       # resource path
-      local_var_path = '/orgs/{org}/teams/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+      local_var_path = '/orgs/{org}/teams/{team}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'team' + '}', team.to_s)
 
       # query parameters
       query_params = {}
@@ -902,24 +1131,24 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Viewset for working with Organization teams.
-    # Viewset for working with Organization teams.
+    # Get the details for the specific team.
+    # Get the details for the specific team.
     # @param org 
-    # @param slug_perm 
+    # @param team 
     # @param [Hash] opts the optional parameters
     # @return [OrganizationTeam]
-    def orgs_teams_read(org, slug_perm, opts = {})
-      data, _status_code, _headers = orgs_teams_read_with_http_info(org, slug_perm, opts)
+    def orgs_teams_read(org, team, opts = {})
+      data, _status_code, _headers = orgs_teams_read_with_http_info(org, team, opts)
       data
     end
 
-    # Viewset for working with Organization teams.
-    # Viewset for working with Organization teams.
+    # Get the details for the specific team.
+    # Get the details for the specific team.
     # @param org 
-    # @param slug_perm 
+    # @param team 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationTeam, Fixnum, Hash)>] OrganizationTeam data, response status code and response headers
-    def orgs_teams_read_with_http_info(org, slug_perm, opts = {})
+    def orgs_teams_read_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_read ...'
       end
@@ -927,12 +1156,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && org.nil?
         fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_teams_read"
       end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_teams_read"
+      # verify the required parameter 'team' is set
+      if @api_client.config.client_side_validation && team.nil?
+        fail ArgumentError, "Missing the required parameter 'team' when calling OrgsApi.orgs_teams_read"
       end
       # resource path
-      local_var_path = '/orgs/{org}/teams/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+      local_var_path = '/orgs/{org}/teams/{team}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'team' + '}', team.to_s)
 
       # query parameters
       query_params = {}

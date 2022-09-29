@@ -119,11 +119,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def cdn_url(self):
-        """Gets the cdn_url of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the cdn_url of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The cdn_url of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The cdn_url of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._cdn_url
@@ -132,9 +132,9 @@ class PackagesownerrepoFiles(object):
     def cdn_url(self, cdn_url):
         """Sets the cdn_url of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param cdn_url: The cdn_url of this PackagesownerrepoFiles.  # noqa: E501
+        :param cdn_url: The cdn_url of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -142,11 +142,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def checksum_md5(self):
-        """Gets the checksum_md5 of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the checksum_md5 of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The checksum_md5 of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The checksum_md5 of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._checksum_md5
@@ -155,9 +155,9 @@ class PackagesownerrepoFiles(object):
     def checksum_md5(self, checksum_md5):
         """Sets the checksum_md5 of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param checksum_md5: The checksum_md5 of this PackagesownerrepoFiles.  # noqa: E501
+        :param checksum_md5: The checksum_md5 of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -165,11 +165,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def checksum_sha1(self):
-        """Gets the checksum_sha1 of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the checksum_sha1 of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha1 of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The checksum_sha1 of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._checksum_sha1
@@ -178,9 +178,9 @@ class PackagesownerrepoFiles(object):
     def checksum_sha1(self, checksum_sha1):
         """Sets the checksum_sha1 of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param checksum_sha1: The checksum_sha1 of this PackagesownerrepoFiles.  # noqa: E501
+        :param checksum_sha1: The checksum_sha1 of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -188,11 +188,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def checksum_sha256(self):
-        """Gets the checksum_sha256 of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the checksum_sha256 of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha256 of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The checksum_sha256 of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._checksum_sha256
@@ -201,9 +201,9 @@ class PackagesownerrepoFiles(object):
     def checksum_sha256(self, checksum_sha256):
         """Sets the checksum_sha256 of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param checksum_sha256: The checksum_sha256 of this PackagesownerrepoFiles.  # noqa: E501
+        :param checksum_sha256: The checksum_sha256 of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -211,11 +211,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def checksum_sha512(self):
-        """Gets the checksum_sha512 of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the checksum_sha512 of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha512 of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The checksum_sha512 of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._checksum_sha512
@@ -224,9 +224,9 @@ class PackagesownerrepoFiles(object):
     def checksum_sha512(self, checksum_sha512):
         """Sets the checksum_sha512 of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param checksum_sha512: The checksum_sha512 of this PackagesownerrepoFiles.  # noqa: E501
+        :param checksum_sha512: The checksum_sha512 of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -234,11 +234,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def downloads(self):
-        """Gets the downloads of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the downloads of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The downloads of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The downloads of this PackagesownerrepoFiles.
         :rtype: int
         """
         return self._downloads
@@ -247,9 +247,9 @@ class PackagesownerrepoFiles(object):
     def downloads(self, downloads):
         """Sets the downloads of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param downloads: The downloads of this PackagesownerrepoFiles.  # noqa: E501
+        :param downloads: The downloads of this PackagesownerrepoFiles.
         :type: int
         """
 
@@ -257,11 +257,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def filename(self):
-        """Gets the filename of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the filename of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The filename of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The filename of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._filename
@@ -270,9 +270,9 @@ class PackagesownerrepoFiles(object):
     def filename(self, filename):
         """Sets the filename of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param filename: The filename of this PackagesownerrepoFiles.  # noqa: E501
+        :param filename: The filename of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -280,11 +280,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def is_downloadable(self):
-        """Gets the is_downloadable of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the is_downloadable of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The is_downloadable of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The is_downloadable of this PackagesownerrepoFiles.
         :rtype: bool
         """
         return self._is_downloadable
@@ -293,9 +293,9 @@ class PackagesownerrepoFiles(object):
     def is_downloadable(self, is_downloadable):
         """Sets the is_downloadable of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param is_downloadable: The is_downloadable of this PackagesownerrepoFiles.  # noqa: E501
+        :param is_downloadable: The is_downloadable of this PackagesownerrepoFiles.
         :type: bool
         """
 
@@ -303,11 +303,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def is_primary(self):
-        """Gets the is_primary of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the is_primary of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The is_primary of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The is_primary of this PackagesownerrepoFiles.
         :rtype: bool
         """
         return self._is_primary
@@ -316,9 +316,9 @@ class PackagesownerrepoFiles(object):
     def is_primary(self, is_primary):
         """Sets the is_primary of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param is_primary: The is_primary of this PackagesownerrepoFiles.  # noqa: E501
+        :param is_primary: The is_primary of this PackagesownerrepoFiles.
         :type: bool
         """
 
@@ -326,11 +326,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def is_synchronised(self):
-        """Gets the is_synchronised of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the is_synchronised of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The is_synchronised of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The is_synchronised of this PackagesownerrepoFiles.
         :rtype: bool
         """
         return self._is_synchronised
@@ -339,9 +339,9 @@ class PackagesownerrepoFiles(object):
     def is_synchronised(self, is_synchronised):
         """Sets the is_synchronised of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param is_synchronised: The is_synchronised of this PackagesownerrepoFiles.  # noqa: E501
+        :param is_synchronised: The is_synchronised of this PackagesownerrepoFiles.
         :type: bool
         """
 
@@ -349,11 +349,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def signature_url(self):
-        """Gets the signature_url of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the signature_url of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The signature_url of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The signature_url of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._signature_url
@@ -362,9 +362,9 @@ class PackagesownerrepoFiles(object):
     def signature_url(self, signature_url):
         """Sets the signature_url of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param signature_url: The signature_url of this PackagesownerrepoFiles.  # noqa: E501
+        :param signature_url: The signature_url of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -372,11 +372,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def size(self):
-        """Gets the size of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the size of this PackagesownerrepoFiles.
 
-        The calculated size of the file.  # noqa: E501
+        The calculated size of the file.
 
-        :return: The size of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The size of this PackagesownerrepoFiles.
         :rtype: int
         """
         return self._size
@@ -385,9 +385,9 @@ class PackagesownerrepoFiles(object):
     def size(self, size):
         """Sets the size of this PackagesownerrepoFiles.
 
-        The calculated size of the file.  # noqa: E501
+        The calculated size of the file.
 
-        :param size: The size of this PackagesownerrepoFiles.  # noqa: E501
+        :param size: The size of this PackagesownerrepoFiles.
         :type: int
         """
 
@@ -395,11 +395,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the slug_perm of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The slug_perm of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._slug_perm
@@ -408,9 +408,9 @@ class PackagesownerrepoFiles(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this PackagesownerrepoFiles.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this PackagesownerrepoFiles.  # noqa: E501
+        :param slug_perm: The slug_perm of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -418,11 +418,11 @@ class PackagesownerrepoFiles(object):
 
     @property
     def tag(self):
-        """Gets the tag of this PackagesownerrepoFiles.  # noqa: E501
+        """Gets the tag of this PackagesownerrepoFiles.
 
-        Freeform descriptor that describes what the file is.  # noqa: E501
+        Freeform descriptor that describes what the file is.
 
-        :return: The tag of this PackagesownerrepoFiles.  # noqa: E501
+        :return: The tag of this PackagesownerrepoFiles.
         :rtype: str
         """
         return self._tag
@@ -431,9 +431,9 @@ class PackagesownerrepoFiles(object):
     def tag(self, tag):
         """Sets the tag of this PackagesownerrepoFiles.
 
-        Freeform descriptor that describes what the file is.  # noqa: E501
+        Freeform descriptor that describes what the file is.
 
-        :param tag: The tag of this PackagesownerrepoFiles.  # noqa: E501
+        :param tag: The tag of this PackagesownerrepoFiles.
         :type: str
         """
 
@@ -487,3 +487,4 @@ class PackagesownerrepoFiles(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

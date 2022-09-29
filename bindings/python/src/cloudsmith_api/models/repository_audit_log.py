@@ -104,11 +104,11 @@ class RepositoryAuditLog(object):
 
     @property
     def actor(self):
-        """Gets the actor of this RepositoryAuditLog.  # noqa: E501
+        """Gets the actor of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor of this RepositoryAuditLog.  # noqa: E501
+        :return: The actor of this RepositoryAuditLog.
         :rtype: str
         """
         return self._actor
@@ -117,9 +117,9 @@ class RepositoryAuditLog(object):
     def actor(self, actor):
         """Sets the actor of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor: The actor of this RepositoryAuditLog.  # noqa: E501
+        :param actor: The actor of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor is None:
@@ -129,11 +129,11 @@ class RepositoryAuditLog(object):
 
     @property
     def actor_ip_address(self):
-        """Gets the actor_ip_address of this RepositoryAuditLog.  # noqa: E501
+        """Gets the actor_ip_address of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_ip_address of this RepositoryAuditLog.  # noqa: E501
+        :return: The actor_ip_address of this RepositoryAuditLog.
         :rtype: str
         """
         return self._actor_ip_address
@@ -142,9 +142,9 @@ class RepositoryAuditLog(object):
     def actor_ip_address(self, actor_ip_address):
         """Sets the actor_ip_address of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_ip_address: The actor_ip_address of this RepositoryAuditLog.  # noqa: E501
+        :param actor_ip_address: The actor_ip_address of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor_ip_address is None:
@@ -154,11 +154,11 @@ class RepositoryAuditLog(object):
 
     @property
     def actor_kind(self):
-        """Gets the actor_kind of this RepositoryAuditLog.  # noqa: E501
+        """Gets the actor_kind of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_kind of this RepositoryAuditLog.  # noqa: E501
+        :return: The actor_kind of this RepositoryAuditLog.
         :rtype: str
         """
         return self._actor_kind
@@ -167,9 +167,9 @@ class RepositoryAuditLog(object):
     def actor_kind(self, actor_kind):
         """Sets the actor_kind of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_kind: The actor_kind of this RepositoryAuditLog.  # noqa: E501
+        :param actor_kind: The actor_kind of this RepositoryAuditLog.
         :type: str
         """
 
@@ -177,11 +177,11 @@ class RepositoryAuditLog(object):
 
     @property
     def actor_location(self):
-        """Gets the actor_location of this RepositoryAuditLog.  # noqa: E501
+        """Gets the actor_location of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_location of this RepositoryAuditLog.  # noqa: E501
+        :return: The actor_location of this RepositoryAuditLog.
         :rtype: object
         """
         return self._actor_location
@@ -190,9 +190,9 @@ class RepositoryAuditLog(object):
     def actor_location(self, actor_location):
         """Sets the actor_location of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_location: The actor_location of this RepositoryAuditLog.  # noqa: E501
+        :param actor_location: The actor_location of this RepositoryAuditLog.
         :type: object
         """
         if self._configuration.client_side_validation and actor_location is None:
@@ -202,11 +202,11 @@ class RepositoryAuditLog(object):
 
     @property
     def actor_slug_perm(self):
-        """Gets the actor_slug_perm of this RepositoryAuditLog.  # noqa: E501
+        """Gets the actor_slug_perm of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_slug_perm of this RepositoryAuditLog.  # noqa: E501
+        :return: The actor_slug_perm of this RepositoryAuditLog.
         :rtype: str
         """
         return self._actor_slug_perm
@@ -215,9 +215,9 @@ class RepositoryAuditLog(object):
     def actor_slug_perm(self, actor_slug_perm):
         """Sets the actor_slug_perm of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_slug_perm: The actor_slug_perm of this RepositoryAuditLog.  # noqa: E501
+        :param actor_slug_perm: The actor_slug_perm of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor_slug_perm is None:
@@ -227,11 +227,11 @@ class RepositoryAuditLog(object):
 
     @property
     def actor_url(self):
-        """Gets the actor_url of this RepositoryAuditLog.  # noqa: E501
+        """Gets the actor_url of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_url of this RepositoryAuditLog.  # noqa: E501
+        :return: The actor_url of this RepositoryAuditLog.
         :rtype: str
         """
         return self._actor_url
@@ -240,9 +240,9 @@ class RepositoryAuditLog(object):
     def actor_url(self, actor_url):
         """Sets the actor_url of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_url: The actor_url of this RepositoryAuditLog.  # noqa: E501
+        :param actor_url: The actor_url of this RepositoryAuditLog.
         :type: str
         """
 
@@ -250,11 +250,11 @@ class RepositoryAuditLog(object):
 
     @property
     def context(self):
-        """Gets the context of this RepositoryAuditLog.  # noqa: E501
+        """Gets the context of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The context of this RepositoryAuditLog.  # noqa: E501
+        :return: The context of this RepositoryAuditLog.
         :rtype: str
         """
         return self._context
@@ -263,9 +263,9 @@ class RepositoryAuditLog(object):
     def context(self, context):
         """Sets the context of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param context: The context of this RepositoryAuditLog.  # noqa: E501
+        :param context: The context of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and context is None:
@@ -275,11 +275,11 @@ class RepositoryAuditLog(object):
 
     @property
     def event(self):
-        """Gets the event of this RepositoryAuditLog.  # noqa: E501
+        """Gets the event of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The event of this RepositoryAuditLog.  # noqa: E501
+        :return: The event of this RepositoryAuditLog.
         :rtype: str
         """
         return self._event
@@ -288,9 +288,9 @@ class RepositoryAuditLog(object):
     def event(self, event):
         """Sets the event of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param event: The event of this RepositoryAuditLog.  # noqa: E501
+        :param event: The event of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and event is None:
@@ -300,11 +300,11 @@ class RepositoryAuditLog(object):
 
     @property
     def event_at(self):
-        """Gets the event_at of this RepositoryAuditLog.  # noqa: E501
+        """Gets the event_at of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The event_at of this RepositoryAuditLog.  # noqa: E501
+        :return: The event_at of this RepositoryAuditLog.
         :rtype: str
         """
         return self._event_at
@@ -313,9 +313,9 @@ class RepositoryAuditLog(object):
     def event_at(self, event_at):
         """Sets the event_at of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param event_at: The event_at of this RepositoryAuditLog.  # noqa: E501
+        :param event_at: The event_at of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and event_at is None:
@@ -325,11 +325,11 @@ class RepositoryAuditLog(object):
 
     @property
     def object(self):
-        """Gets the object of this RepositoryAuditLog.  # noqa: E501
+        """Gets the object of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The object of this RepositoryAuditLog.  # noqa: E501
+        :return: The object of this RepositoryAuditLog.
         :rtype: str
         """
         return self._object
@@ -338,9 +338,9 @@ class RepositoryAuditLog(object):
     def object(self, object):
         """Sets the object of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param object: The object of this RepositoryAuditLog.  # noqa: E501
+        :param object: The object of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object is None:
@@ -350,11 +350,11 @@ class RepositoryAuditLog(object):
 
     @property
     def object_kind(self):
-        """Gets the object_kind of this RepositoryAuditLog.  # noqa: E501
+        """Gets the object_kind of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The object_kind of this RepositoryAuditLog.  # noqa: E501
+        :return: The object_kind of this RepositoryAuditLog.
         :rtype: str
         """
         return self._object_kind
@@ -363,9 +363,9 @@ class RepositoryAuditLog(object):
     def object_kind(self, object_kind):
         """Sets the object_kind of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param object_kind: The object_kind of this RepositoryAuditLog.  # noqa: E501
+        :param object_kind: The object_kind of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object_kind is None:
@@ -375,11 +375,11 @@ class RepositoryAuditLog(object):
 
     @property
     def object_slug_perm(self):
-        """Gets the object_slug_perm of this RepositoryAuditLog.  # noqa: E501
+        """Gets the object_slug_perm of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The object_slug_perm of this RepositoryAuditLog.  # noqa: E501
+        :return: The object_slug_perm of this RepositoryAuditLog.
         :rtype: str
         """
         return self._object_slug_perm
@@ -388,9 +388,9 @@ class RepositoryAuditLog(object):
     def object_slug_perm(self, object_slug_perm):
         """Sets the object_slug_perm of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param object_slug_perm: The object_slug_perm of this RepositoryAuditLog.  # noqa: E501
+        :param object_slug_perm: The object_slug_perm of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object_slug_perm is None:
@@ -400,11 +400,11 @@ class RepositoryAuditLog(object):
 
     @property
     def uuid(self):
-        """Gets the uuid of this RepositoryAuditLog.  # noqa: E501
+        """Gets the uuid of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The uuid of this RepositoryAuditLog.  # noqa: E501
+        :return: The uuid of this RepositoryAuditLog.
         :rtype: str
         """
         return self._uuid
@@ -413,9 +413,9 @@ class RepositoryAuditLog(object):
     def uuid(self, uuid):
         """Sets the uuid of this RepositoryAuditLog.
 
-          # noqa: E501
+        
 
-        :param uuid: The uuid of this RepositoryAuditLog.  # noqa: E501
+        :param uuid: The uuid of this RepositoryAuditLog.
         :type: str
         """
 
@@ -469,3 +469,4 @@ class RepositoryAuditLog(object):
             return True
 
         return self.to_dict() != other.to_dict()
+
