@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -33,6 +35,58 @@ import javax.validation.Valid;
 
 public class ReposPartialUpdate implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  /**
+   * The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+   */
+  @JsonAdapter(ContentKindEnum.Adapter.class)
+  public enum ContentKindEnum {
+    STANDARD("Standard"),
+    
+    DISTRIBUTION("Distribution"),
+    
+    UPSTREAM("Upstream");
+
+    private String value;
+
+    ContentKindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ContentKindEnum fromValue(String text) {
+      for (ContentKindEnum b : ContentKindEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ContentKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ContentKindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ContentKindEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ContentKindEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("content_kind")
+  private ContentKindEnum contentKind = null;
 
   @SerializedName("contextual_auth_realm")
   private Boolean contextualAuthRealm = null;
@@ -201,6 +255,9 @@ public class ReposPartialUpdate implements Serializable {
 
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("distributes")
+  private List<String> distributes = null;
 
   @SerializedName("docker_refresh_tokens_enabled")
   private Boolean dockerRefreshTokensEnabled = null;
@@ -519,7 +576,7 @@ public class ReposPartialUpdate implements Serializable {
   private Boolean userEntitlementsEnabled = null;
 
   /**
-   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
+   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
    */
   @JsonAdapter(ViewStatisticsEnum.Adapter.class)
   public enum ViewStatisticsEnum {
@@ -569,6 +626,24 @@ public class ReposPartialUpdate implements Serializable {
 
   @SerializedName("view_statistics")
   private ViewStatisticsEnum viewStatistics = null;
+
+  public ReposPartialUpdate contentKind(ContentKindEnum contentKind) {
+    this.contentKind = contentKind;
+    return this;
+  }
+
+   /**
+   * The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+   * @return contentKind
+  **/
+  @ApiModelProperty(value = "The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.")
+  public ContentKindEnum getContentKind() {
+    return contentKind;
+  }
+
+  public void setContentKind(ContentKindEnum contentKind) {
+    this.contentKind = contentKind;
+  }
 
   public ReposPartialUpdate contextualAuthRealm(Boolean contextualAuthRealm) {
     this.contextualAuthRealm = contextualAuthRealm;
@@ -694,6 +769,32 @@ public class ReposPartialUpdate implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ReposPartialUpdate distributes(List<String> distributes) {
+    this.distributes = distributes;
+    return this;
+  }
+
+  public ReposPartialUpdate addDistributesItem(String distributesItem) {
+    if (this.distributes == null) {
+      this.distributes = new ArrayList<>();
+    }
+    this.distributes.add(distributesItem);
+    return this;
+  }
+
+   /**
+   * The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.
+   * @return distributes
+  **/
+  @ApiModelProperty(value = "The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.")
+  public List<String> getDistributes() {
+    return distributes;
+  }
+
+  public void setDistributes(List<String> distributes) {
+    this.distributes = distributes;
   }
 
   public ReposPartialUpdate dockerRefreshTokensEnabled(Boolean dockerRefreshTokensEnabled) {
@@ -1152,10 +1253,10 @@ public class ReposPartialUpdate implements Serializable {
   }
 
    /**
-   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
+   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
    * @return viewStatistics
   **/
-  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
+  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
   public ViewStatisticsEnum getViewStatistics() {
     return viewStatistics;
   }
@@ -1174,13 +1275,15 @@ public class ReposPartialUpdate implements Serializable {
       return false;
     }
     ReposPartialUpdate reposPartialUpdate = (ReposPartialUpdate) o;
-    return Objects.equals(this.contextualAuthRealm, reposPartialUpdate.contextualAuthRealm) &&
+    return Objects.equals(this.contentKind, reposPartialUpdate.contentKind) &&
+        Objects.equals(this.contextualAuthRealm, reposPartialUpdate.contextualAuthRealm) &&
         Objects.equals(this.copyOwn, reposPartialUpdate.copyOwn) &&
         Objects.equals(this.copyPackages, reposPartialUpdate.copyPackages) &&
         Objects.equals(this.defaultPrivilege, reposPartialUpdate.defaultPrivilege) &&
         Objects.equals(this.deleteOwn, reposPartialUpdate.deleteOwn) &&
         Objects.equals(this.deletePackages, reposPartialUpdate.deletePackages) &&
         Objects.equals(this.description, reposPartialUpdate.description) &&
+        Objects.equals(this.distributes, reposPartialUpdate.distributes) &&
         Objects.equals(this.dockerRefreshTokensEnabled, reposPartialUpdate.dockerRefreshTokensEnabled) &&
         Objects.equals(this.indexFiles, reposPartialUpdate.indexFiles) &&
         Objects.equals(this.moveOwn, reposPartialUpdate.moveOwn) &&
@@ -1211,7 +1314,7 @@ public class ReposPartialUpdate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contextualAuthRealm, copyOwn, copyPackages, defaultPrivilege, deleteOwn, deletePackages, description, dockerRefreshTokensEnabled, indexFiles, moveOwn, movePackages, name, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, useDebianLabels, useDefaultCargoUpstream, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(contentKind, contextualAuthRealm, copyOwn, copyPackages, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, indexFiles, moveOwn, movePackages, name, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, useDebianLabels, useDefaultCargoUpstream, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1220,6 +1323,7 @@ public class ReposPartialUpdate implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReposPartialUpdate {\n");
     
+    sb.append("    contentKind: ").append(toIndentedString(contentKind)).append("\n");
     sb.append("    contextualAuthRealm: ").append(toIndentedString(contextualAuthRealm)).append("\n");
     sb.append("    copyOwn: ").append(toIndentedString(copyOwn)).append("\n");
     sb.append("    copyPackages: ").append(toIndentedString(copyPackages)).append("\n");
@@ -1227,6 +1331,7 @@ public class ReposPartialUpdate implements Serializable {
     sb.append("    deleteOwn: ").append(toIndentedString(deleteOwn)).append("\n");
     sb.append("    deletePackages: ").append(toIndentedString(deletePackages)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    distributes: ").append(toIndentedString(distributes)).append("\n");
     sb.append("    dockerRefreshTokensEnabled: ").append(toIndentedString(dockerRefreshTokensEnabled)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
     sb.append("    moveOwn: ").append(toIndentedString(moveOwn)).append("\n");

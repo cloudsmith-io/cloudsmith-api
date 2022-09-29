@@ -106,11 +106,11 @@ class WebhooksCreate(object):
 
     @property
     def events(self):
-        """Gets the events of this WebhooksCreate.  # noqa: E501
+        """Gets the events of this WebhooksCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The events of this WebhooksCreate.  # noqa: E501
+        :return: The events of this WebhooksCreate.
         :rtype: list[str]
         """
         return self._events
@@ -119,9 +119,9 @@ class WebhooksCreate(object):
     def events(self, events):
         """Sets the events of this WebhooksCreate.
 
-        None  # noqa: E501
+        None
 
-        :param events: The events of this WebhooksCreate.  # noqa: E501
+        :param events: The events of this WebhooksCreate.
         :type: list[str]
         """
         if self._configuration.client_side_validation and events is None:
@@ -131,11 +131,11 @@ class WebhooksCreate(object):
 
     @property
     def is_active(self):
-        """Gets the is_active of this WebhooksCreate.  # noqa: E501
+        """Gets the is_active of this WebhooksCreate.
 
-        If enabled, the webhook will trigger on events and send payloads to the configured target URL.  # noqa: E501
+        If enabled, the webhook will trigger on events and send payloads to the configured target URL.
 
-        :return: The is_active of this WebhooksCreate.  # noqa: E501
+        :return: The is_active of this WebhooksCreate.
         :rtype: bool
         """
         return self._is_active
@@ -144,9 +144,9 @@ class WebhooksCreate(object):
     def is_active(self, is_active):
         """Sets the is_active of this WebhooksCreate.
 
-        If enabled, the webhook will trigger on events and send payloads to the configured target URL.  # noqa: E501
+        If enabled, the webhook will trigger on events and send payloads to the configured target URL.
 
-        :param is_active: The is_active of this WebhooksCreate.  # noqa: E501
+        :param is_active: The is_active of this WebhooksCreate.
         :type: bool
         """
 
@@ -154,11 +154,11 @@ class WebhooksCreate(object):
 
     @property
     def package_query(self):
-        """Gets the package_query of this WebhooksCreate.  # noqa: E501
+        """Gets the package_query of this WebhooksCreate.
 
-        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.  # noqa: E501
+        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
 
-        :return: The package_query of this WebhooksCreate.  # noqa: E501
+        :return: The package_query of this WebhooksCreate.
         :rtype: str
         """
         return self._package_query
@@ -167,9 +167,9 @@ class WebhooksCreate(object):
     def package_query(self, package_query):
         """Sets the package_query of this WebhooksCreate.
 
-        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.  # noqa: E501
+        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
 
-        :param package_query: The package_query of this WebhooksCreate.  # noqa: E501
+        :param package_query: The package_query of this WebhooksCreate.
         :type: str
         """
 
@@ -177,11 +177,11 @@ class WebhooksCreate(object):
 
     @property
     def request_body_format(self):
-        """Gets the request_body_format of this WebhooksCreate.  # noqa: E501
+        """Gets the request_body_format of this WebhooksCreate.
 
-        The format of the payloads for webhook requests.  # noqa: E501
+        The format of the payloads for webhook requests.
 
-        :return: The request_body_format of this WebhooksCreate.  # noqa: E501
+        :return: The request_body_format of this WebhooksCreate.
         :rtype: int
         """
         return self._request_body_format
@@ -190,9 +190,9 @@ class WebhooksCreate(object):
     def request_body_format(self, request_body_format):
         """Sets the request_body_format of this WebhooksCreate.
 
-        The format of the payloads for webhook requests.  # noqa: E501
+        The format of the payloads for webhook requests.
 
-        :param request_body_format: The request_body_format of this WebhooksCreate.  # noqa: E501
+        :param request_body_format: The request_body_format of this WebhooksCreate.
         :type: int
         """
 
@@ -200,11 +200,11 @@ class WebhooksCreate(object):
 
     @property
     def request_body_template_format(self):
-        """Gets the request_body_template_format of this WebhooksCreate.  # noqa: E501
+        """Gets the request_body_template_format of this WebhooksCreate.
 
-        The format of the payloads for webhook requests.  # noqa: E501
+        The format of the payloads for webhook requests.
 
-        :return: The request_body_template_format of this WebhooksCreate.  # noqa: E501
+        :return: The request_body_template_format of this WebhooksCreate.
         :rtype: int
         """
         return self._request_body_template_format
@@ -213,9 +213,9 @@ class WebhooksCreate(object):
     def request_body_template_format(self, request_body_template_format):
         """Sets the request_body_template_format of this WebhooksCreate.
 
-        The format of the payloads for webhook requests.  # noqa: E501
+        The format of the payloads for webhook requests.
 
-        :param request_body_template_format: The request_body_template_format of this WebhooksCreate.  # noqa: E501
+        :param request_body_template_format: The request_body_template_format of this WebhooksCreate.
         :type: int
         """
 
@@ -223,11 +223,11 @@ class WebhooksCreate(object):
 
     @property
     def request_content_type(self):
-        """Gets the request_content_type of this WebhooksCreate.  # noqa: E501
+        """Gets the request_content_type of this WebhooksCreate.
 
-        The value that will be sent for the 'Content Type' header.   # noqa: E501
+        The value that will be sent for the 'Content Type' header. 
 
-        :return: The request_content_type of this WebhooksCreate.  # noqa: E501
+        :return: The request_content_type of this WebhooksCreate.
         :rtype: str
         """
         return self._request_content_type
@@ -236,9 +236,9 @@ class WebhooksCreate(object):
     def request_content_type(self, request_content_type):
         """Sets the request_content_type of this WebhooksCreate.
 
-        The value that will be sent for the 'Content Type' header.   # noqa: E501
+        The value that will be sent for the 'Content Type' header. 
 
-        :param request_content_type: The request_content_type of this WebhooksCreate.  # noqa: E501
+        :param request_content_type: The request_content_type of this WebhooksCreate.
         :type: str
         """
 
@@ -246,11 +246,11 @@ class WebhooksCreate(object):
 
     @property
     def secret_header(self):
-        """Gets the secret_header of this WebhooksCreate.  # noqa: E501
+        """Gets the secret_header of this WebhooksCreate.
 
-        The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.  # noqa: E501
+        The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
 
-        :return: The secret_header of this WebhooksCreate.  # noqa: E501
+        :return: The secret_header of this WebhooksCreate.
         :rtype: str
         """
         return self._secret_header
@@ -259,9 +259,9 @@ class WebhooksCreate(object):
     def secret_header(self, secret_header):
         """Sets the secret_header of this WebhooksCreate.
 
-        The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.  # noqa: E501
+        The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
 
-        :param secret_header: The secret_header of this WebhooksCreate.  # noqa: E501
+        :param secret_header: The secret_header of this WebhooksCreate.
         :type: str
         """
 
@@ -269,11 +269,11 @@ class WebhooksCreate(object):
 
     @property
     def secret_value(self):
-        """Gets the secret_value of this WebhooksCreate.  # noqa: E501
+        """Gets the secret_value of this WebhooksCreate.
 
-        The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.  # noqa: E501
+        The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.
 
-        :return: The secret_value of this WebhooksCreate.  # noqa: E501
+        :return: The secret_value of this WebhooksCreate.
         :rtype: str
         """
         return self._secret_value
@@ -282,9 +282,9 @@ class WebhooksCreate(object):
     def secret_value(self, secret_value):
         """Sets the secret_value of this WebhooksCreate.
 
-        The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.  # noqa: E501
+        The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.
 
-        :param secret_value: The secret_value of this WebhooksCreate.  # noqa: E501
+        :param secret_value: The secret_value of this WebhooksCreate.
         :type: str
         """
 
@@ -292,11 +292,11 @@ class WebhooksCreate(object):
 
     @property
     def signature_key(self):
-        """Gets the signature_key of this WebhooksCreate.  # noqa: E501
+        """Gets the signature_key of this WebhooksCreate.
 
-        The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).  # noqa: E501
+        The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).
 
-        :return: The signature_key of this WebhooksCreate.  # noqa: E501
+        :return: The signature_key of this WebhooksCreate.
         :rtype: str
         """
         return self._signature_key
@@ -305,9 +305,9 @@ class WebhooksCreate(object):
     def signature_key(self, signature_key):
         """Sets the signature_key of this WebhooksCreate.
 
-        The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).  # noqa: E501
+        The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).
 
-        :param signature_key: The signature_key of this WebhooksCreate.  # noqa: E501
+        :param signature_key: The signature_key of this WebhooksCreate.
         :type: str
         """
 
@@ -315,11 +315,11 @@ class WebhooksCreate(object):
 
     @property
     def target_url(self):
-        """Gets the target_url of this WebhooksCreate.  # noqa: E501
+        """Gets the target_url of this WebhooksCreate.
 
-        The destination URL that webhook payloads will be POST'ed to.  # noqa: E501
+        The destination URL that webhook payloads will be POST'ed to.
 
-        :return: The target_url of this WebhooksCreate.  # noqa: E501
+        :return: The target_url of this WebhooksCreate.
         :rtype: str
         """
         return self._target_url
@@ -328,9 +328,9 @@ class WebhooksCreate(object):
     def target_url(self, target_url):
         """Sets the target_url of this WebhooksCreate.
 
-        The destination URL that webhook payloads will be POST'ed to.  # noqa: E501
+        The destination URL that webhook payloads will be POST'ed to.
 
-        :param target_url: The target_url of this WebhooksCreate.  # noqa: E501
+        :param target_url: The target_url of this WebhooksCreate.
         :type: str
         """
         if self._configuration.client_side_validation and target_url is None:
@@ -340,11 +340,11 @@ class WebhooksCreate(object):
 
     @property
     def templates(self):
-        """Gets the templates of this WebhooksCreate.  # noqa: E501
+        """Gets the templates of this WebhooksCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The templates of this WebhooksCreate.  # noqa: E501
+        :return: The templates of this WebhooksCreate.
         :rtype: list[WebhooksownerrepoTemplates]
         """
         return self._templates
@@ -353,9 +353,9 @@ class WebhooksCreate(object):
     def templates(self, templates):
         """Sets the templates of this WebhooksCreate.
 
-        None  # noqa: E501
+        None
 
-        :param templates: The templates of this WebhooksCreate.  # noqa: E501
+        :param templates: The templates of this WebhooksCreate.
         :type: list[WebhooksownerrepoTemplates]
         """
         if self._configuration.client_side_validation and templates is None:
@@ -365,11 +365,11 @@ class WebhooksCreate(object):
 
     @property
     def verify_ssl(self):
-        """Gets the verify_ssl of this WebhooksCreate.  # noqa: E501
+        """Gets the verify_ssl of this WebhooksCreate.
 
-        If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.  # noqa: E501
+        If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
 
-        :return: The verify_ssl of this WebhooksCreate.  # noqa: E501
+        :return: The verify_ssl of this WebhooksCreate.
         :rtype: bool
         """
         return self._verify_ssl
@@ -378,9 +378,9 @@ class WebhooksCreate(object):
     def verify_ssl(self, verify_ssl):
         """Sets the verify_ssl of this WebhooksCreate.
 
-        If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.  # noqa: E501
+        If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
 
-        :param verify_ssl: The verify_ssl of this WebhooksCreate.  # noqa: E501
+        :param verify_ssl: The verify_ssl of this WebhooksCreate.
         :type: bool
         """
 
@@ -434,3 +434,4 @@ class WebhooksCreate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

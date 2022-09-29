@@ -69,11 +69,11 @@ class Namespace(object):
 
     @property
     def name(self):
-        """Gets the name of this Namespace.  # noqa: E501
+        """Gets the name of this Namespace.
 
-          # noqa: E501
+        
 
-        :return: The name of this Namespace.  # noqa: E501
+        :return: The name of this Namespace.
         :rtype: str
         """
         return self._name
@@ -82,9 +82,9 @@ class Namespace(object):
     def name(self, name):
         """Sets the name of this Namespace.
 
-          # noqa: E501
+        
 
-        :param name: The name of this Namespace.  # noqa: E501
+        :param name: The name of this Namespace.
         :type: str
         """
 
@@ -92,11 +92,11 @@ class Namespace(object):
 
     @property
     def slug(self):
-        """Gets the slug of this Namespace.  # noqa: E501
+        """Gets the slug of this Namespace.
 
-          # noqa: E501
+        
 
-        :return: The slug of this Namespace.  # noqa: E501
+        :return: The slug of this Namespace.
         :rtype: str
         """
         return self._slug
@@ -105,9 +105,9 @@ class Namespace(object):
     def slug(self, slug):
         """Sets the slug of this Namespace.
 
-          # noqa: E501
+        
 
-        :param slug: The slug of this Namespace.  # noqa: E501
+        :param slug: The slug of this Namespace.
         :type: str
         """
 
@@ -115,11 +115,11 @@ class Namespace(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this Namespace.  # noqa: E501
+        """Gets the slug_perm of this Namespace.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this Namespace.  # noqa: E501
+        :return: The slug_perm of this Namespace.
         :rtype: str
         """
         return self._slug_perm
@@ -128,9 +128,9 @@ class Namespace(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this Namespace.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this Namespace.  # noqa: E501
+        :param slug_perm: The slug_perm of this Namespace.
         :type: str
         """
 
@@ -138,11 +138,11 @@ class Namespace(object):
 
     @property
     def type_name(self):
-        """Gets the type_name of this Namespace.  # noqa: E501
+        """Gets the type_name of this Namespace.
 
-          # noqa: E501
+        
 
-        :return: The type_name of this Namespace.  # noqa: E501
+        :return: The type_name of this Namespace.
         :rtype: str
         """
         return self._type_name
@@ -151,9 +151,9 @@ class Namespace(object):
     def type_name(self, type_name):
         """Sets the type_name of this Namespace.
 
-          # noqa: E501
+        
 
-        :param type_name: The type_name of this Namespace.  # noqa: E501
+        :param type_name: The type_name of this Namespace.
         :type: str
         """
 
@@ -207,3 +207,4 @@ class Namespace(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

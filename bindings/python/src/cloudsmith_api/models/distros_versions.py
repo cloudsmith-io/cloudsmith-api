@@ -59,11 +59,11 @@ class DistrosVersions(object):
 
     @property
     def name(self):
-        """Gets the name of this DistrosVersions.  # noqa: E501
+        """Gets the name of this DistrosVersions.
 
-        The textual name for this version.  # noqa: E501
+        The textual name for this version.
 
-        :return: The name of this DistrosVersions.  # noqa: E501
+        :return: The name of this DistrosVersions.
         :rtype: str
         """
         return self._name
@@ -72,9 +72,9 @@ class DistrosVersions(object):
     def name(self, name):
         """Sets the name of this DistrosVersions.
 
-        The textual name for this version.  # noqa: E501
+        The textual name for this version.
 
-        :param name: The name of this DistrosVersions.  # noqa: E501
+        :param name: The name of this DistrosVersions.
         :type: str
         """
 
@@ -82,11 +82,11 @@ class DistrosVersions(object):
 
     @property
     def slug(self):
-        """Gets the slug of this DistrosVersions.  # noqa: E501
+        """Gets the slug of this DistrosVersions.
 
-        The slug identifier for this version  # noqa: E501
+        The slug identifier for this version
 
-        :return: The slug of this DistrosVersions.  # noqa: E501
+        :return: The slug of this DistrosVersions.
         :rtype: str
         """
         return self._slug
@@ -95,9 +95,9 @@ class DistrosVersions(object):
     def slug(self, slug):
         """Sets the slug of this DistrosVersions.
 
-        The slug identifier for this version  # noqa: E501
+        The slug identifier for this version
 
-        :param slug: The slug of this DistrosVersions.  # noqa: E501
+        :param slug: The slug of this DistrosVersions.
         :type: str
         """
 
@@ -151,3 +151,4 @@ class DistrosVersions(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

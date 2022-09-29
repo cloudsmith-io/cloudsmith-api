@@ -77,11 +77,11 @@ class PackagesUploadDeb(object):
 
     @property
     def changes_file(self):
-        """Gets the changes_file of this PackagesUploadDeb.  # noqa: E501
+        """Gets the changes_file of this PackagesUploadDeb.
 
-        The changes archive containing the changes made to the source and debian packaging files  # noqa: E501
+        The changes archive containing the changes made to the source and debian packaging files
 
-        :return: The changes_file of this PackagesUploadDeb.  # noqa: E501
+        :return: The changes_file of this PackagesUploadDeb.
         :rtype: str
         """
         return self._changes_file
@@ -90,9 +90,9 @@ class PackagesUploadDeb(object):
     def changes_file(self, changes_file):
         """Sets the changes_file of this PackagesUploadDeb.
 
-        The changes archive containing the changes made to the source and debian packaging files  # noqa: E501
+        The changes archive containing the changes made to the source and debian packaging files
 
-        :param changes_file: The changes_file of this PackagesUploadDeb.  # noqa: E501
+        :param changes_file: The changes_file of this PackagesUploadDeb.
         :type: str
         """
 
@@ -100,11 +100,11 @@ class PackagesUploadDeb(object):
 
     @property
     def distribution(self):
-        """Gets the distribution of this PackagesUploadDeb.  # noqa: E501
+        """Gets the distribution of this PackagesUploadDeb.
 
-        The distribution to store the package for.  # noqa: E501
+        The distribution to store the package for.
 
-        :return: The distribution of this PackagesUploadDeb.  # noqa: E501
+        :return: The distribution of this PackagesUploadDeb.
         :rtype: str
         """
         return self._distribution
@@ -113,9 +113,9 @@ class PackagesUploadDeb(object):
     def distribution(self, distribution):
         """Sets the distribution of this PackagesUploadDeb.
 
-        The distribution to store the package for.  # noqa: E501
+        The distribution to store the package for.
 
-        :param distribution: The distribution of this PackagesUploadDeb.  # noqa: E501
+        :param distribution: The distribution of this PackagesUploadDeb.
         :type: str
         """
         if self._configuration.client_side_validation and distribution is None:
@@ -125,11 +125,11 @@ class PackagesUploadDeb(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesUploadDeb.  # noqa: E501
+        """Gets the package_file of this PackagesUploadDeb.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesUploadDeb.  # noqa: E501
+        :return: The package_file of this PackagesUploadDeb.
         :rtype: str
         """
         return self._package_file
@@ -138,9 +138,9 @@ class PackagesUploadDeb(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesUploadDeb.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesUploadDeb.  # noqa: E501
+        :param package_file: The package_file of this PackagesUploadDeb.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -150,11 +150,11 @@ class PackagesUploadDeb(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesUploadDeb.  # noqa: E501
+        """Gets the republish of this PackagesUploadDeb.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesUploadDeb.  # noqa: E501
+        :return: The republish of this PackagesUploadDeb.
         :rtype: bool
         """
         return self._republish
@@ -163,9 +163,9 @@ class PackagesUploadDeb(object):
     def republish(self, republish):
         """Sets the republish of this PackagesUploadDeb.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesUploadDeb.  # noqa: E501
+        :param republish: The republish of this PackagesUploadDeb.
         :type: bool
         """
 
@@ -173,11 +173,11 @@ class PackagesUploadDeb(object):
 
     @property
     def sources_file(self):
-        """Gets the sources_file of this PackagesUploadDeb.  # noqa: E501
+        """Gets the sources_file of this PackagesUploadDeb.
 
-        The sources archive containing the source code for the binary  # noqa: E501
+        The sources archive containing the source code for the binary
 
-        :return: The sources_file of this PackagesUploadDeb.  # noqa: E501
+        :return: The sources_file of this PackagesUploadDeb.
         :rtype: str
         """
         return self._sources_file
@@ -186,9 +186,9 @@ class PackagesUploadDeb(object):
     def sources_file(self, sources_file):
         """Sets the sources_file of this PackagesUploadDeb.
 
-        The sources archive containing the source code for the binary  # noqa: E501
+        The sources archive containing the source code for the binary
 
-        :param sources_file: The sources_file of this PackagesUploadDeb.  # noqa: E501
+        :param sources_file: The sources_file of this PackagesUploadDeb.
         :type: str
         """
 
@@ -196,11 +196,11 @@ class PackagesUploadDeb(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesUploadDeb.  # noqa: E501
+        """Gets the tags of this PackagesUploadDeb.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesUploadDeb.  # noqa: E501
+        :return: The tags of this PackagesUploadDeb.
         :rtype: str
         """
         return self._tags
@@ -209,9 +209,9 @@ class PackagesUploadDeb(object):
     def tags(self, tags):
         """Sets the tags of this PackagesUploadDeb.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesUploadDeb.  # noqa: E501
+        :param tags: The tags of this PackagesUploadDeb.
         :type: str
         """
 
@@ -265,3 +265,4 @@ class PackagesUploadDeb(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

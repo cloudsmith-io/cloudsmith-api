@@ -53,11 +53,11 @@ class PackagesMove(object):
 
     @property
     def destination(self):
-        """Gets the destination of this PackagesMove.  # noqa: E501
+        """Gets the destination of this PackagesMove.
 
-        None  # noqa: E501
+        None
 
-        :return: The destination of this PackagesMove.  # noqa: E501
+        :return: The destination of this PackagesMove.
         :rtype: str
         """
         return self._destination
@@ -66,9 +66,9 @@ class PackagesMove(object):
     def destination(self, destination):
         """Sets the destination of this PackagesMove.
 
-        None  # noqa: E501
+        None
 
-        :param destination: The destination of this PackagesMove.  # noqa: E501
+        :param destination: The destination of this PackagesMove.
         :type: str
         """
         if self._configuration.client_side_validation and destination is None:
@@ -124,3 +124,4 @@ class PackagesMove(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

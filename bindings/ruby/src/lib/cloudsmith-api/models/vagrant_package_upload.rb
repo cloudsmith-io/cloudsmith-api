@@ -110,6 +110,12 @@ module CloudsmithApi
     # 
     attr_accessor :num_files
 
+    # 
+    attr_accessor :origin_repository
+
+    # 
+    attr_accessor :origin_repository_url
+
     # The type of package contents.
     attr_accessor :package_type
 
@@ -272,6 +278,8 @@ module CloudsmithApi
         :'namespace' => :'namespace',
         :'namespace_url' => :'namespace_url',
         :'num_files' => :'num_files',
+        :'origin_repository' => :'origin_repository',
+        :'origin_repository_url' => :'origin_repository_url',
         :'package_type' => :'package_type',
         :'provider' => :'provider',
         :'release' => :'release',
@@ -345,6 +353,8 @@ module CloudsmithApi
         :'namespace' => :'String',
         :'namespace_url' => :'String',
         :'num_files' => :'Integer',
+        :'origin_repository' => :'String',
+        :'origin_repository_url' => :'String',
         :'package_type' => :'Integer',
         :'provider' => :'String',
         :'release' => :'String',
@@ -521,6 +531,14 @@ module CloudsmithApi
 
       if attributes.has_key?(:'num_files')
         self.num_files = attributes[:'num_files']
+      end
+
+      if attributes.has_key?(:'origin_repository')
+        self.origin_repository = attributes[:'origin_repository']
+      end
+
+      if attributes.has_key?(:'origin_repository_url')
+        self.origin_repository_url = attributes[:'origin_repository_url']
       end
 
       if attributes.has_key?(:'package_type')
@@ -741,6 +759,8 @@ module CloudsmithApi
           namespace == o.namespace &&
           namespace_url == o.namespace_url &&
           num_files == o.num_files &&
+          origin_repository == o.origin_repository &&
+          origin_repository_url == o.origin_repository_url &&
           package_type == o.package_type &&
           provider == o.provider &&
           release == o.release &&
@@ -787,7 +807,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, package_type, provider, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+      [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, provider, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
     end
 
     # Builds the object from hash

@@ -13,21 +13,21 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class RepositoryPrivilegeList
-    # List of objects with explicit privileges to the repository.
-    attr_accessor :privileges
+  class OrgsTeamsMembersUpdate
+    # The team members
+    attr_accessor :members
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'privileges' => :'privileges'
+        :'members' => :'members'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'privileges' => :'String'
+        :'members' => :'Array<OrganizationTeamMembersMembers>'
       }
     end
 
@@ -39,8 +39,10 @@ module CloudsmithApi
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'privileges')
-        self.privileges = attributes[:'privileges']
+      if attributes.has_key?(:'members')
+        if (value = attributes[:'members']).is_a?(Array)
+          self.members = value
+        end
       end
     end
 
@@ -48,12 +50,17 @@ module CloudsmithApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @members.nil?
+        invalid_properties.push('invalid value for "members", members cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @members.nil?
       true
     end
 
@@ -62,7 +69,7 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          privileges == o.privileges
+          members == o.members
     end
 
     # @see the `==` method
@@ -74,7 +81,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [privileges].hash
+      [members].hash
     end
 
     # Builds the object from hash

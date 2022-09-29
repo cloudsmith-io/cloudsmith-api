@@ -134,11 +134,11 @@ class PackageStatus(object):
 
     @property
     def is_downloadable(self):
-        """Gets the is_downloadable of this PackageStatus.  # noqa: E501
+        """Gets the is_downloadable of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The is_downloadable of this PackageStatus.  # noqa: E501
+        :return: The is_downloadable of this PackageStatus.
         :rtype: bool
         """
         return self._is_downloadable
@@ -147,9 +147,9 @@ class PackageStatus(object):
     def is_downloadable(self, is_downloadable):
         """Sets the is_downloadable of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param is_downloadable: The is_downloadable of this PackageStatus.  # noqa: E501
+        :param is_downloadable: The is_downloadable of this PackageStatus.
         :type: bool
         """
 
@@ -157,11 +157,11 @@ class PackageStatus(object):
 
     @property
     def is_quarantined(self):
-        """Gets the is_quarantined of this PackageStatus.  # noqa: E501
+        """Gets the is_quarantined of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The is_quarantined of this PackageStatus.  # noqa: E501
+        :return: The is_quarantined of this PackageStatus.
         :rtype: bool
         """
         return self._is_quarantined
@@ -170,9 +170,9 @@ class PackageStatus(object):
     def is_quarantined(self, is_quarantined):
         """Sets the is_quarantined of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param is_quarantined: The is_quarantined of this PackageStatus.  # noqa: E501
+        :param is_quarantined: The is_quarantined of this PackageStatus.
         :type: bool
         """
 
@@ -180,11 +180,11 @@ class PackageStatus(object):
 
     @property
     def is_sync_awaiting(self):
-        """Gets the is_sync_awaiting of this PackageStatus.  # noqa: E501
+        """Gets the is_sync_awaiting of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_awaiting of this PackageStatus.  # noqa: E501
+        :return: The is_sync_awaiting of this PackageStatus.
         :rtype: bool
         """
         return self._is_sync_awaiting
@@ -193,9 +193,9 @@ class PackageStatus(object):
     def is_sync_awaiting(self, is_sync_awaiting):
         """Sets the is_sync_awaiting of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param is_sync_awaiting: The is_sync_awaiting of this PackageStatus.  # noqa: E501
+        :param is_sync_awaiting: The is_sync_awaiting of this PackageStatus.
         :type: bool
         """
 
@@ -203,11 +203,11 @@ class PackageStatus(object):
 
     @property
     def is_sync_completed(self):
-        """Gets the is_sync_completed of this PackageStatus.  # noqa: E501
+        """Gets the is_sync_completed of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_completed of this PackageStatus.  # noqa: E501
+        :return: The is_sync_completed of this PackageStatus.
         :rtype: bool
         """
         return self._is_sync_completed
@@ -216,9 +216,9 @@ class PackageStatus(object):
     def is_sync_completed(self, is_sync_completed):
         """Sets the is_sync_completed of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param is_sync_completed: The is_sync_completed of this PackageStatus.  # noqa: E501
+        :param is_sync_completed: The is_sync_completed of this PackageStatus.
         :type: bool
         """
 
@@ -226,11 +226,11 @@ class PackageStatus(object):
 
     @property
     def is_sync_failed(self):
-        """Gets the is_sync_failed of this PackageStatus.  # noqa: E501
+        """Gets the is_sync_failed of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_failed of this PackageStatus.  # noqa: E501
+        :return: The is_sync_failed of this PackageStatus.
         :rtype: bool
         """
         return self._is_sync_failed
@@ -239,9 +239,9 @@ class PackageStatus(object):
     def is_sync_failed(self, is_sync_failed):
         """Sets the is_sync_failed of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param is_sync_failed: The is_sync_failed of this PackageStatus.  # noqa: E501
+        :param is_sync_failed: The is_sync_failed of this PackageStatus.
         :type: bool
         """
 
@@ -249,11 +249,11 @@ class PackageStatus(object):
 
     @property
     def is_sync_in_flight(self):
-        """Gets the is_sync_in_flight of this PackageStatus.  # noqa: E501
+        """Gets the is_sync_in_flight of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_in_flight of this PackageStatus.  # noqa: E501
+        :return: The is_sync_in_flight of this PackageStatus.
         :rtype: bool
         """
         return self._is_sync_in_flight
@@ -262,9 +262,9 @@ class PackageStatus(object):
     def is_sync_in_flight(self, is_sync_in_flight):
         """Sets the is_sync_in_flight of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param is_sync_in_flight: The is_sync_in_flight of this PackageStatus.  # noqa: E501
+        :param is_sync_in_flight: The is_sync_in_flight of this PackageStatus.
         :type: bool
         """
 
@@ -272,11 +272,11 @@ class PackageStatus(object):
 
     @property
     def is_sync_in_progress(self):
-        """Gets the is_sync_in_progress of this PackageStatus.  # noqa: E501
+        """Gets the is_sync_in_progress of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_in_progress of this PackageStatus.  # noqa: E501
+        :return: The is_sync_in_progress of this PackageStatus.
         :rtype: bool
         """
         return self._is_sync_in_progress
@@ -285,9 +285,9 @@ class PackageStatus(object):
     def is_sync_in_progress(self, is_sync_in_progress):
         """Sets the is_sync_in_progress of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param is_sync_in_progress: The is_sync_in_progress of this PackageStatus.  # noqa: E501
+        :param is_sync_in_progress: The is_sync_in_progress of this PackageStatus.
         :type: bool
         """
 
@@ -295,11 +295,11 @@ class PackageStatus(object):
 
     @property
     def self_url(self):
-        """Gets the self_url of this PackageStatus.  # noqa: E501
+        """Gets the self_url of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The self_url of this PackageStatus.  # noqa: E501
+        :return: The self_url of this PackageStatus.
         :rtype: str
         """
         return self._self_url
@@ -308,9 +308,9 @@ class PackageStatus(object):
     def self_url(self, self_url):
         """Sets the self_url of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param self_url: The self_url of this PackageStatus.  # noqa: E501
+        :param self_url: The self_url of this PackageStatus.
         :type: str
         """
 
@@ -318,11 +318,11 @@ class PackageStatus(object):
 
     @property
     def stage(self):
-        """Gets the stage of this PackageStatus.  # noqa: E501
+        """Gets the stage of this PackageStatus.
 
-        The synchronisation (in progress) stage of the package.  # noqa: E501
+        The synchronisation (in progress) stage of the package.
 
-        :return: The stage of this PackageStatus.  # noqa: E501
+        :return: The stage of this PackageStatus.
         :rtype: int
         """
         return self._stage
@@ -331,9 +331,9 @@ class PackageStatus(object):
     def stage(self, stage):
         """Sets the stage of this PackageStatus.
 
-        The synchronisation (in progress) stage of the package.  # noqa: E501
+        The synchronisation (in progress) stage of the package.
 
-        :param stage: The stage of this PackageStatus.  # noqa: E501
+        :param stage: The stage of this PackageStatus.
         :type: int
         """
 
@@ -341,11 +341,11 @@ class PackageStatus(object):
 
     @property
     def stage_str(self):
-        """Gets the stage_str of this PackageStatus.  # noqa: E501
+        """Gets the stage_str of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The stage_str of this PackageStatus.  # noqa: E501
+        :return: The stage_str of this PackageStatus.
         :rtype: str
         """
         return self._stage_str
@@ -354,9 +354,9 @@ class PackageStatus(object):
     def stage_str(self, stage_str):
         """Sets the stage_str of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param stage_str: The stage_str of this PackageStatus.  # noqa: E501
+        :param stage_str: The stage_str of this PackageStatus.
         :type: str
         """
 
@@ -364,11 +364,11 @@ class PackageStatus(object):
 
     @property
     def stage_updated_at(self):
-        """Gets the stage_updated_at of this PackageStatus.  # noqa: E501
+        """Gets the stage_updated_at of this PackageStatus.
 
-        The datetime the package stage was updated at.  # noqa: E501
+        The datetime the package stage was updated at.
 
-        :return: The stage_updated_at of this PackageStatus.  # noqa: E501
+        :return: The stage_updated_at of this PackageStatus.
         :rtype: str
         """
         return self._stage_updated_at
@@ -377,9 +377,9 @@ class PackageStatus(object):
     def stage_updated_at(self, stage_updated_at):
         """Sets the stage_updated_at of this PackageStatus.
 
-        The datetime the package stage was updated at.  # noqa: E501
+        The datetime the package stage was updated at.
 
-        :param stage_updated_at: The stage_updated_at of this PackageStatus.  # noqa: E501
+        :param stage_updated_at: The stage_updated_at of this PackageStatus.
         :type: str
         """
 
@@ -387,11 +387,11 @@ class PackageStatus(object):
 
     @property
     def status(self):
-        """Gets the status of this PackageStatus.  # noqa: E501
+        """Gets the status of this PackageStatus.
 
-        The synchronisation status of the package.  # noqa: E501
+        The synchronisation status of the package.
 
-        :return: The status of this PackageStatus.  # noqa: E501
+        :return: The status of this PackageStatus.
         :rtype: int
         """
         return self._status
@@ -400,9 +400,9 @@ class PackageStatus(object):
     def status(self, status):
         """Sets the status of this PackageStatus.
 
-        The synchronisation status of the package.  # noqa: E501
+        The synchronisation status of the package.
 
-        :param status: The status of this PackageStatus.  # noqa: E501
+        :param status: The status of this PackageStatus.
         :type: int
         """
 
@@ -410,11 +410,11 @@ class PackageStatus(object):
 
     @property
     def status_reason(self):
-        """Gets the status_reason of this PackageStatus.  # noqa: E501
+        """Gets the status_reason of this PackageStatus.
 
-        A textual description for the synchronous status reason (if any  # noqa: E501
+        A textual description for the synchronous status reason (if any
 
-        :return: The status_reason of this PackageStatus.  # noqa: E501
+        :return: The status_reason of this PackageStatus.
         :rtype: str
         """
         return self._status_reason
@@ -423,9 +423,9 @@ class PackageStatus(object):
     def status_reason(self, status_reason):
         """Sets the status_reason of this PackageStatus.
 
-        A textual description for the synchronous status reason (if any  # noqa: E501
+        A textual description for the synchronous status reason (if any
 
-        :param status_reason: The status_reason of this PackageStatus.  # noqa: E501
+        :param status_reason: The status_reason of this PackageStatus.
         :type: str
         """
 
@@ -433,11 +433,11 @@ class PackageStatus(object):
 
     @property
     def status_str(self):
-        """Gets the status_str of this PackageStatus.  # noqa: E501
+        """Gets the status_str of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :return: The status_str of this PackageStatus.  # noqa: E501
+        :return: The status_str of this PackageStatus.
         :rtype: str
         """
         return self._status_str
@@ -446,9 +446,9 @@ class PackageStatus(object):
     def status_str(self, status_str):
         """Sets the status_str of this PackageStatus.
 
-          # noqa: E501
+        
 
-        :param status_str: The status_str of this PackageStatus.  # noqa: E501
+        :param status_str: The status_str of this PackageStatus.
         :type: str
         """
 
@@ -456,11 +456,11 @@ class PackageStatus(object):
 
     @property
     def status_updated_at(self):
-        """Gets the status_updated_at of this PackageStatus.  # noqa: E501
+        """Gets the status_updated_at of this PackageStatus.
 
-        The datetime the package status was updated at.  # noqa: E501
+        The datetime the package status was updated at.
 
-        :return: The status_updated_at of this PackageStatus.  # noqa: E501
+        :return: The status_updated_at of this PackageStatus.
         :rtype: str
         """
         return self._status_updated_at
@@ -469,9 +469,9 @@ class PackageStatus(object):
     def status_updated_at(self, status_updated_at):
         """Sets the status_updated_at of this PackageStatus.
 
-        The datetime the package status was updated at.  # noqa: E501
+        The datetime the package status was updated at.
 
-        :param status_updated_at: The status_updated_at of this PackageStatus.  # noqa: E501
+        :param status_updated_at: The status_updated_at of this PackageStatus.
         :type: str
         """
 
@@ -479,11 +479,11 @@ class PackageStatus(object):
 
     @property
     def sync_finished_at(self):
-        """Gets the sync_finished_at of this PackageStatus.  # noqa: E501
+        """Gets the sync_finished_at of this PackageStatus.
 
-        The datetime the package sync was finished at.  # noqa: E501
+        The datetime the package sync was finished at.
 
-        :return: The sync_finished_at of this PackageStatus.  # noqa: E501
+        :return: The sync_finished_at of this PackageStatus.
         :rtype: str
         """
         return self._sync_finished_at
@@ -492,9 +492,9 @@ class PackageStatus(object):
     def sync_finished_at(self, sync_finished_at):
         """Sets the sync_finished_at of this PackageStatus.
 
-        The datetime the package sync was finished at.  # noqa: E501
+        The datetime the package sync was finished at.
 
-        :param sync_finished_at: The sync_finished_at of this PackageStatus.  # noqa: E501
+        :param sync_finished_at: The sync_finished_at of this PackageStatus.
         :type: str
         """
 
@@ -502,11 +502,11 @@ class PackageStatus(object):
 
     @property
     def sync_progress(self):
-        """Gets the sync_progress of this PackageStatus.  # noqa: E501
+        """Gets the sync_progress of this PackageStatus.
 
-        Synchronisation progress (from 0-100)  # noqa: E501
+        Synchronisation progress (from 0-100)
 
-        :return: The sync_progress of this PackageStatus.  # noqa: E501
+        :return: The sync_progress of this PackageStatus.
         :rtype: int
         """
         return self._sync_progress
@@ -515,9 +515,9 @@ class PackageStatus(object):
     def sync_progress(self, sync_progress):
         """Sets the sync_progress of this PackageStatus.
 
-        Synchronisation progress (from 0-100)  # noqa: E501
+        Synchronisation progress (from 0-100)
 
-        :param sync_progress: The sync_progress of this PackageStatus.  # noqa: E501
+        :param sync_progress: The sync_progress of this PackageStatus.
         :type: int
         """
 
@@ -571,3 +571,4 @@ class PackageStatus(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

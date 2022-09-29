@@ -528,6 +528,105 @@ class OrgsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def orgs_members_delete(self, org, member, **kwargs):  # noqa: E501
+        """Removes a member from the organization.  # noqa: E501
+
+        Removes a member from the organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_members_delete(org, member, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org:  (required)
+        :param str member:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_members_delete_with_http_info(org, member, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_members_delete_with_http_info(org, member, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_members_delete_with_http_info(self, org, member, **kwargs):  # noqa: E501
+        """Removes a member from the organization.  # noqa: E501
+
+        Removes a member from the organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_members_delete_with_http_info(org, member, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org:  (required)
+        :param str member:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'member']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_members_delete" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_members_delete`")  # noqa: E501
+        # verify the required parameter 'member' is set
+        if self.api_client.client_side_validation and ('member' not in params or
+                                                       params['member'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `member` when calling `orgs_members_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'member' in params:
+            path_params['member'] = params['member']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/members/{member}/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def orgs_members_list(self, org, **kwargs):  # noqa: E501
         """Get the details for all organization members.  # noqa: E501
 
@@ -727,9 +826,9 @@ class OrgsApi(object):
             collection_formats=collection_formats)
 
     def orgs_members_remove(self, org, member, **kwargs):  # noqa: E501
-        """Removes a member from the organization.  # noqa: E501
+        """Removes a member from the organization (deprecated, use DELETE instead).  # noqa: E501
 
-        Removes a member from the organization.  # noqa: E501
+        Removes a member from the organization (deprecated, use DELETE instead).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.orgs_members_remove(org, member, async_req=True)
@@ -738,7 +837,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org:  (required)
         :param str member:  (required)
-        :return: OrganizationMembership
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -750,9 +849,9 @@ class OrgsApi(object):
             return data
 
     def orgs_members_remove_with_http_info(self, org, member, **kwargs):  # noqa: E501
-        """Removes a member from the organization.  # noqa: E501
+        """Removes a member from the organization (deprecated, use DELETE instead).  # noqa: E501
 
-        Removes a member from the organization.  # noqa: E501
+        Removes a member from the organization (deprecated, use DELETE instead).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.orgs_members_remove_with_http_info(org, member, async_req=True)
@@ -761,7 +860,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org:  (required)
         :param str member:  (required)
-        :return: OrganizationMembership
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -817,7 +916,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationMembership',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1312,47 +1411,47 @@ class OrgsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def orgs_teams_delete(self, org, slug_perm, **kwargs):  # noqa: E501
+    def orgs_teams_delete(self, org, team, **kwargs):  # noqa: E501
         """Delete a specific team in a organization.  # noqa: E501
 
         Delete a specific team in a organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_teams_delete(org, slug_perm, async_req=True)
+        >>> thread = api.orgs_teams_delete(org, team, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str org:  (required)
-        :param str slug_perm:  (required)
+        :param str team:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.orgs_teams_delete_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+            return self.orgs_teams_delete_with_http_info(org, team, **kwargs)  # noqa: E501
         else:
-            (data) = self.orgs_teams_delete_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+            (data) = self.orgs_teams_delete_with_http_info(org, team, **kwargs)  # noqa: E501
             return data
 
-    def orgs_teams_delete_with_http_info(self, org, slug_perm, **kwargs):  # noqa: E501
+    def orgs_teams_delete_with_http_info(self, org, team, **kwargs):  # noqa: E501
         """Delete a specific team in a organization.  # noqa: E501
 
         Delete a specific team in a organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_teams_delete_with_http_info(org, slug_perm, async_req=True)
+        >>> thread = api.orgs_teams_delete_with_http_info(org, team, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str org:  (required)
-        :param str slug_perm:  (required)
+        :param str team:  (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'slug_perm']  # noqa: E501
+        all_params = ['org', 'team']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1371,18 +1470,18 @@ class OrgsApi(object):
         if self.api_client.client_side_validation and ('org' not in params or
                                                        params['org'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `org` when calling `orgs_teams_delete`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `orgs_teams_delete`")  # noqa: E501
+        # verify the required parameter 'team' is set
+        if self.api_client.client_side_validation and ('team' not in params or
+                                                       params['team'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `team` when calling `orgs_teams_delete`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'org' in params:
             path_params['org'] = params['org']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+        if 'team' in params:
+            path_params['team'] = params['team']  # noqa: E501
 
         query_params = []
 
@@ -1396,7 +1495,7 @@ class OrgsApi(object):
         auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/orgs/{org}/teams/{slug_perm}/', 'DELETE',
+            '/orgs/{org}/teams/{team}/', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -1510,49 +1609,49 @@ class OrgsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def orgs_teams_partial_update(self, org, slug_perm, **kwargs):  # noqa: E501
-        """Update a specific team in a organization.  # noqa: E501
+    def orgs_teams_members_create(self, org, team, **kwargs):  # noqa: E501
+        """Add users to a team.  # noqa: E501
 
-        Update a specific team in a organization.  # noqa: E501
+        Add users to a team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_teams_partial_update(org, slug_perm, async_req=True)
+        >>> thread = api.orgs_teams_members_create(org, team, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str org:  (required)
-        :param str slug_perm:  (required)
-        :param OrgsTeamsPartialUpdate data:
-        :return: OrganizationTeam
+        :param str team:  (required)
+        :param OrgsTeamsMembersCreate data:
+        :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.orgs_teams_partial_update_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+            return self.orgs_teams_members_create_with_http_info(org, team, **kwargs)  # noqa: E501
         else:
-            (data) = self.orgs_teams_partial_update_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+            (data) = self.orgs_teams_members_create_with_http_info(org, team, **kwargs)  # noqa: E501
             return data
 
-    def orgs_teams_partial_update_with_http_info(self, org, slug_perm, **kwargs):  # noqa: E501
-        """Update a specific team in a organization.  # noqa: E501
+    def orgs_teams_members_create_with_http_info(self, org, team, **kwargs):  # noqa: E501
+        """Add users to a team.  # noqa: E501
 
-        Update a specific team in a organization.  # noqa: E501
+        Add users to a team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_teams_partial_update_with_http_info(org, slug_perm, async_req=True)
+        >>> thread = api.orgs_teams_members_create_with_http_info(org, team, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str org:  (required)
-        :param str slug_perm:  (required)
-        :param OrgsTeamsPartialUpdate data:
-        :return: OrganizationTeam
+        :param str team:  (required)
+        :param OrgsTeamsMembersCreate data:
+        :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'slug_perm', 'data']  # noqa: E501
+        all_params = ['org', 'team', 'data']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1563,26 +1662,26 @@ class OrgsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method orgs_teams_partial_update" % key
+                    " to method orgs_teams_members_create" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'org' is set
         if self.api_client.client_side_validation and ('org' not in params or
                                                        params['org'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `org` when calling `orgs_teams_partial_update`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `orgs_teams_partial_update`")  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_teams_members_create`")  # noqa: E501
+        # verify the required parameter 'team' is set
+        if self.api_client.client_side_validation and ('team' not in params or
+                                                       params['team'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `team` when calling `orgs_teams_members_create`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'org' in params:
             path_params['org'] = params['org']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+        if 'team' in params:
+            path_params['team'] = params['team']  # noqa: E501
 
         query_params = []
 
@@ -1602,7 +1701,320 @@ class OrgsApi(object):
         auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/orgs/{org}/teams/{slug_perm}/', 'PATCH',
+            '/orgs/{org}/teams/{team}/members', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrganizationTeamMembers',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_teams_members_list(self, org, team, **kwargs):  # noqa: E501
+        """List all members for the team.  # noqa: E501
+
+        List all members for the team.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_teams_members_list(org, team, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org:  (required)
+        :param str team:  (required)
+        :return: OrganizationTeamMembers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_teams_members_list_with_http_info(org, team, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_teams_members_list_with_http_info(org, team, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_teams_members_list_with_http_info(self, org, team, **kwargs):  # noqa: E501
+        """List all members for the team.  # noqa: E501
+
+        List all members for the team.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_teams_members_list_with_http_info(org, team, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org:  (required)
+        :param str team:  (required)
+        :return: OrganizationTeamMembers
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'team']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_teams_members_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_teams_members_list`")  # noqa: E501
+        # verify the required parameter 'team' is set
+        if self.api_client.client_side_validation and ('team' not in params or
+                                                       params['team'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `team` when calling `orgs_teams_members_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'team' in params:
+            path_params['team'] = params['team']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/teams/{team}/members', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrganizationTeamMembers',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_teams_members_update(self, org, team, **kwargs):  # noqa: E501
+        """Replace all team members.  # noqa: E501
+
+        Replace all team members.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_teams_members_update(org, team, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org:  (required)
+        :param str team:  (required)
+        :param OrgsTeamsMembersUpdate data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_teams_members_update_with_http_info(org, team, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_teams_members_update_with_http_info(org, team, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_teams_members_update_with_http_info(self, org, team, **kwargs):  # noqa: E501
+        """Replace all team members.  # noqa: E501
+
+        Replace all team members.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_teams_members_update_with_http_info(org, team, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org:  (required)
+        :param str team:  (required)
+        :param OrgsTeamsMembersUpdate data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'team', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_teams_members_update" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_teams_members_update`")  # noqa: E501
+        # verify the required parameter 'team' is set
+        if self.api_client.client_side_validation and ('team' not in params or
+                                                       params['team'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `team` when calling `orgs_teams_members_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'team' in params:
+            path_params['team'] = params['team']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/teams/{team}/members', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_teams_partial_update(self, org, team, **kwargs):  # noqa: E501
+        """Update a specific team in a organization.  # noqa: E501
+
+        Update a specific team in a organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_teams_partial_update(org, team, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org:  (required)
+        :param str team:  (required)
+        :param OrgsTeamsPartialUpdate data:
+        :return: OrganizationTeam
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_teams_partial_update_with_http_info(org, team, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_teams_partial_update_with_http_info(org, team, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_teams_partial_update_with_http_info(self, org, team, **kwargs):  # noqa: E501
+        """Update a specific team in a organization.  # noqa: E501
+
+        Update a specific team in a organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_teams_partial_update_with_http_info(org, team, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org:  (required)
+        :param str team:  (required)
+        :param OrgsTeamsPartialUpdate data:
+        :return: OrganizationTeam
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'team', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_teams_partial_update" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_teams_partial_update`")  # noqa: E501
+        # verify the required parameter 'team' is set
+        if self.api_client.client_side_validation and ('team' not in params or
+                                                       params['team'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `team` when calling `orgs_teams_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'team' in params:
+            path_params['team'] = params['team']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/teams/{team}/', 'PATCH',
             path_params,
             query_params,
             header_params,
@@ -1617,47 +2029,47 @@ class OrgsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def orgs_teams_read(self, org, slug_perm, **kwargs):  # noqa: E501
-        """Viewset for working with Organization teams.  # noqa: E501
+    def orgs_teams_read(self, org, team, **kwargs):  # noqa: E501
+        """Get the details for the specific team.  # noqa: E501
 
-        Viewset for working with Organization teams.  # noqa: E501
+        Get the details for the specific team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_teams_read(org, slug_perm, async_req=True)
+        >>> thread = api.orgs_teams_read(org, team, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str org:  (required)
-        :param str slug_perm:  (required)
+        :param str team:  (required)
         :return: OrganizationTeam
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.orgs_teams_read_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+            return self.orgs_teams_read_with_http_info(org, team, **kwargs)  # noqa: E501
         else:
-            (data) = self.orgs_teams_read_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+            (data) = self.orgs_teams_read_with_http_info(org, team, **kwargs)  # noqa: E501
             return data
 
-    def orgs_teams_read_with_http_info(self, org, slug_perm, **kwargs):  # noqa: E501
-        """Viewset for working with Organization teams.  # noqa: E501
+    def orgs_teams_read_with_http_info(self, org, team, **kwargs):  # noqa: E501
+        """Get the details for the specific team.  # noqa: E501
 
-        Viewset for working with Organization teams.  # noqa: E501
+        Get the details for the specific team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_teams_read_with_http_info(org, slug_perm, async_req=True)
+        >>> thread = api.orgs_teams_read_with_http_info(org, team, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str org:  (required)
-        :param str slug_perm:  (required)
+        :param str team:  (required)
         :return: OrganizationTeam
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'slug_perm']  # noqa: E501
+        all_params = ['org', 'team']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1676,18 +2088,18 @@ class OrgsApi(object):
         if self.api_client.client_side_validation and ('org' not in params or
                                                        params['org'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `org` when calling `orgs_teams_read`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `orgs_teams_read`")  # noqa: E501
+        # verify the required parameter 'team' is set
+        if self.api_client.client_side_validation and ('team' not in params or
+                                                       params['team'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `team` when calling `orgs_teams_read`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'org' in params:
             path_params['org'] = params['org']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+        if 'team' in params:
+            path_params['team'] = params['team']  # noqa: E501
 
         query_params = []
 
@@ -1701,7 +2113,7 @@ class OrgsApi(object):
         auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/orgs/{org}/teams/{slug_perm}/', 'GET',
+            '/orgs/{org}/teams/{team}/', 'GET',
             path_params,
             query_params,
             header_params,

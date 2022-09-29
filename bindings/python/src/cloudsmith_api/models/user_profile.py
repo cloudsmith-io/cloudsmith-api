@@ -97,11 +97,11 @@ class UserProfile(object):
 
     @property
     def company(self):
-        """Gets the company of this UserProfile.  # noqa: E501
+        """Gets the company of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The company of this UserProfile.  # noqa: E501
+        :return: The company of this UserProfile.
         :rtype: str
         """
         return self._company
@@ -110,9 +110,9 @@ class UserProfile(object):
     def company(self, company):
         """Sets the company of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param company: The company of this UserProfile.  # noqa: E501
+        :param company: The company of this UserProfile.
         :type: str
         """
 
@@ -120,11 +120,11 @@ class UserProfile(object):
 
     @property
     def first_name(self):
-        """Gets the first_name of this UserProfile.  # noqa: E501
+        """Gets the first_name of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The first_name of this UserProfile.  # noqa: E501
+        :return: The first_name of this UserProfile.
         :rtype: str
         """
         return self._first_name
@@ -133,9 +133,9 @@ class UserProfile(object):
     def first_name(self, first_name):
         """Sets the first_name of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param first_name: The first_name of this UserProfile.  # noqa: E501
+        :param first_name: The first_name of this UserProfile.
         :type: str
         """
         if self._configuration.client_side_validation and first_name is None:
@@ -145,11 +145,11 @@ class UserProfile(object):
 
     @property
     def job_title(self):
-        """Gets the job_title of this UserProfile.  # noqa: E501
+        """Gets the job_title of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The job_title of this UserProfile.  # noqa: E501
+        :return: The job_title of this UserProfile.
         :rtype: str
         """
         return self._job_title
@@ -158,9 +158,9 @@ class UserProfile(object):
     def job_title(self, job_title):
         """Sets the job_title of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param job_title: The job_title of this UserProfile.  # noqa: E501
+        :param job_title: The job_title of this UserProfile.
         :type: str
         """
 
@@ -168,11 +168,11 @@ class UserProfile(object):
 
     @property
     def joined_at(self):
-        """Gets the joined_at of this UserProfile.  # noqa: E501
+        """Gets the joined_at of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The joined_at of this UserProfile.  # noqa: E501
+        :return: The joined_at of this UserProfile.
         :rtype: str
         """
         return self._joined_at
@@ -181,9 +181,9 @@ class UserProfile(object):
     def joined_at(self, joined_at):
         """Sets the joined_at of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param joined_at: The joined_at of this UserProfile.  # noqa: E501
+        :param joined_at: The joined_at of this UserProfile.
         :type: str
         """
 
@@ -191,11 +191,11 @@ class UserProfile(object):
 
     @property
     def last_name(self):
-        """Gets the last_name of this UserProfile.  # noqa: E501
+        """Gets the last_name of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The last_name of this UserProfile.  # noqa: E501
+        :return: The last_name of this UserProfile.
         :rtype: str
         """
         return self._last_name
@@ -204,9 +204,9 @@ class UserProfile(object):
     def last_name(self, last_name):
         """Sets the last_name of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param last_name: The last_name of this UserProfile.  # noqa: E501
+        :param last_name: The last_name of this UserProfile.
         :type: str
         """
         if self._configuration.client_side_validation and last_name is None:
@@ -216,11 +216,11 @@ class UserProfile(object):
 
     @property
     def name(self):
-        """Gets the name of this UserProfile.  # noqa: E501
+        """Gets the name of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The name of this UserProfile.  # noqa: E501
+        :return: The name of this UserProfile.
         :rtype: str
         """
         return self._name
@@ -229,9 +229,9 @@ class UserProfile(object):
     def name(self, name):
         """Sets the name of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param name: The name of this UserProfile.  # noqa: E501
+        :param name: The name of this UserProfile.
         :type: str
         """
 
@@ -239,11 +239,11 @@ class UserProfile(object):
 
     @property
     def slug(self):
-        """Gets the slug of this UserProfile.  # noqa: E501
+        """Gets the slug of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The slug of this UserProfile.  # noqa: E501
+        :return: The slug of this UserProfile.
         :rtype: str
         """
         return self._slug
@@ -252,9 +252,9 @@ class UserProfile(object):
     def slug(self, slug):
         """Sets the slug of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param slug: The slug of this UserProfile.  # noqa: E501
+        :param slug: The slug of this UserProfile.
         :type: str
         """
 
@@ -262,11 +262,11 @@ class UserProfile(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this UserProfile.  # noqa: E501
+        """Gets the slug_perm of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this UserProfile.  # noqa: E501
+        :return: The slug_perm of this UserProfile.
         :rtype: str
         """
         return self._slug_perm
@@ -275,9 +275,9 @@ class UserProfile(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this UserProfile.  # noqa: E501
+        :param slug_perm: The slug_perm of this UserProfile.
         :type: str
         """
 
@@ -285,11 +285,11 @@ class UserProfile(object):
 
     @property
     def tagline(self):
-        """Gets the tagline of this UserProfile.  # noqa: E501
+        """Gets the tagline of this UserProfile.
 
-        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.  # noqa: E501
+        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
 
-        :return: The tagline of this UserProfile.  # noqa: E501
+        :return: The tagline of this UserProfile.
         :rtype: str
         """
         return self._tagline
@@ -298,9 +298,9 @@ class UserProfile(object):
     def tagline(self, tagline):
         """Sets the tagline of this UserProfile.
 
-        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.  # noqa: E501
+        Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
 
-        :param tagline: The tagline of this UserProfile.  # noqa: E501
+        :param tagline: The tagline of this UserProfile.
         :type: str
         """
 
@@ -308,11 +308,11 @@ class UserProfile(object):
 
     @property
     def url(self):
-        """Gets the url of this UserProfile.  # noqa: E501
+        """Gets the url of this UserProfile.
 
-          # noqa: E501
+        
 
-        :return: The url of this UserProfile.  # noqa: E501
+        :return: The url of this UserProfile.
         :rtype: str
         """
         return self._url
@@ -321,9 +321,9 @@ class UserProfile(object):
     def url(self, url):
         """Sets the url of this UserProfile.
 
-          # noqa: E501
+        
 
-        :param url: The url of this UserProfile.  # noqa: E501
+        :param url: The url of this UserProfile.
         :type: str
         """
 
@@ -377,3 +377,4 @@ class UserProfile(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

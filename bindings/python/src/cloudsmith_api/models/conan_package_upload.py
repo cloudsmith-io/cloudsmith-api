@@ -67,6 +67,8 @@ class ConanPackageUpload(object):
         'namespace': 'str',
         'namespace_url': 'str',
         'num_files': 'int',
+        'origin_repository': 'str',
+        'origin_repository_url': 'str',
         'package_type': 'int',
         'release': 'str',
         'repository': 'str',
@@ -138,6 +140,8 @@ class ConanPackageUpload(object):
         'namespace': 'namespace',
         'namespace_url': 'namespace_url',
         'num_files': 'num_files',
+        'origin_repository': 'origin_repository',
+        'origin_repository_url': 'origin_repository_url',
         'package_type': 'package_type',
         'release': 'release',
         'repository': 'repository',
@@ -174,7 +178,7 @@ class ConanPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """ConanPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -214,6 +218,8 @@ class ConanPackageUpload(object):
         self._namespace = None
         self._namespace_url = None
         self._num_files = None
+        self._origin_repository = None
+        self._origin_repository_url = None
         self._package_type = None
         self._release = None
         self._repository = None
@@ -318,6 +324,10 @@ class ConanPackageUpload(object):
             self.namespace_url = namespace_url
         if num_files is not None:
             self.num_files = num_files
+        if origin_repository is not None:
+            self.origin_repository = origin_repository
+        if origin_repository_url is not None:
+            self.origin_repository_url = origin_repository_url
         if package_type is not None:
             self.package_type = package_type
         if release is not None:
@@ -389,11 +399,11 @@ class ConanPackageUpload(object):
 
     @property
     def architectures(self):
-        """Gets the architectures of this ConanPackageUpload.  # noqa: E501
+        """Gets the architectures of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The architectures of this ConanPackageUpload.  # noqa: E501
+        :return: The architectures of this ConanPackageUpload.
         :rtype: list[PackagesownerrepoArchitectures]
         """
         return self._architectures
@@ -402,9 +412,9 @@ class ConanPackageUpload(object):
     def architectures(self, architectures):
         """Sets the architectures of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param architectures: The architectures of this ConanPackageUpload.  # noqa: E501
+        :param architectures: The architectures of this ConanPackageUpload.
         :type: list[PackagesownerrepoArchitectures]
         """
 
@@ -412,11 +422,11 @@ class ConanPackageUpload(object):
 
     @property
     def cdn_url(self):
-        """Gets the cdn_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the cdn_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The cdn_url of this ConanPackageUpload.  # noqa: E501
+        :return: The cdn_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._cdn_url
@@ -425,9 +435,9 @@ class ConanPackageUpload(object):
     def cdn_url(self, cdn_url):
         """Sets the cdn_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param cdn_url: The cdn_url of this ConanPackageUpload.  # noqa: E501
+        :param cdn_url: The cdn_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -435,11 +445,11 @@ class ConanPackageUpload(object):
 
     @property
     def checksum_md5(self):
-        """Gets the checksum_md5 of this ConanPackageUpload.  # noqa: E501
+        """Gets the checksum_md5 of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The checksum_md5 of this ConanPackageUpload.  # noqa: E501
+        :return: The checksum_md5 of this ConanPackageUpload.
         :rtype: str
         """
         return self._checksum_md5
@@ -448,9 +458,9 @@ class ConanPackageUpload(object):
     def checksum_md5(self, checksum_md5):
         """Sets the checksum_md5 of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param checksum_md5: The checksum_md5 of this ConanPackageUpload.  # noqa: E501
+        :param checksum_md5: The checksum_md5 of this ConanPackageUpload.
         :type: str
         """
 
@@ -458,11 +468,11 @@ class ConanPackageUpload(object):
 
     @property
     def checksum_sha1(self):
-        """Gets the checksum_sha1 of this ConanPackageUpload.  # noqa: E501
+        """Gets the checksum_sha1 of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha1 of this ConanPackageUpload.  # noqa: E501
+        :return: The checksum_sha1 of this ConanPackageUpload.
         :rtype: str
         """
         return self._checksum_sha1
@@ -471,9 +481,9 @@ class ConanPackageUpload(object):
     def checksum_sha1(self, checksum_sha1):
         """Sets the checksum_sha1 of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param checksum_sha1: The checksum_sha1 of this ConanPackageUpload.  # noqa: E501
+        :param checksum_sha1: The checksum_sha1 of this ConanPackageUpload.
         :type: str
         """
 
@@ -481,11 +491,11 @@ class ConanPackageUpload(object):
 
     @property
     def checksum_sha256(self):
-        """Gets the checksum_sha256 of this ConanPackageUpload.  # noqa: E501
+        """Gets the checksum_sha256 of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha256 of this ConanPackageUpload.  # noqa: E501
+        :return: The checksum_sha256 of this ConanPackageUpload.
         :rtype: str
         """
         return self._checksum_sha256
@@ -494,9 +504,9 @@ class ConanPackageUpload(object):
     def checksum_sha256(self, checksum_sha256):
         """Sets the checksum_sha256 of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param checksum_sha256: The checksum_sha256 of this ConanPackageUpload.  # noqa: E501
+        :param checksum_sha256: The checksum_sha256 of this ConanPackageUpload.
         :type: str
         """
 
@@ -504,11 +514,11 @@ class ConanPackageUpload(object):
 
     @property
     def checksum_sha512(self):
-        """Gets the checksum_sha512 of this ConanPackageUpload.  # noqa: E501
+        """Gets the checksum_sha512 of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The checksum_sha512 of this ConanPackageUpload.  # noqa: E501
+        :return: The checksum_sha512 of this ConanPackageUpload.
         :rtype: str
         """
         return self._checksum_sha512
@@ -517,9 +527,9 @@ class ConanPackageUpload(object):
     def checksum_sha512(self, checksum_sha512):
         """Sets the checksum_sha512 of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param checksum_sha512: The checksum_sha512 of this ConanPackageUpload.  # noqa: E501
+        :param checksum_sha512: The checksum_sha512 of this ConanPackageUpload.
         :type: str
         """
 
@@ -527,11 +537,11 @@ class ConanPackageUpload(object):
 
     @property
     def conan_channel(self):
-        """Gets the conan_channel of this ConanPackageUpload.  # noqa: E501
+        """Gets the conan_channel of this ConanPackageUpload.
 
-        Conan channel.  # noqa: E501
+        Conan channel.
 
-        :return: The conan_channel of this ConanPackageUpload.  # noqa: E501
+        :return: The conan_channel of this ConanPackageUpload.
         :rtype: str
         """
         return self._conan_channel
@@ -540,9 +550,9 @@ class ConanPackageUpload(object):
     def conan_channel(self, conan_channel):
         """Sets the conan_channel of this ConanPackageUpload.
 
-        Conan channel.  # noqa: E501
+        Conan channel.
 
-        :param conan_channel: The conan_channel of this ConanPackageUpload.  # noqa: E501
+        :param conan_channel: The conan_channel of this ConanPackageUpload.
         :type: str
         """
 
@@ -550,11 +560,11 @@ class ConanPackageUpload(object):
 
     @property
     def conan_prefix(self):
-        """Gets the conan_prefix of this ConanPackageUpload.  # noqa: E501
+        """Gets the conan_prefix of this ConanPackageUpload.
 
-        Conan prefix (User).  # noqa: E501
+        Conan prefix (User).
 
-        :return: The conan_prefix of this ConanPackageUpload.  # noqa: E501
+        :return: The conan_prefix of this ConanPackageUpload.
         :rtype: str
         """
         return self._conan_prefix
@@ -563,9 +573,9 @@ class ConanPackageUpload(object):
     def conan_prefix(self, conan_prefix):
         """Sets the conan_prefix of this ConanPackageUpload.
 
-        Conan prefix (User).  # noqa: E501
+        Conan prefix (User).
 
-        :param conan_prefix: The conan_prefix of this ConanPackageUpload.  # noqa: E501
+        :param conan_prefix: The conan_prefix of this ConanPackageUpload.
         :type: str
         """
 
@@ -573,11 +583,11 @@ class ConanPackageUpload(object):
 
     @property
     def dependencies_checksum_md5(self):
-        """Gets the dependencies_checksum_md5 of this ConanPackageUpload.  # noqa: E501
+        """Gets the dependencies_checksum_md5 of this ConanPackageUpload.
 
-        A checksum of all of the package's dependencies.  # noqa: E501
+        A checksum of all of the package's dependencies.
 
-        :return: The dependencies_checksum_md5 of this ConanPackageUpload.  # noqa: E501
+        :return: The dependencies_checksum_md5 of this ConanPackageUpload.
         :rtype: str
         """
         return self._dependencies_checksum_md5
@@ -586,9 +596,9 @@ class ConanPackageUpload(object):
     def dependencies_checksum_md5(self, dependencies_checksum_md5):
         """Sets the dependencies_checksum_md5 of this ConanPackageUpload.
 
-        A checksum of all of the package's dependencies.  # noqa: E501
+        A checksum of all of the package's dependencies.
 
-        :param dependencies_checksum_md5: The dependencies_checksum_md5 of this ConanPackageUpload.  # noqa: E501
+        :param dependencies_checksum_md5: The dependencies_checksum_md5 of this ConanPackageUpload.
         :type: str
         """
 
@@ -596,11 +606,11 @@ class ConanPackageUpload(object):
 
     @property
     def dependencies_url(self):
-        """Gets the dependencies_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the dependencies_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The dependencies_url of this ConanPackageUpload.  # noqa: E501
+        :return: The dependencies_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._dependencies_url
@@ -609,9 +619,9 @@ class ConanPackageUpload(object):
     def dependencies_url(self, dependencies_url):
         """Sets the dependencies_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param dependencies_url: The dependencies_url of this ConanPackageUpload.  # noqa: E501
+        :param dependencies_url: The dependencies_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -619,11 +629,11 @@ class ConanPackageUpload(object):
 
     @property
     def description(self):
-        """Gets the description of this ConanPackageUpload.  # noqa: E501
+        """Gets the description of this ConanPackageUpload.
 
-        A textual description of this package.  # noqa: E501
+        A textual description of this package.
 
-        :return: The description of this ConanPackageUpload.  # noqa: E501
+        :return: The description of this ConanPackageUpload.
         :rtype: str
         """
         return self._description
@@ -632,9 +642,9 @@ class ConanPackageUpload(object):
     def description(self, description):
         """Sets the description of this ConanPackageUpload.
 
-        A textual description of this package.  # noqa: E501
+        A textual description of this package.
 
-        :param description: The description of this ConanPackageUpload.  # noqa: E501
+        :param description: The description of this ConanPackageUpload.
         :type: str
         """
 
@@ -642,11 +652,11 @@ class ConanPackageUpload(object):
 
     @property
     def distro(self):
-        """Gets the distro of this ConanPackageUpload.  # noqa: E501
+        """Gets the distro of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The distro of this ConanPackageUpload.  # noqa: E501
+        :return: The distro of this ConanPackageUpload.
         :rtype: object
         """
         return self._distro
@@ -655,9 +665,9 @@ class ConanPackageUpload(object):
     def distro(self, distro):
         """Sets the distro of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param distro: The distro of this ConanPackageUpload.  # noqa: E501
+        :param distro: The distro of this ConanPackageUpload.
         :type: object
         """
 
@@ -665,11 +675,11 @@ class ConanPackageUpload(object):
 
     @property
     def distro_version(self):
-        """Gets the distro_version of this ConanPackageUpload.  # noqa: E501
+        """Gets the distro_version of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The distro_version of this ConanPackageUpload.  # noqa: E501
+        :return: The distro_version of this ConanPackageUpload.
         :rtype: object
         """
         return self._distro_version
@@ -678,9 +688,9 @@ class ConanPackageUpload(object):
     def distro_version(self, distro_version):
         """Sets the distro_version of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param distro_version: The distro_version of this ConanPackageUpload.  # noqa: E501
+        :param distro_version: The distro_version of this ConanPackageUpload.
         :type: object
         """
 
@@ -688,11 +698,11 @@ class ConanPackageUpload(object):
 
     @property
     def downloads(self):
-        """Gets the downloads of this ConanPackageUpload.  # noqa: E501
+        """Gets the downloads of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The downloads of this ConanPackageUpload.  # noqa: E501
+        :return: The downloads of this ConanPackageUpload.
         :rtype: int
         """
         return self._downloads
@@ -701,9 +711,9 @@ class ConanPackageUpload(object):
     def downloads(self, downloads):
         """Sets the downloads of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param downloads: The downloads of this ConanPackageUpload.  # noqa: E501
+        :param downloads: The downloads of this ConanPackageUpload.
         :type: int
         """
 
@@ -711,11 +721,11 @@ class ConanPackageUpload(object):
 
     @property
     def epoch(self):
-        """Gets the epoch of this ConanPackageUpload.  # noqa: E501
+        """Gets the epoch of this ConanPackageUpload.
 
-        The epoch of the package version (if any).  # noqa: E501
+        The epoch of the package version (if any).
 
-        :return: The epoch of this ConanPackageUpload.  # noqa: E501
+        :return: The epoch of this ConanPackageUpload.
         :rtype: int
         """
         return self._epoch
@@ -724,9 +734,9 @@ class ConanPackageUpload(object):
     def epoch(self, epoch):
         """Sets the epoch of this ConanPackageUpload.
 
-        The epoch of the package version (if any).  # noqa: E501
+        The epoch of the package version (if any).
 
-        :param epoch: The epoch of this ConanPackageUpload.  # noqa: E501
+        :param epoch: The epoch of this ConanPackageUpload.
         :type: int
         """
 
@@ -734,11 +744,11 @@ class ConanPackageUpload(object):
 
     @property
     def extension(self):
-        """Gets the extension of this ConanPackageUpload.  # noqa: E501
+        """Gets the extension of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The extension of this ConanPackageUpload.  # noqa: E501
+        :return: The extension of this ConanPackageUpload.
         :rtype: str
         """
         return self._extension
@@ -747,9 +757,9 @@ class ConanPackageUpload(object):
     def extension(self, extension):
         """Sets the extension of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param extension: The extension of this ConanPackageUpload.  # noqa: E501
+        :param extension: The extension of this ConanPackageUpload.
         :type: str
         """
 
@@ -757,11 +767,11 @@ class ConanPackageUpload(object):
 
     @property
     def filename(self):
-        """Gets the filename of this ConanPackageUpload.  # noqa: E501
+        """Gets the filename of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The filename of this ConanPackageUpload.  # noqa: E501
+        :return: The filename of this ConanPackageUpload.
         :rtype: str
         """
         return self._filename
@@ -770,9 +780,9 @@ class ConanPackageUpload(object):
     def filename(self, filename):
         """Sets the filename of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param filename: The filename of this ConanPackageUpload.  # noqa: E501
+        :param filename: The filename of this ConanPackageUpload.
         :type: str
         """
 
@@ -780,11 +790,11 @@ class ConanPackageUpload(object):
 
     @property
     def files(self):
-        """Gets the files of this ConanPackageUpload.  # noqa: E501
+        """Gets the files of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The files of this ConanPackageUpload.  # noqa: E501
+        :return: The files of this ConanPackageUpload.
         :rtype: list[PackagesownerrepoFiles]
         """
         return self._files
@@ -793,9 +803,9 @@ class ConanPackageUpload(object):
     def files(self, files):
         """Sets the files of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param files: The files of this ConanPackageUpload.  # noqa: E501
+        :param files: The files of this ConanPackageUpload.
         :type: list[PackagesownerrepoFiles]
         """
 
@@ -803,11 +813,11 @@ class ConanPackageUpload(object):
 
     @property
     def format(self):
-        """Gets the format of this ConanPackageUpload.  # noqa: E501
+        """Gets the format of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The format of this ConanPackageUpload.  # noqa: E501
+        :return: The format of this ConanPackageUpload.
         :rtype: str
         """
         return self._format
@@ -816,9 +826,9 @@ class ConanPackageUpload(object):
     def format(self, format):
         """Sets the format of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param format: The format of this ConanPackageUpload.  # noqa: E501
+        :param format: The format of this ConanPackageUpload.
         :type: str
         """
 
@@ -826,11 +836,11 @@ class ConanPackageUpload(object):
 
     @property
     def format_url(self):
-        """Gets the format_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the format_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The format_url of this ConanPackageUpload.  # noqa: E501
+        :return: The format_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._format_url
@@ -839,9 +849,9 @@ class ConanPackageUpload(object):
     def format_url(self, format_url):
         """Sets the format_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param format_url: The format_url of this ConanPackageUpload.  # noqa: E501
+        :param format_url: The format_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -849,11 +859,11 @@ class ConanPackageUpload(object):
 
     @property
     def identifier_perm(self):
-        """Gets the identifier_perm of this ConanPackageUpload.  # noqa: E501
+        """Gets the identifier_perm of this ConanPackageUpload.
 
-        Unique and permanent identifier for the package.  # noqa: E501
+        Unique and permanent identifier for the package.
 
-        :return: The identifier_perm of this ConanPackageUpload.  # noqa: E501
+        :return: The identifier_perm of this ConanPackageUpload.
         :rtype: str
         """
         return self._identifier_perm
@@ -862,9 +872,9 @@ class ConanPackageUpload(object):
     def identifier_perm(self, identifier_perm):
         """Sets the identifier_perm of this ConanPackageUpload.
 
-        Unique and permanent identifier for the package.  # noqa: E501
+        Unique and permanent identifier for the package.
 
-        :param identifier_perm: The identifier_perm of this ConanPackageUpload.  # noqa: E501
+        :param identifier_perm: The identifier_perm of this ConanPackageUpload.
         :type: str
         """
 
@@ -872,11 +882,11 @@ class ConanPackageUpload(object):
 
     @property
     def indexed(self):
-        """Gets the indexed of this ConanPackageUpload.  # noqa: E501
+        """Gets the indexed of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The indexed of this ConanPackageUpload.  # noqa: E501
+        :return: The indexed of this ConanPackageUpload.
         :rtype: bool
         """
         return self._indexed
@@ -885,9 +895,9 @@ class ConanPackageUpload(object):
     def indexed(self, indexed):
         """Sets the indexed of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param indexed: The indexed of this ConanPackageUpload.  # noqa: E501
+        :param indexed: The indexed of this ConanPackageUpload.
         :type: bool
         """
 
@@ -895,11 +905,11 @@ class ConanPackageUpload(object):
 
     @property
     def is_downloadable(self):
-        """Gets the is_downloadable of this ConanPackageUpload.  # noqa: E501
+        """Gets the is_downloadable of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_downloadable of this ConanPackageUpload.  # noqa: E501
+        :return: The is_downloadable of this ConanPackageUpload.
         :rtype: bool
         """
         return self._is_downloadable
@@ -908,9 +918,9 @@ class ConanPackageUpload(object):
     def is_downloadable(self, is_downloadable):
         """Sets the is_downloadable of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_downloadable: The is_downloadable of this ConanPackageUpload.  # noqa: E501
+        :param is_downloadable: The is_downloadable of this ConanPackageUpload.
         :type: bool
         """
 
@@ -918,11 +928,11 @@ class ConanPackageUpload(object):
 
     @property
     def is_quarantined(self):
-        """Gets the is_quarantined of this ConanPackageUpload.  # noqa: E501
+        """Gets the is_quarantined of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_quarantined of this ConanPackageUpload.  # noqa: E501
+        :return: The is_quarantined of this ConanPackageUpload.
         :rtype: bool
         """
         return self._is_quarantined
@@ -931,9 +941,9 @@ class ConanPackageUpload(object):
     def is_quarantined(self, is_quarantined):
         """Sets the is_quarantined of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_quarantined: The is_quarantined of this ConanPackageUpload.  # noqa: E501
+        :param is_quarantined: The is_quarantined of this ConanPackageUpload.
         :type: bool
         """
 
@@ -941,11 +951,11 @@ class ConanPackageUpload(object):
 
     @property
     def is_sync_awaiting(self):
-        """Gets the is_sync_awaiting of this ConanPackageUpload.  # noqa: E501
+        """Gets the is_sync_awaiting of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_awaiting of this ConanPackageUpload.  # noqa: E501
+        :return: The is_sync_awaiting of this ConanPackageUpload.
         :rtype: bool
         """
         return self._is_sync_awaiting
@@ -954,9 +964,9 @@ class ConanPackageUpload(object):
     def is_sync_awaiting(self, is_sync_awaiting):
         """Sets the is_sync_awaiting of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_awaiting: The is_sync_awaiting of this ConanPackageUpload.  # noqa: E501
+        :param is_sync_awaiting: The is_sync_awaiting of this ConanPackageUpload.
         :type: bool
         """
 
@@ -964,11 +974,11 @@ class ConanPackageUpload(object):
 
     @property
     def is_sync_completed(self):
-        """Gets the is_sync_completed of this ConanPackageUpload.  # noqa: E501
+        """Gets the is_sync_completed of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_completed of this ConanPackageUpload.  # noqa: E501
+        :return: The is_sync_completed of this ConanPackageUpload.
         :rtype: bool
         """
         return self._is_sync_completed
@@ -977,9 +987,9 @@ class ConanPackageUpload(object):
     def is_sync_completed(self, is_sync_completed):
         """Sets the is_sync_completed of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_completed: The is_sync_completed of this ConanPackageUpload.  # noqa: E501
+        :param is_sync_completed: The is_sync_completed of this ConanPackageUpload.
         :type: bool
         """
 
@@ -987,11 +997,11 @@ class ConanPackageUpload(object):
 
     @property
     def is_sync_failed(self):
-        """Gets the is_sync_failed of this ConanPackageUpload.  # noqa: E501
+        """Gets the is_sync_failed of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_failed of this ConanPackageUpload.  # noqa: E501
+        :return: The is_sync_failed of this ConanPackageUpload.
         :rtype: bool
         """
         return self._is_sync_failed
@@ -1000,9 +1010,9 @@ class ConanPackageUpload(object):
     def is_sync_failed(self, is_sync_failed):
         """Sets the is_sync_failed of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_failed: The is_sync_failed of this ConanPackageUpload.  # noqa: E501
+        :param is_sync_failed: The is_sync_failed of this ConanPackageUpload.
         :type: bool
         """
 
@@ -1010,11 +1020,11 @@ class ConanPackageUpload(object):
 
     @property
     def is_sync_in_flight(self):
-        """Gets the is_sync_in_flight of this ConanPackageUpload.  # noqa: E501
+        """Gets the is_sync_in_flight of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_in_flight of this ConanPackageUpload.  # noqa: E501
+        :return: The is_sync_in_flight of this ConanPackageUpload.
         :rtype: bool
         """
         return self._is_sync_in_flight
@@ -1023,9 +1033,9 @@ class ConanPackageUpload(object):
     def is_sync_in_flight(self, is_sync_in_flight):
         """Sets the is_sync_in_flight of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_in_flight: The is_sync_in_flight of this ConanPackageUpload.  # noqa: E501
+        :param is_sync_in_flight: The is_sync_in_flight of this ConanPackageUpload.
         :type: bool
         """
 
@@ -1033,11 +1043,11 @@ class ConanPackageUpload(object):
 
     @property
     def is_sync_in_progress(self):
-        """Gets the is_sync_in_progress of this ConanPackageUpload.  # noqa: E501
+        """Gets the is_sync_in_progress of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The is_sync_in_progress of this ConanPackageUpload.  # noqa: E501
+        :return: The is_sync_in_progress of this ConanPackageUpload.
         :rtype: bool
         """
         return self._is_sync_in_progress
@@ -1046,9 +1056,9 @@ class ConanPackageUpload(object):
     def is_sync_in_progress(self, is_sync_in_progress):
         """Sets the is_sync_in_progress of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param is_sync_in_progress: The is_sync_in_progress of this ConanPackageUpload.  # noqa: E501
+        :param is_sync_in_progress: The is_sync_in_progress of this ConanPackageUpload.
         :type: bool
         """
 
@@ -1056,11 +1066,11 @@ class ConanPackageUpload(object):
 
     @property
     def license(self):
-        """Gets the license of this ConanPackageUpload.  # noqa: E501
+        """Gets the license of this ConanPackageUpload.
 
-        The license of this package.  # noqa: E501
+        The license of this package.
 
-        :return: The license of this ConanPackageUpload.  # noqa: E501
+        :return: The license of this ConanPackageUpload.
         :rtype: str
         """
         return self._license
@@ -1069,9 +1079,9 @@ class ConanPackageUpload(object):
     def license(self, license):
         """Sets the license of this ConanPackageUpload.
 
-        The license of this package.  # noqa: E501
+        The license of this package.
 
-        :param license: The license of this ConanPackageUpload.  # noqa: E501
+        :param license: The license of this ConanPackageUpload.
         :type: str
         """
 
@@ -1079,11 +1089,11 @@ class ConanPackageUpload(object):
 
     @property
     def name(self):
-        """Gets the name of this ConanPackageUpload.  # noqa: E501
+        """Gets the name of this ConanPackageUpload.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :return: The name of this ConanPackageUpload.  # noqa: E501
+        :return: The name of this ConanPackageUpload.
         :rtype: str
         """
         return self._name
@@ -1092,9 +1102,9 @@ class ConanPackageUpload(object):
     def name(self, name):
         """Sets the name of this ConanPackageUpload.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :param name: The name of this ConanPackageUpload.  # noqa: E501
+        :param name: The name of this ConanPackageUpload.
         :type: str
         """
 
@@ -1102,11 +1112,11 @@ class ConanPackageUpload(object):
 
     @property
     def namespace(self):
-        """Gets the namespace of this ConanPackageUpload.  # noqa: E501
+        """Gets the namespace of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The namespace of this ConanPackageUpload.  # noqa: E501
+        :return: The namespace of this ConanPackageUpload.
         :rtype: str
         """
         return self._namespace
@@ -1115,9 +1125,9 @@ class ConanPackageUpload(object):
     def namespace(self, namespace):
         """Sets the namespace of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param namespace: The namespace of this ConanPackageUpload.  # noqa: E501
+        :param namespace: The namespace of this ConanPackageUpload.
         :type: str
         """
 
@@ -1125,11 +1135,11 @@ class ConanPackageUpload(object):
 
     @property
     def namespace_url(self):
-        """Gets the namespace_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the namespace_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The namespace_url of this ConanPackageUpload.  # noqa: E501
+        :return: The namespace_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._namespace_url
@@ -1138,9 +1148,9 @@ class ConanPackageUpload(object):
     def namespace_url(self, namespace_url):
         """Sets the namespace_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param namespace_url: The namespace_url of this ConanPackageUpload.  # noqa: E501
+        :param namespace_url: The namespace_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -1148,11 +1158,11 @@ class ConanPackageUpload(object):
 
     @property
     def num_files(self):
-        """Gets the num_files of this ConanPackageUpload.  # noqa: E501
+        """Gets the num_files of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The num_files of this ConanPackageUpload.  # noqa: E501
+        :return: The num_files of this ConanPackageUpload.
         :rtype: int
         """
         return self._num_files
@@ -1161,21 +1171,67 @@ class ConanPackageUpload(object):
     def num_files(self, num_files):
         """Sets the num_files of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param num_files: The num_files of this ConanPackageUpload.  # noqa: E501
+        :param num_files: The num_files of this ConanPackageUpload.
         :type: int
         """
 
         self._num_files = num_files
 
     @property
+    def origin_repository(self):
+        """Gets the origin_repository of this ConanPackageUpload.
+
+        
+
+        :return: The origin_repository of this ConanPackageUpload.
+        :rtype: str
+        """
+        return self._origin_repository
+
+    @origin_repository.setter
+    def origin_repository(self, origin_repository):
+        """Sets the origin_repository of this ConanPackageUpload.
+
+        
+
+        :param origin_repository: The origin_repository of this ConanPackageUpload.
+        :type: str
+        """
+
+        self._origin_repository = origin_repository
+
+    @property
+    def origin_repository_url(self):
+        """Gets the origin_repository_url of this ConanPackageUpload.
+
+        
+
+        :return: The origin_repository_url of this ConanPackageUpload.
+        :rtype: str
+        """
+        return self._origin_repository_url
+
+    @origin_repository_url.setter
+    def origin_repository_url(self, origin_repository_url):
+        """Sets the origin_repository_url of this ConanPackageUpload.
+
+        
+
+        :param origin_repository_url: The origin_repository_url of this ConanPackageUpload.
+        :type: str
+        """
+
+        self._origin_repository_url = origin_repository_url
+
+    @property
     def package_type(self):
-        """Gets the package_type of this ConanPackageUpload.  # noqa: E501
+        """Gets the package_type of this ConanPackageUpload.
 
-        The type of package contents.  # noqa: E501
+        The type of package contents.
 
-        :return: The package_type of this ConanPackageUpload.  # noqa: E501
+        :return: The package_type of this ConanPackageUpload.
         :rtype: int
         """
         return self._package_type
@@ -1184,9 +1240,9 @@ class ConanPackageUpload(object):
     def package_type(self, package_type):
         """Sets the package_type of this ConanPackageUpload.
 
-        The type of package contents.  # noqa: E501
+        The type of package contents.
 
-        :param package_type: The package_type of this ConanPackageUpload.  # noqa: E501
+        :param package_type: The package_type of this ConanPackageUpload.
         :type: int
         """
 
@@ -1194,11 +1250,11 @@ class ConanPackageUpload(object):
 
     @property
     def release(self):
-        """Gets the release of this ConanPackageUpload.  # noqa: E501
+        """Gets the release of this ConanPackageUpload.
 
-        The release of the package version (if any).  # noqa: E501
+        The release of the package version (if any).
 
-        :return: The release of this ConanPackageUpload.  # noqa: E501
+        :return: The release of this ConanPackageUpload.
         :rtype: str
         """
         return self._release
@@ -1207,9 +1263,9 @@ class ConanPackageUpload(object):
     def release(self, release):
         """Sets the release of this ConanPackageUpload.
 
-        The release of the package version (if any).  # noqa: E501
+        The release of the package version (if any).
 
-        :param release: The release of this ConanPackageUpload.  # noqa: E501
+        :param release: The release of this ConanPackageUpload.
         :type: str
         """
 
@@ -1217,11 +1273,11 @@ class ConanPackageUpload(object):
 
     @property
     def repository(self):
-        """Gets the repository of this ConanPackageUpload.  # noqa: E501
+        """Gets the repository of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The repository of this ConanPackageUpload.  # noqa: E501
+        :return: The repository of this ConanPackageUpload.
         :rtype: str
         """
         return self._repository
@@ -1230,9 +1286,9 @@ class ConanPackageUpload(object):
     def repository(self, repository):
         """Sets the repository of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param repository: The repository of this ConanPackageUpload.  # noqa: E501
+        :param repository: The repository of this ConanPackageUpload.
         :type: str
         """
 
@@ -1240,11 +1296,11 @@ class ConanPackageUpload(object):
 
     @property
     def repository_url(self):
-        """Gets the repository_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the repository_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The repository_url of this ConanPackageUpload.  # noqa: E501
+        :return: The repository_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._repository_url
@@ -1253,9 +1309,9 @@ class ConanPackageUpload(object):
     def repository_url(self, repository_url):
         """Sets the repository_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param repository_url: The repository_url of this ConanPackageUpload.  # noqa: E501
+        :param repository_url: The repository_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -1263,11 +1319,11 @@ class ConanPackageUpload(object):
 
     @property
     def security_scan_completed_at(self):
-        """Gets the security_scan_completed_at of this ConanPackageUpload.  # noqa: E501
+        """Gets the security_scan_completed_at of this ConanPackageUpload.
 
-        The datetime the security scanning was completed.  # noqa: E501
+        The datetime the security scanning was completed.
 
-        :return: The security_scan_completed_at of this ConanPackageUpload.  # noqa: E501
+        :return: The security_scan_completed_at of this ConanPackageUpload.
         :rtype: str
         """
         return self._security_scan_completed_at
@@ -1276,9 +1332,9 @@ class ConanPackageUpload(object):
     def security_scan_completed_at(self, security_scan_completed_at):
         """Sets the security_scan_completed_at of this ConanPackageUpload.
 
-        The datetime the security scanning was completed.  # noqa: E501
+        The datetime the security scanning was completed.
 
-        :param security_scan_completed_at: The security_scan_completed_at of this ConanPackageUpload.  # noqa: E501
+        :param security_scan_completed_at: The security_scan_completed_at of this ConanPackageUpload.
         :type: str
         """
 
@@ -1286,11 +1342,11 @@ class ConanPackageUpload(object):
 
     @property
     def security_scan_started_at(self):
-        """Gets the security_scan_started_at of this ConanPackageUpload.  # noqa: E501
+        """Gets the security_scan_started_at of this ConanPackageUpload.
 
-        The datetime the security scanning was started.  # noqa: E501
+        The datetime the security scanning was started.
 
-        :return: The security_scan_started_at of this ConanPackageUpload.  # noqa: E501
+        :return: The security_scan_started_at of this ConanPackageUpload.
         :rtype: str
         """
         return self._security_scan_started_at
@@ -1299,9 +1355,9 @@ class ConanPackageUpload(object):
     def security_scan_started_at(self, security_scan_started_at):
         """Sets the security_scan_started_at of this ConanPackageUpload.
 
-        The datetime the security scanning was started.  # noqa: E501
+        The datetime the security scanning was started.
 
-        :param security_scan_started_at: The security_scan_started_at of this ConanPackageUpload.  # noqa: E501
+        :param security_scan_started_at: The security_scan_started_at of this ConanPackageUpload.
         :type: str
         """
 
@@ -1309,11 +1365,11 @@ class ConanPackageUpload(object):
 
     @property
     def security_scan_status(self):
-        """Gets the security_scan_status of this ConanPackageUpload.  # noqa: E501
+        """Gets the security_scan_status of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The security_scan_status of this ConanPackageUpload.  # noqa: E501
+        :return: The security_scan_status of this ConanPackageUpload.
         :rtype: str
         """
         return self._security_scan_status
@@ -1322,9 +1378,9 @@ class ConanPackageUpload(object):
     def security_scan_status(self, security_scan_status):
         """Sets the security_scan_status of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param security_scan_status: The security_scan_status of this ConanPackageUpload.  # noqa: E501
+        :param security_scan_status: The security_scan_status of this ConanPackageUpload.
         :type: str
         """
         allowed_values = ["Awaiting Security Scan", "Security Scanning in Progress", "Scan Detected Vulnerabilities", "Scan Detected No Vulnerabilities", "Security Scanning Disabled", "Security Scanning Failed", "Security Scanning Skipped", "Security Scanning Not Supported"]  # noqa: E501
@@ -1339,11 +1395,11 @@ class ConanPackageUpload(object):
 
     @property
     def security_scan_status_updated_at(self):
-        """Gets the security_scan_status_updated_at of this ConanPackageUpload.  # noqa: E501
+        """Gets the security_scan_status_updated_at of this ConanPackageUpload.
 
-        The datetime the security scanning status was updated.  # noqa: E501
+        The datetime the security scanning status was updated.
 
-        :return: The security_scan_status_updated_at of this ConanPackageUpload.  # noqa: E501
+        :return: The security_scan_status_updated_at of this ConanPackageUpload.
         :rtype: str
         """
         return self._security_scan_status_updated_at
@@ -1352,9 +1408,9 @@ class ConanPackageUpload(object):
     def security_scan_status_updated_at(self, security_scan_status_updated_at):
         """Sets the security_scan_status_updated_at of this ConanPackageUpload.
 
-        The datetime the security scanning status was updated.  # noqa: E501
+        The datetime the security scanning status was updated.
 
-        :param security_scan_status_updated_at: The security_scan_status_updated_at of this ConanPackageUpload.  # noqa: E501
+        :param security_scan_status_updated_at: The security_scan_status_updated_at of this ConanPackageUpload.
         :type: str
         """
 
@@ -1362,11 +1418,11 @@ class ConanPackageUpload(object):
 
     @property
     def self_html_url(self):
-        """Gets the self_html_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the self_html_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The self_html_url of this ConanPackageUpload.  # noqa: E501
+        :return: The self_html_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._self_html_url
@@ -1375,9 +1431,9 @@ class ConanPackageUpload(object):
     def self_html_url(self, self_html_url):
         """Sets the self_html_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param self_html_url: The self_html_url of this ConanPackageUpload.  # noqa: E501
+        :param self_html_url: The self_html_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -1385,11 +1441,11 @@ class ConanPackageUpload(object):
 
     @property
     def self_url(self):
-        """Gets the self_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the self_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The self_url of this ConanPackageUpload.  # noqa: E501
+        :return: The self_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._self_url
@@ -1398,9 +1454,9 @@ class ConanPackageUpload(object):
     def self_url(self, self_url):
         """Sets the self_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param self_url: The self_url of this ConanPackageUpload.  # noqa: E501
+        :param self_url: The self_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -1408,11 +1464,11 @@ class ConanPackageUpload(object):
 
     @property
     def signature_url(self):
-        """Gets the signature_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the signature_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The signature_url of this ConanPackageUpload.  # noqa: E501
+        :return: The signature_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._signature_url
@@ -1421,9 +1477,9 @@ class ConanPackageUpload(object):
     def signature_url(self, signature_url):
         """Sets the signature_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param signature_url: The signature_url of this ConanPackageUpload.  # noqa: E501
+        :param signature_url: The signature_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -1431,11 +1487,11 @@ class ConanPackageUpload(object):
 
     @property
     def size(self):
-        """Gets the size of this ConanPackageUpload.  # noqa: E501
+        """Gets the size of this ConanPackageUpload.
 
-        The calculated size of the package.  # noqa: E501
+        The calculated size of the package.
 
-        :return: The size of this ConanPackageUpload.  # noqa: E501
+        :return: The size of this ConanPackageUpload.
         :rtype: int
         """
         return self._size
@@ -1444,9 +1500,9 @@ class ConanPackageUpload(object):
     def size(self, size):
         """Sets the size of this ConanPackageUpload.
 
-        The calculated size of the package.  # noqa: E501
+        The calculated size of the package.
 
-        :param size: The size of this ConanPackageUpload.  # noqa: E501
+        :param size: The size of this ConanPackageUpload.
         :type: int
         """
 
@@ -1454,11 +1510,11 @@ class ConanPackageUpload(object):
 
     @property
     def slug(self):
-        """Gets the slug of this ConanPackageUpload.  # noqa: E501
+        """Gets the slug of this ConanPackageUpload.
 
-        The public unique identifier for the package.  # noqa: E501
+        The public unique identifier for the package.
 
-        :return: The slug of this ConanPackageUpload.  # noqa: E501
+        :return: The slug of this ConanPackageUpload.
         :rtype: str
         """
         return self._slug
@@ -1467,9 +1523,9 @@ class ConanPackageUpload(object):
     def slug(self, slug):
         """Sets the slug of this ConanPackageUpload.
 
-        The public unique identifier for the package.  # noqa: E501
+        The public unique identifier for the package.
 
-        :param slug: The slug of this ConanPackageUpload.  # noqa: E501
+        :param slug: The slug of this ConanPackageUpload.
         :type: str
         """
 
@@ -1477,11 +1533,11 @@ class ConanPackageUpload(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this ConanPackageUpload.  # noqa: E501
+        """Gets the slug_perm of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this ConanPackageUpload.  # noqa: E501
+        :return: The slug_perm of this ConanPackageUpload.
         :rtype: str
         """
         return self._slug_perm
@@ -1490,9 +1546,9 @@ class ConanPackageUpload(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this ConanPackageUpload.  # noqa: E501
+        :param slug_perm: The slug_perm of this ConanPackageUpload.
         :type: str
         """
 
@@ -1500,11 +1556,11 @@ class ConanPackageUpload(object):
 
     @property
     def stage(self):
-        """Gets the stage of this ConanPackageUpload.  # noqa: E501
+        """Gets the stage of this ConanPackageUpload.
 
-        The synchronisation (in progress) stage of the package.  # noqa: E501
+        The synchronisation (in progress) stage of the package.
 
-        :return: The stage of this ConanPackageUpload.  # noqa: E501
+        :return: The stage of this ConanPackageUpload.
         :rtype: int
         """
         return self._stage
@@ -1513,9 +1569,9 @@ class ConanPackageUpload(object):
     def stage(self, stage):
         """Sets the stage of this ConanPackageUpload.
 
-        The synchronisation (in progress) stage of the package.  # noqa: E501
+        The synchronisation (in progress) stage of the package.
 
-        :param stage: The stage of this ConanPackageUpload.  # noqa: E501
+        :param stage: The stage of this ConanPackageUpload.
         :type: int
         """
 
@@ -1523,11 +1579,11 @@ class ConanPackageUpload(object):
 
     @property
     def stage_str(self):
-        """Gets the stage_str of this ConanPackageUpload.  # noqa: E501
+        """Gets the stage_str of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The stage_str of this ConanPackageUpload.  # noqa: E501
+        :return: The stage_str of this ConanPackageUpload.
         :rtype: str
         """
         return self._stage_str
@@ -1536,9 +1592,9 @@ class ConanPackageUpload(object):
     def stage_str(self, stage_str):
         """Sets the stage_str of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param stage_str: The stage_str of this ConanPackageUpload.  # noqa: E501
+        :param stage_str: The stage_str of this ConanPackageUpload.
         :type: str
         """
 
@@ -1546,11 +1602,11 @@ class ConanPackageUpload(object):
 
     @property
     def stage_updated_at(self):
-        """Gets the stage_updated_at of this ConanPackageUpload.  # noqa: E501
+        """Gets the stage_updated_at of this ConanPackageUpload.
 
-        The datetime the package stage was updated at.  # noqa: E501
+        The datetime the package stage was updated at.
 
-        :return: The stage_updated_at of this ConanPackageUpload.  # noqa: E501
+        :return: The stage_updated_at of this ConanPackageUpload.
         :rtype: str
         """
         return self._stage_updated_at
@@ -1559,9 +1615,9 @@ class ConanPackageUpload(object):
     def stage_updated_at(self, stage_updated_at):
         """Sets the stage_updated_at of this ConanPackageUpload.
 
-        The datetime the package stage was updated at.  # noqa: E501
+        The datetime the package stage was updated at.
 
-        :param stage_updated_at: The stage_updated_at of this ConanPackageUpload.  # noqa: E501
+        :param stage_updated_at: The stage_updated_at of this ConanPackageUpload.
         :type: str
         """
 
@@ -1569,11 +1625,11 @@ class ConanPackageUpload(object):
 
     @property
     def status(self):
-        """Gets the status of this ConanPackageUpload.  # noqa: E501
+        """Gets the status of this ConanPackageUpload.
 
-        The synchronisation status of the package.  # noqa: E501
+        The synchronisation status of the package.
 
-        :return: The status of this ConanPackageUpload.  # noqa: E501
+        :return: The status of this ConanPackageUpload.
         :rtype: int
         """
         return self._status
@@ -1582,9 +1638,9 @@ class ConanPackageUpload(object):
     def status(self, status):
         """Sets the status of this ConanPackageUpload.
 
-        The synchronisation status of the package.  # noqa: E501
+        The synchronisation status of the package.
 
-        :param status: The status of this ConanPackageUpload.  # noqa: E501
+        :param status: The status of this ConanPackageUpload.
         :type: int
         """
 
@@ -1592,11 +1648,11 @@ class ConanPackageUpload(object):
 
     @property
     def status_reason(self):
-        """Gets the status_reason of this ConanPackageUpload.  # noqa: E501
+        """Gets the status_reason of this ConanPackageUpload.
 
-        A textual description for the synchronous status reason (if any  # noqa: E501
+        A textual description for the synchronous status reason (if any
 
-        :return: The status_reason of this ConanPackageUpload.  # noqa: E501
+        :return: The status_reason of this ConanPackageUpload.
         :rtype: str
         """
         return self._status_reason
@@ -1605,9 +1661,9 @@ class ConanPackageUpload(object):
     def status_reason(self, status_reason):
         """Sets the status_reason of this ConanPackageUpload.
 
-        A textual description for the synchronous status reason (if any  # noqa: E501
+        A textual description for the synchronous status reason (if any
 
-        :param status_reason: The status_reason of this ConanPackageUpload.  # noqa: E501
+        :param status_reason: The status_reason of this ConanPackageUpload.
         :type: str
         """
 
@@ -1615,11 +1671,11 @@ class ConanPackageUpload(object):
 
     @property
     def status_str(self):
-        """Gets the status_str of this ConanPackageUpload.  # noqa: E501
+        """Gets the status_str of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The status_str of this ConanPackageUpload.  # noqa: E501
+        :return: The status_str of this ConanPackageUpload.
         :rtype: str
         """
         return self._status_str
@@ -1628,9 +1684,9 @@ class ConanPackageUpload(object):
     def status_str(self, status_str):
         """Sets the status_str of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param status_str: The status_str of this ConanPackageUpload.  # noqa: E501
+        :param status_str: The status_str of this ConanPackageUpload.
         :type: str
         """
 
@@ -1638,11 +1694,11 @@ class ConanPackageUpload(object):
 
     @property
     def status_updated_at(self):
-        """Gets the status_updated_at of this ConanPackageUpload.  # noqa: E501
+        """Gets the status_updated_at of this ConanPackageUpload.
 
-        The datetime the package status was updated at.  # noqa: E501
+        The datetime the package status was updated at.
 
-        :return: The status_updated_at of this ConanPackageUpload.  # noqa: E501
+        :return: The status_updated_at of this ConanPackageUpload.
         :rtype: str
         """
         return self._status_updated_at
@@ -1651,9 +1707,9 @@ class ConanPackageUpload(object):
     def status_updated_at(self, status_updated_at):
         """Sets the status_updated_at of this ConanPackageUpload.
 
-        The datetime the package status was updated at.  # noqa: E501
+        The datetime the package status was updated at.
 
-        :param status_updated_at: The status_updated_at of this ConanPackageUpload.  # noqa: E501
+        :param status_updated_at: The status_updated_at of this ConanPackageUpload.
         :type: str
         """
 
@@ -1661,11 +1717,11 @@ class ConanPackageUpload(object):
 
     @property
     def status_url(self):
-        """Gets the status_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the status_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The status_url of this ConanPackageUpload.  # noqa: E501
+        :return: The status_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._status_url
@@ -1674,9 +1730,9 @@ class ConanPackageUpload(object):
     def status_url(self, status_url):
         """Sets the status_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param status_url: The status_url of this ConanPackageUpload.  # noqa: E501
+        :param status_url: The status_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -1684,11 +1740,11 @@ class ConanPackageUpload(object):
 
     @property
     def subtype(self):
-        """Gets the subtype of this ConanPackageUpload.  # noqa: E501
+        """Gets the subtype of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The subtype of this ConanPackageUpload.  # noqa: E501
+        :return: The subtype of this ConanPackageUpload.
         :rtype: str
         """
         return self._subtype
@@ -1697,9 +1753,9 @@ class ConanPackageUpload(object):
     def subtype(self, subtype):
         """Sets the subtype of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param subtype: The subtype of this ConanPackageUpload.  # noqa: E501
+        :param subtype: The subtype of this ConanPackageUpload.
         :type: str
         """
 
@@ -1707,11 +1763,11 @@ class ConanPackageUpload(object):
 
     @property
     def summary(self):
-        """Gets the summary of this ConanPackageUpload.  # noqa: E501
+        """Gets the summary of this ConanPackageUpload.
 
-        A one-liner synopsis of this package.  # noqa: E501
+        A one-liner synopsis of this package.
 
-        :return: The summary of this ConanPackageUpload.  # noqa: E501
+        :return: The summary of this ConanPackageUpload.
         :rtype: str
         """
         return self._summary
@@ -1720,9 +1776,9 @@ class ConanPackageUpload(object):
     def summary(self, summary):
         """Sets the summary of this ConanPackageUpload.
 
-        A one-liner synopsis of this package.  # noqa: E501
+        A one-liner synopsis of this package.
 
-        :param summary: The summary of this ConanPackageUpload.  # noqa: E501
+        :param summary: The summary of this ConanPackageUpload.
         :type: str
         """
 
@@ -1730,11 +1786,11 @@ class ConanPackageUpload(object):
 
     @property
     def sync_finished_at(self):
-        """Gets the sync_finished_at of this ConanPackageUpload.  # noqa: E501
+        """Gets the sync_finished_at of this ConanPackageUpload.
 
-        The datetime the package sync was finished at.  # noqa: E501
+        The datetime the package sync was finished at.
 
-        :return: The sync_finished_at of this ConanPackageUpload.  # noqa: E501
+        :return: The sync_finished_at of this ConanPackageUpload.
         :rtype: str
         """
         return self._sync_finished_at
@@ -1743,9 +1799,9 @@ class ConanPackageUpload(object):
     def sync_finished_at(self, sync_finished_at):
         """Sets the sync_finished_at of this ConanPackageUpload.
 
-        The datetime the package sync was finished at.  # noqa: E501
+        The datetime the package sync was finished at.
 
-        :param sync_finished_at: The sync_finished_at of this ConanPackageUpload.  # noqa: E501
+        :param sync_finished_at: The sync_finished_at of this ConanPackageUpload.
         :type: str
         """
 
@@ -1753,11 +1809,11 @@ class ConanPackageUpload(object):
 
     @property
     def sync_progress(self):
-        """Gets the sync_progress of this ConanPackageUpload.  # noqa: E501
+        """Gets the sync_progress of this ConanPackageUpload.
 
-        Synchronisation progress (from 0-100)  # noqa: E501
+        Synchronisation progress (from 0-100)
 
-        :return: The sync_progress of this ConanPackageUpload.  # noqa: E501
+        :return: The sync_progress of this ConanPackageUpload.
         :rtype: int
         """
         return self._sync_progress
@@ -1766,9 +1822,9 @@ class ConanPackageUpload(object):
     def sync_progress(self, sync_progress):
         """Sets the sync_progress of this ConanPackageUpload.
 
-        Synchronisation progress (from 0-100)  # noqa: E501
+        Synchronisation progress (from 0-100)
 
-        :param sync_progress: The sync_progress of this ConanPackageUpload.  # noqa: E501
+        :param sync_progress: The sync_progress of this ConanPackageUpload.
         :type: int
         """
 
@@ -1776,11 +1832,11 @@ class ConanPackageUpload(object):
 
     @property
     def tags_immutable(self):
-        """Gets the tags_immutable of this ConanPackageUpload.  # noqa: E501
+        """Gets the tags_immutable of this ConanPackageUpload.
 
-        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.  # noqa: E501
+        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
 
-        :return: The tags_immutable of this ConanPackageUpload.  # noqa: E501
+        :return: The tags_immutable of this ConanPackageUpload.
         :rtype: object
         """
         return self._tags_immutable
@@ -1789,9 +1845,9 @@ class ConanPackageUpload(object):
     def tags_immutable(self, tags_immutable):
         """Sets the tags_immutable of this ConanPackageUpload.
 
-        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.  # noqa: E501
+        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
 
-        :param tags_immutable: The tags_immutable of this ConanPackageUpload.  # noqa: E501
+        :param tags_immutable: The tags_immutable of this ConanPackageUpload.
         :type: object
         """
 
@@ -1799,11 +1855,11 @@ class ConanPackageUpload(object):
 
     @property
     def type_display(self):
-        """Gets the type_display of this ConanPackageUpload.  # noqa: E501
+        """Gets the type_display of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The type_display of this ConanPackageUpload.  # noqa: E501
+        :return: The type_display of this ConanPackageUpload.
         :rtype: str
         """
         return self._type_display
@@ -1812,9 +1868,9 @@ class ConanPackageUpload(object):
     def type_display(self, type_display):
         """Sets the type_display of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param type_display: The type_display of this ConanPackageUpload.  # noqa: E501
+        :param type_display: The type_display of this ConanPackageUpload.
         :type: str
         """
 
@@ -1822,11 +1878,11 @@ class ConanPackageUpload(object):
 
     @property
     def uploaded_at(self):
-        """Gets the uploaded_at of this ConanPackageUpload.  # noqa: E501
+        """Gets the uploaded_at of this ConanPackageUpload.
 
-        The date this package was uploaded.  # noqa: E501
+        The date this package was uploaded.
 
-        :return: The uploaded_at of this ConanPackageUpload.  # noqa: E501
+        :return: The uploaded_at of this ConanPackageUpload.
         :rtype: str
         """
         return self._uploaded_at
@@ -1835,9 +1891,9 @@ class ConanPackageUpload(object):
     def uploaded_at(self, uploaded_at):
         """Sets the uploaded_at of this ConanPackageUpload.
 
-        The date this package was uploaded.  # noqa: E501
+        The date this package was uploaded.
 
-        :param uploaded_at: The uploaded_at of this ConanPackageUpload.  # noqa: E501
+        :param uploaded_at: The uploaded_at of this ConanPackageUpload.
         :type: str
         """
 
@@ -1845,11 +1901,11 @@ class ConanPackageUpload(object):
 
     @property
     def uploader(self):
-        """Gets the uploader of this ConanPackageUpload.  # noqa: E501
+        """Gets the uploader of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The uploader of this ConanPackageUpload.  # noqa: E501
+        :return: The uploader of this ConanPackageUpload.
         :rtype: str
         """
         return self._uploader
@@ -1858,9 +1914,9 @@ class ConanPackageUpload(object):
     def uploader(self, uploader):
         """Sets the uploader of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param uploader: The uploader of this ConanPackageUpload.  # noqa: E501
+        :param uploader: The uploader of this ConanPackageUpload.
         :type: str
         """
 
@@ -1868,11 +1924,11 @@ class ConanPackageUpload(object):
 
     @property
     def uploader_url(self):
-        """Gets the uploader_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the uploader_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The uploader_url of this ConanPackageUpload.  # noqa: E501
+        :return: The uploader_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._uploader_url
@@ -1881,9 +1937,9 @@ class ConanPackageUpload(object):
     def uploader_url(self, uploader_url):
         """Sets the uploader_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param uploader_url: The uploader_url of this ConanPackageUpload.  # noqa: E501
+        :param uploader_url: The uploader_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -1891,11 +1947,11 @@ class ConanPackageUpload(object):
 
     @property
     def version(self):
-        """Gets the version of this ConanPackageUpload.  # noqa: E501
+        """Gets the version of this ConanPackageUpload.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :return: The version of this ConanPackageUpload.  # noqa: E501
+        :return: The version of this ConanPackageUpload.
         :rtype: str
         """
         return self._version
@@ -1904,9 +1960,9 @@ class ConanPackageUpload(object):
     def version(self, version):
         """Sets the version of this ConanPackageUpload.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :param version: The version of this ConanPackageUpload.  # noqa: E501
+        :param version: The version of this ConanPackageUpload.
         :type: str
         """
 
@@ -1914,11 +1970,11 @@ class ConanPackageUpload(object):
 
     @property
     def version_orig(self):
-        """Gets the version_orig of this ConanPackageUpload.  # noqa: E501
+        """Gets the version_orig of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The version_orig of this ConanPackageUpload.  # noqa: E501
+        :return: The version_orig of this ConanPackageUpload.
         :rtype: str
         """
         return self._version_orig
@@ -1927,9 +1983,9 @@ class ConanPackageUpload(object):
     def version_orig(self, version_orig):
         """Sets the version_orig of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param version_orig: The version_orig of this ConanPackageUpload.  # noqa: E501
+        :param version_orig: The version_orig of this ConanPackageUpload.
         :type: str
         """
 
@@ -1937,11 +1993,11 @@ class ConanPackageUpload(object):
 
     @property
     def vulnerability_scan_results_url(self):
-        """Gets the vulnerability_scan_results_url of this ConanPackageUpload.  # noqa: E501
+        """Gets the vulnerability_scan_results_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :return: The vulnerability_scan_results_url of this ConanPackageUpload.  # noqa: E501
+        :return: The vulnerability_scan_results_url of this ConanPackageUpload.
         :rtype: str
         """
         return self._vulnerability_scan_results_url
@@ -1950,9 +2006,9 @@ class ConanPackageUpload(object):
     def vulnerability_scan_results_url(self, vulnerability_scan_results_url):
         """Sets the vulnerability_scan_results_url of this ConanPackageUpload.
 
-          # noqa: E501
+        
 
-        :param vulnerability_scan_results_url: The vulnerability_scan_results_url of this ConanPackageUpload.  # noqa: E501
+        :param vulnerability_scan_results_url: The vulnerability_scan_results_url of this ConanPackageUpload.
         :type: str
         """
 
@@ -2006,3 +2062,4 @@ class ConanPackageUpload(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

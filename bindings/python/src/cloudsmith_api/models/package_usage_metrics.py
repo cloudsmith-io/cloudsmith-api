@@ -53,11 +53,11 @@ class PackageUsageMetrics(object):
 
     @property
     def packages(self):
-        """Gets the packages of this PackageUsageMetrics.  # noqa: E501
+        """Gets the packages of this PackageUsageMetrics.
 
-          # noqa: E501
+        
 
-        :return: The packages of this PackageUsageMetrics.  # noqa: E501
+        :return: The packages of this PackageUsageMetrics.
         :rtype: object
         """
         return self._packages
@@ -66,9 +66,9 @@ class PackageUsageMetrics(object):
     def packages(self, packages):
         """Sets the packages of this PackageUsageMetrics.
 
-          # noqa: E501
+        
 
-        :param packages: The packages of this PackageUsageMetrics.  # noqa: E501
+        :param packages: The packages of this PackageUsageMetrics.
         :type: object
         """
         if self._configuration.client_side_validation and packages is None:
@@ -124,3 +124,4 @@ class PackageUsageMetrics(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

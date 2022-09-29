@@ -18,10 +18,13 @@ import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationInvite;
 import io.cloudsmith.api.models.OrganizationMembership;
 import io.cloudsmith.api.models.OrganizationTeam;
+import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrgsInvitesCreate;
 import io.cloudsmith.api.models.OrgsInvitesExtend;
 import io.cloudsmith.api.models.OrgsSamlgroupsyncCreate;
 import io.cloudsmith.api.models.OrgsTeamsCreate;
+import io.cloudsmith.api.models.OrgsTeamsMembersCreate;
+import io.cloudsmith.api.models.OrgsTeamsMembersUpdate;
 import io.cloudsmith.api.models.OrgsTeamsPartialUpdate;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
@@ -130,6 +133,23 @@ public class OrgsApiTest {
     }
     
     /**
+     * Removes a member from the organization.
+     *
+     * Removes a member from the organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsMembersDeleteTest() throws Exception {
+        String org = null;
+        String member = null;
+        api.orgsMembersDelete(org, member);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get the details for all organization members.
      *
      * Get the details for all organization members.
@@ -165,9 +185,9 @@ public class OrgsApiTest {
     }
     
     /**
-     * Removes a member from the organization.
+     * Removes a member from the organization (deprecated, use DELETE instead).
      *
-     * Removes a member from the organization.
+     * Removes a member from the organization (deprecated, use DELETE instead).
      *
      * @throws Exception
      *          if the Api call fails
@@ -176,7 +196,7 @@ public class OrgsApiTest {
     public void orgsMembersRemoveTest() throws Exception {
         String org = null;
         String member = null;
-        OrganizationMembership response = api.orgsMembersRemove(org, member);
+        api.orgsMembersRemove(org, member);
 
         // TODO: test validations
     }
@@ -277,8 +297,8 @@ public class OrgsApiTest {
     @Test
     public void orgsTeamsDeleteTest() throws Exception {
         String org = null;
-        String slugPerm = null;
-        api.orgsTeamsDelete(org, slugPerm);
+        String team = null;
+        api.orgsTeamsDelete(org, team);
 
         // TODO: test validations
     }
@@ -302,6 +322,59 @@ public class OrgsApiTest {
     }
     
     /**
+     * Add users to a team.
+     *
+     * Add users to a team.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsTeamsMembersCreateTest() throws Exception {
+        String org = null;
+        String team = null;
+        OrgsTeamsMembersCreate data = null;
+        OrganizationTeamMembers response = api.orgsTeamsMembersCreate(org, team, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all members for the team.
+     *
+     * List all members for the team.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsTeamsMembersListTest() throws Exception {
+        String org = null;
+        String team = null;
+        OrganizationTeamMembers response = api.orgsTeamsMembersList(org, team);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Replace all team members.
+     *
+     * Replace all team members.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsTeamsMembersUpdateTest() throws Exception {
+        String org = null;
+        String team = null;
+        OrgsTeamsMembersUpdate data = null;
+        api.orgsTeamsMembersUpdate(org, team, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Update a specific team in a organization.
      *
      * Update a specific team in a organization.
@@ -312,17 +385,17 @@ public class OrgsApiTest {
     @Test
     public void orgsTeamsPartialUpdateTest() throws Exception {
         String org = null;
-        String slugPerm = null;
+        String team = null;
         OrgsTeamsPartialUpdate data = null;
-        OrganizationTeam response = api.orgsTeamsPartialUpdate(org, slugPerm, data);
+        OrganizationTeam response = api.orgsTeamsPartialUpdate(org, team, data);
 
         // TODO: test validations
     }
     
     /**
-     * Viewset for working with Organization teams.
+     * Get the details for the specific team.
      *
-     * Viewset for working with Organization teams.
+     * Get the details for the specific team.
      *
      * @throws Exception
      *          if the Api call fails
@@ -330,8 +403,8 @@ public class OrgsApiTest {
     @Test
     public void orgsTeamsReadTest() throws Exception {
         String org = null;
-        String slugPerm = null;
-        OrganizationTeam response = api.orgsTeamsRead(org, slugPerm);
+        String team = null;
+        OrganizationTeam response = api.orgsTeamsRead(org, team);
 
         // TODO: test validations
     }

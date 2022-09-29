@@ -12,9 +12,8 @@ Method | HTTP request | Description
 [**repos_gpg_regenerate**](ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
 [**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
-[**repos_privileges_delete**](ReposApi.md#repos_privileges_delete) | **DELETE** /repos/{owner}/{identifier}/privileges | Remove the specified repository privileges.
 [**repos_privileges_list**](ReposApi.md#repos_privileges_list) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
-[**repos_privileges_partial_update**](ReposApi.md#repos_privileges_partial_update) | **PATCH** /repos/{owner}/{identifier}/privileges | Update the specified repository privileges.
+[**repos_privileges_partial_update**](ReposApi.md#repos_privileges_partial_update) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository.
 [**repos_privileges_update**](ReposApi.md#repos_privileges_update) | **PUT** /repos/{owner}/{identifier}/privileges | Replace all existing repository privileges with those specified.
 [**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
 [**repos_rsa_create**](ReposApi.md#repos_rsa_create) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
@@ -489,64 +488,8 @@ Name | Type | Description  | Notes
 
 
 
-# **repos_privileges_delete**
-> repos_privileges_delete(owner, identifier)
-
-Remove the specified repository privileges.
-
-Remove the specified repository privileges.
-
-### Example
-```ruby
-# load the gem
-require 'cloudsmith-api'
-# setup authorization
-CloudsmithApi.configure do |config|
-  # Configure API key authorization: apikey
-  config.api_key['X-Api-Key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
-end
-
-api_instance = CloudsmithApi::ReposApi.new
-
-owner = 'owner_example' # String | 
-
-identifier = 'identifier_example' # String | 
-
-
-begin
-  #Remove the specified repository privileges.
-  api_instance.repos_privileges_delete(owner, identifier)
-rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_privileges_delete: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
-
-### Return type
-
-nil (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-
 # **repos_privileges_list**
-> Array&lt;RepositoryPrivilegeList&gt; repos_privileges_list(owner, identifier)
+> RepositoryPrivilegeInput repos_privileges_list(owner, identifier, opts)
 
 List all explicity created privileges for the repository.
 
@@ -570,10 +513,14 @@ owner = 'owner_example' # String |
 
 identifier = 'identifier_example' # String | 
 
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
 
 begin
   #List all explicity created privileges for the repository.
-  result = api_instance.repos_privileges_list(owner, identifier)
+  result = api_instance.repos_privileges_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling ReposApi->repos_privileges_list: #{e}"
@@ -586,10 +533,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**Array&lt;RepositoryPrivilegeList&gt;**](RepositoryPrivilegeList.md)
+[**RepositoryPrivilegeInput**](RepositoryPrivilegeInput.md)
 
 ### Authorization
 
@@ -603,11 +552,11 @@ Name | Type | Description  | Notes
 
 
 # **repos_privileges_partial_update**
-> repos_privileges_partial_update(owner, identifier)
+> repos_privileges_partial_update(owner, identifier, opts)
 
-Update the specified repository privileges.
+Modify privileges for the repository.
 
-Update the specified repository privileges.
+Modify privileges for the repository.
 
 ### Example
 ```ruby
@@ -627,10 +576,13 @@ owner = 'owner_example' # String |
 
 identifier = 'identifier_example' # String | 
 
+opts = { 
+  data: CloudsmithApi::ReposPrivilegesPartialUpdate.new # ReposPrivilegesPartialUpdate | 
+}
 
 begin
-  #Update the specified repository privileges.
-  api_instance.repos_privileges_partial_update(owner, identifier)
+  #Modify privileges for the repository.
+  api_instance.repos_privileges_partial_update(owner, identifier, opts)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling ReposApi->repos_privileges_partial_update: #{e}"
 end
@@ -642,6 +594,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
+ **data** | [**ReposPrivilegesPartialUpdate**](ReposPrivilegesPartialUpdate.md)|  | [optional] 
 
 ### Return type
 
@@ -653,13 +606,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 
 
 # **repos_privileges_update**
-> RepositoryPrivilegeList repos_privileges_update(owner, identifier)
+> repos_privileges_update(owner, identifier, opts)
 
 Replace all existing repository privileges with those specified.
 
@@ -683,11 +636,13 @@ owner = 'owner_example' # String |
 
 identifier = 'identifier_example' # String | 
 
+opts = { 
+  data: CloudsmithApi::ReposPrivilegesUpdate.new # ReposPrivilegesUpdate | 
+}
 
 begin
   #Replace all existing repository privileges with those specified.
-  result = api_instance.repos_privileges_update(owner, identifier)
-  p result
+  api_instance.repos_privileges_update(owner, identifier, opts)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling ReposApi->repos_privileges_update: #{e}"
 end
@@ -699,10 +654,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
+ **data** | [**ReposPrivilegesUpdate**](ReposPrivilegesUpdate.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryPrivilegeList**](RepositoryPrivilegeList.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -710,7 +666,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 

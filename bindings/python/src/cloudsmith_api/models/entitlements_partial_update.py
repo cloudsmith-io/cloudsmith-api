@@ -124,11 +124,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def eula_required(self):
-        """Gets the eula_required of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the eula_required of this EntitlementsPartialUpdate.
 
-        If checked, a EULA acceptance is required for this token.  # noqa: E501
+        If checked, a EULA acceptance is required for this token.
 
-        :return: The eula_required of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The eula_required of this EntitlementsPartialUpdate.
         :rtype: bool
         """
         return self._eula_required
@@ -137,9 +137,9 @@ class EntitlementsPartialUpdate(object):
     def eula_required(self, eula_required):
         """Sets the eula_required of this EntitlementsPartialUpdate.
 
-        If checked, a EULA acceptance is required for this token.  # noqa: E501
+        If checked, a EULA acceptance is required for this token.
 
-        :param eula_required: The eula_required of this EntitlementsPartialUpdate.  # noqa: E501
+        :param eula_required: The eula_required of this EntitlementsPartialUpdate.
         :type: bool
         """
 
@@ -147,11 +147,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def is_active(self):
-        """Gets the is_active of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the is_active of this EntitlementsPartialUpdate.
 
-        If enabled, the token will allow downloads based on configured restrictions (if any).  # noqa: E501
+        If enabled, the token will allow downloads based on configured restrictions (if any).
 
-        :return: The is_active of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The is_active of this EntitlementsPartialUpdate.
         :rtype: bool
         """
         return self._is_active
@@ -160,9 +160,9 @@ class EntitlementsPartialUpdate(object):
     def is_active(self, is_active):
         """Sets the is_active of this EntitlementsPartialUpdate.
 
-        If enabled, the token will allow downloads based on configured restrictions (if any).  # noqa: E501
+        If enabled, the token will allow downloads based on configured restrictions (if any).
 
-        :param is_active: The is_active of this EntitlementsPartialUpdate.  # noqa: E501
+        :param is_active: The is_active of this EntitlementsPartialUpdate.
         :type: bool
         """
 
@@ -170,11 +170,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def limit_bandwidth(self):
-        """Gets the limit_bandwidth of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the limit_bandwidth of this EntitlementsPartialUpdate.
 
-        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.   # noqa: E501
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 
-        :return: The limit_bandwidth of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The limit_bandwidth of this EntitlementsPartialUpdate.
         :rtype: int
         """
         return self._limit_bandwidth
@@ -183,9 +183,9 @@ class EntitlementsPartialUpdate(object):
     def limit_bandwidth(self, limit_bandwidth):
         """Sets the limit_bandwidth of this EntitlementsPartialUpdate.
 
-        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.   # noqa: E501
+        The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
 
-        :param limit_bandwidth: The limit_bandwidth of this EntitlementsPartialUpdate.  # noqa: E501
+        :param limit_bandwidth: The limit_bandwidth of this EntitlementsPartialUpdate.
         :type: int
         """
 
@@ -193,11 +193,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def limit_bandwidth_unit(self):
-        """Gets the limit_bandwidth_unit of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the limit_bandwidth_unit of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The limit_bandwidth_unit of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The limit_bandwidth_unit of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._limit_bandwidth_unit
@@ -206,9 +206,9 @@ class EntitlementsPartialUpdate(object):
     def limit_bandwidth_unit(self, limit_bandwidth_unit):
         """Sets the limit_bandwidth_unit of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param limit_bandwidth_unit: The limit_bandwidth_unit of this EntitlementsPartialUpdate.  # noqa: E501
+        :param limit_bandwidth_unit: The limit_bandwidth_unit of this EntitlementsPartialUpdate.
         :type: str
         """
         allowed_values = ["Byte", "Kilobyte", "Megabyte", "Gigabyte", "Terabyte", "Petabyte", "Exabyte", "Zettabyte", "Yottabyte"]  # noqa: E501
@@ -223,11 +223,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def limit_date_range_from(self):
-        """Gets the limit_date_range_from of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the limit_date_range_from of this EntitlementsPartialUpdate.
 
-        The starting date/time the token is allowed to be used from.  # noqa: E501
+        The starting date/time the token is allowed to be used from.
 
-        :return: The limit_date_range_from of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The limit_date_range_from of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._limit_date_range_from
@@ -236,9 +236,9 @@ class EntitlementsPartialUpdate(object):
     def limit_date_range_from(self, limit_date_range_from):
         """Sets the limit_date_range_from of this EntitlementsPartialUpdate.
 
-        The starting date/time the token is allowed to be used from.  # noqa: E501
+        The starting date/time the token is allowed to be used from.
 
-        :param limit_date_range_from: The limit_date_range_from of this EntitlementsPartialUpdate.  # noqa: E501
+        :param limit_date_range_from: The limit_date_range_from of this EntitlementsPartialUpdate.
         :type: str
         """
 
@@ -246,11 +246,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def limit_date_range_to(self):
-        """Gets the limit_date_range_to of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the limit_date_range_to of this EntitlementsPartialUpdate.
 
-        The ending date/time the token is allowed to be used until.  # noqa: E501
+        The ending date/time the token is allowed to be used until.
 
-        :return: The limit_date_range_to of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The limit_date_range_to of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._limit_date_range_to
@@ -259,9 +259,9 @@ class EntitlementsPartialUpdate(object):
     def limit_date_range_to(self, limit_date_range_to):
         """Sets the limit_date_range_to of this EntitlementsPartialUpdate.
 
-        The ending date/time the token is allowed to be used until.  # noqa: E501
+        The ending date/time the token is allowed to be used until.
 
-        :param limit_date_range_to: The limit_date_range_to of this EntitlementsPartialUpdate.  # noqa: E501
+        :param limit_date_range_to: The limit_date_range_to of this EntitlementsPartialUpdate.
         :type: str
         """
 
@@ -269,11 +269,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def limit_num_clients(self):
-        """Gets the limit_num_clients of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the limit_num_clients of this EntitlementsPartialUpdate.
 
-        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  # noqa: E501
+        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
 
-        :return: The limit_num_clients of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The limit_num_clients of this EntitlementsPartialUpdate.
         :rtype: int
         """
         return self._limit_num_clients
@@ -282,9 +282,9 @@ class EntitlementsPartialUpdate(object):
     def limit_num_clients(self, limit_num_clients):
         """Sets the limit_num_clients of this EntitlementsPartialUpdate.
 
-        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  # noqa: E501
+        The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
 
-        :param limit_num_clients: The limit_num_clients of this EntitlementsPartialUpdate.  # noqa: E501
+        :param limit_num_clients: The limit_num_clients of this EntitlementsPartialUpdate.
         :type: int
         """
 
@@ -292,11 +292,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def limit_num_downloads(self):
-        """Gets the limit_num_downloads of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the limit_num_downloads of this EntitlementsPartialUpdate.
 
-        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  # noqa: E501
+        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
 
-        :return: The limit_num_downloads of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The limit_num_downloads of this EntitlementsPartialUpdate.
         :rtype: int
         """
         return self._limit_num_downloads
@@ -305,9 +305,9 @@ class EntitlementsPartialUpdate(object):
     def limit_num_downloads(self, limit_num_downloads):
         """Sets the limit_num_downloads of this EntitlementsPartialUpdate.
 
-        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  # noqa: E501
+        The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
 
-        :param limit_num_downloads: The limit_num_downloads of this EntitlementsPartialUpdate.  # noqa: E501
+        :param limit_num_downloads: The limit_num_downloads of this EntitlementsPartialUpdate.
         :type: int
         """
 
@@ -315,11 +315,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def limit_package_query(self):
-        """Gets the limit_package_query of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the limit_package_query of this EntitlementsPartialUpdate.
 
-        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.  # noqa: E501
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
 
-        :return: The limit_package_query of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The limit_package_query of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._limit_package_query
@@ -328,9 +328,9 @@ class EntitlementsPartialUpdate(object):
     def limit_package_query(self, limit_package_query):
         """Sets the limit_package_query of this EntitlementsPartialUpdate.
 
-        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.  # noqa: E501
+        The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
 
-        :param limit_package_query: The limit_package_query of this EntitlementsPartialUpdate.  # noqa: E501
+        :param limit_package_query: The limit_package_query of this EntitlementsPartialUpdate.
         :type: str
         """
 
@@ -338,11 +338,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def limit_path_query(self):
-        """Gets the limit_path_query of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the limit_path_query of this EntitlementsPartialUpdate.
 
-        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.  # noqa: E501
+        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
 
-        :return: The limit_path_query of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The limit_path_query of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._limit_path_query
@@ -351,9 +351,9 @@ class EntitlementsPartialUpdate(object):
     def limit_path_query(self, limit_path_query):
         """Sets the limit_path_query of this EntitlementsPartialUpdate.
 
-        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.  # noqa: E501
+        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
 
-        :param limit_path_query: The limit_path_query of this EntitlementsPartialUpdate.  # noqa: E501
+        :param limit_path_query: The limit_path_query of this EntitlementsPartialUpdate.
         :type: str
         """
 
@@ -361,11 +361,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def metadata(self):
-        """Gets the metadata of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the metadata of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The metadata of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The metadata of this EntitlementsPartialUpdate.
         :rtype: object
         """
         return self._metadata
@@ -374,9 +374,9 @@ class EntitlementsPartialUpdate(object):
     def metadata(self, metadata):
         """Sets the metadata of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param metadata: The metadata of this EntitlementsPartialUpdate.  # noqa: E501
+        :param metadata: The metadata of this EntitlementsPartialUpdate.
         :type: object
         """
 
@@ -384,11 +384,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def name(self):
-        """Gets the name of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the name of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The name of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The name of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._name
@@ -397,9 +397,9 @@ class EntitlementsPartialUpdate(object):
     def name(self, name):
         """Sets the name of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param name: The name of this EntitlementsPartialUpdate.  # noqa: E501
+        :param name: The name of this EntitlementsPartialUpdate.
         :type: str
         """
 
@@ -407,11 +407,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def scheduled_reset_at(self):
-        """Gets the scheduled_reset_at of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the scheduled_reset_at of this EntitlementsPartialUpdate.
 
-        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.  # noqa: E501
+        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
 
-        :return: The scheduled_reset_at of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The scheduled_reset_at of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._scheduled_reset_at
@@ -420,9 +420,9 @@ class EntitlementsPartialUpdate(object):
     def scheduled_reset_at(self, scheduled_reset_at):
         """Sets the scheduled_reset_at of this EntitlementsPartialUpdate.
 
-        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.  # noqa: E501
+        The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
 
-        :param scheduled_reset_at: The scheduled_reset_at of this EntitlementsPartialUpdate.  # noqa: E501
+        :param scheduled_reset_at: The scheduled_reset_at of this EntitlementsPartialUpdate.
         :type: str
         """
 
@@ -430,11 +430,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def scheduled_reset_period(self):
-        """Gets the scheduled_reset_period of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the scheduled_reset_period of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The scheduled_reset_period of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The scheduled_reset_period of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._scheduled_reset_period
@@ -443,9 +443,9 @@ class EntitlementsPartialUpdate(object):
     def scheduled_reset_period(self, scheduled_reset_period):
         """Sets the scheduled_reset_period of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param scheduled_reset_period: The scheduled_reset_period of this EntitlementsPartialUpdate.  # noqa: E501
+        :param scheduled_reset_period: The scheduled_reset_period of this EntitlementsPartialUpdate.
         :type: str
         """
         allowed_values = ["Never Reset", "Daily", "Weekly", "Fortnightly", "Monthly", "Bi-Monthly", "Quarterly", "Every 6 months", "Annual"]  # noqa: E501
@@ -460,11 +460,11 @@ class EntitlementsPartialUpdate(object):
 
     @property
     def token(self):
-        """Gets the token of this EntitlementsPartialUpdate.  # noqa: E501
+        """Gets the token of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :return: The token of this EntitlementsPartialUpdate.  # noqa: E501
+        :return: The token of this EntitlementsPartialUpdate.
         :rtype: str
         """
         return self._token
@@ -473,9 +473,9 @@ class EntitlementsPartialUpdate(object):
     def token(self, token):
         """Sets the token of this EntitlementsPartialUpdate.
 
-        None  # noqa: E501
+        None
 
-        :param token: The token of this EntitlementsPartialUpdate.  # noqa: E501
+        :param token: The token of this EntitlementsPartialUpdate.
         :type: str
         """
 
@@ -529,3 +529,4 @@ class EntitlementsPartialUpdate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

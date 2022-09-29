@@ -88,11 +88,11 @@ class PackagesUploadRaw(object):
 
     @property
     def content_type(self):
-        """Gets the content_type of this PackagesUploadRaw.  # noqa: E501
+        """Gets the content_type of this PackagesUploadRaw.
 
-        A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.  # noqa: E501
+        A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.
 
-        :return: The content_type of this PackagesUploadRaw.  # noqa: E501
+        :return: The content_type of this PackagesUploadRaw.
         :rtype: str
         """
         return self._content_type
@@ -101,9 +101,9 @@ class PackagesUploadRaw(object):
     def content_type(self, content_type):
         """Sets the content_type of this PackagesUploadRaw.
 
-        A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.  # noqa: E501
+        A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.
 
-        :param content_type: The content_type of this PackagesUploadRaw.  # noqa: E501
+        :param content_type: The content_type of this PackagesUploadRaw.
         :type: str
         """
 
@@ -111,11 +111,11 @@ class PackagesUploadRaw(object):
 
     @property
     def description(self):
-        """Gets the description of this PackagesUploadRaw.  # noqa: E501
+        """Gets the description of this PackagesUploadRaw.
 
-        A textual description of this package.  # noqa: E501
+        A textual description of this package.
 
-        :return: The description of this PackagesUploadRaw.  # noqa: E501
+        :return: The description of this PackagesUploadRaw.
         :rtype: str
         """
         return self._description
@@ -124,9 +124,9 @@ class PackagesUploadRaw(object):
     def description(self, description):
         """Sets the description of this PackagesUploadRaw.
 
-        A textual description of this package.  # noqa: E501
+        A textual description of this package.
 
-        :param description: The description of this PackagesUploadRaw.  # noqa: E501
+        :param description: The description of this PackagesUploadRaw.
         :type: str
         """
 
@@ -134,11 +134,11 @@ class PackagesUploadRaw(object):
 
     @property
     def name(self):
-        """Gets the name of this PackagesUploadRaw.  # noqa: E501
+        """Gets the name of this PackagesUploadRaw.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :return: The name of this PackagesUploadRaw.  # noqa: E501
+        :return: The name of this PackagesUploadRaw.
         :rtype: str
         """
         return self._name
@@ -147,9 +147,9 @@ class PackagesUploadRaw(object):
     def name(self, name):
         """Sets the name of this PackagesUploadRaw.
 
-        The name of this package.  # noqa: E501
+        The name of this package.
 
-        :param name: The name of this PackagesUploadRaw.  # noqa: E501
+        :param name: The name of this PackagesUploadRaw.
         :type: str
         """
 
@@ -157,11 +157,11 @@ class PackagesUploadRaw(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesUploadRaw.  # noqa: E501
+        """Gets the package_file of this PackagesUploadRaw.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesUploadRaw.  # noqa: E501
+        :return: The package_file of this PackagesUploadRaw.
         :rtype: str
         """
         return self._package_file
@@ -170,9 +170,9 @@ class PackagesUploadRaw(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesUploadRaw.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesUploadRaw.  # noqa: E501
+        :param package_file: The package_file of this PackagesUploadRaw.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -182,11 +182,11 @@ class PackagesUploadRaw(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesUploadRaw.  # noqa: E501
+        """Gets the republish of this PackagesUploadRaw.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesUploadRaw.  # noqa: E501
+        :return: The republish of this PackagesUploadRaw.
         :rtype: bool
         """
         return self._republish
@@ -195,9 +195,9 @@ class PackagesUploadRaw(object):
     def republish(self, republish):
         """Sets the republish of this PackagesUploadRaw.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesUploadRaw.  # noqa: E501
+        :param republish: The republish of this PackagesUploadRaw.
         :type: bool
         """
 
@@ -205,11 +205,11 @@ class PackagesUploadRaw(object):
 
     @property
     def summary(self):
-        """Gets the summary of this PackagesUploadRaw.  # noqa: E501
+        """Gets the summary of this PackagesUploadRaw.
 
-        A one-liner synopsis of this package.  # noqa: E501
+        A one-liner synopsis of this package.
 
-        :return: The summary of this PackagesUploadRaw.  # noqa: E501
+        :return: The summary of this PackagesUploadRaw.
         :rtype: str
         """
         return self._summary
@@ -218,9 +218,9 @@ class PackagesUploadRaw(object):
     def summary(self, summary):
         """Sets the summary of this PackagesUploadRaw.
 
-        A one-liner synopsis of this package.  # noqa: E501
+        A one-liner synopsis of this package.
 
-        :param summary: The summary of this PackagesUploadRaw.  # noqa: E501
+        :param summary: The summary of this PackagesUploadRaw.
         :type: str
         """
 
@@ -228,11 +228,11 @@ class PackagesUploadRaw(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesUploadRaw.  # noqa: E501
+        """Gets the tags of this PackagesUploadRaw.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesUploadRaw.  # noqa: E501
+        :return: The tags of this PackagesUploadRaw.
         :rtype: str
         """
         return self._tags
@@ -241,9 +241,9 @@ class PackagesUploadRaw(object):
     def tags(self, tags):
         """Sets the tags of this PackagesUploadRaw.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesUploadRaw.  # noqa: E501
+        :param tags: The tags of this PackagesUploadRaw.
         :type: str
         """
 
@@ -251,11 +251,11 @@ class PackagesUploadRaw(object):
 
     @property
     def version(self):
-        """Gets the version of this PackagesUploadRaw.  # noqa: E501
+        """Gets the version of this PackagesUploadRaw.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :return: The version of this PackagesUploadRaw.  # noqa: E501
+        :return: The version of this PackagesUploadRaw.
         :rtype: str
         """
         return self._version
@@ -264,9 +264,9 @@ class PackagesUploadRaw(object):
     def version(self, version):
         """Sets the version of this PackagesUploadRaw.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :param version: The version of this PackagesUploadRaw.  # noqa: E501
+        :param version: The version of this PackagesUploadRaw.
         :type: str
         """
 
@@ -320,3 +320,4 @@ class PackagesUploadRaw(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

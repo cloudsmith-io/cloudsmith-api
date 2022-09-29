@@ -53,11 +53,11 @@ class QuotaHistory(object):
 
     @property
     def history(self):
-        """Gets the history of this QuotaHistory.  # noqa: E501
+        """Gets the history of this QuotaHistory.
 
-          # noqa: E501
+        
 
-        :return: The history of this QuotaHistory.  # noqa: E501
+        :return: The history of this QuotaHistory.
         :rtype: list[QuotaHistoryHistory]
         """
         return self._history
@@ -66,9 +66,9 @@ class QuotaHistory(object):
     def history(self, history):
         """Sets the history of this QuotaHistory.
 
-          # noqa: E501
+        
 
-        :param history: The history of this QuotaHistory.  # noqa: E501
+        :param history: The history of this QuotaHistory.
         :type: list[QuotaHistoryHistory]
         """
         if self._configuration.client_side_validation and history is None:
@@ -124,3 +124,4 @@ class QuotaHistory(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

@@ -34,6 +34,7 @@ class Repository(object):
     """
     swagger_types = {
         'cdn_url': 'str',
+        'content_kind': 'str',
         'contextual_auth_realm': 'bool',
         'copy_own': 'bool',
         'copy_packages': 'str',
@@ -43,6 +44,7 @@ class Repository(object):
         'delete_packages': 'str',
         'deleted_at': 'str',
         'description': 'str',
+        'distributes': 'list[str]',
         'docker_refresh_tokens_enabled': 'bool',
         'gpg_keys': 'list[ReposGpgKeys]',
         'index_files': 'bool',
@@ -89,6 +91,7 @@ class Repository(object):
 
     attribute_map = {
         'cdn_url': 'cdn_url',
+        'content_kind': 'content_kind',
         'contextual_auth_realm': 'contextual_auth_realm',
         'copy_own': 'copy_own',
         'copy_packages': 'copy_packages',
@@ -98,6 +101,7 @@ class Repository(object):
         'delete_packages': 'delete_packages',
         'deleted_at': 'deleted_at',
         'description': 'description',
+        'distributes': 'distributes',
         'docker_refresh_tokens_enabled': 'docker_refresh_tokens_enabled',
         'gpg_keys': 'gpg_keys',
         'index_files': 'index_files',
@@ -142,13 +146,14 @@ class Repository(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, cdn_url=None, contextual_auth_realm=None, copy_own=None, copy_packages=None, created_at=None, default_privilege=None, delete_own=None, delete_packages=None, deleted_at=None, description=None, docker_refresh_tokens_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, move_own=None, move_packages=None, name=None, namespace=None, namespace_url=None, num_downloads=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages=None, replace_packages_by_default=None, repository_type=None, repository_type_str=None, resync_own=None, resync_packages=None, scan_own=None, scan_packages=None, self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region=None, strict_npm_validation=None, use_debian_labels=None, use_default_cargo_upstream=None, use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics=None, _configuration=None):  # noqa: E501
+    def __init__(self, cdn_url=None, content_kind=None, contextual_auth_realm=None, copy_own=None, copy_packages=None, created_at=None, default_privilege=None, delete_own=None, delete_packages=None, deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, move_own=None, move_packages=None, name=None, namespace=None, namespace_url=None, num_downloads=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages=None, replace_packages_by_default=None, repository_type=None, repository_type_str=None, resync_own=None, resync_packages=None, scan_own=None, scan_packages=None, self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region=None, strict_npm_validation=None, use_debian_labels=None, use_default_cargo_upstream=None, use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics=None, _configuration=None):  # noqa: E501
         """Repository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._cdn_url = None
+        self._content_kind = None
         self._contextual_auth_realm = None
         self._copy_own = None
         self._copy_packages = None
@@ -158,6 +163,7 @@ class Repository(object):
         self._delete_packages = None
         self._deleted_at = None
         self._description = None
+        self._distributes = None
         self._docker_refresh_tokens_enabled = None
         self._gpg_keys = None
         self._index_files = None
@@ -204,6 +210,8 @@ class Repository(object):
 
         if cdn_url is not None:
             self.cdn_url = cdn_url
+        if content_kind is not None:
+            self.content_kind = content_kind
         if contextual_auth_realm is not None:
             self.contextual_auth_realm = contextual_auth_realm
         if copy_own is not None:
@@ -222,6 +230,8 @@ class Repository(object):
             self.deleted_at = deleted_at
         if description is not None:
             self.description = description
+        if distributes is not None:
+            self.distributes = distributes
         if docker_refresh_tokens_enabled is not None:
             self.docker_refresh_tokens_enabled = docker_refresh_tokens_enabled
         if gpg_keys is not None:
@@ -308,11 +318,11 @@ class Repository(object):
 
     @property
     def cdn_url(self):
-        """Gets the cdn_url of this Repository.  # noqa: E501
+        """Gets the cdn_url of this Repository.
 
-        Base URL from which packages and other artifacts are downloaded.  # noqa: E501
+        Base URL from which packages and other artifacts are downloaded.
 
-        :return: The cdn_url of this Repository.  # noqa: E501
+        :return: The cdn_url of this Repository.
         :rtype: str
         """
         return self._cdn_url
@@ -321,21 +331,51 @@ class Repository(object):
     def cdn_url(self, cdn_url):
         """Sets the cdn_url of this Repository.
 
-        Base URL from which packages and other artifacts are downloaded.  # noqa: E501
+        Base URL from which packages and other artifacts are downloaded.
 
-        :param cdn_url: The cdn_url of this Repository.  # noqa: E501
+        :param cdn_url: The cdn_url of this Repository.
         :type: str
         """
 
         self._cdn_url = cdn_url
 
     @property
+    def content_kind(self):
+        """Gets the content_kind of this Repository.
+
+        The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+
+        :return: The content_kind of this Repository.
+        :rtype: str
+        """
+        return self._content_kind
+
+    @content_kind.setter
+    def content_kind(self, content_kind):
+        """Sets the content_kind of this Repository.
+
+        The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+
+        :param content_kind: The content_kind of this Repository.
+        :type: str
+        """
+        allowed_values = ["Standard", "Distribution", "Upstream"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                content_kind not in allowed_values):
+            raise ValueError(
+                "Invalid value for `content_kind` ({0}), must be one of {1}"  # noqa: E501
+                .format(content_kind, allowed_values)
+            )
+
+        self._content_kind = content_kind
+
+    @property
     def contextual_auth_realm(self):
-        """Gets the contextual_auth_realm of this Repository.  # noqa: E501
+        """Gets the contextual_auth_realm of this Repository.
 
-        If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.  # noqa: E501
+        If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.
 
-        :return: The contextual_auth_realm of this Repository.  # noqa: E501
+        :return: The contextual_auth_realm of this Repository.
         :rtype: bool
         """
         return self._contextual_auth_realm
@@ -344,9 +384,9 @@ class Repository(object):
     def contextual_auth_realm(self, contextual_auth_realm):
         """Sets the contextual_auth_realm of this Repository.
 
-        If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.  # noqa: E501
+        If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.
 
-        :param contextual_auth_realm: The contextual_auth_realm of this Repository.  # noqa: E501
+        :param contextual_auth_realm: The contextual_auth_realm of this Repository.
         :type: bool
         """
 
@@ -354,11 +394,11 @@ class Repository(object):
 
     @property
     def copy_own(self):
-        """Gets the copy_own of this Repository.  # noqa: E501
+        """Gets the copy_own of this Repository.
 
-        If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :return: The copy_own of this Repository.  # noqa: E501
+        :return: The copy_own of this Repository.
         :rtype: bool
         """
         return self._copy_own
@@ -367,9 +407,9 @@ class Repository(object):
     def copy_own(self, copy_own):
         """Sets the copy_own of this Repository.
 
-        If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :param copy_own: The copy_own of this Repository.  # noqa: E501
+        :param copy_own: The copy_own of this Repository.
         :type: bool
         """
 
@@ -377,11 +417,11 @@ class Repository(object):
 
     @property
     def copy_packages(self):
-        """Gets the copy_packages of this Repository.  # noqa: E501
+        """Gets the copy_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
 
-        :return: The copy_packages of this Repository.  # noqa: E501
+        :return: The copy_packages of this Repository.
         :rtype: str
         """
         return self._copy_packages
@@ -390,9 +430,9 @@ class Repository(object):
     def copy_packages(self, copy_packages):
         """Sets the copy_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
 
-        :param copy_packages: The copy_packages of this Repository.  # noqa: E501
+        :param copy_packages: The copy_packages of this Repository.
         :type: str
         """
         allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
@@ -407,11 +447,11 @@ class Repository(object):
 
     @property
     def created_at(self):
-        """Gets the created_at of this Repository.  # noqa: E501
+        """Gets the created_at of this Repository.
 
-          # noqa: E501
+        
 
-        :return: The created_at of this Repository.  # noqa: E501
+        :return: The created_at of this Repository.
         :rtype: str
         """
         return self._created_at
@@ -420,9 +460,9 @@ class Repository(object):
     def created_at(self, created_at):
         """Sets the created_at of this Repository.
 
-          # noqa: E501
+        
 
-        :param created_at: The created_at of this Repository.  # noqa: E501
+        :param created_at: The created_at of this Repository.
         :type: str
         """
 
@@ -430,11 +470,11 @@ class Repository(object):
 
     @property
     def default_privilege(self):
-        """Gets the default_privilege of this Repository.  # noqa: E501
+        """Gets the default_privilege of this Repository.
 
-        This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.  # noqa: E501
+        This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
 
-        :return: The default_privilege of this Repository.  # noqa: E501
+        :return: The default_privilege of this Repository.
         :rtype: str
         """
         return self._default_privilege
@@ -443,9 +483,9 @@ class Repository(object):
     def default_privilege(self, default_privilege):
         """Sets the default_privilege of this Repository.
 
-        This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.  # noqa: E501
+        This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
 
-        :param default_privilege: The default_privilege of this Repository.  # noqa: E501
+        :param default_privilege: The default_privilege of this Repository.
         :type: str
         """
         allowed_values = ["Admin", "Write", "Read", "None"]  # noqa: E501
@@ -460,11 +500,11 @@ class Repository(object):
 
     @property
     def delete_own(self):
-        """Gets the delete_own of this Repository.  # noqa: E501
+        """Gets the delete_own of this Repository.
 
-        If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :return: The delete_own of this Repository.  # noqa: E501
+        :return: The delete_own of this Repository.
         :rtype: bool
         """
         return self._delete_own
@@ -473,9 +513,9 @@ class Repository(object):
     def delete_own(self, delete_own):
         """Sets the delete_own of this Repository.
 
-        If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :param delete_own: The delete_own of this Repository.  # noqa: E501
+        :param delete_own: The delete_own of this Repository.
         :type: bool
         """
 
@@ -483,11 +523,11 @@ class Repository(object):
 
     @property
     def delete_packages(self):
-        """Gets the delete_packages of this Repository.  # noqa: E501
+        """Gets the delete_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
 
-        :return: The delete_packages of this Repository.  # noqa: E501
+        :return: The delete_packages of this Repository.
         :rtype: str
         """
         return self._delete_packages
@@ -496,9 +536,9 @@ class Repository(object):
     def delete_packages(self, delete_packages):
         """Sets the delete_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
 
-        :param delete_packages: The delete_packages of this Repository.  # noqa: E501
+        :param delete_packages: The delete_packages of this Repository.
         :type: str
         """
         allowed_values = ["Admin", "Write"]  # noqa: E501
@@ -513,11 +553,11 @@ class Repository(object):
 
     @property
     def deleted_at(self):
-        """Gets the deleted_at of this Repository.  # noqa: E501
+        """Gets the deleted_at of this Repository.
 
-          # noqa: E501
+        
 
-        :return: The deleted_at of this Repository.  # noqa: E501
+        :return: The deleted_at of this Repository.
         :rtype: str
         """
         return self._deleted_at
@@ -526,9 +566,9 @@ class Repository(object):
     def deleted_at(self, deleted_at):
         """Sets the deleted_at of this Repository.
 
-          # noqa: E501
+        
 
-        :param deleted_at: The deleted_at of this Repository.  # noqa: E501
+        :param deleted_at: The deleted_at of this Repository.
         :type: str
         """
 
@@ -536,11 +576,11 @@ class Repository(object):
 
     @property
     def description(self):
-        """Gets the description of this Repository.  # noqa: E501
+        """Gets the description of this Repository.
 
-        A description of the repository's purpose/contents.  # noqa: E501
+        A description of the repository's purpose/contents.
 
-        :return: The description of this Repository.  # noqa: E501
+        :return: The description of this Repository.
         :rtype: str
         """
         return self._description
@@ -549,21 +589,44 @@ class Repository(object):
     def description(self, description):
         """Sets the description of this Repository.
 
-        A description of the repository's purpose/contents.  # noqa: E501
+        A description of the repository's purpose/contents.
 
-        :param description: The description of this Repository.  # noqa: E501
+        :param description: The description of this Repository.
         :type: str
         """
 
         self._description = description
 
     @property
+    def distributes(self):
+        """Gets the distributes of this Repository.
+
+        The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.
+
+        :return: The distributes of this Repository.
+        :rtype: list[str]
+        """
+        return self._distributes
+
+    @distributes.setter
+    def distributes(self, distributes):
+        """Sets the distributes of this Repository.
+
+        The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.
+
+        :param distributes: The distributes of this Repository.
+        :type: list[str]
+        """
+
+        self._distributes = distributes
+
+    @property
     def docker_refresh_tokens_enabled(self):
-        """Gets the docker_refresh_tokens_enabled of this Repository.  # noqa: E501
+        """Gets the docker_refresh_tokens_enabled of this Repository.
 
-        If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.  # noqa: E501
+        If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.
 
-        :return: The docker_refresh_tokens_enabled of this Repository.  # noqa: E501
+        :return: The docker_refresh_tokens_enabled of this Repository.
         :rtype: bool
         """
         return self._docker_refresh_tokens_enabled
@@ -572,9 +635,9 @@ class Repository(object):
     def docker_refresh_tokens_enabled(self, docker_refresh_tokens_enabled):
         """Sets the docker_refresh_tokens_enabled of this Repository.
 
-        If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.  # noqa: E501
+        If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.
 
-        :param docker_refresh_tokens_enabled: The docker_refresh_tokens_enabled of this Repository.  # noqa: E501
+        :param docker_refresh_tokens_enabled: The docker_refresh_tokens_enabled of this Repository.
         :type: bool
         """
 
@@ -582,11 +645,11 @@ class Repository(object):
 
     @property
     def gpg_keys(self):
-        """Gets the gpg_keys of this Repository.  # noqa: E501
+        """Gets the gpg_keys of this Repository.
 
-          # noqa: E501
+        
 
-        :return: The gpg_keys of this Repository.  # noqa: E501
+        :return: The gpg_keys of this Repository.
         :rtype: list[ReposGpgKeys]
         """
         return self._gpg_keys
@@ -595,9 +658,9 @@ class Repository(object):
     def gpg_keys(self, gpg_keys):
         """Sets the gpg_keys of this Repository.
 
-          # noqa: E501
+        
 
-        :param gpg_keys: The gpg_keys of this Repository.  # noqa: E501
+        :param gpg_keys: The gpg_keys of this Repository.
         :type: list[ReposGpgKeys]
         """
 
@@ -605,11 +668,11 @@ class Repository(object):
 
     @property
     def index_files(self):
-        """Gets the index_files of this Repository.  # noqa: E501
+        """Gets the index_files of this Repository.
 
-        If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.  # noqa: E501
+        If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
 
-        :return: The index_files of this Repository.  # noqa: E501
+        :return: The index_files of this Repository.
         :rtype: bool
         """
         return self._index_files
@@ -618,9 +681,9 @@ class Repository(object):
     def index_files(self, index_files):
         """Sets the index_files of this Repository.
 
-        If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.  # noqa: E501
+        If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
 
-        :param index_files: The index_files of this Repository.  # noqa: E501
+        :param index_files: The index_files of this Repository.
         :type: bool
         """
 
@@ -628,11 +691,11 @@ class Repository(object):
 
     @property
     def is_open_source(self):
-        """Gets the is_open_source of this Repository.  # noqa: E501
+        """Gets the is_open_source of this Repository.
 
-          # noqa: E501
+        
 
-        :return: The is_open_source of this Repository.  # noqa: E501
+        :return: The is_open_source of this Repository.
         :rtype: bool
         """
         return self._is_open_source
@@ -641,9 +704,9 @@ class Repository(object):
     def is_open_source(self, is_open_source):
         """Sets the is_open_source of this Repository.
 
-          # noqa: E501
+        
 
-        :param is_open_source: The is_open_source of this Repository.  # noqa: E501
+        :param is_open_source: The is_open_source of this Repository.
         :type: bool
         """
 
@@ -651,11 +714,11 @@ class Repository(object):
 
     @property
     def is_private(self):
-        """Gets the is_private of this Repository.  # noqa: E501
+        """Gets the is_private of this Repository.
 
-          # noqa: E501
+        
 
-        :return: The is_private of this Repository.  # noqa: E501
+        :return: The is_private of this Repository.
         :rtype: bool
         """
         return self._is_private
@@ -664,9 +727,9 @@ class Repository(object):
     def is_private(self, is_private):
         """Sets the is_private of this Repository.
 
-          # noqa: E501
+        
 
-        :param is_private: The is_private of this Repository.  # noqa: E501
+        :param is_private: The is_private of this Repository.
         :type: bool
         """
 
@@ -674,11 +737,11 @@ class Repository(object):
 
     @property
     def is_public(self):
-        """Gets the is_public of this Repository.  # noqa: E501
+        """Gets the is_public of this Repository.
 
-          # noqa: E501
+        
 
-        :return: The is_public of this Repository.  # noqa: E501
+        :return: The is_public of this Repository.
         :rtype: bool
         """
         return self._is_public
@@ -687,9 +750,9 @@ class Repository(object):
     def is_public(self, is_public):
         """Sets the is_public of this Repository.
 
-          # noqa: E501
+        
 
-        :param is_public: The is_public of this Repository.  # noqa: E501
+        :param is_public: The is_public of this Repository.
         :type: bool
         """
 
@@ -697,11 +760,11 @@ class Repository(object):
 
     @property
     def move_own(self):
-        """Gets the move_own of this Repository.  # noqa: E501
+        """Gets the move_own of this Repository.
 
-        If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :return: The move_own of this Repository.  # noqa: E501
+        :return: The move_own of this Repository.
         :rtype: bool
         """
         return self._move_own
@@ -710,9 +773,9 @@ class Repository(object):
     def move_own(self, move_own):
         """Sets the move_own of this Repository.
 
-        If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :param move_own: The move_own of this Repository.  # noqa: E501
+        :param move_own: The move_own of this Repository.
         :type: bool
         """
 
@@ -720,11 +783,11 @@ class Repository(object):
 
     @property
     def move_packages(self):
-        """Gets the move_packages of this Repository.  # noqa: E501
+        """Gets the move_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.
 
-        :return: The move_packages of this Repository.  # noqa: E501
+        :return: The move_packages of this Repository.
         :rtype: str
         """
         return self._move_packages
@@ -733,9 +796,9 @@ class Repository(object):
     def move_packages(self, move_packages):
         """Sets the move_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.
 
-        :param move_packages: The move_packages of this Repository.  # noqa: E501
+        :param move_packages: The move_packages of this Repository.
         :type: str
         """
         allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
@@ -750,11 +813,11 @@ class Repository(object):
 
     @property
     def name(self):
-        """Gets the name of this Repository.  # noqa: E501
+        """Gets the name of this Repository.
 
-        A descriptive name for the repository.  # noqa: E501
+        A descriptive name for the repository.
 
-        :return: The name of this Repository.  # noqa: E501
+        :return: The name of this Repository.
         :rtype: str
         """
         return self._name
@@ -763,9 +826,9 @@ class Repository(object):
     def name(self, name):
         """Sets the name of this Repository.
 
-        A descriptive name for the repository.  # noqa: E501
+        A descriptive name for the repository.
 
-        :param name: The name of this Repository.  # noqa: E501
+        :param name: The name of this Repository.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
@@ -775,11 +838,11 @@ class Repository(object):
 
     @property
     def namespace(self):
-        """Gets the namespace of this Repository.  # noqa: E501
+        """Gets the namespace of this Repository.
 
-        Namespace to which this repository belongs.  # noqa: E501
+        Namespace to which this repository belongs.
 
-        :return: The namespace of this Repository.  # noqa: E501
+        :return: The namespace of this Repository.
         :rtype: str
         """
         return self._namespace
@@ -788,9 +851,9 @@ class Repository(object):
     def namespace(self, namespace):
         """Sets the namespace of this Repository.
 
-        Namespace to which this repository belongs.  # noqa: E501
+        Namespace to which this repository belongs.
 
-        :param namespace: The namespace of this Repository.  # noqa: E501
+        :param namespace: The namespace of this Repository.
         :type: str
         """
 
@@ -798,11 +861,11 @@ class Repository(object):
 
     @property
     def namespace_url(self):
-        """Gets the namespace_url of this Repository.  # noqa: E501
+        """Gets the namespace_url of this Repository.
 
-        API endpoint where data about this namespace can be retrieved.  # noqa: E501
+        API endpoint where data about this namespace can be retrieved.
 
-        :return: The namespace_url of this Repository.  # noqa: E501
+        :return: The namespace_url of this Repository.
         :rtype: str
         """
         return self._namespace_url
@@ -811,9 +874,9 @@ class Repository(object):
     def namespace_url(self, namespace_url):
         """Sets the namespace_url of this Repository.
 
-        API endpoint where data about this namespace can be retrieved.  # noqa: E501
+        API endpoint where data about this namespace can be retrieved.
 
-        :param namespace_url: The namespace_url of this Repository.  # noqa: E501
+        :param namespace_url: The namespace_url of this Repository.
         :type: str
         """
 
@@ -821,11 +884,11 @@ class Repository(object):
 
     @property
     def num_downloads(self):
-        """Gets the num_downloads of this Repository.  # noqa: E501
+        """Gets the num_downloads of this Repository.
 
-        The number of downloads for packages in the repository.  # noqa: E501
+        The number of downloads for packages in the repository.
 
-        :return: The num_downloads of this Repository.  # noqa: E501
+        :return: The num_downloads of this Repository.
         :rtype: int
         """
         return self._num_downloads
@@ -834,9 +897,9 @@ class Repository(object):
     def num_downloads(self, num_downloads):
         """Sets the num_downloads of this Repository.
 
-        The number of downloads for packages in the repository.  # noqa: E501
+        The number of downloads for packages in the repository.
 
-        :param num_downloads: The num_downloads of this Repository.  # noqa: E501
+        :param num_downloads: The num_downloads of this Repository.
         :type: int
         """
 
@@ -844,11 +907,11 @@ class Repository(object):
 
     @property
     def package_count(self):
-        """Gets the package_count of this Repository.  # noqa: E501
+        """Gets the package_count of this Repository.
 
-        The number of packages in the repository.  # noqa: E501
+        The number of packages in the repository.
 
-        :return: The package_count of this Repository.  # noqa: E501
+        :return: The package_count of this Repository.
         :rtype: int
         """
         return self._package_count
@@ -857,9 +920,9 @@ class Repository(object):
     def package_count(self, package_count):
         """Sets the package_count of this Repository.
 
-        The number of packages in the repository.  # noqa: E501
+        The number of packages in the repository.
 
-        :param package_count: The package_count of this Repository.  # noqa: E501
+        :param package_count: The package_count of this Repository.
         :type: int
         """
 
@@ -867,11 +930,11 @@ class Repository(object):
 
     @property
     def package_group_count(self):
-        """Gets the package_group_count of this Repository.  # noqa: E501
+        """Gets the package_group_count of this Repository.
 
-        The number of groups in the repository.  # noqa: E501
+        The number of groups in the repository.
 
-        :return: The package_group_count of this Repository.  # noqa: E501
+        :return: The package_group_count of this Repository.
         :rtype: int
         """
         return self._package_group_count
@@ -880,9 +943,9 @@ class Repository(object):
     def package_group_count(self, package_group_count):
         """Sets the package_group_count of this Repository.
 
-        The number of groups in the repository.  # noqa: E501
+        The number of groups in the repository.
 
-        :param package_group_count: The package_group_count of this Repository.  # noqa: E501
+        :param package_group_count: The package_group_count of this Repository.
         :type: int
         """
 
@@ -890,11 +953,11 @@ class Repository(object):
 
     @property
     def proxy_npmjs(self):
-        """Gets the proxy_npmjs of this Repository.  # noqa: E501
+        """Gets the proxy_npmjs of this Repository.
 
-        If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.  # noqa: E501
+        If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.
 
-        :return: The proxy_npmjs of this Repository.  # noqa: E501
+        :return: The proxy_npmjs of this Repository.
         :rtype: bool
         """
         return self._proxy_npmjs
@@ -903,9 +966,9 @@ class Repository(object):
     def proxy_npmjs(self, proxy_npmjs):
         """Sets the proxy_npmjs of this Repository.
 
-        If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.  # noqa: E501
+        If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.
 
-        :param proxy_npmjs: The proxy_npmjs of this Repository.  # noqa: E501
+        :param proxy_npmjs: The proxy_npmjs of this Repository.
         :type: bool
         """
 
@@ -913,11 +976,11 @@ class Repository(object):
 
     @property
     def proxy_pypi(self):
-        """Gets the proxy_pypi of this Repository.  # noqa: E501
+        """Gets the proxy_pypi of this Repository.
 
-        If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.  # noqa: E501
+        If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.
 
-        :return: The proxy_pypi of this Repository.  # noqa: E501
+        :return: The proxy_pypi of this Repository.
         :rtype: bool
         """
         return self._proxy_pypi
@@ -926,9 +989,9 @@ class Repository(object):
     def proxy_pypi(self, proxy_pypi):
         """Sets the proxy_pypi of this Repository.
 
-        If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.  # noqa: E501
+        If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.
 
-        :param proxy_pypi: The proxy_pypi of this Repository.  # noqa: E501
+        :param proxy_pypi: The proxy_pypi of this Repository.
         :type: bool
         """
 
@@ -936,11 +999,11 @@ class Repository(object):
 
     @property
     def raw_package_index_enabled(self):
-        """Gets the raw_package_index_enabled of this Repository.  # noqa: E501
+        """Gets the raw_package_index_enabled of this Repository.
 
-        If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.  # noqa: E501
+        If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.
 
-        :return: The raw_package_index_enabled of this Repository.  # noqa: E501
+        :return: The raw_package_index_enabled of this Repository.
         :rtype: bool
         """
         return self._raw_package_index_enabled
@@ -949,9 +1012,9 @@ class Repository(object):
     def raw_package_index_enabled(self, raw_package_index_enabled):
         """Sets the raw_package_index_enabled of this Repository.
 
-        If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.  # noqa: E501
+        If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.
 
-        :param raw_package_index_enabled: The raw_package_index_enabled of this Repository.  # noqa: E501
+        :param raw_package_index_enabled: The raw_package_index_enabled of this Repository.
         :type: bool
         """
 
@@ -959,11 +1022,11 @@ class Repository(object):
 
     @property
     def raw_package_index_signatures_enabled(self):
-        """Gets the raw_package_index_signatures_enabled of this Repository.  # noqa: E501
+        """Gets the raw_package_index_signatures_enabled of this Repository.
 
-        If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.  # noqa: E501
+        If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.
 
-        :return: The raw_package_index_signatures_enabled of this Repository.  # noqa: E501
+        :return: The raw_package_index_signatures_enabled of this Repository.
         :rtype: bool
         """
         return self._raw_package_index_signatures_enabled
@@ -972,9 +1035,9 @@ class Repository(object):
     def raw_package_index_signatures_enabled(self, raw_package_index_signatures_enabled):
         """Sets the raw_package_index_signatures_enabled of this Repository.
 
-        If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.  # noqa: E501
+        If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.
 
-        :param raw_package_index_signatures_enabled: The raw_package_index_signatures_enabled of this Repository.  # noqa: E501
+        :param raw_package_index_signatures_enabled: The raw_package_index_signatures_enabled of this Repository.
         :type: bool
         """
 
@@ -982,11 +1045,11 @@ class Repository(object):
 
     @property
     def replace_packages(self):
-        """Gets the replace_packages of this Repository.  # noqa: E501
+        """Gets the replace_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.  # noqa: E501
+        This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.
 
-        :return: The replace_packages of this Repository.  # noqa: E501
+        :return: The replace_packages of this Repository.
         :rtype: str
         """
         return self._replace_packages
@@ -995,9 +1058,9 @@ class Repository(object):
     def replace_packages(self, replace_packages):
         """Sets the replace_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.  # noqa: E501
+        This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.
 
-        :param replace_packages: The replace_packages of this Repository.  # noqa: E501
+        :param replace_packages: The replace_packages of this Repository.
         :type: str
         """
         allowed_values = ["Admin", "Write"]  # noqa: E501
@@ -1012,11 +1075,11 @@ class Repository(object):
 
     @property
     def replace_packages_by_default(self):
-        """Gets the replace_packages_by_default of this Repository.  # noqa: E501
+        """Gets the replace_packages_by_default of this Repository.
 
-        If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.  # noqa: E501
+        If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.
 
-        :return: The replace_packages_by_default of this Repository.  # noqa: E501
+        :return: The replace_packages_by_default of this Repository.
         :rtype: bool
         """
         return self._replace_packages_by_default
@@ -1025,9 +1088,9 @@ class Repository(object):
     def replace_packages_by_default(self, replace_packages_by_default):
         """Sets the replace_packages_by_default of this Repository.
 
-        If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.  # noqa: E501
+        If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.
 
-        :param replace_packages_by_default: The replace_packages_by_default of this Repository.  # noqa: E501
+        :param replace_packages_by_default: The replace_packages_by_default of this Repository.
         :type: bool
         """
 
@@ -1035,11 +1098,11 @@ class Repository(object):
 
     @property
     def repository_type(self):
-        """Gets the repository_type of this Repository.  # noqa: E501
+        """Gets the repository_type of this Repository.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.  # noqa: E501
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
 
-        :return: The repository_type of this Repository.  # noqa: E501
+        :return: The repository_type of this Repository.
         :rtype: int
         """
         return self._repository_type
@@ -1048,9 +1111,9 @@ class Repository(object):
     def repository_type(self, repository_type):
         """Sets the repository_type of this Repository.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.  # noqa: E501
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
 
-        :param repository_type: The repository_type of this Repository.  # noqa: E501
+        :param repository_type: The repository_type of this Repository.
         :type: int
         """
 
@@ -1058,11 +1121,11 @@ class Repository(object):
 
     @property
     def repository_type_str(self):
-        """Gets the repository_type_str of this Repository.  # noqa: E501
+        """Gets the repository_type_str of this Repository.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.  # noqa: E501
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 
-        :return: The repository_type_str of this Repository.  # noqa: E501
+        :return: The repository_type_str of this Repository.
         :rtype: str
         """
         return self._repository_type_str
@@ -1071,9 +1134,9 @@ class Repository(object):
     def repository_type_str(self, repository_type_str):
         """Sets the repository_type_str of this Repository.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.  # noqa: E501
+        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
 
-        :param repository_type_str: The repository_type_str of this Repository.  # noqa: E501
+        :param repository_type_str: The repository_type_str of this Repository.
         :type: str
         """
         allowed_values = ["Public", "Private", "Open-Source"]  # noqa: E501
@@ -1088,11 +1151,11 @@ class Repository(object):
 
     @property
     def resync_own(self):
-        """Gets the resync_own of this Repository.  # noqa: E501
+        """Gets the resync_own of this Repository.
 
-        If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :return: The resync_own of this Repository.  # noqa: E501
+        :return: The resync_own of this Repository.
         :rtype: bool
         """
         return self._resync_own
@@ -1101,9 +1164,9 @@ class Repository(object):
     def resync_own(self, resync_own):
         """Sets the resync_own of this Repository.
 
-        If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :param resync_own: The resync_own of this Repository.  # noqa: E501
+        :param resync_own: The resync_own of this Repository.
         :type: bool
         """
 
@@ -1111,11 +1174,11 @@ class Repository(object):
 
     @property
     def resync_packages(self):
-        """Gets the resync_packages of this Repository.  # noqa: E501
+        """Gets the resync_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.
 
-        :return: The resync_packages of this Repository.  # noqa: E501
+        :return: The resync_packages of this Repository.
         :rtype: str
         """
         return self._resync_packages
@@ -1124,9 +1187,9 @@ class Repository(object):
     def resync_packages(self, resync_packages):
         """Sets the resync_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.
 
-        :param resync_packages: The resync_packages of this Repository.  # noqa: E501
+        :param resync_packages: The resync_packages of this Repository.
         :type: str
         """
         allowed_values = ["Admin", "Write"]  # noqa: E501
@@ -1141,11 +1204,11 @@ class Repository(object):
 
     @property
     def scan_own(self):
-        """Gets the scan_own of this Repository.  # noqa: E501
+        """Gets the scan_own of this Repository.
 
-        If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :return: The scan_own of this Repository.  # noqa: E501
+        :return: The scan_own of this Repository.
         :rtype: bool
         """
         return self._scan_own
@@ -1154,9 +1217,9 @@ class Repository(object):
     def scan_own(self, scan_own):
         """Sets the scan_own of this Repository.
 
-        If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.  # noqa: E501
+        If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
 
-        :param scan_own: The scan_own of this Repository.  # noqa: E501
+        :param scan_own: The scan_own of this Repository.
         :type: bool
         """
 
@@ -1164,11 +1227,11 @@ class Repository(object):
 
     @property
     def scan_packages(self):
-        """Gets the scan_packages of this Repository.  # noqa: E501
+        """Gets the scan_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.
 
-        :return: The scan_packages of this Repository.  # noqa: E501
+        :return: The scan_packages of this Repository.
         :rtype: str
         """
         return self._scan_packages
@@ -1177,9 +1240,9 @@ class Repository(object):
     def scan_packages(self, scan_packages):
         """Sets the scan_packages of this Repository.
 
-        This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.  # noqa: E501
+        This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.
 
-        :param scan_packages: The scan_packages of this Repository.  # noqa: E501
+        :param scan_packages: The scan_packages of this Repository.
         :type: str
         """
         allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
@@ -1194,11 +1257,11 @@ class Repository(object):
 
     @property
     def self_html_url(self):
-        """Gets the self_html_url of this Repository.  # noqa: E501
+        """Gets the self_html_url of this Repository.
 
-        Website URL for this repository.  # noqa: E501
+        Website URL for this repository.
 
-        :return: The self_html_url of this Repository.  # noqa: E501
+        :return: The self_html_url of this Repository.
         :rtype: str
         """
         return self._self_html_url
@@ -1207,9 +1270,9 @@ class Repository(object):
     def self_html_url(self, self_html_url):
         """Sets the self_html_url of this Repository.
 
-        Website URL for this repository.  # noqa: E501
+        Website URL for this repository.
 
-        :param self_html_url: The self_html_url of this Repository.  # noqa: E501
+        :param self_html_url: The self_html_url of this Repository.
         :type: str
         """
 
@@ -1217,11 +1280,11 @@ class Repository(object):
 
     @property
     def self_url(self):
-        """Gets the self_url of this Repository.  # noqa: E501
+        """Gets the self_url of this Repository.
 
-        API endpoint where data about this repository can be retrieved.  # noqa: E501
+        API endpoint where data about this repository can be retrieved.
 
-        :return: The self_url of this Repository.  # noqa: E501
+        :return: The self_url of this Repository.
         :rtype: str
         """
         return self._self_url
@@ -1230,9 +1293,9 @@ class Repository(object):
     def self_url(self, self_url):
         """Sets the self_url of this Repository.
 
-        API endpoint where data about this repository can be retrieved.  # noqa: E501
+        API endpoint where data about this repository can be retrieved.
 
-        :param self_url: The self_url of this Repository.  # noqa: E501
+        :param self_url: The self_url of this Repository.
         :type: str
         """
 
@@ -1240,11 +1303,11 @@ class Repository(object):
 
     @property
     def show_setup_all(self):
-        """Gets the show_setup_all of this Repository.  # noqa: E501
+        """Gets the show_setup_all of this Repository.
 
-        If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.  # noqa: E501
+        If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.
 
-        :return: The show_setup_all of this Repository.  # noqa: E501
+        :return: The show_setup_all of this Repository.
         :rtype: bool
         """
         return self._show_setup_all
@@ -1253,9 +1316,9 @@ class Repository(object):
     def show_setup_all(self, show_setup_all):
         """Sets the show_setup_all of this Repository.
 
-        If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.  # noqa: E501
+        If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.
 
-        :param show_setup_all: The show_setup_all of this Repository.  # noqa: E501
+        :param show_setup_all: The show_setup_all of this Repository.
         :type: bool
         """
 
@@ -1263,11 +1326,11 @@ class Repository(object):
 
     @property
     def size(self):
-        """Gets the size of this Repository.  # noqa: E501
+        """Gets the size of this Repository.
 
-        The calculated size of the repository.  # noqa: E501
+        The calculated size of the repository.
 
-        :return: The size of this Repository.  # noqa: E501
+        :return: The size of this Repository.
         :rtype: int
         """
         return self._size
@@ -1276,9 +1339,9 @@ class Repository(object):
     def size(self, size):
         """Sets the size of this Repository.
 
-        The calculated size of the repository.  # noqa: E501
+        The calculated size of the repository.
 
-        :param size: The size of this Repository.  # noqa: E501
+        :param size: The size of this Repository.
         :type: int
         """
 
@@ -1286,11 +1349,11 @@ class Repository(object):
 
     @property
     def size_str(self):
-        """Gets the size_str of this Repository.  # noqa: E501
+        """Gets the size_str of this Repository.
 
-        The calculated size of the repository (human readable).  # noqa: E501
+        The calculated size of the repository (human readable).
 
-        :return: The size_str of this Repository.  # noqa: E501
+        :return: The size_str of this Repository.
         :rtype: str
         """
         return self._size_str
@@ -1299,9 +1362,9 @@ class Repository(object):
     def size_str(self, size_str):
         """Sets the size_str of this Repository.
 
-        The calculated size of the repository (human readable).  # noqa: E501
+        The calculated size of the repository (human readable).
 
-        :param size_str: The size_str of this Repository.  # noqa: E501
+        :param size_str: The size_str of this Repository.
         :type: str
         """
 
@@ -1309,11 +1372,11 @@ class Repository(object):
 
     @property
     def slug(self):
-        """Gets the slug of this Repository.  # noqa: E501
+        """Gets the slug of this Repository.
 
-        The slug identifies the repository in URIs.  # noqa: E501
+        The slug identifies the repository in URIs.
 
-        :return: The slug of this Repository.  # noqa: E501
+        :return: The slug of this Repository.
         :rtype: str
         """
         return self._slug
@@ -1322,9 +1385,9 @@ class Repository(object):
     def slug(self, slug):
         """Sets the slug of this Repository.
 
-        The slug identifies the repository in URIs.  # noqa: E501
+        The slug identifies the repository in URIs.
 
-        :param slug: The slug of this Repository.  # noqa: E501
+        :param slug: The slug of this Repository.
         :type: str
         """
 
@@ -1332,11 +1395,11 @@ class Repository(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this Repository.  # noqa: E501
+        """Gets the slug_perm of this Repository.
 
-        The slug_perm immutably identifies the repository. It will never change once a repository has been created.  # noqa: E501
+        The slug_perm immutably identifies the repository. It will never change once a repository has been created.
 
-        :return: The slug_perm of this Repository.  # noqa: E501
+        :return: The slug_perm of this Repository.
         :rtype: str
         """
         return self._slug_perm
@@ -1345,9 +1408,9 @@ class Repository(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this Repository.
 
-        The slug_perm immutably identifies the repository. It will never change once a repository has been created.  # noqa: E501
+        The slug_perm immutably identifies the repository. It will never change once a repository has been created.
 
-        :param slug_perm: The slug_perm of this Repository.  # noqa: E501
+        :param slug_perm: The slug_perm of this Repository.
         :type: str
         """
 
@@ -1355,11 +1418,11 @@ class Repository(object):
 
     @property
     def storage_region(self):
-        """Gets the storage_region of this Repository.  # noqa: E501
+        """Gets the storage_region of this Repository.
 
-        The Cloudsmith region in which package files are stored.  # noqa: E501
+        The Cloudsmith region in which package files are stored.
 
-        :return: The storage_region of this Repository.  # noqa: E501
+        :return: The storage_region of this Repository.
         :rtype: str
         """
         return self._storage_region
@@ -1368,9 +1431,9 @@ class Repository(object):
     def storage_region(self, storage_region):
         """Sets the storage_region of this Repository.
 
-        The Cloudsmith region in which package files are stored.  # noqa: E501
+        The Cloudsmith region in which package files are stored.
 
-        :param storage_region: The storage_region of this Repository.  # noqa: E501
+        :param storage_region: The storage_region of this Repository.
         :type: str
         """
 
@@ -1378,11 +1441,11 @@ class Repository(object):
 
     @property
     def strict_npm_validation(self):
-        """Gets the strict_npm_validation of this Repository.  # noqa: E501
+        """Gets the strict_npm_validation of this Repository.
 
-        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!  # noqa: E501
+        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
 
-        :return: The strict_npm_validation of this Repository.  # noqa: E501
+        :return: The strict_npm_validation of this Repository.
         :rtype: bool
         """
         return self._strict_npm_validation
@@ -1391,9 +1454,9 @@ class Repository(object):
     def strict_npm_validation(self, strict_npm_validation):
         """Sets the strict_npm_validation of this Repository.
 
-        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!  # noqa: E501
+        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
 
-        :param strict_npm_validation: The strict_npm_validation of this Repository.  # noqa: E501
+        :param strict_npm_validation: The strict_npm_validation of this Repository.
         :type: bool
         """
 
@@ -1401,11 +1464,11 @@ class Repository(object):
 
     @property
     def use_debian_labels(self):
-        """Gets the use_debian_labels of this Repository.  # noqa: E501
+        """Gets the use_debian_labels of this Repository.
 
-        If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.  # noqa: E501
+        If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.
 
-        :return: The use_debian_labels of this Repository.  # noqa: E501
+        :return: The use_debian_labels of this Repository.
         :rtype: bool
         """
         return self._use_debian_labels
@@ -1414,9 +1477,9 @@ class Repository(object):
     def use_debian_labels(self, use_debian_labels):
         """Sets the use_debian_labels of this Repository.
 
-        If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.  # noqa: E501
+        If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.
 
-        :param use_debian_labels: The use_debian_labels of this Repository.  # noqa: E501
+        :param use_debian_labels: The use_debian_labels of this Repository.
         :type: bool
         """
 
@@ -1424,11 +1487,11 @@ class Repository(object):
 
     @property
     def use_default_cargo_upstream(self):
-        """Gets the use_default_cargo_upstream of this Repository.  # noqa: E501
+        """Gets the use_default_cargo_upstream of this Repository.
 
-        If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.  # noqa: E501
+        If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.
 
-        :return: The use_default_cargo_upstream of this Repository.  # noqa: E501
+        :return: The use_default_cargo_upstream of this Repository.
         :rtype: bool
         """
         return self._use_default_cargo_upstream
@@ -1437,9 +1500,9 @@ class Repository(object):
     def use_default_cargo_upstream(self, use_default_cargo_upstream):
         """Sets the use_default_cargo_upstream of this Repository.
 
-        If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.  # noqa: E501
+        If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.
 
-        :param use_default_cargo_upstream: The use_default_cargo_upstream of this Repository.  # noqa: E501
+        :param use_default_cargo_upstream: The use_default_cargo_upstream of this Repository.
         :type: bool
         """
 
@@ -1447,11 +1510,11 @@ class Repository(object):
 
     @property
     def use_noarch_packages(self):
-        """Gets the use_noarch_packages of this Repository.  # noqa: E501
+        """Gets the use_noarch_packages of this Repository.
 
-        If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).  # noqa: E501
+        If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).
 
-        :return: The use_noarch_packages of this Repository.  # noqa: E501
+        :return: The use_noarch_packages of this Repository.
         :rtype: bool
         """
         return self._use_noarch_packages
@@ -1460,9 +1523,9 @@ class Repository(object):
     def use_noarch_packages(self, use_noarch_packages):
         """Sets the use_noarch_packages of this Repository.
 
-        If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).  # noqa: E501
+        If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).
 
-        :param use_noarch_packages: The use_noarch_packages of this Repository.  # noqa: E501
+        :param use_noarch_packages: The use_noarch_packages of this Repository.
         :type: bool
         """
 
@@ -1470,11 +1533,11 @@ class Repository(object):
 
     @property
     def use_source_packages(self):
-        """Gets the use_source_packages of this Repository.  # noqa: E501
+        """Gets the use_source_packages of this Repository.
 
-        If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.  # noqa: E501
+        If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.
 
-        :return: The use_source_packages of this Repository.  # noqa: E501
+        :return: The use_source_packages of this Repository.
         :rtype: bool
         """
         return self._use_source_packages
@@ -1483,9 +1546,9 @@ class Repository(object):
     def use_source_packages(self, use_source_packages):
         """Sets the use_source_packages of this Repository.
 
-        If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.  # noqa: E501
+        If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.
 
-        :param use_source_packages: The use_source_packages of this Repository.  # noqa: E501
+        :param use_source_packages: The use_source_packages of this Repository.
         :type: bool
         """
 
@@ -1493,11 +1556,11 @@ class Repository(object):
 
     @property
     def use_vulnerability_scanning(self):
-        """Gets the use_vulnerability_scanning of this Repository.  # noqa: E501
+        """Gets the use_vulnerability_scanning of this Repository.
 
-        If checked, vulnerability scanning will be enabled for all supported packages within this repository.  # noqa: E501
+        If checked, vulnerability scanning will be enabled for all supported packages within this repository.
 
-        :return: The use_vulnerability_scanning of this Repository.  # noqa: E501
+        :return: The use_vulnerability_scanning of this Repository.
         :rtype: bool
         """
         return self._use_vulnerability_scanning
@@ -1506,9 +1569,9 @@ class Repository(object):
     def use_vulnerability_scanning(self, use_vulnerability_scanning):
         """Sets the use_vulnerability_scanning of this Repository.
 
-        If checked, vulnerability scanning will be enabled for all supported packages within this repository.  # noqa: E501
+        If checked, vulnerability scanning will be enabled for all supported packages within this repository.
 
-        :param use_vulnerability_scanning: The use_vulnerability_scanning of this Repository.  # noqa: E501
+        :param use_vulnerability_scanning: The use_vulnerability_scanning of this Repository.
         :type: bool
         """
 
@@ -1516,11 +1579,11 @@ class Repository(object):
 
     @property
     def user_entitlements_enabled(self):
-        """Gets the user_entitlements_enabled of this Repository.  # noqa: E501
+        """Gets the user_entitlements_enabled of this Repository.
 
-        If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.  # noqa: E501
+        If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.
 
-        :return: The user_entitlements_enabled of this Repository.  # noqa: E501
+        :return: The user_entitlements_enabled of this Repository.
         :rtype: bool
         """
         return self._user_entitlements_enabled
@@ -1529,9 +1592,9 @@ class Repository(object):
     def user_entitlements_enabled(self, user_entitlements_enabled):
         """Sets the user_entitlements_enabled of this Repository.
 
-        If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.  # noqa: E501
+        If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.
 
-        :param user_entitlements_enabled: The user_entitlements_enabled of this Repository.  # noqa: E501
+        :param user_entitlements_enabled: The user_entitlements_enabled of this Repository.
         :type: bool
         """
 
@@ -1539,11 +1602,11 @@ class Repository(object):
 
     @property
     def view_statistics(self):
-        """Gets the view_statistics of this Repository.  # noqa: E501
+        """Gets the view_statistics of this Repository.
 
-        This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.  # noqa: E501
+        This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.
 
-        :return: The view_statistics of this Repository.  # noqa: E501
+        :return: The view_statistics of this Repository.
         :rtype: str
         """
         return self._view_statistics
@@ -1552,9 +1615,9 @@ class Repository(object):
     def view_statistics(self, view_statistics):
         """Sets the view_statistics of this Repository.
 
-        This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.  # noqa: E501
+        This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.
 
-        :param view_statistics: The view_statistics of this Repository.  # noqa: E501
+        :param view_statistics: The view_statistics of this Repository.
         :type: str
         """
         allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
@@ -1615,3 +1678,4 @@ class Repository(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

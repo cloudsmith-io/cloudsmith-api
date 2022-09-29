@@ -58,11 +58,11 @@ class PackagesCopy(object):
 
     @property
     def destination(self):
-        """Gets the destination of this PackagesCopy.  # noqa: E501
+        """Gets the destination of this PackagesCopy.
 
-        None  # noqa: E501
+        None
 
-        :return: The destination of this PackagesCopy.  # noqa: E501
+        :return: The destination of this PackagesCopy.
         :rtype: str
         """
         return self._destination
@@ -71,9 +71,9 @@ class PackagesCopy(object):
     def destination(self, destination):
         """Sets the destination of this PackagesCopy.
 
-        None  # noqa: E501
+        None
 
-        :param destination: The destination of this PackagesCopy.  # noqa: E501
+        :param destination: The destination of this PackagesCopy.
         :type: str
         """
         if self._configuration.client_side_validation and destination is None:
@@ -83,11 +83,11 @@ class PackagesCopy(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesCopy.  # noqa: E501
+        """Gets the republish of this PackagesCopy.
 
-        If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesCopy.  # noqa: E501
+        :return: The republish of this PackagesCopy.
         :rtype: bool
         """
         return self._republish
@@ -96,9 +96,9 @@ class PackagesCopy(object):
     def republish(self, republish):
         """Sets the republish of this PackagesCopy.
 
-        If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesCopy.  # noqa: E501
+        :param republish: The republish of this PackagesCopy.
         :type: bool
         """
 
@@ -152,3 +152,4 @@ class PackagesCopy(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

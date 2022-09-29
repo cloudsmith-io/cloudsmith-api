@@ -37,6 +37,8 @@ Name | Type | Description | Notes
 **namespace** | **String** |  | [optional] 
 **namespace_url** | **String** |  | [optional] 
 **num_files** | **Integer** |  | [optional] 
+**origin_repository** | **String** |  | [optional] 
+**origin_repository_url** | **String** |  | [optional] 
 **package_type** | **Integer** | The type of package contents. | [optional] 
 **packaging** | **String** | Artifact&#39;s Maven packaging type. | [optional] 
 **release** | **String** | The release of the package version (if any). | [optional] 

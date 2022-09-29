@@ -70,11 +70,11 @@ class OrgsSamlgroupsyncCreate(object):
 
     @property
     def idp_key(self):
-        """Gets the idp_key of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        """Gets the idp_key of this OrgsSamlgroupsyncCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The idp_key of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :return: The idp_key of this OrgsSamlgroupsyncCreate.
         :rtype: str
         """
         return self._idp_key
@@ -83,9 +83,9 @@ class OrgsSamlgroupsyncCreate(object):
     def idp_key(self, idp_key):
         """Sets the idp_key of this OrgsSamlgroupsyncCreate.
 
-        None  # noqa: E501
+        None
 
-        :param idp_key: The idp_key of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :param idp_key: The idp_key of this OrgsSamlgroupsyncCreate.
         :type: str
         """
         if self._configuration.client_side_validation and idp_key is None:
@@ -95,11 +95,11 @@ class OrgsSamlgroupsyncCreate(object):
 
     @property
     def idp_value(self):
-        """Gets the idp_value of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        """Gets the idp_value of this OrgsSamlgroupsyncCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The idp_value of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :return: The idp_value of this OrgsSamlgroupsyncCreate.
         :rtype: str
         """
         return self._idp_value
@@ -108,9 +108,9 @@ class OrgsSamlgroupsyncCreate(object):
     def idp_value(self, idp_value):
         """Sets the idp_value of this OrgsSamlgroupsyncCreate.
 
-        None  # noqa: E501
+        None
 
-        :param idp_value: The idp_value of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :param idp_value: The idp_value of this OrgsSamlgroupsyncCreate.
         :type: str
         """
         if self._configuration.client_side_validation and idp_value is None:
@@ -120,11 +120,11 @@ class OrgsSamlgroupsyncCreate(object):
 
     @property
     def organization(self):
-        """Gets the organization of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        """Gets the organization of this OrgsSamlgroupsyncCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The organization of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :return: The organization of this OrgsSamlgroupsyncCreate.
         :rtype: str
         """
         return self._organization
@@ -133,9 +133,9 @@ class OrgsSamlgroupsyncCreate(object):
     def organization(self, organization):
         """Sets the organization of this OrgsSamlgroupsyncCreate.
 
-        None  # noqa: E501
+        None
 
-        :param organization: The organization of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :param organization: The organization of this OrgsSamlgroupsyncCreate.
         :type: str
         """
         if self._configuration.client_side_validation and organization is None:
@@ -145,11 +145,11 @@ class OrgsSamlgroupsyncCreate(object):
 
     @property
     def role(self):
-        """Gets the role of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        """Gets the role of this OrgsSamlgroupsyncCreate.
 
-                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.           # noqa: E501
+                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.         
 
-        :return: The role of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :return: The role of this OrgsSamlgroupsyncCreate.
         :rtype: str
         """
         return self._role
@@ -158,9 +158,9 @@ class OrgsSamlgroupsyncCreate(object):
     def role(self, role):
         """Sets the role of this OrgsSamlgroupsyncCreate.
 
-                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.           # noqa: E501
+                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.         
 
-        :param role: The role of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :param role: The role of this OrgsSamlgroupsyncCreate.
         :type: str
         """
 
@@ -168,11 +168,11 @@ class OrgsSamlgroupsyncCreate(object):
 
     @property
     def team(self):
-        """Gets the team of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        """Gets the team of this OrgsSamlgroupsyncCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The team of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :return: The team of this OrgsSamlgroupsyncCreate.
         :rtype: str
         """
         return self._team
@@ -181,9 +181,9 @@ class OrgsSamlgroupsyncCreate(object):
     def team(self, team):
         """Sets the team of this OrgsSamlgroupsyncCreate.
 
-        None  # noqa: E501
+        None
 
-        :param team: The team of this OrgsSamlgroupsyncCreate.  # noqa: E501
+        :param team: The team of this OrgsSamlgroupsyncCreate.
         :type: str
         """
         if self._configuration.client_side_validation and team is None:
@@ -239,3 +239,4 @@ class OrgsSamlgroupsyncCreate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

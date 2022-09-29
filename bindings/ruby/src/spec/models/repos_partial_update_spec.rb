@@ -32,6 +32,16 @@ describe 'ReposPartialUpdate' do
       expect(@instance).to be_instance_of(CloudsmithApi::ReposPartialUpdate)
     end
   end
+  describe 'test attribute "content_kind"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Standard", "Distribution", "Upstream"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.content_kind = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "contextual_auth_realm"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -81,6 +91,12 @@ describe 'ReposPartialUpdate' do
   end
 
   describe 'test attribute "description"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "distributes"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -17,6 +17,9 @@ module CloudsmithApi
     # Base URL from which packages and other artifacts are downloaded.
     attr_accessor :cdn_url
 
+    # The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+    attr_accessor :content_kind
+
     # If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.
     attr_accessor :contextual_auth_realm
 
@@ -43,6 +46,9 @@ module CloudsmithApi
 
     # A description of the repository's purpose/contents.
     attr_accessor :description
+
+    # The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.
+    attr_accessor :distributes
 
     # If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.
     attr_accessor :docker_refresh_tokens_enabled
@@ -167,7 +173,7 @@ module CloudsmithApi
     # If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.
     attr_accessor :user_entitlements_enabled
 
-    # This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.
+    # This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.
     attr_accessor :view_statistics
 
     class EnumAttributeValidator
@@ -196,6 +202,7 @@ module CloudsmithApi
     def self.attribute_map
       {
         :'cdn_url' => :'cdn_url',
+        :'content_kind' => :'content_kind',
         :'contextual_auth_realm' => :'contextual_auth_realm',
         :'copy_own' => :'copy_own',
         :'copy_packages' => :'copy_packages',
@@ -205,6 +212,7 @@ module CloudsmithApi
         :'delete_packages' => :'delete_packages',
         :'deleted_at' => :'deleted_at',
         :'description' => :'description',
+        :'distributes' => :'distributes',
         :'docker_refresh_tokens_enabled' => :'docker_refresh_tokens_enabled',
         :'gpg_keys' => :'gpg_keys',
         :'index_files' => :'index_files',
@@ -254,6 +262,7 @@ module CloudsmithApi
     def self.swagger_types
       {
         :'cdn_url' => :'String',
+        :'content_kind' => :'String',
         :'contextual_auth_realm' => :'BOOLEAN',
         :'copy_own' => :'BOOLEAN',
         :'copy_packages' => :'String',
@@ -263,6 +272,7 @@ module CloudsmithApi
         :'delete_packages' => :'String',
         :'deleted_at' => :'String',
         :'description' => :'String',
+        :'distributes' => :'Array<String>',
         :'docker_refresh_tokens_enabled' => :'BOOLEAN',
         :'gpg_keys' => :'Array<ReposGpgKeys>',
         :'index_files' => :'BOOLEAN',
@@ -320,6 +330,10 @@ module CloudsmithApi
         self.cdn_url = attributes[:'cdn_url']
       end
 
+      if attributes.has_key?(:'content_kind')
+        self.content_kind = attributes[:'content_kind']
+      end
+
       if attributes.has_key?(:'contextual_auth_realm')
         self.contextual_auth_realm = attributes[:'contextual_auth_realm']
       end
@@ -354,6 +368,12 @@ module CloudsmithApi
 
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'distributes')
+        if (value = attributes[:'distributes']).is_a?(Array)
+          self.distributes = value
+        end
       end
 
       if attributes.has_key?(:'docker_refresh_tokens_enabled')
@@ -541,6 +561,8 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      content_kind_validator = EnumAttributeValidator.new('String', ['Standard', 'Distribution', 'Upstream'])
+      return false unless content_kind_validator.valid?(@content_kind)
       copy_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
       return false unless copy_packages_validator.valid?(@copy_packages)
       default_privilege_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
@@ -559,6 +581,16 @@ module CloudsmithApi
       view_statistics_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
       return false unless view_statistics_validator.valid?(@view_statistics)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] content_kind Object to be assigned
+    def content_kind=(content_kind)
+      validator = EnumAttributeValidator.new('String', ['Standard', 'Distribution', 'Upstream'])
+      unless validator.valid?(content_kind)
+        fail ArgumentError, 'invalid value for "content_kind", must be one of #{validator.allowable_values}.'
+      end
+      @content_kind = content_kind
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -647,6 +679,7 @@ module CloudsmithApi
       return true if self.equal?(o)
       self.class == o.class &&
           cdn_url == o.cdn_url &&
+          content_kind == o.content_kind &&
           contextual_auth_realm == o.contextual_auth_realm &&
           copy_own == o.copy_own &&
           copy_packages == o.copy_packages &&
@@ -656,6 +689,7 @@ module CloudsmithApi
           delete_packages == o.delete_packages &&
           deleted_at == o.deleted_at &&
           description == o.description &&
+          distributes == o.distributes &&
           docker_refresh_tokens_enabled == o.docker_refresh_tokens_enabled &&
           gpg_keys == o.gpg_keys &&
           index_files == o.index_files &&
@@ -709,7 +743,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [cdn_url, contextual_auth_realm, copy_own, copy_packages, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, docker_refresh_tokens_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, move_own, move_packages, name, namespace, namespace_url, num_downloads, package_count, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, use_debian_labels, use_default_cargo_upstream, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+      [cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, move_own, move_packages, name, namespace, namespace_url, num_downloads, package_count, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, use_debian_labels, use_default_cargo_upstream, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
     end
 
     # Builds the object from hash

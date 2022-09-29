@@ -64,11 +64,11 @@ class PackageFilePartsUpload(object):
 
     @property
     def identifier(self):
-        """Gets the identifier of this PackageFilePartsUpload.  # noqa: E501
+        """Gets the identifier of this PackageFilePartsUpload.
 
-        The identifier for the file to use uploading parts.  # noqa: E501
+        The identifier for the file to use uploading parts.
 
-        :return: The identifier of this PackageFilePartsUpload.  # noqa: E501
+        :return: The identifier of this PackageFilePartsUpload.
         :rtype: str
         """
         return self._identifier
@@ -77,9 +77,9 @@ class PackageFilePartsUpload(object):
     def identifier(self, identifier):
         """Sets the identifier of this PackageFilePartsUpload.
 
-        The identifier for the file to use uploading parts.  # noqa: E501
+        The identifier for the file to use uploading parts.
 
-        :param identifier: The identifier of this PackageFilePartsUpload.  # noqa: E501
+        :param identifier: The identifier of this PackageFilePartsUpload.
         :type: str
         """
 
@@ -87,11 +87,11 @@ class PackageFilePartsUpload(object):
 
     @property
     def upload_querystring(self):
-        """Gets the upload_querystring of this PackageFilePartsUpload.  # noqa: E501
+        """Gets the upload_querystring of this PackageFilePartsUpload.
 
-        The querystring to use for the next-step PUT upload.  # noqa: E501
+        The querystring to use for the next-step PUT upload.
 
-        :return: The upload_querystring of this PackageFilePartsUpload.  # noqa: E501
+        :return: The upload_querystring of this PackageFilePartsUpload.
         :rtype: str
         """
         return self._upload_querystring
@@ -100,9 +100,9 @@ class PackageFilePartsUpload(object):
     def upload_querystring(self, upload_querystring):
         """Sets the upload_querystring of this PackageFilePartsUpload.
 
-        The querystring to use for the next-step PUT upload.  # noqa: E501
+        The querystring to use for the next-step PUT upload.
 
-        :param upload_querystring: The upload_querystring of this PackageFilePartsUpload.  # noqa: E501
+        :param upload_querystring: The upload_querystring of this PackageFilePartsUpload.
         :type: str
         """
 
@@ -110,11 +110,11 @@ class PackageFilePartsUpload(object):
 
     @property
     def upload_url(self):
-        """Gets the upload_url of this PackageFilePartsUpload.  # noqa: E501
+        """Gets the upload_url of this PackageFilePartsUpload.
 
-        The URL to use for the next-step PUT upload  # noqa: E501
+        The URL to use for the next-step PUT upload
 
-        :return: The upload_url of this PackageFilePartsUpload.  # noqa: E501
+        :return: The upload_url of this PackageFilePartsUpload.
         :rtype: str
         """
         return self._upload_url
@@ -123,9 +123,9 @@ class PackageFilePartsUpload(object):
     def upload_url(self, upload_url):
         """Sets the upload_url of this PackageFilePartsUpload.
 
-        The URL to use for the next-step PUT upload  # noqa: E501
+        The URL to use for the next-step PUT upload
 
-        :param upload_url: The upload_url of this PackageFilePartsUpload.  # noqa: E501
+        :param upload_url: The upload_url of this PackageFilePartsUpload.
         :type: str
         """
 
@@ -179,3 +179,4 @@ class PackageFilePartsUpload(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

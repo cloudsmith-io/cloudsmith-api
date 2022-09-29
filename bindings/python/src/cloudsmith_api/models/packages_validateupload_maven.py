@@ -103,11 +103,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def artifact_id(self):
-        """Gets the artifact_id of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the artifact_id of this PackagesValidateuploadMaven.
 
-        The ID of the artifact.  # noqa: E501
+        The ID of the artifact.
 
-        :return: The artifact_id of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The artifact_id of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._artifact_id
@@ -116,9 +116,9 @@ class PackagesValidateuploadMaven(object):
     def artifact_id(self, artifact_id):
         """Sets the artifact_id of this PackagesValidateuploadMaven.
 
-        The ID of the artifact.  # noqa: E501
+        The ID of the artifact.
 
-        :param artifact_id: The artifact_id of this PackagesValidateuploadMaven.  # noqa: E501
+        :param artifact_id: The artifact_id of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -126,11 +126,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def group_id(self):
-        """Gets the group_id of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the group_id of this PackagesValidateuploadMaven.
 
-        Artifact's group ID.  # noqa: E501
+        Artifact's group ID.
 
-        :return: The group_id of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The group_id of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._group_id
@@ -139,9 +139,9 @@ class PackagesValidateuploadMaven(object):
     def group_id(self, group_id):
         """Sets the group_id of this PackagesValidateuploadMaven.
 
-        Artifact's group ID.  # noqa: E501
+        Artifact's group ID.
 
-        :param group_id: The group_id of this PackagesValidateuploadMaven.  # noqa: E501
+        :param group_id: The group_id of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -149,11 +149,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def javadoc_file(self):
-        """Gets the javadoc_file of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the javadoc_file of this PackagesValidateuploadMaven.
 
-        Adds bundled Java documentation to the Maven package  # noqa: E501
+        Adds bundled Java documentation to the Maven package
 
-        :return: The javadoc_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The javadoc_file of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._javadoc_file
@@ -162,9 +162,9 @@ class PackagesValidateuploadMaven(object):
     def javadoc_file(self, javadoc_file):
         """Sets the javadoc_file of this PackagesValidateuploadMaven.
 
-        Adds bundled Java documentation to the Maven package  # noqa: E501
+        Adds bundled Java documentation to the Maven package
 
-        :param javadoc_file: The javadoc_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :param javadoc_file: The javadoc_file of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -172,11 +172,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the package_file of this PackagesValidateuploadMaven.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The package_file of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._package_file
@@ -185,9 +185,9 @@ class PackagesValidateuploadMaven(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesValidateuploadMaven.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :param package_file: The package_file of this PackagesValidateuploadMaven.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -197,11 +197,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def packaging(self):
-        """Gets the packaging of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the packaging of this PackagesValidateuploadMaven.
 
-        Artifact's Maven packaging type.  # noqa: E501
+        Artifact's Maven packaging type.
 
-        :return: The packaging of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The packaging of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._packaging
@@ -210,9 +210,9 @@ class PackagesValidateuploadMaven(object):
     def packaging(self, packaging):
         """Sets the packaging of this PackagesValidateuploadMaven.
 
-        Artifact's Maven packaging type.  # noqa: E501
+        Artifact's Maven packaging type.
 
-        :param packaging: The packaging of this PackagesValidateuploadMaven.  # noqa: E501
+        :param packaging: The packaging of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -220,11 +220,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def pom_file(self):
-        """Gets the pom_file of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the pom_file of this PackagesValidateuploadMaven.
 
-        The POM file is an XML file containing the Maven coordinates.  # noqa: E501
+        The POM file is an XML file containing the Maven coordinates.
 
-        :return: The pom_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The pom_file of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._pom_file
@@ -233,9 +233,9 @@ class PackagesValidateuploadMaven(object):
     def pom_file(self, pom_file):
         """Sets the pom_file of this PackagesValidateuploadMaven.
 
-        The POM file is an XML file containing the Maven coordinates.  # noqa: E501
+        The POM file is an XML file containing the Maven coordinates.
 
-        :param pom_file: The pom_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :param pom_file: The pom_file of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -243,11 +243,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the republish of this PackagesValidateuploadMaven.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The republish of this PackagesValidateuploadMaven.
         :rtype: bool
         """
         return self._republish
@@ -256,9 +256,9 @@ class PackagesValidateuploadMaven(object):
     def republish(self, republish):
         """Sets the republish of this PackagesValidateuploadMaven.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesValidateuploadMaven.  # noqa: E501
+        :param republish: The republish of this PackagesValidateuploadMaven.
         :type: bool
         """
 
@@ -266,11 +266,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def sources_file(self):
-        """Gets the sources_file of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the sources_file of this PackagesValidateuploadMaven.
 
-        Adds bundled Java source code to the Maven package.  # noqa: E501
+        Adds bundled Java source code to the Maven package.
 
-        :return: The sources_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The sources_file of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._sources_file
@@ -279,9 +279,9 @@ class PackagesValidateuploadMaven(object):
     def sources_file(self, sources_file):
         """Sets the sources_file of this PackagesValidateuploadMaven.
 
-        Adds bundled Java source code to the Maven package.  # noqa: E501
+        Adds bundled Java source code to the Maven package.
 
-        :param sources_file: The sources_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :param sources_file: The sources_file of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -289,11 +289,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the tags of this PackagesValidateuploadMaven.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The tags of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._tags
@@ -302,9 +302,9 @@ class PackagesValidateuploadMaven(object):
     def tags(self, tags):
         """Sets the tags of this PackagesValidateuploadMaven.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesValidateuploadMaven.  # noqa: E501
+        :param tags: The tags of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -312,11 +312,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def tests_file(self):
-        """Gets the tests_file of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the tests_file of this PackagesValidateuploadMaven.
 
-        Adds bundled Java tests to the Maven package.  # noqa: E501
+        Adds bundled Java tests to the Maven package.
 
-        :return: The tests_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The tests_file of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._tests_file
@@ -325,9 +325,9 @@ class PackagesValidateuploadMaven(object):
     def tests_file(self, tests_file):
         """Sets the tests_file of this PackagesValidateuploadMaven.
 
-        Adds bundled Java tests to the Maven package.  # noqa: E501
+        Adds bundled Java tests to the Maven package.
 
-        :param tests_file: The tests_file of this PackagesValidateuploadMaven.  # noqa: E501
+        :param tests_file: The tests_file of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -335,11 +335,11 @@ class PackagesValidateuploadMaven(object):
 
     @property
     def version(self):
-        """Gets the version of this PackagesValidateuploadMaven.  # noqa: E501
+        """Gets the version of this PackagesValidateuploadMaven.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :return: The version of this PackagesValidateuploadMaven.  # noqa: E501
+        :return: The version of this PackagesValidateuploadMaven.
         :rtype: str
         """
         return self._version
@@ -348,9 +348,9 @@ class PackagesValidateuploadMaven(object):
     def version(self, version):
         """Sets the version of this PackagesValidateuploadMaven.
 
-        The raw version for this package.  # noqa: E501
+        The raw version for this package.
 
-        :param version: The version of this PackagesValidateuploadMaven.  # noqa: E501
+        :param version: The version of this PackagesValidateuploadMaven.
         :type: str
         """
 
@@ -404,3 +404,4 @@ class PackagesValidateuploadMaven(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

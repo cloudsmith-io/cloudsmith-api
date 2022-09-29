@@ -54,11 +54,11 @@ class UserAuthToken(object):
 
     @property
     def token(self):
-        """Gets the token of this UserAuthToken.  # noqa: E501
+        """Gets the token of this UserAuthToken.
 
-        API token for the authenticated user  # noqa: E501
+        API token for the authenticated user
 
-        :return: The token of this UserAuthToken.  # noqa: E501
+        :return: The token of this UserAuthToken.
         :rtype: str
         """
         return self._token
@@ -67,9 +67,9 @@ class UserAuthToken(object):
     def token(self, token):
         """Sets the token of this UserAuthToken.
 
-        API token for the authenticated user  # noqa: E501
+        API token for the authenticated user
 
-        :param token: The token of this UserAuthToken.  # noqa: E501
+        :param token: The token of this UserAuthToken.
         :type: str
         """
 
@@ -123,3 +123,4 @@ class UserAuthToken(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

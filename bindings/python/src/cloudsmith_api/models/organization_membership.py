@@ -99,11 +99,11 @@ class OrganizationMembership(object):
 
     @property
     def email(self):
-        """Gets the email of this OrganizationMembership.  # noqa: E501
+        """Gets the email of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The email of this OrganizationMembership.  # noqa: E501
+        :return: The email of this OrganizationMembership.
         :rtype: str
         """
         return self._email
@@ -112,9 +112,9 @@ class OrganizationMembership(object):
     def email(self, email):
         """Sets the email of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param email: The email of this OrganizationMembership.  # noqa: E501
+        :param email: The email of this OrganizationMembership.
         :type: str
         """
 
@@ -122,11 +122,11 @@ class OrganizationMembership(object):
 
     @property
     def has_two_factor(self):
-        """Gets the has_two_factor of this OrganizationMembership.  # noqa: E501
+        """Gets the has_two_factor of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The has_two_factor of this OrganizationMembership.  # noqa: E501
+        :return: The has_two_factor of this OrganizationMembership.
         :rtype: bool
         """
         return self._has_two_factor
@@ -135,9 +135,9 @@ class OrganizationMembership(object):
     def has_two_factor(self, has_two_factor):
         """Sets the has_two_factor of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param has_two_factor: The has_two_factor of this OrganizationMembership.  # noqa: E501
+        :param has_two_factor: The has_two_factor of this OrganizationMembership.
         :type: bool
         """
 
@@ -145,11 +145,11 @@ class OrganizationMembership(object):
 
     @property
     def joined_at(self):
-        """Gets the joined_at of this OrganizationMembership.  # noqa: E501
+        """Gets the joined_at of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The joined_at of this OrganizationMembership.  # noqa: E501
+        :return: The joined_at of this OrganizationMembership.
         :rtype: str
         """
         return self._joined_at
@@ -158,9 +158,9 @@ class OrganizationMembership(object):
     def joined_at(self, joined_at):
         """Sets the joined_at of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param joined_at: The joined_at of this OrganizationMembership.  # noqa: E501
+        :param joined_at: The joined_at of this OrganizationMembership.
         :type: str
         """
 
@@ -168,11 +168,11 @@ class OrganizationMembership(object):
 
     @property
     def last_login_at(self):
-        """Gets the last_login_at of this OrganizationMembership.  # noqa: E501
+        """Gets the last_login_at of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The last_login_at of this OrganizationMembership.  # noqa: E501
+        :return: The last_login_at of this OrganizationMembership.
         :rtype: str
         """
         return self._last_login_at
@@ -181,9 +181,9 @@ class OrganizationMembership(object):
     def last_login_at(self, last_login_at):
         """Sets the last_login_at of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param last_login_at: The last_login_at of this OrganizationMembership.  # noqa: E501
+        :param last_login_at: The last_login_at of this OrganizationMembership.
         :type: str
         """
 
@@ -191,11 +191,11 @@ class OrganizationMembership(object):
 
     @property
     def role(self):
-        """Gets the role of this OrganizationMembership.  # noqa: E501
+        """Gets the role of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The role of this OrganizationMembership.  # noqa: E501
+        :return: The role of this OrganizationMembership.
         :rtype: str
         """
         return self._role
@@ -204,9 +204,9 @@ class OrganizationMembership(object):
     def role(self, role):
         """Sets the role of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param role: The role of this OrganizationMembership.  # noqa: E501
+        :param role: The role of this OrganizationMembership.
         :type: str
         """
         allowed_values = ["Owner", "Manager", "Member", "Collaborator"]  # noqa: E501
@@ -221,11 +221,11 @@ class OrganizationMembership(object):
 
     @property
     def user(self):
-        """Gets the user of this OrganizationMembership.  # noqa: E501
+        """Gets the user of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The user of this OrganizationMembership.  # noqa: E501
+        :return: The user of this OrganizationMembership.
         :rtype: str
         """
         return self._user
@@ -234,9 +234,9 @@ class OrganizationMembership(object):
     def user(self, user):
         """Sets the user of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param user: The user of this OrganizationMembership.  # noqa: E501
+        :param user: The user of this OrganizationMembership.
         :type: str
         """
 
@@ -244,11 +244,11 @@ class OrganizationMembership(object):
 
     @property
     def user_id(self):
-        """Gets the user_id of this OrganizationMembership.  # noqa: E501
+        """Gets the user_id of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The user_id of this OrganizationMembership.  # noqa: E501
+        :return: The user_id of this OrganizationMembership.
         :rtype: str
         """
         return self._user_id
@@ -257,9 +257,9 @@ class OrganizationMembership(object):
     def user_id(self, user_id):
         """Sets the user_id of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param user_id: The user_id of this OrganizationMembership.  # noqa: E501
+        :param user_id: The user_id of this OrganizationMembership.
         :type: str
         """
 
@@ -267,11 +267,11 @@ class OrganizationMembership(object):
 
     @property
     def user_name(self):
-        """Gets the user_name of this OrganizationMembership.  # noqa: E501
+        """Gets the user_name of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The user_name of this OrganizationMembership.  # noqa: E501
+        :return: The user_name of this OrganizationMembership.
         :rtype: str
         """
         return self._user_name
@@ -280,9 +280,9 @@ class OrganizationMembership(object):
     def user_name(self, user_name):
         """Sets the user_name of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param user_name: The user_name of this OrganizationMembership.  # noqa: E501
+        :param user_name: The user_name of this OrganizationMembership.
         :type: str
         """
 
@@ -290,11 +290,11 @@ class OrganizationMembership(object):
 
     @property
     def user_url(self):
-        """Gets the user_url of this OrganizationMembership.  # noqa: E501
+        """Gets the user_url of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The user_url of this OrganizationMembership.  # noqa: E501
+        :return: The user_url of this OrganizationMembership.
         :rtype: str
         """
         return self._user_url
@@ -303,9 +303,9 @@ class OrganizationMembership(object):
     def user_url(self, user_url):
         """Sets the user_url of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param user_url: The user_url of this OrganizationMembership.  # noqa: E501
+        :param user_url: The user_url of this OrganizationMembership.
         :type: str
         """
 
@@ -313,11 +313,11 @@ class OrganizationMembership(object):
 
     @property
     def visibility(self):
-        """Gets the visibility of this OrganizationMembership.  # noqa: E501
+        """Gets the visibility of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :return: The visibility of this OrganizationMembership.  # noqa: E501
+        :return: The visibility of this OrganizationMembership.
         :rtype: str
         """
         return self._visibility
@@ -326,9 +326,9 @@ class OrganizationMembership(object):
     def visibility(self, visibility):
         """Sets the visibility of this OrganizationMembership.
 
-          # noqa: E501
+        
 
-        :param visibility: The visibility of this OrganizationMembership.  # noqa: E501
+        :param visibility: The visibility of this OrganizationMembership.
         :type: str
         """
         allowed_values = ["Public", "Private"]  # noqa: E501
@@ -389,3 +389,4 @@ class OrganizationMembership(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

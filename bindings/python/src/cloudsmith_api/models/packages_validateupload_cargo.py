@@ -63,11 +63,11 @@ class PackagesValidateuploadCargo(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesValidateuploadCargo.  # noqa: E501
+        """Gets the package_file of this PackagesValidateuploadCargo.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesValidateuploadCargo.  # noqa: E501
+        :return: The package_file of this PackagesValidateuploadCargo.
         :rtype: str
         """
         return self._package_file
@@ -76,9 +76,9 @@ class PackagesValidateuploadCargo(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesValidateuploadCargo.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesValidateuploadCargo.  # noqa: E501
+        :param package_file: The package_file of this PackagesValidateuploadCargo.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -88,11 +88,11 @@ class PackagesValidateuploadCargo(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesValidateuploadCargo.  # noqa: E501
+        """Gets the republish of this PackagesValidateuploadCargo.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesValidateuploadCargo.  # noqa: E501
+        :return: The republish of this PackagesValidateuploadCargo.
         :rtype: bool
         """
         return self._republish
@@ -101,9 +101,9 @@ class PackagesValidateuploadCargo(object):
     def republish(self, republish):
         """Sets the republish of this PackagesValidateuploadCargo.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesValidateuploadCargo.  # noqa: E501
+        :param republish: The republish of this PackagesValidateuploadCargo.
         :type: bool
         """
 
@@ -111,11 +111,11 @@ class PackagesValidateuploadCargo(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesValidateuploadCargo.  # noqa: E501
+        """Gets the tags of this PackagesValidateuploadCargo.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesValidateuploadCargo.  # noqa: E501
+        :return: The tags of this PackagesValidateuploadCargo.
         :rtype: str
         """
         return self._tags
@@ -124,9 +124,9 @@ class PackagesValidateuploadCargo(object):
     def tags(self, tags):
         """Sets the tags of this PackagesValidateuploadCargo.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesValidateuploadCargo.  # noqa: E501
+        :param tags: The tags of this PackagesValidateuploadCargo.
         :type: str
         """
 
@@ -180,3 +180,4 @@ class PackagesValidateuploadCargo(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

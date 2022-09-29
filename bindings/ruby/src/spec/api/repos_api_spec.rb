@@ -139,26 +139,15 @@ describe 'ReposApi' do
     end
   end
 
-  # unit tests for repos_privileges_delete
-  # Remove the specified repository privileges.
-  # Remove the specified repository privileges.
-  # @param owner 
-  # @param identifier 
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'repos_privileges_delete test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for repos_privileges_list
   # List all explicity created privileges for the repository.
   # List all explicity created privileges for the repository.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [Array<RepositoryPrivilegeList>]
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [RepositoryPrivilegeInput]
   describe 'repos_privileges_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -166,11 +155,12 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_privileges_partial_update
-  # Update the specified repository privileges.
-  # Update the specified repository privileges.
+  # Modify privileges for the repository.
+  # Modify privileges for the repository.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [ReposPrivilegesPartialUpdate] :data 
   # @return [nil]
   describe 'repos_privileges_partial_update test' do
     it 'should work' do
@@ -184,7 +174,8 @@ describe 'ReposApi' do
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RepositoryPrivilegeList]
+  # @option opts [ReposPrivilegesUpdate] :data 
+  # @return [nil]
   describe 'repos_privileges_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

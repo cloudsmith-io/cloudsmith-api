@@ -466,67 +466,14 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Remove the specified repository privileges.
-    # Remove the specified repository privileges.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def repos_privileges_delete(owner, identifier, opts = {})
-      repos_privileges_delete_with_http_info(owner, identifier, opts)
-      nil
-    end
-
-    # Remove the specified repository privileges.
-    # Remove the specified repository privileges.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def repos_privileges_delete_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_privileges_delete ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_privileges_delete"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_privileges_delete"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/privileges'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey']
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_privileges_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
     # List all explicity created privileges for the repository.
     # List all explicity created privileges for the repository.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<RepositoryPrivilegeList>]
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [RepositoryPrivilegeInput]
     def repos_privileges_list(owner, identifier, opts = {})
       data, _status_code, _headers = repos_privileges_list_with_http_info(owner, identifier, opts)
       data
@@ -537,7 +484,9 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<RepositoryPrivilegeList>, Fixnum, Hash)>] Array<RepositoryPrivilegeList> data, response status code and response headers
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(RepositoryPrivilegeInput, Fixnum, Hash)>] RepositoryPrivilegeInput data, response status code and response headers
     def repos_privileges_list_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_privileges_list ...'
@@ -555,6 +504,8 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
 
       # header parameters
       header_params = {}
@@ -571,28 +522,30 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RepositoryPrivilegeList>')
+        :return_type => 'RepositoryPrivilegeInput')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_privileges_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
-    # Update the specified repository privileges.
-    # Update the specified repository privileges.
+    # Modify privileges for the repository.
+    # Modify privileges for the repository.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [ReposPrivilegesPartialUpdate] :data 
     # @return [nil]
     def repos_privileges_partial_update(owner, identifier, opts = {})
       repos_privileges_partial_update_with_http_info(owner, identifier, opts)
       nil
     end
 
-    # Update the specified repository privileges.
-    # Update the specified repository privileges.
+    # Modify privileges for the repository.
+    # Modify privileges for the repository.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [ReposPrivilegesPartialUpdate] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def repos_privileges_partial_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -614,12 +567,14 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(opts[:'data'])
       auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
@@ -637,10 +592,11 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryPrivilegeList]
+    # @option opts [ReposPrivilegesUpdate] :data 
+    # @return [nil]
     def repos_privileges_update(owner, identifier, opts = {})
-      data, _status_code, _headers = repos_privileges_update_with_http_info(owner, identifier, opts)
-      data
+      repos_privileges_update_with_http_info(owner, identifier, opts)
+      nil
     end
 
     # Replace all existing repository privileges with those specified.
@@ -648,7 +604,8 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryPrivilegeList, Fixnum, Hash)>] RepositoryPrivilegeList data, response status code and response headers
+    # @option opts [ReposPrivilegesUpdate] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def repos_privileges_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_privileges_update ...'
@@ -669,20 +626,21 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(opts[:'data'])
       auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'RepositoryPrivilegeList')
+        :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_privileges_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

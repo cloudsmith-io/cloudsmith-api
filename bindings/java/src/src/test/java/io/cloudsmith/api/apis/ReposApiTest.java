@@ -16,11 +16,13 @@ package io.cloudsmith.api.apis;
 import io.cloudsmith.api.models.ReposCreate;
 import io.cloudsmith.api.models.ReposGpgCreate;
 import io.cloudsmith.api.models.ReposPartialUpdate;
+import io.cloudsmith.api.models.ReposPrivilegesPartialUpdate;
+import io.cloudsmith.api.models.ReposPrivilegesUpdate;
 import io.cloudsmith.api.models.ReposRsaCreate;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryGpgKey;
-import io.cloudsmith.api.models.RepositoryPrivilegeList;
+import io.cloudsmith.api.models.RepositoryPrivilegeInput;
 import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.Status;
 import org.junit.Test;
@@ -181,23 +183,6 @@ public class ReposApiTest {
     }
     
     /**
-     * Remove the specified repository privileges.
-     *
-     * Remove the specified repository privileges.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposPrivilegesDeleteTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        api.reposPrivilegesDelete(owner, identifier);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List all explicity created privileges for the repository.
      *
      * List all explicity created privileges for the repository.
@@ -209,15 +194,17 @@ public class ReposApiTest {
     public void reposPrivilegesListTest() throws Exception {
         String owner = null;
         String identifier = null;
-        List<RepositoryPrivilegeList> response = api.reposPrivilegesList(owner, identifier);
+        Integer page = null;
+        Integer pageSize = null;
+        RepositoryPrivilegeInput response = api.reposPrivilegesList(owner, identifier, page, pageSize);
 
         // TODO: test validations
     }
     
     /**
-     * Update the specified repository privileges.
+     * Modify privileges for the repository.
      *
-     * Update the specified repository privileges.
+     * Modify privileges for the repository.
      *
      * @throws Exception
      *          if the Api call fails
@@ -226,7 +213,8 @@ public class ReposApiTest {
     public void reposPrivilegesPartialUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        api.reposPrivilegesPartialUpdate(owner, identifier);
+        ReposPrivilegesPartialUpdate data = null;
+        api.reposPrivilegesPartialUpdate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -243,7 +231,8 @@ public class ReposApiTest {
     public void reposPrivilegesUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryPrivilegeList response = api.reposPrivilegesUpdate(owner, identifier);
+        ReposPrivilegesUpdate data = null;
+        api.reposPrivilegesUpdate(owner, identifier, data);
 
         // TODO: test validations
     }

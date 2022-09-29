@@ -36,6 +36,8 @@ Name | Type | Description | Notes
 **namespace** | **String** |  |  [optional]
 **namespaceUrl** | **String** |  |  [optional]
 **numFiles** | **Integer** |  |  [optional]
+**originRepository** | **String** |  |  [optional]
+**originRepositoryUrl** | **String** |  |  [optional]
 **packageType** | **Integer** | The type of package contents. |  [optional]
 **provider** | **String** | The virtual machine provider for the box. | 
 **release** | **String** | The release of the package version (if any). |  [optional]

@@ -134,6 +134,12 @@ public class RawPackageUpload implements Serializable {
   @SerializedName("num_files")
   private Integer numFiles = null;
 
+  @SerializedName("origin_repository")
+  private String originRepository = null;
+
+  @SerializedName("origin_repository_url")
+  private String originRepositoryUrl = null;
+
   @SerializedName("package_type")
   private Integer packageType = null;
 
@@ -889,6 +895,42 @@ public class RawPackageUpload implements Serializable {
     this.numFiles = numFiles;
   }
 
+  public RawPackageUpload originRepository(String originRepository) {
+    this.originRepository = originRepository;
+    return this;
+  }
+
+   /**
+   * 
+   * @return originRepository
+  **/
+  @ApiModelProperty(value = "")
+  public String getOriginRepository() {
+    return originRepository;
+  }
+
+  public void setOriginRepository(String originRepository) {
+    this.originRepository = originRepository;
+  }
+
+  public RawPackageUpload originRepositoryUrl(String originRepositoryUrl) {
+    this.originRepositoryUrl = originRepositoryUrl;
+    return this;
+  }
+
+   /**
+   * 
+   * @return originRepositoryUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getOriginRepositoryUrl() {
+    return originRepositoryUrl;
+  }
+
+  public void setOriginRepositoryUrl(String originRepositoryUrl) {
+    this.originRepositoryUrl = originRepositoryUrl;
+  }
+
   public RawPackageUpload packageType(Integer packageType) {
     this.packageType = packageType;
     return this;
@@ -1543,6 +1585,8 @@ public class RawPackageUpload implements Serializable {
         Objects.equals(this.namespace, rawPackageUpload.namespace) &&
         Objects.equals(this.namespaceUrl, rawPackageUpload.namespaceUrl) &&
         Objects.equals(this.numFiles, rawPackageUpload.numFiles) &&
+        Objects.equals(this.originRepository, rawPackageUpload.originRepository) &&
+        Objects.equals(this.originRepositoryUrl, rawPackageUpload.originRepositoryUrl) &&
         Objects.equals(this.packageType, rawPackageUpload.packageType) &&
         Objects.equals(this.release, rawPackageUpload.release) &&
         Objects.equals(this.repository, rawPackageUpload.repository) &&
@@ -1581,7 +1625,7 @@ public class RawPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1622,6 +1666,8 @@ public class RawPackageUpload implements Serializable {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
     sb.append("    numFiles: ").append(toIndentedString(numFiles)).append("\n");
+    sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
+    sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");

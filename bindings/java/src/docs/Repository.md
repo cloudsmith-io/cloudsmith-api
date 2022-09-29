@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cdnUrl** | **String** | Base URL from which packages and other artifacts are downloaded. |  [optional]
+**contentKind** | [**ContentKindEnum**](#ContentKindEnum) | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time. |  [optional]
 **contextualAuthRealm** | **Boolean** | If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the &#39;WWW-Authenticate&#39; header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials. |  [optional]
 **copyOwn** | **Boolean** | If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
 **copyPackages** | [**CopyPackagesEnum**](#CopyPackagesEnum) | This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting. |  [optional]
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **deletePackages** | [**DeletePackagesEnum**](#DeletePackagesEnum) | This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting. |  [optional]
 **deletedAt** | **String** |  |  [optional]
 **description** | **String** | A description of the repository&#39;s purpose/contents. |  [optional]
+**distributes** | **List&lt;String&gt;** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. |  [optional]
 **dockerRefreshTokensEnabled** | **Boolean** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. |  [optional]
 **gpgKeys** | [**List&lt;ReposGpgKeys&gt;**](ReposGpgKeys.md) |  |  [optional]
 **indexFiles** | **Boolean** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. |  [optional]
@@ -55,7 +57,16 @@ Name | Type | Description | Notes
 **useSourcePackages** | **Boolean** | If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries. |  [optional]
 **useVulnerabilityScanning** | **Boolean** | If checked, vulnerability scanning will be enabled for all supported packages within this repository. |  [optional]
 **userEntitlementsEnabled** | **Boolean** | If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users. |  [optional]
-**viewStatistics** | [**ViewStatisticsEnum**](#ViewStatisticsEnum) | This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applciable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI. |  [optional]
+**viewStatistics** | [**ViewStatisticsEnum**](#ViewStatisticsEnum) | This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI. |  [optional]
+
+
+<a name="ContentKindEnum"></a>
+## Enum: ContentKindEnum
+Name | Value
+---- | -----
+STANDARD | &quot;Standard&quot;
+DISTRIBUTION | &quot;Distribution&quot;
+UPSTREAM | &quot;Upstream&quot;
 
 
 <a name="CopyPackagesEnum"></a>

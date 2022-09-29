@@ -59,11 +59,11 @@ class StatusBasic(object):
 
     @property
     def detail(self):
-        """Gets the detail of this StatusBasic.  # noqa: E501
+        """Gets the detail of this StatusBasic.
 
-        The message describing the state of the API.  # noqa: E501
+        The message describing the state of the API.
 
-        :return: The detail of this StatusBasic.  # noqa: E501
+        :return: The detail of this StatusBasic.
         :rtype: str
         """
         return self._detail
@@ -72,9 +72,9 @@ class StatusBasic(object):
     def detail(self, detail):
         """Sets the detail of this StatusBasic.
 
-        The message describing the state of the API.  # noqa: E501
+        The message describing the state of the API.
 
-        :param detail: The detail of this StatusBasic.  # noqa: E501
+        :param detail: The detail of this StatusBasic.
         :type: str
         """
 
@@ -82,11 +82,11 @@ class StatusBasic(object):
 
     @property
     def version(self):
-        """Gets the version of this StatusBasic.  # noqa: E501
+        """Gets the version of this StatusBasic.
 
-        The current version for the Cloudsmith service.  # noqa: E501
+        The current version for the Cloudsmith service.
 
-        :return: The version of this StatusBasic.  # noqa: E501
+        :return: The version of this StatusBasic.
         :rtype: str
         """
         return self._version
@@ -95,9 +95,9 @@ class StatusBasic(object):
     def version(self, version):
         """Sets the version of this StatusBasic.
 
-        The current version for the Cloudsmith service.  # noqa: E501
+        The current version for the Cloudsmith service.
 
-        :param version: The version of this StatusBasic.  # noqa: E501
+        :param version: The version of this StatusBasic.
         :type: str
         """
 
@@ -151,3 +151,4 @@ class StatusBasic(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

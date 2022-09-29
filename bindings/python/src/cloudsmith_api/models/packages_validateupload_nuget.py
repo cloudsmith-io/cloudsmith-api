@@ -68,11 +68,11 @@ class PackagesValidateuploadNuget(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesValidateuploadNuget.  # noqa: E501
+        """Gets the package_file of this PackagesValidateuploadNuget.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesValidateuploadNuget.  # noqa: E501
+        :return: The package_file of this PackagesValidateuploadNuget.
         :rtype: str
         """
         return self._package_file
@@ -81,9 +81,9 @@ class PackagesValidateuploadNuget(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesValidateuploadNuget.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesValidateuploadNuget.  # noqa: E501
+        :param package_file: The package_file of this PackagesValidateuploadNuget.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -93,11 +93,11 @@ class PackagesValidateuploadNuget(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesValidateuploadNuget.  # noqa: E501
+        """Gets the republish of this PackagesValidateuploadNuget.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesValidateuploadNuget.  # noqa: E501
+        :return: The republish of this PackagesValidateuploadNuget.
         :rtype: bool
         """
         return self._republish
@@ -106,9 +106,9 @@ class PackagesValidateuploadNuget(object):
     def republish(self, republish):
         """Sets the republish of this PackagesValidateuploadNuget.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesValidateuploadNuget.  # noqa: E501
+        :param republish: The republish of this PackagesValidateuploadNuget.
         :type: bool
         """
 
@@ -116,11 +116,11 @@ class PackagesValidateuploadNuget(object):
 
     @property
     def symbols_file(self):
-        """Gets the symbols_file of this PackagesValidateuploadNuget.  # noqa: E501
+        """Gets the symbols_file of this PackagesValidateuploadNuget.
 
-        Attaches a symbols file to the package.  # noqa: E501
+        Attaches a symbols file to the package.
 
-        :return: The symbols_file of this PackagesValidateuploadNuget.  # noqa: E501
+        :return: The symbols_file of this PackagesValidateuploadNuget.
         :rtype: str
         """
         return self._symbols_file
@@ -129,9 +129,9 @@ class PackagesValidateuploadNuget(object):
     def symbols_file(self, symbols_file):
         """Sets the symbols_file of this PackagesValidateuploadNuget.
 
-        Attaches a symbols file to the package.  # noqa: E501
+        Attaches a symbols file to the package.
 
-        :param symbols_file: The symbols_file of this PackagesValidateuploadNuget.  # noqa: E501
+        :param symbols_file: The symbols_file of this PackagesValidateuploadNuget.
         :type: str
         """
 
@@ -139,11 +139,11 @@ class PackagesValidateuploadNuget(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesValidateuploadNuget.  # noqa: E501
+        """Gets the tags of this PackagesValidateuploadNuget.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesValidateuploadNuget.  # noqa: E501
+        :return: The tags of this PackagesValidateuploadNuget.
         :rtype: str
         """
         return self._tags
@@ -152,9 +152,9 @@ class PackagesValidateuploadNuget(object):
     def tags(self, tags):
         """Sets the tags of this PackagesValidateuploadNuget.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesValidateuploadNuget.  # noqa: E501
+        :param tags: The tags of this PackagesValidateuploadNuget.
         :type: str
         """
 
@@ -208,3 +208,4 @@ class PackagesValidateuploadNuget(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

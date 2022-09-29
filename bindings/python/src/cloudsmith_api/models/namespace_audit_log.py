@@ -117,11 +117,11 @@ class NamespaceAuditLog(object):
 
     @property
     def actor(self):
-        """Gets the actor of this NamespaceAuditLog.  # noqa: E501
+        """Gets the actor of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor of this NamespaceAuditLog.  # noqa: E501
+        :return: The actor of this NamespaceAuditLog.
         :rtype: str
         """
         return self._actor
@@ -130,9 +130,9 @@ class NamespaceAuditLog(object):
     def actor(self, actor):
         """Sets the actor of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor: The actor of this NamespaceAuditLog.  # noqa: E501
+        :param actor: The actor of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor is None:
@@ -142,11 +142,11 @@ class NamespaceAuditLog(object):
 
     @property
     def actor_ip_address(self):
-        """Gets the actor_ip_address of this NamespaceAuditLog.  # noqa: E501
+        """Gets the actor_ip_address of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_ip_address of this NamespaceAuditLog.  # noqa: E501
+        :return: The actor_ip_address of this NamespaceAuditLog.
         :rtype: str
         """
         return self._actor_ip_address
@@ -155,9 +155,9 @@ class NamespaceAuditLog(object):
     def actor_ip_address(self, actor_ip_address):
         """Sets the actor_ip_address of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_ip_address: The actor_ip_address of this NamespaceAuditLog.  # noqa: E501
+        :param actor_ip_address: The actor_ip_address of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor_ip_address is None:
@@ -167,11 +167,11 @@ class NamespaceAuditLog(object):
 
     @property
     def actor_kind(self):
-        """Gets the actor_kind of this NamespaceAuditLog.  # noqa: E501
+        """Gets the actor_kind of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_kind of this NamespaceAuditLog.  # noqa: E501
+        :return: The actor_kind of this NamespaceAuditLog.
         :rtype: str
         """
         return self._actor_kind
@@ -180,9 +180,9 @@ class NamespaceAuditLog(object):
     def actor_kind(self, actor_kind):
         """Sets the actor_kind of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_kind: The actor_kind of this NamespaceAuditLog.  # noqa: E501
+        :param actor_kind: The actor_kind of this NamespaceAuditLog.
         :type: str
         """
 
@@ -190,11 +190,11 @@ class NamespaceAuditLog(object):
 
     @property
     def actor_location(self):
-        """Gets the actor_location of this NamespaceAuditLog.  # noqa: E501
+        """Gets the actor_location of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_location of this NamespaceAuditLog.  # noqa: E501
+        :return: The actor_location of this NamespaceAuditLog.
         :rtype: object
         """
         return self._actor_location
@@ -203,9 +203,9 @@ class NamespaceAuditLog(object):
     def actor_location(self, actor_location):
         """Sets the actor_location of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_location: The actor_location of this NamespaceAuditLog.  # noqa: E501
+        :param actor_location: The actor_location of this NamespaceAuditLog.
         :type: object
         """
         if self._configuration.client_side_validation and actor_location is None:
@@ -215,11 +215,11 @@ class NamespaceAuditLog(object):
 
     @property
     def actor_slug_perm(self):
-        """Gets the actor_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        """Gets the actor_slug_perm of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        :return: The actor_slug_perm of this NamespaceAuditLog.
         :rtype: str
         """
         return self._actor_slug_perm
@@ -228,9 +228,9 @@ class NamespaceAuditLog(object):
     def actor_slug_perm(self, actor_slug_perm):
         """Sets the actor_slug_perm of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_slug_perm: The actor_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        :param actor_slug_perm: The actor_slug_perm of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor_slug_perm is None:
@@ -240,11 +240,11 @@ class NamespaceAuditLog(object):
 
     @property
     def actor_url(self):
-        """Gets the actor_url of this NamespaceAuditLog.  # noqa: E501
+        """Gets the actor_url of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The actor_url of this NamespaceAuditLog.  # noqa: E501
+        :return: The actor_url of this NamespaceAuditLog.
         :rtype: str
         """
         return self._actor_url
@@ -253,9 +253,9 @@ class NamespaceAuditLog(object):
     def actor_url(self, actor_url):
         """Sets the actor_url of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param actor_url: The actor_url of this NamespaceAuditLog.  # noqa: E501
+        :param actor_url: The actor_url of this NamespaceAuditLog.
         :type: str
         """
 
@@ -263,11 +263,11 @@ class NamespaceAuditLog(object):
 
     @property
     def context(self):
-        """Gets the context of this NamespaceAuditLog.  # noqa: E501
+        """Gets the context of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The context of this NamespaceAuditLog.  # noqa: E501
+        :return: The context of this NamespaceAuditLog.
         :rtype: str
         """
         return self._context
@@ -276,9 +276,9 @@ class NamespaceAuditLog(object):
     def context(self, context):
         """Sets the context of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param context: The context of this NamespaceAuditLog.  # noqa: E501
+        :param context: The context of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and context is None:
@@ -288,11 +288,11 @@ class NamespaceAuditLog(object):
 
     @property
     def event(self):
-        """Gets the event of this NamespaceAuditLog.  # noqa: E501
+        """Gets the event of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The event of this NamespaceAuditLog.  # noqa: E501
+        :return: The event of this NamespaceAuditLog.
         :rtype: str
         """
         return self._event
@@ -301,9 +301,9 @@ class NamespaceAuditLog(object):
     def event(self, event):
         """Sets the event of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param event: The event of this NamespaceAuditLog.  # noqa: E501
+        :param event: The event of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and event is None:
@@ -313,11 +313,11 @@ class NamespaceAuditLog(object):
 
     @property
     def event_at(self):
-        """Gets the event_at of this NamespaceAuditLog.  # noqa: E501
+        """Gets the event_at of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The event_at of this NamespaceAuditLog.  # noqa: E501
+        :return: The event_at of this NamespaceAuditLog.
         :rtype: str
         """
         return self._event_at
@@ -326,9 +326,9 @@ class NamespaceAuditLog(object):
     def event_at(self, event_at):
         """Sets the event_at of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param event_at: The event_at of this NamespaceAuditLog.  # noqa: E501
+        :param event_at: The event_at of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and event_at is None:
@@ -338,11 +338,11 @@ class NamespaceAuditLog(object):
 
     @property
     def object(self):
-        """Gets the object of this NamespaceAuditLog.  # noqa: E501
+        """Gets the object of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The object of this NamespaceAuditLog.  # noqa: E501
+        :return: The object of this NamespaceAuditLog.
         :rtype: str
         """
         return self._object
@@ -351,9 +351,9 @@ class NamespaceAuditLog(object):
     def object(self, object):
         """Sets the object of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param object: The object of this NamespaceAuditLog.  # noqa: E501
+        :param object: The object of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object is None:
@@ -363,11 +363,11 @@ class NamespaceAuditLog(object):
 
     @property
     def object_kind(self):
-        """Gets the object_kind of this NamespaceAuditLog.  # noqa: E501
+        """Gets the object_kind of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The object_kind of this NamespaceAuditLog.  # noqa: E501
+        :return: The object_kind of this NamespaceAuditLog.
         :rtype: str
         """
         return self._object_kind
@@ -376,9 +376,9 @@ class NamespaceAuditLog(object):
     def object_kind(self, object_kind):
         """Sets the object_kind of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param object_kind: The object_kind of this NamespaceAuditLog.  # noqa: E501
+        :param object_kind: The object_kind of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object_kind is None:
@@ -388,11 +388,11 @@ class NamespaceAuditLog(object):
 
     @property
     def object_slug_perm(self):
-        """Gets the object_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        """Gets the object_slug_perm of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The object_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        :return: The object_slug_perm of this NamespaceAuditLog.
         :rtype: str
         """
         return self._object_slug_perm
@@ -401,9 +401,9 @@ class NamespaceAuditLog(object):
     def object_slug_perm(self, object_slug_perm):
         """Sets the object_slug_perm of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param object_slug_perm: The object_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        :param object_slug_perm: The object_slug_perm of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object_slug_perm is None:
@@ -413,11 +413,11 @@ class NamespaceAuditLog(object):
 
     @property
     def target(self):
-        """Gets the target of this NamespaceAuditLog.  # noqa: E501
+        """Gets the target of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The target of this NamespaceAuditLog.  # noqa: E501
+        :return: The target of this NamespaceAuditLog.
         :rtype: str
         """
         return self._target
@@ -426,9 +426,9 @@ class NamespaceAuditLog(object):
     def target(self, target):
         """Sets the target of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param target: The target of this NamespaceAuditLog.  # noqa: E501
+        :param target: The target of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and target is None:
@@ -438,11 +438,11 @@ class NamespaceAuditLog(object):
 
     @property
     def target_kind(self):
-        """Gets the target_kind of this NamespaceAuditLog.  # noqa: E501
+        """Gets the target_kind of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The target_kind of this NamespaceAuditLog.  # noqa: E501
+        :return: The target_kind of this NamespaceAuditLog.
         :rtype: str
         """
         return self._target_kind
@@ -451,9 +451,9 @@ class NamespaceAuditLog(object):
     def target_kind(self, target_kind):
         """Sets the target_kind of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param target_kind: The target_kind of this NamespaceAuditLog.  # noqa: E501
+        :param target_kind: The target_kind of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and target_kind is None:
@@ -463,11 +463,11 @@ class NamespaceAuditLog(object):
 
     @property
     def target_slug_perm(self):
-        """Gets the target_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        """Gets the target_slug_perm of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The target_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        :return: The target_slug_perm of this NamespaceAuditLog.
         :rtype: str
         """
         return self._target_slug_perm
@@ -476,9 +476,9 @@ class NamespaceAuditLog(object):
     def target_slug_perm(self, target_slug_perm):
         """Sets the target_slug_perm of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param target_slug_perm: The target_slug_perm of this NamespaceAuditLog.  # noqa: E501
+        :param target_slug_perm: The target_slug_perm of this NamespaceAuditLog.
         :type: str
         """
 
@@ -486,11 +486,11 @@ class NamespaceAuditLog(object):
 
     @property
     def uuid(self):
-        """Gets the uuid of this NamespaceAuditLog.  # noqa: E501
+        """Gets the uuid of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :return: The uuid of this NamespaceAuditLog.  # noqa: E501
+        :return: The uuid of this NamespaceAuditLog.
         :rtype: str
         """
         return self._uuid
@@ -499,9 +499,9 @@ class NamespaceAuditLog(object):
     def uuid(self, uuid):
         """Sets the uuid of this NamespaceAuditLog.
 
-          # noqa: E501
+        
 
-        :param uuid: The uuid of this NamespaceAuditLog.  # noqa: E501
+        :param uuid: The uuid of this NamespaceAuditLog.
         :type: str
         """
 
@@ -555,3 +555,4 @@ class NamespaceAuditLog(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

@@ -35,6 +35,8 @@ Name | Type | Description | Notes
 **namespace** | **str** |  | [optional] 
 **namespace_url** | **str** |  | [optional] 
 **num_files** | **int** |  | [optional] 
+**origin_repository** | **str** |  | [optional] 
+**origin_repository_url** | **str** |  | [optional] 
 **package_type** | **int** | The type of package contents. | [optional] 
 **release** | **str** | The release of the package version (if any). | [optional] 
 **repository** | **str** | The repository the package will be copied to. | [optional] 

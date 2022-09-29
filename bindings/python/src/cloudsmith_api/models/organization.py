@@ -84,11 +84,11 @@ class Organization(object):
 
     @property
     def country(self):
-        """Gets the country of this Organization.  # noqa: E501
+        """Gets the country of this Organization.
 
-          # noqa: E501
+        
 
-        :return: The country of this Organization.  # noqa: E501
+        :return: The country of this Organization.
         :rtype: str
         """
         return self._country
@@ -97,9 +97,9 @@ class Organization(object):
     def country(self, country):
         """Sets the country of this Organization.
 
-          # noqa: E501
+        
 
-        :param country: The country of this Organization.  # noqa: E501
+        :param country: The country of this Organization.
         :type: str
         """
 
@@ -107,11 +107,11 @@ class Organization(object):
 
     @property
     def created_at(self):
-        """Gets the created_at of this Organization.  # noqa: E501
+        """Gets the created_at of this Organization.
 
-          # noqa: E501
+        
 
-        :return: The created_at of this Organization.  # noqa: E501
+        :return: The created_at of this Organization.
         :rtype: str
         """
         return self._created_at
@@ -120,9 +120,9 @@ class Organization(object):
     def created_at(self, created_at):
         """Sets the created_at of this Organization.
 
-          # noqa: E501
+        
 
-        :param created_at: The created_at of this Organization.  # noqa: E501
+        :param created_at: The created_at of this Organization.
         :type: str
         """
 
@@ -130,11 +130,11 @@ class Organization(object):
 
     @property
     def location(self):
-        """Gets the location of this Organization.  # noqa: E501
+        """Gets the location of this Organization.
 
-        The city/town/area your organization is based in.  # noqa: E501
+        The city/town/area your organization is based in.
 
-        :return: The location of this Organization.  # noqa: E501
+        :return: The location of this Organization.
         :rtype: str
         """
         return self._location
@@ -143,9 +143,9 @@ class Organization(object):
     def location(self, location):
         """Sets the location of this Organization.
 
-        The city/town/area your organization is based in.  # noqa: E501
+        The city/town/area your organization is based in.
 
-        :param location: The location of this Organization.  # noqa: E501
+        :param location: The location of this Organization.
         :type: str
         """
 
@@ -153,11 +153,11 @@ class Organization(object):
 
     @property
     def name(self):
-        """Gets the name of this Organization.  # noqa: E501
+        """Gets the name of this Organization.
 
-        A descriptive name for your organization.  # noqa: E501
+        A descriptive name for your organization.
 
-        :return: The name of this Organization.  # noqa: E501
+        :return: The name of this Organization.
         :rtype: str
         """
         return self._name
@@ -166,9 +166,9 @@ class Organization(object):
     def name(self, name):
         """Sets the name of this Organization.
 
-        A descriptive name for your organization.  # noqa: E501
+        A descriptive name for your organization.
 
-        :param name: The name of this Organization.  # noqa: E501
+        :param name: The name of this Organization.
         :type: str
         """
 
@@ -176,11 +176,11 @@ class Organization(object):
 
     @property
     def slug(self):
-        """Gets the slug of this Organization.  # noqa: E501
+        """Gets the slug of this Organization.
 
-          # noqa: E501
+        
 
-        :return: The slug of this Organization.  # noqa: E501
+        :return: The slug of this Organization.
         :rtype: str
         """
         return self._slug
@@ -189,9 +189,9 @@ class Organization(object):
     def slug(self, slug):
         """Sets the slug of this Organization.
 
-          # noqa: E501
+        
 
-        :param slug: The slug of this Organization.  # noqa: E501
+        :param slug: The slug of this Organization.
         :type: str
         """
 
@@ -199,11 +199,11 @@ class Organization(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this Organization.  # noqa: E501
+        """Gets the slug_perm of this Organization.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this Organization.  # noqa: E501
+        :return: The slug_perm of this Organization.
         :rtype: str
         """
         return self._slug_perm
@@ -212,9 +212,9 @@ class Organization(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this Organization.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this Organization.  # noqa: E501
+        :param slug_perm: The slug_perm of this Organization.
         :type: str
         """
 
@@ -222,11 +222,11 @@ class Organization(object):
 
     @property
     def tagline(self):
-        """Gets the tagline of this Organization.  # noqa: E501
+        """Gets the tagline of this Organization.
 
-        A short public descriptive for your organization.  # noqa: E501
+        A short public descriptive for your organization.
 
-        :return: The tagline of this Organization.  # noqa: E501
+        :return: The tagline of this Organization.
         :rtype: str
         """
         return self._tagline
@@ -235,9 +235,9 @@ class Organization(object):
     def tagline(self, tagline):
         """Sets the tagline of this Organization.
 
-        A short public descriptive for your organization.  # noqa: E501
+        A short public descriptive for your organization.
 
-        :param tagline: The tagline of this Organization.  # noqa: E501
+        :param tagline: The tagline of this Organization.
         :type: str
         """
 
@@ -291,3 +291,4 @@ class Organization(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

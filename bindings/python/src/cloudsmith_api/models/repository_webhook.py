@@ -181,11 +181,11 @@ class RepositoryWebhook(object):
 
     @property
     def created_at(self):
-        """Gets the created_at of this RepositoryWebhook.  # noqa: E501
+        """Gets the created_at of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The created_at of this RepositoryWebhook.  # noqa: E501
+        :return: The created_at of this RepositoryWebhook.
         :rtype: str
         """
         return self._created_at
@@ -194,9 +194,9 @@ class RepositoryWebhook(object):
     def created_at(self, created_at):
         """Sets the created_at of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param created_at: The created_at of this RepositoryWebhook.  # noqa: E501
+        :param created_at: The created_at of this RepositoryWebhook.
         :type: str
         """
 
@@ -204,11 +204,11 @@ class RepositoryWebhook(object):
 
     @property
     def created_by(self):
-        """Gets the created_by of this RepositoryWebhook.  # noqa: E501
+        """Gets the created_by of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The created_by of this RepositoryWebhook.  # noqa: E501
+        :return: The created_by of this RepositoryWebhook.
         :rtype: str
         """
         return self._created_by
@@ -217,9 +217,9 @@ class RepositoryWebhook(object):
     def created_by(self, created_by):
         """Sets the created_by of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param created_by: The created_by of this RepositoryWebhook.  # noqa: E501
+        :param created_by: The created_by of this RepositoryWebhook.
         :type: str
         """
 
@@ -227,11 +227,11 @@ class RepositoryWebhook(object):
 
     @property
     def created_by_url(self):
-        """Gets the created_by_url of this RepositoryWebhook.  # noqa: E501
+        """Gets the created_by_url of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The created_by_url of this RepositoryWebhook.  # noqa: E501
+        :return: The created_by_url of this RepositoryWebhook.
         :rtype: str
         """
         return self._created_by_url
@@ -240,9 +240,9 @@ class RepositoryWebhook(object):
     def created_by_url(self, created_by_url):
         """Sets the created_by_url of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param created_by_url: The created_by_url of this RepositoryWebhook.  # noqa: E501
+        :param created_by_url: The created_by_url of this RepositoryWebhook.
         :type: str
         """
 
@@ -250,11 +250,11 @@ class RepositoryWebhook(object):
 
     @property
     def disable_reason(self):
-        """Gets the disable_reason of this RepositoryWebhook.  # noqa: E501
+        """Gets the disable_reason of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The disable_reason of this RepositoryWebhook.  # noqa: E501
+        :return: The disable_reason of this RepositoryWebhook.
         :rtype: int
         """
         return self._disable_reason
@@ -263,9 +263,9 @@ class RepositoryWebhook(object):
     def disable_reason(self, disable_reason):
         """Sets the disable_reason of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param disable_reason: The disable_reason of this RepositoryWebhook.  # noqa: E501
+        :param disable_reason: The disable_reason of this RepositoryWebhook.
         :type: int
         """
 
@@ -273,11 +273,11 @@ class RepositoryWebhook(object):
 
     @property
     def disable_reason_str(self):
-        """Gets the disable_reason_str of this RepositoryWebhook.  # noqa: E501
+        """Gets the disable_reason_str of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The disable_reason_str of this RepositoryWebhook.  # noqa: E501
+        :return: The disable_reason_str of this RepositoryWebhook.
         :rtype: str
         """
         return self._disable_reason_str
@@ -286,9 +286,9 @@ class RepositoryWebhook(object):
     def disable_reason_str(self, disable_reason_str):
         """Sets the disable_reason_str of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param disable_reason_str: The disable_reason_str of this RepositoryWebhook.  # noqa: E501
+        :param disable_reason_str: The disable_reason_str of this RepositoryWebhook.
         :type: str
         """
 
@@ -296,11 +296,11 @@ class RepositoryWebhook(object):
 
     @property
     def events(self):
-        """Gets the events of this RepositoryWebhook.  # noqa: E501
+        """Gets the events of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The events of this RepositoryWebhook.  # noqa: E501
+        :return: The events of this RepositoryWebhook.
         :rtype: list[str]
         """
         return self._events
@@ -309,9 +309,9 @@ class RepositoryWebhook(object):
     def events(self, events):
         """Sets the events of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param events: The events of this RepositoryWebhook.  # noqa: E501
+        :param events: The events of this RepositoryWebhook.
         :type: list[str]
         """
         if self._configuration.client_side_validation and events is None:
@@ -321,11 +321,11 @@ class RepositoryWebhook(object):
 
     @property
     def identifier(self):
-        """Gets the identifier of this RepositoryWebhook.  # noqa: E501
+        """Gets the identifier of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The identifier of this RepositoryWebhook.  # noqa: E501
+        :return: The identifier of this RepositoryWebhook.
         :rtype: int
         """
         return self._identifier
@@ -334,9 +334,9 @@ class RepositoryWebhook(object):
     def identifier(self, identifier):
         """Sets the identifier of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param identifier: The identifier of this RepositoryWebhook.  # noqa: E501
+        :param identifier: The identifier of this RepositoryWebhook.
         :type: int
         """
 
@@ -344,11 +344,11 @@ class RepositoryWebhook(object):
 
     @property
     def is_active(self):
-        """Gets the is_active of this RepositoryWebhook.  # noqa: E501
+        """Gets the is_active of this RepositoryWebhook.
 
-        If enabled, the webhook will trigger on events and send payloads to the configured target URL.  # noqa: E501
+        If enabled, the webhook will trigger on events and send payloads to the configured target URL.
 
-        :return: The is_active of this RepositoryWebhook.  # noqa: E501
+        :return: The is_active of this RepositoryWebhook.
         :rtype: bool
         """
         return self._is_active
@@ -357,9 +357,9 @@ class RepositoryWebhook(object):
     def is_active(self, is_active):
         """Sets the is_active of this RepositoryWebhook.
 
-        If enabled, the webhook will trigger on events and send payloads to the configured target URL.  # noqa: E501
+        If enabled, the webhook will trigger on events and send payloads to the configured target URL.
 
-        :param is_active: The is_active of this RepositoryWebhook.  # noqa: E501
+        :param is_active: The is_active of this RepositoryWebhook.
         :type: bool
         """
 
@@ -367,11 +367,11 @@ class RepositoryWebhook(object):
 
     @property
     def is_last_response_bad(self):
-        """Gets the is_last_response_bad of this RepositoryWebhook.  # noqa: E501
+        """Gets the is_last_response_bad of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The is_last_response_bad of this RepositoryWebhook.  # noqa: E501
+        :return: The is_last_response_bad of this RepositoryWebhook.
         :rtype: bool
         """
         return self._is_last_response_bad
@@ -380,9 +380,9 @@ class RepositoryWebhook(object):
     def is_last_response_bad(self, is_last_response_bad):
         """Sets the is_last_response_bad of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param is_last_response_bad: The is_last_response_bad of this RepositoryWebhook.  # noqa: E501
+        :param is_last_response_bad: The is_last_response_bad of this RepositoryWebhook.
         :type: bool
         """
 
@@ -390,11 +390,11 @@ class RepositoryWebhook(object):
 
     @property
     def last_response_status(self):
-        """Gets the last_response_status of this RepositoryWebhook.  # noqa: E501
+        """Gets the last_response_status of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The last_response_status of this RepositoryWebhook.  # noqa: E501
+        :return: The last_response_status of this RepositoryWebhook.
         :rtype: int
         """
         return self._last_response_status
@@ -403,9 +403,9 @@ class RepositoryWebhook(object):
     def last_response_status(self, last_response_status):
         """Sets the last_response_status of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param last_response_status: The last_response_status of this RepositoryWebhook.  # noqa: E501
+        :param last_response_status: The last_response_status of this RepositoryWebhook.
         :type: int
         """
 
@@ -413,11 +413,11 @@ class RepositoryWebhook(object):
 
     @property
     def last_response_status_str(self):
-        """Gets the last_response_status_str of this RepositoryWebhook.  # noqa: E501
+        """Gets the last_response_status_str of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The last_response_status_str of this RepositoryWebhook.  # noqa: E501
+        :return: The last_response_status_str of this RepositoryWebhook.
         :rtype: str
         """
         return self._last_response_status_str
@@ -426,9 +426,9 @@ class RepositoryWebhook(object):
     def last_response_status_str(self, last_response_status_str):
         """Sets the last_response_status_str of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param last_response_status_str: The last_response_status_str of this RepositoryWebhook.  # noqa: E501
+        :param last_response_status_str: The last_response_status_str of this RepositoryWebhook.
         :type: str
         """
 
@@ -436,11 +436,11 @@ class RepositoryWebhook(object):
 
     @property
     def num_sent(self):
-        """Gets the num_sent of this RepositoryWebhook.  # noqa: E501
+        """Gets the num_sent of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The num_sent of this RepositoryWebhook.  # noqa: E501
+        :return: The num_sent of this RepositoryWebhook.
         :rtype: int
         """
         return self._num_sent
@@ -449,9 +449,9 @@ class RepositoryWebhook(object):
     def num_sent(self, num_sent):
         """Sets the num_sent of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param num_sent: The num_sent of this RepositoryWebhook.  # noqa: E501
+        :param num_sent: The num_sent of this RepositoryWebhook.
         :type: int
         """
 
@@ -459,11 +459,11 @@ class RepositoryWebhook(object):
 
     @property
     def package_query(self):
-        """Gets the package_query of this RepositoryWebhook.  # noqa: E501
+        """Gets the package_query of this RepositoryWebhook.
 
-        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.  # noqa: E501
+        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
 
-        :return: The package_query of this RepositoryWebhook.  # noqa: E501
+        :return: The package_query of this RepositoryWebhook.
         :rtype: str
         """
         return self._package_query
@@ -472,9 +472,9 @@ class RepositoryWebhook(object):
     def package_query(self, package_query):
         """Sets the package_query of this RepositoryWebhook.
 
-        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.  # noqa: E501
+        The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
 
-        :param package_query: The package_query of this RepositoryWebhook.  # noqa: E501
+        :param package_query: The package_query of this RepositoryWebhook.
         :type: str
         """
 
@@ -482,11 +482,11 @@ class RepositoryWebhook(object):
 
     @property
     def request_body_format(self):
-        """Gets the request_body_format of this RepositoryWebhook.  # noqa: E501
+        """Gets the request_body_format of this RepositoryWebhook.
 
-        The format of the payloads for webhook requests.  # noqa: E501
+        The format of the payloads for webhook requests.
 
-        :return: The request_body_format of this RepositoryWebhook.  # noqa: E501
+        :return: The request_body_format of this RepositoryWebhook.
         :rtype: int
         """
         return self._request_body_format
@@ -495,9 +495,9 @@ class RepositoryWebhook(object):
     def request_body_format(self, request_body_format):
         """Sets the request_body_format of this RepositoryWebhook.
 
-        The format of the payloads for webhook requests.  # noqa: E501
+        The format of the payloads for webhook requests.
 
-        :param request_body_format: The request_body_format of this RepositoryWebhook.  # noqa: E501
+        :param request_body_format: The request_body_format of this RepositoryWebhook.
         :type: int
         """
 
@@ -505,11 +505,11 @@ class RepositoryWebhook(object):
 
     @property
     def request_body_format_str(self):
-        """Gets the request_body_format_str of this RepositoryWebhook.  # noqa: E501
+        """Gets the request_body_format_str of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The request_body_format_str of this RepositoryWebhook.  # noqa: E501
+        :return: The request_body_format_str of this RepositoryWebhook.
         :rtype: str
         """
         return self._request_body_format_str
@@ -518,9 +518,9 @@ class RepositoryWebhook(object):
     def request_body_format_str(self, request_body_format_str):
         """Sets the request_body_format_str of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param request_body_format_str: The request_body_format_str of this RepositoryWebhook.  # noqa: E501
+        :param request_body_format_str: The request_body_format_str of this RepositoryWebhook.
         :type: str
         """
 
@@ -528,11 +528,11 @@ class RepositoryWebhook(object):
 
     @property
     def request_body_template_format(self):
-        """Gets the request_body_template_format of this RepositoryWebhook.  # noqa: E501
+        """Gets the request_body_template_format of this RepositoryWebhook.
 
-        The format of the payloads for webhook requests.  # noqa: E501
+        The format of the payloads for webhook requests.
 
-        :return: The request_body_template_format of this RepositoryWebhook.  # noqa: E501
+        :return: The request_body_template_format of this RepositoryWebhook.
         :rtype: int
         """
         return self._request_body_template_format
@@ -541,9 +541,9 @@ class RepositoryWebhook(object):
     def request_body_template_format(self, request_body_template_format):
         """Sets the request_body_template_format of this RepositoryWebhook.
 
-        The format of the payloads for webhook requests.  # noqa: E501
+        The format of the payloads for webhook requests.
 
-        :param request_body_template_format: The request_body_template_format of this RepositoryWebhook.  # noqa: E501
+        :param request_body_template_format: The request_body_template_format of this RepositoryWebhook.
         :type: int
         """
 
@@ -551,11 +551,11 @@ class RepositoryWebhook(object):
 
     @property
     def request_body_template_format_str(self):
-        """Gets the request_body_template_format_str of this RepositoryWebhook.  # noqa: E501
+        """Gets the request_body_template_format_str of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The request_body_template_format_str of this RepositoryWebhook.  # noqa: E501
+        :return: The request_body_template_format_str of this RepositoryWebhook.
         :rtype: str
         """
         return self._request_body_template_format_str
@@ -564,9 +564,9 @@ class RepositoryWebhook(object):
     def request_body_template_format_str(self, request_body_template_format_str):
         """Sets the request_body_template_format_str of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param request_body_template_format_str: The request_body_template_format_str of this RepositoryWebhook.  # noqa: E501
+        :param request_body_template_format_str: The request_body_template_format_str of this RepositoryWebhook.
         :type: str
         """
 
@@ -574,11 +574,11 @@ class RepositoryWebhook(object):
 
     @property
     def request_content_type(self):
-        """Gets the request_content_type of this RepositoryWebhook.  # noqa: E501
+        """Gets the request_content_type of this RepositoryWebhook.
 
-        The value that will be sent for the 'Content Type' header.   # noqa: E501
+        The value that will be sent for the 'Content Type' header. 
 
-        :return: The request_content_type of this RepositoryWebhook.  # noqa: E501
+        :return: The request_content_type of this RepositoryWebhook.
         :rtype: str
         """
         return self._request_content_type
@@ -587,9 +587,9 @@ class RepositoryWebhook(object):
     def request_content_type(self, request_content_type):
         """Sets the request_content_type of this RepositoryWebhook.
 
-        The value that will be sent for the 'Content Type' header.   # noqa: E501
+        The value that will be sent for the 'Content Type' header. 
 
-        :param request_content_type: The request_content_type of this RepositoryWebhook.  # noqa: E501
+        :param request_content_type: The request_content_type of this RepositoryWebhook.
         :type: str
         """
 
@@ -597,11 +597,11 @@ class RepositoryWebhook(object):
 
     @property
     def secret_header(self):
-        """Gets the secret_header of this RepositoryWebhook.  # noqa: E501
+        """Gets the secret_header of this RepositoryWebhook.
 
-        The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.  # noqa: E501
+        The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
 
-        :return: The secret_header of this RepositoryWebhook.  # noqa: E501
+        :return: The secret_header of this RepositoryWebhook.
         :rtype: str
         """
         return self._secret_header
@@ -610,9 +610,9 @@ class RepositoryWebhook(object):
     def secret_header(self, secret_header):
         """Sets the secret_header of this RepositoryWebhook.
 
-        The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.  # noqa: E501
+        The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
 
-        :param secret_header: The secret_header of this RepositoryWebhook.  # noqa: E501
+        :param secret_header: The secret_header of this RepositoryWebhook.
         :type: str
         """
 
@@ -620,11 +620,11 @@ class RepositoryWebhook(object):
 
     @property
     def self_url(self):
-        """Gets the self_url of this RepositoryWebhook.  # noqa: E501
+        """Gets the self_url of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The self_url of this RepositoryWebhook.  # noqa: E501
+        :return: The self_url of this RepositoryWebhook.
         :rtype: str
         """
         return self._self_url
@@ -633,9 +633,9 @@ class RepositoryWebhook(object):
     def self_url(self, self_url):
         """Sets the self_url of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param self_url: The self_url of this RepositoryWebhook.  # noqa: E501
+        :param self_url: The self_url of this RepositoryWebhook.
         :type: str
         """
 
@@ -643,11 +643,11 @@ class RepositoryWebhook(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this RepositoryWebhook.  # noqa: E501
+        """Gets the slug_perm of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this RepositoryWebhook.  # noqa: E501
+        :return: The slug_perm of this RepositoryWebhook.
         :rtype: str
         """
         return self._slug_perm
@@ -656,9 +656,9 @@ class RepositoryWebhook(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this RepositoryWebhook.  # noqa: E501
+        :param slug_perm: The slug_perm of this RepositoryWebhook.
         :type: str
         """
 
@@ -666,11 +666,11 @@ class RepositoryWebhook(object):
 
     @property
     def target_url(self):
-        """Gets the target_url of this RepositoryWebhook.  # noqa: E501
+        """Gets the target_url of this RepositoryWebhook.
 
-        The destination URL that webhook payloads will be POST'ed to.  # noqa: E501
+        The destination URL that webhook payloads will be POST'ed to.
 
-        :return: The target_url of this RepositoryWebhook.  # noqa: E501
+        :return: The target_url of this RepositoryWebhook.
         :rtype: str
         """
         return self._target_url
@@ -679,9 +679,9 @@ class RepositoryWebhook(object):
     def target_url(self, target_url):
         """Sets the target_url of this RepositoryWebhook.
 
-        The destination URL that webhook payloads will be POST'ed to.  # noqa: E501
+        The destination URL that webhook payloads will be POST'ed to.
 
-        :param target_url: The target_url of this RepositoryWebhook.  # noqa: E501
+        :param target_url: The target_url of this RepositoryWebhook.
         :type: str
         """
         if self._configuration.client_side_validation and target_url is None:
@@ -691,11 +691,11 @@ class RepositoryWebhook(object):
 
     @property
     def templates(self):
-        """Gets the templates of this RepositoryWebhook.  # noqa: E501
+        """Gets the templates of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The templates of this RepositoryWebhook.  # noqa: E501
+        :return: The templates of this RepositoryWebhook.
         :rtype: list[WebhooksownerrepoTemplates]
         """
         return self._templates
@@ -704,9 +704,9 @@ class RepositoryWebhook(object):
     def templates(self, templates):
         """Sets the templates of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param templates: The templates of this RepositoryWebhook.  # noqa: E501
+        :param templates: The templates of this RepositoryWebhook.
         :type: list[WebhooksownerrepoTemplates]
         """
         if self._configuration.client_side_validation and templates is None:
@@ -716,11 +716,11 @@ class RepositoryWebhook(object):
 
     @property
     def updated_at(self):
-        """Gets the updated_at of this RepositoryWebhook.  # noqa: E501
+        """Gets the updated_at of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The updated_at of this RepositoryWebhook.  # noqa: E501
+        :return: The updated_at of this RepositoryWebhook.
         :rtype: str
         """
         return self._updated_at
@@ -729,9 +729,9 @@ class RepositoryWebhook(object):
     def updated_at(self, updated_at):
         """Sets the updated_at of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param updated_at: The updated_at of this RepositoryWebhook.  # noqa: E501
+        :param updated_at: The updated_at of this RepositoryWebhook.
         :type: str
         """
 
@@ -739,11 +739,11 @@ class RepositoryWebhook(object):
 
     @property
     def updated_by(self):
-        """Gets the updated_by of this RepositoryWebhook.  # noqa: E501
+        """Gets the updated_by of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The updated_by of this RepositoryWebhook.  # noqa: E501
+        :return: The updated_by of this RepositoryWebhook.
         :rtype: str
         """
         return self._updated_by
@@ -752,9 +752,9 @@ class RepositoryWebhook(object):
     def updated_by(self, updated_by):
         """Sets the updated_by of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param updated_by: The updated_by of this RepositoryWebhook.  # noqa: E501
+        :param updated_by: The updated_by of this RepositoryWebhook.
         :type: str
         """
 
@@ -762,11 +762,11 @@ class RepositoryWebhook(object):
 
     @property
     def updated_by_url(self):
-        """Gets the updated_by_url of this RepositoryWebhook.  # noqa: E501
+        """Gets the updated_by_url of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :return: The updated_by_url of this RepositoryWebhook.  # noqa: E501
+        :return: The updated_by_url of this RepositoryWebhook.
         :rtype: str
         """
         return self._updated_by_url
@@ -775,9 +775,9 @@ class RepositoryWebhook(object):
     def updated_by_url(self, updated_by_url):
         """Sets the updated_by_url of this RepositoryWebhook.
 
-          # noqa: E501
+        
 
-        :param updated_by_url: The updated_by_url of this RepositoryWebhook.  # noqa: E501
+        :param updated_by_url: The updated_by_url of this RepositoryWebhook.
         :type: str
         """
 
@@ -785,11 +785,11 @@ class RepositoryWebhook(object):
 
     @property
     def verify_ssl(self):
-        """Gets the verify_ssl of this RepositoryWebhook.  # noqa: E501
+        """Gets the verify_ssl of this RepositoryWebhook.
 
-        If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.  # noqa: E501
+        If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
 
-        :return: The verify_ssl of this RepositoryWebhook.  # noqa: E501
+        :return: The verify_ssl of this RepositoryWebhook.
         :rtype: bool
         """
         return self._verify_ssl
@@ -798,9 +798,9 @@ class RepositoryWebhook(object):
     def verify_ssl(self, verify_ssl):
         """Sets the verify_ssl of this RepositoryWebhook.
 
-        If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.  # noqa: E501
+        If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
 
-        :param verify_ssl: The verify_ssl of this RepositoryWebhook.  # noqa: E501
+        :param verify_ssl: The verify_ssl of this RepositoryWebhook.
         :type: bool
         """
 
@@ -854,3 +854,4 @@ class RepositoryWebhook(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

@@ -68,11 +68,11 @@ class OrgsTeamsCreate(object):
 
     @property
     def description(self):
-        """Gets the description of this OrgsTeamsCreate.  # noqa: E501
+        """Gets the description of this OrgsTeamsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The description of this OrgsTeamsCreate.  # noqa: E501
+        :return: The description of this OrgsTeamsCreate.
         :rtype: str
         """
         return self._description
@@ -81,9 +81,9 @@ class OrgsTeamsCreate(object):
     def description(self, description):
         """Sets the description of this OrgsTeamsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param description: The description of this OrgsTeamsCreate.  # noqa: E501
+        :param description: The description of this OrgsTeamsCreate.
         :type: str
         """
 
@@ -91,11 +91,11 @@ class OrgsTeamsCreate(object):
 
     @property
     def name(self):
-        """Gets the name of this OrgsTeamsCreate.  # noqa: E501
+        """Gets the name of this OrgsTeamsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The name of this OrgsTeamsCreate.  # noqa: E501
+        :return: The name of this OrgsTeamsCreate.
         :rtype: str
         """
         return self._name
@@ -104,9 +104,9 @@ class OrgsTeamsCreate(object):
     def name(self, name):
         """Sets the name of this OrgsTeamsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param name: The name of this OrgsTeamsCreate.  # noqa: E501
+        :param name: The name of this OrgsTeamsCreate.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
@@ -116,11 +116,11 @@ class OrgsTeamsCreate(object):
 
     @property
     def slug(self):
-        """Gets the slug of this OrgsTeamsCreate.  # noqa: E501
+        """Gets the slug of this OrgsTeamsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The slug of this OrgsTeamsCreate.  # noqa: E501
+        :return: The slug of this OrgsTeamsCreate.
         :rtype: str
         """
         return self._slug
@@ -129,9 +129,9 @@ class OrgsTeamsCreate(object):
     def slug(self, slug):
         """Sets the slug of this OrgsTeamsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param slug: The slug of this OrgsTeamsCreate.  # noqa: E501
+        :param slug: The slug of this OrgsTeamsCreate.
         :type: str
         """
 
@@ -139,11 +139,11 @@ class OrgsTeamsCreate(object):
 
     @property
     def visibility(self):
-        """Gets the visibility of this OrgsTeamsCreate.  # noqa: E501
+        """Gets the visibility of this OrgsTeamsCreate.
 
-        None  # noqa: E501
+        None
 
-        :return: The visibility of this OrgsTeamsCreate.  # noqa: E501
+        :return: The visibility of this OrgsTeamsCreate.
         :rtype: str
         """
         return self._visibility
@@ -152,9 +152,9 @@ class OrgsTeamsCreate(object):
     def visibility(self, visibility):
         """Sets the visibility of this OrgsTeamsCreate.
 
-        None  # noqa: E501
+        None
 
-        :param visibility: The visibility of this OrgsTeamsCreate.  # noqa: E501
+        :param visibility: The visibility of this OrgsTeamsCreate.
         :type: str
         """
         allowed_values = ["Visible", "Hidden"]  # noqa: E501
@@ -215,3 +215,4 @@ class OrgsTeamsCreate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

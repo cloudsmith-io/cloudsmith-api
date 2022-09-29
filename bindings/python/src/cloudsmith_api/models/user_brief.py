@@ -84,11 +84,11 @@ class UserBrief(object):
 
     @property
     def authenticated(self):
-        """Gets the authenticated of this UserBrief.  # noqa: E501
+        """Gets the authenticated of this UserBrief.
 
-        If true then you're logged in as a user.  # noqa: E501
+        If true then you're logged in as a user.
 
-        :return: The authenticated of this UserBrief.  # noqa: E501
+        :return: The authenticated of this UserBrief.
         :rtype: bool
         """
         return self._authenticated
@@ -97,9 +97,9 @@ class UserBrief(object):
     def authenticated(self, authenticated):
         """Sets the authenticated of this UserBrief.
 
-        If true then you're logged in as a user.  # noqa: E501
+        If true then you're logged in as a user.
 
-        :param authenticated: The authenticated of this UserBrief.  # noqa: E501
+        :param authenticated: The authenticated of this UserBrief.
         :type: bool
         """
 
@@ -107,11 +107,11 @@ class UserBrief(object):
 
     @property
     def email(self):
-        """Gets the email of this UserBrief.  # noqa: E501
+        """Gets the email of this UserBrief.
 
-        Your email address that we use to contact you. This is only visible to you.  # noqa: E501
+        Your email address that we use to contact you. This is only visible to you.
 
-        :return: The email of this UserBrief.  # noqa: E501
+        :return: The email of this UserBrief.
         :rtype: str
         """
         return self._email
@@ -120,9 +120,9 @@ class UserBrief(object):
     def email(self, email):
         """Sets the email of this UserBrief.
 
-        Your email address that we use to contact you. This is only visible to you.  # noqa: E501
+        Your email address that we use to contact you. This is only visible to you.
 
-        :param email: The email of this UserBrief.  # noqa: E501
+        :param email: The email of this UserBrief.
         :type: str
         """
 
@@ -130,11 +130,11 @@ class UserBrief(object):
 
     @property
     def name(self):
-        """Gets the name of this UserBrief.  # noqa: E501
+        """Gets the name of this UserBrief.
 
-        The full name of the user (if any).  # noqa: E501
+        The full name of the user (if any).
 
-        :return: The name of this UserBrief.  # noqa: E501
+        :return: The name of this UserBrief.
         :rtype: str
         """
         return self._name
@@ -143,9 +143,9 @@ class UserBrief(object):
     def name(self, name):
         """Sets the name of this UserBrief.
 
-        The full name of the user (if any).  # noqa: E501
+        The full name of the user (if any).
 
-        :param name: The name of this UserBrief.  # noqa: E501
+        :param name: The name of this UserBrief.
         :type: str
         """
 
@@ -153,11 +153,11 @@ class UserBrief(object):
 
     @property
     def profile_url(self):
-        """Gets the profile_url of this UserBrief.  # noqa: E501
+        """Gets the profile_url of this UserBrief.
 
-        The URL for the full profile of the user.  # noqa: E501
+        The URL for the full profile of the user.
 
-        :return: The profile_url of this UserBrief.  # noqa: E501
+        :return: The profile_url of this UserBrief.
         :rtype: str
         """
         return self._profile_url
@@ -166,9 +166,9 @@ class UserBrief(object):
     def profile_url(self, profile_url):
         """Sets the profile_url of this UserBrief.
 
-        The URL for the full profile of the user.  # noqa: E501
+        The URL for the full profile of the user.
 
-        :param profile_url: The profile_url of this UserBrief.  # noqa: E501
+        :param profile_url: The profile_url of this UserBrief.
         :type: str
         """
 
@@ -176,11 +176,11 @@ class UserBrief(object):
 
     @property
     def self_url(self):
-        """Gets the self_url of this UserBrief.  # noqa: E501
+        """Gets the self_url of this UserBrief.
 
-          # noqa: E501
+        
 
-        :return: The self_url of this UserBrief.  # noqa: E501
+        :return: The self_url of this UserBrief.
         :rtype: str
         """
         return self._self_url
@@ -189,9 +189,9 @@ class UserBrief(object):
     def self_url(self, self_url):
         """Sets the self_url of this UserBrief.
 
-          # noqa: E501
+        
 
-        :param self_url: The self_url of this UserBrief.  # noqa: E501
+        :param self_url: The self_url of this UserBrief.
         :type: str
         """
 
@@ -199,11 +199,11 @@ class UserBrief(object):
 
     @property
     def slug(self):
-        """Gets the slug of this UserBrief.  # noqa: E501
+        """Gets the slug of this UserBrief.
 
-          # noqa: E501
+        
 
-        :return: The slug of this UserBrief.  # noqa: E501
+        :return: The slug of this UserBrief.
         :rtype: str
         """
         return self._slug
@@ -212,9 +212,9 @@ class UserBrief(object):
     def slug(self, slug):
         """Sets the slug of this UserBrief.
 
-          # noqa: E501
+        
 
-        :param slug: The slug of this UserBrief.  # noqa: E501
+        :param slug: The slug of this UserBrief.
         :type: str
         """
 
@@ -222,11 +222,11 @@ class UserBrief(object):
 
     @property
     def slug_perm(self):
-        """Gets the slug_perm of this UserBrief.  # noqa: E501
+        """Gets the slug_perm of this UserBrief.
 
-          # noqa: E501
+        
 
-        :return: The slug_perm of this UserBrief.  # noqa: E501
+        :return: The slug_perm of this UserBrief.
         :rtype: str
         """
         return self._slug_perm
@@ -235,9 +235,9 @@ class UserBrief(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this UserBrief.
 
-          # noqa: E501
+        
 
-        :param slug_perm: The slug_perm of this UserBrief.  # noqa: E501
+        :param slug_perm: The slug_perm of this UserBrief.
         :type: str
         """
 
@@ -291,3 +291,4 @@ class UserBrief(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

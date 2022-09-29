@@ -58,11 +58,11 @@ class ReposRsaCreate(object):
 
     @property
     def rsa_passphrase(self):
-        """Gets the rsa_passphrase of this ReposRsaCreate.  # noqa: E501
+        """Gets the rsa_passphrase of this ReposRsaCreate.
 
-        The RSA passphrase used for signing.  # noqa: E501
+        The RSA passphrase used for signing.
 
-        :return: The rsa_passphrase of this ReposRsaCreate.  # noqa: E501
+        :return: The rsa_passphrase of this ReposRsaCreate.
         :rtype: str
         """
         return self._rsa_passphrase
@@ -71,9 +71,9 @@ class ReposRsaCreate(object):
     def rsa_passphrase(self, rsa_passphrase):
         """Sets the rsa_passphrase of this ReposRsaCreate.
 
-        The RSA passphrase used for signing.  # noqa: E501
+        The RSA passphrase used for signing.
 
-        :param rsa_passphrase: The rsa_passphrase of this ReposRsaCreate.  # noqa: E501
+        :param rsa_passphrase: The rsa_passphrase of this ReposRsaCreate.
         :type: str
         """
 
@@ -81,11 +81,11 @@ class ReposRsaCreate(object):
 
     @property
     def rsa_private_key(self):
-        """Gets the rsa_private_key of this ReposRsaCreate.  # noqa: E501
+        """Gets the rsa_private_key of this ReposRsaCreate.
 
-        The RSA private key.  # noqa: E501
+        The RSA private key.
 
-        :return: The rsa_private_key of this ReposRsaCreate.  # noqa: E501
+        :return: The rsa_private_key of this ReposRsaCreate.
         :rtype: str
         """
         return self._rsa_private_key
@@ -94,9 +94,9 @@ class ReposRsaCreate(object):
     def rsa_private_key(self, rsa_private_key):
         """Sets the rsa_private_key of this ReposRsaCreate.
 
-        The RSA private key.  # noqa: E501
+        The RSA private key.
 
-        :param rsa_private_key: The rsa_private_key of this ReposRsaCreate.  # noqa: E501
+        :param rsa_private_key: The rsa_private_key of this ReposRsaCreate.
         :type: str
         """
         if self._configuration.client_side_validation and rsa_private_key is None:
@@ -152,3 +152,4 @@ class ReposRsaCreate(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

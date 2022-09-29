@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>1.120.3</version>
+  <version>1.142.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:1.120.3"
+compile "io.cloudsmith.api:cloudsmith-api:1.142.3"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-1.120.3.jar`
+* `target/cloudsmith-api-1.142.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -146,18 +146,22 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsInvitesExtend**](docs/OrgsApi.md#orgsInvitesExtend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
 *OrgsApi* | [**orgsInvitesList**](docs/OrgsApi.md#orgsInvitesList) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
+*OrgsApi* | [**orgsMembersDelete**](docs/OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 *OrgsApi* | [**orgsMembersList**](docs/OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
 *OrgsApi* | [**orgsMembersRead**](docs/OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
-*OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization.
+*OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 *OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 *OrgsApi* | [**orgsSamlGroupSyncDelete**](docs/OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 *OrgsApi* | [**orgsSamlGroupSyncList**](docs/OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
 *OrgsApi* | [**orgsTeamsCreate**](docs/OrgsApi.md#orgsTeamsCreate) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
-*OrgsApi* | [**orgsTeamsDelete**](docs/OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{slug_perm}/ | Delete a specific team in a organization.
+*OrgsApi* | [**orgsTeamsDelete**](docs/OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization.
 *OrgsApi* | [**orgsTeamsList**](docs/OrgsApi.md#orgsTeamsList) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
-*OrgsApi* | [**orgsTeamsPartialUpdate**](docs/OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{slug_perm}/ | Update a specific team in a organization.
-*OrgsApi* | [**orgsTeamsRead**](docs/OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{slug_perm}/ | Viewset for working with Organization teams.
+*OrgsApi* | [**orgsTeamsMembersCreate**](docs/OrgsApi.md#orgsTeamsMembersCreate) | **POST** /orgs/{org}/teams/{team}/members | Add users to a team.
+*OrgsApi* | [**orgsTeamsMembersList**](docs/OrgsApi.md#orgsTeamsMembersList) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team.
+*OrgsApi* | [**orgsTeamsMembersUpdate**](docs/OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
+*OrgsApi* | [**orgsTeamsPartialUpdate**](docs/OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
+*OrgsApi* | [**orgsTeamsRead**](docs/OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details for the specific team.
 *PackagesApi* | [**packagesCopy**](docs/PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 *PackagesApi* | [**packagesDelete**](docs/PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 *PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
@@ -228,9 +232,8 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposGpgRegenerate**](docs/ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
 *ReposApi* | [**reposList**](docs/ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 *ReposApi* | [**reposPartialUpdate**](docs/ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
-*ReposApi* | [**reposPrivilegesDelete**](docs/ReposApi.md#reposPrivilegesDelete) | **DELETE** /repos/{owner}/{identifier}/privileges | Remove the specified repository privileges.
 *ReposApi* | [**reposPrivilegesList**](docs/ReposApi.md#reposPrivilegesList) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
-*ReposApi* | [**reposPrivilegesPartialUpdate**](docs/ReposApi.md#reposPrivilegesPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/privileges | Update the specified repository privileges.
+*ReposApi* | [**reposPrivilegesPartialUpdate**](docs/ReposApi.md#reposPrivilegesPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository.
 *ReposApi* | [**reposPrivilegesUpdate**](docs/ReposApi.md#reposPrivilegesUpdate) | **PUT** /repos/{owner}/{identifier}/privileges | Replace all existing repository privileges with those specified.
 *ReposApi* | [**reposRead**](docs/ReposApi.md#reposRead) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
 *ReposApi* | [**reposRsaCreate**](docs/ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
@@ -279,10 +282,14 @@ Class | Method | HTTP request | Description
  - [OrganizationInvite](docs/OrganizationInvite.md)
  - [OrganizationMembership](docs/OrganizationMembership.md)
  - [OrganizationTeam](docs/OrganizationTeam.md)
+ - [OrganizationTeamMembers](docs/OrganizationTeamMembers.md)
+ - [OrganizationTeamMembersMembers](docs/OrganizationTeamMembersMembers.md)
  - [OrgsInvitesCreate](docs/OrgsInvitesCreate.md)
  - [OrgsInvitesExtend](docs/OrgsInvitesExtend.md)
  - [OrgsSamlgroupsyncCreate](docs/OrgsSamlgroupsyncCreate.md)
  - [OrgsTeamsCreate](docs/OrgsTeamsCreate.md)
+ - [OrgsTeamsMembersCreate](docs/OrgsTeamsMembersCreate.md)
+ - [OrgsTeamsMembersUpdate](docs/OrgsTeamsMembersUpdate.md)
  - [OrgsTeamsPartialUpdate](docs/OrgsTeamsPartialUpdate.md)
  - [PackageCopy](docs/PackageCopy.md)
  - [PackageDependencies](docs/PackageDependencies.md)
@@ -352,12 +359,15 @@ Class | Method | HTTP request | Description
  - [ReposGpgCreate](docs/ReposGpgCreate.md)
  - [ReposGpgKeys](docs/ReposGpgKeys.md)
  - [ReposPartialUpdate](docs/ReposPartialUpdate.md)
+ - [ReposPrivilegesPartialUpdate](docs/ReposPrivilegesPartialUpdate.md)
+ - [ReposPrivilegesUpdate](docs/ReposPrivilegesUpdate.md)
  - [ReposRsaCreate](docs/ReposRsaCreate.md)
  - [Repository](docs/Repository.md)
  - [RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [RepositoryCreate](docs/RepositoryCreate.md)
  - [RepositoryGpgKey](docs/RepositoryGpgKey.md)
- - [RepositoryPrivilegeList](docs/RepositoryPrivilegeList.md)
+ - [RepositoryPrivilegeInput](docs/RepositoryPrivilegeInput.md)
+ - [RepositoryPrivilegeInputPrivileges](docs/RepositoryPrivilegeInputPrivileges.md)
  - [RepositoryRsaKey](docs/RepositoryRsaKey.md)
  - [RepositoryToken](docs/RepositoryToken.md)
  - [RepositoryTokenRefresh](docs/RepositoryTokenRefresh.md)

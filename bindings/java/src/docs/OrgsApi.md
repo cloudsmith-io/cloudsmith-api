@@ -9,18 +9,22 @@ Method | HTTP request | Description
 [**orgsInvitesExtend**](OrgsApi.md#orgsInvitesExtend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
 [**orgsInvitesList**](OrgsApi.md#orgsInvitesList) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
 [**orgsList**](OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
+[**orgsMembersDelete**](OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 [**orgsMembersList**](OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
 [**orgsMembersRead**](OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
-[**orgsMembersRemove**](OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization.
+[**orgsMembersRemove**](OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
 [**orgsRead**](OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 [**orgsSamlGroupSyncCreate**](OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgsSamlGroupSyncDelete**](OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 [**orgsSamlGroupSyncList**](OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
 [**orgsTeamsCreate**](OrgsApi.md#orgsTeamsCreate) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
-[**orgsTeamsDelete**](OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{slug_perm}/ | Delete a specific team in a organization.
+[**orgsTeamsDelete**](OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization.
 [**orgsTeamsList**](OrgsApi.md#orgsTeamsList) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
-[**orgsTeamsPartialUpdate**](OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{slug_perm}/ | Update a specific team in a organization.
-[**orgsTeamsRead**](OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{slug_perm}/ | Viewset for working with Organization teams.
+[**orgsTeamsMembersCreate**](OrgsApi.md#orgsTeamsMembersCreate) | **POST** /orgs/{org}/teams/{team}/members | Add users to a team.
+[**orgsTeamsMembersList**](OrgsApi.md#orgsTeamsMembersList) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team.
+[**orgsTeamsMembersUpdate**](OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
+[**orgsTeamsPartialUpdate**](OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
+[**orgsTeamsRead**](OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details for the specific team.
 
 
 <a name="orgsInvitesCreate"></a>
@@ -311,6 +315,62 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+<a name="orgsMembersDelete"></a>
+# **orgsMembersDelete**
+> orgsMembersDelete(org, member)
+
+Removes a member from the organization.
+
+Removes a member from the organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String member = "member_example"; // String | 
+try {
+    apiInstance.orgsMembersDelete(org, member);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsMembersDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **member** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
 <a name="orgsMembersList"></a>
 # **orgsMembersList**
 > List&lt;OrganizationMembership&gt; orgsMembersList(org, page, pageSize)
@@ -429,11 +489,11 @@ Name | Type | Description  | Notes
 
 <a name="orgsMembersRemove"></a>
 # **orgsMembersRemove**
-> OrganizationMembership orgsMembersRemove(org, member)
+> orgsMembersRemove(org, member)
 
-Removes a member from the organization.
+Removes a member from the organization (deprecated, use DELETE instead).
 
-Removes a member from the organization.
+Removes a member from the organization (deprecated, use DELETE instead).
 
 ### Example
 ```java
@@ -456,8 +516,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String member = "member_example"; // String | 
 try {
-    OrganizationMembership result = apiInstance.orgsMembersRemove(org, member);
-    System.out.println(result);
+    apiInstance.orgsMembersRemove(org, member);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsMembersRemove");
     e.printStackTrace();
@@ -473,7 +532,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationMembership**](OrganizationMembership.md)
+null (empty response body)
 
 ### Authorization
 
@@ -770,7 +829,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsDelete"></a>
 # **orgsTeamsDelete**
-> orgsTeamsDelete(org, slugPerm)
+> orgsTeamsDelete(org, team)
 
 Delete a specific team in a organization.
 
@@ -795,9 +854,9 @@ apikey.setApiKey("YOUR API KEY");
 
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
+String team = "team_example"; // String | 
 try {
-    apiInstance.orgsTeamsDelete(org, slugPerm);
+    apiInstance.orgsTeamsDelete(org, team);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsDelete");
     e.printStackTrace();
@@ -809,7 +868,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
- **slugPerm** | **String**|  |
+ **team** | **String**|  |
 
 ### Return type
 
@@ -883,9 +942,183 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+<a name="orgsTeamsMembersCreate"></a>
+# **orgsTeamsMembersCreate**
+> OrganizationTeamMembers orgsTeamsMembersCreate(org, team, data)
+
+Add users to a team.
+
+Add users to a team.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String team = "team_example"; // String | 
+OrgsTeamsMembersCreate data = new OrgsTeamsMembersCreate(); // OrgsTeamsMembersCreate | 
+try {
+    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersCreate(org, team, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsTeamsMembersCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **team** | **String**|  |
+ **data** | [**OrgsTeamsMembersCreate**](OrgsTeamsMembersCreate.md)|  | [optional]
+
+### Return type
+
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="orgsTeamsMembersList"></a>
+# **orgsTeamsMembersList**
+> OrganizationTeamMembers orgsTeamsMembersList(org, team)
+
+List all members for the team.
+
+List all members for the team.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String team = "team_example"; // String | 
+try {
+    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersList(org, team);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsTeamsMembersList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **team** | **String**|  |
+
+### Return type
+
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="orgsTeamsMembersUpdate"></a>
+# **orgsTeamsMembersUpdate**
+> orgsTeamsMembersUpdate(org, team, data)
+
+Replace all team members.
+
+Replace all team members.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String team = "team_example"; // String | 
+OrgsTeamsMembersUpdate data = new OrgsTeamsMembersUpdate(); // OrgsTeamsMembersUpdate | 
+try {
+    apiInstance.orgsTeamsMembersUpdate(org, team, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsTeamsMembersUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **team** | **String**|  |
+ **data** | [**OrgsTeamsMembersUpdate**](OrgsTeamsMembersUpdate.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
 <a name="orgsTeamsPartialUpdate"></a>
 # **orgsTeamsPartialUpdate**
-> OrganizationTeam orgsTeamsPartialUpdate(org, slugPerm, data)
+> OrganizationTeam orgsTeamsPartialUpdate(org, team, data)
 
 Update a specific team in a organization.
 
@@ -910,10 +1143,10 @@ apikey.setApiKey("YOUR API KEY");
 
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
+String team = "team_example"; // String | 
 OrgsTeamsPartialUpdate data = new OrgsTeamsPartialUpdate(); // OrgsTeamsPartialUpdate | 
 try {
-    OrganizationTeam result = apiInstance.orgsTeamsPartialUpdate(org, slugPerm, data);
+    OrganizationTeam result = apiInstance.orgsTeamsPartialUpdate(org, team, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsPartialUpdate");
@@ -926,7 +1159,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
- **slugPerm** | **String**|  |
+ **team** | **String**|  |
  **data** | [**OrgsTeamsPartialUpdate**](OrgsTeamsPartialUpdate.md)|  | [optional]
 
 ### Return type
@@ -944,11 +1177,11 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsRead"></a>
 # **orgsTeamsRead**
-> OrganizationTeam orgsTeamsRead(org, slugPerm)
+> OrganizationTeam orgsTeamsRead(org, team)
 
-Viewset for working with Organization teams.
+Get the details for the specific team.
 
-Viewset for working with Organization teams.
+Get the details for the specific team.
 
 ### Example
 ```java
@@ -969,9 +1202,9 @@ apikey.setApiKey("YOUR API KEY");
 
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
+String team = "team_example"; // String | 
 try {
-    OrganizationTeam result = apiInstance.orgsTeamsRead(org, slugPerm);
+    OrganizationTeam result = apiInstance.orgsTeamsRead(org, team);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsRead");
@@ -984,7 +1217,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
- **slugPerm** | **String**|  |
+ **team** | **String**|  |
 
 ### Return type
 

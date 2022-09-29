@@ -59,11 +59,11 @@ class PackagesownerrepoArchitectures(object):
 
     @property
     def description(self):
-        """Gets the description of this PackagesownerrepoArchitectures.  # noqa: E501
+        """Gets the description of this PackagesownerrepoArchitectures.
 
-          # noqa: E501
+        
 
-        :return: The description of this PackagesownerrepoArchitectures.  # noqa: E501
+        :return: The description of this PackagesownerrepoArchitectures.
         :rtype: str
         """
         return self._description
@@ -72,9 +72,9 @@ class PackagesownerrepoArchitectures(object):
     def description(self, description):
         """Sets the description of this PackagesownerrepoArchitectures.
 
-          # noqa: E501
+        
 
-        :param description: The description of this PackagesownerrepoArchitectures.  # noqa: E501
+        :param description: The description of this PackagesownerrepoArchitectures.
         :type: str
         """
 
@@ -82,11 +82,11 @@ class PackagesownerrepoArchitectures(object):
 
     @property
     def name(self):
-        """Gets the name of this PackagesownerrepoArchitectures.  # noqa: E501
+        """Gets the name of this PackagesownerrepoArchitectures.
 
-          # noqa: E501
+        
 
-        :return: The name of this PackagesownerrepoArchitectures.  # noqa: E501
+        :return: The name of this PackagesownerrepoArchitectures.
         :rtype: str
         """
         return self._name
@@ -95,9 +95,9 @@ class PackagesownerrepoArchitectures(object):
     def name(self, name):
         """Sets the name of this PackagesownerrepoArchitectures.
 
-          # noqa: E501
+        
 
-        :param name: The name of this PackagesownerrepoArchitectures.  # noqa: E501
+        :param name: The name of this PackagesownerrepoArchitectures.
         :type: str
         """
 
@@ -151,3 +151,4 @@ class PackagesownerrepoArchitectures(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

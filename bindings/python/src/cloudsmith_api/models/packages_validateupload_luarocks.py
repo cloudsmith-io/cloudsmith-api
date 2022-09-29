@@ -63,11 +63,11 @@ class PackagesValidateuploadLuarocks(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesValidateuploadLuarocks.  # noqa: E501
+        """Gets the package_file of this PackagesValidateuploadLuarocks.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesValidateuploadLuarocks.  # noqa: E501
+        :return: The package_file of this PackagesValidateuploadLuarocks.
         :rtype: str
         """
         return self._package_file
@@ -76,9 +76,9 @@ class PackagesValidateuploadLuarocks(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesValidateuploadLuarocks.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesValidateuploadLuarocks.  # noqa: E501
+        :param package_file: The package_file of this PackagesValidateuploadLuarocks.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -88,11 +88,11 @@ class PackagesValidateuploadLuarocks(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesValidateuploadLuarocks.  # noqa: E501
+        """Gets the republish of this PackagesValidateuploadLuarocks.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesValidateuploadLuarocks.  # noqa: E501
+        :return: The republish of this PackagesValidateuploadLuarocks.
         :rtype: bool
         """
         return self._republish
@@ -101,9 +101,9 @@ class PackagesValidateuploadLuarocks(object):
     def republish(self, republish):
         """Sets the republish of this PackagesValidateuploadLuarocks.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesValidateuploadLuarocks.  # noqa: E501
+        :param republish: The republish of this PackagesValidateuploadLuarocks.
         :type: bool
         """
 
@@ -111,11 +111,11 @@ class PackagesValidateuploadLuarocks(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesValidateuploadLuarocks.  # noqa: E501
+        """Gets the tags of this PackagesValidateuploadLuarocks.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesValidateuploadLuarocks.  # noqa: E501
+        :return: The tags of this PackagesValidateuploadLuarocks.
         :rtype: str
         """
         return self._tags
@@ -124,9 +124,9 @@ class PackagesValidateuploadLuarocks(object):
     def tags(self, tags):
         """Sets the tags of this PackagesValidateuploadLuarocks.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesValidateuploadLuarocks.  # noqa: E501
+        :param tags: The tags of this PackagesValidateuploadLuarocks.
         :type: str
         """
 
@@ -180,3 +180,4 @@ class PackagesValidateuploadLuarocks(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

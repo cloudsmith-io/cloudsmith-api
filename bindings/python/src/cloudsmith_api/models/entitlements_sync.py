@@ -53,11 +53,11 @@ class EntitlementsSync(object):
 
     @property
     def source(self):
-        """Gets the source of this EntitlementsSync.  # noqa: E501
+        """Gets the source of this EntitlementsSync.
 
-        The source repository slug (in the same owner namespace).  # noqa: E501
+        The source repository slug (in the same owner namespace).
 
-        :return: The source of this EntitlementsSync.  # noqa: E501
+        :return: The source of this EntitlementsSync.
         :rtype: str
         """
         return self._source
@@ -66,9 +66,9 @@ class EntitlementsSync(object):
     def source(self, source):
         """Sets the source of this EntitlementsSync.
 
-        The source repository slug (in the same owner namespace).  # noqa: E501
+        The source repository slug (in the same owner namespace).
 
-        :param source: The source of this EntitlementsSync.  # noqa: E501
+        :param source: The source of this EntitlementsSync.
         :type: str
         """
         if self._configuration.client_side_validation and source is None:
@@ -124,3 +124,4 @@ class EntitlementsSync(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

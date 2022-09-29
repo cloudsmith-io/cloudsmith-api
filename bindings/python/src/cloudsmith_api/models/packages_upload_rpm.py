@@ -67,11 +67,11 @@ class PackagesUploadRpm(object):
 
     @property
     def distribution(self):
-        """Gets the distribution of this PackagesUploadRpm.  # noqa: E501
+        """Gets the distribution of this PackagesUploadRpm.
 
-        The distribution to store the package for.  # noqa: E501
+        The distribution to store the package for.
 
-        :return: The distribution of this PackagesUploadRpm.  # noqa: E501
+        :return: The distribution of this PackagesUploadRpm.
         :rtype: str
         """
         return self._distribution
@@ -80,9 +80,9 @@ class PackagesUploadRpm(object):
     def distribution(self, distribution):
         """Sets the distribution of this PackagesUploadRpm.
 
-        The distribution to store the package for.  # noqa: E501
+        The distribution to store the package for.
 
-        :param distribution: The distribution of this PackagesUploadRpm.  # noqa: E501
+        :param distribution: The distribution of this PackagesUploadRpm.
         :type: str
         """
         if self._configuration.client_side_validation and distribution is None:
@@ -92,11 +92,11 @@ class PackagesUploadRpm(object):
 
     @property
     def package_file(self):
-        """Gets the package_file of this PackagesUploadRpm.  # noqa: E501
+        """Gets the package_file of this PackagesUploadRpm.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :return: The package_file of this PackagesUploadRpm.  # noqa: E501
+        :return: The package_file of this PackagesUploadRpm.
         :rtype: str
         """
         return self._package_file
@@ -105,9 +105,9 @@ class PackagesUploadRpm(object):
     def package_file(self, package_file):
         """Sets the package_file of this PackagesUploadRpm.
 
-        The primary file for the package.  # noqa: E501
+        The primary file for the package.
 
-        :param package_file: The package_file of this PackagesUploadRpm.  # noqa: E501
+        :param package_file: The package_file of this PackagesUploadRpm.
         :type: str
         """
         if self._configuration.client_side_validation and package_file is None:
@@ -117,11 +117,11 @@ class PackagesUploadRpm(object):
 
     @property
     def republish(self):
-        """Gets the republish of this PackagesUploadRpm.  # noqa: E501
+        """Gets the republish of this PackagesUploadRpm.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :return: The republish of this PackagesUploadRpm.  # noqa: E501
+        :return: The republish of this PackagesUploadRpm.
         :rtype: bool
         """
         return self._republish
@@ -130,9 +130,9 @@ class PackagesUploadRpm(object):
     def republish(self, republish):
         """Sets the republish of this PackagesUploadRpm.
 
-        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.  # noqa: E501
+        If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
 
-        :param republish: The republish of this PackagesUploadRpm.  # noqa: E501
+        :param republish: The republish of this PackagesUploadRpm.
         :type: bool
         """
 
@@ -140,11 +140,11 @@ class PackagesUploadRpm(object):
 
     @property
     def tags(self):
-        """Gets the tags of this PackagesUploadRpm.  # noqa: E501
+        """Gets the tags of this PackagesUploadRpm.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :return: The tags of this PackagesUploadRpm.  # noqa: E501
+        :return: The tags of this PackagesUploadRpm.
         :rtype: str
         """
         return self._tags
@@ -153,9 +153,9 @@ class PackagesUploadRpm(object):
     def tags(self, tags):
         """Sets the tags of this PackagesUploadRpm.
 
-        A comma-separated values list of tags to add to the package.  # noqa: E501
+        A comma-separated values list of tags to add to the package.
 
-        :param tags: The tags of this PackagesUploadRpm.  # noqa: E501
+        :param tags: The tags of this PackagesUploadRpm.
         :type: str
         """
 
@@ -209,3 +209,4 @@ class PackagesUploadRpm(object):
             return True
 
         return self.to_dict() != other.to_dict()
+

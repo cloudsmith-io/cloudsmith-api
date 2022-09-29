@@ -79,11 +79,11 @@ class QuotaHistoryHistory(object):
 
     @property
     def days(self):
-        """Gets the days of this QuotaHistoryHistory.  # noqa: E501
+        """Gets the days of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :return: The days of this QuotaHistoryHistory.  # noqa: E501
+        :return: The days of this QuotaHistoryHistory.
         :rtype: int
         """
         return self._days
@@ -92,9 +92,9 @@ class QuotaHistoryHistory(object):
     def days(self, days):
         """Sets the days of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :param days: The days of this QuotaHistoryHistory.  # noqa: E501
+        :param days: The days of this QuotaHistoryHistory.
         :type: int
         """
 
@@ -102,11 +102,11 @@ class QuotaHistoryHistory(object):
 
     @property
     def display(self):
-        """Gets the display of this QuotaHistoryHistory.  # noqa: E501
+        """Gets the display of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :return: The display of this QuotaHistoryHistory.  # noqa: E501
+        :return: The display of this QuotaHistoryHistory.
         :rtype: object
         """
         return self._display
@@ -115,9 +115,9 @@ class QuotaHistoryHistory(object):
     def display(self, display):
         """Sets the display of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :param display: The display of this QuotaHistoryHistory.  # noqa: E501
+        :param display: The display of this QuotaHistoryHistory.
         :type: object
         """
 
@@ -125,11 +125,11 @@ class QuotaHistoryHistory(object):
 
     @property
     def end(self):
-        """Gets the end of this QuotaHistoryHistory.  # noqa: E501
+        """Gets the end of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :return: The end of this QuotaHistoryHistory.  # noqa: E501
+        :return: The end of this QuotaHistoryHistory.
         :rtype: str
         """
         return self._end
@@ -138,9 +138,9 @@ class QuotaHistoryHistory(object):
     def end(self, end):
         """Sets the end of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :param end: The end of this QuotaHistoryHistory.  # noqa: E501
+        :param end: The end of this QuotaHistoryHistory.
         :type: str
         """
 
@@ -148,11 +148,11 @@ class QuotaHistoryHistory(object):
 
     @property
     def plan(self):
-        """Gets the plan of this QuotaHistoryHistory.  # noqa: E501
+        """Gets the plan of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :return: The plan of this QuotaHistoryHistory.  # noqa: E501
+        :return: The plan of this QuotaHistoryHistory.
         :rtype: str
         """
         return self._plan
@@ -161,9 +161,9 @@ class QuotaHistoryHistory(object):
     def plan(self, plan):
         """Sets the plan of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :param plan: The plan of this QuotaHistoryHistory.  # noqa: E501
+        :param plan: The plan of this QuotaHistoryHistory.
         :type: str
         """
 
@@ -171,11 +171,11 @@ class QuotaHistoryHistory(object):
 
     @property
     def raw(self):
-        """Gets the raw of this QuotaHistoryHistory.  # noqa: E501
+        """Gets the raw of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :return: The raw of this QuotaHistoryHistory.  # noqa: E501
+        :return: The raw of this QuotaHistoryHistory.
         :rtype: object
         """
         return self._raw
@@ -184,9 +184,9 @@ class QuotaHistoryHistory(object):
     def raw(self, raw):
         """Sets the raw of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :param raw: The raw of this QuotaHistoryHistory.  # noqa: E501
+        :param raw: The raw of this QuotaHistoryHistory.
         :type: object
         """
 
@@ -194,11 +194,11 @@ class QuotaHistoryHistory(object):
 
     @property
     def start(self):
-        """Gets the start of this QuotaHistoryHistory.  # noqa: E501
+        """Gets the start of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :return: The start of this QuotaHistoryHistory.  # noqa: E501
+        :return: The start of this QuotaHistoryHistory.
         :rtype: str
         """
         return self._start
@@ -207,9 +207,9 @@ class QuotaHistoryHistory(object):
     def start(self, start):
         """Sets the start of this QuotaHistoryHistory.
 
-          # noqa: E501
+        
 
-        :param start: The start of this QuotaHistoryHistory.  # noqa: E501
+        :param start: The start of this QuotaHistoryHistory.
         :type: str
         """
 
@@ -263,3 +263,4 @@ class QuotaHistoryHistory(object):
             return True
 
         return self.to_dict() != other.to_dict()
+
