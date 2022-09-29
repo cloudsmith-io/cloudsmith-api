@@ -8,6 +8,7 @@ root_dir=$(readlink -f "$self_dir/../..")
 
 src_dir="$self_dir/src"
 build_json="$src_dir/build.json"
+template_dir="$self_dir/templates"
 
 rm -rf $src_dir
 mkdir -p $src_dir
@@ -28,4 +29,5 @@ $root_dir/bin/swagger-codegen-cli generate \
     -i $openapi_url \
     -l python \
     -o $src_dir \
+    -t $template_dir
     $common_codegen_options
