@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -32,18 +32,6 @@ describe 'Distribution' do
       expect(@instance).to be_instance_of(CloudsmithApi::Distribution)
     end
   end
-  describe 'test attribute "format"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "format_url"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "name"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -63,12 +51,6 @@ describe 'Distribution' do
   end
 
   describe 'test attribute "variants"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "versions"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

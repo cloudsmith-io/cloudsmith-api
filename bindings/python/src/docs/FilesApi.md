@@ -1,6 +1,6 @@
 # cloudsmith_api.FilesApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -37,7 +37,7 @@ api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.FilesAbort() # FilesAbort |  (optional)
+data = cloudsmith_api.PackageFileUploadRequest() # PackageFileUploadRequest |  (optional)
 
 try:
     # Abort a multipart file upload.
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**FilesAbort**](FilesAbort.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -66,12 +66,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **files_complete**
-> PackageFileUpload files_complete(owner, repo, identifier, data=data)
+> PackageFileUploadResponse files_complete(owner, repo, identifier, data=data)
 
 Complete a multipart file upload.
 
@@ -96,7 +96,7 @@ api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.FilesComplete() # FilesComplete |  (optional)
+data = cloudsmith_api.PackageFileUploadRequest() # PackageFileUploadRequest |  (optional)
 
 try:
     # Complete a multipart file upload.
@@ -113,11 +113,11 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**FilesComplete**](FilesComplete.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**PackageFileUpload**](PackageFileUpload.md)
+[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
 
 ### Authorization
 
@@ -126,12 +126,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **files_create**
-> PackageFileUpload files_create(owner, repo, data=data)
+> PackageFileUploadResponse files_create(owner, repo, data=data)
 
 Request URL(s) to upload new package file upload(s) to.
 
@@ -155,7 +155,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.FilesCreate() # FilesCreate |  (optional)
+data = cloudsmith_api.PackageFileUploadRequest() # PackageFileUploadRequest |  (optional)
 
 try:
     # Request URL(s) to upload new package file upload(s) to.
@@ -171,11 +171,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**FilesCreate**](FilesCreate.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**PackageFileUpload**](PackageFileUpload.md)
+[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
 
 ### Authorization
 
@@ -184,12 +184,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **files_info**
-> PackageFilePartsUpload files_info(owner, repo, identifier, filename, part_number=part_number)
+> PackageFilePartsUploadResponse files_info(owner, repo, identifier, filename, part_number=part_number)
 
 Get upload information to perform a multipart file upload.
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFilePartsUpload**](PackageFilePartsUpload.md)
+[**PackageFilePartsUploadResponse**](PackageFilePartsUploadResponse.md)
 
 ### Authorization
 
@@ -245,8 +245,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -275,7 +275,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.FilesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.FilesValidate() # FilesValidate |  (optional)
+data = cloudsmith_api.PackageFileUploadRequest() # PackageFileUploadRequest |  (optional)
 
 try:
     # Validate parameters used for create.
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**FilesValidate**](FilesValidate.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -303,7 +303,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

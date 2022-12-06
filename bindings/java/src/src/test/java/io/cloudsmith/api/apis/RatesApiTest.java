@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,8 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.ResourcesRateCheck;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.ResourcesRateCheckResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class RatesApiTest {
      */
     @Test
     public void ratesLimitsListTest() throws Exception {
-        ResourcesRateCheck response = api.ratesLimitsList();
+        ResourcesRateCheckResponse response = api.ratesLimitsList();
 
         // TODO: test validations
     }

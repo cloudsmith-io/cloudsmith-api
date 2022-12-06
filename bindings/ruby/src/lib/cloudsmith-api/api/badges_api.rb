@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -28,18 +28,18 @@ module CloudsmithApi
     # @param package_version 
     # @param package_identifiers 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :badge_token Badge token to authenticate for private packages
-    # @option opts [String] :cache_seconds Override the shields.io badge cacheSeconds value.
-    # @option opts [String] :color Override the shields.io badge color value.
-    # @option opts [String] :label Override the shields.io badge label value.
-    # @option opts [String] :label_color Override the shields.io badge labelColor value.
-    # @option opts [String] :logo_color Override the shields.io badge logoColor value.
-    # @option opts [String] :logo_width Override the shields.io badge logoWidth value.
-    # @option opts [BOOLEAN] :render If true, badge will be rendered
-    # @option opts [BOOLEAN] :shields If true, a shields response will be generated
-    # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added
-    # @option opts [String] :style Override the shields.io badge style value.
-    # @return [Object]
+    # @option opts [String] :badge_token Badge token to authenticate for private packages (default to )
+    # @option opts [String] :cache_seconds Override the shields.io badge cacheSeconds value. (default to 300)
+    # @option opts [String] :color Override the shields.io badge color value. (default to 12577E)
+    # @option opts [String] :label Override the shields.io badge label value. (default to cloudsmith)
+    # @option opts [String] :label_color Override the shields.io badge labelColor value. (default to 021F2F)
+    # @option opts [String] :logo_color Override the shields.io badge logoColor value. (default to 45B6EE)
+    # @option opts [String] :logo_width Override the shields.io badge logoWidth value. (default to 10)
+    # @option opts [BOOLEAN] :render If true, badge will be rendered (default to false)
+    # @option opts [BOOLEAN] :shields If true, a shields response will be generated (default to false)
+    # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added (default to false)
+    # @option opts [String] :style Override the shields.io badge style value. (default to flat-square)
+    # @return [PackageVersionBadgeResponse]
     def badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts = {})
       data, _status_code, _headers = badges_version_list_with_http_info(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
       data
@@ -65,7 +65,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :shields If true, a shields response will be generated
     # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added
     # @option opts [String] :style Override the shields.io badge style value.
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(PackageVersionBadgeResponse, Fixnum, Hash)>] PackageVersionBadgeResponse data, response status code and response headers
     def badges_version_list_with_http_info(owner, repo, package_format, package_name, package_version, package_identifiers, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BadgesApi.badges_version_list ...'
@@ -113,6 +113,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -126,7 +130,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'PackageVersionBadgeResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BadgesApi#badges_version_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

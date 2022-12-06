@@ -1,6 +1,6 @@
 # cloudsmith_api.StorageRegionsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **storage_regions_list**
-> list[StorageRegion] storage_regions_list()
+> list[StorageRegionResponse] storage_regions_list()
 
 Get a list of all available storage regions.
 
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[StorageRegion]**](StorageRegion.md)
+[**list[StorageRegionResponse]**](StorageRegionResponse.md)
 
 ### Authorization
 
@@ -53,13 +53,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **storage_regions_read**
-> StorageRegion storage_regions_read(slug)
+> StorageRegionResponse storage_regions_read(slug)
 
 Get a specific storage region.
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StorageRegion**](StorageRegion.md)
+[**StorageRegionResponse**](StorageRegionResponse.md)
 
 ### Authorization
 
@@ -107,8 +107,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

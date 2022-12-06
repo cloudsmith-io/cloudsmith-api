@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -26,9 +26,9 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-    # @return [Array<NamespaceAuditLog>]
-    def audit_log_list(owner, opts = {})
-      data, _status_code, _headers = audit_log_list_with_http_info(owner, opts)
+    # @return [Array<NamespaceAuditLogResponse>]
+    def audit_log_namespace_list(owner, opts = {})
+      data, _status_code, _headers = audit_log_namespace_list_with_http_info(owner, opts)
       data
     end
 
@@ -39,14 +39,14 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-    # @return [Array<(Array<NamespaceAuditLog>, Fixnum, Hash)>] Array<NamespaceAuditLog> data, response status code and response headers
-    def audit_log_list_with_http_info(owner, opts = {})
+    # @return [Array<(Array<NamespaceAuditLogResponse>, Fixnum, Hash)>] Array<NamespaceAuditLogResponse> data, response status code and response headers
+    def audit_log_namespace_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuditLogApi.audit_log_list ...'
+        @api_client.config.logger.debug 'Calling API: AuditLogApi.audit_log_namespace_list ...'
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling AuditLogApi.audit_log_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling AuditLogApi.audit_log_namespace_list"
       end
       # resource path
       local_var_path = '/audit-log/{owner}/'.sub('{' + 'owner' + '}', owner.to_s)
@@ -59,6 +59,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -72,9 +76,9 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<NamespaceAuditLog>')
+        :return_type => 'Array<NamespaceAuditLogResponse>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuditLogApi#audit_log_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AuditLogApi#audit_log_namespace_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -86,9 +90,9 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-    # @return [Array<RepositoryAuditLog>]
-    def audit_log_list0(owner, repo, opts = {})
-      data, _status_code, _headers = audit_log_list0_with_http_info(owner, repo, opts)
+    # @return [Array<RepositoryAuditLogResponse>]
+    def audit_log_repo_list(owner, repo, opts = {})
+      data, _status_code, _headers = audit_log_repo_list_with_http_info(owner, repo, opts)
       data
     end
 
@@ -100,18 +104,18 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-    # @return [Array<(Array<RepositoryAuditLog>, Fixnum, Hash)>] Array<RepositoryAuditLog> data, response status code and response headers
-    def audit_log_list0_with_http_info(owner, repo, opts = {})
+    # @return [Array<(Array<RepositoryAuditLogResponse>, Fixnum, Hash)>] Array<RepositoryAuditLogResponse> data, response status code and response headers
+    def audit_log_repo_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuditLogApi.audit_log_list0 ...'
+        @api_client.config.logger.debug 'Calling API: AuditLogApi.audit_log_repo_list ...'
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling AuditLogApi.audit_log_list0"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling AuditLogApi.audit_log_repo_list"
       end
       # verify the required parameter 'repo' is set
       if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling AuditLogApi.audit_log_list0"
+        fail ArgumentError, "Missing the required parameter 'repo' when calling AuditLogApi.audit_log_repo_list"
       end
       # resource path
       local_var_path = '/audit-log/{owner}/{repo}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
@@ -124,6 +128,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -137,9 +145,9 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RepositoryAuditLog>')
+        :return_type => 'Array<RepositoryAuditLogResponse>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuditLogApi#audit_log_list0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AuditLogApi#audit_log_repo_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

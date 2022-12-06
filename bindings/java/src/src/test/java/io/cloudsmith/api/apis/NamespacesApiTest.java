@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,8 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Namespace;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.NamespaceResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +45,7 @@ public class NamespacesApiTest {
     public void namespacesListTest() throws Exception {
         Integer page = null;
         Integer pageSize = null;
-        List<Namespace> response = api.namespacesList(page, pageSize);
+        List<NamespaceResponse> response = api.namespacesList(page, pageSize);
 
         // TODO: test validations
     }
@@ -61,7 +61,7 @@ public class NamespacesApiTest {
     @Test
     public void namespacesReadTest() throws Exception {
         String slug = null;
-        Namespace response = api.namespacesRead(slug);
+        NamespaceResponse response = api.namespacesRead(slug);
 
         // TODO: test validations
     }

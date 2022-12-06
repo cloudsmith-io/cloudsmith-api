@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,14 +13,14 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.EntitlementsCreate;
-import io.cloudsmith.api.models.EntitlementsPartialUpdate;
-import io.cloudsmith.api.models.EntitlementsRefresh;
-import io.cloudsmith.api.models.EntitlementsSync;
-import io.cloudsmith.api.models.RepositoryToken;
-import io.cloudsmith.api.models.RepositoryTokenRefresh;
-import io.cloudsmith.api.models.RepositoryTokenSync;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.RepositoryTokenRefreshRequest;
+import io.cloudsmith.api.models.RepositoryTokenRefreshResponse;
+import io.cloudsmith.api.models.RepositoryTokenRequest;
+import io.cloudsmith.api.models.RepositoryTokenRequestPatch;
+import io.cloudsmith.api.models.RepositoryTokenResponse;
+import io.cloudsmith.api.models.RepositoryTokenSyncRequest;
+import io.cloudsmith.api.models.RepositoryTokenSyncResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -51,9 +51,9 @@ public class EntitlementsApiTest {
     public void entitlementsCreateTest() throws Exception {
         String owner = null;
         String repo = null;
+        RepositoryTokenRequest data = null;
         Boolean showTokens = null;
-        EntitlementsCreate data = null;
-        RepositoryToken response = api.entitlementsCreate(owner, repo, showTokens, data);
+        RepositoryTokenResponse response = api.entitlementsCreate(owner, repo, data, showTokens);
 
         // TODO: test validations
     }
@@ -127,7 +127,9 @@ public class EntitlementsApiTest {
         Integer page = null;
         Integer pageSize = null;
         Boolean showTokens = null;
-        List<RepositoryToken> response = api.entitlementsList(owner, repo, page, pageSize, showTokens);
+        String query = null;
+        Boolean active = null;
+        List<RepositoryTokenResponse> response = api.entitlementsList(owner, repo, page, pageSize, showTokens, query, active);
 
         // TODO: test validations
     }
@@ -145,9 +147,9 @@ public class EntitlementsApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
+        RepositoryTokenRequestPatch data = null;
         Boolean showTokens = null;
-        EntitlementsPartialUpdate data = null;
-        RepositoryToken response = api.entitlementsPartialUpdate(owner, repo, identifier, showTokens, data);
+        RepositoryTokenResponse response = api.entitlementsPartialUpdate(owner, repo, identifier, data, showTokens);
 
         // TODO: test validations
     }
@@ -165,8 +167,9 @@ public class EntitlementsApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
+        Boolean fuzzy = null;
         Boolean showTokens = null;
-        RepositoryToken response = api.entitlementsRead(owner, repo, identifier, showTokens);
+        RepositoryTokenResponse response = api.entitlementsRead(owner, repo, identifier, fuzzy, showTokens);
 
         // TODO: test validations
     }
@@ -184,9 +187,9 @@ public class EntitlementsApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
+        RepositoryTokenRefreshRequest data = null;
         Boolean showTokens = null;
-        EntitlementsRefresh data = null;
-        RepositoryTokenRefresh response = api.entitlementsRefresh(owner, repo, identifier, showTokens, data);
+        RepositoryTokenRefreshResponse response = api.entitlementsRefresh(owner, repo, identifier, data, showTokens);
 
         // TODO: test validations
     }
@@ -222,9 +225,9 @@ public class EntitlementsApiTest {
     public void entitlementsSyncTest() throws Exception {
         String owner = null;
         String repo = null;
+        RepositoryTokenSyncRequest data = null;
         Boolean showTokens = null;
-        EntitlementsSync data = null;
-        RepositoryTokenSync response = api.entitlementsSync(owner, repo, showTokens, data);
+        RepositoryTokenSyncResponse response = api.entitlementsSync(owner, repo, data, showTokens);
 
         // TODO: test validations
     }

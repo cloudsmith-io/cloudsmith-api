@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -38,9 +38,9 @@ describe 'EntitlementsApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryTokenRequest] :data 
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @option opts [EntitlementsCreate] :data 
-  # @return [RepositoryToken]
+  # @return [RepositoryTokenResponse]
   describe 'entitlements_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -98,7 +98,9 @@ describe 'EntitlementsApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @return [Array<RepositoryToken>]
+  # @option opts [String] :query A search term for querying names of entitlements.
+  # @option opts [BOOLEAN] :active If true, only include active tokens
+  # @return [Array<RepositoryTokenResponse>]
   describe 'entitlements_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -112,9 +114,9 @@ describe 'EntitlementsApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryTokenRequestPatch] :data 
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @option opts [EntitlementsPartialUpdate] :data 
-  # @return [RepositoryToken]
+  # @return [RepositoryTokenResponse]
   describe 'entitlements_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -128,8 +130,9 @@ describe 'EntitlementsApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :fuzzy If true, entitlement identifiers including name will be fuzzy matched.
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @return [RepositoryToken]
+  # @return [RepositoryTokenResponse]
   describe 'entitlements_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -143,9 +146,9 @@ describe 'EntitlementsApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryTokenRefreshRequest] :data 
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @option opts [EntitlementsRefresh] :data 
-  # @return [RepositoryTokenRefresh]
+  # @return [RepositoryTokenRefreshResponse]
   describe 'entitlements_refresh test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -173,9 +176,9 @@ describe 'EntitlementsApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryTokenSyncRequest] :data 
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @option opts [EntitlementsSync] :data 
-  # @return [RepositoryTokenSync]
+  # @return [RepositoryTokenSyncResponse]
   describe 'entitlements_sync test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

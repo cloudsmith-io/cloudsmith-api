@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,16 +20,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.Eula;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RepositoryToken
+ * The entitlements that have been synchronised.
  */
+@ApiModel(description = "The entitlements that have been synchronised.")
 
 public class RepositoryToken implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -38,7 +41,7 @@ public class RepositoryToken implements Serializable {
   private Integer clients = null;
 
   @SerializedName("created_at")
-  private String createdAt = null;
+  private OffsetDateTime createdAt = null;
 
   @SerializedName("created_by")
   private String createdBy = null;
@@ -59,10 +62,10 @@ public class RepositoryToken implements Serializable {
   private String enableUrl = null;
 
   @SerializedName("eula_accepted")
-  private Object eulaAccepted = null;
+  private Eula eulaAccepted = null;
 
   @SerializedName("eula_accepted_at")
-  private String eulaAcceptedAt = null;
+  private OffsetDateTime eulaAcceptedAt = null;
 
   @SerializedName("eula_accepted_from")
   private String eulaAcceptedFrom = null;
@@ -85,75 +88,14 @@ public class RepositoryToken implements Serializable {
   @SerializedName("limit_bandwidth")
   private Integer limitBandwidth = null;
 
-  /**
-   * 
-   */
-  @JsonAdapter(LimitBandwidthUnitEnum.Adapter.class)
-  public enum LimitBandwidthUnitEnum {
-    BYTE("Byte"),
-    
-    KILOBYTE("Kilobyte"),
-    
-    MEGABYTE("Megabyte"),
-    
-    GIGABYTE("Gigabyte"),
-    
-    TERABYTE("Terabyte"),
-    
-    PETABYTE("Petabyte"),
-    
-    EXABYTE("Exabyte"),
-    
-    ZETTABYTE("Zettabyte"),
-    
-    YOTTABYTE("Yottabyte");
-
-    private String value;
-
-    LimitBandwidthUnitEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static LimitBandwidthUnitEnum fromValue(String text) {
-      for (LimitBandwidthUnitEnum b : LimitBandwidthUnitEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<LimitBandwidthUnitEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final LimitBandwidthUnitEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public LimitBandwidthUnitEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return LimitBandwidthUnitEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
   @SerializedName("limit_bandwidth_unit")
-  private LimitBandwidthUnitEnum limitBandwidthUnit = null;
+  private String limitBandwidthUnit = "Byte";
 
   @SerializedName("limit_date_range_from")
-  private String limitDateRangeFrom = null;
+  private OffsetDateTime limitDateRangeFrom = null;
 
   @SerializedName("limit_date_range_to")
-  private String limitDateRangeTo = null;
+  private OffsetDateTime limitDateRangeTo = null;
 
   @SerializedName("limit_num_clients")
   private Integer limitNumClients = null;
@@ -180,71 +122,10 @@ public class RepositoryToken implements Serializable {
   private String resetUrl = null;
 
   @SerializedName("scheduled_reset_at")
-  private String scheduledResetAt = null;
-
-  /**
-   * 
-   */
-  @JsonAdapter(ScheduledResetPeriodEnum.Adapter.class)
-  public enum ScheduledResetPeriodEnum {
-    NEVER_RESET("Never Reset"),
-    
-    DAILY("Daily"),
-    
-    WEEKLY("Weekly"),
-    
-    FORTNIGHTLY("Fortnightly"),
-    
-    MONTHLY("Monthly"),
-    
-    BI_MONTHLY("Bi-Monthly"),
-    
-    QUARTERLY("Quarterly"),
-    
-    EVERY_6_MONTHS("Every 6 months"),
-    
-    ANNUAL("Annual");
-
-    private String value;
-
-    ScheduledResetPeriodEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ScheduledResetPeriodEnum fromValue(String text) {
-      for (ScheduledResetPeriodEnum b : ScheduledResetPeriodEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<ScheduledResetPeriodEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ScheduledResetPeriodEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ScheduledResetPeriodEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ScheduledResetPeriodEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+  private OffsetDateTime scheduledResetAt = null;
 
   @SerializedName("scheduled_reset_period")
-  private ScheduledResetPeriodEnum scheduledResetPeriod = null;
+  private String scheduledResetPeriod = "Never Reset";
 
   @SerializedName("self_url")
   private String selfUrl = null;
@@ -256,7 +137,7 @@ public class RepositoryToken implements Serializable {
   private String token = null;
 
   @SerializedName("updated_at")
-  private String updatedAt = null;
+  private OffsetDateTime updatedAt = null;
 
   @SerializedName("updated_by")
   private String updatedBy = null;
@@ -273,13 +154,8 @@ public class RepositoryToken implements Serializable {
   @SerializedName("user_url")
   private String userUrl = null;
 
-  public RepositoryToken clients(Integer clients) {
-    this.clients = clients;
-    return this;
-  }
-
    /**
-   * 
+   * Get clients
    * @return clients
   **/
   @ApiModelProperty(value = "")
@@ -287,67 +163,32 @@ public class RepositoryToken implements Serializable {
     return clients;
   }
 
-  public void setClients(Integer clients) {
-    this.clients = clients;
-  }
-
-  public RepositoryToken createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
    /**
    * The datetime the token was updated at.
    * @return createdAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the token was updated at.")
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public RepositoryToken createdBy(String createdBy) {
-    this.createdBy = createdBy;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdBy
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getCreatedBy() {
     return createdBy;
   }
 
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public RepositoryToken createdByUrl(String createdByUrl) {
-    this.createdByUrl = createdByUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdByUrl
    * @return createdByUrl
   **/
   @ApiModelProperty(value = "")
   public String getCreatedByUrl() {
     return createdByUrl;
-  }
-
-  public void setCreatedByUrl(String createdByUrl) {
-    this.createdByUrl = createdByUrl;
-  }
-
-  public RepositoryToken _default(Boolean _default) {
-    this._default = _default;
-    return this;
   }
 
    /**
@@ -359,17 +200,8 @@ public class RepositoryToken implements Serializable {
     return _default;
   }
 
-  public void setDefault(Boolean _default) {
-    this._default = _default;
-  }
-
-  public RepositoryToken disableUrl(String disableUrl) {
-    this.disableUrl = disableUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get disableUrl
    * @return disableUrl
   **/
   @ApiModelProperty(value = "")
@@ -377,17 +209,8 @@ public class RepositoryToken implements Serializable {
     return disableUrl;
   }
 
-  public void setDisableUrl(String disableUrl) {
-    this.disableUrl = disableUrl;
-  }
-
-  public RepositoryToken downloads(Integer downloads) {
-    this.downloads = downloads;
-    return this;
-  }
-
    /**
-   * 
+   * Get downloads
    * @return downloads
   **/
   @ApiModelProperty(value = "")
@@ -395,17 +218,8 @@ public class RepositoryToken implements Serializable {
     return downloads;
   }
 
-  public void setDownloads(Integer downloads) {
-    this.downloads = downloads;
-  }
-
-  public RepositoryToken enableUrl(String enableUrl) {
-    this.enableUrl = enableUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get enableUrl
    * @return enableUrl
   **/
   @ApiModelProperty(value = "")
@@ -413,62 +227,42 @@ public class RepositoryToken implements Serializable {
     return enableUrl;
   }
 
-  public void setEnableUrl(String enableUrl) {
-    this.enableUrl = enableUrl;
-  }
-
-  public RepositoryToken eulaAccepted(Object eulaAccepted) {
+  public RepositoryToken eulaAccepted(Eula eulaAccepted) {
     this.eulaAccepted = eulaAccepted;
     return this;
   }
 
    /**
-   * 
+   * Get eulaAccepted
    * @return eulaAccepted
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public Object getEulaAccepted() {
+  public Eula getEulaAccepted() {
     return eulaAccepted;
   }
 
-  public void setEulaAccepted(Object eulaAccepted) {
+  public void setEulaAccepted(Eula eulaAccepted) {
     this.eulaAccepted = eulaAccepted;
-  }
-
-  public RepositoryToken eulaAcceptedAt(String eulaAcceptedAt) {
-    this.eulaAcceptedAt = eulaAcceptedAt;
-    return this;
   }
 
    /**
    * The datetime the EULA was accepted at.
    * @return eulaAcceptedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the EULA was accepted at.")
-  public String getEulaAcceptedAt() {
+  public OffsetDateTime getEulaAcceptedAt() {
     return eulaAcceptedAt;
   }
 
-  public void setEulaAcceptedAt(String eulaAcceptedAt) {
-    this.eulaAcceptedAt = eulaAcceptedAt;
-  }
-
-  public RepositoryToken eulaAcceptedFrom(String eulaAcceptedFrom) {
-    this.eulaAcceptedFrom = eulaAcceptedFrom;
-    return this;
-  }
-
    /**
-   * 
+   * Get eulaAcceptedFrom
    * @return eulaAcceptedFrom
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getEulaAcceptedFrom() {
     return eulaAcceptedFrom;
-  }
-
-  public void setEulaAcceptedFrom(String eulaAcceptedFrom) {
-    this.eulaAcceptedFrom = eulaAcceptedFrom;
   }
 
   public RepositoryToken eulaRequired(Boolean eulaRequired) {
@@ -489,13 +283,8 @@ public class RepositoryToken implements Serializable {
     this.eulaRequired = eulaRequired;
   }
 
-  public RepositoryToken hasLimits(Boolean hasLimits) {
-    this.hasLimits = hasLimits;
-    return this;
-  }
-
    /**
-   * 
+   * Get hasLimits
    * @return hasLimits
   **/
   @ApiModelProperty(value = "")
@@ -503,26 +292,13 @@ public class RepositoryToken implements Serializable {
     return hasLimits;
   }
 
-  public void setHasLimits(Boolean hasLimits) {
-    this.hasLimits = hasLimits;
-  }
-
-  public RepositoryToken identifier(Integer identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
    /**
-   * 
+   * Get identifier
    * @return identifier
   **/
   @ApiModelProperty(value = "")
   public Integer getIdentifier() {
     return identifier;
-  }
-
-  public void setIdentifier(Integer identifier) {
-    this.identifier = identifier;
   }
 
   public RepositoryToken isActive(Boolean isActive) {
@@ -543,22 +319,13 @@ public class RepositoryToken implements Serializable {
     this.isActive = isActive;
   }
 
-  public RepositoryToken isLimited(Boolean isLimited) {
-    this.isLimited = isLimited;
-    return this;
-  }
-
    /**
-   * 
+   * Get isLimited
    * @return isLimited
   **/
   @ApiModelProperty(value = "")
   public Boolean isIsLimited() {
     return isLimited;
-  }
-
-  public void setIsLimited(Boolean isLimited) {
-    this.isLimited = isLimited;
   }
 
   public RepositoryToken limitBandwidth(Integer limitBandwidth) {
@@ -568,9 +335,11 @@ public class RepositoryToken implements Serializable {
 
    /**
    * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
+   * minimum: -9223372036854775808
+   * maximum: 9223372036854775807
    * @return limitBandwidth
   **/
-  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
+ @Min(-9223372036854775808) @Max(9223372036854775807)  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
   public Integer getLimitBandwidth() {
     return limitBandwidth;
   }
@@ -579,25 +348,25 @@ public class RepositoryToken implements Serializable {
     this.limitBandwidth = limitBandwidth;
   }
 
-  public RepositoryToken limitBandwidthUnit(LimitBandwidthUnitEnum limitBandwidthUnit) {
+  public RepositoryToken limitBandwidthUnit(String limitBandwidthUnit) {
     this.limitBandwidthUnit = limitBandwidthUnit;
     return this;
   }
 
    /**
-   * 
+   * Get limitBandwidthUnit
    * @return limitBandwidthUnit
   **/
   @ApiModelProperty(value = "")
-  public LimitBandwidthUnitEnum getLimitBandwidthUnit() {
+  public String getLimitBandwidthUnit() {
     return limitBandwidthUnit;
   }
 
-  public void setLimitBandwidthUnit(LimitBandwidthUnitEnum limitBandwidthUnit) {
+  public void setLimitBandwidthUnit(String limitBandwidthUnit) {
     this.limitBandwidthUnit = limitBandwidthUnit;
   }
 
-  public RepositoryToken limitDateRangeFrom(String limitDateRangeFrom) {
+  public RepositoryToken limitDateRangeFrom(OffsetDateTime limitDateRangeFrom) {
     this.limitDateRangeFrom = limitDateRangeFrom;
     return this;
   }
@@ -606,16 +375,17 @@ public class RepositoryToken implements Serializable {
    * The starting date/time the token is allowed to be used from.
    * @return limitDateRangeFrom
   **/
+  @Valid
   @ApiModelProperty(value = "The starting date/time the token is allowed to be used from.")
-  public String getLimitDateRangeFrom() {
+  public OffsetDateTime getLimitDateRangeFrom() {
     return limitDateRangeFrom;
   }
 
-  public void setLimitDateRangeFrom(String limitDateRangeFrom) {
+  public void setLimitDateRangeFrom(OffsetDateTime limitDateRangeFrom) {
     this.limitDateRangeFrom = limitDateRangeFrom;
   }
 
-  public RepositoryToken limitDateRangeTo(String limitDateRangeTo) {
+  public RepositoryToken limitDateRangeTo(OffsetDateTime limitDateRangeTo) {
     this.limitDateRangeTo = limitDateRangeTo;
     return this;
   }
@@ -624,12 +394,13 @@ public class RepositoryToken implements Serializable {
    * The ending date/time the token is allowed to be used until.
    * @return limitDateRangeTo
   **/
+  @Valid
   @ApiModelProperty(value = "The ending date/time the token is allowed to be used until.")
-  public String getLimitDateRangeTo() {
+  public OffsetDateTime getLimitDateRangeTo() {
     return limitDateRangeTo;
   }
 
-  public void setLimitDateRangeTo(String limitDateRangeTo) {
+  public void setLimitDateRangeTo(OffsetDateTime limitDateRangeTo) {
     this.limitDateRangeTo = limitDateRangeTo;
   }
 
@@ -640,9 +411,11 @@ public class RepositoryToken implements Serializable {
 
    /**
    * The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+   * minimum: -9223372036854775808
+   * maximum: 9223372036854775807
    * @return limitNumClients
   **/
-  @ApiModelProperty(value = "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+ @Min(-9223372036854775808) @Max(9223372036854775807)  @ApiModelProperty(value = "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
   public Integer getLimitNumClients() {
     return limitNumClients;
   }
@@ -658,9 +431,11 @@ public class RepositoryToken implements Serializable {
 
    /**
    * The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
+   * minimum: -9223372036854775808
+   * maximum: 9223372036854775807
    * @return limitNumDownloads
   **/
-  @ApiModelProperty(value = "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+ @Min(-9223372036854775808) @Max(9223372036854775807)  @ApiModelProperty(value = "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
   public Integer getLimitNumDownloads() {
     return limitNumDownloads;
   }
@@ -678,7 +453,7 @@ public class RepositoryToken implements Serializable {
    * The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.
    * @return limitPackageQuery
   **/
-  @ApiModelProperty(value = "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.")
+ @Size(max=1024)  @ApiModelProperty(value = "The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.")
   public String getLimitPackageQuery() {
     return limitPackageQuery;
   }
@@ -696,7 +471,7 @@ public class RepositoryToken implements Serializable {
    * The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
    * @return limitPathQuery
   **/
-  @ApiModelProperty(value = "The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.")
+ @Size(max=1024)  @ApiModelProperty(value = "The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.")
   public String getLimitPathQuery() {
     return limitPathQuery;
   }
@@ -711,7 +486,7 @@ public class RepositoryToken implements Serializable {
   }
 
    /**
-   * 
+   * Get metadata
    * @return metadata
   **/
   @ApiModelProperty(value = "")
@@ -729,11 +504,11 @@ public class RepositoryToken implements Serializable {
   }
 
    /**
-   * 
+   * Get name
    * @return name
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
   }
@@ -742,13 +517,8 @@ public class RepositoryToken implements Serializable {
     this.name = name;
   }
 
-  public RepositoryToken refreshUrl(String refreshUrl) {
-    this.refreshUrl = refreshUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get refreshUrl
    * @return refreshUrl
   **/
   @ApiModelProperty(value = "")
@@ -756,17 +526,8 @@ public class RepositoryToken implements Serializable {
     return refreshUrl;
   }
 
-  public void setRefreshUrl(String refreshUrl) {
-    this.refreshUrl = refreshUrl;
-  }
-
-  public RepositoryToken resetUrl(String resetUrl) {
-    this.resetUrl = resetUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get resetUrl
    * @return resetUrl
   **/
   @ApiModelProperty(value = "")
@@ -774,11 +535,7 @@ public class RepositoryToken implements Serializable {
     return resetUrl;
   }
 
-  public void setResetUrl(String resetUrl) {
-    this.resetUrl = resetUrl;
-  }
-
-  public RepositoryToken scheduledResetAt(String scheduledResetAt) {
+  public RepositoryToken scheduledResetAt(OffsetDateTime scheduledResetAt) {
     this.scheduledResetAt = scheduledResetAt;
     return this;
   }
@@ -787,40 +544,36 @@ public class RepositoryToken implements Serializable {
    * The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
    * @return scheduledResetAt
   **/
+  @Valid
   @ApiModelProperty(value = "The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.")
-  public String getScheduledResetAt() {
+  public OffsetDateTime getScheduledResetAt() {
     return scheduledResetAt;
   }
 
-  public void setScheduledResetAt(String scheduledResetAt) {
+  public void setScheduledResetAt(OffsetDateTime scheduledResetAt) {
     this.scheduledResetAt = scheduledResetAt;
   }
 
-  public RepositoryToken scheduledResetPeriod(ScheduledResetPeriodEnum scheduledResetPeriod) {
+  public RepositoryToken scheduledResetPeriod(String scheduledResetPeriod) {
     this.scheduledResetPeriod = scheduledResetPeriod;
     return this;
   }
 
    /**
-   * 
+   * Get scheduledResetPeriod
    * @return scheduledResetPeriod
   **/
   @ApiModelProperty(value = "")
-  public ScheduledResetPeriodEnum getScheduledResetPeriod() {
+  public String getScheduledResetPeriod() {
     return scheduledResetPeriod;
   }
 
-  public void setScheduledResetPeriod(ScheduledResetPeriodEnum scheduledResetPeriod) {
+  public void setScheduledResetPeriod(String scheduledResetPeriod) {
     this.scheduledResetPeriod = scheduledResetPeriod;
   }
 
-  public RepositoryToken selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get selfUrl
    * @return selfUrl
   **/
   @ApiModelProperty(value = "")
@@ -828,26 +581,13 @@ public class RepositoryToken implements Serializable {
     return selfUrl;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
-
-  public RepositoryToken slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
   }
 
   public RepositoryToken token(String token) {
@@ -856,10 +596,10 @@ public class RepositoryToken implements Serializable {
   }
 
    /**
-   * 
+   * Get token
    * @return token
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getToken() {
     return token;
   }
@@ -868,49 +608,27 @@ public class RepositoryToken implements Serializable {
     this.token = token;
   }
 
-  public RepositoryToken updatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
    /**
    * The datetime the token was updated at.
    * @return updatedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the token was updated at.")
-  public String getUpdatedAt() {
+  public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-  public RepositoryToken updatedBy(String updatedBy) {
-    this.updatedBy = updatedBy;
-    return this;
-  }
-
    /**
-   * 
+   * Get updatedBy
    * @return updatedBy
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getUpdatedBy() {
     return updatedBy;
   }
 
-  public void setUpdatedBy(String updatedBy) {
-    this.updatedBy = updatedBy;
-  }
-
-  public RepositoryToken updatedByUrl(String updatedByUrl) {
-    this.updatedByUrl = updatedByUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get updatedByUrl
    * @return updatedByUrl
   **/
   @ApiModelProperty(value = "")
@@ -918,62 +636,31 @@ public class RepositoryToken implements Serializable {
     return updatedByUrl;
   }
 
-  public void setUpdatedByUrl(String updatedByUrl) {
-    this.updatedByUrl = updatedByUrl;
-  }
-
-  public RepositoryToken usage(String usage) {
-    this.usage = usage;
-    return this;
-  }
-
    /**
-   * 
+   * Get usage
    * @return usage
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getUsage() {
     return usage;
   }
 
-  public void setUsage(String usage) {
-    this.usage = usage;
-  }
-
-  public RepositoryToken user(String user) {
-    this.user = user;
-    return this;
-  }
-
    /**
-   * 
+   * Get user
    * @return user
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getUser() {
     return user;
   }
 
-  public void setUser(String user) {
-    this.user = user;
-  }
-
-  public RepositoryToken userUrl(String userUrl) {
-    this.userUrl = userUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get userUrl
    * @return userUrl
   **/
   @ApiModelProperty(value = "")
   public String getUserUrl() {
     return userUrl;
-  }
-
-  public void setUserUrl(String userUrl) {
-    this.userUrl = userUrl;
   }
 
 

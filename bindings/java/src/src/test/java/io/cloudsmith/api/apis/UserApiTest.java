@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,10 +13,10 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.UserAuthToken;
-import io.cloudsmith.api.models.UserBrief;
-import io.cloudsmith.api.models.UserTokenCreate;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.UserAuthTokenRequest;
+import io.cloudsmith.api.models.UserAuthTokenResponse;
+import io.cloudsmith.api.models.UserBriefResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +45,7 @@ public class UserApiTest {
      */
     @Test
     public void userSelfTest() throws Exception {
-        UserBrief response = api.userSelf();
+        UserBriefResponse response = api.userSelf();
 
         // TODO: test validations
     }
@@ -60,8 +60,8 @@ public class UserApiTest {
      */
     @Test
     public void userTokenCreateTest() throws Exception {
-        UserTokenCreate data = null;
-        UserAuthToken response = api.userTokenCreate(data);
+        UserAuthTokenRequest data = null;
+        UserAuthTokenResponse response = api.userTokenCreate(data);
 
         // TODO: test validations
     }

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -36,7 +36,7 @@ describe 'DistrosApi' do
   # Get a list of all supported distributions.
   # Get a list of all supported distributions.
   # @param [Hash] opts the optional parameters
-  # @return [Array<Distribution>]
+  # @return [Array<DistributionResponse>]
   describe 'distros_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -48,7 +48,7 @@ describe 'DistrosApi' do
   # View for viewing/listing distributions.
   # @param slug 
   # @param [Hash] opts the optional parameters
-  # @return [Distribution]
+  # @return [DistributionResponse]
   describe 'distros_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

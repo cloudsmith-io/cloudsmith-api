@@ -1,6 +1,6 @@
 # StorageRegionsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="storageRegionsList"></a>
 # **storageRegionsList**
-> List&lt;StorageRegion&gt; storageRegionsList()
+> List&lt;StorageRegionResponse&gt; storageRegionsList()
 
 Get a list of all available storage regions.
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 
 StorageRegionsApi apiInstance = new StorageRegionsApi();
 try {
-    List<StorageRegion> result = apiInstance.storageRegionsList();
+    List<StorageRegionResponse> result = apiInstance.storageRegionsList();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageRegionsApi#storageRegionsList");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;StorageRegion&gt;**](StorageRegion.md)
+[**List&lt;StorageRegionResponse&gt;**](StorageRegionResponse.md)
 
 ### Authorization
 
@@ -56,12 +56,12 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="storageRegionsRead"></a>
 # **storageRegionsRead**
-> StorageRegion storageRegionsRead(slug)
+> StorageRegionResponse storageRegionsRead(slug)
 
 Get a specific storage region.
 
@@ -87,7 +87,7 @@ apikey.setApiKey("YOUR API KEY");
 StorageRegionsApi apiInstance = new StorageRegionsApi();
 String slug = "slug_example"; // String | 
 try {
-    StorageRegion result = apiInstance.storageRegionsRead(slug);
+    StorageRegionResponse result = apiInstance.storageRegionsRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageRegionsApi#storageRegionsRead");
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StorageRegion**](StorageRegion.md)
+[**StorageRegionResponse**](StorageRegionResponse.md)
 
 ### Authorization
 
@@ -111,6 +111,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -22,7 +22,7 @@ module CloudsmithApi
     # Endpoint to check basic API connectivity.
     # Endpoint to check basic API connectivity.
     # @param [Hash] opts the optional parameters
-    # @return [StatusBasic]
+    # @return [StatusBasicResponse]
     def status_check_basic(opts = {})
       data, _status_code, _headers = status_check_basic_with_http_info(opts)
       data
@@ -31,7 +31,7 @@ module CloudsmithApi
     # Endpoint to check basic API connectivity.
     # Endpoint to check basic API connectivity.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(StatusBasic, Fixnum, Hash)>] StatusBasic data, response status code and response headers
+    # @return [Array<(StatusBasicResponse, Fixnum, Hash)>] StatusBasicResponse data, response status code and response headers
     def status_check_basic_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: StatusApi.status_check_basic ...'
@@ -44,6 +44,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -57,7 +61,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'StatusBasic')
+        :return_type => 'StatusBasicResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StatusApi#status_check_basic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

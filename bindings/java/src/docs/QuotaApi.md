@@ -1,6 +1,6 @@
 # QuotaApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="quotaHistoryRead"></a>
 # **quotaHistoryRead**
-> QuotaHistory quotaHistoryRead(owner)
+> QuotaHistoryResponse quotaHistoryRead(owner)
 
 Quota history for a given namespace.
 
@@ -38,7 +38,7 @@ apikey.setApiKey("YOUR API KEY");
 QuotaApi apiInstance = new QuotaApi();
 String owner = "owner_example"; // String | 
 try {
-    QuotaHistory result = apiInstance.quotaHistoryRead(owner);
+    QuotaHistoryResponse result = apiInstance.quotaHistoryRead(owner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotaApi#quotaHistoryRead");
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaHistory**](QuotaHistory.md)
+[**QuotaHistoryResponse**](QuotaHistoryResponse.md)
 
 ### Authorization
 
@@ -62,12 +62,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="quotaOssHistoryRead"></a>
 # **quotaOssHistoryRead**
-> QuotaHistory quotaOssHistoryRead(owner)
+> QuotaHistoryResponse quotaOssHistoryRead(owner)
 
 Open-source Quota history for a given namespace.
 
@@ -93,7 +93,7 @@ apikey.setApiKey("YOUR API KEY");
 QuotaApi apiInstance = new QuotaApi();
 String owner = "owner_example"; // String | 
 try {
-    QuotaHistory result = apiInstance.quotaOssHistoryRead(owner);
+    QuotaHistoryResponse result = apiInstance.quotaOssHistoryRead(owner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotaApi#quotaOssHistoryRead");
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaHistory**](QuotaHistory.md)
+[**QuotaHistoryResponse**](QuotaHistoryResponse.md)
 
 ### Authorization
 
@@ -117,12 +117,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="quotaOssRead"></a>
 # **quotaOssRead**
-> Quota quotaOssRead(owner)
+> QuotaResponse quotaOssRead(owner)
 
 Open-source Quota usage for a given namespace.
 
@@ -148,7 +148,7 @@ apikey.setApiKey("YOUR API KEY");
 QuotaApi apiInstance = new QuotaApi();
 String owner = "owner_example"; // String | 
 try {
-    Quota result = apiInstance.quotaOssRead(owner);
+    QuotaResponse result = apiInstance.quotaOssRead(owner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotaApi#quotaOssRead");
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Quota**](Quota.md)
+[**QuotaResponse**](QuotaResponse.md)
 
 ### Authorization
 
@@ -172,12 +172,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="quotaRead"></a>
 # **quotaRead**
-> Quota quotaRead(owner)
+> QuotaResponse quotaRead(owner)
 
 Quota usage for a given namespace.
 
@@ -203,7 +203,7 @@ apikey.setApiKey("YOUR API KEY");
 QuotaApi apiInstance = new QuotaApi();
 String owner = "owner_example"; // String | 
 try {
-    Quota result = apiInstance.quotaRead(owner);
+    QuotaResponse result = apiInstance.quotaRead(owner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotaApi#quotaRead");
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Quota**](Quota.md)
+[**QuotaResponse**](QuotaResponse.md)
 
 ### Authorization
 
@@ -227,6 +227,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

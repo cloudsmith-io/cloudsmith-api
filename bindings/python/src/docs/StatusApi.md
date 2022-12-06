@@ -1,6 +1,6 @@
 # cloudsmith_api.StatusApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **status_check_basic**
-> StatusBasic status_check_basic()
+> StatusBasicResponse status_check_basic()
 
 Endpoint to check basic API connectivity.
 
@@ -38,7 +38,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**StatusBasic**](StatusBasic.md)
+[**StatusBasicResponse**](StatusBasicResponse.md)
 
 ### Authorization
 
@@ -46,8 +46,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

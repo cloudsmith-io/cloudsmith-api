@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,28 +20,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.DistrosVersions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * Distribution
+ * The distributions supported by this package format
  */
+@ApiModel(description = "The distributions supported by this package format")
 
 public class Distribution implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  @SerializedName("format")
-  private String format = null;
-
-  @SerializedName("format_url")
-  private String formatUrl = null;
 
   @SerializedName("name")
   private String name = null;
@@ -55,56 +47,17 @@ public class Distribution implements Serializable {
   @SerializedName("variants")
   private String variants = null;
 
-  @SerializedName("versions")
-  private List<DistrosVersions> versions = null;
-
-  public Distribution format(String format) {
-    this.format = format;
-    return this;
-  }
-
-   /**
-   * 
-   * @return format
-  **/
-  @ApiModelProperty(value = "")
-  public String getFormat() {
-    return format;
-  }
-
-  public void setFormat(String format) {
-    this.format = format;
-  }
-
-  public Distribution formatUrl(String formatUrl) {
-    this.formatUrl = formatUrl;
-    return this;
-  }
-
-   /**
-   * 
-   * @return formatUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getFormatUrl() {
-    return formatUrl;
-  }
-
-  public void setFormatUrl(String formatUrl) {
-    this.formatUrl = formatUrl;
-  }
-
   public Distribution name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * 
+   * Get name
    * @return name
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=32)  @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
   }
@@ -113,13 +66,8 @@ public class Distribution implements Serializable {
     this.name = name;
   }
 
-  public Distribution selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get selfUrl
    * @return selfUrl
   **/
   @ApiModelProperty(value = "")
@@ -127,26 +75,13 @@ public class Distribution implements Serializable {
     return selfUrl;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
-
-  public Distribution slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
    /**
    * The slug identifier for this distribution
    * @return slug
   **/
-  @ApiModelProperty(value = "The slug identifier for this distribution")
+ @Size(min=1)  @ApiModelProperty(value = "The slug identifier for this distribution")
   public String getSlug() {
     return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
   }
 
   public Distribution variants(String variants) {
@@ -155,43 +90,16 @@ public class Distribution implements Serializable {
   }
 
    /**
-   * 
+   * Get variants
    * @return variants
   **/
-  @ApiModelProperty(value = "")
+ @Size(max=128)  @ApiModelProperty(value = "")
   public String getVariants() {
     return variants;
   }
 
   public void setVariants(String variants) {
     this.variants = variants;
-  }
-
-  public Distribution versions(List<DistrosVersions> versions) {
-    this.versions = versions;
-    return this;
-  }
-
-  public Distribution addVersionsItem(DistrosVersions versionsItem) {
-    if (this.versions == null) {
-      this.versions = new ArrayList<>();
-    }
-    this.versions.add(versionsItem);
-    return this;
-  }
-
-   /**
-   * A list of the versions for this distribution
-   * @return versions
-  **/
-  @Valid
-  @ApiModelProperty(value = "A list of the versions for this distribution")
-  public List<DistrosVersions> getVersions() {
-    return versions;
-  }
-
-  public void setVersions(List<DistrosVersions> versions) {
-    this.versions = versions;
   }
 
 
@@ -204,18 +112,15 @@ public class Distribution implements Serializable {
       return false;
     }
     Distribution distribution = (Distribution) o;
-    return Objects.equals(this.format, distribution.format) &&
-        Objects.equals(this.formatUrl, distribution.formatUrl) &&
-        Objects.equals(this.name, distribution.name) &&
+    return Objects.equals(this.name, distribution.name) &&
         Objects.equals(this.selfUrl, distribution.selfUrl) &&
         Objects.equals(this.slug, distribution.slug) &&
-        Objects.equals(this.variants, distribution.variants) &&
-        Objects.equals(this.versions, distribution.versions);
+        Objects.equals(this.variants, distribution.variants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, formatUrl, name, selfUrl, slug, variants, versions);
+    return Objects.hash(name, selfUrl, slug, variants);
   }
 
 
@@ -224,13 +129,10 @@ public class Distribution implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Distribution {\n");
     
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
-    sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
-    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

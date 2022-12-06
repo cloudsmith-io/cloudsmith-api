@@ -1,6 +1,6 @@
 # NamespacesApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="namespacesList"></a>
 # **namespacesList**
-> List&lt;Namespace&gt; namespacesList(page, pageSize)
+> List&lt;NamespaceResponse&gt; namespacesList(page, pageSize)
 
 Get a list of all namespaces the user belongs to.
 
@@ -37,7 +37,7 @@ NamespacesApi apiInstance = new NamespacesApi();
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<Namespace> result = apiInstance.namespacesList(page, pageSize);
+    List<NamespaceResponse> result = apiInstance.namespacesList(page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling NamespacesApi#namespacesList");
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Namespace&gt;**](Namespace.md)
+[**List&lt;NamespaceResponse&gt;**](NamespaceResponse.md)
 
 ### Authorization
 
@@ -62,12 +62,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="namespacesRead"></a>
 # **namespacesRead**
-> Namespace namespacesRead(slug)
+> NamespaceResponse namespacesRead(slug)
 
 Views for working with namespaces.
 
@@ -93,7 +93,7 @@ apikey.setApiKey("YOUR API KEY");
 NamespacesApi apiInstance = new NamespacesApi();
 String slug = "slug_example"; // String | 
 try {
-    Namespace result = apiInstance.namespacesRead(slug);
+    NamespaceResponse result = apiInstance.namespacesRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling NamespacesApi#namespacesRead");
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Namespace**](Namespace.md)
+[**NamespaceResponse**](NamespaceResponse.md)
 
 ### Authorization
 
@@ -117,6 +117,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "cloudsmith-api"
-VERSION = "1.142.3"
+VERSION = "1.181.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -33,10 +33,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="Cloudsmith API",
+    description="Cloudsmith API (v1)",
     author_email="support@cloudsmith.io",
     url="https://api.cloudsmith.io/?format&#x3D;openapi",
-    keywords=["Swagger", "Cloudsmith API"],
+    keywords=["Swagger", "Cloudsmith API (v1)"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,

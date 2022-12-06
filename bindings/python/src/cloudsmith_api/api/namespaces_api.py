@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -45,7 +45,7 @@ class NamespacesApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[Namespace]
+        :return: list[NamespaceResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,7 +68,7 @@ class NamespacesApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[Namespace]
+        :return: list[NamespaceResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -105,6 +105,14 @@ class NamespacesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -116,7 +124,7 @@ class NamespacesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Namespace]',  # noqa: E501
+            response_type='list[NamespaceResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -134,8 +142,8 @@ class NamespacesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str slug:  (required)
-        :return: Namespace
+        :param str slug: (required)
+        :return: NamespaceResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -156,8 +164,8 @@ class NamespacesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str slug:  (required)
-        :return: Namespace
+        :param str slug: (required)
+        :return: NamespaceResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -196,6 +204,14 @@ class NamespacesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -207,7 +223,7 @@ class NamespacesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Namespace',  # noqa: E501
+            response_type='NamespaceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

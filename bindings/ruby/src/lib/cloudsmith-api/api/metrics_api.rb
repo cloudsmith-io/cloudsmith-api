@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -28,9 +28,9 @@ module CloudsmithApi
     # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [EntitlementUsageMetrics]
-    def metrics_entitlements_list(owner, opts = {})
-      data, _status_code, _headers = metrics_entitlements_list_with_http_info(owner, opts)
+    # @return [EntitlementUsageMetricsResponse]
+    def metrics_entitlements_account_list(owner, opts = {})
+      data, _status_code, _headers = metrics_entitlements_account_list_with_http_info(owner, opts)
       data
     end
 
@@ -43,14 +43,14 @@ module CloudsmithApi
     # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<(EntitlementUsageMetrics, Fixnum, Hash)>] EntitlementUsageMetrics data, response status code and response headers
-    def metrics_entitlements_list_with_http_info(owner, opts = {})
+    # @return [Array<(EntitlementUsageMetricsResponse, Fixnum, Hash)>] EntitlementUsageMetricsResponse data, response status code and response headers
+    def metrics_entitlements_account_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsApi.metrics_entitlements_list ...'
+        @api_client.config.logger.debug 'Calling API: MetricsApi.metrics_entitlements_account_list ...'
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_account_list"
       end
       # resource path
       local_var_path = '/metrics/entitlements/{owner}/'.sub('{' + 'owner' + '}', owner.to_s)
@@ -65,6 +65,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -78,9 +82,9 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'EntitlementUsageMetrics')
+        :return_type => 'EntitlementUsageMetricsResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_account_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -94,9 +98,9 @@ module CloudsmithApi
     # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [EntitlementUsageMetrics]
-    def metrics_entitlements_list0(owner, repo, opts = {})
-      data, _status_code, _headers = metrics_entitlements_list0_with_http_info(owner, repo, opts)
+    # @return [EntitlementUsageMetricsResponse]
+    def metrics_entitlements_repo_list(owner, repo, opts = {})
+      data, _status_code, _headers = metrics_entitlements_repo_list_with_http_info(owner, repo, opts)
       data
     end
 
@@ -110,18 +114,18 @@ module CloudsmithApi
     # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-    # @return [Array<(EntitlementUsageMetrics, Fixnum, Hash)>] EntitlementUsageMetrics data, response status code and response headers
-    def metrics_entitlements_list0_with_http_info(owner, repo, opts = {})
+    # @return [Array<(EntitlementUsageMetricsResponse, Fixnum, Hash)>] EntitlementUsageMetricsResponse data, response status code and response headers
+    def metrics_entitlements_repo_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetricsApi.metrics_entitlements_list0 ...'
+        @api_client.config.logger.debug 'Calling API: MetricsApi.metrics_entitlements_repo_list ...'
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_list0"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling MetricsApi.metrics_entitlements_repo_list"
       end
       # verify the required parameter 'repo' is set
       if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_entitlements_list0"
+        fail ArgumentError, "Missing the required parameter 'repo' when calling MetricsApi.metrics_entitlements_repo_list"
       end
       # resource path
       local_var_path = '/metrics/entitlements/{owner}/{repo}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
@@ -136,6 +140,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -149,9 +157,9 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'EntitlementUsageMetrics')
+        :return_type => 'EntitlementUsageMetricsResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_list0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MetricsApi#metrics_entitlements_repo_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -165,7 +173,7 @@ module CloudsmithApi
     # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :packages A comma seperated list of packages (slug perm) to include in the results.
     # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
-    # @return [PackageUsageMetrics]
+    # @return [PackageUsageMetricsResponse]
     def metrics_packages_list(owner, repo, opts = {})
       data, _status_code, _headers = metrics_packages_list_with_http_info(owner, repo, opts)
       data
@@ -181,7 +189,7 @@ module CloudsmithApi
     # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
     # @option opts [String] :packages A comma seperated list of packages (slug perm) to include in the results.
     # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
-    # @return [Array<(PackageUsageMetrics, Fixnum, Hash)>] PackageUsageMetrics data, response status code and response headers
+    # @return [Array<(PackageUsageMetricsResponse, Fixnum, Hash)>] PackageUsageMetricsResponse data, response status code and response headers
     def metrics_packages_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetricsApi.metrics_packages_list ...'
@@ -207,6 +215,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -220,7 +232,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PackageUsageMetrics')
+        :return_type => 'PackageUsageMetricsResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MetricsApi#metrics_packages_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

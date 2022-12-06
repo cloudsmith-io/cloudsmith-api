@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -39,7 +39,7 @@ describe 'FilesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [FilesAbort] :data 
+  # @option opts [PackageFileUploadRequest] :data 
   # @return [nil]
   describe 'files_abort test' do
     it 'should work' do
@@ -54,8 +54,8 @@ describe 'FilesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [FilesComplete] :data 
-  # @return [PackageFileUpload]
+  # @option opts [PackageFileUploadRequest] :data 
+  # @return [PackageFileUploadResponse]
   describe 'files_complete test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -68,8 +68,8 @@ describe 'FilesApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
-  # @option opts [FilesCreate] :data 
-  # @return [PackageFileUpload]
+  # @option opts [PackageFileUploadRequest] :data 
+  # @return [PackageFileUploadResponse]
   describe 'files_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -85,7 +85,7 @@ describe 'FilesApi' do
   # @param filename The filename of the file being uploaded
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :part_number The part number to be uploaded next
-  # @return [PackageFilePartsUpload]
+  # @return [PackageFilePartsUploadResponse]
   describe 'files_info test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -98,7 +98,7 @@ describe 'FilesApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
-  # @option opts [FilesValidate] :data 
+  # @option opts [PackageFileUploadRequest] :data 
   # @return [nil]
   describe 'files_validate test' do
     it 'should work' do

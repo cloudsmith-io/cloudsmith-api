@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,11 +43,11 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RepositoryTokenRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :param EntitlementsCreate data:
-        :return: RepositoryToken
+        :return: RepositoryTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,16 +68,16 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RepositoryTokenRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :param EntitlementsCreate data:
-        :return: RepositoryToken
+        :return: RepositoryTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'show_tokens', 'data']  # noqa: E501
+        all_params = ['owner', 'repo', 'data', 'show_tokens']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -121,6 +121,10 @@ class EntitlementsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -136,7 +140,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryToken',  # noqa: E501
+            response_type='RepositoryTokenResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -154,9 +158,9 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -178,9 +182,9 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -232,6 +236,14 @@ class EntitlementsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -261,9 +273,9 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -285,9 +297,9 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -339,6 +351,14 @@ class EntitlementsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -368,9 +388,9 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -392,9 +412,9 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -446,6 +466,14 @@ class EntitlementsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -475,12 +503,14 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param bool show_tokens: Show entitlement token strings in results
-        :return: list[RepositoryToken]
+        :param str query: A search term for querying names of entitlements.
+        :param bool active: If true, only include active tokens
+        :return: list[RepositoryTokenResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -501,17 +531,19 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param bool show_tokens: Show entitlement token strings in results
-        :return: list[RepositoryToken]
+        :param str query: A search term for querying names of entitlements.
+        :param bool active: If true, only include active tokens
+        :return: list[RepositoryTokenResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'page', 'page_size', 'show_tokens']  # noqa: E501
+        all_params = ['owner', 'repo', 'page', 'page_size', 'show_tokens', 'query', 'active']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -550,6 +582,10 @@ class EntitlementsApi(object):
             query_params.append(('page_size', params['page_size']))  # noqa: E501
         if 'show_tokens' in params:
             query_params.append(('show_tokens', params['show_tokens']))  # noqa: E501
+        if 'query' in params:
+            query_params.append(('query', params['query']))  # noqa: E501
+        if 'active' in params:
+            query_params.append(('active', params['active']))  # noqa: E501
 
         header_params = {}
 
@@ -557,6 +593,14 @@ class EntitlementsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -568,7 +612,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[RepositoryToken]',  # noqa: E501
+            response_type='list[RepositoryTokenResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -586,12 +630,12 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param RepositoryTokenRequestPatch data:
         :param bool show_tokens: Show entitlement token strings in results
-        :param EntitlementsPartialUpdate data:
-        :return: RepositoryToken
+        :return: RepositoryTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -612,17 +656,17 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param RepositoryTokenRequestPatch data:
         :param bool show_tokens: Show entitlement token strings in results
-        :param EntitlementsPartialUpdate data:
-        :return: RepositoryToken
+        :return: RepositoryTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier', 'show_tokens', 'data']  # noqa: E501
+        all_params = ['owner', 'repo', 'identifier', 'data', 'show_tokens']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -672,6 +716,10 @@ class EntitlementsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -687,7 +735,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryToken',  # noqa: E501
+            response_type='RepositoryTokenResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -705,11 +753,12 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param bool fuzzy: If true, entitlement identifiers including name will be fuzzy matched.
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryToken
+        :return: RepositoryTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -730,16 +779,17 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param bool fuzzy: If true, entitlement identifiers including name will be fuzzy matched.
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryToken
+        :return: RepositoryTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier', 'show_tokens']  # noqa: E501
+        all_params = ['owner', 'repo', 'identifier', 'fuzzy', 'show_tokens']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -778,6 +828,8 @@ class EntitlementsApi(object):
             path_params['identifier'] = params['identifier']  # noqa: E501
 
         query_params = []
+        if 'fuzzy' in params:
+            query_params.append(('fuzzy', params['fuzzy']))  # noqa: E501
         if 'show_tokens' in params:
             query_params.append(('show_tokens', params['show_tokens']))  # noqa: E501
 
@@ -787,6 +839,14 @@ class EntitlementsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -798,7 +858,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryToken',  # noqa: E501
+            response_type='RepositoryTokenResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -816,12 +876,12 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param RepositoryTokenRefreshRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :param EntitlementsRefresh data:
-        :return: RepositoryTokenRefresh
+        :return: RepositoryTokenRefreshResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -842,17 +902,17 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param RepositoryTokenRefreshRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :param EntitlementsRefresh data:
-        :return: RepositoryTokenRefresh
+        :return: RepositoryTokenRefreshResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier', 'show_tokens', 'data']  # noqa: E501
+        all_params = ['owner', 'repo', 'identifier', 'data', 'show_tokens']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -902,6 +962,10 @@ class EntitlementsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -917,7 +981,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryTokenRefresh',  # noqa: E501
+            response_type='RepositoryTokenRefreshResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -935,9 +999,9 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :param bool show_tokens: Show entitlement token strings in results
         :return: None
                  If the method is called asynchronously,
@@ -960,9 +1024,9 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :param bool show_tokens: Show entitlement token strings in results
         :return: None
                  If the method is called asynchronously,
@@ -1017,6 +1081,14 @@ class EntitlementsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1046,11 +1118,11 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RepositoryTokenSyncRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :param EntitlementsSync data:
-        :return: RepositoryTokenSync
+        :return: RepositoryTokenSyncResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1071,16 +1143,16 @@ class EntitlementsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RepositoryTokenSyncRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :param EntitlementsSync data:
-        :return: RepositoryTokenSync
+        :return: RepositoryTokenSyncResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'show_tokens', 'data']  # noqa: E501
+        all_params = ['owner', 'repo', 'data', 'show_tokens']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1124,6 +1196,10 @@ class EntitlementsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1139,7 +1215,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryTokenSync',  # noqa: E501
+            response_type='RepositoryTokenSyncResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

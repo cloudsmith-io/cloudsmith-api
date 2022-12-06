@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -36,20 +36,23 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import io.cloudsmith.api.models.Organization;
-import io.cloudsmith.api.models.OrganizationGroupSync;
-import io.cloudsmith.api.models.OrganizationInvite;
-import io.cloudsmith.api.models.OrganizationMembership;
-import io.cloudsmith.api.models.OrganizationTeam;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
+import io.cloudsmith.api.models.OrganizationGroupSyncResponse;
+import io.cloudsmith.api.models.OrganizationInviteExtendResponse;
+import io.cloudsmith.api.models.OrganizationInviteRequest;
+import io.cloudsmith.api.models.OrganizationInviteResponse;
+import io.cloudsmith.api.models.OrganizationInviteUpdateRequestPatch;
+import io.cloudsmith.api.models.OrganizationMembershipResponse;
+import io.cloudsmith.api.models.OrganizationResponse;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
-import io.cloudsmith.api.models.OrgsInvitesCreate;
-import io.cloudsmith.api.models.OrgsInvitesExtend;
-import io.cloudsmith.api.models.OrgsSamlgroupsyncCreate;
-import io.cloudsmith.api.models.OrgsTeamsCreate;
-import io.cloudsmith.api.models.OrgsTeamsMembersCreate;
-import io.cloudsmith.api.models.OrgsTeamsMembersUpdate;
-import io.cloudsmith.api.models.OrgsTeamsPartialUpdate;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.OrganizationTeamMembersResponse;
+import io.cloudsmith.api.models.OrganizationTeamRequest;
+import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.OrganizationTeamResponse;
+import io.cloudsmith.api.models.ServiceRequest;
+import io.cloudsmith.api.models.ServiceRequestPatch;
+import io.cloudsmith.api.models.ServiceResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -85,7 +88,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsInvitesCreateCall(String org, OrgsInvitesCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsInvitesCreateCall(String org, OrganizationInviteRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -100,7 +103,7 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -128,13 +131,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsInvitesCreateValidateBeforeCall(String org, OrgsInvitesCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsInvitesCreateValidateBeforeCall(String org, OrganizationInviteRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, data };
-            Method method = this.getClass().getMethod("orgsInvitesCreateWithHttpInfo", String.class, OrgsInvitesCreate.class);
+            Method method = this.getClass().getMethod("orgsInvitesCreateWithHttpInfo", String.class, OrganizationInviteRequest.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -160,11 +163,11 @@ public class OrgsApi {
      * Create an organization invite for a specific user
      * @param org  (required)
      * @param data  (optional)
-     * @return OrganizationInvite
+     * @return OrganizationInviteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationInvite orgsInvitesCreate(String org, OrgsInvitesCreate data) throws ApiException {
-        ApiResponse<OrganizationInvite> resp = orgsInvitesCreateWithHttpInfo(org, data);
+    public OrganizationInviteResponse orgsInvitesCreate(String org, OrganizationInviteRequest data) throws ApiException {
+        ApiResponse<OrganizationInviteResponse> resp = orgsInvitesCreateWithHttpInfo(org, data);
         return resp.getData();
     }
 
@@ -173,12 +176,12 @@ public class OrgsApi {
      * Create an organization invite for a specific user
      * @param org  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;OrganizationInvite&gt;
+     * @return ApiResponse&lt;OrganizationInviteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationInvite> orgsInvitesCreateWithHttpInfo( @NotNull String org,  OrgsInvitesCreate data) throws ApiException {
+    public ApiResponse<OrganizationInviteResponse> orgsInvitesCreateWithHttpInfo( @NotNull String org,  OrganizationInviteRequest data) throws ApiException {
         com.squareup.okhttp.Call call = orgsInvitesCreateValidateBeforeCall(org, data, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationInvite>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationInviteResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -191,7 +194,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsInvitesCreateAsync(String org, OrgsInvitesCreate data, final ApiCallback<OrganizationInvite> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsInvitesCreateAsync(String org, OrganizationInviteRequest data, final ApiCallback<OrganizationInviteResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -213,7 +216,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsInvitesCreateValidateBeforeCall(org, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationInvite>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationInviteResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -242,13 +245,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -359,14 +362,13 @@ public class OrgsApi {
      * Build call for orgsInvitesExtend
      * @param org  (required)
      * @param slugPerm  (required)
-     * @param data  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsInvitesExtendCall(String org, String slugPerm, OrgsInvitesExtend data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = data;
+    public com.squareup.okhttp.Call orgsInvitesExtendCall(String org, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/orgs/{org}/invites/{slug_perm}/extend/"
@@ -381,7 +383,7 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -409,18 +411,18 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsInvitesExtendValidateBeforeCall(String org, String slugPerm, OrgsInvitesExtend data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsInvitesExtendValidateBeforeCall(String org, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { org, slugPerm, data };
-            Method method = this.getClass().getMethod("orgsInvitesExtendWithHttpInfo", String.class, String.class, OrgsInvitesExtend.class);
+            Object[] parameterValues = { org, slugPerm };
+            Method method = this.getClass().getMethod("orgsInvitesExtendWithHttpInfo", String.class, String.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = orgsInvitesExtendCall(org, slugPerm, data, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = orgsInvitesExtendCall(org, slugPerm, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -441,12 +443,11 @@ public class OrgsApi {
      * Extend an organization invite.
      * @param org  (required)
      * @param slugPerm  (required)
-     * @param data  (optional)
-     * @return OrganizationInvite
+     * @return OrganizationInviteExtendResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationInvite orgsInvitesExtend(String org, String slugPerm, OrgsInvitesExtend data) throws ApiException {
-        ApiResponse<OrganizationInvite> resp = orgsInvitesExtendWithHttpInfo(org, slugPerm, data);
+    public OrganizationInviteExtendResponse orgsInvitesExtend(String org, String slugPerm) throws ApiException {
+        ApiResponse<OrganizationInviteExtendResponse> resp = orgsInvitesExtendWithHttpInfo(org, slugPerm);
         return resp.getData();
     }
 
@@ -455,13 +456,12 @@ public class OrgsApi {
      * Extend an organization invite.
      * @param org  (required)
      * @param slugPerm  (required)
-     * @param data  (optional)
-     * @return ApiResponse&lt;OrganizationInvite&gt;
+     * @return ApiResponse&lt;OrganizationInviteExtendResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationInvite> orgsInvitesExtendWithHttpInfo( @NotNull String org,  @NotNull String slugPerm,  OrgsInvitesExtend data) throws ApiException {
-        com.squareup.okhttp.Call call = orgsInvitesExtendValidateBeforeCall(org, slugPerm, data, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationInvite>(){}.getType();
+    public ApiResponse<OrganizationInviteExtendResponse> orgsInvitesExtendWithHttpInfo( @NotNull String org,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = orgsInvitesExtendValidateBeforeCall(org, slugPerm, null, null);
+        Type localVarReturnType = new TypeToken<OrganizationInviteExtendResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -470,12 +470,11 @@ public class OrgsApi {
      * Extend an organization invite.
      * @param org  (required)
      * @param slugPerm  (required)
-     * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsInvitesExtendAsync(String org, String slugPerm, OrgsInvitesExtend data, final ApiCallback<OrganizationInvite> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsInvitesExtendAsync(String org, String slugPerm, final ApiCallback<OrganizationInviteExtendResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -496,8 +495,8 @@ public class OrgsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = orgsInvitesExtendValidateBeforeCall(org, slugPerm, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationInvite>(){}.getType();
+        com.squareup.okhttp.Call call = orgsInvitesExtendValidateBeforeCall(org, slugPerm, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrganizationInviteExtendResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -530,13 +529,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -591,11 +590,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;OrganizationInvite&gt;
+     * @return List&lt;OrganizationInviteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationInvite> orgsInvitesList(String org, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<OrganizationInvite>> resp = orgsInvitesListWithHttpInfo(org, page, pageSize);
+    public List<OrganizationInviteResponse> orgsInvitesList(String org, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<OrganizationInviteResponse>> resp = orgsInvitesListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
 
@@ -605,12 +604,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;OrganizationInvite&gt;&gt;
+     * @return ApiResponse&lt;List&lt;OrganizationInviteResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationInvite>> orgsInvitesListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationInviteResponse>> orgsInvitesListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsInvitesListValidateBeforeCall(org, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<OrganizationInvite>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationInviteResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -624,7 +623,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsInvitesListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationInvite>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsInvitesListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationInviteResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -646,7 +645,295 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsInvitesListValidateBeforeCall(org, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<OrganizationInvite>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationInviteResponse>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsInvitesPartialUpdate
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsInvitesPartialUpdateCall(String org, String slugPerm, OrganizationInviteUpdateRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/invites/{slug_perm}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsInvitesPartialUpdateValidateBeforeCall(String org, String slugPerm, OrganizationInviteUpdateRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, slugPerm, data };
+            Method method = this.getClass().getMethod("orgsInvitesPartialUpdateWithHttpInfo", String.class, String.class, OrganizationInviteUpdateRequestPatch.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsInvitesPartialUpdateCall(org, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Update a specific organization invite.
+     * Update a specific organization invite.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return OrganizationInviteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrganizationInviteResponse orgsInvitesPartialUpdate(String org, String slugPerm, OrganizationInviteUpdateRequestPatch data) throws ApiException {
+        ApiResponse<OrganizationInviteResponse> resp = orgsInvitesPartialUpdateWithHttpInfo(org, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Update a specific organization invite.
+     * Update a specific organization invite.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;OrganizationInviteResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrganizationInviteResponse> orgsInvitesPartialUpdateWithHttpInfo( @NotNull String org,  @NotNull String slugPerm,  OrganizationInviteUpdateRequestPatch data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsInvitesPartialUpdateValidateBeforeCall(org, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<OrganizationInviteResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a specific organization invite. (asynchronously)
+     * Update a specific organization invite.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsInvitesPartialUpdateAsync(String org, String slugPerm, OrganizationInviteUpdateRequestPatch data, final ApiCallback<OrganizationInviteResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsInvitesPartialUpdateValidateBeforeCall(org, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrganizationInviteResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsInvitesResend
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsInvitesResendCall(String org, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/invites/{slug_perm}/resend/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsInvitesResendValidateBeforeCall(String org, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, slugPerm };
+            Method method = this.getClass().getMethod("orgsInvitesResendWithHttpInfo", String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsInvitesResendCall(org, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Resend an organization invite.
+     * Resend an organization invite.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @return OrganizationInviteExtendResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrganizationInviteExtendResponse orgsInvitesResend(String org, String slugPerm) throws ApiException {
+        ApiResponse<OrganizationInviteExtendResponse> resp = orgsInvitesResendWithHttpInfo(org, slugPerm);
+        return resp.getData();
+    }
+
+    /**
+     * Resend an organization invite.
+     * Resend an organization invite.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;OrganizationInviteExtendResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrganizationInviteExtendResponse> orgsInvitesResendWithHttpInfo( @NotNull String org,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = orgsInvitesResendValidateBeforeCall(org, slugPerm, null, null);
+        Type localVarReturnType = new TypeToken<OrganizationInviteExtendResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Resend an organization invite. (asynchronously)
+     * Resend an organization invite.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsInvitesResendAsync(String org, String slugPerm, final ApiCallback<OrganizationInviteExtendResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsInvitesResendValidateBeforeCall(org, slugPerm, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrganizationInviteExtendResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -677,13 +964,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -737,11 +1024,11 @@ public class OrgsApi {
      * Get a list of all the organizations you are associated with.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;Organization&gt;
+     * @return List&lt;OrganizationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Organization> orgsList(Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<Organization>> resp = orgsListWithHttpInfo(page, pageSize);
+    public List<OrganizationResponse> orgsList(Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<OrganizationResponse>> resp = orgsListWithHttpInfo(page, pageSize);
         return resp.getData();
     }
 
@@ -750,12 +1037,12 @@ public class OrgsApi {
      * Get a list of all the organizations you are associated with.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;Organization&gt;&gt;
+     * @return ApiResponse&lt;List&lt;OrganizationResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Organization>> orgsListWithHttpInfo( Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationResponse>> orgsListWithHttpInfo( Integer page,  Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsListValidateBeforeCall(page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<Organization>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -768,7 +1055,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsListAsync(Integer page, Integer pageSize, final ApiCallback<List<Organization>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsListAsync(Integer page, Integer pageSize, final ApiCallback<List<OrganizationResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -790,7 +1077,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsListValidateBeforeCall(page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Organization>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -819,13 +1106,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -961,13 +1248,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1022,11 +1309,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;OrganizationMembership&gt;
+     * @return List&lt;OrganizationMembershipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationMembership> orgsMembersList(String org, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<OrganizationMembership>> resp = orgsMembersListWithHttpInfo(org, page, pageSize);
+    public List<OrganizationMembershipResponse> orgsMembersList(String org, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<OrganizationMembershipResponse>> resp = orgsMembersListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
 
@@ -1036,12 +1323,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;OrganizationMembership&gt;&gt;
+     * @return ApiResponse&lt;List&lt;OrganizationMembershipResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationMembership>> orgsMembersListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationMembershipResponse>> orgsMembersListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsMembersListValidateBeforeCall(org, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<OrganizationMembership>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationMembershipResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1055,7 +1342,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsMembersListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationMembership>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsMembersListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationMembershipResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1077,7 +1364,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsMembersListValidateBeforeCall(org, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<OrganizationMembership>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationMembershipResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1106,13 +1393,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1166,11 +1453,11 @@ public class OrgsApi {
      * Get the details for a specific organization member.
      * @param org  (required)
      * @param member  (required)
-     * @return OrganizationMembership
+     * @return OrganizationMembershipResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationMembership orgsMembersRead(String org, String member) throws ApiException {
-        ApiResponse<OrganizationMembership> resp = orgsMembersReadWithHttpInfo(org, member);
+    public OrganizationMembershipResponse orgsMembersRead(String org, String member) throws ApiException {
+        ApiResponse<OrganizationMembershipResponse> resp = orgsMembersReadWithHttpInfo(org, member);
         return resp.getData();
     }
 
@@ -1179,12 +1466,12 @@ public class OrgsApi {
      * Get the details for a specific organization member.
      * @param org  (required)
      * @param member  (required)
-     * @return ApiResponse&lt;OrganizationMembership&gt;
+     * @return ApiResponse&lt;OrganizationMembershipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationMembership> orgsMembersReadWithHttpInfo( @NotNull String org,  @NotNull String member) throws ApiException {
+    public ApiResponse<OrganizationMembershipResponse> orgsMembersReadWithHttpInfo( @NotNull String org,  @NotNull String member) throws ApiException {
         com.squareup.okhttp.Call call = orgsMembersReadValidateBeforeCall(org, member, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationMembership>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationMembershipResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1197,7 +1484,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsMembersReadAsync(String org, String member, final ApiCallback<OrganizationMembership> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsMembersReadAsync(String org, String member, final ApiCallback<OrganizationMembershipResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1219,7 +1506,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsMembersReadValidateBeforeCall(org, member, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationMembership>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationMembershipResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1248,13 +1535,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1384,13 +1671,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1443,11 +1730,11 @@ public class OrgsApi {
      * Get the details for the specific organization.
      * Get the details for the specific organization.
      * @param org  (required)
-     * @return Organization
+     * @return OrganizationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Organization orgsRead(String org) throws ApiException {
-        ApiResponse<Organization> resp = orgsReadWithHttpInfo(org);
+    public OrganizationResponse orgsRead(String org) throws ApiException {
+        ApiResponse<OrganizationResponse> resp = orgsReadWithHttpInfo(org);
         return resp.getData();
     }
 
@@ -1455,12 +1742,12 @@ public class OrgsApi {
      * Get the details for the specific organization.
      * Get the details for the specific organization.
      * @param org  (required)
-     * @return ApiResponse&lt;Organization&gt;
+     * @return ApiResponse&lt;OrganizationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Organization> orgsReadWithHttpInfo( @NotNull String org) throws ApiException {
+    public ApiResponse<OrganizationResponse> orgsReadWithHttpInfo( @NotNull String org) throws ApiException {
         com.squareup.okhttp.Call call = orgsReadValidateBeforeCall(org, null, null);
-        Type localVarReturnType = new TypeToken<Organization>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1472,7 +1759,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsReadAsync(String org, final ApiCallback<Organization> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsReadAsync(String org, final ApiCallback<OrganizationResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1494,7 +1781,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsReadValidateBeforeCall(org, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Organization>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1507,7 +1794,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsSamlGroupSyncCreateCall(String org, OrgsSamlgroupsyncCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsSamlGroupSyncCreateCall(String org, OrganizationGroupSyncRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -1522,7 +1809,7 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1550,13 +1837,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsSamlGroupSyncCreateValidateBeforeCall(String org, OrgsSamlgroupsyncCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsSamlGroupSyncCreateValidateBeforeCall(String org, OrganizationGroupSyncRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, data };
-            Method method = this.getClass().getMethod("orgsSamlGroupSyncCreateWithHttpInfo", String.class, OrgsSamlgroupsyncCreate.class);
+            Method method = this.getClass().getMethod("orgsSamlGroupSyncCreateWithHttpInfo", String.class, OrganizationGroupSyncRequest.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -1582,11 +1869,11 @@ public class OrgsApi {
      * Create a new SAML Group Sync mapping within an organization.
      * @param org  (required)
      * @param data  (optional)
-     * @return OrganizationGroupSync
+     * @return OrganizationGroupSyncResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationGroupSync orgsSamlGroupSyncCreate(String org, OrgsSamlgroupsyncCreate data) throws ApiException {
-        ApiResponse<OrganizationGroupSync> resp = orgsSamlGroupSyncCreateWithHttpInfo(org, data);
+    public OrganizationGroupSyncResponse orgsSamlGroupSyncCreate(String org, OrganizationGroupSyncRequest data) throws ApiException {
+        ApiResponse<OrganizationGroupSyncResponse> resp = orgsSamlGroupSyncCreateWithHttpInfo(org, data);
         return resp.getData();
     }
 
@@ -1595,12 +1882,12 @@ public class OrgsApi {
      * Create a new SAML Group Sync mapping within an organization.
      * @param org  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;OrganizationGroupSync&gt;
+     * @return ApiResponse&lt;OrganizationGroupSyncResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationGroupSync> orgsSamlGroupSyncCreateWithHttpInfo( @NotNull String org,  OrgsSamlgroupsyncCreate data) throws ApiException {
+    public ApiResponse<OrganizationGroupSyncResponse> orgsSamlGroupSyncCreateWithHttpInfo( @NotNull String org,  OrganizationGroupSyncRequest data) throws ApiException {
         com.squareup.okhttp.Call call = orgsSamlGroupSyncCreateValidateBeforeCall(org, data, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationGroupSync>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationGroupSyncResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1613,7 +1900,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsSamlGroupSyncCreateAsync(String org, OrgsSamlgroupsyncCreate data, final ApiCallback<OrganizationGroupSync> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsSamlGroupSyncCreateAsync(String org, OrganizationGroupSyncRequest data, final ApiCallback<OrganizationGroupSyncResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1635,7 +1922,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsSamlGroupSyncCreateValidateBeforeCall(org, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationGroupSync>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationGroupSyncResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1664,13 +1951,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1806,13 +2093,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1867,11 +2154,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;OrganizationGroupSync&gt;
+     * @return List&lt;OrganizationGroupSyncResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationGroupSync> orgsSamlGroupSyncList(String org, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<OrganizationGroupSync>> resp = orgsSamlGroupSyncListWithHttpInfo(org, page, pageSize);
+    public List<OrganizationGroupSyncResponse> orgsSamlGroupSyncList(String org, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<OrganizationGroupSyncResponse>> resp = orgsSamlGroupSyncListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
 
@@ -1881,12 +2168,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;OrganizationGroupSync&gt;&gt;
+     * @return ApiResponse&lt;List&lt;OrganizationGroupSyncResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationGroupSync>> orgsSamlGroupSyncListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationGroupSyncResponse>> orgsSamlGroupSyncListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsSamlGroupSyncListValidateBeforeCall(org, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<OrganizationGroupSync>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationGroupSyncResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1900,7 +2187,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsSamlGroupSyncListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationGroupSync>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsSamlGroupSyncListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationGroupSyncResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1922,12 +2209,12 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsSamlGroupSyncListValidateBeforeCall(org, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<OrganizationGroupSync>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationGroupSyncResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for orgsTeamsCreate
+     * Build call for orgsServicesCreate
      * @param org  (required)
      * @param data  (optional)
      * @param progressListener Progress listener
@@ -1935,11 +2222,11 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsCreateCall(String org, OrgsTeamsCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsServicesCreateCall(String org, ServiceRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
-        String localVarPath = "/orgs/{org}/teams/"
+        String localVarPath = "/orgs/{org}/services/"
             .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1950,7 +2237,7 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1978,13 +2265,871 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsTeamsCreateValidateBeforeCall(String org, OrgsTeamsCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsServicesCreateValidateBeforeCall(String org, ServiceRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, data };
-            Method method = this.getClass().getMethod("orgsTeamsCreateWithHttpInfo", String.class, OrgsTeamsCreate.class);
+            Method method = this.getClass().getMethod("orgsServicesCreateWithHttpInfo", String.class, ServiceRequest.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsServicesCreateCall(org, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create a service within an organization.
+     * Create a service within an organization.
+     * @param org  (required)
+     * @param data  (optional)
+     * @return ServiceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ServiceResponse orgsServicesCreate(String org, ServiceRequest data) throws ApiException {
+        ApiResponse<ServiceResponse> resp = orgsServicesCreateWithHttpInfo(org, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create a service within an organization.
+     * Create a service within an organization.
+     * @param org  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;ServiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ServiceResponse> orgsServicesCreateWithHttpInfo( @NotNull String org,  ServiceRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsServicesCreateValidateBeforeCall(org, data, null, null);
+        Type localVarReturnType = new TypeToken<ServiceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a service within an organization. (asynchronously)
+     * Create a service within an organization.
+     * @param org  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesCreateAsync(String org, ServiceRequest data, final ApiCallback<ServiceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsServicesCreateValidateBeforeCall(org, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServiceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsServicesDelete
+     * @param org  (required)
+     * @param service  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesDeleteCall(String org, String service, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/services/{service}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "service" + "\\}", apiClient.escapeString(service.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsServicesDeleteValidateBeforeCall(String org, String service, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, service };
+            Method method = this.getClass().getMethod("orgsServicesDeleteWithHttpInfo", String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsServicesDeleteCall(org, service, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Delete a specific service
+     * Delete a specific service
+     * @param org  (required)
+     * @param service  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void orgsServicesDelete(String org, String service) throws ApiException {
+        orgsServicesDeleteWithHttpInfo(org, service);
+    }
+
+    /**
+     * Delete a specific service
+     * Delete a specific service
+     * @param org  (required)
+     * @param service  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> orgsServicesDeleteWithHttpInfo( @NotNull String org,  @NotNull String service) throws ApiException {
+        com.squareup.okhttp.Call call = orgsServicesDeleteValidateBeforeCall(org, service, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a specific service (asynchronously)
+     * Delete a specific service
+     * @param org  (required)
+     * @param service  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesDeleteAsync(String org, String service, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsServicesDeleteValidateBeforeCall(org, service, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsServicesList
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesListCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/services/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsServicesListValidateBeforeCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, page, pageSize };
+            Method method = this.getClass().getMethod("orgsServicesListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsServicesListCall(org, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Get a list of all services within an organization.
+     * Get a list of all services within an organization.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;ServiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ServiceResponse> orgsServicesList(String org, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<ServiceResponse>> resp = orgsServicesListWithHttpInfo(org, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * Get a list of all services within an organization.
+     * Get a list of all services within an organization.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;ServiceResponse&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ServiceResponse>> orgsServicesListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = orgsServicesListValidateBeforeCall(org, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<ServiceResponse>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get a list of all services within an organization. (asynchronously)
+     * Get a list of all services within an organization.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<ServiceResponse>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsServicesListValidateBeforeCall(org, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ServiceResponse>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsServicesPartialUpdate
+     * @param org  (required)
+     * @param service  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesPartialUpdateCall(String org, String service, ServiceRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/services/{service}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "service" + "\\}", apiClient.escapeString(service.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsServicesPartialUpdateValidateBeforeCall(String org, String service, ServiceRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, service, data };
+            Method method = this.getClass().getMethod("orgsServicesPartialUpdateWithHttpInfo", String.class, String.class, ServiceRequestPatch.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsServicesPartialUpdateCall(org, service, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Update a service within an organization.
+     * Update a service within an organization.
+     * @param org  (required)
+     * @param service  (required)
+     * @param data  (optional)
+     * @return ServiceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ServiceResponse orgsServicesPartialUpdate(String org, String service, ServiceRequestPatch data) throws ApiException {
+        ApiResponse<ServiceResponse> resp = orgsServicesPartialUpdateWithHttpInfo(org, service, data);
+        return resp.getData();
+    }
+
+    /**
+     * Update a service within an organization.
+     * Update a service within an organization.
+     * @param org  (required)
+     * @param service  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;ServiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ServiceResponse> orgsServicesPartialUpdateWithHttpInfo( @NotNull String org,  @NotNull String service,  ServiceRequestPatch data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsServicesPartialUpdateValidateBeforeCall(org, service, data, null, null);
+        Type localVarReturnType = new TypeToken<ServiceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a service within an organization. (asynchronously)
+     * Update a service within an organization.
+     * @param org  (required)
+     * @param service  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesPartialUpdateAsync(String org, String service, ServiceRequestPatch data, final ApiCallback<ServiceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsServicesPartialUpdateValidateBeforeCall(org, service, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServiceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsServicesRead
+     * @param org  (required)
+     * @param service  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesReadCall(String org, String service, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/services/{service}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "service" + "\\}", apiClient.escapeString(service.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsServicesReadValidateBeforeCall(String org, String service, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, service };
+            Method method = this.getClass().getMethod("orgsServicesReadWithHttpInfo", String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsServicesReadCall(org, service, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve details of a single service within an organization.
+     * Retrieve details of a single service within an organization.
+     * @param org  (required)
+     * @param service  (required)
+     * @return ServiceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ServiceResponse orgsServicesRead(String org, String service) throws ApiException {
+        ApiResponse<ServiceResponse> resp = orgsServicesReadWithHttpInfo(org, service);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve details of a single service within an organization.
+     * Retrieve details of a single service within an organization.
+     * @param org  (required)
+     * @param service  (required)
+     * @return ApiResponse&lt;ServiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ServiceResponse> orgsServicesReadWithHttpInfo( @NotNull String org,  @NotNull String service) throws ApiException {
+        com.squareup.okhttp.Call call = orgsServicesReadValidateBeforeCall(org, service, null, null);
+        Type localVarReturnType = new TypeToken<ServiceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve details of a single service within an organization. (asynchronously)
+     * Retrieve details of a single service within an organization.
+     * @param org  (required)
+     * @param service  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesReadAsync(String org, String service, final ApiCallback<ServiceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsServicesReadValidateBeforeCall(org, service, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServiceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsServicesRefresh
+     * @param org  (required)
+     * @param service  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesRefreshCall(String org, String service, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/services/{service}/refresh/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "service" + "\\}", apiClient.escapeString(service.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsServicesRefreshValidateBeforeCall(String org, String service, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, service };
+            Method method = this.getClass().getMethod("orgsServicesRefreshWithHttpInfo", String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsServicesRefreshCall(org, service, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Refresh service API token.
+     * Refresh service API token.
+     * @param org  (required)
+     * @param service  (required)
+     * @return ServiceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ServiceResponse orgsServicesRefresh(String org, String service) throws ApiException {
+        ApiResponse<ServiceResponse> resp = orgsServicesRefreshWithHttpInfo(org, service);
+        return resp.getData();
+    }
+
+    /**
+     * Refresh service API token.
+     * Refresh service API token.
+     * @param org  (required)
+     * @param service  (required)
+     * @return ApiResponse&lt;ServiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ServiceResponse> orgsServicesRefreshWithHttpInfo( @NotNull String org,  @NotNull String service) throws ApiException {
+        com.squareup.okhttp.Call call = orgsServicesRefreshValidateBeforeCall(org, service, null, null);
+        Type localVarReturnType = new TypeToken<ServiceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Refresh service API token. (asynchronously)
+     * Refresh service API token.
+     * @param org  (required)
+     * @param service  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsServicesRefreshAsync(String org, String service, final ApiCallback<ServiceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsServicesRefreshValidateBeforeCall(org, service, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServiceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsTeamsCreate
+     * @param org  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsTeamsCreateCall(String org, OrganizationTeamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/teams/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsTeamsCreateValidateBeforeCall(String org, OrganizationTeamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, data };
+            Method method = this.getClass().getMethod("orgsTeamsCreateWithHttpInfo", String.class, OrganizationTeamRequest.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2010,11 +3155,11 @@ public class OrgsApi {
      * Create a team for this organization.
      * @param org  (required)
      * @param data  (optional)
-     * @return OrganizationTeam
+     * @return OrganizationTeamResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationTeam orgsTeamsCreate(String org, OrgsTeamsCreate data) throws ApiException {
-        ApiResponse<OrganizationTeam> resp = orgsTeamsCreateWithHttpInfo(org, data);
+    public OrganizationTeamResponse orgsTeamsCreate(String org, OrganizationTeamRequest data) throws ApiException {
+        ApiResponse<OrganizationTeamResponse> resp = orgsTeamsCreateWithHttpInfo(org, data);
         return resp.getData();
     }
 
@@ -2023,12 +3168,12 @@ public class OrgsApi {
      * Create a team for this organization.
      * @param org  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;OrganizationTeam&gt;
+     * @return ApiResponse&lt;OrganizationTeamResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationTeam> orgsTeamsCreateWithHttpInfo( @NotNull String org,  OrgsTeamsCreate data) throws ApiException {
+    public ApiResponse<OrganizationTeamResponse> orgsTeamsCreateWithHttpInfo( @NotNull String org,  OrganizationTeamRequest data) throws ApiException {
         com.squareup.okhttp.Call call = orgsTeamsCreateValidateBeforeCall(org, data, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationTeam>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2041,7 +3186,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsCreateAsync(String org, OrgsTeamsCreate data, final ApiCallback<OrganizationTeam> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsCreateAsync(String org, OrganizationTeamRequest data, final ApiCallback<OrganizationTeamResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2063,7 +3208,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsTeamsCreateValidateBeforeCall(org, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationTeam>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2092,13 +3237,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2234,13 +3379,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2295,11 +3440,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;OrganizationTeam&gt;
+     * @return List&lt;OrganizationTeamResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationTeam> orgsTeamsList(String org, Integer page, Integer pageSize) throws ApiException {
-        ApiResponse<List<OrganizationTeam>> resp = orgsTeamsListWithHttpInfo(org, page, pageSize);
+    public List<OrganizationTeamResponse> orgsTeamsList(String org, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<List<OrganizationTeamResponse>> resp = orgsTeamsListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
 
@@ -2309,12 +3454,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;OrganizationTeam&gt;&gt;
+     * @return ApiResponse&lt;List&lt;OrganizationTeamResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationTeam>> orgsTeamsListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationTeamResponse>> orgsTeamsListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsTeamsListValidateBeforeCall(org, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<OrganizationTeam>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationTeamResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2328,7 +3473,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationTeam>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationTeamResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2350,7 +3495,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsTeamsListValidateBeforeCall(org, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<OrganizationTeam>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrganizationTeamResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2364,7 +3509,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersCreateCall(String org, String team, OrgsTeamsMembersCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsMembersCreateCall(String org, String team, OrganizationTeamMembers data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2380,7 +3525,7 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2408,13 +3553,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsTeamsMembersCreateValidateBeforeCall(String org, String team, OrgsTeamsMembersCreate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsTeamsMembersCreateValidateBeforeCall(String org, String team, OrganizationTeamMembers data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, team, data };
-            Method method = this.getClass().getMethod("orgsTeamsMembersCreateWithHttpInfo", String.class, String.class, OrgsTeamsMembersCreate.class);
+            Method method = this.getClass().getMethod("orgsTeamsMembersCreateWithHttpInfo", String.class, String.class, OrganizationTeamMembers.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2441,11 +3586,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param team  (required)
      * @param data  (optional)
-     * @return OrganizationTeamMembers
+     * @return OrganizationTeamMembersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationTeamMembers orgsTeamsMembersCreate(String org, String team, OrgsTeamsMembersCreate data) throws ApiException {
-        ApiResponse<OrganizationTeamMembers> resp = orgsTeamsMembersCreateWithHttpInfo(org, team, data);
+    public OrganizationTeamMembersResponse orgsTeamsMembersCreate(String org, String team, OrganizationTeamMembers data) throws ApiException {
+        ApiResponse<OrganizationTeamMembersResponse> resp = orgsTeamsMembersCreateWithHttpInfo(org, team, data);
         return resp.getData();
     }
 
@@ -2455,12 +3600,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param team  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;OrganizationTeamMembers&gt;
+     * @return ApiResponse&lt;OrganizationTeamMembersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationTeamMembers> orgsTeamsMembersCreateWithHttpInfo( @NotNull String org,  @NotNull String team,  OrgsTeamsMembersCreate data) throws ApiException {
+    public ApiResponse<OrganizationTeamMembersResponse> orgsTeamsMembersCreateWithHttpInfo( @NotNull String org,  @NotNull String team,  OrganizationTeamMembers data) throws ApiException {
         com.squareup.okhttp.Call call = orgsTeamsMembersCreateValidateBeforeCall(org, team, data, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationTeamMembers>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamMembersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2474,7 +3619,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersCreateAsync(String org, String team, OrgsTeamsMembersCreate data, final ApiCallback<OrganizationTeamMembers> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsMembersCreateAsync(String org, String team, OrganizationTeamMembers data, final ApiCallback<OrganizationTeamMembersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2496,7 +3641,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsTeamsMembersCreateValidateBeforeCall(org, team, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationTeamMembers>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamMembersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2525,13 +3670,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2585,11 +3730,11 @@ public class OrgsApi {
      * List all members for the team.
      * @param org  (required)
      * @param team  (required)
-     * @return OrganizationTeamMembers
+     * @return OrganizationTeamMembersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationTeamMembers orgsTeamsMembersList(String org, String team) throws ApiException {
-        ApiResponse<OrganizationTeamMembers> resp = orgsTeamsMembersListWithHttpInfo(org, team);
+    public OrganizationTeamMembersResponse orgsTeamsMembersList(String org, String team) throws ApiException {
+        ApiResponse<OrganizationTeamMembersResponse> resp = orgsTeamsMembersListWithHttpInfo(org, team);
         return resp.getData();
     }
 
@@ -2598,12 +3743,12 @@ public class OrgsApi {
      * List all members for the team.
      * @param org  (required)
      * @param team  (required)
-     * @return ApiResponse&lt;OrganizationTeamMembers&gt;
+     * @return ApiResponse&lt;OrganizationTeamMembersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationTeamMembers> orgsTeamsMembersListWithHttpInfo( @NotNull String org,  @NotNull String team) throws ApiException {
+    public ApiResponse<OrganizationTeamMembersResponse> orgsTeamsMembersListWithHttpInfo( @NotNull String org,  @NotNull String team) throws ApiException {
         com.squareup.okhttp.Call call = orgsTeamsMembersListValidateBeforeCall(org, team, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationTeamMembers>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamMembersResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2616,7 +3761,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersListAsync(String org, String team, final ApiCallback<OrganizationTeamMembers> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsMembersListAsync(String org, String team, final ApiCallback<OrganizationTeamMembersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2638,7 +3783,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsTeamsMembersListValidateBeforeCall(org, team, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationTeamMembers>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamMembersResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2646,14 +3791,13 @@ public class OrgsApi {
      * Build call for orgsTeamsMembersUpdate
      * @param org  (required)
      * @param team  (required)
-     * @param data  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersUpdateCall(String org, String team, OrgsTeamsMembersUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = data;
+    public com.squareup.okhttp.Call orgsTeamsMembersUpdateCall(String org, String team, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/orgs/{org}/teams/{team}/members"
@@ -2668,7 +3812,7 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2696,18 +3840,18 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsTeamsMembersUpdateValidateBeforeCall(String org, String team, OrgsTeamsMembersUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsTeamsMembersUpdateValidateBeforeCall(String org, String team, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { org, team, data };
-            Method method = this.getClass().getMethod("orgsTeamsMembersUpdateWithHttpInfo", String.class, String.class, OrgsTeamsMembersUpdate.class);
+            Object[] parameterValues = { org, team };
+            Method method = this.getClass().getMethod("orgsTeamsMembersUpdateWithHttpInfo", String.class, String.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = orgsTeamsMembersUpdateCall(org, team, data, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = orgsTeamsMembersUpdateCall(org, team, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -2728,11 +3872,12 @@ public class OrgsApi {
      * Replace all team members.
      * @param org  (required)
      * @param team  (required)
-     * @param data  (optional)
+     * @return OrganizationTeamMembersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void orgsTeamsMembersUpdate(String org, String team, OrgsTeamsMembersUpdate data) throws ApiException {
-        orgsTeamsMembersUpdateWithHttpInfo(org, team, data);
+    public OrganizationTeamMembersResponse orgsTeamsMembersUpdate(String org, String team) throws ApiException {
+        ApiResponse<OrganizationTeamMembersResponse> resp = orgsTeamsMembersUpdateWithHttpInfo(org, team);
+        return resp.getData();
     }
 
     /**
@@ -2740,13 +3885,13 @@ public class OrgsApi {
      * Replace all team members.
      * @param org  (required)
      * @param team  (required)
-     * @param data  (optional)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;OrganizationTeamMembersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> orgsTeamsMembersUpdateWithHttpInfo( @NotNull String org,  @NotNull String team,  OrgsTeamsMembersUpdate data) throws ApiException {
-        com.squareup.okhttp.Call call = orgsTeamsMembersUpdateValidateBeforeCall(org, team, data, null, null);
-        return apiClient.execute(call);
+    public ApiResponse<OrganizationTeamMembersResponse> orgsTeamsMembersUpdateWithHttpInfo( @NotNull String org,  @NotNull String team) throws ApiException {
+        com.squareup.okhttp.Call call = orgsTeamsMembersUpdateValidateBeforeCall(org, team, null, null);
+        Type localVarReturnType = new TypeToken<OrganizationTeamMembersResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -2754,12 +3899,11 @@ public class OrgsApi {
      * Replace all team members.
      * @param org  (required)
      * @param team  (required)
-     * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersUpdateAsync(String org, String team, OrgsTeamsMembersUpdate data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsMembersUpdateAsync(String org, String team, final ApiCallback<OrganizationTeamMembersResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2780,8 +3924,9 @@ public class OrgsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = orgsTeamsMembersUpdateValidateBeforeCall(org, team, data, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        com.squareup.okhttp.Call call = orgsTeamsMembersUpdateValidateBeforeCall(org, team, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrganizationTeamMembersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -2794,7 +3939,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsPartialUpdateCall(String org, String team, OrgsTeamsPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsPartialUpdateCall(String org, String team, OrganizationTeamRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2810,7 +3955,7 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2838,13 +3983,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsTeamsPartialUpdateValidateBeforeCall(String org, String team, OrgsTeamsPartialUpdate data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsTeamsPartialUpdateValidateBeforeCall(String org, String team, OrganizationTeamRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, team, data };
-            Method method = this.getClass().getMethod("orgsTeamsPartialUpdateWithHttpInfo", String.class, String.class, OrgsTeamsPartialUpdate.class);
+            Method method = this.getClass().getMethod("orgsTeamsPartialUpdateWithHttpInfo", String.class, String.class, OrganizationTeamRequestPatch.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2871,11 +4016,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param team  (required)
      * @param data  (optional)
-     * @return OrganizationTeam
+     * @return OrganizationTeamResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationTeam orgsTeamsPartialUpdate(String org, String team, OrgsTeamsPartialUpdate data) throws ApiException {
-        ApiResponse<OrganizationTeam> resp = orgsTeamsPartialUpdateWithHttpInfo(org, team, data);
+    public OrganizationTeamResponse orgsTeamsPartialUpdate(String org, String team, OrganizationTeamRequestPatch data) throws ApiException {
+        ApiResponse<OrganizationTeamResponse> resp = orgsTeamsPartialUpdateWithHttpInfo(org, team, data);
         return resp.getData();
     }
 
@@ -2885,12 +4030,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param team  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;OrganizationTeam&gt;
+     * @return ApiResponse&lt;OrganizationTeamResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationTeam> orgsTeamsPartialUpdateWithHttpInfo( @NotNull String org,  @NotNull String team,  OrgsTeamsPartialUpdate data) throws ApiException {
+    public ApiResponse<OrganizationTeamResponse> orgsTeamsPartialUpdateWithHttpInfo( @NotNull String org,  @NotNull String team,  OrganizationTeamRequestPatch data) throws ApiException {
         com.squareup.okhttp.Call call = orgsTeamsPartialUpdateValidateBeforeCall(org, team, data, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationTeam>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2904,7 +4049,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsPartialUpdateAsync(String org, String team, OrgsTeamsPartialUpdate data, final ApiCallback<OrganizationTeam> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsPartialUpdateAsync(String org, String team, OrganizationTeamRequestPatch data, final ApiCallback<OrganizationTeamResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2926,7 +4071,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsTeamsPartialUpdateValidateBeforeCall(org, team, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationTeam>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2955,13 +4100,13 @@ public class OrgsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3011,42 +4156,42 @@ public class OrgsApi {
     }
 
     /**
-     * Get the details for the specific team.
-     * Get the details for the specific team.
+     * Get the details of a specific team within an organization.
+     * Get the details of a specific team within an organization.
      * @param org  (required)
      * @param team  (required)
-     * @return OrganizationTeam
+     * @return OrganizationTeamResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationTeam orgsTeamsRead(String org, String team) throws ApiException {
-        ApiResponse<OrganizationTeam> resp = orgsTeamsReadWithHttpInfo(org, team);
+    public OrganizationTeamResponse orgsTeamsRead(String org, String team) throws ApiException {
+        ApiResponse<OrganizationTeamResponse> resp = orgsTeamsReadWithHttpInfo(org, team);
         return resp.getData();
     }
 
     /**
-     * Get the details for the specific team.
-     * Get the details for the specific team.
+     * Get the details of a specific team within an organization.
+     * Get the details of a specific team within an organization.
      * @param org  (required)
      * @param team  (required)
-     * @return ApiResponse&lt;OrganizationTeam&gt;
+     * @return ApiResponse&lt;OrganizationTeamResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationTeam> orgsTeamsReadWithHttpInfo( @NotNull String org,  @NotNull String team) throws ApiException {
+    public ApiResponse<OrganizationTeamResponse> orgsTeamsReadWithHttpInfo( @NotNull String org,  @NotNull String team) throws ApiException {
         com.squareup.okhttp.Call call = orgsTeamsReadValidateBeforeCall(org, team, null, null);
-        Type localVarReturnType = new TypeToken<OrganizationTeam>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get the details for the specific team. (asynchronously)
-     * Get the details for the specific team.
+     * Get the details of a specific team within an organization. (asynchronously)
+     * Get the details of a specific team within an organization.
      * @param org  (required)
      * @param team  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsReadAsync(String org, String team, final ApiCallback<OrganizationTeam> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsReadAsync(String org, String team, final ApiCallback<OrganizationTeamResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3068,7 +4213,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsTeamsReadValidateBeforeCall(org, team, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrganizationTeam>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationTeamResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

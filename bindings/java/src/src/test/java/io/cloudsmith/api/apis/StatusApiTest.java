@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,8 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.StatusBasic;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.StatusBasicResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class StatusApiTest {
      */
     @Test
     public void statusCheckBasicTest() throws Exception {
-        StatusBasic response = api.statusCheckBasic();
+        StatusBasicResponse response = api.statusCheckBasic();
 
         // TODO: test validations
     }

@@ -1,6 +1,6 @@
 # OrgsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**orgsInvitesDelete**](OrgsApi.md#orgsInvitesDelete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite
 [**orgsInvitesExtend**](OrgsApi.md#orgsInvitesExtend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
 [**orgsInvitesList**](OrgsApi.md#orgsInvitesList) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
+[**orgsInvitesPartialUpdate**](OrgsApi.md#orgsInvitesPartialUpdate) | **PATCH** /orgs/{org}/invites/{slug_perm}/ | Update a specific organization invite.
+[**orgsInvitesResend**](OrgsApi.md#orgsInvitesResend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite.
 [**orgsList**](OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 [**orgsMembersDelete**](OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 [**orgsMembersList**](OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
@@ -17,6 +19,12 @@ Method | HTTP request | Description
 [**orgsSamlGroupSyncCreate**](OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgsSamlGroupSyncDelete**](OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 [**orgsSamlGroupSyncList**](OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
+[**orgsServicesCreate**](OrgsApi.md#orgsServicesCreate) | **POST** /orgs/{org}/services/ | Create a service within an organization.
+[**orgsServicesDelete**](OrgsApi.md#orgsServicesDelete) | **DELETE** /orgs/{org}/services/{service}/ | Delete a specific service
+[**orgsServicesList**](OrgsApi.md#orgsServicesList) | **GET** /orgs/{org}/services/ | Get a list of all services within an organization.
+[**orgsServicesPartialUpdate**](OrgsApi.md#orgsServicesPartialUpdate) | **PATCH** /orgs/{org}/services/{service}/ | Update a service within an organization.
+[**orgsServicesRead**](OrgsApi.md#orgsServicesRead) | **GET** /orgs/{org}/services/{service}/ | Retrieve details of a single service within an organization.
+[**orgsServicesRefresh**](OrgsApi.md#orgsServicesRefresh) | **POST** /orgs/{org}/services/{service}/refresh/ | Refresh service API token.
 [**orgsTeamsCreate**](OrgsApi.md#orgsTeamsCreate) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
 [**orgsTeamsDelete**](OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization.
 [**orgsTeamsList**](OrgsApi.md#orgsTeamsList) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
@@ -24,12 +32,12 @@ Method | HTTP request | Description
 [**orgsTeamsMembersList**](OrgsApi.md#orgsTeamsMembersList) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team.
 [**orgsTeamsMembersUpdate**](OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
 [**orgsTeamsPartialUpdate**](OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
-[**orgsTeamsRead**](OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details for the specific team.
+[**orgsTeamsRead**](OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
 
 
 <a name="orgsInvitesCreate"></a>
 # **orgsInvitesCreate**
-> OrganizationInvite orgsInvitesCreate(org, data)
+> OrganizationInviteResponse orgsInvitesCreate(org, data)
 
 Create an organization invite for a specific user
 
@@ -54,9 +62,9 @@ apikey.setApiKey("YOUR API KEY");
 
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
-OrgsInvitesCreate data = new OrgsInvitesCreate(); // OrgsInvitesCreate | 
+OrganizationInviteRequest data = new OrganizationInviteRequest(); // OrganizationInviteRequest | 
 try {
-    OrganizationInvite result = apiInstance.orgsInvitesCreate(org, data);
+    OrganizationInviteResponse result = apiInstance.orgsInvitesCreate(org, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsInvitesCreate");
@@ -69,11 +77,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
- **data** | [**OrgsInvitesCreate**](OrgsInvitesCreate.md)|  | [optional]
+ **data** | [**OrganizationInviteRequest**](OrganizationInviteRequest.md)|  | [optional]
 
 ### Return type
 
-[**OrganizationInvite**](OrganizationInvite.md)
+[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
 
 ### Authorization
 
@@ -82,7 +90,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="orgsInvitesDelete"></a>
 # **orgsInvitesDelete**
@@ -137,12 +145,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsInvitesExtend"></a>
 # **orgsInvitesExtend**
-> OrganizationInvite orgsInvitesExtend(org, slugPerm, data)
+> OrganizationInviteExtendResponse orgsInvitesExtend(org, slugPerm)
 
 Extend an organization invite.
 
@@ -168,9 +176,8 @@ apikey.setApiKey("YOUR API KEY");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
-OrgsInvitesExtend data = new OrgsInvitesExtend(); // OrgsInvitesExtend | 
 try {
-    OrganizationInvite result = apiInstance.orgsInvitesExtend(org, slugPerm, data);
+    OrganizationInviteExtendResponse result = apiInstance.orgsInvitesExtend(org, slugPerm);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsInvitesExtend");
@@ -184,11 +191,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
  **slugPerm** | **String**|  |
- **data** | [**OrgsInvitesExtend**](OrgsInvitesExtend.md)|  | [optional]
 
 ### Return type
 
-[**OrganizationInvite**](OrganizationInvite.md)
+[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
 
 ### Authorization
 
@@ -197,11 +203,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="orgsInvitesList"></a>
 # **orgsInvitesList**
-> List&lt;OrganizationInvite&gt; orgsInvitesList(org, page, pageSize)
+> List&lt;OrganizationInviteResponse&gt; orgsInvitesList(org, page, pageSize)
 
 Get a list of all invites for an organization.
 
@@ -229,7 +235,7 @@ String org = "org_example"; // String |
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<OrganizationInvite> result = apiInstance.orgsInvitesList(org, page, pageSize);
+    List<OrganizationInviteResponse> result = apiInstance.orgsInvitesList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsInvitesList");
@@ -247,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationInvite&gt;**](OrganizationInvite.md)
+[**List&lt;OrganizationInviteResponse&gt;**](OrganizationInviteResponse.md)
 
 ### Authorization
 
@@ -255,12 +261,128 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsInvitesPartialUpdate"></a>
+# **orgsInvitesPartialUpdate**
+> OrganizationInviteResponse orgsInvitesPartialUpdate(org, slugPerm, data)
+
+Update a specific organization invite.
+
+Update a specific organization invite.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+OrganizationInviteUpdateRequestPatch data = new OrganizationInviteUpdateRequestPatch(); // OrganizationInviteUpdateRequestPatch | 
+try {
+    OrganizationInviteResponse result = apiInstance.orgsInvitesPartialUpdate(org, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsInvitesPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**OrganizationInviteUpdateRequestPatch**](OrganizationInviteUpdateRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsInvitesResend"></a>
+# **orgsInvitesResend**
+> OrganizationInviteExtendResponse orgsInvitesResend(org, slugPerm)
+
+Resend an organization invite.
+
+Resend an organization invite.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    OrganizationInviteExtendResponse result = apiInstance.orgsInvitesResend(org, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsInvitesResend");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsList"></a>
 # **orgsList**
-> List&lt;Organization&gt; orgsList(page, pageSize)
+> List&lt;OrganizationResponse&gt; orgsList(page, pageSize)
 
 Get a list of all the organizations you are associated with.
 
@@ -287,7 +409,7 @@ OrgsApi apiInstance = new OrgsApi();
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<Organization> result = apiInstance.orgsList(page, pageSize);
+    List<OrganizationResponse> result = apiInstance.orgsList(page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsList");
@@ -304,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Organization&gt;**](Organization.md)
+[**List&lt;OrganizationResponse&gt;**](OrganizationResponse.md)
 
 ### Authorization
 
@@ -312,8 +434,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsMembersDelete"></a>
 # **orgsMembersDelete**
@@ -368,12 +490,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsMembersList"></a>
 # **orgsMembersList**
-> List&lt;OrganizationMembership&gt; orgsMembersList(org, page, pageSize)
+> List&lt;OrganizationMembershipResponse&gt; orgsMembersList(org, page, pageSize)
 
 Get the details for all organization members.
 
@@ -401,7 +523,7 @@ String org = "org_example"; // String |
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<OrganizationMembership> result = apiInstance.orgsMembersList(org, page, pageSize);
+    List<OrganizationMembershipResponse> result = apiInstance.orgsMembersList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsMembersList");
@@ -419,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationMembership&gt;**](OrganizationMembership.md)
+[**List&lt;OrganizationMembershipResponse&gt;**](OrganizationMembershipResponse.md)
 
 ### Authorization
 
@@ -427,12 +549,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsMembersRead"></a>
 # **orgsMembersRead**
-> OrganizationMembership orgsMembersRead(org, member)
+> OrganizationMembershipResponse orgsMembersRead(org, member)
 
 Get the details for a specific organization member.
 
@@ -459,7 +581,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String member = "member_example"; // String | 
 try {
-    OrganizationMembership result = apiInstance.orgsMembersRead(org, member);
+    OrganizationMembershipResponse result = apiInstance.orgsMembersRead(org, member);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsMembersRead");
@@ -476,7 +598,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationMembership**](OrganizationMembership.md)
+[**OrganizationMembershipResponse**](OrganizationMembershipResponse.md)
 
 ### Authorization
 
@@ -484,8 +606,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsMembersRemove"></a>
 # **orgsMembersRemove**
@@ -540,12 +662,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsRead"></a>
 # **orgsRead**
-> Organization orgsRead(org)
+> OrganizationResponse orgsRead(org)
 
 Get the details for the specific organization.
 
@@ -571,7 +693,7 @@ apikey.setApiKey("YOUR API KEY");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 try {
-    Organization result = apiInstance.orgsRead(org);
+    OrganizationResponse result = apiInstance.orgsRead(org);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsRead");
@@ -587,7 +709,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**OrganizationResponse**](OrganizationResponse.md)
 
 ### Authorization
 
@@ -595,12 +717,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsSamlGroupSyncCreate"></a>
 # **orgsSamlGroupSyncCreate**
-> OrganizationGroupSync orgsSamlGroupSyncCreate(org, data)
+> OrganizationGroupSyncResponse orgsSamlGroupSyncCreate(org, data)
 
 Create a new SAML Group Sync mapping within an organization.
 
@@ -625,9 +747,9 @@ apikey.setApiKey("YOUR API KEY");
 
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
-OrgsSamlgroupsyncCreate data = new OrgsSamlgroupsyncCreate(); // OrgsSamlgroupsyncCreate | 
+OrganizationGroupSyncRequest data = new OrganizationGroupSyncRequest(); // OrganizationGroupSyncRequest | 
 try {
-    OrganizationGroupSync result = apiInstance.orgsSamlGroupSyncCreate(org, data);
+    OrganizationGroupSyncResponse result = apiInstance.orgsSamlGroupSyncCreate(org, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncCreate");
@@ -640,11 +762,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
- **data** | [**OrgsSamlgroupsyncCreate**](OrgsSamlgroupsyncCreate.md)|  | [optional]
+ **data** | [**OrganizationGroupSyncRequest**](OrganizationGroupSyncRequest.md)|  | [optional]
 
 ### Return type
 
-[**OrganizationGroupSync**](OrganizationGroupSync.md)
+[**OrganizationGroupSyncResponse**](OrganizationGroupSyncResponse.md)
 
 ### Authorization
 
@@ -653,7 +775,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="orgsSamlGroupSyncDelete"></a>
 # **orgsSamlGroupSyncDelete**
@@ -708,12 +830,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsSamlGroupSyncList"></a>
 # **orgsSamlGroupSyncList**
-> List&lt;OrganizationGroupSync&gt; orgsSamlGroupSyncList(org, page, pageSize)
+> List&lt;OrganizationGroupSyncResponse&gt; orgsSamlGroupSyncList(org, page, pageSize)
 
 Get the details of all SAML Group Sync mapping within an organization.
 
@@ -741,7 +863,7 @@ String org = "org_example"; // String |
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<OrganizationGroupSync> result = apiInstance.orgsSamlGroupSyncList(org, page, pageSize);
+    List<OrganizationGroupSyncResponse> result = apiInstance.orgsSamlGroupSyncList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncList");
@@ -759,7 +881,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationGroupSync&gt;**](OrganizationGroupSync.md)
+[**List&lt;OrganizationGroupSyncResponse&gt;**](OrganizationGroupSyncResponse.md)
 
 ### Authorization
 
@@ -767,12 +889,357 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsServicesCreate"></a>
+# **orgsServicesCreate**
+> ServiceResponse orgsServicesCreate(org, data)
+
+Create a service within an organization.
+
+Create a service within an organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+ServiceRequest data = new ServiceRequest(); // ServiceRequest | 
+try {
+    ServiceResponse result = apiInstance.orgsServicesCreate(org, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsServicesCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **data** | [**ServiceRequest**](ServiceRequest.md)|  | [optional]
+
+### Return type
+
+[**ServiceResponse**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsServicesDelete"></a>
+# **orgsServicesDelete**
+> orgsServicesDelete(org, service)
+
+Delete a specific service
+
+Delete a specific service
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String service = "service_example"; // String | 
+try {
+    apiInstance.orgsServicesDelete(org, service);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsServicesDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **service** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsServicesList"></a>
+# **orgsServicesList**
+> List&lt;ServiceResponse&gt; orgsServicesList(org, page, pageSize)
+
+Get a list of all services within an organization.
+
+Get a list of all services within an organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+Integer page = 56; // Integer | A page number within the paginated result set.
+Integer pageSize = 56; // Integer | Number of results to return per page.
+try {
+    List<ServiceResponse> result = apiInstance.orgsServicesList(org, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsServicesList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **page** | **Integer**| A page number within the paginated result set. | [optional]
+ **pageSize** | **Integer**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;ServiceResponse&gt;**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsServicesPartialUpdate"></a>
+# **orgsServicesPartialUpdate**
+> ServiceResponse orgsServicesPartialUpdate(org, service, data)
+
+Update a service within an organization.
+
+Update a service within an organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String service = "service_example"; // String | 
+ServiceRequestPatch data = new ServiceRequestPatch(); // ServiceRequestPatch | 
+try {
+    ServiceResponse result = apiInstance.orgsServicesPartialUpdate(org, service, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsServicesPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **service** | **String**|  |
+ **data** | [**ServiceRequestPatch**](ServiceRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**ServiceResponse**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsServicesRead"></a>
+# **orgsServicesRead**
+> ServiceResponse orgsServicesRead(org, service)
+
+Retrieve details of a single service within an organization.
+
+Retrieve details of a single service within an organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String service = "service_example"; // String | 
+try {
+    ServiceResponse result = apiInstance.orgsServicesRead(org, service);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsServicesRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **service** | **String**|  |
+
+### Return type
+
+[**ServiceResponse**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsServicesRefresh"></a>
+# **orgsServicesRefresh**
+> ServiceResponse orgsServicesRefresh(org, service)
+
+Refresh service API token.
+
+Refresh service API token.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String service = "service_example"; // String | 
+try {
+    ServiceResponse result = apiInstance.orgsServicesRefresh(org, service);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsServicesRefresh");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **service** | **String**|  |
+
+### Return type
+
+[**ServiceResponse**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsTeamsCreate"></a>
 # **orgsTeamsCreate**
-> OrganizationTeam orgsTeamsCreate(org, data)
+> OrganizationTeamResponse orgsTeamsCreate(org, data)
 
 Create a team for this organization.
 
@@ -797,9 +1264,9 @@ apikey.setApiKey("YOUR API KEY");
 
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
-OrgsTeamsCreate data = new OrgsTeamsCreate(); // OrgsTeamsCreate | 
+OrganizationTeamRequest data = new OrganizationTeamRequest(); // OrganizationTeamRequest | 
 try {
-    OrganizationTeam result = apiInstance.orgsTeamsCreate(org, data);
+    OrganizationTeamResponse result = apiInstance.orgsTeamsCreate(org, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsCreate");
@@ -812,11 +1279,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
- **data** | [**OrgsTeamsCreate**](OrgsTeamsCreate.md)|  | [optional]
+ **data** | [**OrganizationTeamRequest**](OrganizationTeamRequest.md)|  | [optional]
 
 ### Return type
 
-[**OrganizationTeam**](OrganizationTeam.md)
+[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
 
 ### Authorization
 
@@ -825,7 +1292,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="orgsTeamsDelete"></a>
 # **orgsTeamsDelete**
@@ -880,12 +1347,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsTeamsList"></a>
 # **orgsTeamsList**
-> List&lt;OrganizationTeam&gt; orgsTeamsList(org, page, pageSize)
+> List&lt;OrganizationTeamResponse&gt; orgsTeamsList(org, page, pageSize)
 
 Get the details of all teams within an organization.
 
@@ -913,7 +1380,7 @@ String org = "org_example"; // String |
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<OrganizationTeam> result = apiInstance.orgsTeamsList(org, page, pageSize);
+    List<OrganizationTeamResponse> result = apiInstance.orgsTeamsList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsList");
@@ -931,7 +1398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationTeam&gt;**](OrganizationTeam.md)
+[**List&lt;OrganizationTeamResponse&gt;**](OrganizationTeamResponse.md)
 
 ### Authorization
 
@@ -939,12 +1406,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsTeamsMembersCreate"></a>
 # **orgsTeamsMembersCreate**
-> OrganizationTeamMembers orgsTeamsMembersCreate(org, team, data)
+> OrganizationTeamMembersResponse orgsTeamsMembersCreate(org, team, data)
 
 Add users to a team.
 
@@ -970,9 +1437,9 @@ apikey.setApiKey("YOUR API KEY");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
-OrgsTeamsMembersCreate data = new OrgsTeamsMembersCreate(); // OrgsTeamsMembersCreate | 
+OrganizationTeamMembers data = new OrganizationTeamMembers(); // OrganizationTeamMembers | 
 try {
-    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersCreate(org, team, data);
+    OrganizationTeamMembersResponse result = apiInstance.orgsTeamsMembersCreate(org, team, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsMembersCreate");
@@ -986,11 +1453,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
  **team** | **String**|  |
- **data** | [**OrgsTeamsMembersCreate**](OrgsTeamsMembersCreate.md)|  | [optional]
+ **data** | [**OrganizationTeamMembers**](OrganizationTeamMembers.md)|  | [optional]
 
 ### Return type
 
-[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
 
 ### Authorization
 
@@ -999,11 +1466,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="orgsTeamsMembersList"></a>
 # **orgsTeamsMembersList**
-> OrganizationTeamMembers orgsTeamsMembersList(org, team)
+> OrganizationTeamMembersResponse orgsTeamsMembersList(org, team)
 
 List all members for the team.
 
@@ -1030,7 +1497,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
 try {
-    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersList(org, team);
+    OrganizationTeamMembersResponse result = apiInstance.orgsTeamsMembersList(org, team);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsMembersList");
@@ -1047,7 +1514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
 
 ### Authorization
 
@@ -1055,12 +1522,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsTeamsMembersUpdate"></a>
 # **orgsTeamsMembersUpdate**
-> orgsTeamsMembersUpdate(org, team, data)
+> OrganizationTeamMembersResponse orgsTeamsMembersUpdate(org, team)
 
 Replace all team members.
 
@@ -1086,9 +1553,9 @@ apikey.setApiKey("YOUR API KEY");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
-OrgsTeamsMembersUpdate data = new OrgsTeamsMembersUpdate(); // OrgsTeamsMembersUpdate | 
 try {
-    apiInstance.orgsTeamsMembersUpdate(org, team, data);
+    OrganizationTeamMembersResponse result = apiInstance.orgsTeamsMembersUpdate(org, team);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsMembersUpdate");
     e.printStackTrace();
@@ -1101,11 +1568,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
  **team** | **String**|  |
- **data** | [**OrgsTeamsMembersUpdate**](OrgsTeamsMembersUpdate.md)|  | [optional]
 
 ### Return type
 
-null (empty response body)
+[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
 
 ### Authorization
 
@@ -1114,11 +1580,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="orgsTeamsPartialUpdate"></a>
 # **orgsTeamsPartialUpdate**
-> OrganizationTeam orgsTeamsPartialUpdate(org, team, data)
+> OrganizationTeamResponse orgsTeamsPartialUpdate(org, team, data)
 
 Update a specific team in a organization.
 
@@ -1144,9 +1610,9 @@ apikey.setApiKey("YOUR API KEY");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
-OrgsTeamsPartialUpdate data = new OrgsTeamsPartialUpdate(); // OrgsTeamsPartialUpdate | 
+OrganizationTeamRequestPatch data = new OrganizationTeamRequestPatch(); // OrganizationTeamRequestPatch | 
 try {
-    OrganizationTeam result = apiInstance.orgsTeamsPartialUpdate(org, team, data);
+    OrganizationTeamResponse result = apiInstance.orgsTeamsPartialUpdate(org, team, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsPartialUpdate");
@@ -1160,11 +1626,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
  **team** | **String**|  |
- **data** | [**OrgsTeamsPartialUpdate**](OrgsTeamsPartialUpdate.md)|  | [optional]
+ **data** | [**OrganizationTeamRequestPatch**](OrganizationTeamRequestPatch.md)|  | [optional]
 
 ### Return type
 
-[**OrganizationTeam**](OrganizationTeam.md)
+[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
 
 ### Authorization
 
@@ -1173,15 +1639,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="orgsTeamsRead"></a>
 # **orgsTeamsRead**
-> OrganizationTeam orgsTeamsRead(org, team)
+> OrganizationTeamResponse orgsTeamsRead(org, team)
 
-Get the details for the specific team.
+Get the details of a specific team within an organization.
 
-Get the details for the specific team.
+Get the details of a specific team within an organization.
 
 ### Example
 ```java
@@ -1204,7 +1670,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
 try {
-    OrganizationTeam result = apiInstance.orgsTeamsRead(org, team);
+    OrganizationTeamResponse result = apiInstance.orgsTeamsRead(org, team);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsRead");
@@ -1221,7 +1687,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeam**](OrganizationTeam.md)
+[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
 
 ### Authorization
 
@@ -1229,6 +1695,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

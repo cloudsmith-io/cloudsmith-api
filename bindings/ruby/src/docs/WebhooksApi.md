@@ -1,6 +1,6 @@
 # CloudsmithApi::WebhooksApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **webhooks_create**
-> RepositoryWebhook webhooks_create(owner, repo, opts)
+> RepositoryWebhookResponse webhooks_create(owner, repo, opts)
 
 Create a specific webhook in a repository.
 
@@ -37,7 +37,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::WebhooksCreate.new # WebhooksCreate | 
+  data: CloudsmithApi::RepositoryWebhookRequest.new # RepositoryWebhookRequest | 
 }
 
 begin
@@ -55,11 +55,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**WebhooksCreate**](WebhooksCreate.md)|  | [optional] 
+ **data** | [**RepositoryWebhookRequest**](RepositoryWebhookRequest.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryWebhook**](RepositoryWebhook.md)
+[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -126,13 +126,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **webhooks_list**
-> Array&lt;RepositoryWebhook&gt; webhooks_list(owner, repo, opts)
+> Array&lt;RepositoryWebhookResponse&gt; webhooks_list(owner, repo, opts)
 
 Get a list of all webhooks in a repository.
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;RepositoryWebhook&gt;**](RepositoryWebhook.md)
+[**Array&lt;RepositoryWebhookResponse&gt;**](RepositoryWebhookResponse.md)
 
 ### Authorization
 
@@ -189,13 +189,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **webhooks_partial_update**
-> RepositoryWebhook webhooks_partial_update(owner, repo, identifier, opts)
+> RepositoryWebhookResponse webhooks_partial_update(owner, repo, identifier, opts)
 
 Update a specific webhook in a repository.
 
@@ -222,7 +222,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::WebhooksPartialUpdate.new # WebhooksPartialUpdate | 
+  data: CloudsmithApi::RepositoryWebhookRequestPatch.new # RepositoryWebhookRequestPatch | 
 }
 
 begin
@@ -241,11 +241,11 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryWebhookRequestPatch**](RepositoryWebhookRequestPatch.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryWebhook**](RepositoryWebhook.md)
+[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
 
 ### Authorization
 
@@ -254,12 +254,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **webhooks_read**
-> RepositoryWebhook webhooks_read(owner, repo, identifier)
+> RepositoryWebhookResponse webhooks_read(owner, repo, identifier)
 
 Views for working with repository webhooks.
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhook**](RepositoryWebhook.md)
+[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
 
 ### Authorization
 
@@ -313,8 +313,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

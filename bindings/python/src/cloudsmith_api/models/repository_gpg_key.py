@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -35,7 +35,7 @@ class RepositoryGpgKey(object):
     swagger_types = {
         'active': 'bool',
         'comment': 'str',
-        'created_at': 'str',
+        'created_at': 'datetime',
         'default': 'bool',
         'fingerprint': 'str',
         'fingerprint_short': 'str',
@@ -108,7 +108,6 @@ class RepositoryGpgKey(object):
     def comment(self):
         """Gets the comment of this RepositoryGpgKey.
 
-        
 
         :return: The comment of this RepositoryGpgKey.
         :rtype: str
@@ -119,13 +118,15 @@ class RepositoryGpgKey(object):
     def comment(self, comment):
         """Sets the comment of this RepositoryGpgKey.
 
-        
 
         :param comment: The comment of this RepositoryGpgKey.
         :type: str
         """
         if self._configuration.client_side_validation and comment is None:
             raise ValueError("Invalid value for `comment`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                comment is not None and len(comment) < 1):
+            raise ValueError("Invalid value for `comment`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._comment = comment
 
@@ -133,10 +134,9 @@ class RepositoryGpgKey(object):
     def created_at(self):
         """Gets the created_at of this RepositoryGpgKey.
 
-        
 
         :return: The created_at of this RepositoryGpgKey.
-        :rtype: str
+        :rtype: datetime
         """
         return self._created_at
 
@@ -144,10 +144,9 @@ class RepositoryGpgKey(object):
     def created_at(self, created_at):
         """Sets the created_at of this RepositoryGpgKey.
 
-        
 
         :param created_at: The created_at of this RepositoryGpgKey.
-        :type: str
+        :type: datetime
         """
 
         self._created_at = created_at
@@ -195,6 +194,9 @@ class RepositoryGpgKey(object):
         :param fingerprint: The fingerprint of this RepositoryGpgKey.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                fingerprint is not None and len(fingerprint) < 1):
+            raise ValueError("Invalid value for `fingerprint`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fingerprint = fingerprint
 
@@ -202,7 +204,6 @@ class RepositoryGpgKey(object):
     def fingerprint_short(self):
         """Gets the fingerprint_short of this RepositoryGpgKey.
 
-        
 
         :return: The fingerprint_short of this RepositoryGpgKey.
         :rtype: str
@@ -213,7 +214,6 @@ class RepositoryGpgKey(object):
     def fingerprint_short(self, fingerprint_short):
         """Sets the fingerprint_short of this RepositoryGpgKey.
 
-        
 
         :param fingerprint_short: The fingerprint_short of this RepositoryGpgKey.
         :type: str
@@ -241,6 +241,9 @@ class RepositoryGpgKey(object):
         :param public_key: The public_key of this RepositoryGpgKey.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                public_key is not None and len(public_key) < 1):
+            raise ValueError("Invalid value for `public_key`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._public_key = public_key
 

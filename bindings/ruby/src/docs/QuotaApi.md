@@ -1,6 +1,6 @@
 # CloudsmithApi::QuotaApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **quota_history_read**
-> QuotaHistory quota_history_read(owner)
+> QuotaHistoryResponse quota_history_read(owner)
 
 Quota history for a given namespace.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaHistory**](QuotaHistory.md)
+[**QuotaHistoryResponse**](QuotaHistoryResponse.md)
 
 ### Authorization
 
@@ -59,13 +59,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **quota_oss_history_read**
-> QuotaHistory quota_oss_history_read(owner)
+> QuotaHistoryResponse quota_oss_history_read(owner)
 
 Open-source Quota history for a given namespace.
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaHistory**](QuotaHistory.md)
+[**QuotaHistoryResponse**](QuotaHistoryResponse.md)
 
 ### Authorization
 
@@ -113,13 +113,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **quota_oss_read**
-> Quota quota_oss_read(owner)
+> QuotaResponse quota_oss_read(owner)
 
 Open-source Quota usage for a given namespace.
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Quota**](Quota.md)
+[**QuotaResponse**](QuotaResponse.md)
 
 ### Authorization
 
@@ -167,13 +167,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **quota_read**
-> Quota quota_read(owner)
+> QuotaResponse quota_read(owner)
 
 Quota usage for a given namespace.
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Quota**](Quota.md)
+[**QuotaResponse**](QuotaResponse.md)
 
 ### Authorization
 
@@ -221,8 +221,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -25,9 +25,9 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<VulnerabilityScanResultsList>]
-    def vulnerabilities_list(owner, opts = {})
-      data, _status_code, _headers = vulnerabilities_list_with_http_info(owner, opts)
+    # @return [Array<VulnerabilityScanResultsListResponse>]
+    def vulnerabilities_namespace_list(owner, opts = {})
+      data, _status_code, _headers = vulnerabilities_namespace_list_with_http_info(owner, opts)
       data
     end
 
@@ -37,14 +37,14 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<VulnerabilityScanResultsList>, Fixnum, Hash)>] Array<VulnerabilityScanResultsList> data, response status code and response headers
-    def vulnerabilities_list_with_http_info(owner, opts = {})
+    # @return [Array<(Array<VulnerabilityScanResultsListResponse>, Fixnum, Hash)>] Array<VulnerabilityScanResultsListResponse> data, response status code and response headers
+    def vulnerabilities_namespace_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_list ...'
+        @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_namespace_list ...'
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling VulnerabilitiesApi.vulnerabilities_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling VulnerabilitiesApi.vulnerabilities_namespace_list"
       end
       # resource path
       local_var_path = '/vulnerabilities/{owner}/'.sub('{' + 'owner' + '}', owner.to_s)
@@ -56,6 +56,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -69,71 +73,9 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<VulnerabilityScanResultsList>')
+        :return_type => 'Array<VulnerabilityScanResultsListResponse>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Lists scan results for a specific repository.
-    # Lists scan results for a specific repository.
-    # @param owner 
-    # @param repo 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<VulnerabilityScanResultsList>]
-    def vulnerabilities_list0(owner, repo, opts = {})
-      data, _status_code, _headers = vulnerabilities_list0_with_http_info(owner, repo, opts)
-      data
-    end
-
-    # Lists scan results for a specific repository.
-    # Lists scan results for a specific repository.
-    # @param owner 
-    # @param repo 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<VulnerabilityScanResultsList>, Fixnum, Hash)>] Array<VulnerabilityScanResultsList> data, response status code and response headers
-    def vulnerabilities_list0_with_http_info(owner, repo, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_list0 ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling VulnerabilitiesApi.vulnerabilities_list0"
-      end
-      # verify the required parameter 'repo' is set
-      if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling VulnerabilitiesApi.vulnerabilities_list0"
-      end
-      # resource path
-      local_var_path = '/vulnerabilities/{owner}/{repo}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
-
-      # query parameters
-      query_params = {}
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-
-      # header parameters
-      header_params = {}
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<VulnerabilityScanResultsList>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_list0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_namespace_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -145,9 +87,9 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<VulnerabilityScanResultsList>]
-    def vulnerabilities_list1(owner, repo, package, opts = {})
-      data, _status_code, _headers = vulnerabilities_list1_with_http_info(owner, repo, package, opts)
+    # @return [Array<VulnerabilityScanResultsListResponse>]
+    def vulnerabilities_package_list(owner, repo, package, opts = {})
+      data, _status_code, _headers = vulnerabilities_package_list_with_http_info(owner, repo, package, opts)
       data
     end
 
@@ -159,22 +101,22 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<VulnerabilityScanResultsList>, Fixnum, Hash)>] Array<VulnerabilityScanResultsList> data, response status code and response headers
-    def vulnerabilities_list1_with_http_info(owner, repo, package, opts = {})
+    # @return [Array<(Array<VulnerabilityScanResultsListResponse>, Fixnum, Hash)>] Array<VulnerabilityScanResultsListResponse> data, response status code and response headers
+    def vulnerabilities_package_list_with_http_info(owner, repo, package, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_list1 ...'
+        @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_package_list ...'
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling VulnerabilitiesApi.vulnerabilities_list1"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling VulnerabilitiesApi.vulnerabilities_package_list"
       end
       # verify the required parameter 'repo' is set
       if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling VulnerabilitiesApi.vulnerabilities_list1"
+        fail ArgumentError, "Missing the required parameter 'repo' when calling VulnerabilitiesApi.vulnerabilities_package_list"
       end
       # verify the required parameter 'package' is set
       if @api_client.config.client_side_validation && package.nil?
-        fail ArgumentError, "Missing the required parameter 'package' when calling VulnerabilitiesApi.vulnerabilities_list1"
+        fail ArgumentError, "Missing the required parameter 'package' when calling VulnerabilitiesApi.vulnerabilities_package_list"
       end
       # resource path
       local_var_path = '/vulnerabilities/{owner}/{repo}/{package}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'package' + '}', package.to_s)
@@ -186,6 +128,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -199,9 +145,9 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<VulnerabilityScanResultsList>')
+        :return_type => 'Array<VulnerabilityScanResultsListResponse>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_list1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_package_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -212,7 +158,7 @@ module CloudsmithApi
     # @param package 
     # @param scan_id 
     # @param [Hash] opts the optional parameters
-    # @return [VulnerabilityScanResults]
+    # @return [VulnerabilityScanResultsResponse]
     def vulnerabilities_read(owner, repo, package, scan_id, opts = {})
       data, _status_code, _headers = vulnerabilities_read_with_http_info(owner, repo, package, scan_id, opts)
       data
@@ -225,7 +171,7 @@ module CloudsmithApi
     # @param package 
     # @param scan_id 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(VulnerabilityScanResults, Fixnum, Hash)>] VulnerabilityScanResults data, response status code and response headers
+    # @return [Array<(VulnerabilityScanResultsResponse, Fixnum, Hash)>] VulnerabilityScanResultsResponse data, response status code and response headers
     def vulnerabilities_read_with_http_info(owner, repo, package, scan_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_read ...'
@@ -254,6 +200,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -267,9 +217,75 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'VulnerabilityScanResults')
+        :return_type => 'VulnerabilityScanResultsResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Lists scan results for a specific repository.
+    # Lists scan results for a specific repository.
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<VulnerabilityScanResultsListResponse>]
+    def vulnerabilities_repo_list(owner, repo, opts = {})
+      data, _status_code, _headers = vulnerabilities_repo_list_with_http_info(owner, repo, opts)
+      data
+    end
+
+    # Lists scan results for a specific repository.
+    # Lists scan results for a specific repository.
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<VulnerabilityScanResultsListResponse>, Fixnum, Hash)>] Array<VulnerabilityScanResultsListResponse> data, response status code and response headers
+    def vulnerabilities_repo_list_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_repo_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling VulnerabilitiesApi.vulnerabilities_repo_list"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling VulnerabilitiesApi.vulnerabilities_repo_list"
+      end
+      # resource path
+      local_var_path = '/vulnerabilities/{owner}/{repo}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<VulnerabilityScanResultsListResponse>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_repo_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

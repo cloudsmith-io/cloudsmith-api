@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -36,7 +36,7 @@ describe 'StatusApi' do
   # Endpoint to check basic API connectivity.
   # Endpoint to check basic API connectivity.
   # @param [Hash] opts the optional parameters
-  # @return [StatusBasic]
+  # @return [StatusBasicResponse]
   describe 'status_check_basic test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -1,6 +1,6 @@
 # CloudsmithApi::DistrosApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **distros_list**
-> Array&lt;Distribution&gt; distros_list
+> Array&lt;DistributionResponse&gt; distros_list
 
 Get a list of all supported distributions.
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;Distribution&gt;**](Distribution.md)
+[**Array&lt;DistributionResponse&gt;**](DistributionResponse.md)
 
 ### Authorization
 
@@ -51,13 +51,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **distros_read**
-> Distribution distros_read(slug)
+> DistributionResponse distros_read(slug)
 
 View for viewing/listing distributions.
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](Distribution.md)
+[**DistributionResponse**](DistributionResponse.md)
 
 ### Authorization
 
@@ -105,8 +105,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

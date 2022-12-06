@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -54,6 +54,20 @@ class TestOrgsApi(unittest.TestCase):
         """Test case for orgs_invites_list
 
         Get a list of all invites for an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_invites_partial_update(self):
+        """Test case for orgs_invites_partial_update
+
+        Update a specific organization invite.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_invites_resend(self):
+        """Test case for orgs_invites_resend
+
+        Resend an organization invite.  # noqa: E501
         """
         pass
 
@@ -120,6 +134,48 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_services_create(self):
+        """Test case for orgs_services_create
+
+        Create a service within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_services_delete(self):
+        """Test case for orgs_services_delete
+
+        Delete a specific service  # noqa: E501
+        """
+        pass
+
+    def test_orgs_services_list(self):
+        """Test case for orgs_services_list
+
+        Get a list of all services within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_services_partial_update(self):
+        """Test case for orgs_services_partial_update
+
+        Update a service within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_services_read(self):
+        """Test case for orgs_services_read
+
+        Retrieve details of a single service within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_services_refresh(self):
+        """Test case for orgs_services_refresh
+
+        Refresh service API token.  # noqa: E501
+        """
+        pass
+
     def test_orgs_teams_create(self):
         """Test case for orgs_teams_create
 
@@ -172,7 +228,7 @@ class TestOrgsApi(unittest.TestCase):
     def test_orgs_teams_read(self):
         """Test case for orgs_teams_read
 
-        Get the details for the specific team.  # noqa: E501
+        Get the details of a specific team within an organization.  # noqa: E501
         """
         pass
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,9 +43,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param OrgsInvitesCreate data:
-        :return: OrganizationInvite
+        :param str org: (required)
+        :param OrganizationInviteRequest data:
+        :return: OrganizationInviteResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -66,9 +66,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param OrgsInvitesCreate data:
-        :return: OrganizationInvite
+        :param str org: (required)
+        :param OrganizationInviteRequest data:
+        :return: OrganizationInviteResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -109,6 +109,10 @@ class OrgsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -124,7 +128,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationInvite',  # noqa: E501
+            response_type='OrganizationInviteResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -142,8 +146,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str slug_perm:  (required)
+        :param str org: (required)
+        :param str slug_perm: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -165,8 +169,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str slug_perm:  (required)
+        :param str org: (required)
+        :param str slug_perm: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -212,6 +216,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -241,10 +253,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str slug_perm:  (required)
-        :param OrgsInvitesExtend data:
-        :return: OrganizationInvite
+        :param str org: (required)
+        :param str slug_perm: (required)
+        :return: OrganizationInviteExtendResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -265,15 +276,14 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str slug_perm:  (required)
-        :param OrgsInvitesExtend data:
-        :return: OrganizationInvite
+        :param str org: (required)
+        :param str slug_perm: (required)
+        :return: OrganizationInviteExtendResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'slug_perm', 'data']  # noqa: E501
+        all_params = ['org', 'slug_perm']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -313,8 +323,10 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in params:
-            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -330,7 +342,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationInvite',  # noqa: E501
+            response_type='OrganizationInviteExtendResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -348,10 +360,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
+        :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationInvite]
+        :return: list[OrganizationInviteResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -372,10 +384,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
+        :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationInvite]
+        :return: list[OrganizationInviteResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -418,6 +430,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -429,7 +449,225 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationInvite]',  # noqa: E501
+            response_type='list[OrganizationInviteResponse]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_invites_partial_update(self, org, slug_perm, **kwargs):  # noqa: E501
+        """Update a specific organization invite.  # noqa: E501
+
+        Update a specific organization invite.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_invites_partial_update(org, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str slug_perm: (required)
+        :param OrganizationInviteUpdateRequestPatch data:
+        :return: OrganizationInviteResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_invites_partial_update_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_invites_partial_update_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_invites_partial_update_with_http_info(self, org, slug_perm, **kwargs):  # noqa: E501
+        """Update a specific organization invite.  # noqa: E501
+
+        Update a specific organization invite.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_invites_partial_update_with_http_info(org, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str slug_perm: (required)
+        :param OrganizationInviteUpdateRequestPatch data:
+        :return: OrganizationInviteResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'slug_perm', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_invites_partial_update" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_invites_partial_update`")  # noqa: E501
+        # verify the required parameter 'slug_perm' is set
+        if self.api_client.client_side_validation and ('slug_perm' not in params or
+                                                       params['slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `slug_perm` when calling `orgs_invites_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'slug_perm' in params:
+            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/invites/{slug_perm}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrganizationInviteResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_invites_resend(self, org, slug_perm, **kwargs):  # noqa: E501
+        """Resend an organization invite.  # noqa: E501
+
+        Resend an organization invite.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_invites_resend(org, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str slug_perm: (required)
+        :return: OrganizationInviteExtendResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_invites_resend_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_invites_resend_with_http_info(org, slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_invites_resend_with_http_info(self, org, slug_perm, **kwargs):  # noqa: E501
+        """Resend an organization invite.  # noqa: E501
+
+        Resend an organization invite.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_invites_resend_with_http_info(org, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str slug_perm: (required)
+        :return: OrganizationInviteExtendResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'slug_perm']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_invites_resend" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_invites_resend`")  # noqa: E501
+        # verify the required parameter 'slug_perm' is set
+        if self.api_client.client_side_validation and ('slug_perm' not in params or
+                                                       params['slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `slug_perm` when calling `orgs_invites_resend`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'slug_perm' in params:
+            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/invites/{slug_perm}/resend/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrganizationInviteExtendResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -449,7 +687,7 @@ class OrgsApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[Organization]
+        :return: list[OrganizationResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -472,7 +710,7 @@ class OrgsApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[Organization]
+        :return: list[OrganizationResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -509,6 +747,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -520,7 +766,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Organization]',  # noqa: E501
+            response_type='list[OrganizationResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -538,8 +784,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str member:  (required)
+        :param str org: (required)
+        :param str member: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -561,8 +807,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str member:  (required)
+        :param str org: (required)
+        :param str member: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -608,6 +854,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -637,10 +891,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
+        :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationMembership]
+        :return: list[OrganizationMembershipResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -661,10 +915,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
+        :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationMembership]
+        :return: list[OrganizationMembershipResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -707,6 +961,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -718,7 +980,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationMembership]',  # noqa: E501
+            response_type='list[OrganizationMembershipResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -736,9 +998,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str member:  (required)
-        :return: OrganizationMembership
+        :param str org: (required)
+        :param str member: (required)
+        :return: OrganizationMembershipResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -759,9 +1021,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str member:  (required)
-        :return: OrganizationMembership
+        :param str org: (required)
+        :param str member: (required)
+        :return: OrganizationMembershipResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -806,6 +1068,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -817,7 +1087,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationMembership',  # noqa: E501
+            response_type='OrganizationMembershipResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -835,8 +1105,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str member:  (required)
+        :param str org: (required)
+        :param str member: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -858,8 +1128,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str member:  (required)
+        :param str org: (required)
+        :param str member: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -905,6 +1175,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -934,8 +1212,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :return: Organization
+        :param str org: (required)
+        :return: OrganizationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -956,8 +1234,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :return: Organization
+        :param str org: (required)
+        :return: OrganizationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -996,6 +1274,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1007,7 +1293,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Organization',  # noqa: E501
+            response_type='OrganizationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1025,9 +1311,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param OrgsSamlgroupsyncCreate data:
-        :return: OrganizationGroupSync
+        :param str org: (required)
+        :param OrganizationGroupSyncRequest data:
+        :return: OrganizationGroupSyncResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1048,9 +1334,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param OrgsSamlgroupsyncCreate data:
-        :return: OrganizationGroupSync
+        :param str org: (required)
+        :param OrganizationGroupSyncRequest data:
+        :return: OrganizationGroupSyncResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1091,6 +1377,10 @@ class OrgsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1106,7 +1396,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationGroupSync',  # noqa: E501
+            response_type='OrganizationGroupSyncResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1124,8 +1414,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str slug_perm:  (required)
+        :param str org: (required)
+        :param str slug_perm: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1147,8 +1437,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str slug_perm:  (required)
+        :param str org: (required)
+        :param str slug_perm: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1194,6 +1484,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1223,10 +1521,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
+        :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationGroupSync]
+        :return: list[OrganizationGroupSyncResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1247,10 +1545,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
+        :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationGroupSync]
+        :return: list[OrganizationGroupSyncResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1293,6 +1591,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1304,7 +1610,649 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationGroupSync]',  # noqa: E501
+            response_type='list[OrganizationGroupSyncResponse]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_services_create(self, org, **kwargs):  # noqa: E501
+        """Create a service within an organization.  # noqa: E501
+
+        Create a service within an organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_create(org, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param ServiceRequest data:
+        :return: ServiceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_services_create_with_http_info(org, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_services_create_with_http_info(org, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_services_create_with_http_info(self, org, **kwargs):  # noqa: E501
+        """Create a service within an organization.  # noqa: E501
+
+        Create a service within an organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_create_with_http_info(org, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param ServiceRequest data:
+        :return: ServiceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_services_create" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_services_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/services/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ServiceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_services_delete(self, org, service, **kwargs):  # noqa: E501
+        """Delete a specific service  # noqa: E501
+
+        Delete a specific service  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_delete(org, service, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str service: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_services_delete_with_http_info(org, service, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_services_delete_with_http_info(org, service, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_services_delete_with_http_info(self, org, service, **kwargs):  # noqa: E501
+        """Delete a specific service  # noqa: E501
+
+        Delete a specific service  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_delete_with_http_info(org, service, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str service: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'service']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_services_delete" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_services_delete`")  # noqa: E501
+        # verify the required parameter 'service' is set
+        if self.api_client.client_side_validation and ('service' not in params or
+                                                       params['service'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `service` when calling `orgs_services_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'service' in params:
+            path_params['service'] = params['service']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/services/{service}/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_services_list(self, org, **kwargs):  # noqa: E501
+        """Get a list of all services within an organization.  # noqa: E501
+
+        Get a list of all services within an organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_list(org, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[ServiceResponse]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_services_list_with_http_info(org, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_services_list_with_http_info(org, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_services_list_with_http_info(self, org, **kwargs):  # noqa: E501
+        """Get a list of all services within an organization.  # noqa: E501
+
+        Get a list of all services within an organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_list_with_http_info(org, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[ServiceResponse]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'page', 'page_size']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_services_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_services_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/services/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[ServiceResponse]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_services_partial_update(self, org, service, **kwargs):  # noqa: E501
+        """Update a service within an organization.  # noqa: E501
+
+        Update a service within an organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_partial_update(org, service, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str service: (required)
+        :param ServiceRequestPatch data:
+        :return: ServiceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_services_partial_update_with_http_info(org, service, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_services_partial_update_with_http_info(org, service, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_services_partial_update_with_http_info(self, org, service, **kwargs):  # noqa: E501
+        """Update a service within an organization.  # noqa: E501
+
+        Update a service within an organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_partial_update_with_http_info(org, service, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str service: (required)
+        :param ServiceRequestPatch data:
+        :return: ServiceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'service', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_services_partial_update" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_services_partial_update`")  # noqa: E501
+        # verify the required parameter 'service' is set
+        if self.api_client.client_side_validation and ('service' not in params or
+                                                       params['service'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `service` when calling `orgs_services_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'service' in params:
+            path_params['service'] = params['service']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/services/{service}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ServiceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_services_read(self, org, service, **kwargs):  # noqa: E501
+        """Retrieve details of a single service within an organization.  # noqa: E501
+
+        Retrieve details of a single service within an organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_read(org, service, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str service: (required)
+        :return: ServiceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_services_read_with_http_info(org, service, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_services_read_with_http_info(org, service, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_services_read_with_http_info(self, org, service, **kwargs):  # noqa: E501
+        """Retrieve details of a single service within an organization.  # noqa: E501
+
+        Retrieve details of a single service within an organization.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_read_with_http_info(org, service, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str service: (required)
+        :return: ServiceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'service']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_services_read" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_services_read`")  # noqa: E501
+        # verify the required parameter 'service' is set
+        if self.api_client.client_side_validation and ('service' not in params or
+                                                       params['service'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `service` when calling `orgs_services_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'service' in params:
+            path_params['service'] = params['service']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/services/{service}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ServiceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_services_refresh(self, org, service, **kwargs):  # noqa: E501
+        """Refresh service API token.  # noqa: E501
+
+        Refresh service API token.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_refresh(org, service, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str service: (required)
+        :return: ServiceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_services_refresh_with_http_info(org, service, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_services_refresh_with_http_info(org, service, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_services_refresh_with_http_info(self, org, service, **kwargs):  # noqa: E501
+        """Refresh service API token.  # noqa: E501
+
+        Refresh service API token.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_services_refresh_with_http_info(org, service, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str service: (required)
+        :return: ServiceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'service']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_services_refresh" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_services_refresh`")  # noqa: E501
+        # verify the required parameter 'service' is set
+        if self.api_client.client_side_validation and ('service' not in params or
+                                                       params['service'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `service` when calling `orgs_services_refresh`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'service' in params:
+            path_params['service'] = params['service']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/services/{service}/refresh/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ServiceResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1322,9 +2270,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param OrgsTeamsCreate data:
-        :return: OrganizationTeam
+        :param str org: (required)
+        :param OrganizationTeamRequest data:
+        :return: OrganizationTeamResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1345,9 +2293,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param OrgsTeamsCreate data:
-        :return: OrganizationTeam
+        :param str org: (required)
+        :param OrganizationTeamRequest data:
+        :return: OrganizationTeamResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1388,6 +2336,10 @@ class OrgsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1403,7 +2355,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeam',  # noqa: E501
+            response_type='OrganizationTeamResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1421,8 +2373,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
+        :param str org: (required)
+        :param str team: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1444,8 +2396,8 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
+        :param str org: (required)
+        :param str team: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1491,6 +2443,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1520,10 +2480,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
+        :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationTeam]
+        :return: list[OrganizationTeamResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1544,10 +2504,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
+        :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationTeam]
+        :return: list[OrganizationTeamResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1590,6 +2550,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1601,7 +2569,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationTeam]',  # noqa: E501
+            response_type='list[OrganizationTeamResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1619,10 +2587,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :param OrgsTeamsMembersCreate data:
-        :return: OrganizationTeamMembers
+        :param str org: (required)
+        :param str team: (required)
+        :param OrganizationTeamMembers data:
+        :return: OrganizationTeamMembersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1643,10 +2611,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :param OrgsTeamsMembersCreate data:
-        :return: OrganizationTeamMembers
+        :param str org: (required)
+        :param str team: (required)
+        :param OrganizationTeamMembers data:
+        :return: OrganizationTeamMembersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1693,6 +2661,10 @@ class OrgsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1708,7 +2680,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeamMembers',  # noqa: E501
+            response_type='OrganizationTeamMembersResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1726,9 +2698,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :return: OrganizationTeamMembers
+        :param str org: (required)
+        :param str team: (required)
+        :return: OrganizationTeamMembersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1749,9 +2721,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :return: OrganizationTeamMembers
+        :param str org: (required)
+        :param str team: (required)
+        :return: OrganizationTeamMembersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1796,6 +2768,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1807,7 +2787,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeamMembers',  # noqa: E501
+            response_type='OrganizationTeamMembersResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1825,10 +2805,9 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :param OrgsTeamsMembersUpdate data:
-        :return: None
+        :param str org: (required)
+        :param str team: (required)
+        :return: OrganizationTeamMembersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1849,15 +2828,14 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :param OrgsTeamsMembersUpdate data:
-        :return: None
+        :param str org: (required)
+        :param str team: (required)
+        :return: OrganizationTeamMembersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'team', 'data']  # noqa: E501
+        all_params = ['org', 'team']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1897,8 +2875,10 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in params:
-            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1914,7 +2894,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='OrganizationTeamMembersResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1932,10 +2912,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :param OrgsTeamsPartialUpdate data:
-        :return: OrganizationTeam
+        :param str org: (required)
+        :param str team: (required)
+        :param OrganizationTeamRequestPatch data:
+        :return: OrganizationTeamResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1956,10 +2936,10 @@ class OrgsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :param OrgsTeamsPartialUpdate data:
-        :return: OrganizationTeam
+        :param str org: (required)
+        :param str team: (required)
+        :param OrganizationTeamRequestPatch data:
+        :return: OrganizationTeamResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2006,6 +2986,10 @@ class OrgsApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2021,7 +3005,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeam',  # noqa: E501
+            response_type='OrganizationTeamResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2030,18 +3014,18 @@ class OrgsApi(object):
             collection_formats=collection_formats)
 
     def orgs_teams_read(self, org, team, **kwargs):  # noqa: E501
-        """Get the details for the specific team.  # noqa: E501
+        """Get the details of a specific team within an organization.  # noqa: E501
 
-        Get the details for the specific team.  # noqa: E501
+        Get the details of a specific team within an organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.orgs_teams_read(org, team, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :return: OrganizationTeam
+        :param str org: (required)
+        :param str team: (required)
+        :return: OrganizationTeamResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2053,18 +3037,18 @@ class OrgsApi(object):
             return data
 
     def orgs_teams_read_with_http_info(self, org, team, **kwargs):  # noqa: E501
-        """Get the details for the specific team.  # noqa: E501
+        """Get the details of a specific team within an organization.  # noqa: E501
 
-        Get the details for the specific team.  # noqa: E501
+        Get the details of a specific team within an organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.orgs_teams_read_with_http_info(org, team, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str org:  (required)
-        :param str team:  (required)
-        :return: OrganizationTeam
+        :param str org: (required)
+        :param str team: (required)
+        :return: OrganizationTeamResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2109,6 +3093,14 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -2120,7 +3112,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeam',  # noqa: E501
+            response_type='OrganizationTeamResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

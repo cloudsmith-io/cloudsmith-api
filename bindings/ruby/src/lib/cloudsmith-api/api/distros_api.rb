@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -22,7 +22,7 @@ module CloudsmithApi
     # Get a list of all supported distributions.
     # Get a list of all supported distributions.
     # @param [Hash] opts the optional parameters
-    # @return [Array<Distribution>]
+    # @return [Array<DistributionResponse>]
     def distros_list(opts = {})
       data, _status_code, _headers = distros_list_with_http_info(opts)
       data
@@ -31,7 +31,7 @@ module CloudsmithApi
     # Get a list of all supported distributions.
     # Get a list of all supported distributions.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<Distribution>, Fixnum, Hash)>] Array<Distribution> data, response status code and response headers
+    # @return [Array<(Array<DistributionResponse>, Fixnum, Hash)>] Array<DistributionResponse> data, response status code and response headers
     def distros_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DistrosApi.distros_list ...'
@@ -44,6 +44,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -57,7 +61,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<Distribution>')
+        :return_type => 'Array<DistributionResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DistrosApi#distros_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -67,7 +71,7 @@ module CloudsmithApi
     # View for viewing/listing distributions.
     # @param slug 
     # @param [Hash] opts the optional parameters
-    # @return [Distribution]
+    # @return [DistributionResponse]
     def distros_read(slug, opts = {})
       data, _status_code, _headers = distros_read_with_http_info(slug, opts)
       data
@@ -77,7 +81,7 @@ module CloudsmithApi
     # View for viewing/listing distributions.
     # @param slug 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Distribution, Fixnum, Hash)>] Distribution data, response status code and response headers
+    # @return [Array<(DistributionResponse, Fixnum, Hash)>] DistributionResponse data, response status code and response headers
     def distros_read_with_http_info(slug, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DistrosApi.distros_read ...'
@@ -94,6 +98,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -107,7 +115,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Distribution')
+        :return_type => 'DistributionResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DistrosApi#distros_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

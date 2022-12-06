@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -27,13 +27,6 @@ class TestReposApi(unittest.TestCase):
         self.api = cloudsmith_api.api.repos_api.ReposApi()  # noqa: E501
 
     def tearDown(self):
-        pass
-
-    def test_repos_all_list(self):
-        """Test case for repos_all_list
-
-        Get a list of all repositories associated with current user.  # noqa: E501
-        """
         pass
 
     def test_repos_create(self):
@@ -71,8 +64,8 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
-    def test_repos_list(self):
-        """Test case for repos_list
+    def test_repos_namespace_list(self):
+        """Test case for repos_namespace_list
 
         Get a list of all repositories within a namespace.  # noqa: E501
         """
@@ -131,6 +124,13 @@ class TestReposApi(unittest.TestCase):
         """Test case for repos_rsa_regenerate
 
         Regenerate RSA Key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_user_list(self):
+        """Test case for repos_user_list
+
+        Get a list of all repositories associated with current user.  # noqa: E501
         """
         pass
 

@@ -1,6 +1,6 @@
 # CloudsmithApi::StorageRegionsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **storage_regions_list**
-> Array&lt;StorageRegion&gt; storage_regions_list
+> Array&lt;StorageRegionResponse&gt; storage_regions_list
 
 Get a list of all available storage regions.
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;StorageRegion&gt;**](StorageRegion.md)
+[**Array&lt;StorageRegionResponse&gt;**](StorageRegionResponse.md)
 
 ### Authorization
 
@@ -51,13 +51,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **storage_regions_read**
-> StorageRegion storage_regions_read(slug)
+> StorageRegionResponse storage_regions_read(slug)
 
 Get a specific storage region.
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StorageRegion**](StorageRegion.md)
+[**StorageRegionResponse**](StorageRegionResponse.md)
 
 ### Authorization
 
@@ -105,8 +105,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

@@ -1,6 +1,6 @@
 # cloudsmith_api.NamespacesApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **namespaces_list**
-> list[Namespace] namespaces_list(page=page, page_size=page_size)
+> list[NamespaceResponse] namespaces_list(page=page, page_size=page_size)
 
 Get a list of all namespaces the user belongs to.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Namespace]**](Namespace.md)
+[**list[NamespaceResponse]**](NamespaceResponse.md)
 
 ### Authorization
 
@@ -59,13 +59,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **namespaces_read**
-> Namespace namespaces_read(slug)
+> NamespaceResponse namespaces_read(slug)
 
 Views for working with namespaces.
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Namespace**](Namespace.md)
+[**NamespaceResponse**](NamespaceResponse.md)
 
 ### Authorization
 
@@ -113,8 +113,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

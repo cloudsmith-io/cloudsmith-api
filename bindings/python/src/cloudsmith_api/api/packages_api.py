@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,11 +43,11 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param PackagesCopy data:
-        :return: PackageCopy
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageCopyRequest data:
+        :return: PackageCopyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,11 +68,11 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param PackagesCopy data:
-        :return: PackageCopy
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageCopyRequest data:
+        :return: PackageCopyResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -125,6 +125,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -140,7 +144,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageCopy',  # noqa: E501
+            response_type='PackageCopyResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -158,9 +162,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -182,9 +186,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -236,6 +240,14 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -265,10 +277,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: PackageDependencies
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageDependenciesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -289,10 +301,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: PackageDependencies
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageDependenciesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -343,6 +355,14 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -354,7 +374,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageDependencies',  # noqa: E501
+            response_type='PackageDependenciesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -372,13 +392,13 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order.
-        :return: list[Package]
+        :return: list[PackageResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -399,13 +419,13 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order.
-        :return: list[Package]
+        :return: list[PackageResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -458,6 +478,14 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -469,7 +497,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Package]',  # noqa: E501
+            response_type='list[PackageResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -487,11 +515,11 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param PackagesMove data:
-        :return: PackageMove
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageMoveRequest data:
+        :return: PackageMoveResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -512,11 +540,11 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param PackagesMove data:
-        :return: PackageMove
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageMoveRequest data:
+        :return: PackageMoveResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -569,6 +597,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -584,7 +616,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageMove',  # noqa: E501
+            response_type='PackageMoveResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -602,11 +634,11 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param PackagesQuarantine data:
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageQuarantineRequest data:
+        :return: PackageQuarantineResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -627,11 +659,11 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param PackagesQuarantine data:
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageQuarantineRequest data:
+        :return: PackageQuarantineResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -684,6 +716,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -699,7 +735,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Package',  # noqa: E501
+            response_type='PackageQuarantineResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -717,10 +753,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -741,10 +777,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -795,6 +831,14 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -806,7 +850,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Package',  # noqa: E501
+            response_type='PackageResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -824,10 +868,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageResyncResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -848,10 +892,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageResyncResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -902,6 +946,14 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -913,7 +965,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Package',  # noqa: E501
+            response_type='PackageResyncResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -931,10 +983,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -955,10 +1007,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1009,6 +1061,14 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1020,7 +1080,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Package',  # noqa: E501
+            response_type='PackageResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1038,10 +1098,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: PackageStatus
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageStatusResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1062,10 +1122,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: PackageStatus
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: PackageStatusResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1116,6 +1176,14 @@ class PackagesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1127,7 +1195,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageStatus',  # noqa: E501
+            response_type='PackageStatusResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1145,11 +1213,11 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param PackagesTag data:
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageTagRequest data:
+        :return: PackageResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1170,11 +1238,11 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param PackagesTag data:
-        :return: Package
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageTagRequest data:
+        :return: PackageResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1227,6 +1295,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1242,7 +1314,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Package',  # noqa: E501
+            response_type='PackageResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1260,10 +1332,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadAlpine data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param AlpinePackageUploadRequest data:
+        :return: AlpinePackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1284,10 +1356,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadAlpine data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param AlpinePackageUploadRequest data:
+        :return: AlpinePackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1334,6 +1406,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1349,7 +1425,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='AlpinePackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1367,10 +1443,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadCargo data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CargoPackageUploadRequest data:
+        :return: CargoPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1391,10 +1467,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadCargo data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CargoPackageUploadRequest data:
+        :return: CargoPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1441,6 +1517,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1456,7 +1536,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='CargoPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1474,10 +1554,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadCocoapods data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CocoapodsPackageUploadRequest data:
+        :return: CocoapodsPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1498,10 +1578,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadCocoapods data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CocoapodsPackageUploadRequest data:
+        :return: CocoapodsPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1548,6 +1628,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1563,7 +1647,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='CocoapodsPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1581,10 +1665,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadComposer data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param ComposerPackageUploadRequest data:
+        :return: ComposerPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1605,10 +1689,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadComposer data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param ComposerPackageUploadRequest data:
+        :return: ComposerPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1655,6 +1739,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1670,7 +1758,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='ComposerPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1688,10 +1776,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadConan data:
-        :return: ConanPackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param ConanPackageUploadRequest data:
+        :return: ConanPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1712,10 +1800,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadConan data:
-        :return: ConanPackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param ConanPackageUploadRequest data:
+        :return: ConanPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1762,6 +1850,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1777,7 +1869,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ConanPackageUpload',  # noqa: E501
+            response_type='ConanPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1795,10 +1887,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadConda data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CondaPackageUploadRequest data:
+        :return: CondaPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1819,10 +1911,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadConda data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CondaPackageUploadRequest data:
+        :return: CondaPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1869,6 +1961,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1884,7 +1980,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='CondaPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1902,10 +1998,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadCran data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CranPackageUploadRequest data:
+        :return: CranPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1926,10 +2022,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadCran data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CranPackageUploadRequest data:
+        :return: CranPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1976,6 +2072,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1991,7 +2091,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='CranPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2009,10 +2109,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadDart data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DartPackageUploadRequest data:
+        :return: DartPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2033,10 +2133,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadDart data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DartPackageUploadRequest data:
+        :return: DartPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2083,6 +2183,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2098,7 +2202,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='DartPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2116,10 +2220,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadDeb data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DebPackageUploadRequest data:
+        :return: DebPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2140,10 +2244,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadDeb data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DebPackageUploadRequest data:
+        :return: DebPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2190,6 +2294,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2205,7 +2313,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='DebPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2223,10 +2331,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadDocker data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DockerPackageUploadRequest data:
+        :return: DockerPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2247,10 +2355,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadDocker data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DockerPackageUploadRequest data:
+        :return: DockerPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2297,6 +2405,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2312,7 +2424,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='DockerPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2330,10 +2442,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadGo data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param GoPackageUploadRequest data:
+        :return: GoPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2354,10 +2466,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadGo data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param GoPackageUploadRequest data:
+        :return: GoPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2404,6 +2516,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2419,7 +2535,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='GoPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2437,10 +2553,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadHelm data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param HelmPackageUploadRequest data:
+        :return: HelmPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2461,10 +2577,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadHelm data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param HelmPackageUploadRequest data:
+        :return: HelmPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2511,6 +2627,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2526,7 +2646,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='HelmPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2544,10 +2664,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadLuarocks data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param LuarocksPackageUploadRequest data:
+        :return: LuarocksPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2568,10 +2688,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadLuarocks data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param LuarocksPackageUploadRequest data:
+        :return: LuarocksPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2618,6 +2738,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2633,7 +2757,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='LuarocksPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2651,10 +2775,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadMaven data:
-        :return: MavenPackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param MavenPackageUploadRequest data:
+        :return: MavenPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2675,10 +2799,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadMaven data:
-        :return: MavenPackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param MavenPackageUploadRequest data:
+        :return: MavenPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2725,6 +2849,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2740,7 +2868,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MavenPackageUpload',  # noqa: E501
+            response_type='MavenPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2758,10 +2886,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadNpm data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param NpmPackageUploadRequest data:
+        :return: NpmPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2782,10 +2910,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadNpm data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param NpmPackageUploadRequest data:
+        :return: NpmPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2832,6 +2960,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2847,7 +2979,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='NpmPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2865,10 +2997,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadNuget data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param NugetPackageUploadRequest data:
+        :return: NugetPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2889,10 +3021,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadNuget data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param NugetPackageUploadRequest data:
+        :return: NugetPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2939,6 +3071,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2954,7 +3090,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='NugetPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2972,10 +3108,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadP2 data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param P2PackageUploadRequest data:
+        :return: P2PackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2996,10 +3132,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadP2 data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param P2PackageUploadRequest data:
+        :return: P2PackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3046,6 +3182,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3061,7 +3201,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='P2PackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3079,10 +3219,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadPython data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param PythonPackageUploadRequest data:
+        :return: PythonPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3103,10 +3243,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadPython data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param PythonPackageUploadRequest data:
+        :return: PythonPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3153,6 +3293,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3168,7 +3312,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='PythonPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3186,10 +3330,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadRaw data:
-        :return: RawPackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RawPackageUploadRequest data:
+        :return: RawPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3210,10 +3354,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadRaw data:
-        :return: RawPackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RawPackageUploadRequest data:
+        :return: RawPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3260,6 +3404,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3275,7 +3423,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RawPackageUpload',  # noqa: E501
+            response_type='RawPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3293,10 +3441,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadRpm data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RpmPackageUploadRequest data:
+        :return: RpmPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3317,10 +3465,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadRpm data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RpmPackageUploadRequest data:
+        :return: RpmPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3367,6 +3515,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3382,7 +3534,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='RpmPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3400,10 +3552,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadRuby data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RubyPackageUploadRequest data:
+        :return: RubyPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3424,10 +3576,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadRuby data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RubyPackageUploadRequest data:
+        :return: RubyPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3474,6 +3626,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3489,7 +3645,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='RubyPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3507,10 +3663,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadTerraform data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param TerraformPackageUploadRequest data:
+        :return: TerraformPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3531,10 +3687,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadTerraform data:
-        :return: AlpinePackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param TerraformPackageUploadRequest data:
+        :return: TerraformPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3581,6 +3737,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3596,7 +3756,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUpload',  # noqa: E501
+            response_type='TerraformPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3614,10 +3774,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadVagrant data:
-        :return: VagrantPackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param VagrantPackageUploadRequest data:
+        :return: VagrantPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3638,10 +3798,10 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesUploadVagrant data:
-        :return: VagrantPackageUpload
+        :param str owner: (required)
+        :param str repo: (required)
+        :param VagrantPackageUploadRequest data:
+        :return: VagrantPackageUploadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3688,6 +3848,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3703,7 +3867,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VagrantPackageUpload',  # noqa: E501
+            response_type='VagrantPackageUploadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3721,9 +3885,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadAlpine data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param AlpinePackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3745,9 +3909,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadAlpine data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param AlpinePackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3795,6 +3959,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3828,9 +3996,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadCargo data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CargoPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3852,9 +4020,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadCargo data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CargoPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3902,6 +4070,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -3935,9 +4107,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadCocoapods data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CocoapodsPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3959,9 +4131,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadCocoapods data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CocoapodsPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4009,6 +4181,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4042,9 +4218,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadComposer data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param ComposerPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4066,9 +4242,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadComposer data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param ComposerPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4116,6 +4292,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4149,9 +4329,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadConan data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param ConanPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4173,9 +4353,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadConan data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param ConanPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4223,6 +4403,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4256,9 +4440,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadConda data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CondaPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4280,9 +4464,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadConda data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CondaPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4330,6 +4514,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4363,9 +4551,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadCran data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CranPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4387,9 +4575,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadCran data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param CranPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4437,6 +4625,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4470,9 +4662,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadDart data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DartPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4494,9 +4686,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadDart data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DartPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4544,6 +4736,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4577,9 +4773,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadDeb data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DebPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4601,9 +4797,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadDeb data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DebPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4651,6 +4847,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4684,9 +4884,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadDocker data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DockerPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4708,9 +4908,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadDocker data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param DockerPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4758,6 +4958,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4791,9 +4995,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadGo data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param GoPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4815,9 +5019,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadGo data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param GoPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4865,6 +5069,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4898,9 +5106,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadHelm data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param HelmPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4922,9 +5130,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadHelm data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param HelmPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4972,6 +5180,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5005,9 +5217,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadLuarocks data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param LuarocksPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5029,9 +5241,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadLuarocks data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param LuarocksPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5079,6 +5291,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5112,9 +5328,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadMaven data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param MavenPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5136,9 +5352,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadMaven data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param MavenPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5186,6 +5402,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5219,9 +5439,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadNpm data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param NpmPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5243,9 +5463,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadNpm data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param NpmPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5293,6 +5513,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5326,9 +5550,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadNuget data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param NugetPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5350,9 +5574,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadNuget data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param NugetPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5400,6 +5624,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5433,9 +5661,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadP2 data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param P2PackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5457,9 +5685,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadP2 data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param P2PackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5507,6 +5735,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5540,9 +5772,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadPython data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param PythonPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5564,9 +5796,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadPython data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param PythonPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5614,6 +5846,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5647,9 +5883,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadRaw data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RawPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5671,9 +5907,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadRaw data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RawPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5721,6 +5957,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5754,9 +5994,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadRpm data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RpmPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5778,9 +6018,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadRpm data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RpmPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5828,6 +6068,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5861,9 +6105,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadRuby data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RubyPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5885,9 +6129,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadRuby data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RubyPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5935,6 +6179,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -5968,9 +6216,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadTerraform data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param TerraformPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5992,9 +6240,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadTerraform data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param TerraformPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6042,6 +6290,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -6075,9 +6327,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadVagrant data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param VagrantPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6099,9 +6351,9 @@ class PackagesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param PackagesValidateuploadVagrant data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param VagrantPackageUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6149,6 +6401,10 @@ class PackagesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501

@@ -1,6 +1,6 @@
 # UserApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="userSelf"></a>
 # **userSelf**
-> UserBrief userSelf()
+> UserBriefResponse userSelf()
 
 Provide a brief for the current user (if any).
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 
 UserApi apiInstance = new UserApi();
 try {
-    UserBrief result = apiInstance.userSelf();
+    UserBriefResponse result = apiInstance.userSelf();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#userSelf");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserBrief**](UserBrief.md)
+[**UserBriefResponse**](UserBriefResponse.md)
 
 ### Authorization
 
@@ -56,12 +56,12 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="userTokenCreate"></a>
 # **userTokenCreate**
-> UserAuthToken userTokenCreate(data)
+> UserAuthTokenResponse userTokenCreate(data)
 
 Retrieve the API key/token for the authenticated user.
 
@@ -85,9 +85,9 @@ apikey.setApiKey("YOUR API KEY");
 //apikey.setApiKeyPrefix("Token");
 
 UserApi apiInstance = new UserApi();
-UserTokenCreate data = new UserTokenCreate(); // UserTokenCreate | 
+UserAuthTokenRequest data = new UserAuthTokenRequest(); // UserAuthTokenRequest | 
 try {
-    UserAuthToken result = apiInstance.userTokenCreate(data);
+    UserAuthTokenResponse result = apiInstance.userTokenCreate(data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#userTokenCreate");
@@ -99,11 +99,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UserTokenCreate**](UserTokenCreate.md)|  | [optional]
+ **data** | [**UserAuthTokenRequest**](UserAuthTokenRequest.md)|  | [optional]
 
 ### Return type
 
-[**UserAuthToken**](UserAuthToken.md)
+[**UserAuthTokenResponse**](UserAuthTokenResponse.md)
 
 ### Authorization
 
@@ -112,5 +112,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 

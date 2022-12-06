@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -40,7 +40,7 @@ class Configuration(object):
             return
 
         # Default Base url
-        self.host = "https://api.cloudsmith.io/v1"
+        self.host = "https://api.cloudsmith.io/api/v1"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -258,5 +258,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v1\n"\
-               "SDK Package Version: 1.142.3".\
+               "SDK Package Version: 1.181.0".\
                format(env=sys.platform, pyversion=sys.version)

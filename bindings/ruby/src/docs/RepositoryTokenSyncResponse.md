@@ -1,0 +1,8 @@
+# CloudsmithApi::RepositoryTokenSyncResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**tokens** | [**Array&lt;RepositoryToken&gt;**](RepositoryToken.md) | The entitlements that have been synchronised. | [optional] 
+
+

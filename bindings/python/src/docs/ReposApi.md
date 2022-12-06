@@ -1,16 +1,15 @@
 # cloudsmith_api.ReposApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**repos_all_list**](ReposApi.md#repos_all_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**repos_gpg_create**](ReposApi.md#repos_gpg_create) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 [**repos_gpg_list**](ReposApi.md#repos_gpg_list) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 [**repos_gpg_regenerate**](ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
-[**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**repos_namespace_list**](ReposApi.md#repos_namespace_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
 [**repos_privileges_list**](ReposApi.md#repos_privileges_list) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
 [**repos_privileges_partial_update**](ReposApi.md#repos_privileges_partial_update) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository.
@@ -19,66 +18,11 @@ Method | HTTP request | Description
 [**repos_rsa_create**](ReposApi.md#repos_rsa_create) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 [**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
+[**repos_user_list**](ReposApi.md#repos_user_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 
-
-# **repos_all_list**
-> list[Repository] repos_all_list(page=page, page_size=page_size)
-
-Get a list of all repositories associated with current user.
-
-Get a list of all repositories associated with current user.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-
-try:
-    # Get a list of all repositories associated with current user.
-    api_response = api_instance.repos_all_list(page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_all_list: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
-
-### Return type
-
-[**list[Repository]**](Repository.md)
-
-### Authorization
-
-[apikey](../README.md#apikey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_create**
-> RepositoryCreate repos_create(owner, data=data)
+> RepositoryCreateResponse repos_create(owner, data=data)
 
 Create a new repository in a given namespace.
 
@@ -101,7 +45,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
-data = cloudsmith_api.ReposCreate() # ReposCreate |  (optional)
+data = cloudsmith_api.RepositoryCreateRequest() # RepositoryCreateRequest |  (optional)
 
 try:
     # Create a new repository in a given namespace.
@@ -116,11 +60,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
- **data** | [**ReposCreate**](ReposCreate.md)|  | [optional] 
+ **data** | [**RepositoryCreateRequest**](RepositoryCreateRequest.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryCreate**](RepositoryCreate.md)
+[**RepositoryCreateResponse**](RepositoryCreateResponse.md)
 
 ### Authorization
 
@@ -129,7 +73,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -183,13 +127,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_gpg_create**
-> RepositoryGpgKey repos_gpg_create(owner, identifier, data=data)
+> RepositoryGpgKeyResponse repos_gpg_create(owner, identifier, data=data)
 
 Set the active GPG key for the Repository.
 
@@ -213,7 +157,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.ReposGpgCreate() # ReposGpgCreate |  (optional)
+data = cloudsmith_api.RepositoryGpgKeyCreate() # RepositoryGpgKeyCreate |  (optional)
 
 try:
     # Set the active GPG key for the Repository.
@@ -229,11 +173,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**ReposGpgCreate**](ReposGpgCreate.md)|  | [optional] 
+ **data** | [**RepositoryGpgKeyCreate**](RepositoryGpgKeyCreate.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryGpgKey**](RepositoryGpgKey.md)
+[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
 
 ### Authorization
 
@@ -242,12 +186,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_gpg_list**
-> RepositoryGpgKey repos_gpg_list(owner, identifier)
+> RepositoryGpgKeyResponse repos_gpg_list(owner, identifier)
 
 Retrieve the active GPG key for the Repository.
 
@@ -289,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGpgKey**](RepositoryGpgKey.md)
+[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
 
 ### Authorization
 
@@ -297,13 +241,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_gpg_regenerate**
-> RepositoryGpgKey repos_gpg_regenerate(owner, identifier)
+> RepositoryGpgKeyResponse repos_gpg_regenerate(owner, identifier)
 
 Regenerate GPG Key for the Repository.
 
@@ -345,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGpgKey**](RepositoryGpgKey.md)
+[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
 
 ### Authorization
 
@@ -353,13 +297,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **repos_list**
-> list[Repository] repos_list(owner, page=page, page_size=page_size)
+# **repos_namespace_list**
+> list[RepositoryResponse] repos_namespace_list(owner, page=page, page_size=page_size)
 
 Get a list of all repositories within a namespace.
 
@@ -387,10 +331,10 @@ page_size = 56 # int | Number of results to return per page. (optional)
 
 try:
     # Get a list of all repositories within a namespace.
-    api_response = api_instance.repos_list(owner, page=page, page_size=page_size)
+    api_response = api_instance.repos_namespace_list(owner, page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ReposApi->repos_list: %s\n" % e)
+    print("Exception when calling ReposApi->repos_namespace_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -403,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Repository]**](Repository.md)
+[**list[RepositoryResponse]**](RepositoryResponse.md)
 
 ### Authorization
 
@@ -411,13 +355,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_partial_update**
-> Repository repos_partial_update(owner, identifier, data=data)
+> RepositoryResponse repos_partial_update(owner, identifier, data=data)
 
 Update details about a repository in a given namespace.
 
@@ -441,7 +385,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.ReposPartialUpdate() # ReposPartialUpdate |  (optional)
+data = cloudsmith_api.RepositoryRequestPatch() # RepositoryRequestPatch |  (optional)
 
 try:
     # Update details about a repository in a given namespace.
@@ -457,11 +401,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryRequestPatch**](RepositoryRequestPatch.md)|  | [optional] 
 
 ### Return type
 
-[**Repository**](Repository.md)
+[**RepositoryResponse**](RepositoryResponse.md)
 
 ### Authorization
 
@@ -470,12 +414,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_privileges_list**
-> RepositoryPrivilegeInput repos_privileges_list(owner, identifier, page=page, page_size=page_size)
+> RepositoryPrivilegeInputResponse repos_privileges_list(owner, identifier, page=page, page_size=page_size)
 
 List all explicity created privileges for the repository.
 
@@ -521,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryPrivilegeInput**](RepositoryPrivilegeInput.md)
+[**RepositoryPrivilegeInputResponse**](RepositoryPrivilegeInputResponse.md)
 
 ### Authorization
 
@@ -529,8 +473,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -559,7 +503,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.ReposPrivilegesPartialUpdate() # ReposPrivilegesPartialUpdate |  (optional)
+data = cloudsmith_api.RepositoryPrivilegeInputRequestPatch() # RepositoryPrivilegeInputRequestPatch |  (optional)
 
 try:
     # Modify privileges for the repository.
@@ -574,7 +518,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**ReposPrivilegesPartialUpdate**](ReposPrivilegesPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryPrivilegeInputRequestPatch**](RepositoryPrivilegeInputRequestPatch.md)|  | [optional] 
 
 ### Return type
 
@@ -587,7 +531,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -616,7 +560,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.ReposPrivilegesUpdate() # ReposPrivilegesUpdate |  (optional)
+data = cloudsmith_api.RepositoryPrivilegeInputRequest() # RepositoryPrivilegeInputRequest |  (optional)
 
 try:
     # Replace all existing repository privileges with those specified.
@@ -631,7 +575,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**ReposPrivilegesUpdate**](ReposPrivilegesUpdate.md)|  | [optional] 
+ **data** | [**RepositoryPrivilegeInputRequest**](RepositoryPrivilegeInputRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -644,12 +588,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_read**
-> Repository repos_read(owner, identifier)
+> RepositoryResponse repos_read(owner, identifier)
 
 Get a specific repository.
 
@@ -691,7 +635,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Repository**](Repository.md)
+[**RepositoryResponse**](RepositoryResponse.md)
 
 ### Authorization
 
@@ -699,13 +643,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_rsa_create**
-> RepositoryRsaKey repos_rsa_create(owner, identifier, data=data)
+> RepositoryRsaKeyResponse repos_rsa_create(owner, identifier, data=data)
 
 Set the active RSA key for the Repository.
 
@@ -729,7 +673,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.ReposRsaCreate() # ReposRsaCreate |  (optional)
+data = cloudsmith_api.RepositoryRsaKeyCreate() # RepositoryRsaKeyCreate |  (optional)
 
 try:
     # Set the active RSA key for the Repository.
@@ -745,11 +689,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**ReposRsaCreate**](ReposRsaCreate.md)|  | [optional] 
+ **data** | [**RepositoryRsaKeyCreate**](RepositoryRsaKeyCreate.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryRsaKey**](RepositoryRsaKey.md)
+[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
 
 ### Authorization
 
@@ -758,12 +702,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_rsa_list**
-> RepositoryRsaKey repos_rsa_list(owner, identifier)
+> RepositoryRsaKeyResponse repos_rsa_list(owner, identifier)
 
 Retrieve the active RSA key for the Repository.
 
@@ -805,7 +749,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryRsaKey**](RepositoryRsaKey.md)
+[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
 
 ### Authorization
 
@@ -813,13 +757,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_rsa_regenerate**
-> RepositoryRsaKey repos_rsa_regenerate(owner, identifier)
+> RepositoryRsaKeyResponse repos_rsa_regenerate(owner, identifier)
 
 Regenerate RSA Key for the Repository.
 
@@ -861,7 +805,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryRsaKey**](RepositoryRsaKey.md)
+[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
 
 ### Authorization
 
@@ -869,8 +813,64 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_user_list**
+> list[RepositoryResponse] repos_user_list(page=page, page_size=page_size)
+
+Get a list of all repositories associated with current user.
+
+Get a list of all repositories associated with current user.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # Get a list of all repositories associated with current user.
+    api_response = api_instance.repos_user_list(page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_user_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[RepositoryResponse]**](RepositoryResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

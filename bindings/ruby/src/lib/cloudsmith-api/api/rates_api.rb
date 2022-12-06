@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -22,7 +22,7 @@ module CloudsmithApi
     # Endpoint to check rate limits for current user.
     # Endpoint to check rate limits for current user.
     # @param [Hash] opts the optional parameters
-    # @return [ResourcesRateCheck]
+    # @return [ResourcesRateCheckResponse]
     def rates_limits_list(opts = {})
       data, _status_code, _headers = rates_limits_list_with_http_info(opts)
       data
@@ -31,7 +31,7 @@ module CloudsmithApi
     # Endpoint to check rate limits for current user.
     # Endpoint to check rate limits for current user.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ResourcesRateCheck, Fixnum, Hash)>] ResourcesRateCheck data, response status code and response headers
+    # @return [Array<(ResourcesRateCheckResponse, Fixnum, Hash)>] ResourcesRateCheckResponse data, response status code and response headers
     def rates_limits_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RatesApi.rates_limits_list ...'
@@ -44,6 +44,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -57,7 +61,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ResourcesRateCheck')
+        :return_type => 'ResourcesRateCheckResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RatesApi#rates_limits_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

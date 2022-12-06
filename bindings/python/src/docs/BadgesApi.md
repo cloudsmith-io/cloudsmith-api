@@ -1,6 +1,6 @@
 # cloudsmith_api.BadgesApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **badges_version_list**
-> object badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, badge_token=badge_token, cache_seconds=cache_seconds, color=color, label=label, label_color=label_color, logo_color=logo_color, logo_width=logo_width, render=render, shields=shields, show_latest=show_latest, style=style)
+> PackageVersionBadgeResponse badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, badge_token=badge_token, cache_seconds=cache_seconds, color=color, label=label, label_color=label_color, logo_color=logo_color, logo_width=logo_width, render=render, shields=shields, show_latest=show_latest, style=style)
 
 Get latest package version for a package or package group.
 
@@ -36,17 +36,17 @@ package_format = 'package_format_example' # str |
 package_name = 'package_name_example' # str | 
 package_version = 'package_version_example' # str | 
 package_identifiers = 'package_identifiers_example' # str | 
-badge_token = 'badge_token_example' # str | Badge token to authenticate for private packages (optional)
-cache_seconds = 'cache_seconds_example' # str | Override the shields.io badge cacheSeconds value. (optional)
-color = 'color_example' # str | Override the shields.io badge color value. (optional)
-label = 'label_example' # str | Override the shields.io badge label value. (optional)
-label_color = 'label_color_example' # str | Override the shields.io badge labelColor value. (optional)
-logo_color = 'logo_color_example' # str | Override the shields.io badge logoColor value. (optional)
-logo_width = 'logo_width_example' # str | Override the shields.io badge logoWidth value. (optional)
-render = true # bool | If true, badge will be rendered (optional)
-shields = true # bool | If true, a shields response will be generated (optional)
-show_latest = true # bool | If true, for latest version badges a '(latest)' suffix is added (optional)
-style = 'style_example' # str | Override the shields.io badge style value. (optional)
+badge_token = '' # str | Badge token to authenticate for private packages (optional) (default to )
+cache_seconds = '300' # str | Override the shields.io badge cacheSeconds value. (optional) (default to 300)
+color = '12577E' # str | Override the shields.io badge color value. (optional) (default to 12577E)
+label = 'cloudsmith' # str | Override the shields.io badge label value. (optional) (default to cloudsmith)
+label_color = '021F2F' # str | Override the shields.io badge labelColor value. (optional) (default to 021F2F)
+logo_color = '45B6EE' # str | Override the shields.io badge logoColor value. (optional) (default to 45B6EE)
+logo_width = '10' # str | Override the shields.io badge logoWidth value. (optional) (default to 10)
+render = false # bool | If true, badge will be rendered (optional) (default to false)
+shields = false # bool | If true, a shields response will be generated (optional) (default to false)
+show_latest = false # bool | If true, for latest version badges a '(latest)' suffix is added (optional) (default to false)
+style = 'flat-square' # str | Override the shields.io badge style value. (optional) (default to flat-square)
 
 try:
     # Get latest package version for a package or package group.
@@ -66,21 +66,21 @@ Name | Type | Description  | Notes
  **package_name** | **str**|  | 
  **package_version** | **str**|  | 
  **package_identifiers** | **str**|  | 
- **badge_token** | **str**| Badge token to authenticate for private packages | [optional] 
- **cache_seconds** | **str**| Override the shields.io badge cacheSeconds value. | [optional] 
- **color** | **str**| Override the shields.io badge color value. | [optional] 
- **label** | **str**| Override the shields.io badge label value. | [optional] 
- **label_color** | **str**| Override the shields.io badge labelColor value. | [optional] 
- **logo_color** | **str**| Override the shields.io badge logoColor value. | [optional] 
- **logo_width** | **str**| Override the shields.io badge logoWidth value. | [optional] 
- **render** | **bool**| If true, badge will be rendered | [optional] 
- **shields** | **bool**| If true, a shields response will be generated | [optional] 
- **show_latest** | **bool**| If true, for latest version badges a &#39;(latest)&#39; suffix is added | [optional] 
- **style** | **str**| Override the shields.io badge style value. | [optional] 
+ **badge_token** | **str**| Badge token to authenticate for private packages | [optional] [default to ]
+ **cache_seconds** | **str**| Override the shields.io badge cacheSeconds value. | [optional] [default to 300]
+ **color** | **str**| Override the shields.io badge color value. | [optional] [default to 12577E]
+ **label** | **str**| Override the shields.io badge label value. | [optional] [default to cloudsmith]
+ **label_color** | **str**| Override the shields.io badge labelColor value. | [optional] [default to 021F2F]
+ **logo_color** | **str**| Override the shields.io badge logoColor value. | [optional] [default to 45B6EE]
+ **logo_width** | **str**| Override the shields.io badge logoWidth value. | [optional] [default to 10]
+ **render** | **bool**| If true, badge will be rendered | [optional] [default to false]
+ **shields** | **bool**| If true, a shields response will be generated | [optional] [default to false]
+ **show_latest** | **bool**| If true, for latest version badges a &#39;(latest)&#39; suffix is added | [optional] [default to false]
+ **style** | **str**| Override the shields.io badge style value. | [optional] [default to flat-square]
 
 ### Return type
 
-**object**
+[**PackageVersionBadgeResponse**](PackageVersionBadgeResponse.md)
 
 ### Authorization
 
@@ -88,8 +88,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

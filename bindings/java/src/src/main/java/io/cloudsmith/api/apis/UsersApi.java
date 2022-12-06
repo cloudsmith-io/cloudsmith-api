@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -36,8 +36,8 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.UserProfile;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.UserProfileResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -87,13 +87,13 @@ public class UsersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -146,11 +146,11 @@ public class UsersApi {
      * Provide a brief for the specified user (if any).
      * Provide a brief for the specified user (if any).
      * @param slug  (required)
-     * @return UserProfile
+     * @return UserProfileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public UserProfile usersProfileRead(String slug) throws ApiException {
-        ApiResponse<UserProfile> resp = usersProfileReadWithHttpInfo(slug);
+    public UserProfileResponse usersProfileRead(String slug) throws ApiException {
+        ApiResponse<UserProfileResponse> resp = usersProfileReadWithHttpInfo(slug);
         return resp.getData();
     }
 
@@ -158,12 +158,12 @@ public class UsersApi {
      * Provide a brief for the specified user (if any).
      * Provide a brief for the specified user (if any).
      * @param slug  (required)
-     * @return ApiResponse&lt;UserProfile&gt;
+     * @return ApiResponse&lt;UserProfileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<UserProfile> usersProfileReadWithHttpInfo( @NotNull String slug) throws ApiException {
+    public ApiResponse<UserProfileResponse> usersProfileReadWithHttpInfo( @NotNull String slug) throws ApiException {
         com.squareup.okhttp.Call call = usersProfileReadValidateBeforeCall(slug, null, null);
-        Type localVarReturnType = new TypeToken<UserProfile>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserProfileResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -175,7 +175,7 @@ public class UsersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call usersProfileReadAsync(String slug, final ApiCallback<UserProfile> callback) throws ApiException {
+    public com.squareup.okhttp.Call usersProfileReadAsync(String slug, final ApiCallback<UserProfileResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -197,7 +197,7 @@ public class UsersApi {
         }
 
         com.squareup.okhttp.Call call = usersProfileReadValidateBeforeCall(slug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<UserProfile>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserProfileResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -137,10 +137,6 @@ describe 'RepositoryToken' do
   describe 'test attribute "limit_bandwidth_unit"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Byte", "Kilobyte", "Megabyte", "Gigabyte", "Terabyte", "Petabyte", "Exabyte", "Zettabyte", "Yottabyte"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.limit_bandwidth_unit = value }.not_to raise_error
-      # end
     end
   end
 
@@ -213,10 +209,6 @@ describe 'RepositoryToken' do
   describe 'test attribute "scheduled_reset_period"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Never Reset", "Daily", "Weekly", "Fortnightly", "Monthly", "Bi-Monthly", "Quarterly", "Every 6 months", "Annual"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.scheduled_reset_period = value }.not_to raise_error
-      # end
     end
   end
 

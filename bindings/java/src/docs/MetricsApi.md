@@ -1,17 +1,17 @@
 # MetricsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**metricsEntitlementsList**](MetricsApi.md#metricsEntitlementsList) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
-[**metricsEntitlementsList0**](MetricsApi.md#metricsEntitlementsList0) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+[**metricsEntitlementsAccountList**](MetricsApi.md#metricsEntitlementsAccountList) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+[**metricsEntitlementsRepoList**](MetricsApi.md#metricsEntitlementsRepoList) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
 [**metricsPackagesList**](MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 
 
-<a name="metricsEntitlementsList"></a>
-# **metricsEntitlementsList**
-> EntitlementUsageMetrics metricsEntitlementsList(owner, page, pageSize, finish, start, tokens)
+<a name="metricsEntitlementsAccountList"></a>
+# **metricsEntitlementsAccountList**
+> EntitlementUsageMetricsResponse metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens)
 
 View for listing entitlement token metrics, across an account.
 
@@ -42,10 +42,10 @@ String finish = "finish_example"; // String | Include metrics upto and including
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsList(owner, page, pageSize, finish, start, tokens);
+    EntitlementUsageMetricsResponse result = apiInstance.metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MetricsApi#metricsEntitlementsList");
+    System.err.println("Exception when calling MetricsApi#metricsEntitlementsAccountList");
     e.printStackTrace();
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
+[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
 
 ### Authorization
 
@@ -71,12 +71,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
-<a name="metricsEntitlementsList0"></a>
-# **metricsEntitlementsList0**
-> EntitlementUsageMetrics metricsEntitlementsList0(owner, repo, page, pageSize, finish, start, tokens)
+<a name="metricsEntitlementsRepoList"></a>
+# **metricsEntitlementsRepoList**
+> EntitlementUsageMetricsResponse metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens)
 
 View for listing entitlement token metrics, for a repository.
 
@@ -108,10 +108,10 @@ String finish = "finish_example"; // String | Include metrics upto and including
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsList0(owner, repo, page, pageSize, finish, start, tokens);
+    EntitlementUsageMetricsResponse result = apiInstance.metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MetricsApi#metricsEntitlementsList0");
+    System.err.println("Exception when calling MetricsApi#metricsEntitlementsRepoList");
     e.printStackTrace();
 }
 ```
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
+[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
 
 ### Authorization
 
@@ -138,12 +138,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="metricsPackagesList"></a>
 # **metricsPackagesList**
-> PackageUsageMetrics metricsPackagesList(owner, repo, page, pageSize, finish, packages, start)
+> PackageUsageMetricsResponse metricsPackagesList(owner, repo, page, pageSize, finish, packages, start)
 
 View for listing package usage metrics, for a repository.
 
@@ -175,7 +175,7 @@ String finish = "finish_example"; // String | Include metrics upto and including
 String packages = "packages_example"; // String | A comma seperated list of packages (slug perm) to include in the results.
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 try {
-    PackageUsageMetrics result = apiInstance.metricsPackagesList(owner, repo, page, pageSize, finish, packages, start);
+    PackageUsageMetricsResponse result = apiInstance.metricsPackagesList(owner, repo, page, pageSize, finish, packages, start);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetricsApi#metricsPackagesList");
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageUsageMetrics**](PackageUsageMetrics.md)
+[**PackageUsageMetricsResponse**](PackageUsageMetricsResponse.md)
 
 ### Authorization
 
@@ -205,6 +205,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

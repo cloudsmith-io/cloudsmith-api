@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,7 +43,7 @@ class RatesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: ResourcesRateCheck
+        :return: ResourcesRateCheckResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64,7 +64,7 @@ class RatesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: ResourcesRateCheck
+        :return: ResourcesRateCheckResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -97,6 +97,14 @@ class RatesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -108,7 +116,7 @@ class RatesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ResourcesRateCheck',  # noqa: E501
+            response_type='ResourcesRateCheckResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

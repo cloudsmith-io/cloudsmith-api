@@ -1,6 +1,6 @@
 # CloudsmithApi::EntitlementsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **entitlements_create**
-> RepositoryToken entitlements_create(owner, repo, opts)
+> RepositoryTokenResponse entitlements_create(owner, repo, opts)
 
 Create a specific entitlement in a repository.
 
@@ -42,8 +42,8 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
-  data: CloudsmithApi::EntitlementsCreate.new # EntitlementsCreate | 
+  data: CloudsmithApi::RepositoryTokenRequest.new, # RepositoryTokenRequest | 
+  show_tokens: false # BOOLEAN | Show entitlement token strings in results
 }
 
 begin
@@ -61,12 +61,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
- **data** | [**EntitlementsCreate**](EntitlementsCreate.md)|  | [optional] 
+ **data** | [**RepositoryTokenRequest**](RepositoryTokenRequest.md)|  | [optional] 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryToken**](RepositoryToken.md)
+[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -133,8 +133,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -192,8 +192,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -251,13 +251,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **entitlements_list**
-> Array&lt;RepositoryToken&gt; entitlements_list(owner, repo, opts)
+> Array&lt;RepositoryTokenResponse&gt; entitlements_list(owner, repo, opts)
 
 Get a list of all entitlements in a repository.
 
@@ -284,7 +284,9 @@ repo = 'repo_example' # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  show_tokens: true # BOOLEAN | Show entitlement token strings in results
+  show_tokens: false, # BOOLEAN | Show entitlement token strings in results
+  query: 'query_example', # String | A search term for querying names of entitlements.
+  active: false # BOOLEAN | If true, only include active tokens
 }
 
 begin
@@ -304,11 +306,13 @@ Name | Type | Description  | Notes
  **repo** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] [default to false]
+ **query** | **String**| A search term for querying names of entitlements. | [optional] 
+ **active** | **BOOLEAN**| If true, only include active tokens | [optional] [default to false]
 
 ### Return type
 
-[**Array&lt;RepositoryToken&gt;**](RepositoryToken.md)
+[**Array&lt;RepositoryTokenResponse&gt;**](RepositoryTokenResponse.md)
 
 ### Authorization
 
@@ -316,13 +320,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **entitlements_partial_update**
-> RepositoryToken entitlements_partial_update(owner, repo, identifier, opts)
+> RepositoryTokenResponse entitlements_partial_update(owner, repo, identifier, opts)
 
 Update a specific entitlement in a repository.
 
@@ -349,8 +353,8 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
-  data: CloudsmithApi::EntitlementsPartialUpdate.new # EntitlementsPartialUpdate | 
+  data: CloudsmithApi::RepositoryTokenRequestPatch.new, # RepositoryTokenRequestPatch | 
+  show_tokens: false # BOOLEAN | Show entitlement token strings in results
 }
 
 begin
@@ -369,12 +373,12 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
- **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryTokenRequestPatch**](RepositoryTokenRequestPatch.md)|  | [optional] 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryToken**](RepositoryToken.md)
+[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
 
 ### Authorization
 
@@ -383,12 +387,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **entitlements_read**
-> RepositoryToken entitlements_read(owner, repo, identifier, opts)
+> RepositoryTokenResponse entitlements_read(owner, repo, identifier, opts)
 
 Get a specific entitlement in a repository.
 
@@ -415,7 +419,8 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  show_tokens: true # BOOLEAN | Show entitlement token strings in results
+  fuzzy: false, # BOOLEAN | If true, entitlement identifiers including name will be fuzzy matched.
+  show_tokens: false # BOOLEAN | Show entitlement token strings in results
 }
 
 begin
@@ -434,11 +439,12 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
+ **fuzzy** | **BOOLEAN**| If true, entitlement identifiers including name will be fuzzy matched. | [optional] [default to false]
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryToken**](RepositoryToken.md)
+[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
 
 ### Authorization
 
@@ -446,13 +452,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **entitlements_refresh**
-> RepositoryTokenRefresh entitlements_refresh(owner, repo, identifier, opts)
+> RepositoryTokenRefreshResponse entitlements_refresh(owner, repo, identifier, opts)
 
 Refresh an entitlement token in a repository.
 
@@ -479,8 +485,8 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
-  data: CloudsmithApi::EntitlementsRefresh.new # EntitlementsRefresh | 
+  data: CloudsmithApi::RepositoryTokenRefreshRequest.new, # RepositoryTokenRefreshRequest | 
+  show_tokens: false # BOOLEAN | Show entitlement token strings in results
 }
 
 begin
@@ -499,12 +505,12 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
- **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
+ **data** | [**RepositoryTokenRefreshRequest**](RepositoryTokenRefreshRequest.md)|  | [optional] 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryTokenRefresh**](RepositoryTokenRefresh.md)
+[**RepositoryTokenRefreshResponse**](RepositoryTokenRefreshResponse.md)
 
 ### Authorization
 
@@ -513,7 +519,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -545,7 +551,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  show_tokens: true # BOOLEAN | Show entitlement token strings in results
+  show_tokens: false # BOOLEAN | Show entitlement token strings in results
 }
 
 begin
@@ -563,7 +569,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
@@ -575,13 +581,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **entitlements_sync**
-> RepositoryTokenSync entitlements_sync(owner, repo, opts)
+> RepositoryTokenSyncResponse entitlements_sync(owner, repo, opts)
 
 Synchronise tokens from a source repository.
 
@@ -606,8 +612,8 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  show_tokens: true, # BOOLEAN | Show entitlement token strings in results
-  data: CloudsmithApi::EntitlementsSync.new # EntitlementsSync | 
+  data: CloudsmithApi::RepositoryTokenSyncRequest.new, # RepositoryTokenSyncRequest | 
+  show_tokens: false # BOOLEAN | Show entitlement token strings in results
 }
 
 begin
@@ -625,12 +631,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] 
- **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional] 
+ **data** | [**RepositoryTokenSyncRequest**](RepositoryTokenSyncRequest.md)|  | [optional] 
+ **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryTokenSync**](RepositoryTokenSync.md)
+[**RepositoryTokenSyncResponse**](RepositoryTokenSyncResponse.md)
 
 ### Authorization
 
@@ -639,7 +645,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

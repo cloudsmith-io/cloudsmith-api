@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,10 +43,10 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param WebhooksCreate data:
-        :return: RepositoryWebhook
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RepositoryWebhookRequest data:
+        :return: RepositoryWebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -67,10 +67,10 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param WebhooksCreate data:
-        :return: RepositoryWebhook
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RepositoryWebhookRequest data:
+        :return: RepositoryWebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -117,6 +117,10 @@ class WebhooksApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -132,7 +136,7 @@ class WebhooksApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryWebhook',  # noqa: E501
+            response_type='RepositoryWebhookResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -150,9 +154,9 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -174,9 +178,9 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -228,6 +232,14 @@ class WebhooksApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -257,11 +269,11 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[RepositoryWebhook]
+        :return: list[RepositoryWebhookResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -282,11 +294,11 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[RepositoryWebhook]
+        :return: list[RepositoryWebhookResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -335,6 +347,14 @@ class WebhooksApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -346,7 +366,7 @@ class WebhooksApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[RepositoryWebhook]',  # noqa: E501
+            response_type='list[RepositoryWebhookResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -364,11 +384,11 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param WebhooksPartialUpdate data:
-        :return: RepositoryWebhook
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param RepositoryWebhookRequestPatch data:
+        :return: RepositoryWebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -389,11 +409,11 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param WebhooksPartialUpdate data:
-        :return: RepositoryWebhook
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param RepositoryWebhookRequestPatch data:
+        :return: RepositoryWebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -446,6 +466,10 @@ class WebhooksApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -461,7 +485,7 @@ class WebhooksApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryWebhook',  # noqa: E501
+            response_type='RepositoryWebhookResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -479,10 +503,10 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: RepositoryWebhook
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: RepositoryWebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -503,10 +527,10 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :return: RepositoryWebhook
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :return: RepositoryWebhookResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -557,6 +581,14 @@ class WebhooksApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -568,7 +600,7 @@ class WebhooksApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryWebhook',  # noqa: E501
+            response_type='RepositoryWebhookResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

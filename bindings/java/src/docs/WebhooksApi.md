@@ -1,6 +1,6 @@
 # WebhooksApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="webhooksCreate"></a>
 # **webhooksCreate**
-> RepositoryWebhook webhooksCreate(owner, repo, data)
+> RepositoryWebhookResponse webhooksCreate(owner, repo, data)
 
 Create a specific webhook in a repository.
 
@@ -39,9 +39,9 @@ apikey.setApiKey("YOUR API KEY");
 WebhooksApi apiInstance = new WebhooksApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-WebhooksCreate data = new WebhooksCreate(); // WebhooksCreate | 
+RepositoryWebhookRequest data = new RepositoryWebhookRequest(); // RepositoryWebhookRequest | 
 try {
-    RepositoryWebhook result = apiInstance.webhooksCreate(owner, repo, data);
+    RepositoryWebhookResponse result = apiInstance.webhooksCreate(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksCreate");
@@ -55,11 +55,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**WebhooksCreate**](WebhooksCreate.md)|  | [optional]
+ **data** | [**RepositoryWebhookRequest**](RepositoryWebhookRequest.md)|  | [optional]
 
 ### Return type
 
-[**RepositoryWebhook**](RepositoryWebhook.md)
+[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="webhooksDelete"></a>
 # **webhooksDelete**
@@ -125,12 +125,12 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="webhooksList"></a>
 # **webhooksList**
-> List&lt;RepositoryWebhook&gt; webhooksList(owner, repo, page, pageSize)
+> List&lt;RepositoryWebhookResponse&gt; webhooksList(owner, repo, page, pageSize)
 
 Get a list of all webhooks in a repository.
 
@@ -159,7 +159,7 @@ String repo = "repo_example"; // String |
 Integer page = 56; // Integer | A page number within the paginated result set.
 Integer pageSize = 56; // Integer | Number of results to return per page.
 try {
-    List<RepositoryWebhook> result = apiInstance.webhooksList(owner, repo, page, pageSize);
+    List<RepositoryWebhookResponse> result = apiInstance.webhooksList(owner, repo, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksList");
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;RepositoryWebhook&gt;**](RepositoryWebhook.md)
+[**List&lt;RepositoryWebhookResponse&gt;**](RepositoryWebhookResponse.md)
 
 ### Authorization
 
@@ -186,12 +186,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="webhooksPartialUpdate"></a>
 # **webhooksPartialUpdate**
-> RepositoryWebhook webhooksPartialUpdate(owner, repo, identifier, data)
+> RepositoryWebhookResponse webhooksPartialUpdate(owner, repo, identifier, data)
 
 Update a specific webhook in a repository.
 
@@ -218,9 +218,9 @@ WebhooksApi apiInstance = new WebhooksApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-WebhooksPartialUpdate data = new WebhooksPartialUpdate(); // WebhooksPartialUpdate | 
+RepositoryWebhookRequestPatch data = new RepositoryWebhookRequestPatch(); // RepositoryWebhookRequestPatch | 
 try {
-    RepositoryWebhook result = apiInstance.webhooksPartialUpdate(owner, repo, identifier, data);
+    RepositoryWebhookResponse result = apiInstance.webhooksPartialUpdate(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksPartialUpdate");
@@ -235,11 +235,11 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional]
+ **data** | [**RepositoryWebhookRequestPatch**](RepositoryWebhookRequestPatch.md)|  | [optional]
 
 ### Return type
 
-[**RepositoryWebhook**](RepositoryWebhook.md)
+[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
 
 ### Authorization
 
@@ -248,11 +248,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="webhooksRead"></a>
 # **webhooksRead**
-> RepositoryWebhook webhooksRead(owner, repo, identifier)
+> RepositoryWebhookResponse webhooksRead(owner, repo, identifier)
 
 Views for working with repository webhooks.
 
@@ -280,7 +280,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryWebhook result = apiInstance.webhooksRead(owner, repo, identifier);
+    RepositoryWebhookResponse result = apiInstance.webhooksRead(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksRead");
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhook**](RepositoryWebhook.md)
+[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
 
 ### Authorization
 
@@ -306,6 +306,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

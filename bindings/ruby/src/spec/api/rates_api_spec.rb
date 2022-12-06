@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -36,7 +36,7 @@ describe 'RatesApi' do
   # Endpoint to check rate limits for current user.
   # Endpoint to check rate limits for current user.
   # @param [Hash] opts the optional parameters
-  # @return [ResourcesRateCheck]
+  # @return [ResourcesRateCheckResponse]
   describe 'rates_limits_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,20 +13,23 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Organization;
-import io.cloudsmith.api.models.OrganizationGroupSync;
-import io.cloudsmith.api.models.OrganizationInvite;
-import io.cloudsmith.api.models.OrganizationMembership;
-import io.cloudsmith.api.models.OrganizationTeam;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
+import io.cloudsmith.api.models.OrganizationGroupSyncResponse;
+import io.cloudsmith.api.models.OrganizationInviteExtendResponse;
+import io.cloudsmith.api.models.OrganizationInviteRequest;
+import io.cloudsmith.api.models.OrganizationInviteResponse;
+import io.cloudsmith.api.models.OrganizationInviteUpdateRequestPatch;
+import io.cloudsmith.api.models.OrganizationMembershipResponse;
+import io.cloudsmith.api.models.OrganizationResponse;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
-import io.cloudsmith.api.models.OrgsInvitesCreate;
-import io.cloudsmith.api.models.OrgsInvitesExtend;
-import io.cloudsmith.api.models.OrgsSamlgroupsyncCreate;
-import io.cloudsmith.api.models.OrgsTeamsCreate;
-import io.cloudsmith.api.models.OrgsTeamsMembersCreate;
-import io.cloudsmith.api.models.OrgsTeamsMembersUpdate;
-import io.cloudsmith.api.models.OrgsTeamsPartialUpdate;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.OrganizationTeamMembersResponse;
+import io.cloudsmith.api.models.OrganizationTeamRequest;
+import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.OrganizationTeamResponse;
+import io.cloudsmith.api.models.ServiceRequest;
+import io.cloudsmith.api.models.ServiceRequestPatch;
+import io.cloudsmith.api.models.ServiceResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -56,8 +59,8 @@ public class OrgsApiTest {
     @Test
     public void orgsInvitesCreateTest() throws Exception {
         String org = null;
-        OrgsInvitesCreate data = null;
-        OrganizationInvite response = api.orgsInvitesCreate(org, data);
+        OrganizationInviteRequest data = null;
+        OrganizationInviteResponse response = api.orgsInvitesCreate(org, data);
 
         // TODO: test validations
     }
@@ -91,8 +94,7 @@ public class OrgsApiTest {
     public void orgsInvitesExtendTest() throws Exception {
         String org = null;
         String slugPerm = null;
-        OrgsInvitesExtend data = null;
-        OrganizationInvite response = api.orgsInvitesExtend(org, slugPerm, data);
+        OrganizationInviteExtendResponse response = api.orgsInvitesExtend(org, slugPerm);
 
         // TODO: test validations
     }
@@ -110,7 +112,42 @@ public class OrgsApiTest {
         String org = null;
         Integer page = null;
         Integer pageSize = null;
-        List<OrganizationInvite> response = api.orgsInvitesList(org, page, pageSize);
+        List<OrganizationInviteResponse> response = api.orgsInvitesList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a specific organization invite.
+     *
+     * Update a specific organization invite.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsInvitesPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationInviteUpdateRequestPatch data = null;
+        OrganizationInviteResponse response = api.orgsInvitesPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Resend an organization invite.
+     *
+     * Resend an organization invite.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsInvitesResendTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationInviteExtendResponse response = api.orgsInvitesResend(org, slugPerm);
 
         // TODO: test validations
     }
@@ -127,7 +164,7 @@ public class OrgsApiTest {
     public void orgsListTest() throws Exception {
         Integer page = null;
         Integer pageSize = null;
-        List<Organization> response = api.orgsList(page, pageSize);
+        List<OrganizationResponse> response = api.orgsList(page, pageSize);
 
         // TODO: test validations
     }
@@ -162,7 +199,7 @@ public class OrgsApiTest {
         String org = null;
         Integer page = null;
         Integer pageSize = null;
-        List<OrganizationMembership> response = api.orgsMembersList(org, page, pageSize);
+        List<OrganizationMembershipResponse> response = api.orgsMembersList(org, page, pageSize);
 
         // TODO: test validations
     }
@@ -179,7 +216,7 @@ public class OrgsApiTest {
     public void orgsMembersReadTest() throws Exception {
         String org = null;
         String member = null;
-        OrganizationMembership response = api.orgsMembersRead(org, member);
+        OrganizationMembershipResponse response = api.orgsMembersRead(org, member);
 
         // TODO: test validations
     }
@@ -212,7 +249,7 @@ public class OrgsApiTest {
     @Test
     public void orgsReadTest() throws Exception {
         String org = null;
-        Organization response = api.orgsRead(org);
+        OrganizationResponse response = api.orgsRead(org);
 
         // TODO: test validations
     }
@@ -228,8 +265,8 @@ public class OrgsApiTest {
     @Test
     public void orgsSamlGroupSyncCreateTest() throws Exception {
         String org = null;
-        OrgsSamlgroupsyncCreate data = null;
-        OrganizationGroupSync response = api.orgsSamlGroupSyncCreate(org, data);
+        OrganizationGroupSyncRequest data = null;
+        OrganizationGroupSyncResponse response = api.orgsSamlGroupSyncCreate(org, data);
 
         // TODO: test validations
     }
@@ -264,7 +301,111 @@ public class OrgsApiTest {
         String org = null;
         Integer page = null;
         Integer pageSize = null;
-        List<OrganizationGroupSync> response = api.orgsSamlGroupSyncList(org, page, pageSize);
+        List<OrganizationGroupSyncResponse> response = api.orgsSamlGroupSyncList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a service within an organization.
+     *
+     * Create a service within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesCreateTest() throws Exception {
+        String org = null;
+        ServiceRequest data = null;
+        ServiceResponse response = api.orgsServicesCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a specific service
+     *
+     * Delete a specific service
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesDeleteTest() throws Exception {
+        String org = null;
+        String service = null;
+        api.orgsServicesDelete(org, service);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a list of all services within an organization.
+     *
+     * Get a list of all services within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesListTest() throws Exception {
+        String org = null;
+        Integer page = null;
+        Integer pageSize = null;
+        List<ServiceResponse> response = api.orgsServicesList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a service within an organization.
+     *
+     * Update a service within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesPartialUpdateTest() throws Exception {
+        String org = null;
+        String service = null;
+        ServiceRequestPatch data = null;
+        ServiceResponse response = api.orgsServicesPartialUpdate(org, service, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve details of a single service within an organization.
+     *
+     * Retrieve details of a single service within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesReadTest() throws Exception {
+        String org = null;
+        String service = null;
+        ServiceResponse response = api.orgsServicesRead(org, service);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Refresh service API token.
+     *
+     * Refresh service API token.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesRefreshTest() throws Exception {
+        String org = null;
+        String service = null;
+        ServiceResponse response = api.orgsServicesRefresh(org, service);
 
         // TODO: test validations
     }
@@ -280,8 +421,8 @@ public class OrgsApiTest {
     @Test
     public void orgsTeamsCreateTest() throws Exception {
         String org = null;
-        OrgsTeamsCreate data = null;
-        OrganizationTeam response = api.orgsTeamsCreate(org, data);
+        OrganizationTeamRequest data = null;
+        OrganizationTeamResponse response = api.orgsTeamsCreate(org, data);
 
         // TODO: test validations
     }
@@ -316,7 +457,7 @@ public class OrgsApiTest {
         String org = null;
         Integer page = null;
         Integer pageSize = null;
-        List<OrganizationTeam> response = api.orgsTeamsList(org, page, pageSize);
+        List<OrganizationTeamResponse> response = api.orgsTeamsList(org, page, pageSize);
 
         // TODO: test validations
     }
@@ -333,8 +474,8 @@ public class OrgsApiTest {
     public void orgsTeamsMembersCreateTest() throws Exception {
         String org = null;
         String team = null;
-        OrgsTeamsMembersCreate data = null;
-        OrganizationTeamMembers response = api.orgsTeamsMembersCreate(org, team, data);
+        OrganizationTeamMembers data = null;
+        OrganizationTeamMembersResponse response = api.orgsTeamsMembersCreate(org, team, data);
 
         // TODO: test validations
     }
@@ -351,7 +492,7 @@ public class OrgsApiTest {
     public void orgsTeamsMembersListTest() throws Exception {
         String org = null;
         String team = null;
-        OrganizationTeamMembers response = api.orgsTeamsMembersList(org, team);
+        OrganizationTeamMembersResponse response = api.orgsTeamsMembersList(org, team);
 
         // TODO: test validations
     }
@@ -368,8 +509,7 @@ public class OrgsApiTest {
     public void orgsTeamsMembersUpdateTest() throws Exception {
         String org = null;
         String team = null;
-        OrgsTeamsMembersUpdate data = null;
-        api.orgsTeamsMembersUpdate(org, team, data);
+        OrganizationTeamMembersResponse response = api.orgsTeamsMembersUpdate(org, team);
 
         // TODO: test validations
     }
@@ -386,16 +526,16 @@ public class OrgsApiTest {
     public void orgsTeamsPartialUpdateTest() throws Exception {
         String org = null;
         String team = null;
-        OrgsTeamsPartialUpdate data = null;
-        OrganizationTeam response = api.orgsTeamsPartialUpdate(org, team, data);
+        OrganizationTeamRequestPatch data = null;
+        OrganizationTeamResponse response = api.orgsTeamsPartialUpdate(org, team, data);
 
         // TODO: test validations
     }
     
     /**
-     * Get the details for the specific team.
+     * Get the details of a specific team within an organization.
      *
-     * Get the details for the specific team.
+     * Get the details of a specific team within an organization.
      *
      * @throws Exception
      *          if the Api call fails
@@ -404,7 +544,7 @@ public class OrgsApiTest {
     public void orgsTeamsReadTest() throws Exception {
         String org = null;
         String team = null;
-        OrganizationTeam response = api.orgsTeamsRead(org, team);
+        OrganizationTeamResponse response = api.orgsTeamsRead(org, team);
 
         // TODO: test validations
     }

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,8 +43,8 @@ class UsersApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str slug:  (required)
-        :return: UserProfile
+        :param str slug: (required)
+        :return: UserProfileResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -65,8 +65,8 @@ class UsersApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str slug:  (required)
-        :return: UserProfile
+        :param str slug: (required)
+        :return: UserProfileResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -105,6 +105,14 @@ class UsersApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -116,7 +124,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UserProfile',  # noqa: E501
+            response_type='UserProfileResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

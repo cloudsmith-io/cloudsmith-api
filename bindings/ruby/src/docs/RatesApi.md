@@ -1,6 +1,6 @@
 # CloudsmithApi::RatesApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **rates_limits_list**
-> ResourcesRateCheck rates_limits_list
+> ResourcesRateCheckResponse rates_limits_list
 
 Endpoint to check rate limits for current user.
 
@@ -42,7 +42,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResourcesRateCheck**](ResourcesRateCheck.md)
+[**ResourcesRateCheckResponse**](ResourcesRateCheckResponse.md)
 
 ### Authorization
 
@@ -50,8 +50,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

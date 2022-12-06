@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -36,7 +36,7 @@ describe 'StorageRegionsApi' do
   # Get a list of all available storage regions.
   # Get a list of all available storage regions.
   # @param [Hash] opts the optional parameters
-  # @return [Array<StorageRegion>]
+  # @return [Array<StorageRegionResponse>]
   describe 'storage_regions_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -48,7 +48,7 @@ describe 'StorageRegionsApi' do
   # Get a specific storage region.
   # @param slug 
   # @param [Hash] opts the optional parameters
-  # @return [StorageRegion]
+  # @return [StorageRegionResponse]
   describe 'storage_regions_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -23,7 +23,7 @@ module CloudsmithApi
     # Quota history for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @return [QuotaHistory]
+    # @return [QuotaHistoryResponse]
     def quota_history_read(owner, opts = {})
       data, _status_code, _headers = quota_history_read_with_http_info(owner, opts)
       data
@@ -33,7 +33,7 @@ module CloudsmithApi
     # Quota history for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(QuotaHistory, Fixnum, Hash)>] QuotaHistory data, response status code and response headers
+    # @return [Array<(QuotaHistoryResponse, Fixnum, Hash)>] QuotaHistoryResponse data, response status code and response headers
     def quota_history_read_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuotaApi.quota_history_read ...'
@@ -50,6 +50,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -63,7 +67,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'QuotaHistory')
+        :return_type => 'QuotaHistoryResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: QuotaApi#quota_history_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -73,7 +77,7 @@ module CloudsmithApi
     # Open-source Quota history for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @return [QuotaHistory]
+    # @return [QuotaHistoryResponse]
     def quota_oss_history_read(owner, opts = {})
       data, _status_code, _headers = quota_oss_history_read_with_http_info(owner, opts)
       data
@@ -83,7 +87,7 @@ module CloudsmithApi
     # Open-source Quota history for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(QuotaHistory, Fixnum, Hash)>] QuotaHistory data, response status code and response headers
+    # @return [Array<(QuotaHistoryResponse, Fixnum, Hash)>] QuotaHistoryResponse data, response status code and response headers
     def quota_oss_history_read_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuotaApi.quota_oss_history_read ...'
@@ -100,6 +104,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -113,7 +121,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'QuotaHistory')
+        :return_type => 'QuotaHistoryResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: QuotaApi#quota_oss_history_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -123,7 +131,7 @@ module CloudsmithApi
     # Open-source Quota usage for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @return [Quota]
+    # @return [QuotaResponse]
     def quota_oss_read(owner, opts = {})
       data, _status_code, _headers = quota_oss_read_with_http_info(owner, opts)
       data
@@ -133,7 +141,7 @@ module CloudsmithApi
     # Open-source Quota usage for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Quota, Fixnum, Hash)>] Quota data, response status code and response headers
+    # @return [Array<(QuotaResponse, Fixnum, Hash)>] QuotaResponse data, response status code and response headers
     def quota_oss_read_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuotaApi.quota_oss_read ...'
@@ -150,6 +158,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -163,7 +175,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Quota')
+        :return_type => 'QuotaResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: QuotaApi#quota_oss_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -173,7 +185,7 @@ module CloudsmithApi
     # Quota usage for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @return [Quota]
+    # @return [QuotaResponse]
     def quota_read(owner, opts = {})
       data, _status_code, _headers = quota_read_with_http_info(owner, opts)
       data
@@ -183,7 +195,7 @@ module CloudsmithApi
     # Quota usage for a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Quota, Fixnum, Hash)>] Quota data, response status code and response headers
+    # @return [Array<(QuotaResponse, Fixnum, Hash)>] QuotaResponse data, response status code and response headers
     def quota_read_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuotaApi.quota_read ...'
@@ -200,6 +212,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -213,7 +229,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Quota')
+        :return_type => 'QuotaResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: QuotaApi#quota_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

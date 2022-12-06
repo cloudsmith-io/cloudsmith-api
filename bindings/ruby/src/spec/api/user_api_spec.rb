@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -36,7 +36,7 @@ describe 'UserApi' do
   # Provide a brief for the current user (if any).
   # Provide a brief for the current user (if any).
   # @param [Hash] opts the optional parameters
-  # @return [UserBrief]
+  # @return [UserBriefResponse]
   describe 'user_self test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -47,8 +47,8 @@ describe 'UserApi' do
   # Retrieve the API key/token for the authenticated user.
   # Retrieve the API key/token for the authenticated user.
   # @param [Hash] opts the optional parameters
-  # @option opts [UserTokenCreate] :data 
-  # @return [UserAuthToken]
+  # @option opts [UserAuthTokenRequest] :data 
+  # @return [UserAuthTokenResponse]
   describe 'user_token_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

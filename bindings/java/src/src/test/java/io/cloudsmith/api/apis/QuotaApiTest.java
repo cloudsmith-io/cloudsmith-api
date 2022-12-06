@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,9 +13,9 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Quota;
-import io.cloudsmith.api.models.QuotaHistory;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.QuotaHistoryResponse;
+import io.cloudsmith.api.models.QuotaResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +45,7 @@ public class QuotaApiTest {
     @Test
     public void quotaHistoryReadTest() throws Exception {
         String owner = null;
-        QuotaHistory response = api.quotaHistoryRead(owner);
+        QuotaHistoryResponse response = api.quotaHistoryRead(owner);
 
         // TODO: test validations
     }
@@ -61,7 +61,7 @@ public class QuotaApiTest {
     @Test
     public void quotaOssHistoryReadTest() throws Exception {
         String owner = null;
-        QuotaHistory response = api.quotaOssHistoryRead(owner);
+        QuotaHistoryResponse response = api.quotaOssHistoryRead(owner);
 
         // TODO: test validations
     }
@@ -77,7 +77,7 @@ public class QuotaApiTest {
     @Test
     public void quotaOssReadTest() throws Exception {
         String owner = null;
-        Quota response = api.quotaOssRead(owner);
+        QuotaResponse response = api.quotaOssRead(owner);
 
         // TODO: test validations
     }
@@ -93,7 +93,7 @@ public class QuotaApiTest {
     @Test
     public void quotaReadTest() throws Exception {
         String owner = null;
-        Quota response = api.quotaRead(owner);
+        QuotaResponse response = api.quotaRead(owner);
 
         // TODO: test validations
     }

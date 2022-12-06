@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.OrganizationTeamMembersMembers;
+import io.cloudsmith.api.models.OrganizationTeamMembership;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,14 +38,14 @@ public class OrganizationTeamMembers implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("members")
-  private List<OrganizationTeamMembersMembers> members = new ArrayList<>();
+  private List<OrganizationTeamMembership> members = new ArrayList<>();
 
-  public OrganizationTeamMembers members(List<OrganizationTeamMembersMembers> members) {
+  public OrganizationTeamMembers members(List<OrganizationTeamMembership> members) {
     this.members = members;
     return this;
   }
 
-  public OrganizationTeamMembers addMembersItem(OrganizationTeamMembersMembers membersItem) {
+  public OrganizationTeamMembers addMembersItem(OrganizationTeamMembership membersItem) {
     this.members.add(membersItem);
     return this;
   }
@@ -57,11 +57,11 @@ public class OrganizationTeamMembers implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "The team members")
-  public List<OrganizationTeamMembersMembers> getMembers() {
+  public List<OrganizationTeamMembership> getMembers() {
     return members;
   }
 
-  public void setMembers(List<OrganizationTeamMembersMembers> members) {
+  public void setMembers(List<OrganizationTeamMembership> members) {
     this.members = members;
   }
 

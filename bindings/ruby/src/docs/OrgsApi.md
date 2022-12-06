@@ -1,6 +1,6 @@
 # CloudsmithApi::OrgsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**orgs_invites_delete**](OrgsApi.md#orgs_invites_delete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite
 [**orgs_invites_extend**](OrgsApi.md#orgs_invites_extend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
 [**orgs_invites_list**](OrgsApi.md#orgs_invites_list) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
+[**orgs_invites_partial_update**](OrgsApi.md#orgs_invites_partial_update) | **PATCH** /orgs/{org}/invites/{slug_perm}/ | Update a specific organization invite.
+[**orgs_invites_resend**](OrgsApi.md#orgs_invites_resend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite.
 [**orgs_list**](OrgsApi.md#orgs_list) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 [**orgs_members_delete**](OrgsApi.md#orgs_members_delete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 [**orgs_members_list**](OrgsApi.md#orgs_members_list) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
@@ -17,6 +19,12 @@ Method | HTTP request | Description
 [**orgs_saml_group_sync_create**](OrgsApi.md#orgs_saml_group_sync_create) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgs_saml_group_sync_delete**](OrgsApi.md#orgs_saml_group_sync_delete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 [**orgs_saml_group_sync_list**](OrgsApi.md#orgs_saml_group_sync_list) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
+[**orgs_services_create**](OrgsApi.md#orgs_services_create) | **POST** /orgs/{org}/services/ | Create a service within an organization.
+[**orgs_services_delete**](OrgsApi.md#orgs_services_delete) | **DELETE** /orgs/{org}/services/{service}/ | Delete a specific service
+[**orgs_services_list**](OrgsApi.md#orgs_services_list) | **GET** /orgs/{org}/services/ | Get a list of all services within an organization.
+[**orgs_services_partial_update**](OrgsApi.md#orgs_services_partial_update) | **PATCH** /orgs/{org}/services/{service}/ | Update a service within an organization.
+[**orgs_services_read**](OrgsApi.md#orgs_services_read) | **GET** /orgs/{org}/services/{service}/ | Retrieve details of a single service within an organization.
+[**orgs_services_refresh**](OrgsApi.md#orgs_services_refresh) | **POST** /orgs/{org}/services/{service}/refresh/ | Refresh service API token.
 [**orgs_teams_create**](OrgsApi.md#orgs_teams_create) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
 [**orgs_teams_delete**](OrgsApi.md#orgs_teams_delete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization.
 [**orgs_teams_list**](OrgsApi.md#orgs_teams_list) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
@@ -24,11 +32,11 @@ Method | HTTP request | Description
 [**orgs_teams_members_list**](OrgsApi.md#orgs_teams_members_list) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team.
 [**orgs_teams_members_update**](OrgsApi.md#orgs_teams_members_update) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
 [**orgs_teams_partial_update**](OrgsApi.md#orgs_teams_partial_update) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
-[**orgs_teams_read**](OrgsApi.md#orgs_teams_read) | **GET** /orgs/{org}/teams/{team}/ | Get the details for the specific team.
+[**orgs_teams_read**](OrgsApi.md#orgs_teams_read) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
 
 
 # **orgs_invites_create**
-> OrganizationInvite orgs_invites_create(org, opts)
+> OrganizationInviteResponse orgs_invites_create(org, opts)
 
 Create an organization invite for a specific user
 
@@ -51,7 +59,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::OrgsInvitesCreate.new # OrgsInvitesCreate | 
+  data: CloudsmithApi::OrganizationInviteRequest.new # OrganizationInviteRequest | 
 }
 
 begin
@@ -68,11 +76,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
- **data** | [**OrgsInvitesCreate**](OrgsInvitesCreate.md)|  | [optional] 
+ **data** | [**OrganizationInviteRequest**](OrganizationInviteRequest.md)|  | [optional] 
 
 ### Return type
 
-[**OrganizationInvite**](OrganizationInvite.md)
+[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
 
 ### Authorization
 
@@ -81,7 +89,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -136,13 +144,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_invites_extend**
-> OrganizationInvite orgs_invites_extend(org, slug_perm, opts)
+> OrganizationInviteExtendResponse orgs_invites_extend(org, slug_perm)
 
 Extend an organization invite.
 
@@ -166,13 +174,10 @@ org = 'org_example' # String |
 
 slug_perm = 'slug_perm_example' # String | 
 
-opts = { 
-  data: CloudsmithApi::OrgsInvitesExtend.new # OrgsInvitesExtend | 
-}
 
 begin
   #Extend an organization invite.
-  result = api_instance.orgs_invites_extend(org, slug_perm, opts)
+  result = api_instance.orgs_invites_extend(org, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling OrgsApi->orgs_invites_extend: #{e}"
@@ -185,11 +190,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
  **slug_perm** | **String**|  | 
- **data** | [**OrgsInvitesExtend**](OrgsInvitesExtend.md)|  | [optional] 
 
 ### Return type
 
-[**OrganizationInvite**](OrganizationInvite.md)
+[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
 
 ### Authorization
 
@@ -198,12 +202,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **orgs_invites_list**
-> Array&lt;OrganizationInvite&gt; orgs_invites_list(org, opts)
+> Array&lt;OrganizationInviteResponse&gt; orgs_invites_list(org, opts)
 
 Get a list of all invites for an organization.
 
@@ -249,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationInvite&gt;**](OrganizationInvite.md)
+[**Array&lt;OrganizationInviteResponse&gt;**](OrganizationInviteResponse.md)
 
 ### Authorization
 
@@ -257,13 +261,131 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_invites_partial_update**
+> OrganizationInviteResponse orgs_invites_partial_update(org, slug_perm, opts)
+
+Update a specific organization invite.
+
+Update a specific organization invite.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrganizationInviteUpdateRequestPatch.new # OrganizationInviteUpdateRequestPatch | 
+}
+
+begin
+  #Update a specific organization invite.
+  result = api_instance.orgs_invites_partial_update(org, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_invites_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**OrganizationInviteUpdateRequestPatch**](OrganizationInviteUpdateRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_invites_resend**
+> OrganizationInviteExtendResponse orgs_invites_resend(org, slug_perm)
+
+Resend an organization invite.
+
+Resend an organization invite.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Resend an organization invite.
+  result = api_instance.orgs_invites_resend(org, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_invites_resend: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_list**
-> Array&lt;Organization&gt; orgs_list(opts)
+> Array&lt;OrganizationResponse&gt; orgs_list(opts)
 
 Get a list of all the organizations you are associated with.
 
@@ -306,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;Organization&gt;**](Organization.md)
+[**Array&lt;OrganizationResponse&gt;**](OrganizationResponse.md)
 
 ### Authorization
 
@@ -314,8 +436,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -370,13 +492,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_members_list**
-> Array&lt;OrganizationMembership&gt; orgs_members_list(org, opts)
+> Array&lt;OrganizationMembershipResponse&gt; orgs_members_list(org, opts)
 
 Get the details for all organization members.
 
@@ -422,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationMembership&gt;**](OrganizationMembership.md)
+[**Array&lt;OrganizationMembershipResponse&gt;**](OrganizationMembershipResponse.md)
 
 ### Authorization
 
@@ -430,13 +552,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_members_read**
-> OrganizationMembership orgs_members_read(org, member)
+> OrganizationMembershipResponse orgs_members_read(org, member)
 
 Get the details for a specific organization member.
 
@@ -479,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationMembership**](OrganizationMembership.md)
+[**OrganizationMembershipResponse**](OrganizationMembershipResponse.md)
 
 ### Authorization
 
@@ -487,8 +609,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -543,13 +665,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_read**
-> Organization orgs_read(org)
+> OrganizationResponse orgs_read(org)
 
 Get the details for the specific organization.
 
@@ -589,7 +711,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**OrganizationResponse**](OrganizationResponse.md)
 
 ### Authorization
 
@@ -597,13 +719,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_saml_group_sync_create**
-> OrganizationGroupSync orgs_saml_group_sync_create(org, opts)
+> OrganizationGroupSyncResponse orgs_saml_group_sync_create(org, opts)
 
 Create a new SAML Group Sync mapping within an organization.
 
@@ -626,7 +748,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::OrgsSamlgroupsyncCreate.new # OrgsSamlgroupsyncCreate | 
+  data: CloudsmithApi::OrganizationGroupSyncRequest.new # OrganizationGroupSyncRequest | 
 }
 
 begin
@@ -643,11 +765,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
- **data** | [**OrgsSamlgroupsyncCreate**](OrgsSamlgroupsyncCreate.md)|  | [optional] 
+ **data** | [**OrganizationGroupSyncRequest**](OrganizationGroupSyncRequest.md)|  | [optional] 
 
 ### Return type
 
-[**OrganizationGroupSync**](OrganizationGroupSync.md)
+[**OrganizationGroupSyncResponse**](OrganizationGroupSyncResponse.md)
 
 ### Authorization
 
@@ -656,7 +778,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -711,13 +833,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_saml_group_sync_list**
-> Array&lt;OrganizationGroupSync&gt; orgs_saml_group_sync_list(org, opts)
+> Array&lt;OrganizationGroupSyncResponse&gt; orgs_saml_group_sync_list(org, opts)
 
 Get the details of all SAML Group Sync mapping within an organization.
 
@@ -763,7 +885,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationGroupSync&gt;**](OrganizationGroupSync.md)
+[**Array&lt;OrganizationGroupSyncResponse&gt;**](OrganizationGroupSyncResponse.md)
 
 ### Authorization
 
@@ -771,13 +893,362 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_services_create**
+> ServiceResponse orgs_services_create(org, opts)
+
+Create a service within an organization.
+
+Create a service within an organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::ServiceRequest.new # ServiceRequest | 
+}
+
+begin
+  #Create a service within an organization.
+  result = api_instance.orgs_services_create(org, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_services_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **data** | [**ServiceRequest**](ServiceRequest.md)|  | [optional] 
+
+### Return type
+
+[**ServiceResponse**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_services_delete**
+> orgs_services_delete(org, service)
+
+Delete a specific service
+
+Delete a specific service
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+service = 'service_example' # String | 
+
+
+begin
+  #Delete a specific service
+  api_instance.orgs_services_delete(org, service)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_services_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **service** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_services_list**
+> Array&lt;ServiceResponse&gt; orgs_services_list(org, opts)
+
+Get a list of all services within an organization.
+
+Get a list of all services within an organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #Get a list of all services within an organization.
+  result = api_instance.orgs_services_list(org, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_services_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;ServiceResponse&gt;**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_services_partial_update**
+> ServiceResponse orgs_services_partial_update(org, service, opts)
+
+Update a service within an organization.
+
+Update a service within an organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+service = 'service_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::ServiceRequestPatch.new # ServiceRequestPatch | 
+}
+
+begin
+  #Update a service within an organization.
+  result = api_instance.orgs_services_partial_update(org, service, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_services_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **service** | **String**|  | 
+ **data** | [**ServiceRequestPatch**](ServiceRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**ServiceResponse**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_services_read**
+> ServiceResponse orgs_services_read(org, service)
+
+Retrieve details of a single service within an organization.
+
+Retrieve details of a single service within an organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+service = 'service_example' # String | 
+
+
+begin
+  #Retrieve details of a single service within an organization.
+  result = api_instance.orgs_services_read(org, service)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_services_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **service** | **String**|  | 
+
+### Return type
+
+[**ServiceResponse**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_services_refresh**
+> ServiceResponse orgs_services_refresh(org, service)
+
+Refresh service API token.
+
+Refresh service API token.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+service = 'service_example' # String | 
+
+
+begin
+  #Refresh service API token.
+  result = api_instance.orgs_services_refresh(org, service)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_services_refresh: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **service** | **String**|  | 
+
+### Return type
+
+[**ServiceResponse**](ServiceResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_teams_create**
-> OrganizationTeam orgs_teams_create(org, opts)
+> OrganizationTeamResponse orgs_teams_create(org, opts)
 
 Create a team for this organization.
 
@@ -800,7 +1271,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::OrgsTeamsCreate.new # OrgsTeamsCreate | 
+  data: CloudsmithApi::OrganizationTeamRequest.new # OrganizationTeamRequest | 
 }
 
 begin
@@ -817,11 +1288,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
- **data** | [**OrgsTeamsCreate**](OrgsTeamsCreate.md)|  | [optional] 
+ **data** | [**OrganizationTeamRequest**](OrganizationTeamRequest.md)|  | [optional] 
 
 ### Return type
 
-[**OrganizationTeam**](OrganizationTeam.md)
+[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
 
 ### Authorization
 
@@ -830,7 +1301,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -885,13 +1356,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_teams_list**
-> Array&lt;OrganizationTeam&gt; orgs_teams_list(org, opts)
+> Array&lt;OrganizationTeamResponse&gt; orgs_teams_list(org, opts)
 
 Get the details of all teams within an organization.
 
@@ -937,7 +1408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationTeam&gt;**](OrganizationTeam.md)
+[**Array&lt;OrganizationTeamResponse&gt;**](OrganizationTeamResponse.md)
 
 ### Authorization
 
@@ -945,13 +1416,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_teams_members_create**
-> OrganizationTeamMembers orgs_teams_members_create(org, team, opts)
+> OrganizationTeamMembersResponse orgs_teams_members_create(org, team, opts)
 
 Add users to a team.
 
@@ -976,7 +1447,7 @@ org = 'org_example' # String |
 team = 'team_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::OrgsTeamsMembersCreate.new # OrgsTeamsMembersCreate | 
+  data: CloudsmithApi::OrganizationTeamMembers.new # OrganizationTeamMembers | 
 }
 
 begin
@@ -994,11 +1465,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
  **team** | **String**|  | 
- **data** | [**OrgsTeamsMembersCreate**](OrgsTeamsMembersCreate.md)|  | [optional] 
+ **data** | [**OrganizationTeamMembers**](OrganizationTeamMembers.md)|  | [optional] 
 
 ### Return type
 
-[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
 
 ### Authorization
 
@@ -1007,12 +1478,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **orgs_teams_members_list**
-> OrganizationTeamMembers orgs_teams_members_list(org, team)
+> OrganizationTeamMembersResponse orgs_teams_members_list(org, team)
 
 List all members for the team.
 
@@ -1055,7 +1526,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
+[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
 
 ### Authorization
 
@@ -1063,13 +1534,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **orgs_teams_members_update**
-> orgs_teams_members_update(org, team, opts)
+> OrganizationTeamMembersResponse orgs_teams_members_update(org, team)
 
 Replace all team members.
 
@@ -1093,13 +1564,11 @@ org = 'org_example' # String |
 
 team = 'team_example' # String | 
 
-opts = { 
-  data: CloudsmithApi::OrgsTeamsMembersUpdate.new # OrgsTeamsMembersUpdate | 
-}
 
 begin
   #Replace all team members.
-  api_instance.orgs_teams_members_update(org, team, opts)
+  result = api_instance.orgs_teams_members_update(org, team)
+  p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling OrgsApi->orgs_teams_members_update: #{e}"
 end
@@ -1111,11 +1580,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
  **team** | **String**|  | 
- **data** | [**OrgsTeamsMembersUpdate**](OrgsTeamsMembersUpdate.md)|  | [optional] 
 
 ### Return type
 
-nil (empty response body)
+[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
 
 ### Authorization
 
@@ -1124,12 +1592,12 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **orgs_teams_partial_update**
-> OrganizationTeam orgs_teams_partial_update(org, team, opts)
+> OrganizationTeamResponse orgs_teams_partial_update(org, team, opts)
 
 Update a specific team in a organization.
 
@@ -1154,7 +1622,7 @@ org = 'org_example' # String |
 team = 'team_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::OrgsTeamsPartialUpdate.new # OrgsTeamsPartialUpdate | 
+  data: CloudsmithApi::OrganizationTeamRequestPatch.new # OrganizationTeamRequestPatch | 
 }
 
 begin
@@ -1172,11 +1640,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
  **team** | **String**|  | 
- **data** | [**OrgsTeamsPartialUpdate**](OrgsTeamsPartialUpdate.md)|  | [optional] 
+ **data** | [**OrganizationTeamRequestPatch**](OrganizationTeamRequestPatch.md)|  | [optional] 
 
 ### Return type
 
-[**OrganizationTeam**](OrganizationTeam.md)
+[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
 
 ### Authorization
 
@@ -1185,16 +1653,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **orgs_teams_read**
-> OrganizationTeam orgs_teams_read(org, team)
+> OrganizationTeamResponse orgs_teams_read(org, team)
 
-Get the details for the specific team.
+Get the details of a specific team within an organization.
 
-Get the details for the specific team.
+Get the details of a specific team within an organization.
 
 ### Example
 ```ruby
@@ -1216,7 +1684,7 @@ team = 'team_example' # String |
 
 
 begin
-  #Get the details for the specific team.
+  #Get the details of a specific team within an organization.
   result = api_instance.orgs_teams_read(org, team)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -1233,7 +1701,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeam**](OrganizationTeam.md)
+[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
 
 ### Authorization
 
@@ -1241,8 +1709,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

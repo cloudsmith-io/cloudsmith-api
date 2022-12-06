@@ -1,6 +1,6 @@
 # cloudsmith_api.EntitlementsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **entitlements_create**
-> RepositoryToken entitlements_create(owner, repo, show_tokens=show_tokens, data=data)
+> RepositoryTokenResponse entitlements_create(owner, repo, data=data, show_tokens=show_tokens)
 
 Create a specific entitlement in a repository.
 
@@ -41,12 +41,12 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-show_tokens = true # bool | Show entitlement token strings in results (optional)
-data = cloudsmith_api.EntitlementsCreate() # EntitlementsCreate |  (optional)
+data = cloudsmith_api.RepositoryTokenRequest() # RepositoryTokenRequest |  (optional)
+show_tokens = false # bool | Show entitlement token strings in results (optional) (default to false)
 
 try:
     # Create a specific entitlement in a repository.
-    api_response = api_instance.entitlements_create(owner, repo, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_create(owner, repo, data=data, show_tokens=show_tokens)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_create: %s\n" % e)
@@ -58,12 +58,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
- **data** | [**EntitlementsCreate**](EntitlementsCreate.md)|  | [optional] 
+ **data** | [**RepositoryTokenRequest**](RepositoryTokenRequest.md)|  | [optional] 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryToken**](RepositoryToken.md)
+[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -128,8 +128,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -185,8 +185,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -242,13 +242,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_list**
-> list[RepositoryToken] entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens)
+> list[RepositoryTokenResponse] entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens, query=query, active=active)
 
 Get a list of all entitlements in a repository.
 
@@ -274,11 +274,13 @@ owner = 'owner_example' # str |
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
-show_tokens = true # bool | Show entitlement token strings in results (optional)
+show_tokens = false # bool | Show entitlement token strings in results (optional) (default to false)
+query = 'query_example' # str | A search term for querying names of entitlements. (optional)
+active = false # bool | If true, only include active tokens (optional) (default to false)
 
 try:
     # Get a list of all entitlements in a repository.
-    api_response = api_instance.entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens)
+    api_response = api_instance.entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens, query=query, active=active)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_list: %s\n" % e)
@@ -292,11 +294,13 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] [default to false]
+ **query** | **str**| A search term for querying names of entitlements. | [optional] 
+ **active** | **bool**| If true, only include active tokens | [optional] [default to false]
 
 ### Return type
 
-[**list[RepositoryToken]**](RepositoryToken.md)
+[**list[RepositoryTokenResponse]**](RepositoryTokenResponse.md)
 
 ### Authorization
 
@@ -304,13 +308,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_partial_update**
-> RepositoryToken entitlements_partial_update(owner, repo, identifier, show_tokens=show_tokens, data=data)
+> RepositoryTokenResponse entitlements_partial_update(owner, repo, identifier, data=data, show_tokens=show_tokens)
 
 Update a specific entitlement in a repository.
 
@@ -335,12 +339,12 @@ api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configura
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-show_tokens = true # bool | Show entitlement token strings in results (optional)
-data = cloudsmith_api.EntitlementsPartialUpdate() # EntitlementsPartialUpdate |  (optional)
+data = cloudsmith_api.RepositoryTokenRequestPatch() # RepositoryTokenRequestPatch |  (optional)
+show_tokens = false # bool | Show entitlement token strings in results (optional) (default to false)
 
 try:
     # Update a specific entitlement in a repository.
-    api_response = api_instance.entitlements_partial_update(owner, repo, identifier, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_partial_update(owner, repo, identifier, data=data, show_tokens=show_tokens)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_partial_update: %s\n" % e)
@@ -353,12 +357,12 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
- **data** | [**EntitlementsPartialUpdate**](EntitlementsPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryTokenRequestPatch**](RepositoryTokenRequestPatch.md)|  | [optional] 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryToken**](RepositoryToken.md)
+[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
 
 ### Authorization
 
@@ -367,12 +371,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_read**
-> RepositoryToken entitlements_read(owner, repo, identifier, show_tokens=show_tokens)
+> RepositoryTokenResponse entitlements_read(owner, repo, identifier, fuzzy=fuzzy, show_tokens=show_tokens)
 
 Get a specific entitlement in a repository.
 
@@ -397,11 +401,12 @@ api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configura
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-show_tokens = true # bool | Show entitlement token strings in results (optional)
+fuzzy = false # bool | If true, entitlement identifiers including name will be fuzzy matched. (optional) (default to false)
+show_tokens = false # bool | Show entitlement token strings in results (optional) (default to false)
 
 try:
     # Get a specific entitlement in a repository.
-    api_response = api_instance.entitlements_read(owner, repo, identifier, show_tokens=show_tokens)
+    api_response = api_instance.entitlements_read(owner, repo, identifier, fuzzy=fuzzy, show_tokens=show_tokens)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_read: %s\n" % e)
@@ -414,11 +419,12 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
+ **fuzzy** | **bool**| If true, entitlement identifiers including name will be fuzzy matched. | [optional] [default to false]
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryToken**](RepositoryToken.md)
+[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
 
 ### Authorization
 
@@ -426,13 +432,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_refresh**
-> RepositoryTokenRefresh entitlements_refresh(owner, repo, identifier, show_tokens=show_tokens, data=data)
+> RepositoryTokenRefreshResponse entitlements_refresh(owner, repo, identifier, data=data, show_tokens=show_tokens)
 
 Refresh an entitlement token in a repository.
 
@@ -457,12 +463,12 @@ api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configura
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-show_tokens = true # bool | Show entitlement token strings in results (optional)
-data = cloudsmith_api.EntitlementsRefresh() # EntitlementsRefresh |  (optional)
+data = cloudsmith_api.RepositoryTokenRefreshRequest() # RepositoryTokenRefreshRequest |  (optional)
+show_tokens = false # bool | Show entitlement token strings in results (optional) (default to false)
 
 try:
     # Refresh an entitlement token in a repository.
-    api_response = api_instance.entitlements_refresh(owner, repo, identifier, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_refresh(owner, repo, identifier, data=data, show_tokens=show_tokens)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_refresh: %s\n" % e)
@@ -475,12 +481,12 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
- **data** | [**EntitlementsRefresh**](EntitlementsRefresh.md)|  | [optional] 
+ **data** | [**RepositoryTokenRefreshRequest**](RepositoryTokenRefreshRequest.md)|  | [optional] 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryTokenRefresh**](RepositoryTokenRefresh.md)
+[**RepositoryTokenRefreshResponse**](RepositoryTokenRefreshResponse.md)
 
 ### Authorization
 
@@ -489,7 +495,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -519,7 +525,7 @@ api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configura
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-show_tokens = true # bool | Show entitlement token strings in results (optional)
+show_tokens = false # bool | Show entitlement token strings in results (optional) (default to false)
 
 try:
     # Reset the statistics for an entitlement token in a repository.
@@ -535,7 +541,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
@@ -547,13 +553,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_sync**
-> RepositoryTokenSync entitlements_sync(owner, repo, show_tokens=show_tokens, data=data)
+> RepositoryTokenSyncResponse entitlements_sync(owner, repo, data=data, show_tokens=show_tokens)
 
 Synchronise tokens from a source repository.
 
@@ -577,12 +583,12 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-show_tokens = true # bool | Show entitlement token strings in results (optional)
-data = cloudsmith_api.EntitlementsSync() # EntitlementsSync |  (optional)
+data = cloudsmith_api.RepositoryTokenSyncRequest() # RepositoryTokenSyncRequest |  (optional)
+show_tokens = false # bool | Show entitlement token strings in results (optional) (default to false)
 
 try:
     # Synchronise tokens from a source repository.
-    api_response = api_instance.entitlements_sync(owner, repo, show_tokens=show_tokens, data=data)
+    api_response = api_instance.entitlements_sync(owner, repo, data=data, show_tokens=show_tokens)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_sync: %s\n" % e)
@@ -594,12 +600,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **show_tokens** | **bool**| Show entitlement token strings in results | [optional] 
- **data** | [**EntitlementsSync**](EntitlementsSync.md)|  | [optional] 
+ **data** | [**RepositoryTokenSyncRequest**](RepositoryTokenSyncRequest.md)|  | [optional] 
+ **show_tokens** | **bool**| Show entitlement token strings in results | [optional] [default to false]
 
 ### Return type
 
-[**RepositoryTokenSync**](RepositoryTokenSync.md)
+[**RepositoryTokenSyncResponse**](RepositoryTokenSyncResponse.md)
 
 ### Authorization
 
@@ -608,7 +614,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,46 +33,46 @@ class AuditLogApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def audit_log_list(self, owner, **kwargs):  # noqa: E501
+    def audit_log_namespace_list(self, owner, **kwargs):  # noqa: E501
         """Lists audit log entries for a specific namespace.  # noqa: E501
 
         Lists audit log entries for a specific namespace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.audit_log_list(owner, async_req=True)
+        >>> thread = api.audit_log_namespace_list(owner, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
+        :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying events, actors, or timestamps of log records.
-        :return: list[NamespaceAuditLog]
+        :return: list[NamespaceAuditLogResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.audit_log_list_with_http_info(owner, **kwargs)  # noqa: E501
+            return self.audit_log_namespace_list_with_http_info(owner, **kwargs)  # noqa: E501
         else:
-            (data) = self.audit_log_list_with_http_info(owner, **kwargs)  # noqa: E501
+            (data) = self.audit_log_namespace_list_with_http_info(owner, **kwargs)  # noqa: E501
             return data
 
-    def audit_log_list_with_http_info(self, owner, **kwargs):  # noqa: E501
+    def audit_log_namespace_list_with_http_info(self, owner, **kwargs):  # noqa: E501
         """Lists audit log entries for a specific namespace.  # noqa: E501
 
         Lists audit log entries for a specific namespace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.audit_log_list_with_http_info(owner, async_req=True)
+        >>> thread = api.audit_log_namespace_list_with_http_info(owner, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
+        :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying events, actors, or timestamps of log records.
-        :return: list[NamespaceAuditLog]
+        :return: list[NamespaceAuditLogResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -88,14 +88,14 @@ class AuditLogApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method audit_log_list" % key
+                    " to method audit_log_namespace_list" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if self.api_client.client_side_validation and ('owner' not in params or
                                                        params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `audit_log_list`")  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `audit_log_namespace_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -117,6 +117,14 @@ class AuditLogApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -128,7 +136,7 @@ class AuditLogApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[NamespaceAuditLog]',  # noqa: E501
+            response_type='list[NamespaceAuditLogResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -136,48 +144,48 @@ class AuditLogApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def audit_log_list0(self, owner, repo, **kwargs):  # noqa: E501
+    def audit_log_repo_list(self, owner, repo, **kwargs):  # noqa: E501
         """Lists audit log entries for a specific repository.  # noqa: E501
 
         Lists audit log entries for a specific repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.audit_log_list0(owner, repo, async_req=True)
+        >>> thread = api.audit_log_repo_list(owner, repo, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying events, actors, or timestamps of log records.
-        :return: list[RepositoryAuditLog]
+        :return: list[RepositoryAuditLogResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.audit_log_list0_with_http_info(owner, repo, **kwargs)  # noqa: E501
+            return self.audit_log_repo_list_with_http_info(owner, repo, **kwargs)  # noqa: E501
         else:
-            (data) = self.audit_log_list0_with_http_info(owner, repo, **kwargs)  # noqa: E501
+            (data) = self.audit_log_repo_list_with_http_info(owner, repo, **kwargs)  # noqa: E501
             return data
 
-    def audit_log_list0_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
+    def audit_log_repo_list_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
         """Lists audit log entries for a specific repository.  # noqa: E501
 
         Lists audit log entries for a specific repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.audit_log_list0_with_http_info(owner, repo, async_req=True)
+        >>> thread = api.audit_log_repo_list_with_http_info(owner, repo, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying events, actors, or timestamps of log records.
-        :return: list[RepositoryAuditLog]
+        :return: list[RepositoryAuditLogResponse]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -193,18 +201,18 @@ class AuditLogApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method audit_log_list0" % key
+                    " to method audit_log_repo_list" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if self.api_client.client_side_validation and ('owner' not in params or
                                                        params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `audit_log_list0`")  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `audit_log_repo_list`")  # noqa: E501
         # verify the required parameter 'repo' is set
         if self.api_client.client_side_validation and ('repo' not in params or
                                                        params['repo'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repo` when calling `audit_log_list0`")  # noqa: E501
+            raise ValueError("Missing the required parameter `repo` when calling `audit_log_repo_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -228,6 +236,14 @@ class AuditLogApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -239,7 +255,7 @@ class AuditLogApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[RepositoryAuditLog]',  # noqa: E501
+            response_type='list[RepositoryAuditLogResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

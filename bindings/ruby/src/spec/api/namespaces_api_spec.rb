@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -38,7 +38,7 @@ describe 'NamespacesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<Namespace>]
+  # @return [Array<NamespaceResponse>]
   describe 'namespaces_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -50,7 +50,7 @@ describe 'NamespacesApi' do
   # Views for working with namespaces.
   # @param slug 
   # @param [Hash] opts the optional parameters
-  # @return [Namespace]
+  # @return [NamespaceResponse]
   describe 'namespaces_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

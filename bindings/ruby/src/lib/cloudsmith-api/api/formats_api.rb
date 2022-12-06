@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -22,7 +22,7 @@ module CloudsmithApi
     # Get a list of all supported package formats.
     # Get a list of all supported package formats.
     # @param [Hash] opts the optional parameters
-    # @return [Array<Format>]
+    # @return [Array<FormatResponse>]
     def formats_list(opts = {})
       data, _status_code, _headers = formats_list_with_http_info(opts)
       data
@@ -31,7 +31,7 @@ module CloudsmithApi
     # Get a list of all supported package formats.
     # Get a list of all supported package formats.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<Format>, Fixnum, Hash)>] Array<Format> data, response status code and response headers
+    # @return [Array<(Array<FormatResponse>, Fixnum, Hash)>] Array<FormatResponse> data, response status code and response headers
     def formats_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FormatsApi.formats_list ...'
@@ -44,6 +44,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -57,7 +61,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<Format>')
+        :return_type => 'Array<FormatResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FormatsApi#formats_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -67,7 +71,7 @@ module CloudsmithApi
     # Get a specific supported package format.
     # @param slug 
     # @param [Hash] opts the optional parameters
-    # @return [Format]
+    # @return [FormatResponse]
     def formats_read(slug, opts = {})
       data, _status_code, _headers = formats_read_with_http_info(slug, opts)
       data
@@ -77,7 +81,7 @@ module CloudsmithApi
     # Get a specific supported package format.
     # @param slug 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Format, Fixnum, Hash)>] Format data, response status code and response headers
+    # @return [Array<(FormatResponse, Fixnum, Hash)>] FormatResponse data, response status code and response headers
     def formats_read_with_http_info(slug, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FormatsApi.formats_read ...'
@@ -94,6 +98,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -107,7 +115,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Format')
+        :return_type => 'FormatResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FormatsApi#formats_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

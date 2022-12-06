@@ -1,6 +1,6 @@
 # CloudsmithApi::UsersApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **users_profile_read**
-> UserProfile users_profile_read(slug)
+> UserProfileResponse users_profile_read(slug)
 
 Provide a brief for the specified user (if any).
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserProfile**](UserProfile.md)
+[**UserProfileResponse**](UserProfileResponse.md)
 
 ### Authorization
 
@@ -56,8 +56,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

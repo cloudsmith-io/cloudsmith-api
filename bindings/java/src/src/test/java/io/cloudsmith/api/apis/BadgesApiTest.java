@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,7 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.PackageVersionBadgeResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -59,7 +60,7 @@ public class BadgesApiTest {
         Boolean shields = null;
         Boolean showLatest = null;
         String style = null;
-        Object response = api.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+        PackageVersionBadgeResponse response = api.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
 
         // TODO: test validations
     }

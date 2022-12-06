@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,9 +13,9 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.VulnerabilityScanResults;
-import io.cloudsmith.api.models.VulnerabilityScanResultsList;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.VulnerabilityScanResultsListResponse;
+import io.cloudsmith.api.models.VulnerabilityScanResultsResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,30 +43,11 @@ public class VulnerabilitiesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void vulnerabilitiesListTest() throws Exception {
+    public void vulnerabilitiesNamespaceListTest() throws Exception {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
-        List<VulnerabilityScanResultsList> response = api.vulnerabilitiesList(owner, page, pageSize);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Lists scan results for a specific repository.
-     *
-     * Lists scan results for a specific repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void vulnerabilitiesList0Test() throws Exception {
-        String owner = null;
-        String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
-        List<VulnerabilityScanResultsList> response = api.vulnerabilitiesList0(owner, repo, page, pageSize);
+        List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesNamespaceList(owner, page, pageSize);
 
         // TODO: test validations
     }
@@ -80,13 +61,13 @@ public class VulnerabilitiesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void vulnerabilitiesList1Test() throws Exception {
+    public void vulnerabilitiesPackageListTest() throws Exception {
         String owner = null;
         String repo = null;
         String _package = null;
         Integer page = null;
         Integer pageSize = null;
-        List<VulnerabilityScanResultsList> response = api.vulnerabilitiesList1(owner, repo, _package, page, pageSize);
+        List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesPackageList(owner, repo, _package, page, pageSize);
 
         // TODO: test validations
     }
@@ -105,7 +86,26 @@ public class VulnerabilitiesApiTest {
         String repo = null;
         String _package = null;
         String scanId = null;
-        VulnerabilityScanResults response = api.vulnerabilitiesRead(owner, repo, _package, scanId);
+        VulnerabilityScanResultsResponse response = api.vulnerabilitiesRead(owner, repo, _package, scanId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Lists scan results for a specific repository.
+     *
+     * Lists scan results for a specific repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void vulnerabilitiesRepoListTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        Integer page = null;
+        Integer pageSize = null;
+        List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesRepoList(owner, repo, page, pageSize);
 
         // TODO: test validations
     }

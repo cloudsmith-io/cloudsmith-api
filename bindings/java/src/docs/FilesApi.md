@@ -1,6 +1,6 @@
 # FilesApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,7 +40,7 @@ FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-FilesAbort data = new FilesAbort(); // FilesAbort | 
+PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
     apiInstance.filesAbort(owner, repo, identifier, data);
 } catch (ApiException e) {
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**FilesAbort**](FilesAbort.md)|  | [optional]
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -69,11 +69,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="filesComplete"></a>
 # **filesComplete**
-> PackageFileUpload filesComplete(owner, repo, identifier, data)
+> PackageFileUploadResponse filesComplete(owner, repo, identifier, data)
 
 Complete a multipart file upload.
 
@@ -100,9 +100,9 @@ FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-FilesComplete data = new FilesComplete(); // FilesComplete | 
+PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
-    PackageFileUpload result = apiInstance.filesComplete(owner, repo, identifier, data);
+    PackageFileUploadResponse result = apiInstance.filesComplete(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FilesApi#filesComplete");
@@ -117,11 +117,11 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**FilesComplete**](FilesComplete.md)|  | [optional]
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**PackageFileUpload**](PackageFileUpload.md)
+[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
 
 ### Authorization
 
@@ -130,11 +130,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="filesCreate"></a>
 # **filesCreate**
-> PackageFileUpload filesCreate(owner, repo, data)
+> PackageFileUploadResponse filesCreate(owner, repo, data)
 
 Request URL(s) to upload new package file upload(s) to.
 
@@ -160,9 +160,9 @@ apikey.setApiKey("YOUR API KEY");
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-FilesCreate data = new FilesCreate(); // FilesCreate | 
+PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
-    PackageFileUpload result = apiInstance.filesCreate(owner, repo, data);
+    PackageFileUploadResponse result = apiInstance.filesCreate(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FilesApi#filesCreate");
@@ -176,11 +176,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**FilesCreate**](FilesCreate.md)|  | [optional]
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**PackageFileUpload**](PackageFileUpload.md)
+[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
 
 ### Authorization
 
@@ -189,11 +189,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="filesInfo"></a>
 # **filesInfo**
-> PackageFilePartsUpload filesInfo(owner, repo, identifier, filename, partNumber)
+> PackageFilePartsUploadResponse filesInfo(owner, repo, identifier, filename, partNumber)
 
 Get upload information to perform a multipart file upload.
 
@@ -223,7 +223,7 @@ String identifier = "identifier_example"; // String |
 String filename = "filename_example"; // String | The filename of the file being uploaded
 Integer partNumber = 56; // Integer | The part number to be uploaded next
 try {
-    PackageFilePartsUpload result = apiInstance.filesInfo(owner, repo, identifier, filename, partNumber);
+    PackageFilePartsUploadResponse result = apiInstance.filesInfo(owner, repo, identifier, filename, partNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FilesApi#filesInfo");
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFilePartsUpload**](PackageFilePartsUpload.md)
+[**PackageFilePartsUploadResponse**](PackageFilePartsUploadResponse.md)
 
 ### Authorization
 
@@ -251,8 +251,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="filesValidate"></a>
 # **filesValidate**
@@ -282,7 +282,7 @@ apikey.setApiKey("YOUR API KEY");
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-FilesValidate data = new FilesValidate(); // FilesValidate | 
+PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
     apiInstance.filesValidate(owner, repo, data);
 } catch (ApiException e) {
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**FilesValidate**](FilesValidate.md)|  | [optional]
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -310,5 +310,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 

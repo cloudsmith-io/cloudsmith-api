@@ -29,5 +29,5 @@ $root_dir/bin/swagger-codegen-cli generate \
     -i $openapi_url \
     -l python \
     -o $src_dir \
-    -t $template_dir
+    -t $template_dir \
     $common_codegen_options

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -22,7 +22,7 @@ module CloudsmithApi
     # Get a list of all available storage regions.
     # Get a list of all available storage regions.
     # @param [Hash] opts the optional parameters
-    # @return [Array<StorageRegion>]
+    # @return [Array<StorageRegionResponse>]
     def storage_regions_list(opts = {})
       data, _status_code, _headers = storage_regions_list_with_http_info(opts)
       data
@@ -31,7 +31,7 @@ module CloudsmithApi
     # Get a list of all available storage regions.
     # Get a list of all available storage regions.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<StorageRegion>, Fixnum, Hash)>] Array<StorageRegion> data, response status code and response headers
+    # @return [Array<(Array<StorageRegionResponse>, Fixnum, Hash)>] Array<StorageRegionResponse> data, response status code and response headers
     def storage_regions_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: StorageRegionsApi.storage_regions_list ...'
@@ -44,6 +44,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -57,7 +61,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<StorageRegion>')
+        :return_type => 'Array<StorageRegionResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StorageRegionsApi#storage_regions_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -67,7 +71,7 @@ module CloudsmithApi
     # Get a specific storage region.
     # @param slug 
     # @param [Hash] opts the optional parameters
-    # @return [StorageRegion]
+    # @return [StorageRegionResponse]
     def storage_regions_read(slug, opts = {})
       data, _status_code, _headers = storage_regions_read_with_http_info(slug, opts)
       data
@@ -77,7 +81,7 @@ module CloudsmithApi
     # Get a specific storage region.
     # @param slug 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(StorageRegion, Fixnum, Hash)>] StorageRegion data, response status code and response headers
+    # @return [Array<(StorageRegionResponse, Fixnum, Hash)>] StorageRegionResponse data, response status code and response headers
     def storage_regions_read_with_http_info(slug, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: StorageRegionsApi.storage_regions_read ...'
@@ -94,6 +98,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -107,7 +115,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'StorageRegion')
+        :return_type => 'StorageRegionResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: StorageRegionsApi#storage_regions_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

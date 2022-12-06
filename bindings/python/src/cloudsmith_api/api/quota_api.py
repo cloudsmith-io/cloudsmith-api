@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,8 +43,8 @@ class QuotaApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :return: QuotaHistory
+        :param str owner: (required)
+        :return: QuotaHistoryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -65,8 +65,8 @@ class QuotaApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :return: QuotaHistory
+        :param str owner: (required)
+        :return: QuotaHistoryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -105,6 +105,14 @@ class QuotaApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -116,7 +124,7 @@ class QuotaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuotaHistory',  # noqa: E501
+            response_type='QuotaHistoryResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -134,8 +142,8 @@ class QuotaApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :return: QuotaHistory
+        :param str owner: (required)
+        :return: QuotaHistoryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -156,8 +164,8 @@ class QuotaApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :return: QuotaHistory
+        :param str owner: (required)
+        :return: QuotaHistoryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -196,6 +204,14 @@ class QuotaApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -207,7 +223,7 @@ class QuotaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuotaHistory',  # noqa: E501
+            response_type='QuotaHistoryResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -225,8 +241,8 @@ class QuotaApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :return: Quota
+        :param str owner: (required)
+        :return: QuotaResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -247,8 +263,8 @@ class QuotaApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :return: Quota
+        :param str owner: (required)
+        :return: QuotaResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -287,6 +303,14 @@ class QuotaApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -298,7 +322,7 @@ class QuotaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Quota',  # noqa: E501
+            response_type='QuotaResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -316,8 +340,8 @@ class QuotaApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :return: Quota
+        :param str owner: (required)
+        :return: QuotaResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -338,8 +362,8 @@ class QuotaApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :return: Quota
+        :param str owner: (required)
+        :return: QuotaResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -378,6 +402,14 @@ class QuotaApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -389,7 +421,7 @@ class QuotaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Quota',  # noqa: E501
+            response_type='QuotaResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

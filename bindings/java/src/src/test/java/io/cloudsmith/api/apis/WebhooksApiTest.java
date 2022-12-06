@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,10 +13,10 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.RepositoryWebhook;
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.WebhooksCreate;
-import io.cloudsmith.api.models.WebhooksPartialUpdate;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.RepositoryWebhookRequest;
+import io.cloudsmith.api.models.RepositoryWebhookRequestPatch;
+import io.cloudsmith.api.models.RepositoryWebhookResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,8 +47,8 @@ public class WebhooksApiTest {
     public void webhooksCreateTest() throws Exception {
         String owner = null;
         String repo = null;
-        WebhooksCreate data = null;
-        RepositoryWebhook response = api.webhooksCreate(owner, repo, data);
+        RepositoryWebhookRequest data = null;
+        RepositoryWebhookResponse response = api.webhooksCreate(owner, repo, data);
 
         // TODO: test validations
     }
@@ -85,7 +85,7 @@ public class WebhooksApiTest {
         String repo = null;
         Integer page = null;
         Integer pageSize = null;
-        List<RepositoryWebhook> response = api.webhooksList(owner, repo, page, pageSize);
+        List<RepositoryWebhookResponse> response = api.webhooksList(owner, repo, page, pageSize);
 
         // TODO: test validations
     }
@@ -103,8 +103,8 @@ public class WebhooksApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        WebhooksPartialUpdate data = null;
-        RepositoryWebhook response = api.webhooksPartialUpdate(owner, repo, identifier, data);
+        RepositoryWebhookRequestPatch data = null;
+        RepositoryWebhookResponse response = api.webhooksPartialUpdate(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -122,7 +122,7 @@ public class WebhooksApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        RepositoryWebhook response = api.webhooksRead(owner, repo, identifier);
+        RepositoryWebhookResponse response = api.webhooksRead(owner, repo, identifier);
 
         // TODO: test validations
     }

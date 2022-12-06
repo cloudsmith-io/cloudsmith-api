@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -29,15 +29,15 @@ class TestMetricsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_metrics_entitlements_list(self):
-        """Test case for metrics_entitlements_list
+    def test_metrics_entitlements_account_list(self):
+        """Test case for metrics_entitlements_account_list
 
         View for listing entitlement token metrics, across an account.  # noqa: E501
         """
         pass
 
-    def test_metrics_entitlements_list0(self):
-        """Test case for metrics_entitlements_list0
+    def test_metrics_entitlements_repo_list(self):
+        """Test case for metrics_entitlements_repo_list
 
         View for listing entitlement token metrics, for a repository.  # noqa: E501
         """

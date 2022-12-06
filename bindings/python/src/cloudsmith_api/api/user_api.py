@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,7 +43,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: UserBrief
+        :return: UserBriefResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64,7 +64,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: UserBrief
+        :return: UserBriefResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -97,6 +97,14 @@ class UserApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -108,7 +116,7 @@ class UserApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UserBrief',  # noqa: E501
+            response_type='UserBriefResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -126,8 +134,8 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserTokenCreate data:
-        :return: UserAuthToken
+        :param UserAuthTokenRequest data:
+        :return: UserAuthTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -148,8 +156,8 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserTokenCreate data:
-        :return: UserAuthToken
+        :param UserAuthTokenRequest data:
+        :return: UserAuthTokenResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -184,6 +192,10 @@ class UserApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -199,7 +211,7 @@ class UserApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UserAuthToken',  # noqa: E501
+            response_type='UserAuthTokenResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

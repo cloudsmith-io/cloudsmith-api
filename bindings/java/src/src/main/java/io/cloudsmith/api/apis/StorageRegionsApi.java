@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -36,8 +36,8 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.StorageRegion;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.StorageRegionResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -85,13 +85,13 @@ public class StorageRegionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -143,23 +143,23 @@ public class StorageRegionsApi {
     /**
      * Get a list of all available storage regions.
      * Get a list of all available storage regions.
-     * @return List&lt;StorageRegion&gt;
+     * @return List&lt;StorageRegionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<StorageRegion> storageRegionsList() throws ApiException {
-        ApiResponse<List<StorageRegion>> resp = storageRegionsListWithHttpInfo();
+    public List<StorageRegionResponse> storageRegionsList() throws ApiException {
+        ApiResponse<List<StorageRegionResponse>> resp = storageRegionsListWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get a list of all available storage regions.
      * Get a list of all available storage regions.
-     * @return ApiResponse&lt;List&lt;StorageRegion&gt;&gt;
+     * @return ApiResponse&lt;List&lt;StorageRegionResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<StorageRegion>> storageRegionsListWithHttpInfo() throws ApiException {
+    public ApiResponse<List<StorageRegionResponse>> storageRegionsListWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = storageRegionsListValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<StorageRegion>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<StorageRegionResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -170,7 +170,7 @@ public class StorageRegionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call storageRegionsListAsync(final ApiCallback<List<StorageRegion>> callback) throws ApiException {
+    public com.squareup.okhttp.Call storageRegionsListAsync(final ApiCallback<List<StorageRegionResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,7 +192,7 @@ public class StorageRegionsApi {
         }
 
         com.squareup.okhttp.Call call = storageRegionsListValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<StorageRegion>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<StorageRegionResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -219,13 +219,13 @@ public class StorageRegionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -278,11 +278,11 @@ public class StorageRegionsApi {
      * Get a specific storage region.
      * Get a specific storage region.
      * @param slug  (required)
-     * @return StorageRegion
+     * @return StorageRegionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StorageRegion storageRegionsRead(String slug) throws ApiException {
-        ApiResponse<StorageRegion> resp = storageRegionsReadWithHttpInfo(slug);
+    public StorageRegionResponse storageRegionsRead(String slug) throws ApiException {
+        ApiResponse<StorageRegionResponse> resp = storageRegionsReadWithHttpInfo(slug);
         return resp.getData();
     }
 
@@ -290,12 +290,12 @@ public class StorageRegionsApi {
      * Get a specific storage region.
      * Get a specific storage region.
      * @param slug  (required)
-     * @return ApiResponse&lt;StorageRegion&gt;
+     * @return ApiResponse&lt;StorageRegionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StorageRegion> storageRegionsReadWithHttpInfo( @NotNull String slug) throws ApiException {
+    public ApiResponse<StorageRegionResponse> storageRegionsReadWithHttpInfo( @NotNull String slug) throws ApiException {
         com.squareup.okhttp.Call call = storageRegionsReadValidateBeforeCall(slug, null, null);
-        Type localVarReturnType = new TypeToken<StorageRegion>(){}.getType();
+        Type localVarReturnType = new TypeToken<StorageRegionResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -307,7 +307,7 @@ public class StorageRegionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call storageRegionsReadAsync(String slug, final ApiCallback<StorageRegion> callback) throws ApiException {
+    public com.squareup.okhttp.Call storageRegionsReadAsync(String slug, final ApiCallback<StorageRegionResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -329,7 +329,7 @@ public class StorageRegionsApi {
         }
 
         com.squareup.okhttp.Call call = storageRegionsReadValidateBeforeCall(slug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StorageRegion>(){}.getType();
+        Type localVarReturnType = new TypeToken<StorageRegionResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

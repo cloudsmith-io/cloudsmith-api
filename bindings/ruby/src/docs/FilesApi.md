@@ -1,6 +1,6 @@
 # CloudsmithApi::FilesApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -39,7 +39,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::FilesAbort.new # FilesAbort | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**FilesAbort**](FilesAbort.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -70,12 +70,12 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **files_complete**
-> PackageFileUpload files_complete(owner, repo, identifier, opts)
+> PackageFileUploadResponse files_complete(owner, repo, identifier, opts)
 
 Complete a multipart file upload.
 
@@ -102,7 +102,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::FilesComplete.new # FilesComplete | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -121,11 +121,11 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**FilesComplete**](FilesComplete.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**PackageFileUpload**](PackageFileUpload.md)
+[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
 
 ### Authorization
 
@@ -134,12 +134,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **files_create**
-> PackageFileUpload files_create(owner, repo, opts)
+> PackageFileUploadResponse files_create(owner, repo, opts)
 
 Request URL(s) to upload new package file upload(s) to.
 
@@ -164,7 +164,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::FilesCreate.new # FilesCreate | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -182,11 +182,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**FilesCreate**](FilesCreate.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**PackageFileUpload**](PackageFileUpload.md)
+[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
 
 ### Authorization
 
@@ -195,12 +195,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **files_info**
-> PackageFilePartsUpload files_info(owner, repo, identifier, filename, opts)
+> PackageFilePartsUploadResponse files_info(owner, repo, identifier, filename, opts)
 
 Get upload information to perform a multipart file upload.
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFilePartsUpload**](PackageFilePartsUpload.md)
+[**PackageFilePartsUploadResponse**](PackageFilePartsUploadResponse.md)
 
 ### Authorization
 
@@ -261,8 +261,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -292,7 +292,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::FilesValidate.new # FilesValidate | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**FilesValidate**](FilesValidate.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -322,7 +322,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

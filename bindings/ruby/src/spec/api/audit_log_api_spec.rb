@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -32,7 +32,7 @@ describe 'AuditLogApi' do
     end
   end
 
-  # unit tests for audit_log_list
+  # unit tests for audit_log_namespace_list
   # Lists audit log entries for a specific namespace.
   # Lists audit log entries for a specific namespace.
   # @param owner 
@@ -40,14 +40,14 @@ describe 'AuditLogApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-  # @return [Array<NamespaceAuditLog>]
-  describe 'audit_log_list test' do
+  # @return [Array<NamespaceAuditLogResponse>]
+  describe 'audit_log_namespace_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for audit_log_list0
+  # unit tests for audit_log_repo_list
   # Lists audit log entries for a specific repository.
   # Lists audit log entries for a specific repository.
   # @param owner 
@@ -56,8 +56,8 @@ describe 'AuditLogApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-  # @return [Array<RepositoryAuditLog>]
-  describe 'audit_log_list0 test' do
+  # @return [Array<RepositoryAuditLogResponse>]
+  describe 'audit_log_repo_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

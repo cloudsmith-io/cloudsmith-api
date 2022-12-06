@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,8 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Format;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.FormatResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class FormatsApiTest {
      */
     @Test
     public void formatsListTest() throws Exception {
-        List<Format> response = api.formatsList();
+        List<FormatResponse> response = api.formatsList();
 
         // TODO: test validations
     }
@@ -59,7 +59,7 @@ public class FormatsApiTest {
     @Test
     public void formatsReadTest() throws Exception {
         String slug = null;
-        Format response = api.formatsRead(slug);
+        FormatResponse response = api.formatsRead(slug);
 
         // TODO: test validations
     }

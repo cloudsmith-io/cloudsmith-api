@@ -1,6 +1,6 @@
 # FormatsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="formatsList"></a>
 # **formatsList**
-> List&lt;Format&gt; formatsList()
+> List&lt;FormatResponse&gt; formatsList()
 
 Get a list of all supported package formats.
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 
 FormatsApi apiInstance = new FormatsApi();
 try {
-    List<Format> result = apiInstance.formatsList();
+    List<FormatResponse> result = apiInstance.formatsList();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FormatsApi#formatsList");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Format&gt;**](Format.md)
+[**List&lt;FormatResponse&gt;**](FormatResponse.md)
 
 ### Authorization
 
@@ -56,12 +56,12 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="formatsRead"></a>
 # **formatsRead**
-> Format formatsRead(slug)
+> FormatResponse formatsRead(slug)
 
 Get a specific supported package format.
 
@@ -87,7 +87,7 @@ apikey.setApiKey("YOUR API KEY");
 FormatsApi apiInstance = new FormatsApi();
 String slug = "slug_example"; // String | 
 try {
-    Format result = apiInstance.formatsRead(slug);
+    FormatResponse result = apiInstance.formatsRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FormatsApi#formatsRead");
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Format**](Format.md)
+[**FormatResponse**](FormatResponse.md)
 
 ### Authorization
 
@@ -111,6 +111,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

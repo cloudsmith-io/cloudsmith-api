@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -36,7 +36,7 @@ describe 'FormatsApi' do
   # Get a list of all supported package formats.
   # Get a list of all supported package formats.
   # @param [Hash] opts the optional parameters
-  # @return [Array<Format>]
+  # @return [Array<FormatResponse>]
   describe 'formats_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -48,7 +48,7 @@ describe 'FormatsApi' do
   # Get a specific supported package format.
   # @param slug 
   # @param [Hash] opts the optional parameters
-  # @return [Format]
+  # @return [FormatResponse]
   describe 'formats_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

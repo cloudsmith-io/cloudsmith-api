@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,59 +13,48 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
+  # The entitlements that have been synchronised.
   class RepositoryToken
-    # 
     attr_accessor :clients
 
     # The datetime the token was updated at.
     attr_accessor :created_at
 
-    # 
     attr_accessor :created_by
 
-    # 
     attr_accessor :created_by_url
 
     # If selected this is the default token for this repository.
     attr_accessor :default
 
-    # 
     attr_accessor :disable_url
 
-    # 
     attr_accessor :downloads
 
-    # 
     attr_accessor :enable_url
 
-    # 
     attr_accessor :eula_accepted
 
     # The datetime the EULA was accepted at.
     attr_accessor :eula_accepted_at
 
-    # 
     attr_accessor :eula_accepted_from
 
     # If checked, a EULA acceptance is required for this token.
     attr_accessor :eula_required
 
-    # 
     attr_accessor :has_limits
 
-    # 
     attr_accessor :identifier
 
     # If enabled, the token will allow downloads based on configured restrictions (if any).
     attr_accessor :is_active
 
-    # 
     attr_accessor :is_limited
 
     # The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
     attr_accessor :limit_bandwidth
 
-    # 
     attr_accessor :limit_bandwidth_unit
 
     # The starting date/time the token is allowed to be used from.
@@ -86,72 +75,37 @@ module CloudsmithApi
     # The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
     attr_accessor :limit_path_query
 
-    # 
     attr_accessor :metadata
 
-    # 
     attr_accessor :name
 
-    # 
     attr_accessor :refresh_url
 
-    # 
     attr_accessor :reset_url
 
     # The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
     attr_accessor :scheduled_reset_at
 
-    # 
     attr_accessor :scheduled_reset_period
 
-    # 
     attr_accessor :self_url
 
-    # 
     attr_accessor :slug_perm
 
-    # 
     attr_accessor :token
 
     # The datetime the token was updated at.
     attr_accessor :updated_at
 
-    # 
     attr_accessor :updated_by
 
-    # 
     attr_accessor :updated_by_url
 
-    # 
     attr_accessor :usage
 
-    # 
     attr_accessor :user
 
-    # 
     attr_accessor :user_url
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -202,15 +156,15 @@ module CloudsmithApi
     def self.swagger_types
       {
         :'clients' => :'Integer',
-        :'created_at' => :'String',
+        :'created_at' => :'DateTime',
         :'created_by' => :'String',
         :'created_by_url' => :'String',
         :'default' => :'BOOLEAN',
         :'disable_url' => :'String',
         :'downloads' => :'Integer',
         :'enable_url' => :'String',
-        :'eula_accepted' => :'Object',
-        :'eula_accepted_at' => :'String',
+        :'eula_accepted' => :'Eula',
+        :'eula_accepted_at' => :'DateTime',
         :'eula_accepted_from' => :'String',
         :'eula_required' => :'BOOLEAN',
         :'has_limits' => :'BOOLEAN',
@@ -219,8 +173,8 @@ module CloudsmithApi
         :'is_limited' => :'BOOLEAN',
         :'limit_bandwidth' => :'Integer',
         :'limit_bandwidth_unit' => :'String',
-        :'limit_date_range_from' => :'String',
-        :'limit_date_range_to' => :'String',
+        :'limit_date_range_from' => :'DateTime',
+        :'limit_date_range_to' => :'DateTime',
         :'limit_num_clients' => :'Integer',
         :'limit_num_downloads' => :'Integer',
         :'limit_package_query' => :'String',
@@ -229,12 +183,12 @@ module CloudsmithApi
         :'name' => :'String',
         :'refresh_url' => :'String',
         :'reset_url' => :'String',
-        :'scheduled_reset_at' => :'String',
+        :'scheduled_reset_at' => :'DateTime',
         :'scheduled_reset_period' => :'String',
         :'self_url' => :'String',
         :'slug_perm' => :'String',
         :'token' => :'String',
-        :'updated_at' => :'String',
+        :'updated_at' => :'DateTime',
         :'updated_by' => :'String',
         :'updated_by_url' => :'String',
         :'usage' => :'String',
@@ -321,6 +275,8 @@ module CloudsmithApi
 
       if attributes.has_key?(:'limit_bandwidth_unit')
         self.limit_bandwidth_unit = attributes[:'limit_bandwidth_unit']
+      else
+        self.limit_bandwidth_unit = 'Byte'
       end
 
       if attributes.has_key?(:'limit_date_range_from')
@@ -369,6 +325,8 @@ module CloudsmithApi
 
       if attributes.has_key?(:'scheduled_reset_period')
         self.scheduled_reset_period = attributes[:'scheduled_reset_period']
+      else
+        self.scheduled_reset_period = 'Never Reset'
       end
 
       if attributes.has_key?(:'self_url')
@@ -412,8 +370,76 @@ module CloudsmithApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@created_by.nil? && @created_by.to_s.length < 1
+        invalid_properties.push('invalid value for "created_by", the character length must be great than or equal to 1.')
+      end
+
+      if !@eula_accepted_from.nil? && @eula_accepted_from.to_s.length < 1
+        invalid_properties.push('invalid value for "eula_accepted_from", the character length must be great than or equal to 1.')
+      end
+
+      if !@limit_bandwidth.nil? && @limit_bandwidth > 9223372036854775807
+        invalid_properties.push('invalid value for "limit_bandwidth", must be smaller than or equal to 9223372036854775807.')
+      end
+
+      if !@limit_bandwidth.nil? && @limit_bandwidth < -9223372036854775808
+        invalid_properties.push('invalid value for "limit_bandwidth", must be greater than or equal to -9223372036854775808.')
+      end
+
+      if !@limit_num_clients.nil? && @limit_num_clients > 9223372036854775807
+        invalid_properties.push('invalid value for "limit_num_clients", must be smaller than or equal to 9223372036854775807.')
+      end
+
+      if !@limit_num_clients.nil? && @limit_num_clients < -9223372036854775808
+        invalid_properties.push('invalid value for "limit_num_clients", must be greater than or equal to -9223372036854775808.')
+      end
+
+      if !@limit_num_downloads.nil? && @limit_num_downloads > 9223372036854775807
+        invalid_properties.push('invalid value for "limit_num_downloads", must be smaller than or equal to 9223372036854775807.')
+      end
+
+      if !@limit_num_downloads.nil? && @limit_num_downloads < -9223372036854775808
+        invalid_properties.push('invalid value for "limit_num_downloads", must be greater than or equal to -9223372036854775808.')
+      end
+
+      if !@limit_package_query.nil? && @limit_package_query.to_s.length > 1024
+        invalid_properties.push('invalid value for "limit_package_query", the character length must be smaller than or equal to 1024.')
+      end
+
+      if !@limit_path_query.nil? && @limit_path_query.to_s.length > 1024
+        invalid_properties.push('invalid value for "limit_path_query", the character length must be smaller than or equal to 1024.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @name.to_s.length < 1
+        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
+      end
+
+      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
+        invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
+      end
+
+      if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
+        invalid_properties.push('invalid value for "slug_perm", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
+      end
+
+      if !@token.nil? && @token.to_s.length < 1
+        invalid_properties.push('invalid value for "token", the character length must be great than or equal to 1.')
+      end
+
+      if !@updated_by.nil? && @updated_by.to_s.length < 1
+        invalid_properties.push('invalid value for "updated_by", the character length must be great than or equal to 1.')
+      end
+
+      if !@usage.nil? && @usage.to_s.length < 1
+        invalid_properties.push('invalid value for "usage", the character length must be great than or equal to 1.')
+      end
+
+      if !@user.nil? && @user.to_s.length < 1
+        invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -422,32 +448,175 @@ module CloudsmithApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      limit_bandwidth_unit_validator = EnumAttributeValidator.new('String', ['Byte', 'Kilobyte', 'Megabyte', 'Gigabyte', 'Terabyte', 'Petabyte', 'Exabyte', 'Zettabyte', 'Yottabyte'])
-      return false unless limit_bandwidth_unit_validator.valid?(@limit_bandwidth_unit)
+      return false if !@created_by.nil? && @created_by.to_s.length < 1
+      return false if !@eula_accepted_from.nil? && @eula_accepted_from.to_s.length < 1
+      return false if !@limit_bandwidth.nil? && @limit_bandwidth > 9223372036854775807
+      return false if !@limit_bandwidth.nil? && @limit_bandwidth < -9223372036854775808
+      return false if !@limit_num_clients.nil? && @limit_num_clients > 9223372036854775807
+      return false if !@limit_num_clients.nil? && @limit_num_clients < -9223372036854775808
+      return false if !@limit_num_downloads.nil? && @limit_num_downloads > 9223372036854775807
+      return false if !@limit_num_downloads.nil? && @limit_num_downloads < -9223372036854775808
+      return false if !@limit_package_query.nil? && @limit_package_query.to_s.length > 1024
+      return false if !@limit_path_query.nil? && @limit_path_query.to_s.length > 1024
       return false if @name.nil?
-      scheduled_reset_period_validator = EnumAttributeValidator.new('String', ['Never Reset', 'Daily', 'Weekly', 'Fortnightly', 'Monthly', 'Bi-Monthly', 'Quarterly', 'Every 6 months', 'Annual'])
-      return false unless scheduled_reset_period_validator.valid?(@scheduled_reset_period)
+      return false if @name.to_s.length < 1
+      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
+      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
+      return false if !@token.nil? && @token.to_s.length < 1
+      return false if !@updated_by.nil? && @updated_by.to_s.length < 1
+      return false if !@usage.nil? && @usage.to_s.length < 1
+      return false if !@user.nil? && @user.to_s.length < 1
       true
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] limit_bandwidth_unit Object to be assigned
-    def limit_bandwidth_unit=(limit_bandwidth_unit)
-      validator = EnumAttributeValidator.new('String', ['Byte', 'Kilobyte', 'Megabyte', 'Gigabyte', 'Terabyte', 'Petabyte', 'Exabyte', 'Zettabyte', 'Yottabyte'])
-      unless validator.valid?(limit_bandwidth_unit)
-        fail ArgumentError, 'invalid value for "limit_bandwidth_unit", must be one of #{validator.allowable_values}.'
+    # Custom attribute writer method with validation
+    # @param [Object] created_by Value to be assigned
+    def created_by=(created_by)
+      if !created_by.nil? && created_by.to_s.length < 1
+        fail ArgumentError, 'invalid value for "created_by", the character length must be great than or equal to 1.'
       end
-      @limit_bandwidth_unit = limit_bandwidth_unit
+
+      @created_by = created_by
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] scheduled_reset_period Object to be assigned
-    def scheduled_reset_period=(scheduled_reset_period)
-      validator = EnumAttributeValidator.new('String', ['Never Reset', 'Daily', 'Weekly', 'Fortnightly', 'Monthly', 'Bi-Monthly', 'Quarterly', 'Every 6 months', 'Annual'])
-      unless validator.valid?(scheduled_reset_period)
-        fail ArgumentError, 'invalid value for "scheduled_reset_period", must be one of #{validator.allowable_values}.'
+    # Custom attribute writer method with validation
+    # @param [Object] eula_accepted_from Value to be assigned
+    def eula_accepted_from=(eula_accepted_from)
+      if !eula_accepted_from.nil? && eula_accepted_from.to_s.length < 1
+        fail ArgumentError, 'invalid value for "eula_accepted_from", the character length must be great than or equal to 1.'
       end
-      @scheduled_reset_period = scheduled_reset_period
+
+      @eula_accepted_from = eula_accepted_from
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] limit_bandwidth Value to be assigned
+    def limit_bandwidth=(limit_bandwidth)
+      if !limit_bandwidth.nil? && limit_bandwidth > 9223372036854775807
+        fail ArgumentError, 'invalid value for "limit_bandwidth", must be smaller than or equal to 9223372036854775807.'
+      end
+
+      if !limit_bandwidth.nil? && limit_bandwidth < -9223372036854775808
+        fail ArgumentError, 'invalid value for "limit_bandwidth", must be greater than or equal to -9223372036854775808.'
+      end
+
+      @limit_bandwidth = limit_bandwidth
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] limit_num_clients Value to be assigned
+    def limit_num_clients=(limit_num_clients)
+      if !limit_num_clients.nil? && limit_num_clients > 9223372036854775807
+        fail ArgumentError, 'invalid value for "limit_num_clients", must be smaller than or equal to 9223372036854775807.'
+      end
+
+      if !limit_num_clients.nil? && limit_num_clients < -9223372036854775808
+        fail ArgumentError, 'invalid value for "limit_num_clients", must be greater than or equal to -9223372036854775808.'
+      end
+
+      @limit_num_clients = limit_num_clients
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] limit_num_downloads Value to be assigned
+    def limit_num_downloads=(limit_num_downloads)
+      if !limit_num_downloads.nil? && limit_num_downloads > 9223372036854775807
+        fail ArgumentError, 'invalid value for "limit_num_downloads", must be smaller than or equal to 9223372036854775807.'
+      end
+
+      if !limit_num_downloads.nil? && limit_num_downloads < -9223372036854775808
+        fail ArgumentError, 'invalid value for "limit_num_downloads", must be greater than or equal to -9223372036854775808.'
+      end
+
+      @limit_num_downloads = limit_num_downloads
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] limit_package_query Value to be assigned
+    def limit_package_query=(limit_package_query)
+      if !limit_package_query.nil? && limit_package_query.to_s.length > 1024
+        fail ArgumentError, 'invalid value for "limit_package_query", the character length must be smaller than or equal to 1024.'
+      end
+
+      @limit_package_query = limit_package_query
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] limit_path_query Value to be assigned
+    def limit_path_query=(limit_path_query)
+      if !limit_path_query.nil? && limit_path_query.to_s.length > 1024
+        fail ArgumentError, 'invalid value for "limit_path_query", the character length must be smaller than or equal to 1024.'
+      end
+
+      @limit_path_query = limit_path_query
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] name Value to be assigned
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'name cannot be nil'
+      end
+
+      if name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      end
+
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] slug_perm Value to be assigned
+    def slug_perm=(slug_perm)
+      if !slug_perm.nil? && slug_perm.to_s.length < 1
+        fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
+      end
+
+      if !slug_perm.nil? && slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
+        fail ArgumentError, 'invalid value for "slug_perm", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
+      end
+
+      @slug_perm = slug_perm
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] token Value to be assigned
+    def token=(token)
+      if !token.nil? && token.to_s.length < 1
+        fail ArgumentError, 'invalid value for "token", the character length must be great than or equal to 1.'
+      end
+
+      @token = token
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] updated_by Value to be assigned
+    def updated_by=(updated_by)
+      if !updated_by.nil? && updated_by.to_s.length < 1
+        fail ArgumentError, 'invalid value for "updated_by", the character length must be great than or equal to 1.'
+      end
+
+      @updated_by = updated_by
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] usage Value to be assigned
+    def usage=(usage)
+      if !usage.nil? && usage.to_s.length < 1
+        fail ArgumentError, 'invalid value for "usage", the character length must be great than or equal to 1.'
+      end
+
+      @usage = usage
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] user Value to be assigned
+    def user=(user)
+      if !user.nil? && user.to_s.length < 1
+        fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
+      end
+
+      @user = user
     end
 
     # Checks equality by comparing each attribute.

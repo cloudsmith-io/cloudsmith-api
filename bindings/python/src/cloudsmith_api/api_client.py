@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -74,7 +74,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/1.142.3/python'
+        self.user_agent = 'Swagger-Codegen/1.181.0/python'
         self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):

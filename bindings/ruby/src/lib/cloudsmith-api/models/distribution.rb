@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,51 +13,34 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
+  # The distributions supported by this package format
   class Distribution
-    # 
-    attr_accessor :format
-
-    # 
-    attr_accessor :format_url
-
-    # 
     attr_accessor :name
 
-    # 
     attr_accessor :self_url
 
     # The slug identifier for this distribution
     attr_accessor :slug
 
-    # 
     attr_accessor :variants
-
-    # A list of the versions for this distribution
-    attr_accessor :versions
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'format' => :'format',
-        :'format_url' => :'format_url',
         :'name' => :'name',
         :'self_url' => :'self_url',
         :'slug' => :'slug',
-        :'variants' => :'variants',
-        :'versions' => :'versions'
+        :'variants' => :'variants'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'format' => :'String',
-        :'format_url' => :'String',
         :'name' => :'String',
         :'self_url' => :'String',
         :'slug' => :'String',
-        :'variants' => :'String',
-        :'versions' => :'Array<DistrosVersions>'
+        :'variants' => :'String'
       }
     end
 
@@ -68,14 +51,6 @@ module CloudsmithApi
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'format')
-        self.format = attributes[:'format']
-      end
-
-      if attributes.has_key?(:'format_url')
-        self.format_url = attributes[:'format_url']
-      end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
@@ -92,12 +67,6 @@ module CloudsmithApi
       if attributes.has_key?(:'variants')
         self.variants = attributes[:'variants']
       end
-
-      if attributes.has_key?(:'versions')
-        if (value = attributes[:'versions']).is_a?(Array)
-          self.versions = value
-        end
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -108,6 +77,22 @@ module CloudsmithApi
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+      if @name.to_s.length > 32
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 32.')
+      end
+
+      if @name.to_s.length < 1
+        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
+      end
+
+      if !@slug.nil? && @slug.to_s.length < 1
+        invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
+      end
+
+      if !@variants.nil? && @variants.to_s.length > 128
+        invalid_properties.push('invalid value for "variants", the character length must be smaller than or equal to 128.')
+      end
+
       invalid_properties
     end
 
@@ -115,7 +100,49 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
+      return false if @name.to_s.length > 32
+      return false if @name.to_s.length < 1
+      return false if !@slug.nil? && @slug.to_s.length < 1
+      return false if !@variants.nil? && @variants.to_s.length > 128
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] name Value to be assigned
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'name cannot be nil'
+      end
+
+      if name.to_s.length > 32
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 32.'
+      end
+
+      if name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      end
+
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] slug Value to be assigned
+    def slug=(slug)
+      if !slug.nil? && slug.to_s.length < 1
+        fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
+      end
+
+      @slug = slug
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] variants Value to be assigned
+    def variants=(variants)
+      if !variants.nil? && variants.to_s.length > 128
+        fail ArgumentError, 'invalid value for "variants", the character length must be smaller than or equal to 128.'
+      end
+
+      @variants = variants
     end
 
     # Checks equality by comparing each attribute.
@@ -123,13 +150,10 @@ module CloudsmithApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          format == o.format &&
-          format_url == o.format_url &&
           name == o.name &&
           self_url == o.self_url &&
           slug == o.slug &&
-          variants == o.variants &&
-          versions == o.versions
+          variants == o.variants
     end
 
     # @see the `==` method
@@ -141,7 +165,7 @@ module CloudsmithApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [format, format_url, name, self_url, slug, variants, versions].hash
+      [name, self_url, slug, variants].hash
     end
 
     # Builds the object from hash

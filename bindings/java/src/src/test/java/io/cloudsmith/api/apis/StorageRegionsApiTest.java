@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,8 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.StorageRegion;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.StorageRegionResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class StorageRegionsApiTest {
      */
     @Test
     public void storageRegionsListTest() throws Exception {
-        List<StorageRegion> response = api.storageRegionsList();
+        List<StorageRegionResponse> response = api.storageRegionsList();
 
         // TODO: test validations
     }
@@ -59,7 +59,7 @@ public class StorageRegionsApiTest {
     @Test
     public void storageRegionsReadTest() throws Exception {
         String slug = null;
-        StorageRegion response = api.storageRegionsRead(slug);
+        StorageRegionResponse response = api.storageRegionsRead(slug);
 
         // TODO: test validations
     }

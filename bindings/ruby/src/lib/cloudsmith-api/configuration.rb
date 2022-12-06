@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -130,7 +130,7 @@ module CloudsmithApi
     def initialize
       @scheme = 'https'
       @host = 'api.cloudsmith.io'
-      @base_path = '/v1'
+      @base_path = '/api/v1'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0

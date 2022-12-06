@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **clients** | **Integer** |  |  [optional]
-**createdAt** | **String** | The datetime the token was updated at. |  [optional]
+**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the token was updated at. |  [optional]
 **createdBy** | **String** |  |  [optional]
 **createdByUrl** | **String** |  |  [optional]
 **_default** | **Boolean** | If selected this is the default token for this repository. |  [optional]
 **disableUrl** | **String** |  |  [optional]
 **downloads** | **Integer** |  |  [optional]
 **enableUrl** | **String** |  |  [optional]
-**eulaAccepted** | **Object** |  |  [optional]
-**eulaAcceptedAt** | **String** | The datetime the EULA was accepted at. |  [optional]
+**eulaAccepted** | [**Eula**](Eula.md) |  |  [optional]
+**eulaAcceptedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the EULA was accepted at. |  [optional]
 **eulaAcceptedFrom** | **String** |  |  [optional]
 **eulaRequired** | **Boolean** | If checked, a EULA acceptance is required for this token. |  [optional]
 **hasLimits** | **Boolean** |  |  [optional]
@@ -21,9 +21,9 @@ Name | Type | Description | Notes
 **isActive** | **Boolean** | If enabled, the token will allow downloads based on configured restrictions (if any). |  [optional]
 **isLimited** | **Boolean** |  |  [optional]
 **limitBandwidth** | **Integer** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  |  [optional]
-**limitBandwidthUnit** | [**LimitBandwidthUnitEnum**](#LimitBandwidthUnitEnum) |  |  [optional]
-**limitDateRangeFrom** | **String** | The starting date/time the token is allowed to be used from. |  [optional]
-**limitDateRangeTo** | **String** | The ending date/time the token is allowed to be used until. |  [optional]
+**limitBandwidthUnit** | **String** |  |  [optional]
+**limitDateRangeFrom** | [**OffsetDateTime**](OffsetDateTime.md) | The starting date/time the token is allowed to be used from. |  [optional]
+**limitDateRangeTo** | [**OffsetDateTime**](OffsetDateTime.md) | The ending date/time the token is allowed to be used until. |  [optional]
 **limitNumClients** | **Integer** | The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. |  [optional]
 **limitNumDownloads** | **Integer** | The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. |  [optional]
 **limitPackageQuery** | **String** | The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. |  [optional]
@@ -32,47 +32,17 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **refreshUrl** | **String** |  |  [optional]
 **resetUrl** | **String** |  |  [optional]
-**scheduledResetAt** | **String** | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. |  [optional]
-**scheduledResetPeriod** | [**ScheduledResetPeriodEnum**](#ScheduledResetPeriodEnum) |  |  [optional]
+**scheduledResetAt** | [**OffsetDateTime**](OffsetDateTime.md) | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. |  [optional]
+**scheduledResetPeriod** | **String** |  |  [optional]
 **selfUrl** | **String** |  |  [optional]
 **slugPerm** | **String** |  |  [optional]
 **token** | **String** |  |  [optional]
-**updatedAt** | **String** | The datetime the token was updated at. |  [optional]
+**updatedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the token was updated at. |  [optional]
 **updatedBy** | **String** |  |  [optional]
 **updatedByUrl** | **String** |  |  [optional]
 **usage** | **String** |  |  [optional]
 **user** | **String** |  |  [optional]
 **userUrl** | **String** |  |  [optional]
-
-
-<a name="LimitBandwidthUnitEnum"></a>
-## Enum: LimitBandwidthUnitEnum
-Name | Value
----- | -----
-BYTE | &quot;Byte&quot;
-KILOBYTE | &quot;Kilobyte&quot;
-MEGABYTE | &quot;Megabyte&quot;
-GIGABYTE | &quot;Gigabyte&quot;
-TERABYTE | &quot;Terabyte&quot;
-PETABYTE | &quot;Petabyte&quot;
-EXABYTE | &quot;Exabyte&quot;
-ZETTABYTE | &quot;Zettabyte&quot;
-YOTTABYTE | &quot;Yottabyte&quot;
-
-
-<a name="ScheduledResetPeriodEnum"></a>
-## Enum: ScheduledResetPeriodEnum
-Name | Value
----- | -----
-NEVER_RESET | &quot;Never Reset&quot;
-DAILY | &quot;Daily&quot;
-WEEKLY | &quot;Weekly&quot;
-FORTNIGHTLY | &quot;Fortnightly&quot;
-MONTHLY | &quot;Monthly&quot;
-BI_MONTHLY | &quot;Bi-Monthly&quot;
-QUARTERLY | &quot;Quarterly&quot;
-EVERY_6_MONTHS | &quot;Every 6 months&quot;
-ANNUAL | &quot;Annual&quot;
 
 
 

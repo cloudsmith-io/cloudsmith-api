@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -24,8 +24,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [WebhooksCreate] :data 
-    # @return [RepositoryWebhook]
+    # @option opts [RepositoryWebhookRequest] :data 
+    # @return [RepositoryWebhookResponse]
     def webhooks_create(owner, repo, opts = {})
       data, _status_code, _headers = webhooks_create_with_http_info(owner, repo, opts)
       data
@@ -36,8 +36,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [WebhooksCreate] :data 
-    # @return [Array<(RepositoryWebhook, Fixnum, Hash)>] RepositoryWebhook data, response status code and response headers
+    # @option opts [RepositoryWebhookRequest] :data 
+    # @return [Array<(RepositoryWebhookResponse, Fixnum, Hash)>] RepositoryWebhookResponse data, response status code and response headers
     def webhooks_create_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.webhooks_create ...'
@@ -58,6 +58,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -73,7 +75,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryWebhook')
+        :return_type => 'RepositoryWebhookResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WebhooksApi#webhooks_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -122,6 +124,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -147,7 +153,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<RepositoryWebhook>]
+    # @return [Array<RepositoryWebhookResponse>]
     def webhooks_list(owner, repo, opts = {})
       data, _status_code, _headers = webhooks_list_with_http_info(owner, repo, opts)
       data
@@ -160,7 +166,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<RepositoryWebhook>, Fixnum, Hash)>] Array<RepositoryWebhook> data, response status code and response headers
+    # @return [Array<(Array<RepositoryWebhookResponse>, Fixnum, Hash)>] Array<RepositoryWebhookResponse> data, response status code and response headers
     def webhooks_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.webhooks_list ...'
@@ -183,6 +189,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -196,7 +206,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RepositoryWebhook>')
+        :return_type => 'Array<RepositoryWebhookResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WebhooksApi#webhooks_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -208,8 +218,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [WebhooksPartialUpdate] :data 
-    # @return [RepositoryWebhook]
+    # @option opts [RepositoryWebhookRequestPatch] :data 
+    # @return [RepositoryWebhookResponse]
     def webhooks_partial_update(owner, repo, identifier, opts = {})
       data, _status_code, _headers = webhooks_partial_update_with_http_info(owner, repo, identifier, opts)
       data
@@ -221,8 +231,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [WebhooksPartialUpdate] :data 
-    # @return [Array<(RepositoryWebhook, Fixnum, Hash)>] RepositoryWebhook data, response status code and response headers
+    # @option opts [RepositoryWebhookRequestPatch] :data 
+    # @return [Array<(RepositoryWebhookResponse, Fixnum, Hash)>] RepositoryWebhookResponse data, response status code and response headers
     def webhooks_partial_update_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.webhooks_partial_update ...'
@@ -247,6 +257,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -262,7 +274,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryWebhook')
+        :return_type => 'RepositoryWebhookResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WebhooksApi#webhooks_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -274,7 +286,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryWebhook]
+    # @return [RepositoryWebhookResponse]
     def webhooks_read(owner, repo, identifier, opts = {})
       data, _status_code, _headers = webhooks_read_with_http_info(owner, repo, identifier, opts)
       data
@@ -286,7 +298,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryWebhook, Fixnum, Hash)>] RepositoryWebhook data, response status code and response headers
+    # @return [Array<(RepositoryWebhookResponse, Fixnum, Hash)>] RepositoryWebhookResponse data, response status code and response headers
     def webhooks_read_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.webhooks_read ...'
@@ -311,6 +323,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -324,7 +340,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryWebhook')
+        :return_type => 'RepositoryWebhookResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WebhooksApi#webhooks_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

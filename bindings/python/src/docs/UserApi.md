@@ -1,6 +1,6 @@
 # cloudsmith_api.UserApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **user_self**
-> UserBrief user_self()
+> UserBriefResponse user_self()
 
 Provide a brief for the current user (if any).
 
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserBrief**](UserBrief.md)
+[**UserBriefResponse**](UserBriefResponse.md)
 
 ### Authorization
 
@@ -53,13 +53,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_token_create**
-> UserAuthToken user_token_create(data=data)
+> UserAuthTokenResponse user_token_create(data=data)
 
 Retrieve the API key/token for the authenticated user.
 
@@ -81,7 +81,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.UserApi(cloudsmith_api.ApiClient(configuration))
-data = cloudsmith_api.UserTokenCreate() # UserTokenCreate |  (optional)
+data = cloudsmith_api.UserAuthTokenRequest() # UserAuthTokenRequest |  (optional)
 
 try:
     # Retrieve the API key/token for the authenticated user.
@@ -95,11 +95,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UserTokenCreate**](UserTokenCreate.md)|  | [optional] 
+ **data** | [**UserAuthTokenRequest**](UserAuthTokenRequest.md)|  | [optional] 
 
 ### Return type
 
-[**UserAuthToken**](UserAuthToken.md)
+[**UserAuthTokenResponse**](UserAuthTokenResponse.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

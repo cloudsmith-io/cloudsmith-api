@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,18 +13,18 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.ReposCreate;
-import io.cloudsmith.api.models.ReposGpgCreate;
-import io.cloudsmith.api.models.ReposPartialUpdate;
-import io.cloudsmith.api.models.ReposPrivilegesPartialUpdate;
-import io.cloudsmith.api.models.ReposPrivilegesUpdate;
-import io.cloudsmith.api.models.ReposRsaCreate;
-import io.cloudsmith.api.models.Repository;
-import io.cloudsmith.api.models.RepositoryCreate;
-import io.cloudsmith.api.models.RepositoryGpgKey;
-import io.cloudsmith.api.models.RepositoryPrivilegeInput;
-import io.cloudsmith.api.models.RepositoryRsaKey;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.RepositoryCreateRequest;
+import io.cloudsmith.api.models.RepositoryCreateResponse;
+import io.cloudsmith.api.models.RepositoryGpgKeyCreate;
+import io.cloudsmith.api.models.RepositoryGpgKeyResponse;
+import io.cloudsmith.api.models.RepositoryPrivilegeInputRequest;
+import io.cloudsmith.api.models.RepositoryPrivilegeInputRequestPatch;
+import io.cloudsmith.api.models.RepositoryPrivilegeInputResponse;
+import io.cloudsmith.api.models.RepositoryRequestPatch;
+import io.cloudsmith.api.models.RepositoryResponse;
+import io.cloudsmith.api.models.RepositoryRsaKeyCreate;
+import io.cloudsmith.api.models.RepositoryRsaKeyResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,23 +44,6 @@ public class ReposApiTest {
 
     
     /**
-     * Get a list of all repositories associated with current user.
-     *
-     * Get a list of all repositories associated with current user.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposAllListTest() throws Exception {
-        Integer page = null;
-        Integer pageSize = null;
-        List<Repository> response = api.reposAllList(page, pageSize);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Create a new repository in a given namespace.
      *
      * Create a new repository in a given namespace.
@@ -71,8 +54,8 @@ public class ReposApiTest {
     @Test
     public void reposCreateTest() throws Exception {
         String owner = null;
-        ReposCreate data = null;
-        RepositoryCreate response = api.reposCreate(owner, data);
+        RepositoryCreateRequest data = null;
+        RepositoryCreateResponse response = api.reposCreate(owner, data);
 
         // TODO: test validations
     }
@@ -106,8 +89,8 @@ public class ReposApiTest {
     public void reposGpgCreateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        ReposGpgCreate data = null;
-        RepositoryGpgKey response = api.reposGpgCreate(owner, identifier, data);
+        RepositoryGpgKeyCreate data = null;
+        RepositoryGpgKeyResponse response = api.reposGpgCreate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -124,7 +107,7 @@ public class ReposApiTest {
     public void reposGpgListTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGpgKey response = api.reposGpgList(owner, identifier);
+        RepositoryGpgKeyResponse response = api.reposGpgList(owner, identifier);
 
         // TODO: test validations
     }
@@ -141,7 +124,7 @@ public class ReposApiTest {
     public void reposGpgRegenerateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGpgKey response = api.reposGpgRegenerate(owner, identifier);
+        RepositoryGpgKeyResponse response = api.reposGpgRegenerate(owner, identifier);
 
         // TODO: test validations
     }
@@ -155,11 +138,11 @@ public class ReposApiTest {
      *          if the Api call fails
      */
     @Test
-    public void reposListTest() throws Exception {
+    public void reposNamespaceListTest() throws Exception {
         String owner = null;
         Integer page = null;
         Integer pageSize = null;
-        List<Repository> response = api.reposList(owner, page, pageSize);
+        List<RepositoryResponse> response = api.reposNamespaceList(owner, page, pageSize);
 
         // TODO: test validations
     }
@@ -176,8 +159,8 @@ public class ReposApiTest {
     public void reposPartialUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        ReposPartialUpdate data = null;
-        Repository response = api.reposPartialUpdate(owner, identifier, data);
+        RepositoryRequestPatch data = null;
+        RepositoryResponse response = api.reposPartialUpdate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -196,7 +179,7 @@ public class ReposApiTest {
         String identifier = null;
         Integer page = null;
         Integer pageSize = null;
-        RepositoryPrivilegeInput response = api.reposPrivilegesList(owner, identifier, page, pageSize);
+        RepositoryPrivilegeInputResponse response = api.reposPrivilegesList(owner, identifier, page, pageSize);
 
         // TODO: test validations
     }
@@ -213,7 +196,7 @@ public class ReposApiTest {
     public void reposPrivilegesPartialUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        ReposPrivilegesPartialUpdate data = null;
+        RepositoryPrivilegeInputRequestPatch data = null;
         api.reposPrivilegesPartialUpdate(owner, identifier, data);
 
         // TODO: test validations
@@ -231,7 +214,7 @@ public class ReposApiTest {
     public void reposPrivilegesUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        ReposPrivilegesUpdate data = null;
+        RepositoryPrivilegeInputRequest data = null;
         api.reposPrivilegesUpdate(owner, identifier, data);
 
         // TODO: test validations
@@ -249,7 +232,7 @@ public class ReposApiTest {
     public void reposReadTest() throws Exception {
         String owner = null;
         String identifier = null;
-        Repository response = api.reposRead(owner, identifier);
+        RepositoryResponse response = api.reposRead(owner, identifier);
 
         // TODO: test validations
     }
@@ -266,8 +249,8 @@ public class ReposApiTest {
     public void reposRsaCreateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        ReposRsaCreate data = null;
-        RepositoryRsaKey response = api.reposRsaCreate(owner, identifier, data);
+        RepositoryRsaKeyCreate data = null;
+        RepositoryRsaKeyResponse response = api.reposRsaCreate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -284,7 +267,7 @@ public class ReposApiTest {
     public void reposRsaListTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryRsaKey response = api.reposRsaList(owner, identifier);
+        RepositoryRsaKeyResponse response = api.reposRsaList(owner, identifier);
 
         // TODO: test validations
     }
@@ -301,7 +284,24 @@ public class ReposApiTest {
     public void reposRsaRegenerateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryRsaKey response = api.reposRsaRegenerate(owner, identifier);
+        RepositoryRsaKeyResponse response = api.reposRsaRegenerate(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a list of all repositories associated with current user.
+     *
+     * Get a list of all repositories associated with current user.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUserListTest() throws Exception {
+        Integer page = null;
+        Integer pageSize = null;
+        List<RepositoryResponse> response = api.reposUserList(page, pageSize);
 
         // TODO: test validations
     }

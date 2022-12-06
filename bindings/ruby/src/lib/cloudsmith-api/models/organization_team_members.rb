@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -27,7 +27,7 @@ module CloudsmithApi
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'members' => :'Array<OrganizationTeamMembersMembers>'
+        :'members' => :'Array<OrganizationTeamMembership>'
       }
     end
 

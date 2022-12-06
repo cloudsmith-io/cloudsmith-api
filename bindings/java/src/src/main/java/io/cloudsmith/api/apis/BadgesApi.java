@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -36,7 +36,8 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.PackageVersionBadgeResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -71,17 +72,17 @@ public class BadgesApi {
      * @param packageName  (required)
      * @param packageVersion  (required)
      * @param packageIdentifiers  (required)
-     * @param badgeToken Badge token to authenticate for private packages (optional)
-     * @param cacheSeconds Override the shields.io badge cacheSeconds value. (optional)
-     * @param color Override the shields.io badge color value. (optional)
-     * @param label Override the shields.io badge label value. (optional)
-     * @param labelColor Override the shields.io badge labelColor value. (optional)
-     * @param logoColor Override the shields.io badge logoColor value. (optional)
-     * @param logoWidth Override the shields.io badge logoWidth value. (optional)
-     * @param render If true, badge will be rendered (optional)
-     * @param shields If true, a shields response will be generated (optional)
-     * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional)
-     * @param style Override the shields.io badge style value. (optional)
+     * @param badgeToken Badge token to authenticate for private packages (optional, default to )
+     * @param cacheSeconds Override the shields.io badge cacheSeconds value. (optional, default to 300)
+     * @param color Override the shields.io badge color value. (optional, default to 12577E)
+     * @param label Override the shields.io badge label value. (optional, default to cloudsmith)
+     * @param labelColor Override the shields.io badge labelColor value. (optional, default to 021F2F)
+     * @param logoColor Override the shields.io badge logoColor value. (optional, default to 45B6EE)
+     * @param logoWidth Override the shields.io badge logoWidth value. (optional, default to 10)
+     * @param render If true, badge will be rendered (optional, default to false)
+     * @param shields If true, a shields response will be generated (optional, default to false)
+     * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional, default to false)
+     * @param style Override the shields.io badge style value. (optional, default to flat-square)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -129,13 +130,13 @@ public class BadgesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -193,22 +194,22 @@ public class BadgesApi {
      * @param packageName  (required)
      * @param packageVersion  (required)
      * @param packageIdentifiers  (required)
-     * @param badgeToken Badge token to authenticate for private packages (optional)
-     * @param cacheSeconds Override the shields.io badge cacheSeconds value. (optional)
-     * @param color Override the shields.io badge color value. (optional)
-     * @param label Override the shields.io badge label value. (optional)
-     * @param labelColor Override the shields.io badge labelColor value. (optional)
-     * @param logoColor Override the shields.io badge logoColor value. (optional)
-     * @param logoWidth Override the shields.io badge logoWidth value. (optional)
-     * @param render If true, badge will be rendered (optional)
-     * @param shields If true, a shields response will be generated (optional)
-     * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional)
-     * @param style Override the shields.io badge style value. (optional)
-     * @return Object
+     * @param badgeToken Badge token to authenticate for private packages (optional, default to )
+     * @param cacheSeconds Override the shields.io badge cacheSeconds value. (optional, default to 300)
+     * @param color Override the shields.io badge color value. (optional, default to 12577E)
+     * @param label Override the shields.io badge label value. (optional, default to cloudsmith)
+     * @param labelColor Override the shields.io badge labelColor value. (optional, default to 021F2F)
+     * @param logoColor Override the shields.io badge logoColor value. (optional, default to 45B6EE)
+     * @param logoWidth Override the shields.io badge logoWidth value. (optional, default to 10)
+     * @param render If true, badge will be rendered (optional, default to false)
+     * @param shields If true, a shields response will be generated (optional, default to false)
+     * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional, default to false)
+     * @param style Override the shields.io badge style value. (optional, default to flat-square)
+     * @return PackageVersionBadgeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object badgesVersionList(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style) throws ApiException {
-        ApiResponse<Object> resp = badgesVersionListWithHttpInfo(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+    public PackageVersionBadgeResponse badgesVersionList(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style) throws ApiException {
+        ApiResponse<PackageVersionBadgeResponse> resp = badgesVersionListWithHttpInfo(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
         return resp.getData();
     }
 
@@ -221,23 +222,23 @@ public class BadgesApi {
      * @param packageName  (required)
      * @param packageVersion  (required)
      * @param packageIdentifiers  (required)
-     * @param badgeToken Badge token to authenticate for private packages (optional)
-     * @param cacheSeconds Override the shields.io badge cacheSeconds value. (optional)
-     * @param color Override the shields.io badge color value. (optional)
-     * @param label Override the shields.io badge label value. (optional)
-     * @param labelColor Override the shields.io badge labelColor value. (optional)
-     * @param logoColor Override the shields.io badge logoColor value. (optional)
-     * @param logoWidth Override the shields.io badge logoWidth value. (optional)
-     * @param render If true, badge will be rendered (optional)
-     * @param shields If true, a shields response will be generated (optional)
-     * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional)
-     * @param style Override the shields.io badge style value. (optional)
-     * @return ApiResponse&lt;Object&gt;
+     * @param badgeToken Badge token to authenticate for private packages (optional, default to )
+     * @param cacheSeconds Override the shields.io badge cacheSeconds value. (optional, default to 300)
+     * @param color Override the shields.io badge color value. (optional, default to 12577E)
+     * @param label Override the shields.io badge label value. (optional, default to cloudsmith)
+     * @param labelColor Override the shields.io badge labelColor value. (optional, default to 021F2F)
+     * @param logoColor Override the shields.io badge logoColor value. (optional, default to 45B6EE)
+     * @param logoWidth Override the shields.io badge logoWidth value. (optional, default to 10)
+     * @param render If true, badge will be rendered (optional, default to false)
+     * @param shields If true, a shields response will be generated (optional, default to false)
+     * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional, default to false)
+     * @param style Override the shields.io badge style value. (optional, default to flat-square)
+     * @return ApiResponse&lt;PackageVersionBadgeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> badgesVersionListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String packageFormat,  @NotNull String packageName,  @NotNull String packageVersion,  @NotNull String packageIdentifiers,  String badgeToken,  String cacheSeconds,  String color,  String label,  String labelColor,  String logoColor,  String logoWidth,  Boolean render,  Boolean shields,  Boolean showLatest,  String style) throws ApiException {
+    public ApiResponse<PackageVersionBadgeResponse> badgesVersionListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String packageFormat,  @NotNull String packageName,  @NotNull String packageVersion,  @NotNull String packageIdentifiers,  String badgeToken,  String cacheSeconds,  String color,  String label,  String labelColor,  String logoColor,  String logoWidth,  Boolean render,  Boolean shields,  Boolean showLatest,  String style) throws ApiException {
         com.squareup.okhttp.Call call = badgesVersionListValidateBeforeCall(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageVersionBadgeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -250,22 +251,22 @@ public class BadgesApi {
      * @param packageName  (required)
      * @param packageVersion  (required)
      * @param packageIdentifiers  (required)
-     * @param badgeToken Badge token to authenticate for private packages (optional)
-     * @param cacheSeconds Override the shields.io badge cacheSeconds value. (optional)
-     * @param color Override the shields.io badge color value. (optional)
-     * @param label Override the shields.io badge label value. (optional)
-     * @param labelColor Override the shields.io badge labelColor value. (optional)
-     * @param logoColor Override the shields.io badge logoColor value. (optional)
-     * @param logoWidth Override the shields.io badge logoWidth value. (optional)
-     * @param render If true, badge will be rendered (optional)
-     * @param shields If true, a shields response will be generated (optional)
-     * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional)
-     * @param style Override the shields.io badge style value. (optional)
+     * @param badgeToken Badge token to authenticate for private packages (optional, default to )
+     * @param cacheSeconds Override the shields.io badge cacheSeconds value. (optional, default to 300)
+     * @param color Override the shields.io badge color value. (optional, default to 12577E)
+     * @param label Override the shields.io badge label value. (optional, default to cloudsmith)
+     * @param labelColor Override the shields.io badge labelColor value. (optional, default to 021F2F)
+     * @param logoColor Override the shields.io badge logoColor value. (optional, default to 45B6EE)
+     * @param logoWidth Override the shields.io badge logoWidth value. (optional, default to 10)
+     * @param render If true, badge will be rendered (optional, default to false)
+     * @param shields If true, a shields response will be generated (optional, default to false)
+     * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional, default to false)
+     * @param style Override the shields.io badge style value. (optional, default to flat-square)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call badgesVersionListAsync(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call badgesVersionListAsync(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style, final ApiCallback<PackageVersionBadgeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -287,7 +288,7 @@ public class BadgesApi {
         }
 
         com.squareup.okhttp.Call call = badgesVersionListValidateBeforeCall(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageVersionBadgeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

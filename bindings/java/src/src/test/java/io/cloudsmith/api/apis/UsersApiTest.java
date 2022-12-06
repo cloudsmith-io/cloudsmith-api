@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,8 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.UserProfile;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.UserProfileResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +44,7 @@ public class UsersApiTest {
     @Test
     public void usersProfileReadTest() throws Exception {
         String slug = null;
-        UserProfile response = api.usersProfileRead(slug);
+        UserProfileResponse response = api.usersProfileRead(slug);
 
         // TODO: test validations
     }

@@ -1,16 +1,16 @@
 # CloudsmithApi::MetricsApi
 
-All URIs are relative to *https://api.cloudsmith.io/v1*
+All URIs are relative to *https://api.cloudsmith.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**metrics_entitlements_list**](MetricsApi.md#metrics_entitlements_list) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
-[**metrics_entitlements_list0**](MetricsApi.md#metrics_entitlements_list0) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+[**metrics_entitlements_account_list**](MetricsApi.md#metrics_entitlements_account_list) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+[**metrics_entitlements_repo_list**](MetricsApi.md#metrics_entitlements_repo_list) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
 [**metrics_packages_list**](MetricsApi.md#metrics_packages_list) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 
 
-# **metrics_entitlements_list**
-> EntitlementUsageMetrics metrics_entitlements_list(owner, opts)
+# **metrics_entitlements_account_list**
+> EntitlementUsageMetricsResponse metrics_entitlements_account_list(owner, opts)
 
 View for listing entitlement token metrics, across an account.
 
@@ -42,10 +42,10 @@ opts = {
 
 begin
   #View for listing entitlement token metrics, across an account.
-  result = api_instance.metrics_entitlements_list(owner, opts)
+  result = api_instance.metrics_entitlements_account_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling MetricsApi->metrics_entitlements_list: #{e}"
+  puts "Exception when calling MetricsApi->metrics_entitlements_account_list: #{e}"
 end
 ```
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
+[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
 
 ### Authorization
 
@@ -70,13 +70,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
-# **metrics_entitlements_list0**
-> EntitlementUsageMetrics metrics_entitlements_list0(owner, repo, opts)
+# **metrics_entitlements_repo_list**
+> EntitlementUsageMetricsResponse metrics_entitlements_repo_list(owner, repo, opts)
 
 View for listing entitlement token metrics, for a repository.
 
@@ -110,10 +110,10 @@ opts = {
 
 begin
   #View for listing entitlement token metrics, for a repository.
-  result = api_instance.metrics_entitlements_list0(owner, repo, opts)
+  result = api_instance.metrics_entitlements_repo_list(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling MetricsApi->metrics_entitlements_list0: #{e}"
+  puts "Exception when calling MetricsApi->metrics_entitlements_repo_list: #{e}"
 end
 ```
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
+[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
 
 ### Authorization
 
@@ -139,13 +139,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **metrics_packages_list**
-> PackageUsageMetrics metrics_packages_list(owner, repo, opts)
+> PackageUsageMetricsResponse metrics_packages_list(owner, repo, opts)
 
 View for listing package usage metrics, for a repository.
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageUsageMetrics**](PackageUsageMetrics.md)
+[**PackageUsageMetricsResponse**](PackageUsageMetricsResponse.md)
 
 ### Authorization
 
@@ -208,8 +208,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

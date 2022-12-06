@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -53,7 +53,7 @@ describe 'BadgesApi' do
   # @option opts [BOOLEAN] :shields If true, a shields response will be generated
   # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added
   # @option opts [String] :style Override the shields.io badge style value.
-  # @return [Object]
+  # @return [PackageVersionBadgeResponse]
   describe 'badges_version_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

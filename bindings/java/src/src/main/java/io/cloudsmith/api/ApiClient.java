@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -54,7 +54,7 @@ import io.cloudsmith.api.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "https://api.cloudsmith.io/v1";
+    private String basePath = "https://api.cloudsmith.io/api/v1";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -87,7 +87,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/1.142.3/java");
+        setUserAgent("Swagger-Codegen/1.181.0/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
@@ -109,7 +109,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api.cloudsmith.io/v1
+     * @param basePath Base path of the URL (e.g https://api.cloudsmith.io/api/v1
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

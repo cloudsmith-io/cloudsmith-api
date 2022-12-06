@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**members** | [**List&lt;OrganizationTeamMembersMembers&gt;**](OrganizationTeamMembersMembers.md) | The team members | 
+**members** | [**List&lt;OrganizationTeamMembership&gt;**](OrganizationTeamMembership.md) | The team members | 
 
 
 

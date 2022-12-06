@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -22,7 +22,7 @@ module CloudsmithApi
     # Provide a brief for the current user (if any).
     # Provide a brief for the current user (if any).
     # @param [Hash] opts the optional parameters
-    # @return [UserBrief]
+    # @return [UserBriefResponse]
     def user_self(opts = {})
       data, _status_code, _headers = user_self_with_http_info(opts)
       data
@@ -31,7 +31,7 @@ module CloudsmithApi
     # Provide a brief for the current user (if any).
     # Provide a brief for the current user (if any).
     # @param [Hash] opts the optional parameters
-    # @return [Array<(UserBrief, Fixnum, Hash)>] UserBrief data, response status code and response headers
+    # @return [Array<(UserBriefResponse, Fixnum, Hash)>] UserBriefResponse data, response status code and response headers
     def user_self_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserApi.user_self ...'
@@ -44,6 +44,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -57,7 +61,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'UserBrief')
+        :return_type => 'UserBriefResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserApi#user_self\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -66,8 +70,8 @@ module CloudsmithApi
     # Retrieve the API key/token for the authenticated user.
     # Retrieve the API key/token for the authenticated user.
     # @param [Hash] opts the optional parameters
-    # @option opts [UserTokenCreate] :data 
-    # @return [UserAuthToken]
+    # @option opts [UserAuthTokenRequest] :data 
+    # @return [UserAuthTokenResponse]
     def user_token_create(opts = {})
       data, _status_code, _headers = user_token_create_with_http_info(opts)
       data
@@ -76,8 +80,8 @@ module CloudsmithApi
     # Retrieve the API key/token for the authenticated user.
     # Retrieve the API key/token for the authenticated user.
     # @param [Hash] opts the optional parameters
-    # @option opts [UserTokenCreate] :data 
-    # @return [Array<(UserAuthToken, Fixnum, Hash)>] UserAuthToken data, response status code and response headers
+    # @option opts [UserAuthTokenRequest] :data 
+    # @return [Array<(UserAuthTokenResponse, Fixnum, Hash)>] UserAuthTokenResponse data, response status code and response headers
     def user_token_create_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserApi.user_token_create ...'
@@ -90,6 +94,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -105,7 +111,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'UserAuthToken')
+        :return_type => 'UserAuthTokenResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserApi#user_token_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
