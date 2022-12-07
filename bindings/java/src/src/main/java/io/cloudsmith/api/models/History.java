@@ -37,7 +37,7 @@ public class History implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("days")
-  private Integer days = null;
+  private java.math.BigInteger days = null;
 
   @SerializedName("display")
   private HistoryFieldset display = null;
@@ -54,7 +54,7 @@ public class History implements Serializable {
   @SerializedName("start")
   private OffsetDateTime start = null;
 
-  public History days(Integer days) {
+  public History days(java.math.BigInteger days) {
     this.days = days;
     return this;
   }
@@ -64,11 +64,11 @@ public class History implements Serializable {
    * @return days
   **/
   @ApiModelProperty(value = "")
-  public Integer getDays() {
+  public java.math.BigInteger getDays() {
     return days;
   }
 
-  public void setDays(Integer days) {
+  public void setDays(java.math.BigInteger days) {
     this.days = days;
   }
 

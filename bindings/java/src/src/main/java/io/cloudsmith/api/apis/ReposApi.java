@@ -793,7 +793,7 @@ public class ReposApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call reposNamespaceListCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call reposNamespaceListCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -840,13 +840,13 @@ public class ReposApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call reposNamespaceListValidateBeforeCall(String owner, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call reposNamespaceListValidateBeforeCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, page, pageSize };
-            Method method = this.getClass().getMethod("reposNamespaceListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("reposNamespaceListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -876,7 +876,7 @@ public class ReposApi {
      * @return List&lt;RepositoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryResponse> reposNamespaceList(String owner, Integer page, Integer pageSize) throws ApiException {
+    public List<RepositoryResponse> reposNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<RepositoryResponse>> resp = reposNamespaceListWithHttpInfo(owner, page, pageSize);
         return resp.getData();
     }
@@ -890,7 +890,7 @@ public class ReposApi {
      * @return ApiResponse&lt;List&lt;RepositoryResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryResponse>> reposNamespaceListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<RepositoryResponse>> reposNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = reposNamespaceListValidateBeforeCall(owner, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<RepositoryResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -906,7 +906,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposNamespaceListAsync(String owner, Integer page, Integer pageSize, final ApiCallback<List<RepositoryResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<RepositoryResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1089,7 +1089,7 @@ public class ReposApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call reposPrivilegesListCall(String owner, String identifier, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call reposPrivilegesListCall(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1137,13 +1137,13 @@ public class ReposApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call reposPrivilegesListValidateBeforeCall(String owner, String identifier, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call reposPrivilegesListValidateBeforeCall(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, identifier, page, pageSize };
-            Method method = this.getClass().getMethod("reposPrivilegesListWithHttpInfo", String.class, String.class, Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("reposPrivilegesListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -1174,7 +1174,7 @@ public class ReposApi {
      * @return RepositoryPrivilegeInputResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryPrivilegeInputResponse reposPrivilegesList(String owner, String identifier, Integer page, Integer pageSize) throws ApiException {
+    public RepositoryPrivilegeInputResponse reposPrivilegesList(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<RepositoryPrivilegeInputResponse> resp = reposPrivilegesListWithHttpInfo(owner, identifier, page, pageSize);
         return resp.getData();
     }
@@ -1189,7 +1189,7 @@ public class ReposApi {
      * @return ApiResponse&lt;RepositoryPrivilegeInputResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryPrivilegeInputResponse> reposPrivilegesListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<RepositoryPrivilegeInputResponse> reposPrivilegesListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = reposPrivilegesListValidateBeforeCall(owner, identifier, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<RepositoryPrivilegeInputResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1206,7 +1206,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposPrivilegesListAsync(String owner, String identifier, Integer page, Integer pageSize, final ApiCallback<RepositoryPrivilegeInputResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposPrivilegesListAsync(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<RepositoryPrivilegeInputResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2097,7 +2097,7 @@ public class ReposApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call reposUserListCall(Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call reposUserListCall(java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2143,13 +2143,13 @@ public class ReposApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call reposUserListValidateBeforeCall(Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call reposUserListValidateBeforeCall(java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { page, pageSize };
-            Method method = this.getClass().getMethod("reposUserListWithHttpInfo", Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("reposUserListWithHttpInfo", java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2178,7 +2178,7 @@ public class ReposApi {
      * @return List&lt;RepositoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryResponse> reposUserList(Integer page, Integer pageSize) throws ApiException {
+    public List<RepositoryResponse> reposUserList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<RepositoryResponse>> resp = reposUserListWithHttpInfo(page, pageSize);
         return resp.getData();
     }
@@ -2191,7 +2191,7 @@ public class ReposApi {
      * @return ApiResponse&lt;List&lt;RepositoryResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryResponse>> reposUserListWithHttpInfo( Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<RepositoryResponse>> reposUserListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = reposUserListValidateBeforeCall(page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<RepositoryResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2206,7 +2206,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposUserListAsync(Integer page, Integer pageSize, final ApiCallback<List<RepositoryResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposUserListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<RepositoryResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

@@ -41,7 +41,7 @@ public class CommonBandwidthMetricsValue implements Serializable {
   private String units = "bytes";
 
   @SerializedName("value")
-  private Integer value = null;
+  private java.math.BigInteger value = null;
 
   public CommonBandwidthMetricsValue display(String display) {
     this.display = display;
@@ -80,7 +80,7 @@ public class CommonBandwidthMetricsValue implements Serializable {
     this.units = units;
   }
 
-  public CommonBandwidthMetricsValue value(Integer value) {
+  public CommonBandwidthMetricsValue value(java.math.BigInteger value) {
     this.value = value;
     return this;
   }
@@ -91,11 +91,11 @@ public class CommonBandwidthMetricsValue implements Serializable {
   **/
   @NotNull
   @ApiModelProperty(required = true, value = "")
-  public Integer getValue() {
+  public java.math.BigInteger getValue() {
     return value;
   }
 
-  public void setValue(Integer value) {
+  public void setValue(java.math.BigInteger value) {
     this.value = value;
   }
 

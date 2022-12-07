@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**active** | **Integer** |  |  [optional]
+**active** | **java.math.BigInteger** |  |  [optional]
 **bandwidth** | [**CommonBandwidthMetrics**](CommonBandwidthMetrics.md) |  | 
 **downloads** | [**CommonDownloadsMetrics**](CommonDownloadsMetrics.md) |  | 
-**inactive** | **Integer** |  |  [optional]
-**total** | **Integer** |  |  [optional]
+**inactive** | **java.math.BigInteger** |  |  [optional]
+**total** | **java.math.BigInteger** |  |  [optional]
 
 
 

@@ -105,7 +105,7 @@ public class FilesApiTest {
         String repo = null;
         String identifier = null;
         String filename = null;
-        Integer partNumber = null;
+        java.math.BigInteger partNumber = null;
         PackageFilePartsUploadResponse response = api.filesInfo(owner, repo, identifier, filename, partNumber);
 
         // TODO: test validations

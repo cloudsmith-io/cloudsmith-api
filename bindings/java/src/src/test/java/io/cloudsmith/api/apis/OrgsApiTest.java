@@ -110,8 +110,8 @@ public class OrgsApiTest {
     @Test
     public void orgsInvitesListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationInviteResponse> response = api.orgsInvitesList(org, page, pageSize);
 
         // TODO: test validations
@@ -162,8 +162,8 @@ public class OrgsApiTest {
      */
     @Test
     public void orgsListTest() throws Exception {
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationResponse> response = api.orgsList(page, pageSize);
 
         // TODO: test validations
@@ -197,8 +197,8 @@ public class OrgsApiTest {
     @Test
     public void orgsMembersListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationMembershipResponse> response = api.orgsMembersList(org, page, pageSize);
 
         // TODO: test validations
@@ -299,8 +299,8 @@ public class OrgsApiTest {
     @Test
     public void orgsSamlGroupSyncListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationGroupSyncResponse> response = api.orgsSamlGroupSyncList(org, page, pageSize);
 
         // TODO: test validations
@@ -351,8 +351,8 @@ public class OrgsApiTest {
     @Test
     public void orgsServicesListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<ServiceResponse> response = api.orgsServicesList(org, page, pageSize);
 
         // TODO: test validations
@@ -455,8 +455,8 @@ public class OrgsApiTest {
     @Test
     public void orgsTeamsListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationTeamResponse> response = api.orgsTeamsList(org, page, pageSize);
 
         // TODO: test validations

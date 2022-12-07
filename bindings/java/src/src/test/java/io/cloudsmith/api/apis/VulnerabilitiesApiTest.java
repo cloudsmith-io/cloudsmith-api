@@ -45,8 +45,8 @@ public class VulnerabilitiesApiTest {
     @Test
     public void vulnerabilitiesNamespaceListTest() throws Exception {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesNamespaceList(owner, page, pageSize);
 
         // TODO: test validations
@@ -65,8 +65,8 @@ public class VulnerabilitiesApiTest {
         String owner = null;
         String repo = null;
         String _package = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesPackageList(owner, repo, _package, page, pageSize);
 
         // TODO: test validations
@@ -103,8 +103,8 @@ public class VulnerabilitiesApiTest {
     public void vulnerabilitiesRepoListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesRepoList(owner, repo, page, pageSize);
 
         // TODO: test validations

@@ -665,7 +665,7 @@ public class EntitlementsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call entitlementsListCall(String owner, String repo, Integer page, Integer pageSize, Boolean showTokens, String query, Boolean active, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -719,13 +719,13 @@ public class EntitlementsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call entitlementsListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, Boolean showTokens, String query, Boolean active, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call entitlementsListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, page, pageSize, showTokens, query, active };
-            Method method = this.getClass().getMethod("entitlementsListWithHttpInfo", String.class, String.class, Integer.class, Integer.class, Boolean.class, String.class, Boolean.class);
+            Method method = this.getClass().getMethod("entitlementsListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, Boolean.class, String.class, Boolean.class);
             Set<ConstraintViolation<EntitlementsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -759,7 +759,7 @@ public class EntitlementsApi {
      * @return List&lt;RepositoryTokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryTokenResponse> entitlementsList(String owner, String repo, Integer page, Integer pageSize, Boolean showTokens, String query, Boolean active) throws ApiException {
+    public List<RepositoryTokenResponse> entitlementsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active) throws ApiException {
         ApiResponse<List<RepositoryTokenResponse>> resp = entitlementsListWithHttpInfo(owner, repo, page, pageSize, showTokens, query, active);
         return resp.getData();
     }
@@ -777,7 +777,7 @@ public class EntitlementsApi {
      * @return ApiResponse&lt;List&lt;RepositoryTokenResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryTokenResponse>> entitlementsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  Boolean showTokens,  String query,  Boolean active) throws ApiException {
+    public ApiResponse<List<RepositoryTokenResponse>> entitlementsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  Boolean showTokens,  String query,  Boolean active) throws ApiException {
         com.squareup.okhttp.Call call = entitlementsListValidateBeforeCall(owner, repo, page, pageSize, showTokens, query, active, null, null);
         Type localVarReturnType = new TypeToken<List<RepositoryTokenResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -797,7 +797,7 @@ public class EntitlementsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call entitlementsListAsync(String owner, String repo, Integer page, Integer pageSize, Boolean showTokens, String query, Boolean active, final ApiCallback<List<RepositoryTokenResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, final ApiCallback<List<RepositoryTokenResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

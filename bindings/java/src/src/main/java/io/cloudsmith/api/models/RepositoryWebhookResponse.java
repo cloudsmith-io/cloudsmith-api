@@ -48,7 +48,7 @@ public class RepositoryWebhookResponse implements Serializable {
   private String createdByUrl = null;
 
   @SerializedName("disable_reason")
-  private Integer disableReason = null;
+  private java.math.BigInteger disableReason = null;
 
   @SerializedName("disable_reason_str")
   private String disableReasonStr = null;
@@ -118,7 +118,7 @@ public class RepositoryWebhookResponse implements Serializable {
   private List<EventsEnum> events = new ArrayList<>();
 
   @SerializedName("identifier")
-  private Integer identifier = null;
+  private java.math.BigInteger identifier = null;
 
   @SerializedName("is_active")
   private Boolean isActive = null;
@@ -127,25 +127,25 @@ public class RepositoryWebhookResponse implements Serializable {
   private Boolean isLastResponseBad = null;
 
   @SerializedName("last_response_status")
-  private Integer lastResponseStatus = null;
+  private java.math.BigInteger lastResponseStatus = null;
 
   @SerializedName("last_response_status_str")
   private String lastResponseStatusStr = null;
 
   @SerializedName("num_sent")
-  private Integer numSent = null;
+  private java.math.BigInteger numSent = null;
 
   @SerializedName("package_query")
   private String packageQuery = null;
 
   @SerializedName("request_body_format")
-  private Integer requestBodyFormat = null;
+  private java.math.BigInteger requestBodyFormat = null;
 
   @SerializedName("request_body_format_str")
   private String requestBodyFormatStr = null;
 
   @SerializedName("request_body_template_format")
-  private Integer requestBodyTemplateFormat = null;
+  private java.math.BigInteger requestBodyTemplateFormat = null;
 
   @SerializedName("request_body_template_format_str")
   private String requestBodyTemplateFormatStr = null;
@@ -213,7 +213,7 @@ public class RepositoryWebhookResponse implements Serializable {
    * @return disableReason
   **/
   @ApiModelProperty(value = "")
-  public Integer getDisableReason() {
+  public java.math.BigInteger getDisableReason() {
     return disableReason;
   }
 
@@ -255,7 +255,7 @@ public class RepositoryWebhookResponse implements Serializable {
    * @return identifier
   **/
   @ApiModelProperty(value = "")
-  public Integer getIdentifier() {
+  public java.math.BigInteger getIdentifier() {
     return identifier;
   }
 
@@ -291,7 +291,7 @@ public class RepositoryWebhookResponse implements Serializable {
    * @return lastResponseStatus
   **/
   @ApiModelProperty(value = "")
-  public Integer getLastResponseStatus() {
+  public java.math.BigInteger getLastResponseStatus() {
     return lastResponseStatus;
   }
 
@@ -309,7 +309,7 @@ public class RepositoryWebhookResponse implements Serializable {
    * @return numSent
   **/
   @ApiModelProperty(value = "")
-  public Integer getNumSent() {
+  public java.math.BigInteger getNumSent() {
     return numSent;
   }
 
@@ -331,7 +331,7 @@ public class RepositoryWebhookResponse implements Serializable {
     this.packageQuery = packageQuery;
   }
 
-  public RepositoryWebhookResponse requestBodyFormat(Integer requestBodyFormat) {
+  public RepositoryWebhookResponse requestBodyFormat(java.math.BigInteger requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
     return this;
   }
@@ -341,11 +341,11 @@ public class RepositoryWebhookResponse implements Serializable {
    * @return requestBodyFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public Integer getRequestBodyFormat() {
+  public java.math.BigInteger getRequestBodyFormat() {
     return requestBodyFormat;
   }
 
-  public void setRequestBodyFormat(Integer requestBodyFormat) {
+  public void setRequestBodyFormat(java.math.BigInteger requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
   }
 
@@ -358,7 +358,7 @@ public class RepositoryWebhookResponse implements Serializable {
     return requestBodyFormatStr;
   }
 
-  public RepositoryWebhookResponse requestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
+  public RepositoryWebhookResponse requestBodyTemplateFormat(java.math.BigInteger requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
     return this;
   }
@@ -368,11 +368,11 @@ public class RepositoryWebhookResponse implements Serializable {
    * @return requestBodyTemplateFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public Integer getRequestBodyTemplateFormat() {
+  public java.math.BigInteger getRequestBodyTemplateFormat() {
     return requestBodyTemplateFormat;
   }
 
-  public void setRequestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
+  public void setRequestBodyTemplateFormat(java.math.BigInteger requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
   }
 

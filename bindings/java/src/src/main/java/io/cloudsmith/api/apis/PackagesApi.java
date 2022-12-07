@@ -574,7 +574,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesListCall(String owner, String repo, Integer page, Integer pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -626,13 +626,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, page, pageSize, query, sort };
-            Method method = this.getClass().getMethod("packagesListWithHttpInfo", String.class, String.class, Integer.class, Integer.class, String.class, String.class);
+            Method method = this.getClass().getMethod("packagesListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, String.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -665,7 +665,7 @@ public class PackagesApi {
      * @return List&lt;PackageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<PackageResponse> packagesList(String owner, String repo, Integer page, Integer pageSize, String query, String sort) throws ApiException {
+    public List<PackageResponse> packagesList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort) throws ApiException {
         ApiResponse<List<PackageResponse>> resp = packagesListWithHttpInfo(owner, repo, page, pageSize, query, sort);
         return resp.getData();
     }
@@ -682,7 +682,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;List&lt;PackageResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<PackageResponse>> packagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  String query,  String sort) throws ApiException {
+    public ApiResponse<List<PackageResponse>> packagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query,  String sort) throws ApiException {
         com.squareup.okhttp.Call call = packagesListValidateBeforeCall(owner, repo, page, pageSize, query, sort, null, null);
         Type localVarReturnType = new TypeToken<List<PackageResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -701,7 +701,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesListAsync(String owner, String repo, Integer page, Integer pageSize, String query, String sort, final ApiCallback<List<PackageResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ApiCallback<List<PackageResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

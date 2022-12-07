@@ -37,8 +37,8 @@ apikey.setApiKey("YOUR API KEY");
 
 VulnerabilitiesApi apiInstance = new VulnerabilitiesApi();
 String owner = "owner_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
     List<VulnerabilityScanResultsListResponse> result = apiInstance.vulnerabilitiesNamespaceList(owner, page, pageSize);
     System.out.println(result);
@@ -53,8 +53,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
 
 ### Return type
 
@@ -98,8 +98,8 @@ VulnerabilitiesApi apiInstance = new VulnerabilitiesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String _package = "_package_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
     List<VulnerabilityScanResultsListResponse> result = apiInstance.vulnerabilitiesPackageList(owner, repo, _package, page, pageSize);
     System.out.println(result);
@@ -116,8 +116,8 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **_package** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
 
 ### Return type
 
@@ -221,8 +221,8 @@ apikey.setApiKey("YOUR API KEY");
 VulnerabilitiesApi apiInstance = new VulnerabilitiesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
     List<VulnerabilityScanResultsListResponse> result = apiInstance.vulnerabilitiesRepoList(owner, repo, page, pageSize);
     System.out.println(result);
@@ -238,8 +238,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
 
 ### Return type
 

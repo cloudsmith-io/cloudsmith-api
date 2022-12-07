@@ -140,8 +140,8 @@ public class ReposApiTest {
     @Test
     public void reposNamespaceListTest() throws Exception {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<RepositoryResponse> response = api.reposNamespaceList(owner, page, pageSize);
 
         // TODO: test validations
@@ -177,8 +177,8 @@ public class ReposApiTest {
     public void reposPrivilegesListTest() throws Exception {
         String owner = null;
         String identifier = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         RepositoryPrivilegeInputResponse response = api.reposPrivilegesList(owner, identifier, page, pageSize);
 
         // TODO: test validations
@@ -299,8 +299,8 @@ public class ReposApiTest {
      */
     @Test
     public void reposUserListTest() throws Exception {
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<RepositoryResponse> response = api.reposUserList(page, pageSize);
 
         // TODO: test validations

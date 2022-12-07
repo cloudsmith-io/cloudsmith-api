@@ -83,8 +83,8 @@ public class WebhooksApiTest {
     public void webhooksListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<RepositoryWebhookResponse> response = api.webhooksList(owner, repo, page, pageSize);
 
         // TODO: test validations

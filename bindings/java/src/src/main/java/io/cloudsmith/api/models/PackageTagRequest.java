@@ -37,7 +37,7 @@ public class PackageTagRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("action")
-  private Integer action = null;
+  private java.math.BigInteger action = null;
 
   @SerializedName("is_immutable")
   private Boolean isImmutable = false;
@@ -45,7 +45,7 @@ public class PackageTagRequest implements Serializable {
   @SerializedName("tags")
   private List<String> tags = null;
 
-  public PackageTagRequest action(Integer action) {
+  public PackageTagRequest action(java.math.BigInteger action) {
     this.action = action;
     return this;
   }
@@ -55,11 +55,11 @@ public class PackageTagRequest implements Serializable {
    * @return action
   **/
   @ApiModelProperty(value = "")
-  public Integer getAction() {
+  public java.math.BigInteger getAction() {
     return action;
   }
 
-  public void setAction(Integer action) {
+  public void setAction(java.math.BigInteger action) {
     this.action = action;
   }
 

@@ -78,7 +78,7 @@ public class MetricsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsAccountListCall(String owner, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsAccountListCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -131,13 +131,13 @@ public class MetricsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call metricsEntitlementsAccountListValidateBeforeCall(String owner, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call metricsEntitlementsAccountListValidateBeforeCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, page, pageSize, finish, start, tokens };
-            Method method = this.getClass().getMethod("metricsEntitlementsAccountListWithHttpInfo", String.class, Integer.class, Integer.class, String.class, String.class, String.class);
+            Method method = this.getClass().getMethod("metricsEntitlementsAccountListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, String.class, String.class);
             Set<ConstraintViolation<MetricsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -170,7 +170,7 @@ public class MetricsApi {
      * @return EntitlementUsageMetricsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EntitlementUsageMetricsResponse metricsEntitlementsAccountList(String owner, Integer page, Integer pageSize, String finish, String start, String tokens) throws ApiException {
+    public EntitlementUsageMetricsResponse metricsEntitlementsAccountList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens) throws ApiException {
         ApiResponse<EntitlementUsageMetricsResponse> resp = metricsEntitlementsAccountListWithHttpInfo(owner, page, pageSize, finish, start, tokens);
         return resp.getData();
     }
@@ -187,7 +187,7 @@ public class MetricsApi {
      * @return ApiResponse&lt;EntitlementUsageMetricsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EntitlementUsageMetricsResponse> metricsEntitlementsAccountListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize,  String finish,  String start,  String tokens) throws ApiException {
+    public ApiResponse<EntitlementUsageMetricsResponse> metricsEntitlementsAccountListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String start,  String tokens) throws ApiException {
         com.squareup.okhttp.Call call = metricsEntitlementsAccountListValidateBeforeCall(owner, page, pageSize, finish, start, tokens, null, null);
         Type localVarReturnType = new TypeToken<EntitlementUsageMetricsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -206,7 +206,7 @@ public class MetricsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsAccountListAsync(String owner, Integer page, Integer pageSize, String finish, String start, String tokens, final ApiCallback<EntitlementUsageMetricsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsAccountListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ApiCallback<EntitlementUsageMetricsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -246,7 +246,7 @@ public class MetricsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsRepoListCall(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsRepoListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -300,13 +300,13 @@ public class MetricsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call metricsEntitlementsRepoListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call metricsEntitlementsRepoListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, page, pageSize, finish, start, tokens };
-            Method method = this.getClass().getMethod("metricsEntitlementsRepoListWithHttpInfo", String.class, String.class, Integer.class, Integer.class, String.class, String.class, String.class);
+            Method method = this.getClass().getMethod("metricsEntitlementsRepoListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, String.class, String.class);
             Set<ConstraintViolation<MetricsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -340,7 +340,7 @@ public class MetricsApi {
      * @return EntitlementUsageMetricsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EntitlementUsageMetricsResponse metricsEntitlementsRepoList(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens) throws ApiException {
+    public EntitlementUsageMetricsResponse metricsEntitlementsRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens) throws ApiException {
         ApiResponse<EntitlementUsageMetricsResponse> resp = metricsEntitlementsRepoListWithHttpInfo(owner, repo, page, pageSize, finish, start, tokens);
         return resp.getData();
     }
@@ -358,7 +358,7 @@ public class MetricsApi {
      * @return ApiResponse&lt;EntitlementUsageMetricsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EntitlementUsageMetricsResponse> metricsEntitlementsRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  String finish,  String start,  String tokens) throws ApiException {
+    public ApiResponse<EntitlementUsageMetricsResponse> metricsEntitlementsRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String start,  String tokens) throws ApiException {
         com.squareup.okhttp.Call call = metricsEntitlementsRepoListValidateBeforeCall(owner, repo, page, pageSize, finish, start, tokens, null, null);
         Type localVarReturnType = new TypeToken<EntitlementUsageMetricsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -378,7 +378,7 @@ public class MetricsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsRepoListAsync(String owner, String repo, Integer page, Integer pageSize, String finish, String start, String tokens, final ApiCallback<EntitlementUsageMetricsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ApiCallback<EntitlementUsageMetricsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -418,7 +418,7 @@ public class MetricsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call metricsPackagesListCall(String owner, String repo, Integer page, Integer pageSize, String finish, String packages, String start, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call metricsPackagesListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String packages, String start, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -472,13 +472,13 @@ public class MetricsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call metricsPackagesListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, String finish, String packages, String start, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call metricsPackagesListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String packages, String start, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, page, pageSize, finish, packages, start };
-            Method method = this.getClass().getMethod("metricsPackagesListWithHttpInfo", String.class, String.class, Integer.class, Integer.class, String.class, String.class, String.class);
+            Method method = this.getClass().getMethod("metricsPackagesListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, String.class, String.class);
             Set<ConstraintViolation<MetricsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -512,7 +512,7 @@ public class MetricsApi {
      * @return PackageUsageMetricsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageUsageMetricsResponse metricsPackagesList(String owner, String repo, Integer page, Integer pageSize, String finish, String packages, String start) throws ApiException {
+    public PackageUsageMetricsResponse metricsPackagesList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String packages, String start) throws ApiException {
         ApiResponse<PackageUsageMetricsResponse> resp = metricsPackagesListWithHttpInfo(owner, repo, page, pageSize, finish, packages, start);
         return resp.getData();
     }
@@ -530,7 +530,7 @@ public class MetricsApi {
      * @return ApiResponse&lt;PackageUsageMetricsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageUsageMetricsResponse> metricsPackagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  String finish,  String packages,  String start) throws ApiException {
+    public ApiResponse<PackageUsageMetricsResponse> metricsPackagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String packages,  String start) throws ApiException {
         com.squareup.okhttp.Call call = metricsPackagesListValidateBeforeCall(owner, repo, page, pageSize, finish, packages, start, null, null);
         Type localVarReturnType = new TypeToken<PackageUsageMetricsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -550,7 +550,7 @@ public class MetricsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsPackagesListAsync(String owner, String repo, Integer page, Integer pageSize, String finish, String packages, String start, final ApiCallback<PackageUsageMetricsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsPackagesListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String packages, String start, final ApiCallback<PackageUsageMetricsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

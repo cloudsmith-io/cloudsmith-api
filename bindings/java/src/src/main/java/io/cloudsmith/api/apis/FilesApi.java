@@ -522,7 +522,7 @@ public class FilesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call filesInfoCall(String owner, String repo, String identifier, String filename, Integer partNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call filesInfoCall(String owner, String repo, String identifier, String filename, java.math.BigInteger partNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -571,13 +571,13 @@ public class FilesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call filesInfoValidateBeforeCall(String owner, String repo, String identifier, String filename, Integer partNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call filesInfoValidateBeforeCall(String owner, String repo, String identifier, String filename, java.math.BigInteger partNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, identifier, filename, partNumber };
-            Method method = this.getClass().getMethod("filesInfoWithHttpInfo", String.class, String.class, String.class, String.class, Integer.class);
+            Method method = this.getClass().getMethod("filesInfoWithHttpInfo", String.class, String.class, String.class, String.class, java.math.BigInteger.class);
             Set<ConstraintViolation<FilesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -609,7 +609,7 @@ public class FilesApi {
      * @return PackageFilePartsUploadResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageFilePartsUploadResponse filesInfo(String owner, String repo, String identifier, String filename, Integer partNumber) throws ApiException {
+    public PackageFilePartsUploadResponse filesInfo(String owner, String repo, String identifier, String filename, java.math.BigInteger partNumber) throws ApiException {
         ApiResponse<PackageFilePartsUploadResponse> resp = filesInfoWithHttpInfo(owner, repo, identifier, filename, partNumber);
         return resp.getData();
     }
@@ -625,7 +625,7 @@ public class FilesApi {
      * @return ApiResponse&lt;PackageFilePartsUploadResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageFilePartsUploadResponse> filesInfoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  @NotNull String filename,  Integer partNumber) throws ApiException {
+    public ApiResponse<PackageFilePartsUploadResponse> filesInfoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  @NotNull String filename,  java.math.BigInteger partNumber) throws ApiException {
         com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, filename, partNumber, null, null);
         Type localVarReturnType = new TypeToken<PackageFilePartsUploadResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -643,7 +643,7 @@ public class FilesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call filesInfoAsync(String owner, String repo, String identifier, String filename, Integer partNumber, final ApiCallback<PackageFilePartsUploadResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call filesInfoAsync(String owner, String repo, String identifier, String filename, java.math.BigInteger partNumber, final ApiCallback<PackageFilePartsUploadResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

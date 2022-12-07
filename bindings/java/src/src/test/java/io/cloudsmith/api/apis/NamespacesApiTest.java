@@ -43,8 +43,8 @@ public class NamespacesApiTest {
      */
     @Test
     public void namespacesListTest() throws Exception {
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<NamespaceResponse> response = api.namespacesList(page, pageSize);
 
         // TODO: test validations

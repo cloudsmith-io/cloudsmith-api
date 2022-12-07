@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>1.181.0</version>
+  <version>2.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:1.181.0"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-1.181.0.jar`
+* `target/cloudsmith-api-2.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -93,8 +93,8 @@ public class AuditLogApiExample {
 
         AuditLogApi apiInstance = new AuditLogApi();
         String owner = "owner_example"; // String | 
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
+        java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+        java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
         String query = "query_example"; // String | A search term for querying events, actors, or timestamps of log records.
         try {
             List<NamespaceAuditLogResponse> result = apiInstance.auditLogNamespaceList(owner, page, pageSize, query);

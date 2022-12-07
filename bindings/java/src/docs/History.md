@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**days** | **Integer** |  |  [optional]
+**days** | **java.math.BigInteger** |  |  [optional]
 **display** | [**HistoryFieldset**](HistoryFieldset.md) |  | 
 **end** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 **plan** | **String** |  | 

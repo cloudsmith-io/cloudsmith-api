@@ -60,7 +60,7 @@ public class PackageStatusResponse implements Serializable {
   private String selfUrl = null;
 
   @SerializedName("stage")
-  private Integer stage = null;
+  private java.math.BigInteger stage = null;
 
   @SerializedName("stage_str")
   private String stageStr = null;
@@ -69,7 +69,7 @@ public class PackageStatusResponse implements Serializable {
   private OffsetDateTime stageUpdatedAt = null;
 
   @SerializedName("status")
-  private Integer status = null;
+  private java.math.BigInteger status = null;
 
   @SerializedName("status_reason")
   private String statusReason = null;
@@ -84,7 +84,7 @@ public class PackageStatusResponse implements Serializable {
   private OffsetDateTime syncFinishedAt = null;
 
   @SerializedName("sync_progress")
-  private Integer syncProgress = null;
+  private java.math.BigInteger syncProgress = null;
 
    /**
    * Get isDownloadable
@@ -163,7 +163,7 @@ public class PackageStatusResponse implements Serializable {
    * @return stage
   **/
   @ApiModelProperty(value = "The synchronisation (in progress) stage of the package.")
-  public Integer getStage() {
+  public java.math.BigInteger getStage() {
     return stage;
   }
 
@@ -191,7 +191,7 @@ public class PackageStatusResponse implements Serializable {
    * @return status
   **/
   @ApiModelProperty(value = "The synchronisation status of the package.")
-  public Integer getStatus() {
+  public java.math.BigInteger getStatus() {
     return status;
   }
 
@@ -238,7 +238,7 @@ public class PackageStatusResponse implements Serializable {
    * @return syncProgress
   **/
   @ApiModelProperty(value = "Synchronisation progress (from 0-100)")
-  public Integer getSyncProgress() {
+  public java.math.BigInteger getSyncProgress() {
     return syncProgress;
   }
 

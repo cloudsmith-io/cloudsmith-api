@@ -156,8 +156,8 @@ public class PackagesApiTest {
     public void packagesListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String query = null;
         String sort = null;
         List<PackageResponse> response = api.packagesList(owner, repo, page, pageSize, query, sort);

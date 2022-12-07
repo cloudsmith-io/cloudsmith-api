@@ -108,13 +108,13 @@ public class RepositoryResponse implements Serializable {
   private String namespaceUrl = null;
 
   @SerializedName("num_downloads")
-  private Integer numDownloads = null;
+  private java.math.BigInteger numDownloads = null;
 
   @SerializedName("package_count")
-  private Integer packageCount = null;
+  private java.math.BigInteger packageCount = null;
 
   @SerializedName("package_group_count")
-  private Integer packageGroupCount = null;
+  private java.math.BigInteger packageGroupCount = null;
 
   @SerializedName("proxy_npmjs")
   private Boolean proxyNpmjs = null;
@@ -135,7 +135,7 @@ public class RepositoryResponse implements Serializable {
   private Boolean replacePackagesByDefault = null;
 
   @SerializedName("repository_type")
-  private Integer repositoryType = null;
+  private java.math.BigInteger repositoryType = null;
 
   @SerializedName("repository_type_str")
   private String repositoryTypeStr = "Public";
@@ -162,7 +162,7 @@ public class RepositoryResponse implements Serializable {
   private Boolean showSetupAll = null;
 
   @SerializedName("size")
-  private Integer size = null;
+  private java.math.BigInteger size = null;
 
   @SerializedName("size_str")
   private String sizeStr = null;
@@ -550,7 +550,7 @@ public class RepositoryResponse implements Serializable {
    * @return numDownloads
   **/
   @ApiModelProperty(value = "The number of downloads for packages in the repository.")
-  public Integer getNumDownloads() {
+  public java.math.BigInteger getNumDownloads() {
     return numDownloads;
   }
 
@@ -559,7 +559,7 @@ public class RepositoryResponse implements Serializable {
    * @return packageCount
   **/
   @ApiModelProperty(value = "The number of packages in the repository.")
-  public Integer getPackageCount() {
+  public java.math.BigInteger getPackageCount() {
     return packageCount;
   }
 
@@ -568,7 +568,7 @@ public class RepositoryResponse implements Serializable {
    * @return packageGroupCount
   **/
   @ApiModelProperty(value = "The number of groups in the repository.")
-  public Integer getPackageGroupCount() {
+  public java.math.BigInteger getPackageGroupCount() {
     return packageGroupCount;
   }
 
@@ -685,7 +685,7 @@ public class RepositoryResponse implements Serializable {
    * @return repositoryType
   **/
   @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.")
-  public Integer getRepositoryType() {
+  public java.math.BigInteger getRepositoryType() {
     return repositoryType;
   }
 
@@ -820,7 +820,7 @@ public class RepositoryResponse implements Serializable {
    * @return size
   **/
   @ApiModelProperty(value = "The calculated size of the repository.")
-  public Integer getSize() {
+  public java.math.BigInteger getSize() {
     return size;
   }
 

@@ -221,7 +221,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 String filename = "filename_example"; // String | The filename of the file being uploaded
-Integer partNumber = 56; // Integer | The part number to be uploaded next
+java.math.BigInteger partNumber = new java.math.BigInteger(); // java.math.BigInteger | The part number to be uploaded next
 try {
     PackageFilePartsUploadResponse result = apiInstance.filesInfo(owner, repo, identifier, filename, partNumber);
     System.out.println(result);
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
  **repo** | **String**|  |
  **identifier** | **String**|  |
  **filename** | **String**| The filename of the file being uploaded |
- **partNumber** | **Integer**| The part number to be uploaded next | [optional]
+ **partNumber** | **java.math.BigInteger**| The part number to be uploaded next | [optional]
 
 ### Return type
 

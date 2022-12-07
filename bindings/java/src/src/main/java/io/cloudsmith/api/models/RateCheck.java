@@ -39,13 +39,13 @@ public class RateCheck implements Serializable {
   private BigDecimal interval = null;
 
   @SerializedName("limit")
-  private Integer limit = null;
+  private java.math.BigInteger limit = null;
 
   @SerializedName("remaining")
-  private Integer remaining = null;
+  private java.math.BigInteger remaining = null;
 
   @SerializedName("reset")
-  private Integer reset = null;
+  private java.math.BigInteger reset = null;
 
   @SerializedName("reset_iso_8601")
   private String resetIso8601 = null;
@@ -68,7 +68,7 @@ public class RateCheck implements Serializable {
    * @return limit
   **/
   @ApiModelProperty(value = "The maximum number of requests that you are permitted to send per hour")
-  public Integer getLimit() {
+  public java.math.BigInteger getLimit() {
     return limit;
   }
 
@@ -77,7 +77,7 @@ public class RateCheck implements Serializable {
    * @return remaining
   **/
   @ApiModelProperty(value = "The number of requests that are remaining in the current rate limit window")
-  public Integer getRemaining() {
+  public java.math.BigInteger getRemaining() {
     return remaining;
   }
 
@@ -86,7 +86,7 @@ public class RateCheck implements Serializable {
    * @return reset
   **/
   @ApiModelProperty(value = "The UTC epoch timestamp at which the current rate limit window will reset")
-  public Integer getReset() {
+  public java.math.BigInteger getReset() {
     return reset;
   }
 

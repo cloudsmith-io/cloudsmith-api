@@ -124,8 +124,8 @@ public class EntitlementsApiTest {
     public void entitlementsListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         Boolean showTokens = null;
         String query = null;
         Boolean active = null;

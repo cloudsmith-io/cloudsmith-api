@@ -279,8 +279,8 @@ apikey.setApiKey("YOUR API KEY");
 EntitlementsApi apiInstance = new EntitlementsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 Boolean showTokens = false; // Boolean | Show entitlement token strings in results
 String query = "query_example"; // String | A search term for querying names of entitlements.
 Boolean active = false; // Boolean | If true, only include active tokens
@@ -299,8 +299,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **showTokens** | **Boolean**| Show entitlement token strings in results | [optional] [default to false]
  **query** | **String**| A search term for querying names of entitlements. | [optional]
  **active** | **Boolean**| If true, only include active tokens | [optional] [default to false]

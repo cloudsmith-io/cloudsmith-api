@@ -37,7 +37,7 @@ public class CommonMetrics implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("active")
-  private Integer active = null;
+  private java.math.BigInteger active = null;
 
   @SerializedName("bandwidth")
   private CommonBandwidthMetrics bandwidth = null;
@@ -46,12 +46,12 @@ public class CommonMetrics implements Serializable {
   private CommonDownloadsMetrics downloads = null;
 
   @SerializedName("inactive")
-  private Integer inactive = null;
+  private java.math.BigInteger inactive = null;
 
   @SerializedName("total")
-  private Integer total = null;
+  private java.math.BigInteger total = null;
 
-  public CommonMetrics active(Integer active) {
+  public CommonMetrics active(java.math.BigInteger active) {
     this.active = active;
     return this;
   }
@@ -61,11 +61,11 @@ public class CommonMetrics implements Serializable {
    * @return active
   **/
   @ApiModelProperty(value = "")
-  public Integer getActive() {
+  public java.math.BigInteger getActive() {
     return active;
   }
 
-  public void setActive(Integer active) {
+  public void setActive(java.math.BigInteger active) {
     this.active = active;
   }
 
@@ -109,7 +109,7 @@ public class CommonMetrics implements Serializable {
     this.downloads = downloads;
   }
 
-  public CommonMetrics inactive(Integer inactive) {
+  public CommonMetrics inactive(java.math.BigInteger inactive) {
     this.inactive = inactive;
     return this;
   }
@@ -119,15 +119,15 @@ public class CommonMetrics implements Serializable {
    * @return inactive
   **/
   @ApiModelProperty(value = "")
-  public Integer getInactive() {
+  public java.math.BigInteger getInactive() {
     return inactive;
   }
 
-  public void setInactive(Integer inactive) {
+  public void setInactive(java.math.BigInteger inactive) {
     this.inactive = inactive;
   }
 
-  public CommonMetrics total(Integer total) {
+  public CommonMetrics total(java.math.BigInteger total) {
     this.total = total;
     return this;
   }
@@ -137,11 +137,11 @@ public class CommonMetrics implements Serializable {
    * @return total
   **/
   @ApiModelProperty(value = "")
-  public Integer getTotal() {
+  public java.math.BigInteger getTotal() {
     return total;
   }
 
-  public void setTotal(Integer total) {
+  public void setTotal(java.math.BigInteger total) {
     this.total = total;
   }
 

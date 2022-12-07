@@ -108,10 +108,10 @@ public class RepositoryWebhookRequest implements Serializable {
   private String packageQuery = null;
 
   @SerializedName("request_body_format")
-  private Integer requestBodyFormat = null;
+  private java.math.BigInteger requestBodyFormat = null;
 
   @SerializedName("request_body_template_format")
-  private Integer requestBodyTemplateFormat = null;
+  private java.math.BigInteger requestBodyTemplateFormat = null;
 
   @SerializedName("request_content_type")
   private String requestContentType = null;
@@ -194,7 +194,7 @@ public class RepositoryWebhookRequest implements Serializable {
     this.packageQuery = packageQuery;
   }
 
-  public RepositoryWebhookRequest requestBodyFormat(Integer requestBodyFormat) {
+  public RepositoryWebhookRequest requestBodyFormat(java.math.BigInteger requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
     return this;
   }
@@ -204,15 +204,15 @@ public class RepositoryWebhookRequest implements Serializable {
    * @return requestBodyFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public Integer getRequestBodyFormat() {
+  public java.math.BigInteger getRequestBodyFormat() {
     return requestBodyFormat;
   }
 
-  public void setRequestBodyFormat(Integer requestBodyFormat) {
+  public void setRequestBodyFormat(java.math.BigInteger requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
   }
 
-  public RepositoryWebhookRequest requestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
+  public RepositoryWebhookRequest requestBodyTemplateFormat(java.math.BigInteger requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
     return this;
   }
@@ -222,11 +222,11 @@ public class RepositoryWebhookRequest implements Serializable {
    * @return requestBodyTemplateFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public Integer getRequestBodyTemplateFormat() {
+  public java.math.BigInteger getRequestBodyTemplateFormat() {
     return requestBodyTemplateFormat;
   }
 
-  public void setRequestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
+  public void setRequestBodyTemplateFormat(java.math.BigInteger requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
   }
 

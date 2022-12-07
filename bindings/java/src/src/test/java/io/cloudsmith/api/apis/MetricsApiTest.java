@@ -45,8 +45,8 @@ public class MetricsApiTest {
     @Test
     public void metricsEntitlementsAccountListTest() throws Exception {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String finish = null;
         String start = null;
         String tokens = null;
@@ -67,8 +67,8 @@ public class MetricsApiTest {
     public void metricsEntitlementsRepoListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String finish = null;
         String start = null;
         String tokens = null;
@@ -89,8 +89,8 @@ public class MetricsApiTest {
     public void metricsPackagesListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String finish = null;
         String packages = null;
         String start = null;

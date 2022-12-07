@@ -76,7 +76,7 @@ public class AuditLogApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call auditLogNamespaceListCall(String owner, Integer page, Integer pageSize, String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call auditLogNamespaceListCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -125,13 +125,13 @@ public class AuditLogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call auditLogNamespaceListValidateBeforeCall(String owner, Integer page, Integer pageSize, String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call auditLogNamespaceListValidateBeforeCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, page, pageSize, query };
-            Method method = this.getClass().getMethod("auditLogNamespaceListWithHttpInfo", String.class, Integer.class, Integer.class, String.class);
+            Method method = this.getClass().getMethod("auditLogNamespaceListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class);
             Set<ConstraintViolation<AuditLogApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -162,7 +162,7 @@ public class AuditLogApi {
      * @return List&lt;NamespaceAuditLogResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<NamespaceAuditLogResponse> auditLogNamespaceList(String owner, Integer page, Integer pageSize, String query) throws ApiException {
+    public List<NamespaceAuditLogResponse> auditLogNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query) throws ApiException {
         ApiResponse<List<NamespaceAuditLogResponse>> resp = auditLogNamespaceListWithHttpInfo(owner, page, pageSize, query);
         return resp.getData();
     }
@@ -177,7 +177,7 @@ public class AuditLogApi {
      * @return ApiResponse&lt;List&lt;NamespaceAuditLogResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<NamespaceAuditLogResponse>> auditLogNamespaceListWithHttpInfo( @NotNull String owner,  Integer page,  Integer pageSize,  String query) throws ApiException {
+    public ApiResponse<List<NamespaceAuditLogResponse>> auditLogNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query) throws ApiException {
         com.squareup.okhttp.Call call = auditLogNamespaceListValidateBeforeCall(owner, page, pageSize, query, null, null);
         Type localVarReturnType = new TypeToken<List<NamespaceAuditLogResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -194,7 +194,7 @@ public class AuditLogApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call auditLogNamespaceListAsync(String owner, Integer page, Integer pageSize, String query, final ApiCallback<List<NamespaceAuditLogResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call auditLogNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ApiCallback<List<NamespaceAuditLogResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -232,7 +232,7 @@ public class AuditLogApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call auditLogRepoListCall(String owner, String repo, Integer page, Integer pageSize, String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call auditLogRepoListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -282,13 +282,13 @@ public class AuditLogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call auditLogRepoListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call auditLogRepoListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, page, pageSize, query };
-            Method method = this.getClass().getMethod("auditLogRepoListWithHttpInfo", String.class, String.class, Integer.class, Integer.class, String.class);
+            Method method = this.getClass().getMethod("auditLogRepoListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class);
             Set<ConstraintViolation<AuditLogApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -320,7 +320,7 @@ public class AuditLogApi {
      * @return List&lt;RepositoryAuditLogResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryAuditLogResponse> auditLogRepoList(String owner, String repo, Integer page, Integer pageSize, String query) throws ApiException {
+    public List<RepositoryAuditLogResponse> auditLogRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query) throws ApiException {
         ApiResponse<List<RepositoryAuditLogResponse>> resp = auditLogRepoListWithHttpInfo(owner, repo, page, pageSize, query);
         return resp.getData();
     }
@@ -336,7 +336,7 @@ public class AuditLogApi {
      * @return ApiResponse&lt;List&lt;RepositoryAuditLogResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryAuditLogResponse>> auditLogRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  String query) throws ApiException {
+    public ApiResponse<List<RepositoryAuditLogResponse>> auditLogRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query) throws ApiException {
         com.squareup.okhttp.Call call = auditLogRepoListValidateBeforeCall(owner, repo, page, pageSize, query, null, null);
         Type localVarReturnType = new TypeToken<List<RepositoryAuditLogResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -354,7 +354,7 @@ public class AuditLogApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call auditLogRepoListAsync(String owner, String repo, Integer page, Integer pageSize, String query, final ApiCallback<List<RepositoryAuditLogResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call auditLogRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ApiCallback<List<RepositoryAuditLogResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

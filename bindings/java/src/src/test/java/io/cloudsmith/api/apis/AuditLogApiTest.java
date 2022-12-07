@@ -45,8 +45,8 @@ public class AuditLogApiTest {
     @Test
     public void auditLogNamespaceListTest() throws Exception {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String query = null;
         List<NamespaceAuditLogResponse> response = api.auditLogNamespaceList(owner, page, pageSize, query);
 
@@ -65,8 +65,8 @@ public class AuditLogApiTest {
     public void auditLogRepoListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String query = null;
         List<RepositoryAuditLogResponse> response = api.auditLogRepoList(owner, repo, page, pageSize, query);
 

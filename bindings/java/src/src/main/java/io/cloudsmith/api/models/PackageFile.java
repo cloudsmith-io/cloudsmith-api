@@ -50,7 +50,7 @@ public class PackageFile implements Serializable {
   private String checksumSha512 = null;
 
   @SerializedName("downloads")
-  private Integer downloads = null;
+  private java.math.BigInteger downloads = null;
 
   @SerializedName("filename")
   private String filename = null;
@@ -68,7 +68,7 @@ public class PackageFile implements Serializable {
   private String signatureUrl = null;
 
   @SerializedName("size")
-  private Integer size = null;
+  private java.math.BigInteger size = null;
 
   @SerializedName("slug_perm")
   private String slugPerm = null;
@@ -126,7 +126,7 @@ public class PackageFile implements Serializable {
    * @return downloads
   **/
   @ApiModelProperty(value = "")
-  public Integer getDownloads() {
+  public java.math.BigInteger getDownloads() {
     return downloads;
   }
 
@@ -180,7 +180,7 @@ public class PackageFile implements Serializable {
    * @return size
   **/
   @ApiModelProperty(value = "The calculated size of the file.")
-  public Integer getSize() {
+  public java.math.BigInteger getSize() {
     return size;
   }
 

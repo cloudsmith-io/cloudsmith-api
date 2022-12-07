@@ -38,7 +38,7 @@ public class Eula implements Serializable {
   private String identifier = null;
 
   @SerializedName("number")
-  private Integer number = null;
+  private java.math.BigInteger number = null;
 
   public Eula identifier(String identifier) {
     this.identifier = identifier;
@@ -58,7 +58,7 @@ public class Eula implements Serializable {
     this.identifier = identifier;
   }
 
-  public Eula number(Integer number) {
+  public Eula number(java.math.BigInteger number) {
     this.number = number;
     return this;
   }
@@ -70,12 +70,12 @@ public class Eula implements Serializable {
    * @return number
   **/
   @NotNull
- @Min(0) @Max(2147483647)  @ApiModelProperty(required = true, value = "A sequential identifier that increments by one for each new commit in a repository.")
-  public Integer getNumber() {
+ @Min(0L) @Max(2147483647L)  @ApiModelProperty(required = true, value = "A sequential identifier that increments by one for each new commit in a repository.")
+  public java.math.BigInteger getNumber() {
     return number;
   }
 
-  public void setNumber(Integer number) {
+  public void setNumber(java.math.BigInteger number) {
     this.number = number;
   }
 

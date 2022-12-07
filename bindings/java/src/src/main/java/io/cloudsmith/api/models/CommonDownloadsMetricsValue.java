@@ -35,9 +35,9 @@ public class CommonDownloadsMetricsValue implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("value")
-  private Integer value = null;
+  private java.math.BigInteger value = null;
 
-  public CommonDownloadsMetricsValue value(Integer value) {
+  public CommonDownloadsMetricsValue value(java.math.BigInteger value) {
     this.value = value;
     return this;
   }
@@ -48,11 +48,11 @@ public class CommonDownloadsMetricsValue implements Serializable {
   **/
   @NotNull
   @ApiModelProperty(required = true, value = "")
-  public Integer getValue() {
+  public java.math.BigInteger getValue() {
     return value;
   }
 
-  public void setValue(Integer value) {
+  public void setValue(java.math.BigInteger value) {
     this.value = value;
   }
 

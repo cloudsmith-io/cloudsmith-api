@@ -76,10 +76,10 @@ public class PackageTagResponse implements Serializable {
   private DistributionVersion distroVersion = null;
 
   @SerializedName("downloads")
-  private Integer downloads = null;
+  private java.math.BigInteger downloads = null;
 
   @SerializedName("epoch")
-  private Integer epoch = null;
+  private java.math.BigInteger epoch = null;
 
   @SerializedName("extension")
   private String extension = null;
@@ -139,7 +139,7 @@ public class PackageTagResponse implements Serializable {
   private String namespaceUrl = null;
 
   @SerializedName("num_files")
-  private Integer numFiles = null;
+  private java.math.BigInteger numFiles = null;
 
   @SerializedName("origin_repository")
   private String originRepository = null;
@@ -148,7 +148,7 @@ public class PackageTagResponse implements Serializable {
   private String originRepositoryUrl = null;
 
   @SerializedName("package_type")
-  private Integer packageType = null;
+  private java.math.BigInteger packageType = null;
 
   @SerializedName("release")
   private String release = null;
@@ -181,7 +181,7 @@ public class PackageTagResponse implements Serializable {
   private String signatureUrl = null;
 
   @SerializedName("size")
-  private Integer size = null;
+  private java.math.BigInteger size = null;
 
   @SerializedName("slug")
   private String slug = null;
@@ -190,7 +190,7 @@ public class PackageTagResponse implements Serializable {
   private String slugPerm = null;
 
   @SerializedName("stage")
-  private Integer stage = null;
+  private java.math.BigInteger stage = null;
 
   @SerializedName("stage_str")
   private String stageStr = null;
@@ -199,7 +199,7 @@ public class PackageTagResponse implements Serializable {
   private OffsetDateTime stageUpdatedAt = null;
 
   @SerializedName("status")
-  private Integer status = null;
+  private java.math.BigInteger status = null;
 
   @SerializedName("status_reason")
   private String statusReason = null;
@@ -223,7 +223,7 @@ public class PackageTagResponse implements Serializable {
   private OffsetDateTime syncFinishedAt = null;
 
   @SerializedName("sync_progress")
-  private Integer syncProgress = null;
+  private java.math.BigInteger syncProgress = null;
 
   @SerializedName("tags_immutable")
   private Tags tagsImmutable = null;
@@ -374,7 +374,7 @@ public class PackageTagResponse implements Serializable {
    * @return downloads
   **/
   @ApiModelProperty(value = "")
-  public Integer getDownloads() {
+  public java.math.BigInteger getDownloads() {
     return downloads;
   }
 
@@ -383,7 +383,7 @@ public class PackageTagResponse implements Serializable {
    * @return epoch
   **/
   @ApiModelProperty(value = "The epoch of the package version (if any).")
-  public Integer getEpoch() {
+  public java.math.BigInteger getEpoch() {
     return epoch;
   }
 
@@ -573,7 +573,7 @@ public class PackageTagResponse implements Serializable {
    * @return numFiles
   **/
   @ApiModelProperty(value = "")
-  public Integer getNumFiles() {
+  public java.math.BigInteger getNumFiles() {
     return numFiles;
   }
 
@@ -600,7 +600,7 @@ public class PackageTagResponse implements Serializable {
    * @return packageType
   **/
   @ApiModelProperty(value = "The type of package contents.")
-  public Integer getPackageType() {
+  public java.math.BigInteger getPackageType() {
     return packageType;
   }
 
@@ -702,7 +702,7 @@ public class PackageTagResponse implements Serializable {
    * @return size
   **/
   @ApiModelProperty(value = "The calculated size of the package.")
-  public Integer getSize() {
+  public java.math.BigInteger getSize() {
     return size;
   }
 
@@ -729,7 +729,7 @@ public class PackageTagResponse implements Serializable {
    * @return stage
   **/
   @ApiModelProperty(value = "The synchronisation (in progress) stage of the package.")
-  public Integer getStage() {
+  public java.math.BigInteger getStage() {
     return stage;
   }
 
@@ -757,7 +757,7 @@ public class PackageTagResponse implements Serializable {
    * @return status
   **/
   @ApiModelProperty(value = "The synchronisation status of the package.")
-  public Integer getStatus() {
+  public java.math.BigInteger getStatus() {
     return status;
   }
 
@@ -831,7 +831,7 @@ public class PackageTagResponse implements Serializable {
    * @return syncProgress
   **/
   @ApiModelProperty(value = "Synchronisation progress (from 0-100)")
-  public Integer getSyncProgress() {
+  public java.math.BigInteger getSyncProgress() {
     return syncProgress;
   }
 

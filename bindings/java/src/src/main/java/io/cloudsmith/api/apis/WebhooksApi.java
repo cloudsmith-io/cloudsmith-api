@@ -366,7 +366,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call webhooksListCall(String owner, String repo, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call webhooksListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -414,13 +414,13 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call webhooksListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhooksListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, page, pageSize };
-            Method method = this.getClass().getMethod("webhooksListWithHttpInfo", String.class, String.class, Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("webhooksListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<WebhooksApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -451,7 +451,7 @@ public class WebhooksApi {
      * @return List&lt;RepositoryWebhookResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryWebhookResponse> webhooksList(String owner, String repo, Integer page, Integer pageSize) throws ApiException {
+    public List<RepositoryWebhookResponse> webhooksList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<RepositoryWebhookResponse>> resp = webhooksListWithHttpInfo(owner, repo, page, pageSize);
         return resp.getData();
     }
@@ -466,7 +466,7 @@ public class WebhooksApi {
      * @return ApiResponse&lt;List&lt;RepositoryWebhookResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryWebhookResponse>> webhooksListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<RepositoryWebhookResponse>> webhooksListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = webhooksListValidateBeforeCall(owner, repo, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<RepositoryWebhookResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -483,7 +483,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhooksListAsync(String owner, String repo, Integer page, Integer pageSize, final ApiCallback<List<RepositoryWebhookResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhooksListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<RepositoryWebhookResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

@@ -42,7 +42,7 @@ public class RepositoryTokenRequest implements Serializable {
   private Boolean isActive = null;
 
   @SerializedName("limit_bandwidth")
-  private Integer limitBandwidth = null;
+  private java.math.BigInteger limitBandwidth = null;
 
   @SerializedName("limit_bandwidth_unit")
   private String limitBandwidthUnit = "Byte";
@@ -54,10 +54,10 @@ public class RepositoryTokenRequest implements Serializable {
   private OffsetDateTime limitDateRangeTo = null;
 
   @SerializedName("limit_num_clients")
-  private Integer limitNumClients = null;
+  private java.math.BigInteger limitNumClients = null;
 
   @SerializedName("limit_num_downloads")
-  private Integer limitNumDownloads = null;
+  private java.math.BigInteger limitNumDownloads = null;
 
   @SerializedName("limit_package_query")
   private String limitPackageQuery = null;
@@ -116,7 +116,7 @@ public class RepositoryTokenRequest implements Serializable {
     this.isActive = isActive;
   }
 
-  public RepositoryTokenRequest limitBandwidth(Integer limitBandwidth) {
+  public RepositoryTokenRequest limitBandwidth(java.math.BigInteger limitBandwidth) {
     this.limitBandwidth = limitBandwidth;
     return this;
   }
@@ -127,12 +127,12 @@ public class RepositoryTokenRequest implements Serializable {
    * maximum: 9223372036854775807
    * @return limitBandwidth
   **/
- @Min(-9223372036854775808) @Max(9223372036854775807)  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
-  public Integer getLimitBandwidth() {
+ @Min(-9223372036854775808L) @Max(9223372036854775807L)  @ApiModelProperty(value = "The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
+  public java.math.BigInteger getLimitBandwidth() {
     return limitBandwidth;
   }
 
-  public void setLimitBandwidth(Integer limitBandwidth) {
+  public void setLimitBandwidth(java.math.BigInteger limitBandwidth) {
     this.limitBandwidth = limitBandwidth;
   }
 
@@ -192,7 +192,7 @@ public class RepositoryTokenRequest implements Serializable {
     this.limitDateRangeTo = limitDateRangeTo;
   }
 
-  public RepositoryTokenRequest limitNumClients(Integer limitNumClients) {
+  public RepositoryTokenRequest limitNumClients(java.math.BigInteger limitNumClients) {
     this.limitNumClients = limitNumClients;
     return this;
   }
@@ -203,16 +203,16 @@ public class RepositoryTokenRequest implements Serializable {
    * maximum: 9223372036854775807
    * @return limitNumClients
   **/
- @Min(-9223372036854775808) @Max(9223372036854775807)  @ApiModelProperty(value = "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
-  public Integer getLimitNumClients() {
+ @Min(-9223372036854775808L) @Max(9223372036854775807L)  @ApiModelProperty(value = "The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+  public java.math.BigInteger getLimitNumClients() {
     return limitNumClients;
   }
 
-  public void setLimitNumClients(Integer limitNumClients) {
+  public void setLimitNumClients(java.math.BigInteger limitNumClients) {
     this.limitNumClients = limitNumClients;
   }
 
-  public RepositoryTokenRequest limitNumDownloads(Integer limitNumDownloads) {
+  public RepositoryTokenRequest limitNumDownloads(java.math.BigInteger limitNumDownloads) {
     this.limitNumDownloads = limitNumDownloads;
     return this;
   }
@@ -223,12 +223,12 @@ public class RepositoryTokenRequest implements Serializable {
    * maximum: 9223372036854775807
    * @return limitNumDownloads
   **/
- @Min(-9223372036854775808) @Max(9223372036854775807)  @ApiModelProperty(value = "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
-  public Integer getLimitNumDownloads() {
+ @Min(-9223372036854775808L) @Max(9223372036854775807L)  @ApiModelProperty(value = "The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+  public java.math.BigInteger getLimitNumDownloads() {
     return limitNumDownloads;
   }
 
-  public void setLimitNumDownloads(Integer limitNumDownloads) {
+  public void setLimitNumDownloads(java.math.BigInteger limitNumDownloads) {
     this.limitNumDownloads = limitNumDownloads;
   }
 

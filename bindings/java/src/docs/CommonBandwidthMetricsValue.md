@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display** | **String** |  | 
 **units** | **String** |  |  [optional]
-**value** | **Integer** |  | 
+**value** | **java.math.BigInteger** |  | 
 
 
 

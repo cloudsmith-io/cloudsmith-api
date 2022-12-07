@@ -510,7 +510,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsInvitesListCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsInvitesListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -557,13 +557,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsInvitesListValidateBeforeCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsInvitesListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, page, pageSize };
-            Method method = this.getClass().getMethod("orgsInvitesListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("orgsInvitesListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -593,7 +593,7 @@ public class OrgsApi {
      * @return List&lt;OrganizationInviteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationInviteResponse> orgsInvitesList(String org, Integer page, Integer pageSize) throws ApiException {
+    public List<OrganizationInviteResponse> orgsInvitesList(String org, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<OrganizationInviteResponse>> resp = orgsInvitesListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
@@ -607,7 +607,7 @@ public class OrgsApi {
      * @return ApiResponse&lt;List&lt;OrganizationInviteResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationInviteResponse>> orgsInvitesListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationInviteResponse>> orgsInvitesListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsInvitesListValidateBeforeCall(org, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<OrganizationInviteResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -623,7 +623,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsInvitesListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationInviteResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsInvitesListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<OrganizationInviteResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -946,7 +946,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsListCall(Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsListCall(java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -992,13 +992,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsListValidateBeforeCall(Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsListValidateBeforeCall(java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { page, pageSize };
-            Method method = this.getClass().getMethod("orgsListWithHttpInfo", Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("orgsListWithHttpInfo", java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -1027,7 +1027,7 @@ public class OrgsApi {
      * @return List&lt;OrganizationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationResponse> orgsList(Integer page, Integer pageSize) throws ApiException {
+    public List<OrganizationResponse> orgsList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<OrganizationResponse>> resp = orgsListWithHttpInfo(page, pageSize);
         return resp.getData();
     }
@@ -1040,7 +1040,7 @@ public class OrgsApi {
      * @return ApiResponse&lt;List&lt;OrganizationResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationResponse>> orgsListWithHttpInfo( Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationResponse>> orgsListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsListValidateBeforeCall(page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<OrganizationResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1055,7 +1055,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsListAsync(Integer page, Integer pageSize, final ApiCallback<List<OrganizationResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<OrganizationResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1229,7 +1229,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsMembersListCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsMembersListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1276,13 +1276,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsMembersListValidateBeforeCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsMembersListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, page, pageSize };
-            Method method = this.getClass().getMethod("orgsMembersListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("orgsMembersListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -1312,7 +1312,7 @@ public class OrgsApi {
      * @return List&lt;OrganizationMembershipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationMembershipResponse> orgsMembersList(String org, Integer page, Integer pageSize) throws ApiException {
+    public List<OrganizationMembershipResponse> orgsMembersList(String org, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<OrganizationMembershipResponse>> resp = orgsMembersListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
@@ -1326,7 +1326,7 @@ public class OrgsApi {
      * @return ApiResponse&lt;List&lt;OrganizationMembershipResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationMembershipResponse>> orgsMembersListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationMembershipResponse>> orgsMembersListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsMembersListValidateBeforeCall(org, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<OrganizationMembershipResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1342,7 +1342,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsMembersListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationMembershipResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsMembersListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<OrganizationMembershipResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2074,7 +2074,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsSamlGroupSyncListCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsSamlGroupSyncListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2121,13 +2121,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsSamlGroupSyncListValidateBeforeCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsSamlGroupSyncListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, page, pageSize };
-            Method method = this.getClass().getMethod("orgsSamlGroupSyncListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("orgsSamlGroupSyncListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2157,7 +2157,7 @@ public class OrgsApi {
      * @return List&lt;OrganizationGroupSyncResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationGroupSyncResponse> orgsSamlGroupSyncList(String org, Integer page, Integer pageSize) throws ApiException {
+    public List<OrganizationGroupSyncResponse> orgsSamlGroupSyncList(String org, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<OrganizationGroupSyncResponse>> resp = orgsSamlGroupSyncListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
@@ -2171,7 +2171,7 @@ public class OrgsApi {
      * @return ApiResponse&lt;List&lt;OrganizationGroupSyncResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationGroupSyncResponse>> orgsSamlGroupSyncListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationGroupSyncResponse>> orgsSamlGroupSyncListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsSamlGroupSyncListValidateBeforeCall(org, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<OrganizationGroupSyncResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2187,7 +2187,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsSamlGroupSyncListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationGroupSyncResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsSamlGroupSyncListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<OrganizationGroupSyncResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2502,7 +2502,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsServicesListCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsServicesListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2549,13 +2549,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsServicesListValidateBeforeCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsServicesListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, page, pageSize };
-            Method method = this.getClass().getMethod("orgsServicesListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("orgsServicesListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2585,7 +2585,7 @@ public class OrgsApi {
      * @return List&lt;ServiceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ServiceResponse> orgsServicesList(String org, Integer page, Integer pageSize) throws ApiException {
+    public List<ServiceResponse> orgsServicesList(String org, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<ServiceResponse>> resp = orgsServicesListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
@@ -2599,7 +2599,7 @@ public class OrgsApi {
      * @return ApiResponse&lt;List&lt;ServiceResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ServiceResponse>> orgsServicesListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<ServiceResponse>> orgsServicesListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsServicesListValidateBeforeCall(org, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<ServiceResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2615,7 +2615,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsServicesListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<ServiceResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsServicesListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<ServiceResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3360,7 +3360,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsListCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3407,13 +3407,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsTeamsListValidateBeforeCall(String org, Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsTeamsListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, page, pageSize };
-            Method method = this.getClass().getMethod("orgsTeamsListWithHttpInfo", String.class, Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("orgsTeamsListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -3443,7 +3443,7 @@ public class OrgsApi {
      * @return List&lt;OrganizationTeamResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationTeamResponse> orgsTeamsList(String org, Integer page, Integer pageSize) throws ApiException {
+    public List<OrganizationTeamResponse> orgsTeamsList(String org, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<OrganizationTeamResponse>> resp = orgsTeamsListWithHttpInfo(org, page, pageSize);
         return resp.getData();
     }
@@ -3457,7 +3457,7 @@ public class OrgsApi {
      * @return ApiResponse&lt;List&lt;OrganizationTeamResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationTeamResponse>> orgsTeamsListWithHttpInfo( @NotNull String org,  Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<OrganizationTeamResponse>> orgsTeamsListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsTeamsListValidateBeforeCall(org, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<OrganizationTeamResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3473,7 +3473,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsListAsync(String org, Integer page, Integer pageSize, final ApiCallback<List<OrganizationTeamResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<OrganizationTeamResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
