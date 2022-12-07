@@ -42,7 +42,7 @@ class StatusBasicResponse(object):
         'version': 'version'
     }
 
-    def __init__(self, detail='Cloudsmith API is operational.', version='1.181.0', _configuration=None):  # noqa: E501
+    def __init__(self, detail='Cloudsmith API is operational.', version='1.181.4', _configuration=None):  # noqa: E501
         """StatusBasicResponse - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
