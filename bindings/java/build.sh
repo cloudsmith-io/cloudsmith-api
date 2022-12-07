@@ -18,7 +18,7 @@ cat > $build_json <<EOC
     "apiPackage": "io.cloudsmith.api.apis",
     "artifactId": "$project_dash",
     "artifactUrl": "$openapi_url",
-    "artifactVersion": "$api_version",
+    "artifactVersion": "$package_version",
     "artifactDescription": "$summary",
     "dateLibrary": "java8",
     "developerName": "$author",

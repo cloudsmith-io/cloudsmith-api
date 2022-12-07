@@ -23,7 +23,7 @@ cat > $build_json <<EOC
     "gemName": "$project_dash",
     "gemRequiredRubyVersion": ">= 1.9",
     "gemSummary": "$summary",
-    "gemVersion": "$api_version",
+    "gemVersion": "$package_version",
     "hideGenerationTimestamp": $hide_generation_timestamp,
     "moduleName": "$project_camelcase",
     "sortParamsByRequiredFlag": $sort_params

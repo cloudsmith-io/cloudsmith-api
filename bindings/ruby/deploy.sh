@@ -18,7 +18,7 @@ build_distribution() {
 
 check_if_rubygems_pushed() {
   # list all versions for the gem and search for the version we want to upload
-  gem search --remote --all cloudsmith-api | grep ${api_version}
+  gem search --remote --all cloudsmith-api | grep ${package_version}
 }
 
 upload_to_rubygems() {
@@ -29,7 +29,7 @@ upload_to_rubygems() {
     return 0
   }
 
-  local gem_args="${project_dash}-${api_version}.gem"
+  local gem_args="${project_dash}-${package_version}.gem"
 
   if [[ "$CI" == "true" ]]
   then
@@ -54,7 +54,7 @@ upload_to_cloudsmith() {
   export PATH="$HOME/.local/bin:$PATH"
   cloudsmith push ruby \
     ${cloudsmith_repo_api} \
-    "${project_dash}-${api_version}.gem" \
+    "${project_dash}-${package_version}.gem" \
     --skip-errors
 }
 
