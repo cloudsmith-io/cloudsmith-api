@@ -13,92 +13,93 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageMoveRequest
-    attr_accessor :destination
+class PackageMoveRequest
+  attr_accessor :destination
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'destination' => :'destination'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'destination' => :'destination'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'destination' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'destination')
+      self.destination = attributes[:'destination']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @destination.nil?
+      invalid_properties.push('invalid value for "destination", destination cannot be nil.')
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'destination' => :'String'
-      }
+    if @destination.to_s.length < 1
+      invalid_properties.push('invalid value for "destination", the character length must be great than or equal to 1.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+    invalid_properties
+  end
 
-      if attributes.has_key?(:'destination')
-        self.destination = attributes[:'destination']
-      end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @destination.nil?
+    return false if @destination.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] destination Value to be assigned
+  def destination=(destination)
+    if destination.nil?
+      fail ArgumentError, 'destination cannot be nil'
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @destination.nil?
-        invalid_properties.push('invalid value for "destination", destination cannot be nil.')
-      end
-
-      if @destination.to_s.length < 1
-        invalid_properties.push('invalid value for "destination", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if destination.to_s.length < 1
+      fail ArgumentError, 'invalid value for "destination", the character length must be great than or equal to 1.'
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @destination.nil?
-      return false if @destination.to_s.length < 1
-      true
-    end
+    @destination = destination
+  end
 
-    # Custom attribute writer method with validation
-    # @param [Object] destination Value to be assigned
-    def destination=(destination)
-      if destination.nil?
-        fail ArgumentError, 'destination cannot be nil'
-      end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        destination == o.destination
+  end
 
-      if destination.to_s.length < 1
-        fail ArgumentError, 'invalid value for "destination", the character length must be great than or equal to 1.'
-      end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-      @destination = destination
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          destination == o.destination
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [destination].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [destination].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -204,5 +205,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

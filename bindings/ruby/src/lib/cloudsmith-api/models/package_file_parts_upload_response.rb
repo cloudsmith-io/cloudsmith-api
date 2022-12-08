@@ -13,134 +13,137 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageFilePartsUploadResponse
-    # The identifier for the file to use uploading parts.
-    attr_accessor :identifier
+class PackageFilePartsUploadResponse
+  # The identifier for the file to use uploading parts.
+  attr_accessor :identifier
 
-    # The querystring to use for the next-step PUT upload.
-    attr_accessor :upload_querystring
+  # The querystring to use for the next-step PUT upload.
+  attr_accessor :upload_querystring
 
-    # The URL to use for the next-step PUT upload
-    attr_accessor :upload_url
+  # The URL to use for the next-step PUT upload
+  attr_accessor :upload_url
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'identifier' => :'identifier',
-        :'upload_querystring' => :'upload_querystring',
-        :'upload_url' => :'upload_url'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'identifier' => :'identifier',
+      :'upload_querystring' => :'upload_querystring',
+      :'upload_url' => :'upload_url'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'identifier' => :'String',
+      :'upload_querystring' => :'String',
+      :'upload_url' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'identifier')
+      self.identifier = attributes[:'identifier']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'identifier' => :'String',
-        :'upload_querystring' => :'String',
-        :'upload_url' => :'String'
-      }
+    if attributes.has_key?(:'upload_querystring')
+      self.upload_querystring = attributes[:'upload_querystring']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
+    if attributes.has_key?(:'upload_url')
+      self.upload_url = attributes[:'upload_url']
+    end
+  end
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
-
-      if attributes.has_key?(:'upload_querystring')
-        self.upload_querystring = attributes[:'upload_querystring']
-      end
-
-      if attributes.has_key?(:'upload_url')
-        self.upload_url = attributes[:'upload_url']
-      end
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@identifier.nil? && @identifier.to_s.length < 1
+      invalid_properties.push('invalid value for "identifier", the character length must be great than or equal to 1.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@identifier.nil? && @identifier.to_s.length < 1
-        invalid_properties.push('invalid value for "identifier", the character length must be great than or equal to 1.')
-      end
 
-      if !@upload_querystring.nil? && @upload_querystring.to_s.length < 1
-        invalid_properties.push('invalid value for "upload_querystring", the character length must be great than or equal to 1.')
-      end
-
-      if !@upload_url.nil? && @upload_url.to_s.length < 1
-        invalid_properties.push('invalid value for "upload_url", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if !@upload_querystring.nil? && @upload_querystring.to_s.length < 1
+      invalid_properties.push('invalid value for "upload_querystring", the character length must be great than or equal to 1.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@identifier.nil? && @identifier.to_s.length < 1
-      return false if !@upload_querystring.nil? && @upload_querystring.to_s.length < 1
-      return false if !@upload_url.nil? && @upload_url.to_s.length < 1
-      true
+
+    if !@upload_url.nil? && @upload_url.to_s.length < 1
+      invalid_properties.push('invalid value for "upload_url", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] identifier Value to be assigned
-    def identifier=(identifier)
-      if !identifier.nil? && identifier.to_s.length < 1
-        fail ArgumentError, 'invalid value for "identifier", the character length must be great than or equal to 1.'
-      end
 
-      @identifier = identifier
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@identifier.nil? && @identifier.to_s.length < 1
+    return false if !@upload_querystring.nil? && @upload_querystring.to_s.length < 1
+    return false if !@upload_url.nil? && @upload_url.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] identifier Value to be assigned
+  def identifier=(identifier)
+    if !identifier.nil? && identifier.to_s.length < 1
+      fail ArgumentError, 'invalid value for "identifier", the character length must be great than or equal to 1.'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] upload_querystring Value to be assigned
-    def upload_querystring=(upload_querystring)
-      if !upload_querystring.nil? && upload_querystring.to_s.length < 1
-        fail ArgumentError, 'invalid value for "upload_querystring", the character length must be great than or equal to 1.'
-      end
+    @identifier = identifier
+  end
 
-      @upload_querystring = upload_querystring
+  # Custom attribute writer method with validation
+  # @param [Object] upload_querystring Value to be assigned
+  def upload_querystring=(upload_querystring)
+    if !upload_querystring.nil? && upload_querystring.to_s.length < 1
+      fail ArgumentError, 'invalid value for "upload_querystring", the character length must be great than or equal to 1.'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] upload_url Value to be assigned
-    def upload_url=(upload_url)
-      if !upload_url.nil? && upload_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "upload_url", the character length must be great than or equal to 1.'
-      end
+    @upload_querystring = upload_querystring
+  end
 
-      @upload_url = upload_url
+  # Custom attribute writer method with validation
+  # @param [Object] upload_url Value to be assigned
+  def upload_url=(upload_url)
+    if !upload_url.nil? && upload_url.to_s.length < 1
+      fail ArgumentError, 'invalid value for "upload_url", the character length must be great than or equal to 1.'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          identifier == o.identifier &&
-          upload_querystring == o.upload_querystring &&
-          upload_url == o.upload_url
-    end
+    @upload_url = upload_url
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        identifier == o.identifier &&
+        upload_querystring == o.upload_querystring &&
+        upload_url == o.upload_url
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [identifier, upload_querystring, upload_url].hash
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [identifier, upload_querystring, upload_url].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -246,5 +249,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

@@ -13,207 +13,210 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageFileUploadRequest
-    # Filename for the package file upload.
-    attr_accessor :filename
+class PackageFileUploadRequest
+  # Filename for the package file upload.
+  attr_accessor :filename
 
-    # MD5 checksum for a POST-based package file upload.
-    attr_accessor :md5_checksum
+  # MD5 checksum for a POST-based package file upload.
+  attr_accessor :md5_checksum
 
-    # The method to use for package file upload.
-    attr_accessor :method
+  # The method to use for package file upload.
+  attr_accessor :method
 
-    # SHA256 checksum for a PUT-based package file upload.
-    attr_accessor :sha256_checksum
+  # SHA256 checksum for a PUT-based package file upload.
+  attr_accessor :sha256_checksum
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
         end
       end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
     end
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'filename' => :'filename',
-        :'md5_checksum' => :'md5_checksum',
-        :'method' => :'method',
-        :'sha256_checksum' => :'sha256_checksum'
-      }
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'filename' => :'filename',
+      :'md5_checksum' => :'md5_checksum',
+      :'method' => :'method',
+      :'sha256_checksum' => :'sha256_checksum'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'filename' => :'String',
+      :'md5_checksum' => :'String',
+      :'method' => :'String',
+      :'sha256_checksum' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'filename')
+      self.filename = attributes[:'filename']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'filename' => :'String',
-        :'md5_checksum' => :'String',
-        :'method' => :'String',
-        :'sha256_checksum' => :'String'
-      }
+    if attributes.has_key?(:'md5_checksum')
+      self.md5_checksum = attributes[:'md5_checksum']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'filename')
-        self.filename = attributes[:'filename']
-      end
-
-      if attributes.has_key?(:'md5_checksum')
-        self.md5_checksum = attributes[:'md5_checksum']
-      end
-
-      if attributes.has_key?(:'method')
-        self.method = attributes[:'method']
-      else
-        self.method = 'post'
-      end
-
-      if attributes.has_key?(:'sha256_checksum')
-        self.sha256_checksum = attributes[:'sha256_checksum']
-      end
+    if attributes.has_key?(:'method')
+      self.method = attributes[:'method']
+    else
+      self.method = 'post'
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @filename.nil?
-        invalid_properties.push('invalid value for "filename", filename cannot be nil.')
-      end
+    if attributes.has_key?(:'sha256_checksum')
+      self.sha256_checksum = attributes[:'sha256_checksum']
+    end
+  end
 
-      if @filename.to_s.length < 1
-        invalid_properties.push('invalid value for "filename", the character length must be great than or equal to 1.')
-      end
-
-      if !@md5_checksum.nil? && @md5_checksum.to_s.length > 32
-        invalid_properties.push('invalid value for "md5_checksum", the character length must be smaller than or equal to 32.')
-      end
-
-      if !@md5_checksum.nil? && @md5_checksum.to_s.length < 32
-        invalid_properties.push('invalid value for "md5_checksum", the character length must be great than or equal to 32.')
-      end
-
-      if !@sha256_checksum.nil? && @sha256_checksum.to_s.length > 64
-        invalid_properties.push('invalid value for "sha256_checksum", the character length must be smaller than or equal to 64.')
-      end
-
-      if !@sha256_checksum.nil? && @sha256_checksum.to_s.length < 64
-        invalid_properties.push('invalid value for "sha256_checksum", the character length must be great than or equal to 64.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @filename.nil?
+      invalid_properties.push('invalid value for "filename", filename cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @filename.nil?
-      return false if @filename.to_s.length < 1
-      return false if !@md5_checksum.nil? && @md5_checksum.to_s.length > 32
-      return false if !@md5_checksum.nil? && @md5_checksum.to_s.length < 32
-      method_validator = EnumAttributeValidator.new('String', ['put_parts', 'put', 'post', 'presigned', 'unsigned_put'])
-      return false unless method_validator.valid?(@method)
-      return false if !@sha256_checksum.nil? && @sha256_checksum.to_s.length > 64
-      return false if !@sha256_checksum.nil? && @sha256_checksum.to_s.length < 64
-      true
+    if @filename.to_s.length < 1
+      invalid_properties.push('invalid value for "filename", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] filename Value to be assigned
-    def filename=(filename)
-      if filename.nil?
-        fail ArgumentError, 'filename cannot be nil'
-      end
 
-      if filename.to_s.length < 1
-        fail ArgumentError, 'invalid value for "filename", the character length must be great than or equal to 1.'
-      end
-
-      @filename = filename
+    if !@md5_checksum.nil? && @md5_checksum.to_s.length > 32
+      invalid_properties.push('invalid value for "md5_checksum", the character length must be smaller than or equal to 32.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] md5_checksum Value to be assigned
-    def md5_checksum=(md5_checksum)
-      if !md5_checksum.nil? && md5_checksum.to_s.length > 32
-        fail ArgumentError, 'invalid value for "md5_checksum", the character length must be smaller than or equal to 32.'
-      end
-
-      if !md5_checksum.nil? && md5_checksum.to_s.length < 32
-        fail ArgumentError, 'invalid value for "md5_checksum", the character length must be great than or equal to 32.'
-      end
-
-      @md5_checksum = md5_checksum
+    if !@md5_checksum.nil? && @md5_checksum.to_s.length < 32
+      invalid_properties.push('invalid value for "md5_checksum", the character length must be great than or equal to 32.')
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] method Object to be assigned
-    def method=(method)
-      validator = EnumAttributeValidator.new('String', ['put_parts', 'put', 'post', 'presigned', 'unsigned_put'])
-      unless validator.valid?(method)
-        fail ArgumentError, 'invalid value for "method", must be one of #{validator.allowable_values}.'
-      end
-      @method = method
+
+    if !@sha256_checksum.nil? && @sha256_checksum.to_s.length > 64
+      invalid_properties.push('invalid value for "sha256_checksum", the character length must be smaller than or equal to 64.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] sha256_checksum Value to be assigned
-    def sha256_checksum=(sha256_checksum)
-      if !sha256_checksum.nil? && sha256_checksum.to_s.length > 64
-        fail ArgumentError, 'invalid value for "sha256_checksum", the character length must be smaller than or equal to 64.'
-      end
-
-      if !sha256_checksum.nil? && sha256_checksum.to_s.length < 64
-        fail ArgumentError, 'invalid value for "sha256_checksum", the character length must be great than or equal to 64.'
-      end
-
-      @sha256_checksum = sha256_checksum
+    if !@sha256_checksum.nil? && @sha256_checksum.to_s.length < 64
+      invalid_properties.push('invalid value for "sha256_checksum", the character length must be great than or equal to 64.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          filename == o.filename &&
-          md5_checksum == o.md5_checksum &&
-          method == o.method &&
-          sha256_checksum == o.sha256_checksum
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @filename.nil?
+    return false if @filename.to_s.length < 1
+    return false if !@md5_checksum.nil? && @md5_checksum.to_s.length > 32
+    return false if !@md5_checksum.nil? && @md5_checksum.to_s.length < 32
+    method_validator = EnumAttributeValidator.new('String', ['put_parts', 'put', 'post', 'presigned', 'unsigned_put'])
+    return false unless method_validator.valid?(@method)
+    return false if !@sha256_checksum.nil? && @sha256_checksum.to_s.length > 64
+    return false if !@sha256_checksum.nil? && @sha256_checksum.to_s.length < 64
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] filename Value to be assigned
+  def filename=(filename)
+    if filename.nil?
+      fail ArgumentError, 'filename cannot be nil'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if filename.to_s.length < 1
+      fail ArgumentError, 'invalid value for "filename", the character length must be great than or equal to 1.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [filename, md5_checksum, method, sha256_checksum].hash
+    @filename = filename
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] md5_checksum Value to be assigned
+  def md5_checksum=(md5_checksum)
+    if !md5_checksum.nil? && md5_checksum.to_s.length > 32
+      fail ArgumentError, 'invalid value for "md5_checksum", the character length must be smaller than or equal to 32.'
     end
+
+    if !md5_checksum.nil? && md5_checksum.to_s.length < 32
+      fail ArgumentError, 'invalid value for "md5_checksum", the character length must be great than or equal to 32.'
+    end
+
+    @md5_checksum = md5_checksum
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] method Object to be assigned
+  def method=(method)
+    validator = EnumAttributeValidator.new('String', ['put_parts', 'put', 'post', 'presigned', 'unsigned_put'])
+    unless validator.valid?(method)
+      fail ArgumentError, 'invalid value for "method", must be one of #{validator.allowable_values}.'
+    end
+    @method = method
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] sha256_checksum Value to be assigned
+  def sha256_checksum=(sha256_checksum)
+    if !sha256_checksum.nil? && sha256_checksum.to_s.length > 64
+      fail ArgumentError, 'invalid value for "sha256_checksum", the character length must be smaller than or equal to 64.'
+    end
+
+    if !sha256_checksum.nil? && sha256_checksum.to_s.length < 64
+      fail ArgumentError, 'invalid value for "sha256_checksum", the character length must be great than or equal to 64.'
+    end
+
+    @sha256_checksum = sha256_checksum
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        filename == o.filename &&
+        md5_checksum == o.md5_checksum &&
+        method == o.method &&
+        sha256_checksum == o.sha256_checksum
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [filename, md5_checksum, method, sha256_checksum].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -319,5 +322,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

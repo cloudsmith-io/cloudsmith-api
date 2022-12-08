@@ -13,337 +13,347 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class MavenPackageUploadRequest
-    # The ID of the artifact.
-    attr_accessor :artifact_id
+class MavenPackageUploadRequest
+  # The ID of the artifact.
+  attr_accessor :artifact_id
 
-    # Artifact's group ID.
-    attr_accessor :group_id
+  # Artifact's group ID.
+  attr_accessor :group_id
 
-    # Adds bundled Java documentation to the Maven package
-    attr_accessor :javadoc_file
+  # Adds bundled Java documentation to the Maven package
+  attr_accessor :javadoc_file
 
-    # The primary file for the package.
-    attr_accessor :package_file
+  # The primary file for the package.
+  attr_accessor :package_file
 
-    # Artifact's Maven packaging type.
-    attr_accessor :packaging
+  # Artifact's Maven packaging type.
+  attr_accessor :packaging
 
-    # The POM file is an XML file containing the Maven coordinates.
-    attr_accessor :pom_file
+  # The POM file is an XML file containing the Maven coordinates.
+  attr_accessor :pom_file
 
-    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-    attr_accessor :republish
+  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+  attr_accessor :republish
 
-    # Adds bundled Java source code to the Maven package.
-    attr_accessor :sources_file
+  # Adds bundled Java source code to the Maven package.
+  attr_accessor :sources_file
 
-    # A comma-separated values list of tags to add to the package.
-    attr_accessor :tags
+  # A comma-separated values list of tags to add to the package.
+  attr_accessor :tags
 
-    # Adds bundled Java tests to the Maven package.
-    attr_accessor :tests_file
+  # Adds bundled Java tests to the Maven package.
+  attr_accessor :tests_file
 
-    # The raw version for this package.
-    attr_accessor :version
+  # The raw version for this package.
+  attr_accessor :version
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'artifact_id' => :'artifact_id',
-        :'group_id' => :'group_id',
-        :'javadoc_file' => :'javadoc_file',
-        :'package_file' => :'package_file',
-        :'packaging' => :'packaging',
-        :'pom_file' => :'pom_file',
-        :'republish' => :'republish',
-        :'sources_file' => :'sources_file',
-        :'tags' => :'tags',
-        :'tests_file' => :'tests_file',
-        :'version' => :'version'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'artifact_id' => :'artifact_id',
+      :'group_id' => :'group_id',
+      :'javadoc_file' => :'javadoc_file',
+      :'package_file' => :'package_file',
+      :'packaging' => :'packaging',
+      :'pom_file' => :'pom_file',
+      :'republish' => :'republish',
+      :'sources_file' => :'sources_file',
+      :'tags' => :'tags',
+      :'tests_file' => :'tests_file',
+      :'version' => :'version'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'artifact_id' => :'String',
+      :'group_id' => :'String',
+      :'javadoc_file' => :'String',
+      :'package_file' => :'String',
+      :'packaging' => :'String',
+      :'pom_file' => :'String',
+      :'republish' => :'BOOLEAN',
+      :'sources_file' => :'String',
+      :'tags' => :'String',
+      :'tests_file' => :'String',
+      :'version' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'artifact_id')
+      self.artifact_id = attributes[:'artifact_id']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'artifact_id' => :'String',
-        :'group_id' => :'String',
-        :'javadoc_file' => :'String',
-        :'package_file' => :'String',
-        :'packaging' => :'String',
-        :'pom_file' => :'String',
-        :'republish' => :'BOOLEAN',
-        :'sources_file' => :'String',
-        :'tags' => :'String',
-        :'tests_file' => :'String',
-        :'version' => :'String'
-      }
+    if attributes.has_key?(:'group_id')
+      self.group_id = attributes[:'group_id']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'artifact_id')
-        self.artifact_id = attributes[:'artifact_id']
-      end
-
-      if attributes.has_key?(:'group_id')
-        self.group_id = attributes[:'group_id']
-      end
-
-      if attributes.has_key?(:'javadoc_file')
-        self.javadoc_file = attributes[:'javadoc_file']
-      end
-
-      if attributes.has_key?(:'package_file')
-        self.package_file = attributes[:'package_file']
-      end
-
-      if attributes.has_key?(:'packaging')
-        self.packaging = attributes[:'packaging']
-      end
-
-      if attributes.has_key?(:'pom_file')
-        self.pom_file = attributes[:'pom_file']
-      end
-
-      if attributes.has_key?(:'republish')
-        self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'sources_file')
-        self.sources_file = attributes[:'sources_file']
-      end
-
-      if attributes.has_key?(:'tags')
-        self.tags = attributes[:'tags']
-      end
-
-      if attributes.has_key?(:'tests_file')
-        self.tests_file = attributes[:'tests_file']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
+    if attributes.has_key?(:'javadoc_file')
+      self.javadoc_file = attributes[:'javadoc_file']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@artifact_id.nil? && @artifact_id.to_s.length < 1
-        invalid_properties.push('invalid value for "artifact_id", the character length must be great than or equal to 1.')
-      end
-
-      if !@group_id.nil? && @group_id.to_s.length > 2083
-        invalid_properties.push('invalid value for "group_id", the character length must be smaller than or equal to 2083.')
-      end
-
-      if !@javadoc_file.nil? && @javadoc_file.to_s.length < 1
-        invalid_properties.push('invalid value for "javadoc_file", the character length must be great than or equal to 1.')
-      end
-
-      if @package_file.nil?
-        invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-      end
-
-      if @package_file.to_s.length < 1
-        invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@packaging.nil? && @packaging.to_s.length > 64
-        invalid_properties.push('invalid value for "packaging", the character length must be smaller than or equal to 64.')
-      end
-
-      if !@pom_file.nil? && @pom_file.to_s.length < 1
-        invalid_properties.push('invalid value for "pom_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@sources_file.nil? && @sources_file.to_s.length < 1
-        invalid_properties.push('invalid value for "sources_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length > 1024
-        invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length < 1
-        invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-      end
-
-      if !@tests_file.nil? && @tests_file.to_s.length < 1
-        invalid_properties.push('invalid value for "tests_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@version.nil? && @version.to_s.length > 128
-        invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'package_file')
+      self.package_file = attributes[:'package_file']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@artifact_id.nil? && @artifact_id.to_s.length < 1
-      return false if !@group_id.nil? && @group_id.to_s.length > 2083
-      return false if !@javadoc_file.nil? && @javadoc_file.to_s.length < 1
-      return false if @package_file.nil?
-      return false if @package_file.to_s.length < 1
-      return false if !@packaging.nil? && @packaging.to_s.length > 64
-      return false if !@pom_file.nil? && @pom_file.to_s.length < 1
-      return false if !@sources_file.nil? && @sources_file.to_s.length < 1
-      return false if !@tags.nil? && @tags.to_s.length > 1024
-      return false if !@tags.nil? && @tags.to_s.length < 1
-      return false if !@tests_file.nil? && @tests_file.to_s.length < 1
-      return false if !@version.nil? && @version.to_s.length > 128
-      true
+    if attributes.has_key?(:'packaging')
+      self.packaging = attributes[:'packaging']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] artifact_id Value to be assigned
-    def artifact_id=(artifact_id)
-      if !artifact_id.nil? && artifact_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "artifact_id", the character length must be great than or equal to 1.'
-      end
-
-      @artifact_id = artifact_id
+    if attributes.has_key?(:'pom_file')
+      self.pom_file = attributes[:'pom_file']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] group_id Value to be assigned
-    def group_id=(group_id)
-      if !group_id.nil? && group_id.to_s.length > 2083
-        fail ArgumentError, 'invalid value for "group_id", the character length must be smaller than or equal to 2083.'
-      end
-
-      @group_id = group_id
+    if attributes.has_key?(:'republish')
+      self.republish = attributes[:'republish']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] javadoc_file Value to be assigned
-    def javadoc_file=(javadoc_file)
-      if !javadoc_file.nil? && javadoc_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "javadoc_file", the character length must be great than or equal to 1.'
-      end
-
-      @javadoc_file = javadoc_file
+    if attributes.has_key?(:'sources_file')
+      self.sources_file = attributes[:'sources_file']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] package_file Value to be assigned
-    def package_file=(package_file)
-      if package_file.nil?
-        fail ArgumentError, 'package_file cannot be nil'
-      end
-
-      if package_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-      end
-
-      @package_file = package_file
+    if attributes.has_key?(:'tags')
+      self.tags = attributes[:'tags']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] packaging Value to be assigned
-    def packaging=(packaging)
-      if !packaging.nil? && packaging.to_s.length > 64
-        fail ArgumentError, 'invalid value for "packaging", the character length must be smaller than or equal to 64.'
-      end
-
-      @packaging = packaging
+    if attributes.has_key?(:'tests_file')
+      self.tests_file = attributes[:'tests_file']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] pom_file Value to be assigned
-    def pom_file=(pom_file)
-      if !pom_file.nil? && pom_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "pom_file", the character length must be great than or equal to 1.'
-      end
+    if attributes.has_key?(:'version')
+      self.version = attributes[:'version']
+    end
+  end
 
-      @pom_file = pom_file
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@artifact_id.nil? && @artifact_id.to_s.length < 1
+      invalid_properties.push('invalid value for "artifact_id", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] sources_file Value to be assigned
-    def sources_file=(sources_file)
-      if !sources_file.nil? && sources_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "sources_file", the character length must be great than or equal to 1.'
-      end
 
-      @sources_file = sources_file
+    if !@group_id.nil? && @group_id.to_s.length > 2083
+      invalid_properties.push('invalid value for "group_id", the character length must be smaller than or equal to 2083.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tags Value to be assigned
-    def tags=(tags)
-      if !tags.nil? && tags.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-      end
 
-      if !tags.nil? && tags.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-      end
-
-      @tags = tags
+    if !@javadoc_file.nil? && @javadoc_file.to_s.length < 1
+      invalid_properties.push('invalid value for "javadoc_file", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tests_file Value to be assigned
-    def tests_file=(tests_file)
-      if !tests_file.nil? && tests_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tests_file", the character length must be great than or equal to 1.'
-      end
 
-      @tests_file = tests_file
+    if @package_file.nil?
+      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] version Value to be assigned
-    def version=(version)
-      if !version.nil? && version.to_s.length > 128
-        fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
-      end
-
-      @version = version
+    if @package_file.to_s.length < 1
+      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          artifact_id == o.artifact_id &&
-          group_id == o.group_id &&
-          javadoc_file == o.javadoc_file &&
-          package_file == o.package_file &&
-          packaging == o.packaging &&
-          pom_file == o.pom_file &&
-          republish == o.republish &&
-          sources_file == o.sources_file &&
-          tags == o.tags &&
-          tests_file == o.tests_file &&
-          version == o.version
+
+    if !@packaging.nil? && @packaging.to_s.length > 64
+      invalid_properties.push('invalid value for "packaging", the character length must be smaller than or equal to 64.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if !@pom_file.nil? && @pom_file.to_s.length < 1
+      invalid_properties.push('invalid value for "pom_file", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tags, tests_file, version].hash
+
+    if !@sources_file.nil? && @sources_file.to_s.length < 1
+      invalid_properties.push('invalid value for "sources_file", the character length must be great than or equal to 1.')
     end
+
+
+    if !@tags.nil? && @tags.to_s.length > 1024
+      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
+    end
+
+    if !@tags.nil? && @tags.to_s.length < 1
+      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@tests_file.nil? && @tests_file.to_s.length < 1
+      invalid_properties.push('invalid value for "tests_file", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@version.nil? && @version.to_s.length > 128
+      invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@artifact_id.nil? && @artifact_id.to_s.length < 1
+    return false if !@group_id.nil? && @group_id.to_s.length > 2083
+    return false if !@javadoc_file.nil? && @javadoc_file.to_s.length < 1
+    return false if @package_file.nil?
+    return false if @package_file.to_s.length < 1
+    return false if !@packaging.nil? && @packaging.to_s.length > 64
+    return false if !@pom_file.nil? && @pom_file.to_s.length < 1
+    return false if !@sources_file.nil? && @sources_file.to_s.length < 1
+    return false if !@tags.nil? && @tags.to_s.length > 1024
+    return false if !@tags.nil? && @tags.to_s.length < 1
+    return false if !@tests_file.nil? && @tests_file.to_s.length < 1
+    return false if !@version.nil? && @version.to_s.length > 128
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] artifact_id Value to be assigned
+  def artifact_id=(artifact_id)
+    if !artifact_id.nil? && artifact_id.to_s.length < 1
+      fail ArgumentError, 'invalid value for "artifact_id", the character length must be great than or equal to 1.'
+    end
+
+    @artifact_id = artifact_id
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] group_id Value to be assigned
+  def group_id=(group_id)
+    if !group_id.nil? && group_id.to_s.length > 2083
+      fail ArgumentError, 'invalid value for "group_id", the character length must be smaller than or equal to 2083.'
+    end
+
+    @group_id = group_id
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] javadoc_file Value to be assigned
+  def javadoc_file=(javadoc_file)
+    if !javadoc_file.nil? && javadoc_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "javadoc_file", the character length must be great than or equal to 1.'
+    end
+
+    @javadoc_file = javadoc_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] package_file Value to be assigned
+  def package_file=(package_file)
+    if package_file.nil?
+      fail ArgumentError, 'package_file cannot be nil'
+    end
+
+    if package_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
+    end
+
+    @package_file = package_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] packaging Value to be assigned
+  def packaging=(packaging)
+    if !packaging.nil? && packaging.to_s.length > 64
+      fail ArgumentError, 'invalid value for "packaging", the character length must be smaller than or equal to 64.'
+    end
+
+    @packaging = packaging
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] pom_file Value to be assigned
+  def pom_file=(pom_file)
+    if !pom_file.nil? && pom_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "pom_file", the character length must be great than or equal to 1.'
+    end
+
+    @pom_file = pom_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] sources_file Value to be assigned
+  def sources_file=(sources_file)
+    if !sources_file.nil? && sources_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "sources_file", the character length must be great than or equal to 1.'
+    end
+
+    @sources_file = sources_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tags Value to be assigned
+  def tags=(tags)
+    if !tags.nil? && tags.to_s.length > 1024
+      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
+    end
+
+    if !tags.nil? && tags.to_s.length < 1
+      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
+    end
+
+    @tags = tags
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tests_file Value to be assigned
+  def tests_file=(tests_file)
+    if !tests_file.nil? && tests_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "tests_file", the character length must be great than or equal to 1.'
+    end
+
+    @tests_file = tests_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] version Value to be assigned
+  def version=(version)
+    if !version.nil? && version.to_s.length > 128
+      fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
+    end
+
+    @version = version
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        artifact_id == o.artifact_id &&
+        group_id == o.group_id &&
+        javadoc_file == o.javadoc_file &&
+        package_file == o.package_file &&
+        packaging == o.packaging &&
+        pom_file == o.pom_file &&
+        republish == o.republish &&
+        sources_file == o.sources_file &&
+        tags == o.tags &&
+        tests_file == o.tests_file &&
+        version == o.version
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tags, tests_file, version].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -449,5 +459,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

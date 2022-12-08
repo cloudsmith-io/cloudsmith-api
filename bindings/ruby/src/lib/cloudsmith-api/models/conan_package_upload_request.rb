@@ -13,357 +13,366 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class ConanPackageUploadRequest
-    # Conan channel.
-    attr_accessor :conan_channel
+class ConanPackageUploadRequest
+  # Conan channel.
+  attr_accessor :conan_channel
 
-    # Conan prefix (User).
-    attr_accessor :conan_prefix
+  # Conan prefix (User).
+  attr_accessor :conan_prefix
 
-    # The info file is an python file containing the package metadata.
-    attr_accessor :info_file
+  # The info file is an python file containing the package metadata.
+  attr_accessor :info_file
 
-    # The info file is an python file containing the package metadata.
-    attr_accessor :manifest_file
+  # The info file is an python file containing the package metadata.
+  attr_accessor :manifest_file
 
-    # The conan file is an python file containing the package metadata.
-    attr_accessor :metadata_file
+  # The conan file is an python file containing the package metadata.
+  attr_accessor :metadata_file
 
-    # The name of this package.
-    attr_accessor :name
+  # The name of this package.
+  attr_accessor :name
 
-    # The primary file for the package.
-    attr_accessor :package_file
+  # The primary file for the package.
+  attr_accessor :package_file
 
-    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-    attr_accessor :republish
+  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+  attr_accessor :republish
 
-    # A comma-separated values list of tags to add to the package.
-    attr_accessor :tags
+  # A comma-separated values list of tags to add to the package.
+  attr_accessor :tags
 
-    # The raw version for this package.
-    attr_accessor :version
+  # The raw version for this package.
+  attr_accessor :version
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'conan_channel' => :'conan_channel',
-        :'conan_prefix' => :'conan_prefix',
-        :'info_file' => :'info_file',
-        :'manifest_file' => :'manifest_file',
-        :'metadata_file' => :'metadata_file',
-        :'name' => :'name',
-        :'package_file' => :'package_file',
-        :'republish' => :'republish',
-        :'tags' => :'tags',
-        :'version' => :'version'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'conan_channel' => :'conan_channel',
+      :'conan_prefix' => :'conan_prefix',
+      :'info_file' => :'info_file',
+      :'manifest_file' => :'manifest_file',
+      :'metadata_file' => :'metadata_file',
+      :'name' => :'name',
+      :'package_file' => :'package_file',
+      :'republish' => :'republish',
+      :'tags' => :'tags',
+      :'version' => :'version'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'conan_channel' => :'String',
+      :'conan_prefix' => :'String',
+      :'info_file' => :'String',
+      :'manifest_file' => :'String',
+      :'metadata_file' => :'String',
+      :'name' => :'String',
+      :'package_file' => :'String',
+      :'republish' => :'BOOLEAN',
+      :'tags' => :'String',
+      :'version' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'conan_channel')
+      self.conan_channel = attributes[:'conan_channel']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'conan_channel' => :'String',
-        :'conan_prefix' => :'String',
-        :'info_file' => :'String',
-        :'manifest_file' => :'String',
-        :'metadata_file' => :'String',
-        :'name' => :'String',
-        :'package_file' => :'String',
-        :'republish' => :'BOOLEAN',
-        :'tags' => :'String',
-        :'version' => :'String'
-      }
+    if attributes.has_key?(:'conan_prefix')
+      self.conan_prefix = attributes[:'conan_prefix']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'conan_channel')
-        self.conan_channel = attributes[:'conan_channel']
-      end
-
-      if attributes.has_key?(:'conan_prefix')
-        self.conan_prefix = attributes[:'conan_prefix']
-      end
-
-      if attributes.has_key?(:'info_file')
-        self.info_file = attributes[:'info_file']
-      end
-
-      if attributes.has_key?(:'manifest_file')
-        self.manifest_file = attributes[:'manifest_file']
-      end
-
-      if attributes.has_key?(:'metadata_file')
-        self.metadata_file = attributes[:'metadata_file']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'package_file')
-        self.package_file = attributes[:'package_file']
-      end
-
-      if attributes.has_key?(:'republish')
-        self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'tags')
-        self.tags = attributes[:'tags']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
+    if attributes.has_key?(:'info_file')
+      self.info_file = attributes[:'info_file']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@conan_channel.nil? && @conan_channel.to_s.length > 128
-        invalid_properties.push('invalid value for "conan_channel", the character length must be smaller than or equal to 128.')
-      end
-
-      if !@conan_channel.nil? && @conan_channel.to_s.length < 1
-        invalid_properties.push('invalid value for "conan_channel", the character length must be great than or equal to 1.')
-      end
-
-      if !@conan_prefix.nil? && @conan_prefix.to_s.length > 128
-        invalid_properties.push('invalid value for "conan_prefix", the character length must be smaller than or equal to 128.')
-      end
-
-      if !@conan_prefix.nil? && @conan_prefix.to_s.length < 1
-        invalid_properties.push('invalid value for "conan_prefix", the character length must be great than or equal to 1.')
-      end
-
-      if @info_file.nil?
-        invalid_properties.push('invalid value for "info_file", info_file cannot be nil.')
-      end
-
-      if @info_file.to_s.length < 1
-        invalid_properties.push('invalid value for "info_file", the character length must be great than or equal to 1.')
-      end
-
-      if @manifest_file.nil?
-        invalid_properties.push('invalid value for "manifest_file", manifest_file cannot be nil.')
-      end
-
-      if @manifest_file.to_s.length < 1
-        invalid_properties.push('invalid value for "manifest_file", the character length must be great than or equal to 1.')
-      end
-
-      if @metadata_file.nil?
-        invalid_properties.push('invalid value for "metadata_file", metadata_file cannot be nil.')
-      end
-
-      if @metadata_file.to_s.length < 1
-        invalid_properties.push('invalid value for "metadata_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@name.nil? && @name.to_s.length > 200
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 200.')
-      end
-
-      if @package_file.nil?
-        invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-      end
-
-      if @package_file.to_s.length < 1
-        invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length > 1024
-        invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length < 1
-        invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-      end
-
-      if !@version.nil? && @version.to_s.length > 128
-        invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'manifest_file')
+      self.manifest_file = attributes[:'manifest_file']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@conan_channel.nil? && @conan_channel.to_s.length > 128
-      return false if !@conan_channel.nil? && @conan_channel.to_s.length < 1
-      return false if !@conan_prefix.nil? && @conan_prefix.to_s.length > 128
-      return false if !@conan_prefix.nil? && @conan_prefix.to_s.length < 1
-      return false if @info_file.nil?
-      return false if @info_file.to_s.length < 1
-      return false if @manifest_file.nil?
-      return false if @manifest_file.to_s.length < 1
-      return false if @metadata_file.nil?
-      return false if @metadata_file.to_s.length < 1
-      return false if !@name.nil? && @name.to_s.length > 200
-      return false if @package_file.nil?
-      return false if @package_file.to_s.length < 1
-      return false if !@tags.nil? && @tags.to_s.length > 1024
-      return false if !@tags.nil? && @tags.to_s.length < 1
-      return false if !@version.nil? && @version.to_s.length > 128
-      true
+    if attributes.has_key?(:'metadata_file')
+      self.metadata_file = attributes[:'metadata_file']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] conan_channel Value to be assigned
-    def conan_channel=(conan_channel)
-      if !conan_channel.nil? && conan_channel.to_s.length > 128
-        fail ArgumentError, 'invalid value for "conan_channel", the character length must be smaller than or equal to 128.'
-      end
-
-      if !conan_channel.nil? && conan_channel.to_s.length < 1
-        fail ArgumentError, 'invalid value for "conan_channel", the character length must be great than or equal to 1.'
-      end
-
-      @conan_channel = conan_channel
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] conan_prefix Value to be assigned
-    def conan_prefix=(conan_prefix)
-      if !conan_prefix.nil? && conan_prefix.to_s.length > 128
-        fail ArgumentError, 'invalid value for "conan_prefix", the character length must be smaller than or equal to 128.'
-      end
-
-      if !conan_prefix.nil? && conan_prefix.to_s.length < 1
-        fail ArgumentError, 'invalid value for "conan_prefix", the character length must be great than or equal to 1.'
-      end
-
-      @conan_prefix = conan_prefix
+    if attributes.has_key?(:'package_file')
+      self.package_file = attributes[:'package_file']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] info_file Value to be assigned
-    def info_file=(info_file)
-      if info_file.nil?
-        fail ArgumentError, 'info_file cannot be nil'
-      end
-
-      if info_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "info_file", the character length must be great than or equal to 1.'
-      end
-
-      @info_file = info_file
+    if attributes.has_key?(:'republish')
+      self.republish = attributes[:'republish']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] manifest_file Value to be assigned
-    def manifest_file=(manifest_file)
-      if manifest_file.nil?
-        fail ArgumentError, 'manifest_file cannot be nil'
-      end
-
-      if manifest_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "manifest_file", the character length must be great than or equal to 1.'
-      end
-
-      @manifest_file = manifest_file
+    if attributes.has_key?(:'tags')
+      self.tags = attributes[:'tags']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] metadata_file Value to be assigned
-    def metadata_file=(metadata_file)
-      if metadata_file.nil?
-        fail ArgumentError, 'metadata_file cannot be nil'
-      end
+    if attributes.has_key?(:'version')
+      self.version = attributes[:'version']
+    end
+  end
 
-      if metadata_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "metadata_file", the character length must be great than or equal to 1.'
-      end
-
-      @metadata_file = metadata_file
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@conan_channel.nil? && @conan_channel.to_s.length > 128
+      invalid_properties.push('invalid value for "conan_channel", the character length must be smaller than or equal to 128.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if !name.nil? && name.to_s.length > 200
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
-      end
-
-      @name = name
+    if !@conan_channel.nil? && @conan_channel.to_s.length < 1
+      invalid_properties.push('invalid value for "conan_channel", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] package_file Value to be assigned
-    def package_file=(package_file)
-      if package_file.nil?
-        fail ArgumentError, 'package_file cannot be nil'
-      end
 
-      if package_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-      end
-
-      @package_file = package_file
+    if !@conan_prefix.nil? && @conan_prefix.to_s.length > 128
+      invalid_properties.push('invalid value for "conan_prefix", the character length must be smaller than or equal to 128.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tags Value to be assigned
-    def tags=(tags)
-      if !tags.nil? && tags.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-      end
-
-      if !tags.nil? && tags.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-      end
-
-      @tags = tags
+    if !@conan_prefix.nil? && @conan_prefix.to_s.length < 1
+      invalid_properties.push('invalid value for "conan_prefix", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] version Value to be assigned
-    def version=(version)
-      if !version.nil? && version.to_s.length > 128
-        fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
-      end
 
-      @version = version
+    if @info_file.nil?
+      invalid_properties.push('invalid value for "info_file", info_file cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          conan_channel == o.conan_channel &&
-          conan_prefix == o.conan_prefix &&
-          info_file == o.info_file &&
-          manifest_file == o.manifest_file &&
-          metadata_file == o.metadata_file &&
-          name == o.name &&
-          package_file == o.package_file &&
-          republish == o.republish &&
-          tags == o.tags &&
-          version == o.version
+    if @info_file.to_s.length < 1
+      invalid_properties.push('invalid value for "info_file", the character length must be great than or equal to 1.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if @manifest_file.nil?
+      invalid_properties.push('invalid value for "manifest_file", manifest_file cannot be nil.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [conan_channel, conan_prefix, info_file, manifest_file, metadata_file, name, package_file, republish, tags, version].hash
+    if @manifest_file.to_s.length < 1
+      invalid_properties.push('invalid value for "manifest_file", the character length must be great than or equal to 1.')
     end
+
+
+    if @metadata_file.nil?
+      invalid_properties.push('invalid value for "metadata_file", metadata_file cannot be nil.')
+    end
+
+    if @metadata_file.to_s.length < 1
+      invalid_properties.push('invalid value for "metadata_file", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@name.nil? && @name.to_s.length > 200
+      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 200.')
+    end
+
+
+    if @package_file.nil?
+      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
+    end
+
+    if @package_file.to_s.length < 1
+      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@tags.nil? && @tags.to_s.length > 1024
+      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
+    end
+
+    if !@tags.nil? && @tags.to_s.length < 1
+      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@version.nil? && @version.to_s.length > 128
+      invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@conan_channel.nil? && @conan_channel.to_s.length > 128
+    return false if !@conan_channel.nil? && @conan_channel.to_s.length < 1
+    return false if !@conan_prefix.nil? && @conan_prefix.to_s.length > 128
+    return false if !@conan_prefix.nil? && @conan_prefix.to_s.length < 1
+    return false if @info_file.nil?
+    return false if @info_file.to_s.length < 1
+    return false if @manifest_file.nil?
+    return false if @manifest_file.to_s.length < 1
+    return false if @metadata_file.nil?
+    return false if @metadata_file.to_s.length < 1
+    return false if !@name.nil? && @name.to_s.length > 200
+    return false if @package_file.nil?
+    return false if @package_file.to_s.length < 1
+    return false if !@tags.nil? && @tags.to_s.length > 1024
+    return false if !@tags.nil? && @tags.to_s.length < 1
+    return false if !@version.nil? && @version.to_s.length > 128
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] conan_channel Value to be assigned
+  def conan_channel=(conan_channel)
+    if !conan_channel.nil? && conan_channel.to_s.length > 128
+      fail ArgumentError, 'invalid value for "conan_channel", the character length must be smaller than or equal to 128.'
+    end
+
+    if !conan_channel.nil? && conan_channel.to_s.length < 1
+      fail ArgumentError, 'invalid value for "conan_channel", the character length must be great than or equal to 1.'
+    end
+
+    @conan_channel = conan_channel
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] conan_prefix Value to be assigned
+  def conan_prefix=(conan_prefix)
+    if !conan_prefix.nil? && conan_prefix.to_s.length > 128
+      fail ArgumentError, 'invalid value for "conan_prefix", the character length must be smaller than or equal to 128.'
+    end
+
+    if !conan_prefix.nil? && conan_prefix.to_s.length < 1
+      fail ArgumentError, 'invalid value for "conan_prefix", the character length must be great than or equal to 1.'
+    end
+
+    @conan_prefix = conan_prefix
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] info_file Value to be assigned
+  def info_file=(info_file)
+    if info_file.nil?
+      fail ArgumentError, 'info_file cannot be nil'
+    end
+
+    if info_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "info_file", the character length must be great than or equal to 1.'
+    end
+
+    @info_file = info_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] manifest_file Value to be assigned
+  def manifest_file=(manifest_file)
+    if manifest_file.nil?
+      fail ArgumentError, 'manifest_file cannot be nil'
+    end
+
+    if manifest_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "manifest_file", the character length must be great than or equal to 1.'
+    end
+
+    @manifest_file = manifest_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] metadata_file Value to be assigned
+  def metadata_file=(metadata_file)
+    if metadata_file.nil?
+      fail ArgumentError, 'metadata_file cannot be nil'
+    end
+
+    if metadata_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "metadata_file", the character length must be great than or equal to 1.'
+    end
+
+    @metadata_file = metadata_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if !name.nil? && name.to_s.length > 200
+      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
+    end
+
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] package_file Value to be assigned
+  def package_file=(package_file)
+    if package_file.nil?
+      fail ArgumentError, 'package_file cannot be nil'
+    end
+
+    if package_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
+    end
+
+    @package_file = package_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tags Value to be assigned
+  def tags=(tags)
+    if !tags.nil? && tags.to_s.length > 1024
+      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
+    end
+
+    if !tags.nil? && tags.to_s.length < 1
+      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
+    end
+
+    @tags = tags
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] version Value to be assigned
+  def version=(version)
+    if !version.nil? && version.to_s.length > 128
+      fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
+    end
+
+    @version = version
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        conan_channel == o.conan_channel &&
+        conan_prefix == o.conan_prefix &&
+        info_file == o.info_file &&
+        manifest_file == o.manifest_file &&
+        metadata_file == o.metadata_file &&
+        name == o.name &&
+        package_file == o.package_file &&
+        republish == o.republish &&
+        tags == o.tags &&
+        version == o.version
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [conan_channel, conan_prefix, info_file, manifest_file, metadata_file, name, package_file, republish, tags, version].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -469,5 +478,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

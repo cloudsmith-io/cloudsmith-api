@@ -13,125 +13,127 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class WebhookTemplate
-    attr_accessor :event
+class WebhookTemplate
+  attr_accessor :event
 
-    attr_accessor :template
+  attr_accessor :template
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'event' => :'event',
-        :'template' => :'template'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'event' => :'event',
+      :'template' => :'template'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'event' => :'String',
+      :'template' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'event')
+      self.event = attributes[:'event']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'event' => :'String',
-        :'template' => :'String'
-      }
+    if attributes.has_key?(:'template')
+      self.template = attributes[:'template']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @event.nil?
+      invalid_properties.push('invalid value for "event", event cannot be nil.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'event')
-        self.event = attributes[:'event']
-      end
-
-      if attributes.has_key?(:'template')
-        self.template = attributes[:'template']
-      end
+    if @event.to_s.length > 128
+      invalid_properties.push('invalid value for "event", the character length must be smaller than or equal to 128.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @event.nil?
-        invalid_properties.push('invalid value for "event", event cannot be nil.')
-      end
-
-      if @event.to_s.length > 128
-        invalid_properties.push('invalid value for "event", the character length must be smaller than or equal to 128.')
-      end
-
-      if @event.to_s.length < 1
-        invalid_properties.push('invalid value for "event", the character length must be great than or equal to 1.')
-      end
-
-      if !@template.nil? && @template.to_s.length > 4096
-        invalid_properties.push('invalid value for "template", the character length must be smaller than or equal to 4096.')
-      end
-
-      invalid_properties
+    if @event.to_s.length < 1
+      invalid_properties.push('invalid value for "event", the character length must be great than or equal to 1.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @event.nil?
-      return false if @event.to_s.length > 128
-      return false if @event.to_s.length < 1
-      return false if !@template.nil? && @template.to_s.length > 4096
-      true
+
+    if !@template.nil? && @template.to_s.length > 4096
+      invalid_properties.push('invalid value for "template", the character length must be smaller than or equal to 4096.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] event Value to be assigned
-    def event=(event)
-      if event.nil?
-        fail ArgumentError, 'event cannot be nil'
-      end
 
-      if event.to_s.length > 128
-        fail ArgumentError, 'invalid value for "event", the character length must be smaller than or equal to 128.'
-      end
+    invalid_properties
+  end
 
-      if event.to_s.length < 1
-        fail ArgumentError, 'invalid value for "event", the character length must be great than or equal to 1.'
-      end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @event.nil?
+    return false if @event.to_s.length > 128
+    return false if @event.to_s.length < 1
+    return false if !@template.nil? && @template.to_s.length > 4096
+    true
+  end
 
-      @event = event
+  # Custom attribute writer method with validation
+  # @param [Object] event Value to be assigned
+  def event=(event)
+    if event.nil?
+      fail ArgumentError, 'event cannot be nil'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] template Value to be assigned
-    def template=(template)
-      if !template.nil? && template.to_s.length > 4096
-        fail ArgumentError, 'invalid value for "template", the character length must be smaller than or equal to 4096.'
-      end
-
-      @template = template
+    if event.to_s.length > 128
+      fail ArgumentError, 'invalid value for "event", the character length must be smaller than or equal to 128.'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          event == o.event &&
-          template == o.template
+    if event.to_s.length < 1
+      fail ArgumentError, 'invalid value for "event", the character length must be great than or equal to 1.'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    @event = event
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] template Value to be assigned
+  def template=(template)
+    if !template.nil? && template.to_s.length > 4096
+      fail ArgumentError, 'invalid value for "template", the character length must be smaller than or equal to 4096.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [event, template].hash
-    end
+    @template = template
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        event == o.event &&
+        template == o.template
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [event, template].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -237,5 +239,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

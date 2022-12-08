@@ -13,127 +13,129 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class StorageRegionResponse
-    # Name of the storage region
-    attr_accessor :label
+class StorageRegionResponse
+  # Name of the storage region
+  attr_accessor :label
 
-    # Slug for the storage region
-    attr_accessor :slug
+  # Slug for the storage region
+  attr_accessor :slug
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'label' => :'label',
-        :'slug' => :'slug'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'label' => :'label',
+      :'slug' => :'slug'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'label' => :'String',
+      :'slug' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'label')
+      self.label = attributes[:'label']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'label' => :'String',
-        :'slug' => :'String'
-      }
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @label.nil?
+      invalid_properties.push('invalid value for "label", label cannot be nil.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'label')
-        self.label = attributes[:'label']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
+    if @label.to_s.length < 1
+      invalid_properties.push('invalid value for "label", the character length must be great than or equal to 1.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @label.nil?
-        invalid_properties.push('invalid value for "label", label cannot be nil.')
-      end
 
-      if @label.to_s.length < 1
-        invalid_properties.push('invalid value for "label", the character length must be great than or equal to 1.')
-      end
-
-      if @slug.nil?
-        invalid_properties.push('invalid value for "slug", slug cannot be nil.')
-      end
-
-      if @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if @slug.nil?
+      invalid_properties.push('invalid value for "slug", slug cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @label.nil?
-      return false if @label.to_s.length < 1
-      return false if @slug.nil?
-      return false if @slug.to_s.length < 1
-      true
+    if @slug.to_s.length < 1
+      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] label Value to be assigned
-    def label=(label)
-      if label.nil?
-        fail ArgumentError, 'label cannot be nil'
-      end
 
-      if label.to_s.length < 1
-        fail ArgumentError, 'invalid value for "label", the character length must be great than or equal to 1.'
-      end
+    invalid_properties
+  end
 
-      @label = label
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @label.nil?
+    return false if @label.to_s.length < 1
+    return false if @slug.nil?
+    return false if @slug.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] label Value to be assigned
+  def label=(label)
+    if label.nil?
+      fail ArgumentError, 'label cannot be nil'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if slug.nil?
-        fail ArgumentError, 'slug cannot be nil'
-      end
-
-      if slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-      end
-
-      @slug = slug
+    if label.to_s.length < 1
+      fail ArgumentError, 'invalid value for "label", the character length must be great than or equal to 1.'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          label == o.label &&
-          slug == o.slug
+    @label = label
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] slug Value to be assigned
+  def slug=(slug)
+    if slug.nil?
+      fail ArgumentError, 'slug cannot be nil'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if slug.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [label, slug].hash
-    end
+    @slug = slug
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        label == o.label &&
+        slug == o.slug
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [label, slug].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -239,5 +241,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

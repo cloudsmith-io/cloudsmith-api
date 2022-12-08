@@ -13,93 +13,94 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class RepositoryTokenSyncRequest
-    # The source repository slug (in the same owner namespace).
-    attr_accessor :source
+class RepositoryTokenSyncRequest
+  # The source repository slug (in the same owner namespace).
+  attr_accessor :source
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'source' => :'source'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'source' => :'source'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'source' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'source')
+      self.source = attributes[:'source']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @source.nil?
+      invalid_properties.push('invalid value for "source", source cannot be nil.')
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'source' => :'String'
-      }
+    if @source.to_s.length < 1
+      invalid_properties.push('invalid value for "source", the character length must be great than or equal to 1.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+    invalid_properties
+  end
 
-      if attributes.has_key?(:'source')
-        self.source = attributes[:'source']
-      end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @source.nil?
+    return false if @source.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] source Value to be assigned
+  def source=(source)
+    if source.nil?
+      fail ArgumentError, 'source cannot be nil'
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @source.nil?
-        invalid_properties.push('invalid value for "source", source cannot be nil.')
-      end
-
-      if @source.to_s.length < 1
-        invalid_properties.push('invalid value for "source", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if source.to_s.length < 1
+      fail ArgumentError, 'invalid value for "source", the character length must be great than or equal to 1.'
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @source.nil?
-      return false if @source.to_s.length < 1
-      true
-    end
+    @source = source
+  end
 
-    # Custom attribute writer method with validation
-    # @param [Object] source Value to be assigned
-    def source=(source)
-      if source.nil?
-        fail ArgumentError, 'source cannot be nil'
-      end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        source == o.source
+  end
 
-      if source.to_s.length < 1
-        fail ArgumentError, 'invalid value for "source", the character length must be great than or equal to 1.'
-      end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-      @source = source
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          source == o.source
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [source].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [source].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -205,5 +206,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

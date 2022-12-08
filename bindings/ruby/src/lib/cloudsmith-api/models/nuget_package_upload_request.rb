@@ -13,162 +13,165 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class NugetPackageUploadRequest
-    # The primary file for the package.
-    attr_accessor :package_file
+class NugetPackageUploadRequest
+  # The primary file for the package.
+  attr_accessor :package_file
 
-    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-    attr_accessor :republish
+  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+  attr_accessor :republish
 
-    # Attaches a symbols file to the package.
-    attr_accessor :symbols_file
+  # Attaches a symbols file to the package.
+  attr_accessor :symbols_file
 
-    # A comma-separated values list of tags to add to the package.
-    attr_accessor :tags
+  # A comma-separated values list of tags to add to the package.
+  attr_accessor :tags
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'package_file' => :'package_file',
-        :'republish' => :'republish',
-        :'symbols_file' => :'symbols_file',
-        :'tags' => :'tags'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'package_file' => :'package_file',
+      :'republish' => :'republish',
+      :'symbols_file' => :'symbols_file',
+      :'tags' => :'tags'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'package_file' => :'String',
+      :'republish' => :'BOOLEAN',
+      :'symbols_file' => :'String',
+      :'tags' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'package_file')
+      self.package_file = attributes[:'package_file']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'package_file' => :'String',
-        :'republish' => :'BOOLEAN',
-        :'symbols_file' => :'String',
-        :'tags' => :'String'
-      }
+    if attributes.has_key?(:'republish')
+      self.republish = attributes[:'republish']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'package_file')
-        self.package_file = attributes[:'package_file']
-      end
-
-      if attributes.has_key?(:'republish')
-        self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'symbols_file')
-        self.symbols_file = attributes[:'symbols_file']
-      end
-
-      if attributes.has_key?(:'tags')
-        self.tags = attributes[:'tags']
-      end
+    if attributes.has_key?(:'symbols_file')
+      self.symbols_file = attributes[:'symbols_file']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @package_file.nil?
-        invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-      end
+    if attributes.has_key?(:'tags')
+      self.tags = attributes[:'tags']
+    end
+  end
 
-      if @package_file.to_s.length < 1
-        invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@symbols_file.nil? && @symbols_file.to_s.length < 1
-        invalid_properties.push('invalid value for "symbols_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length > 1024
-        invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length < 1
-        invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @package_file.nil?
+      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @package_file.nil?
-      return false if @package_file.to_s.length < 1
-      return false if !@symbols_file.nil? && @symbols_file.to_s.length < 1
-      return false if !@tags.nil? && @tags.to_s.length > 1024
-      return false if !@tags.nil? && @tags.to_s.length < 1
-      true
+    if @package_file.to_s.length < 1
+      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] package_file Value to be assigned
-    def package_file=(package_file)
-      if package_file.nil?
-        fail ArgumentError, 'package_file cannot be nil'
-      end
 
-      if package_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-      end
-
-      @package_file = package_file
+    if !@symbols_file.nil? && @symbols_file.to_s.length < 1
+      invalid_properties.push('invalid value for "symbols_file", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] symbols_file Value to be assigned
-    def symbols_file=(symbols_file)
-      if !symbols_file.nil? && symbols_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "symbols_file", the character length must be great than or equal to 1.'
-      end
 
-      @symbols_file = symbols_file
+    if !@tags.nil? && @tags.to_s.length > 1024
+      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tags Value to be assigned
-    def tags=(tags)
-      if !tags.nil? && tags.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-      end
-
-      if !tags.nil? && tags.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-      end
-
-      @tags = tags
+    if !@tags.nil? && @tags.to_s.length < 1
+      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          package_file == o.package_file &&
-          republish == o.republish &&
-          symbols_file == o.symbols_file &&
-          tags == o.tags
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @package_file.nil?
+    return false if @package_file.to_s.length < 1
+    return false if !@symbols_file.nil? && @symbols_file.to_s.length < 1
+    return false if !@tags.nil? && @tags.to_s.length > 1024
+    return false if !@tags.nil? && @tags.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] package_file Value to be assigned
+  def package_file=(package_file)
+    if package_file.nil?
+      fail ArgumentError, 'package_file cannot be nil'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if package_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [package_file, republish, symbols_file, tags].hash
+    @package_file = package_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] symbols_file Value to be assigned
+  def symbols_file=(symbols_file)
+    if !symbols_file.nil? && symbols_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "symbols_file", the character length must be great than or equal to 1.'
     end
+
+    @symbols_file = symbols_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tags Value to be assigned
+  def tags=(tags)
+    if !tags.nil? && tags.to_s.length > 1024
+      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
+    end
+
+    if !tags.nil? && tags.to_s.length < 1
+      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
+    end
+
+    @tags = tags
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        package_file == o.package_file &&
+        republish == o.republish &&
+        symbols_file == o.symbols_file &&
+        tags == o.tags
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [package_file, republish, symbols_file, tags].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -274,5 +277,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

@@ -13,194 +13,198 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class OrganizationResponse
-    attr_accessor :country
+class OrganizationResponse
+  attr_accessor :country
 
-    attr_accessor :created_at
+  attr_accessor :created_at
 
-    # The city/town/area your organization is based in.
-    attr_accessor :location
+  # The city/town/area your organization is based in.
+  attr_accessor :location
 
-    # A descriptive name for your organization.
-    attr_accessor :name
+  # A descriptive name for your organization.
+  attr_accessor :name
 
-    attr_accessor :slug
+  attr_accessor :slug
 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # A short public descriptive for your organization.
-    attr_accessor :tagline
+  # A short public descriptive for your organization.
+  attr_accessor :tagline
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'country' => :'country',
-        :'created_at' => :'created_at',
-        :'location' => :'location',
-        :'name' => :'name',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm',
-        :'tagline' => :'tagline'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'country' => :'country',
+      :'created_at' => :'created_at',
+      :'location' => :'location',
+      :'name' => :'name',
+      :'slug' => :'slug',
+      :'slug_perm' => :'slug_perm',
+      :'tagline' => :'tagline'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'country' => :'String',
+      :'created_at' => :'DateTime',
+      :'location' => :'String',
+      :'name' => :'String',
+      :'slug' => :'String',
+      :'slug_perm' => :'String',
+      :'tagline' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'country')
+      self.country = attributes[:'country']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'country' => :'String',
-        :'created_at' => :'DateTime',
-        :'location' => :'String',
-        :'name' => :'String',
-        :'slug' => :'String',
-        :'slug_perm' => :'String',
-        :'tagline' => :'String'
-      }
+    if attributes.has_key?(:'created_at')
+      self.created_at = attributes[:'created_at']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'country')
-        self.country = attributes[:'country']
-      end
-
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'location')
-        self.location = attributes[:'location']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'tagline')
-        self.tagline = attributes[:'tagline']
-      end
+    if attributes.has_key?(:'location')
+      self.location = attributes[:'location']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@country.nil? && @country.to_s.length > 32
-        invalid_properties.push('invalid value for "country", the character length must be smaller than or equal to 32.')
-      end
-
-      if !@country.nil? && @country.to_s.length < 1
-        invalid_properties.push('invalid value for "country", the character length must be great than or equal to 1.')
-      end
-
-      if !@location.nil? && @location.to_s.length < 1
-        invalid_properties.push('invalid value for "location", the character length must be great than or equal to 1.')
-      end
-
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-      end
-
-      if !@tagline.nil? && @tagline.to_s.length < 1
-        invalid_properties.push('invalid value for "tagline", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@country.nil? && @country.to_s.length > 32
-      return false if !@country.nil? && @country.to_s.length < 1
-      return false if !@location.nil? && @location.to_s.length < 1
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@tagline.nil? && @tagline.to_s.length < 1
-      true
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] country Value to be assigned
-    def country=(country)
-      if !country.nil? && country.to_s.length > 32
-        fail ArgumentError, 'invalid value for "country", the character length must be smaller than or equal to 32.'
-      end
-
-      if !country.nil? && country.to_s.length < 1
-        fail ArgumentError, 'invalid value for "country", the character length must be great than or equal to 1.'
-      end
-
-      @country = country
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] location Value to be assigned
-    def location=(location)
-      if !location.nil? && location.to_s.length < 1
-        fail ArgumentError, 'invalid value for "location", the character length must be great than or equal to 1.'
-      end
+    if attributes.has_key?(:'tagline')
+      self.tagline = attributes[:'tagline']
+    end
+  end
 
-      @location = location
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@country.nil? && @country.to_s.length > 32
+      invalid_properties.push('invalid value for "country", the character length must be smaller than or equal to 32.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if !name.nil? && name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-      end
-
-      @name = name
+    if !@country.nil? && @country.to_s.length < 1
+      invalid_properties.push('invalid value for "country", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tagline Value to be assigned
-    def tagline=(tagline)
-      if !tagline.nil? && tagline.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tagline", the character length must be great than or equal to 1.'
-      end
 
-      @tagline = tagline
+    if !@location.nil? && @location.to_s.length < 1
+      invalid_properties.push('invalid value for "location", the character length must be great than or equal to 1.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          country == o.country &&
-          created_at == o.created_at &&
-          location == o.location &&
-          name == o.name &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm &&
-          tagline == o.tagline
+
+    if !@name.nil? && @name.to_s.length < 1
+      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if !@tagline.nil? && @tagline.to_s.length < 1
+      invalid_properties.push('invalid value for "tagline", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [country, created_at, location, name, slug, slug_perm, tagline].hash
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@country.nil? && @country.to_s.length > 32
+    return false if !@country.nil? && @country.to_s.length < 1
+    return false if !@location.nil? && @location.to_s.length < 1
+    return false if !@name.nil? && @name.to_s.length < 1
+    return false if !@tagline.nil? && @tagline.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] country Value to be assigned
+  def country=(country)
+    if !country.nil? && country.to_s.length > 32
+      fail ArgumentError, 'invalid value for "country", the character length must be smaller than or equal to 32.'
     end
+
+    if !country.nil? && country.to_s.length < 1
+      fail ArgumentError, 'invalid value for "country", the character length must be great than or equal to 1.'
+    end
+
+    @country = country
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] location Value to be assigned
+  def location=(location)
+    if !location.nil? && location.to_s.length < 1
+      fail ArgumentError, 'invalid value for "location", the character length must be great than or equal to 1.'
+    end
+
+    @location = location
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if !name.nil? && name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+    end
+
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tagline Value to be assigned
+  def tagline=(tagline)
+    if !tagline.nil? && tagline.to_s.length < 1
+      fail ArgumentError, 'invalid value for "tagline", the character length must be great than or equal to 1.'
+    end
+
+    @tagline = tagline
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        country == o.country &&
+        created_at == o.created_at &&
+        location == o.location &&
+        name == o.name &&
+        slug == o.slug &&
+        slug_perm == o.slug_perm &&
+        tagline == o.tagline
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [country, created_at, location, name, slug, slug_perm, tagline].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -306,5 +310,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

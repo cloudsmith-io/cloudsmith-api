@@ -13,134 +13,135 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class RateCheck
-    # The time in seconds that you are suggested to wait until the next request in order to avoid consuming too much within the rate limit window.
-    attr_accessor :interval
+class RateCheck
+  # The time in seconds that you are suggested to wait until the next request in order to avoid consuming too much within the rate limit window.
+  attr_accessor :interval
 
-    # The maximum number of requests that you are permitted to send per hour
-    attr_accessor :limit
+  # The maximum number of requests that you are permitted to send per hour
+  attr_accessor :limit
 
-    # The number of requests that are remaining in the current rate limit window
-    attr_accessor :remaining
+  # The number of requests that are remaining in the current rate limit window
+  attr_accessor :remaining
 
-    # The UTC epoch timestamp at which the current rate limit window will reset
-    attr_accessor :reset
+  # The UTC epoch timestamp at which the current rate limit window will reset
+  attr_accessor :reset
 
-    # The ISO 8601 datetime at which the current rate limit window will reset
-    attr_accessor :reset_iso_8601
+  # The ISO 8601 datetime at which the current rate limit window will reset
+  attr_accessor :reset_iso_8601
 
-    # If true, throttling is currently being enforced.
-    attr_accessor :throttled
+  # If true, throttling is currently being enforced.
+  attr_accessor :throttled
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'interval' => :'interval',
-        :'limit' => :'limit',
-        :'remaining' => :'remaining',
-        :'reset' => :'reset',
-        :'reset_iso_8601' => :'reset_iso_8601',
-        :'throttled' => :'throttled'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'interval' => :'interval',
+      :'limit' => :'limit',
+      :'remaining' => :'remaining',
+      :'reset' => :'reset',
+      :'reset_iso_8601' => :'reset_iso_8601',
+      :'throttled' => :'throttled'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'interval' => :'Float',
+      :'limit' => :'Integer',
+      :'remaining' => :'Integer',
+      :'reset' => :'Integer',
+      :'reset_iso_8601' => :'String',
+      :'throttled' => :'BOOLEAN'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'interval')
+      self.interval = attributes[:'interval']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'interval' => :'Float',
-        :'limit' => :'Integer',
-        :'remaining' => :'Integer',
-        :'reset' => :'Integer',
-        :'reset_iso_8601' => :'String',
-        :'throttled' => :'BOOLEAN'
-      }
+    if attributes.has_key?(:'limit')
+      self.limit = attributes[:'limit']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'interval')
-        self.interval = attributes[:'interval']
-      end
-
-      if attributes.has_key?(:'limit')
-        self.limit = attributes[:'limit']
-      end
-
-      if attributes.has_key?(:'remaining')
-        self.remaining = attributes[:'remaining']
-      end
-
-      if attributes.has_key?(:'reset')
-        self.reset = attributes[:'reset']
-      end
-
-      if attributes.has_key?(:'reset_iso_8601')
-        self.reset_iso_8601 = attributes[:'reset_iso_8601']
-      end
-
-      if attributes.has_key?(:'throttled')
-        self.throttled = attributes[:'throttled']
-      end
+    if attributes.has_key?(:'remaining')
+      self.remaining = attributes[:'remaining']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@reset_iso_8601.nil? && @reset_iso_8601.to_s.length < 1
-        invalid_properties.push('invalid value for "reset_iso_8601", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'reset')
+      self.reset = attributes[:'reset']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@reset_iso_8601.nil? && @reset_iso_8601.to_s.length < 1
-      true
+    if attributes.has_key?(:'reset_iso_8601')
+      self.reset_iso_8601 = attributes[:'reset_iso_8601']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] reset_iso_8601 Value to be assigned
-    def reset_iso_8601=(reset_iso_8601)
-      if !reset_iso_8601.nil? && reset_iso_8601.to_s.length < 1
-        fail ArgumentError, 'invalid value for "reset_iso_8601", the character length must be great than or equal to 1.'
-      end
+    if attributes.has_key?(:'throttled')
+      self.throttled = attributes[:'throttled']
+    end
+  end
 
-      @reset_iso_8601 = reset_iso_8601
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@reset_iso_8601.nil? && @reset_iso_8601.to_s.length < 1
+      invalid_properties.push('invalid value for "reset_iso_8601", the character length must be great than or equal to 1.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          interval == o.interval &&
-          limit == o.limit &&
-          remaining == o.remaining &&
-          reset == o.reset &&
-          reset_iso_8601 == o.reset_iso_8601 &&
-          throttled == o.throttled
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@reset_iso_8601.nil? && @reset_iso_8601.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] reset_iso_8601 Value to be assigned
+  def reset_iso_8601=(reset_iso_8601)
+    if !reset_iso_8601.nil? && reset_iso_8601.to_s.length < 1
+      fail ArgumentError, 'invalid value for "reset_iso_8601", the character length must be great than or equal to 1.'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+    @reset_iso_8601 = reset_iso_8601
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [interval, limit, remaining, reset, reset_iso_8601, throttled].hash
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        interval == o.interval &&
+        limit == o.limit &&
+        remaining == o.remaining &&
+        reset == o.reset &&
+        reset_iso_8601 == o.reset_iso_8601 &&
+        throttled == o.throttled
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [interval, limit, remaining, reset, reset_iso_8601, throttled].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -246,5 +247,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

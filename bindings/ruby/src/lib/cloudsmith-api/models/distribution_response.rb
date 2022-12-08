@@ -13,204 +13,208 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class DistributionResponse
-    attr_accessor :format
+class DistributionResponse
+  attr_accessor :format
 
-    attr_accessor :format_url
+  attr_accessor :format_url
 
-    attr_accessor :name
+  attr_accessor :name
 
-    attr_accessor :self_url
+  attr_accessor :self_url
 
-    # The slug identifier for this distribution
-    attr_accessor :slug
+  # The slug identifier for this distribution
+  attr_accessor :slug
 
-    attr_accessor :variants
+  attr_accessor :variants
 
-    # A list of the versions for this distribution
-    attr_accessor :versions
+  # A list of the versions for this distribution
+  attr_accessor :versions
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'format' => :'format',
-        :'format_url' => :'format_url',
-        :'name' => :'name',
-        :'self_url' => :'self_url',
-        :'slug' => :'slug',
-        :'variants' => :'variants',
-        :'versions' => :'versions'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'format' => :'format',
+      :'format_url' => :'format_url',
+      :'name' => :'name',
+      :'self_url' => :'self_url',
+      :'slug' => :'slug',
+      :'variants' => :'variants',
+      :'versions' => :'versions'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'format' => :'String',
+      :'format_url' => :'String',
+      :'name' => :'String',
+      :'self_url' => :'String',
+      :'slug' => :'String',
+      :'variants' => :'String',
+      :'versions' => :'Array<DistributionVersion>'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'format')
+      self.format = attributes[:'format']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'format' => :'String',
-        :'format_url' => :'String',
-        :'name' => :'String',
-        :'self_url' => :'String',
-        :'slug' => :'String',
-        :'variants' => :'String',
-        :'versions' => :'Array<DistributionVersion>'
-      }
+    if attributes.has_key?(:'format_url')
+      self.format_url = attributes[:'format_url']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'format')
-        self.format = attributes[:'format']
-      end
-
-      if attributes.has_key?(:'format_url')
-        self.format_url = attributes[:'format_url']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'variants')
-        self.variants = attributes[:'variants']
-      end
-
-      if attributes.has_key?(:'versions')
-        if (value = attributes[:'versions']).is_a?(Array)
-          self.versions = value
-        end
-      end
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@format.nil? && @format.to_s.length < 1
-        invalid_properties.push('invalid value for "format", the character length must be great than or equal to 1.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 32
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 32.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-      end
-
-      if !@slug.nil? && @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-      end
-
-      if !@variants.nil? && @variants.to_s.length > 128
-        invalid_properties.push('invalid value for "variants", the character length must be smaller than or equal to 128.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'self_url')
+      self.self_url = attributes[:'self_url']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@format.nil? && @format.to_s.length < 1
-      return false if @name.nil?
-      return false if @name.to_s.length > 32
-      return false if @name.to_s.length < 1
-      return false if !@slug.nil? && @slug.to_s.length < 1
-      return false if !@variants.nil? && @variants.to_s.length > 128
-      true
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] format Value to be assigned
-    def format=(format)
-      if !format.nil? && format.to_s.length < 1
-        fail ArgumentError, 'invalid value for "format", the character length must be great than or equal to 1.'
+    if attributes.has_key?(:'variants')
+      self.variants = attributes[:'variants']
+    end
+
+    if attributes.has_key?(:'versions')
+      if (value = attributes[:'versions']).is_a?(Array)
+        self.versions = value
       end
+    end
+  end
 
-      @format = format
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@format.nil? && @format.to_s.length < 1
+      invalid_properties.push('invalid value for "format", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
 
-      if name.to_s.length > 32
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 32.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-      end
-
-      @name = name
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if !slug.nil? && slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-      end
-
-      @slug = slug
+    if @name.to_s.length > 32
+      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 32.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] variants Value to be assigned
-    def variants=(variants)
-      if !variants.nil? && variants.to_s.length > 128
-        fail ArgumentError, 'invalid value for "variants", the character length must be smaller than or equal to 128.'
-      end
-
-      @variants = variants
+    if @name.to_s.length < 1
+      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          format == o.format &&
-          format_url == o.format_url &&
-          name == o.name &&
-          self_url == o.self_url &&
-          slug == o.slug &&
-          variants == o.variants &&
-          versions == o.versions
+
+    if !@slug.nil? && @slug.to_s.length < 1
+      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if !@variants.nil? && @variants.to_s.length > 128
+      invalid_properties.push('invalid value for "variants", the character length must be smaller than or equal to 128.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [format, format_url, name, self_url, slug, variants, versions].hash
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@format.nil? && @format.to_s.length < 1
+    return false if @name.nil?
+    return false if @name.to_s.length > 32
+    return false if @name.to_s.length < 1
+    return false if !@slug.nil? && @slug.to_s.length < 1
+    return false if !@variants.nil? && @variants.to_s.length > 128
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] format Value to be assigned
+  def format=(format)
+    if !format.nil? && format.to_s.length < 1
+      fail ArgumentError, 'invalid value for "format", the character length must be great than or equal to 1.'
     end
+
+    @format = format
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if name.nil?
+      fail ArgumentError, 'name cannot be nil'
+    end
+
+    if name.to_s.length > 32
+      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 32.'
+    end
+
+    if name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+    end
+
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] slug Value to be assigned
+  def slug=(slug)
+    if !slug.nil? && slug.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
+    end
+
+    @slug = slug
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] variants Value to be assigned
+  def variants=(variants)
+    if !variants.nil? && variants.to_s.length > 128
+      fail ArgumentError, 'invalid value for "variants", the character length must be smaller than or equal to 128.'
+    end
+
+    @variants = variants
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        format == o.format &&
+        format_url == o.format_url &&
+        name == o.name &&
+        self_url == o.self_url &&
+        slug == o.slug &&
+        variants == o.variants &&
+        versions == o.versions
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [format, format_url, name, self_url, slug, variants, versions].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -316,5 +320,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

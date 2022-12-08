@@ -13,73 +13,73 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class EntitlementUsageMetricsResponse
-    attr_accessor :tokens
+class EntitlementUsageMetricsResponse
+  attr_accessor :tokens
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'tokens' => :'tokens'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'tokens' => :'tokens'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'tokens' => :'CommonMetrics'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'tokens')
+      self.tokens = attributes[:'tokens']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @tokens.nil?
+      invalid_properties.push('invalid value for "tokens", tokens cannot be nil.')
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'tokens' => :'CommonMetrics'
-      }
-    end
+    invalid_properties
+  end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @tokens.nil?
+    true
+  end
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        tokens == o.tokens
+  end
 
-      if attributes.has_key?(:'tokens')
-        self.tokens = attributes[:'tokens']
-      end
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @tokens.nil?
-        invalid_properties.push('invalid value for "tokens", tokens cannot be nil.')
-      end
-
-      invalid_properties
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @tokens.nil?
-      true
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          tokens == o.tokens
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [tokens].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [tokens].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -185,5 +185,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

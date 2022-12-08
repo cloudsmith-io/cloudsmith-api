@@ -13,141 +13,143 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class CommonBandwidthMetricsValue
-    attr_accessor :display
+class CommonBandwidthMetricsValue
+  attr_accessor :display
 
-    attr_accessor :units
+  attr_accessor :units
 
-    attr_accessor :value
+  attr_accessor :value
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'display' => :'display',
-        :'units' => :'units',
-        :'value' => :'value'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'display' => :'display',
+      :'units' => :'units',
+      :'value' => :'value'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'display' => :'String',
+      :'units' => :'String',
+      :'value' => :'Integer'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'display')
+      self.display = attributes[:'display']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'display' => :'String',
-        :'units' => :'String',
-        :'value' => :'Integer'
-      }
+    if attributes.has_key?(:'units')
+      self.units = attributes[:'units']
+    else
+      self.units = 'bytes'
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
+    if attributes.has_key?(:'value')
+      self.value = attributes[:'value']
+    end
+  end
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'display')
-        self.display = attributes[:'display']
-      end
-
-      if attributes.has_key?(:'units')
-        self.units = attributes[:'units']
-      else
-        self.units = 'bytes'
-      end
-
-      if attributes.has_key?(:'value')
-        self.value = attributes[:'value']
-      end
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @display.nil?
+      invalid_properties.push('invalid value for "display", display cannot be nil.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @display.nil?
-        invalid_properties.push('invalid value for "display", display cannot be nil.')
-      end
-
-      if @display.to_s.length > 64
-        invalid_properties.push('invalid value for "display", the character length must be smaller than or equal to 64.')
-      end
-
-      if @display.to_s.length < 1
-        invalid_properties.push('invalid value for "display", the character length must be great than or equal to 1.')
-      end
-
-      if !@units.nil? && @units.to_s.length < 1
-        invalid_properties.push('invalid value for "units", the character length must be great than or equal to 1.')
-      end
-
-      if @value.nil?
-        invalid_properties.push('invalid value for "value", value cannot be nil.')
-      end
-
-      invalid_properties
+    if @display.to_s.length > 64
+      invalid_properties.push('invalid value for "display", the character length must be smaller than or equal to 64.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @display.nil?
-      return false if @display.to_s.length > 64
-      return false if @display.to_s.length < 1
-      return false if !@units.nil? && @units.to_s.length < 1
-      return false if @value.nil?
-      true
+    if @display.to_s.length < 1
+      invalid_properties.push('invalid value for "display", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] display Value to be assigned
-    def display=(display)
-      if display.nil?
-        fail ArgumentError, 'display cannot be nil'
-      end
 
-      if display.to_s.length > 64
-        fail ArgumentError, 'invalid value for "display", the character length must be smaller than or equal to 64.'
-      end
-
-      if display.to_s.length < 1
-        fail ArgumentError, 'invalid value for "display", the character length must be great than or equal to 1.'
-      end
-
-      @display = display
+    if !@units.nil? && @units.to_s.length < 1
+      invalid_properties.push('invalid value for "units", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] units Value to be assigned
-    def units=(units)
-      if !units.nil? && units.to_s.length < 1
-        fail ArgumentError, 'invalid value for "units", the character length must be great than or equal to 1.'
-      end
 
-      @units = units
+    if @value.nil?
+      invalid_properties.push('invalid value for "value", value cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          display == o.display &&
-          units == o.units &&
-          value == o.value
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @display.nil?
+    return false if @display.to_s.length > 64
+    return false if @display.to_s.length < 1
+    return false if !@units.nil? && @units.to_s.length < 1
+    return false if @value.nil?
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] display Value to be assigned
+  def display=(display)
+    if display.nil?
+      fail ArgumentError, 'display cannot be nil'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if display.to_s.length > 64
+      fail ArgumentError, 'invalid value for "display", the character length must be smaller than or equal to 64.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [display, units, value].hash
+    if display.to_s.length < 1
+      fail ArgumentError, 'invalid value for "display", the character length must be great than or equal to 1.'
     end
+
+    @display = display
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] units Value to be assigned
+  def units=(units)
+    if !units.nil? && units.to_s.length < 1
+      fail ArgumentError, 'invalid value for "units", the character length must be great than or equal to 1.'
+    end
+
+    @units = units
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        display == o.display &&
+        units == o.units &&
+        value == o.value
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [display, units, value].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -253,5 +255,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

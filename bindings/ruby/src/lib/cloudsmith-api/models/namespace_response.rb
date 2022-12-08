@@ -13,143 +13,127 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class NamespaceResponse
-    attr_accessor :name
+class NamespaceResponse
+  attr_accessor :name
 
-    attr_accessor :slug
+  attr_accessor :slug
 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    attr_accessor :type_name
+  attr_accessor :type_name
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'name' => :'name',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm',
-        :'type_name' => :'type_name'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'name' => :'name',
+      :'slug' => :'slug',
+      :'slug_perm' => :'slug_perm',
+      :'type_name' => :'type_name'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'name' => :'String',
+      :'slug' => :'String',
+      :'slug_perm' => :'String',
+      :'type_name' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'name' => :'String',
-        :'slug' => :'String',
-        :'slug_perm' => :'String',
-        :'type_name' => :'String'
-      }
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'type_name')
-        self.type_name = attributes[:'type_name']
-      end
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@slug.nil? && @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-      end
+    if attributes.has_key?(:'type_name')
+      self.type_name = attributes[:'type_name']
+    end
+  end
 
-      if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "slug", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "slug_perm", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@slug.nil? && @slug.to_s.length < 1
+      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@slug.nil? && @slug.to_s.length < 1
-      return false if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      true
+
+    if !@slug_perm.nil? && @slug_perm.to_s.length < 1
+      invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if !slug.nil? && slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-      end
 
-      if !slug.nil? && slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "slug", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
+    invalid_properties
+  end
 
-      @slug = slug
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@slug.nil? && @slug.to_s.length < 1
+    return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] slug Value to be assigned
+  def slug=(slug)
+    if !slug.nil? && slug.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if !slug_perm.nil? && slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
-      end
+    @slug = slug
+  end
 
-      if !slug_perm.nil? && slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "slug_perm", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
-
-      @slug_perm = slug_perm
+  # Custom attribute writer method with validation
+  # @param [Object] slug_perm Value to be assigned
+  def slug_perm=(slug_perm)
+    if !slug_perm.nil? && slug_perm.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          name == o.name &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm &&
-          type_name == o.type_name
-    end
+    @slug_perm = slug_perm
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        name == o.name &&
+        slug == o.slug &&
+        slug_perm == o.slug_perm &&
+        type_name == o.type_name
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [name, slug, slug_perm, type_name].hash
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [name, slug, slug_perm, type_name].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -255,5 +239,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

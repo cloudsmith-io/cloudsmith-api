@@ -13,176 +13,152 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class RepositoryPrivilegeDict
-    # The level of privilege that the user or team should be granted to the specified repository.
-    attr_accessor :privilege
+class RepositoryPrivilegeDict
+  # The level of privilege that the user or team should be granted to the specified repository.
+  attr_accessor :privilege
 
-    # The service identifier (slug).
-    attr_accessor :service
+  # The service identifier (slug).
+  attr_accessor :service
 
-    # The team identifier (slug).
-    attr_accessor :team
+  # The team identifier (slug).
+  attr_accessor :team
 
-    # The user identifier (slug).
-    attr_accessor :user
+  # The user identifier (slug).
+  attr_accessor :user
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'privilege' => :'privilege',
-        :'service' => :'service',
-        :'team' => :'team',
-        :'user' => :'user'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'privilege' => :'privilege',
+      :'service' => :'service',
+      :'team' => :'team',
+      :'user' => :'user'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'privilege' => :'String',
+      :'service' => :'String',
+      :'team' => :'String',
+      :'user' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'privilege')
+      self.privilege = attributes[:'privilege']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'privilege' => :'String',
-        :'service' => :'String',
-        :'team' => :'String',
-        :'user' => :'String'
-      }
+    if attributes.has_key?(:'service')
+      self.service = attributes[:'service']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'privilege')
-        self.privilege = attributes[:'privilege']
-      end
-
-      if attributes.has_key?(:'service')
-        self.service = attributes[:'service']
-      end
-
-      if attributes.has_key?(:'team')
-        self.team = attributes[:'team']
-      end
-
-      if attributes.has_key?(:'user')
-        self.user = attributes[:'user']
-      end
+    if attributes.has_key?(:'team')
+      self.team = attributes[:'team']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @privilege.nil?
-        invalid_properties.push('invalid value for "privilege", privilege cannot be nil.')
-      end
+    if attributes.has_key?(:'user')
+      self.user = attributes[:'user']
+    end
+  end
 
-      if !@service.nil? && @service.to_s.length < 1
-        invalid_properties.push('invalid value for "service", the character length must be great than or equal to 1.')
-      end
-
-      if !@service.nil? && @service !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "service", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      if !@team.nil? && @team.to_s.length < 1
-        invalid_properties.push('invalid value for "team", the character length must be great than or equal to 1.')
-      end
-
-      if !@team.nil? && @team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "team", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      if !@user.nil? && @user.to_s.length < 1
-        invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
-      end
-
-      if !@user.nil? && @user !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "user", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @privilege.nil?
+      invalid_properties.push('invalid value for "privilege", privilege cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @privilege.nil?
-      return false if !@service.nil? && @service.to_s.length < 1
-      return false if !@service.nil? && @service !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@team.nil? && @team.to_s.length < 1
-      return false if !@team.nil? && @team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@user.nil? && @user.to_s.length < 1
-      return false if !@user.nil? && @user !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      true
+    if !@service.nil? && @service.to_s.length < 1
+      invalid_properties.push('invalid value for "service", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] service Value to be assigned
-    def service=(service)
-      if !service.nil? && service.to_s.length < 1
-        fail ArgumentError, 'invalid value for "service", the character length must be great than or equal to 1.'
-      end
 
-      if !service.nil? && service !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "service", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
-
-      @service = service
+    if !@team.nil? && @team.to_s.length < 1
+      invalid_properties.push('invalid value for "team", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] team Value to be assigned
-    def team=(team)
-      if !team.nil? && team.to_s.length < 1
-        fail ArgumentError, 'invalid value for "team", the character length must be great than or equal to 1.'
-      end
 
-      if !team.nil? && team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "team", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
-
-      @team = team
+    if !@user.nil? && @user.to_s.length < 1
+      invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] user Value to be assigned
-    def user=(user)
-      if !user.nil? && user.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
-      end
 
-      if !user.nil? && user !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "user", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
+    invalid_properties
+  end
 
-      @user = user
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @privilege.nil?
+    return false if !@service.nil? && @service.to_s.length < 1
+    return false if !@team.nil? && @team.to_s.length < 1
+    return false if !@user.nil? && @user.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] service Value to be assigned
+  def service=(service)
+    if !service.nil? && service.to_s.length < 1
+      fail ArgumentError, 'invalid value for "service", the character length must be great than or equal to 1.'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          privilege == o.privilege &&
-          service == o.service &&
-          team == o.team &&
-          user == o.user
+    @service = service
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] team Value to be assigned
+  def team=(team)
+    if !team.nil? && team.to_s.length < 1
+      fail ArgumentError, 'invalid value for "team", the character length must be great than or equal to 1.'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    @team = team
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] user Value to be assigned
+  def user=(user)
+    if !user.nil? && user.to_s.length < 1
+      fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [privilege, service, team, user].hash
-    end
+    @user = user
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        privilege == o.privilege &&
+        service == o.service &&
+        team == o.team &&
+        user == o.user
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [privilege, service, team, user].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -288,5 +264,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

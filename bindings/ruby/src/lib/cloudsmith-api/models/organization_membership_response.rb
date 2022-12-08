@@ -13,224 +13,228 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class OrganizationMembershipResponse
-    attr_accessor :email
+class OrganizationMembershipResponse
+  attr_accessor :email
 
-    attr_accessor :has_two_factor
+  attr_accessor :has_two_factor
 
-    attr_accessor :joined_at
+  attr_accessor :joined_at
 
-    attr_accessor :last_login_at
+  attr_accessor :last_login_at
 
-    attr_accessor :last_login_method
+  attr_accessor :last_login_method
 
-    attr_accessor :role
+  attr_accessor :role
 
-    attr_accessor :user
+  attr_accessor :user
 
-    attr_accessor :user_id
+  attr_accessor :user_id
 
-    attr_accessor :user_name
+  attr_accessor :user_name
 
-    attr_accessor :user_url
+  attr_accessor :user_url
 
-    attr_accessor :visibility
+  attr_accessor :visibility
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'email' => :'email',
-        :'has_two_factor' => :'has_two_factor',
-        :'joined_at' => :'joined_at',
-        :'last_login_at' => :'last_login_at',
-        :'last_login_method' => :'last_login_method',
-        :'role' => :'role',
-        :'user' => :'user',
-        :'user_id' => :'user_id',
-        :'user_name' => :'user_name',
-        :'user_url' => :'user_url',
-        :'visibility' => :'visibility'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'email' => :'email',
+      :'has_two_factor' => :'has_two_factor',
+      :'joined_at' => :'joined_at',
+      :'last_login_at' => :'last_login_at',
+      :'last_login_method' => :'last_login_method',
+      :'role' => :'role',
+      :'user' => :'user',
+      :'user_id' => :'user_id',
+      :'user_name' => :'user_name',
+      :'user_url' => :'user_url',
+      :'visibility' => :'visibility'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'email' => :'String',
+      :'has_two_factor' => :'BOOLEAN',
+      :'joined_at' => :'DateTime',
+      :'last_login_at' => :'DateTime',
+      :'last_login_method' => :'String',
+      :'role' => :'String',
+      :'user' => :'String',
+      :'user_id' => :'String',
+      :'user_name' => :'String',
+      :'user_url' => :'String',
+      :'visibility' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'email')
+      self.email = attributes[:'email']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'email' => :'String',
-        :'has_two_factor' => :'BOOLEAN',
-        :'joined_at' => :'DateTime',
-        :'last_login_at' => :'DateTime',
-        :'last_login_method' => :'String',
-        :'role' => :'String',
-        :'user' => :'String',
-        :'user_id' => :'String',
-        :'user_name' => :'String',
-        :'user_url' => :'String',
-        :'visibility' => :'String'
-      }
+    if attributes.has_key?(:'has_two_factor')
+      self.has_two_factor = attributes[:'has_two_factor']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'has_two_factor')
-        self.has_two_factor = attributes[:'has_two_factor']
-      end
-
-      if attributes.has_key?(:'joined_at')
-        self.joined_at = attributes[:'joined_at']
-      end
-
-      if attributes.has_key?(:'last_login_at')
-        self.last_login_at = attributes[:'last_login_at']
-      end
-
-      if attributes.has_key?(:'last_login_method')
-        self.last_login_method = attributes[:'last_login_method']
-      else
-        self.last_login_method = 'Unknown'
-      end
-
-      if attributes.has_key?(:'role')
-        self.role = attributes[:'role']
-      else
-        self.role = 'Owner'
-      end
-
-      if attributes.has_key?(:'user')
-        self.user = attributes[:'user']
-      end
-
-      if attributes.has_key?(:'user_id')
-        self.user_id = attributes[:'user_id']
-      end
-
-      if attributes.has_key?(:'user_name')
-        self.user_name = attributes[:'user_name']
-      end
-
-      if attributes.has_key?(:'user_url')
-        self.user_url = attributes[:'user_url']
-      end
-
-      if attributes.has_key?(:'visibility')
-        self.visibility = attributes[:'visibility']
-      else
-        self.visibility = 'Public'
-      end
+    if attributes.has_key?(:'joined_at')
+      self.joined_at = attributes[:'joined_at']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@email.nil? && @email.to_s.length < 1
-        invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
-      end
-
-      if !@user.nil? && @user.to_s.length < 1
-        invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
-      end
-
-      if !@user_id.nil? && @user_id.to_s.length < 1
-        invalid_properties.push('invalid value for "user_id", the character length must be great than or equal to 1.')
-      end
-
-      if !@user_name.nil? && @user_name.to_s.length < 1
-        invalid_properties.push('invalid value for "user_name", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'last_login_at')
+      self.last_login_at = attributes[:'last_login_at']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@email.nil? && @email.to_s.length < 1
-      return false if !@user.nil? && @user.to_s.length < 1
-      return false if !@user_id.nil? && @user_id.to_s.length < 1
-      return false if !@user_name.nil? && @user_name.to_s.length < 1
-      true
+    if attributes.has_key?(:'last_login_method')
+      self.last_login_method = attributes[:'last_login_method']
+    else
+      self.last_login_method = 'Unknown'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] email Value to be assigned
-    def email=(email)
-      if !email.nil? && email.to_s.length < 1
-        fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
-      end
-
-      @email = email
+    if attributes.has_key?(:'role')
+      self.role = attributes[:'role']
+    else
+      self.role = 'Owner'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] user Value to be assigned
-    def user=(user)
-      if !user.nil? && user.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
-      end
-
-      @user = user
+    if attributes.has_key?(:'user')
+      self.user = attributes[:'user']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] user_id Value to be assigned
-    def user_id=(user_id)
-      if !user_id.nil? && user_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user_id", the character length must be great than or equal to 1.'
-      end
-
-      @user_id = user_id
+    if attributes.has_key?(:'user_id')
+      self.user_id = attributes[:'user_id']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] user_name Value to be assigned
-    def user_name=(user_name)
-      if !user_name.nil? && user_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user_name", the character length must be great than or equal to 1.'
-      end
-
-      @user_name = user_name
+    if attributes.has_key?(:'user_name')
+      self.user_name = attributes[:'user_name']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          email == o.email &&
-          has_two_factor == o.has_two_factor &&
-          joined_at == o.joined_at &&
-          last_login_at == o.last_login_at &&
-          last_login_method == o.last_login_method &&
-          role == o.role &&
-          user == o.user &&
-          user_id == o.user_id &&
-          user_name == o.user_name &&
-          user_url == o.user_url &&
-          visibility == o.visibility
+    if attributes.has_key?(:'user_url')
+      self.user_url = attributes[:'user_url']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'visibility')
+      self.visibility = attributes[:'visibility']
+    else
+      self.visibility = 'Public'
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@email.nil? && @email.to_s.length < 1
+      invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [email, has_two_factor, joined_at, last_login_at, last_login_method, role, user, user_id, user_name, user_url, visibility].hash
+
+    if !@user.nil? && @user.to_s.length < 1
+      invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
     end
+
+
+    if !@user_id.nil? && @user_id.to_s.length < 1
+      invalid_properties.push('invalid value for "user_id", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@user_name.nil? && @user_name.to_s.length < 1
+      invalid_properties.push('invalid value for "user_name", the character length must be great than or equal to 1.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@email.nil? && @email.to_s.length < 1
+    return false if !@user.nil? && @user.to_s.length < 1
+    return false if !@user_id.nil? && @user_id.to_s.length < 1
+    return false if !@user_name.nil? && @user_name.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] email Value to be assigned
+  def email=(email)
+    if !email.nil? && email.to_s.length < 1
+      fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
+    end
+
+    @email = email
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] user Value to be assigned
+  def user=(user)
+    if !user.nil? && user.to_s.length < 1
+      fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
+    end
+
+    @user = user
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] user_id Value to be assigned
+  def user_id=(user_id)
+    if !user_id.nil? && user_id.to_s.length < 1
+      fail ArgumentError, 'invalid value for "user_id", the character length must be great than or equal to 1.'
+    end
+
+    @user_id = user_id
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] user_name Value to be assigned
+  def user_name=(user_name)
+    if !user_name.nil? && user_name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "user_name", the character length must be great than or equal to 1.'
+    end
+
+    @user_name = user_name
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        email == o.email &&
+        has_two_factor == o.has_two_factor &&
+        joined_at == o.joined_at &&
+        last_login_at == o.last_login_at &&
+        last_login_method == o.last_login_method &&
+        role == o.role &&
+        user == o.user &&
+        user_id == o.user_id &&
+        user_name == o.user_name &&
+        user_url == o.user_url &&
+        visibility == o.visibility
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [email, has_two_factor, joined_at, last_login_at, last_login_method, role, user, user_id, user_name, user_url, visibility].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -336,5 +340,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

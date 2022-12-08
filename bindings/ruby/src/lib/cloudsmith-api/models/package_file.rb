@@ -13,301 +13,299 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageFile
-    attr_accessor :cdn_url
+class PackageFile
+  attr_accessor :cdn_url
 
-    attr_accessor :checksum_md5
+  attr_accessor :checksum_md5
 
-    attr_accessor :checksum_sha1
+  attr_accessor :checksum_sha1
 
-    attr_accessor :checksum_sha256
+  attr_accessor :checksum_sha256
 
-    attr_accessor :checksum_sha512
+  attr_accessor :checksum_sha512
 
-    attr_accessor :downloads
+  attr_accessor :downloads
 
-    attr_accessor :filename
+  attr_accessor :filename
 
-    attr_accessor :is_downloadable
+  attr_accessor :is_downloadable
 
-    attr_accessor :is_primary
+  attr_accessor :is_primary
 
-    attr_accessor :is_synchronised
+  attr_accessor :is_synchronised
 
-    attr_accessor :signature_url
+  attr_accessor :signature_url
 
-    # The calculated size of the file.
-    attr_accessor :size
+  # The calculated size of the file.
+  attr_accessor :size
 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # Freeform descriptor that describes what the file is.
-    attr_accessor :tag
+  # Freeform descriptor that describes what the file is.
+  attr_accessor :tag
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'cdn_url' => :'cdn_url',
-        :'checksum_md5' => :'checksum_md5',
-        :'checksum_sha1' => :'checksum_sha1',
-        :'checksum_sha256' => :'checksum_sha256',
-        :'checksum_sha512' => :'checksum_sha512',
-        :'downloads' => :'downloads',
-        :'filename' => :'filename',
-        :'is_downloadable' => :'is_downloadable',
-        :'is_primary' => :'is_primary',
-        :'is_synchronised' => :'is_synchronised',
-        :'signature_url' => :'signature_url',
-        :'size' => :'size',
-        :'slug_perm' => :'slug_perm',
-        :'tag' => :'tag'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'cdn_url' => :'cdn_url',
+      :'checksum_md5' => :'checksum_md5',
+      :'checksum_sha1' => :'checksum_sha1',
+      :'checksum_sha256' => :'checksum_sha256',
+      :'checksum_sha512' => :'checksum_sha512',
+      :'downloads' => :'downloads',
+      :'filename' => :'filename',
+      :'is_downloadable' => :'is_downloadable',
+      :'is_primary' => :'is_primary',
+      :'is_synchronised' => :'is_synchronised',
+      :'signature_url' => :'signature_url',
+      :'size' => :'size',
+      :'slug_perm' => :'slug_perm',
+      :'tag' => :'tag'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'cdn_url' => :'String',
+      :'checksum_md5' => :'String',
+      :'checksum_sha1' => :'String',
+      :'checksum_sha256' => :'String',
+      :'checksum_sha512' => :'String',
+      :'downloads' => :'Integer',
+      :'filename' => :'String',
+      :'is_downloadable' => :'BOOLEAN',
+      :'is_primary' => :'BOOLEAN',
+      :'is_synchronised' => :'BOOLEAN',
+      :'signature_url' => :'String',
+      :'size' => :'Integer',
+      :'slug_perm' => :'String',
+      :'tag' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'cdn_url')
+      self.cdn_url = attributes[:'cdn_url']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'cdn_url' => :'String',
-        :'checksum_md5' => :'String',
-        :'checksum_sha1' => :'String',
-        :'checksum_sha256' => :'String',
-        :'checksum_sha512' => :'String',
-        :'downloads' => :'Integer',
-        :'filename' => :'String',
-        :'is_downloadable' => :'BOOLEAN',
-        :'is_primary' => :'BOOLEAN',
-        :'is_synchronised' => :'BOOLEAN',
-        :'signature_url' => :'String',
-        :'size' => :'Integer',
-        :'slug_perm' => :'String',
-        :'tag' => :'String'
-      }
+    if attributes.has_key?(:'checksum_md5')
+      self.checksum_md5 = attributes[:'checksum_md5']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'cdn_url')
-        self.cdn_url = attributes[:'cdn_url']
-      end
-
-      if attributes.has_key?(:'checksum_md5')
-        self.checksum_md5 = attributes[:'checksum_md5']
-      end
-
-      if attributes.has_key?(:'checksum_sha1')
-        self.checksum_sha1 = attributes[:'checksum_sha1']
-      end
-
-      if attributes.has_key?(:'checksum_sha256')
-        self.checksum_sha256 = attributes[:'checksum_sha256']
-      end
-
-      if attributes.has_key?(:'checksum_sha512')
-        self.checksum_sha512 = attributes[:'checksum_sha512']
-      end
-
-      if attributes.has_key?(:'downloads')
-        self.downloads = attributes[:'downloads']
-      end
-
-      if attributes.has_key?(:'filename')
-        self.filename = attributes[:'filename']
-      end
-
-      if attributes.has_key?(:'is_downloadable')
-        self.is_downloadable = attributes[:'is_downloadable']
-      end
-
-      if attributes.has_key?(:'is_primary')
-        self.is_primary = attributes[:'is_primary']
-      end
-
-      if attributes.has_key?(:'is_synchronised')
-        self.is_synchronised = attributes[:'is_synchronised']
-      end
-
-      if attributes.has_key?(:'signature_url')
-        self.signature_url = attributes[:'signature_url']
-      end
-
-      if attributes.has_key?(:'size')
-        self.size = attributes[:'size']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'tag')
-        self.tag = attributes[:'tag']
-      end
+    if attributes.has_key?(:'checksum_sha1')
+      self.checksum_sha1 = attributes[:'checksum_sha1']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@checksum_md5.nil? && @checksum_md5.to_s.length < 1
-        invalid_properties.push('invalid value for "checksum_md5", the character length must be great than or equal to 1.')
-      end
-
-      if !@checksum_sha1.nil? && @checksum_sha1.to_s.length < 1
-        invalid_properties.push('invalid value for "checksum_sha1", the character length must be great than or equal to 1.')
-      end
-
-      if !@checksum_sha256.nil? && @checksum_sha256.to_s.length < 1
-        invalid_properties.push('invalid value for "checksum_sha256", the character length must be great than or equal to 1.')
-      end
-
-      if !@checksum_sha512.nil? && @checksum_sha512.to_s.length < 1
-        invalid_properties.push('invalid value for "checksum_sha512", the character length must be great than or equal to 1.')
-      end
-
-      if !@filename.nil? && @filename.to_s.length < 1
-        invalid_properties.push('invalid value for "filename", the character length must be great than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "slug_perm", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      if !@tag.nil? && @tag.to_s.length < 1
-        invalid_properties.push('invalid value for "tag", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'checksum_sha256')
+      self.checksum_sha256 = attributes[:'checksum_sha256']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@checksum_md5.nil? && @checksum_md5.to_s.length < 1
-      return false if !@checksum_sha1.nil? && @checksum_sha1.to_s.length < 1
-      return false if !@checksum_sha256.nil? && @checksum_sha256.to_s.length < 1
-      return false if !@checksum_sha512.nil? && @checksum_sha512.to_s.length < 1
-      return false if !@filename.nil? && @filename.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@tag.nil? && @tag.to_s.length < 1
-      true
+    if attributes.has_key?(:'checksum_sha512')
+      self.checksum_sha512 = attributes[:'checksum_sha512']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] checksum_md5 Value to be assigned
-    def checksum_md5=(checksum_md5)
-      if !checksum_md5.nil? && checksum_md5.to_s.length < 1
-        fail ArgumentError, 'invalid value for "checksum_md5", the character length must be great than or equal to 1.'
-      end
-
-      @checksum_md5 = checksum_md5
+    if attributes.has_key?(:'downloads')
+      self.downloads = attributes[:'downloads']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] checksum_sha1 Value to be assigned
-    def checksum_sha1=(checksum_sha1)
-      if !checksum_sha1.nil? && checksum_sha1.to_s.length < 1
-        fail ArgumentError, 'invalid value for "checksum_sha1", the character length must be great than or equal to 1.'
-      end
-
-      @checksum_sha1 = checksum_sha1
+    if attributes.has_key?(:'filename')
+      self.filename = attributes[:'filename']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] checksum_sha256 Value to be assigned
-    def checksum_sha256=(checksum_sha256)
-      if !checksum_sha256.nil? && checksum_sha256.to_s.length < 1
-        fail ArgumentError, 'invalid value for "checksum_sha256", the character length must be great than or equal to 1.'
-      end
-
-      @checksum_sha256 = checksum_sha256
+    if attributes.has_key?(:'is_downloadable')
+      self.is_downloadable = attributes[:'is_downloadable']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] checksum_sha512 Value to be assigned
-    def checksum_sha512=(checksum_sha512)
-      if !checksum_sha512.nil? && checksum_sha512.to_s.length < 1
-        fail ArgumentError, 'invalid value for "checksum_sha512", the character length must be great than or equal to 1.'
-      end
-
-      @checksum_sha512 = checksum_sha512
+    if attributes.has_key?(:'is_primary')
+      self.is_primary = attributes[:'is_primary']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] filename Value to be assigned
-    def filename=(filename)
-      if !filename.nil? && filename.to_s.length < 1
-        fail ArgumentError, 'invalid value for "filename", the character length must be great than or equal to 1.'
-      end
-
-      @filename = filename
+    if attributes.has_key?(:'is_synchronised')
+      self.is_synchronised = attributes[:'is_synchronised']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if !slug_perm.nil? && slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
-      end
-
-      if !slug_perm.nil? && slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "slug_perm", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
-
-      @slug_perm = slug_perm
+    if attributes.has_key?(:'signature_url')
+      self.signature_url = attributes[:'signature_url']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tag Value to be assigned
-    def tag=(tag)
-      if !tag.nil? && tag.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tag", the character length must be great than or equal to 1.'
-      end
-
-      @tag = tag
+    if attributes.has_key?(:'size')
+      self.size = attributes[:'size']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          cdn_url == o.cdn_url &&
-          checksum_md5 == o.checksum_md5 &&
-          checksum_sha1 == o.checksum_sha1 &&
-          checksum_sha256 == o.checksum_sha256 &&
-          checksum_sha512 == o.checksum_sha512 &&
-          downloads == o.downloads &&
-          filename == o.filename &&
-          is_downloadable == o.is_downloadable &&
-          is_primary == o.is_primary &&
-          is_synchronised == o.is_synchronised &&
-          signature_url == o.signature_url &&
-          size == o.size &&
-          slug_perm == o.slug_perm &&
-          tag == o.tag
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'tag')
+      self.tag = attributes[:'tag']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@checksum_md5.nil? && @checksum_md5.to_s.length < 1
+      invalid_properties.push('invalid value for "checksum_md5", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, downloads, filename, is_downloadable, is_primary, is_synchronised, signature_url, size, slug_perm, tag].hash
+
+    if !@checksum_sha1.nil? && @checksum_sha1.to_s.length < 1
+      invalid_properties.push('invalid value for "checksum_sha1", the character length must be great than or equal to 1.')
     end
+
+
+    if !@checksum_sha256.nil? && @checksum_sha256.to_s.length < 1
+      invalid_properties.push('invalid value for "checksum_sha256", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@checksum_sha512.nil? && @checksum_sha512.to_s.length < 1
+      invalid_properties.push('invalid value for "checksum_sha512", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@filename.nil? && @filename.to_s.length < 1
+      invalid_properties.push('invalid value for "filename", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@slug_perm.nil? && @slug_perm.to_s.length < 1
+      invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@tag.nil? && @tag.to_s.length < 1
+      invalid_properties.push('invalid value for "tag", the character length must be great than or equal to 1.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@checksum_md5.nil? && @checksum_md5.to_s.length < 1
+    return false if !@checksum_sha1.nil? && @checksum_sha1.to_s.length < 1
+    return false if !@checksum_sha256.nil? && @checksum_sha256.to_s.length < 1
+    return false if !@checksum_sha512.nil? && @checksum_sha512.to_s.length < 1
+    return false if !@filename.nil? && @filename.to_s.length < 1
+    return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
+    return false if !@tag.nil? && @tag.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] checksum_md5 Value to be assigned
+  def checksum_md5=(checksum_md5)
+    if !checksum_md5.nil? && checksum_md5.to_s.length < 1
+      fail ArgumentError, 'invalid value for "checksum_md5", the character length must be great than or equal to 1.'
+    end
+
+    @checksum_md5 = checksum_md5
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] checksum_sha1 Value to be assigned
+  def checksum_sha1=(checksum_sha1)
+    if !checksum_sha1.nil? && checksum_sha1.to_s.length < 1
+      fail ArgumentError, 'invalid value for "checksum_sha1", the character length must be great than or equal to 1.'
+    end
+
+    @checksum_sha1 = checksum_sha1
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] checksum_sha256 Value to be assigned
+  def checksum_sha256=(checksum_sha256)
+    if !checksum_sha256.nil? && checksum_sha256.to_s.length < 1
+      fail ArgumentError, 'invalid value for "checksum_sha256", the character length must be great than or equal to 1.'
+    end
+
+    @checksum_sha256 = checksum_sha256
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] checksum_sha512 Value to be assigned
+  def checksum_sha512=(checksum_sha512)
+    if !checksum_sha512.nil? && checksum_sha512.to_s.length < 1
+      fail ArgumentError, 'invalid value for "checksum_sha512", the character length must be great than or equal to 1.'
+    end
+
+    @checksum_sha512 = checksum_sha512
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] filename Value to be assigned
+  def filename=(filename)
+    if !filename.nil? && filename.to_s.length < 1
+      fail ArgumentError, 'invalid value for "filename", the character length must be great than or equal to 1.'
+    end
+
+    @filename = filename
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] slug_perm Value to be assigned
+  def slug_perm=(slug_perm)
+    if !slug_perm.nil? && slug_perm.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
+    end
+
+    @slug_perm = slug_perm
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tag Value to be assigned
+  def tag=(tag)
+    if !tag.nil? && tag.to_s.length < 1
+      fail ArgumentError, 'invalid value for "tag", the character length must be great than or equal to 1.'
+    end
+
+    @tag = tag
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        cdn_url == o.cdn_url &&
+        checksum_md5 == o.checksum_md5 &&
+        checksum_sha1 == o.checksum_sha1 &&
+        checksum_sha256 == o.checksum_sha256 &&
+        checksum_sha512 == o.checksum_sha512 &&
+        downloads == o.downloads &&
+        filename == o.filename &&
+        is_downloadable == o.is_downloadable &&
+        is_primary == o.is_primary &&
+        is_synchronised == o.is_synchronised &&
+        signature_url == o.signature_url &&
+        size == o.size &&
+        slug_perm == o.slug_perm &&
+        tag == o.tag
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, downloads, filename, is_downloadable, is_primary, is_synchronised, signature_url, size, slug_perm, tag].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -413,5 +411,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

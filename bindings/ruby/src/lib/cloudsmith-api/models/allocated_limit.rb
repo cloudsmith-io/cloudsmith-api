@@ -13,191 +13,195 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class AllocatedLimit
-    attr_accessor :configured
+class AllocatedLimit
+  attr_accessor :configured
 
-    attr_accessor :percentage_used
+  attr_accessor :percentage_used
 
-    attr_accessor :plan_limit
+  attr_accessor :plan_limit
 
-    attr_accessor :used
+  attr_accessor :used
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'configured' => :'configured',
-        :'percentage_used' => :'percentage_used',
-        :'plan_limit' => :'plan_limit',
-        :'used' => :'used'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'configured' => :'configured',
+      :'percentage_used' => :'percentage_used',
+      :'plan_limit' => :'plan_limit',
+      :'used' => :'used'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'configured' => :'String',
+      :'percentage_used' => :'String',
+      :'plan_limit' => :'String',
+      :'used' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'configured')
+      self.configured = attributes[:'configured']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'configured' => :'String',
-        :'percentage_used' => :'String',
-        :'plan_limit' => :'String',
-        :'used' => :'String'
-      }
+    if attributes.has_key?(:'percentage_used')
+      self.percentage_used = attributes[:'percentage_used']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'configured')
-        self.configured = attributes[:'configured']
-      end
-
-      if attributes.has_key?(:'percentage_used')
-        self.percentage_used = attributes[:'percentage_used']
-      end
-
-      if attributes.has_key?(:'plan_limit')
-        self.plan_limit = attributes[:'plan_limit']
-      end
-
-      if attributes.has_key?(:'used')
-        self.used = attributes[:'used']
-      end
+    if attributes.has_key?(:'plan_limit')
+      self.plan_limit = attributes[:'plan_limit']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@configured.nil? && @configured.to_s.length > 32
-        invalid_properties.push('invalid value for "configured", the character length must be smaller than or equal to 32.')
-      end
+    if attributes.has_key?(:'used')
+      self.used = attributes[:'used']
+    end
+  end
 
-      if !@configured.nil? && @configured.to_s.length < 1
-        invalid_properties.push('invalid value for "configured", the character length must be great than or equal to 1.')
-      end
-
-      if !@percentage_used.nil? && @percentage_used.to_s.length > 10
-        invalid_properties.push('invalid value for "percentage_used", the character length must be smaller than or equal to 10.')
-      end
-
-      if !@percentage_used.nil? && @percentage_used.to_s.length < 1
-        invalid_properties.push('invalid value for "percentage_used", the character length must be great than or equal to 1.')
-      end
-
-      if !@plan_limit.nil? && @plan_limit.to_s.length > 32
-        invalid_properties.push('invalid value for "plan_limit", the character length must be smaller than or equal to 32.')
-      end
-
-      if !@plan_limit.nil? && @plan_limit.to_s.length < 1
-        invalid_properties.push('invalid value for "plan_limit", the character length must be great than or equal to 1.')
-      end
-
-      if !@used.nil? && @used.to_s.length > 32
-        invalid_properties.push('invalid value for "used", the character length must be smaller than or equal to 32.')
-      end
-
-      if !@used.nil? && @used.to_s.length < 1
-        invalid_properties.push('invalid value for "used", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@configured.nil? && @configured.to_s.length > 32
+      invalid_properties.push('invalid value for "configured", the character length must be smaller than or equal to 32.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@configured.nil? && @configured.to_s.length > 32
-      return false if !@configured.nil? && @configured.to_s.length < 1
-      return false if !@percentage_used.nil? && @percentage_used.to_s.length > 10
-      return false if !@percentage_used.nil? && @percentage_used.to_s.length < 1
-      return false if !@plan_limit.nil? && @plan_limit.to_s.length > 32
-      return false if !@plan_limit.nil? && @plan_limit.to_s.length < 1
-      return false if !@used.nil? && @used.to_s.length > 32
-      return false if !@used.nil? && @used.to_s.length < 1
-      true
+    if !@configured.nil? && @configured.to_s.length < 1
+      invalid_properties.push('invalid value for "configured", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] configured Value to be assigned
-    def configured=(configured)
-      if !configured.nil? && configured.to_s.length > 32
-        fail ArgumentError, 'invalid value for "configured", the character length must be smaller than or equal to 32.'
-      end
 
-      if !configured.nil? && configured.to_s.length < 1
-        fail ArgumentError, 'invalid value for "configured", the character length must be great than or equal to 1.'
-      end
-
-      @configured = configured
+    if !@percentage_used.nil? && @percentage_used.to_s.length > 10
+      invalid_properties.push('invalid value for "percentage_used", the character length must be smaller than or equal to 10.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] percentage_used Value to be assigned
-    def percentage_used=(percentage_used)
-      if !percentage_used.nil? && percentage_used.to_s.length > 10
-        fail ArgumentError, 'invalid value for "percentage_used", the character length must be smaller than or equal to 10.'
-      end
-
-      if !percentage_used.nil? && percentage_used.to_s.length < 1
-        fail ArgumentError, 'invalid value for "percentage_used", the character length must be great than or equal to 1.'
-      end
-
-      @percentage_used = percentage_used
+    if !@percentage_used.nil? && @percentage_used.to_s.length < 1
+      invalid_properties.push('invalid value for "percentage_used", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] plan_limit Value to be assigned
-    def plan_limit=(plan_limit)
-      if !plan_limit.nil? && plan_limit.to_s.length > 32
-        fail ArgumentError, 'invalid value for "plan_limit", the character length must be smaller than or equal to 32.'
-      end
 
-      if !plan_limit.nil? && plan_limit.to_s.length < 1
-        fail ArgumentError, 'invalid value for "plan_limit", the character length must be great than or equal to 1.'
-      end
-
-      @plan_limit = plan_limit
+    if !@plan_limit.nil? && @plan_limit.to_s.length > 32
+      invalid_properties.push('invalid value for "plan_limit", the character length must be smaller than or equal to 32.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] used Value to be assigned
-    def used=(used)
-      if !used.nil? && used.to_s.length > 32
-        fail ArgumentError, 'invalid value for "used", the character length must be smaller than or equal to 32.'
-      end
-
-      if !used.nil? && used.to_s.length < 1
-        fail ArgumentError, 'invalid value for "used", the character length must be great than or equal to 1.'
-      end
-
-      @used = used
+    if !@plan_limit.nil? && @plan_limit.to_s.length < 1
+      invalid_properties.push('invalid value for "plan_limit", the character length must be great than or equal to 1.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          configured == o.configured &&
-          percentage_used == o.percentage_used &&
-          plan_limit == o.plan_limit &&
-          used == o.used
+
+    if !@used.nil? && @used.to_s.length > 32
+      invalid_properties.push('invalid value for "used", the character length must be smaller than or equal to 32.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if !@used.nil? && @used.to_s.length < 1
+      invalid_properties.push('invalid value for "used", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [configured, percentage_used, plan_limit, used].hash
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@configured.nil? && @configured.to_s.length > 32
+    return false if !@configured.nil? && @configured.to_s.length < 1
+    return false if !@percentage_used.nil? && @percentage_used.to_s.length > 10
+    return false if !@percentage_used.nil? && @percentage_used.to_s.length < 1
+    return false if !@plan_limit.nil? && @plan_limit.to_s.length > 32
+    return false if !@plan_limit.nil? && @plan_limit.to_s.length < 1
+    return false if !@used.nil? && @used.to_s.length > 32
+    return false if !@used.nil? && @used.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] configured Value to be assigned
+  def configured=(configured)
+    if !configured.nil? && configured.to_s.length > 32
+      fail ArgumentError, 'invalid value for "configured", the character length must be smaller than or equal to 32.'
     end
+
+    if !configured.nil? && configured.to_s.length < 1
+      fail ArgumentError, 'invalid value for "configured", the character length must be great than or equal to 1.'
+    end
+
+    @configured = configured
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] percentage_used Value to be assigned
+  def percentage_used=(percentage_used)
+    if !percentage_used.nil? && percentage_used.to_s.length > 10
+      fail ArgumentError, 'invalid value for "percentage_used", the character length must be smaller than or equal to 10.'
+    end
+
+    if !percentage_used.nil? && percentage_used.to_s.length < 1
+      fail ArgumentError, 'invalid value for "percentage_used", the character length must be great than or equal to 1.'
+    end
+
+    @percentage_used = percentage_used
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] plan_limit Value to be assigned
+  def plan_limit=(plan_limit)
+    if !plan_limit.nil? && plan_limit.to_s.length > 32
+      fail ArgumentError, 'invalid value for "plan_limit", the character length must be smaller than or equal to 32.'
+    end
+
+    if !plan_limit.nil? && plan_limit.to_s.length < 1
+      fail ArgumentError, 'invalid value for "plan_limit", the character length must be great than or equal to 1.'
+    end
+
+    @plan_limit = plan_limit
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] used Value to be assigned
+  def used=(used)
+    if !used.nil? && used.to_s.length > 32
+      fail ArgumentError, 'invalid value for "used", the character length must be smaller than or equal to 32.'
+    end
+
+    if !used.nil? && used.to_s.length < 1
+      fail ArgumentError, 'invalid value for "used", the character length must be great than or equal to 1.'
+    end
+
+    @used = used
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        configured == o.configured &&
+        percentage_used == o.percentage_used &&
+        plan_limit == o.plan_limit &&
+        used == o.used
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [configured, percentage_used, plan_limit, used].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -303,5 +307,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

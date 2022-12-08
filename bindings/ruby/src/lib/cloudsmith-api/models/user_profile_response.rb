@@ -13,276 +13,282 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class UserProfileResponse
-    attr_accessor :company
+class UserProfileResponse
+  attr_accessor :company
 
-    attr_accessor :first_name
+  attr_accessor :first_name
 
-    attr_accessor :job_title
+  attr_accessor :job_title
 
-    attr_accessor :joined_at
+  attr_accessor :joined_at
 
-    attr_accessor :last_name
+  attr_accessor :last_name
 
-    attr_accessor :name
+  attr_accessor :name
 
-    attr_accessor :slug
+  attr_accessor :slug
 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
-    attr_accessor :tagline
+  # Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
+  attr_accessor :tagline
 
-    attr_accessor :url
+  attr_accessor :url
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'company' => :'company',
-        :'first_name' => :'first_name',
-        :'job_title' => :'job_title',
-        :'joined_at' => :'joined_at',
-        :'last_name' => :'last_name',
-        :'name' => :'name',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm',
-        :'tagline' => :'tagline',
-        :'url' => :'url'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'company' => :'company',
+      :'first_name' => :'first_name',
+      :'job_title' => :'job_title',
+      :'joined_at' => :'joined_at',
+      :'last_name' => :'last_name',
+      :'name' => :'name',
+      :'slug' => :'slug',
+      :'slug_perm' => :'slug_perm',
+      :'tagline' => :'tagline',
+      :'url' => :'url'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'company' => :'String',
+      :'first_name' => :'String',
+      :'job_title' => :'String',
+      :'joined_at' => :'DateTime',
+      :'last_name' => :'String',
+      :'name' => :'String',
+      :'slug' => :'String',
+      :'slug_perm' => :'String',
+      :'tagline' => :'String',
+      :'url' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'company')
+      self.company = attributes[:'company']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'company' => :'String',
-        :'first_name' => :'String',
-        :'job_title' => :'String',
-        :'joined_at' => :'DateTime',
-        :'last_name' => :'String',
-        :'name' => :'String',
-        :'slug' => :'String',
-        :'slug_perm' => :'String',
-        :'tagline' => :'String',
-        :'url' => :'String'
-      }
+    if attributes.has_key?(:'first_name')
+      self.first_name = attributes[:'first_name']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'company')
-        self.company = attributes[:'company']
-      end
-
-      if attributes.has_key?(:'first_name')
-        self.first_name = attributes[:'first_name']
-      end
-
-      if attributes.has_key?(:'job_title')
-        self.job_title = attributes[:'job_title']
-      end
-
-      if attributes.has_key?(:'joined_at')
-        self.joined_at = attributes[:'joined_at']
-      end
-
-      if attributes.has_key?(:'last_name')
-        self.last_name = attributes[:'last_name']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'tagline')
-        self.tagline = attributes[:'tagline']
-      end
-
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
-      end
+    if attributes.has_key?(:'job_title')
+      self.job_title = attributes[:'job_title']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@company.nil? && @company.to_s.length > 64
-        invalid_properties.push('invalid value for "company", the character length must be smaller than or equal to 64.')
-      end
-
-      if @first_name.nil?
-        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
-      end
-
-      if @first_name.to_s.length > 40
-        invalid_properties.push('invalid value for "first_name", the character length must be smaller than or equal to 40.')
-      end
-
-      if @first_name.to_s.length < 1
-        invalid_properties.push('invalid value for "first_name", the character length must be great than or equal to 1.')
-      end
-
-      if !@job_title.nil? && @job_title.to_s.length > 64
-        invalid_properties.push('invalid value for "job_title", the character length must be smaller than or equal to 64.')
-      end
-
-      if @last_name.nil?
-        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
-      end
-
-      if @last_name.to_s.length > 30
-        invalid_properties.push('invalid value for "last_name", the character length must be smaller than or equal to 30.')
-      end
-
-      if @last_name.to_s.length < 1
-        invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 1.')
-      end
-
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-      end
-
-      if !@tagline.nil? && @tagline.to_s.length > 80
-        invalid_properties.push('invalid value for "tagline", the character length must be smaller than or equal to 80.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'joined_at')
+      self.joined_at = attributes[:'joined_at']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@company.nil? && @company.to_s.length > 64
-      return false if @first_name.nil?
-      return false if @first_name.to_s.length > 40
-      return false if @first_name.to_s.length < 1
-      return false if !@job_title.nil? && @job_title.to_s.length > 64
-      return false if @last_name.nil?
-      return false if @last_name.to_s.length > 30
-      return false if @last_name.to_s.length < 1
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@tagline.nil? && @tagline.to_s.length > 80
-      true
+    if attributes.has_key?(:'last_name')
+      self.last_name = attributes[:'last_name']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] company Value to be assigned
-    def company=(company)
-      if !company.nil? && company.to_s.length > 64
-        fail ArgumentError, 'invalid value for "company", the character length must be smaller than or equal to 64.'
-      end
-
-      @company = company
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] first_name Value to be assigned
-    def first_name=(first_name)
-      if first_name.nil?
-        fail ArgumentError, 'first_name cannot be nil'
-      end
-
-      if first_name.to_s.length > 40
-        fail ArgumentError, 'invalid value for "first_name", the character length must be smaller than or equal to 40.'
-      end
-
-      if first_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "first_name", the character length must be great than or equal to 1.'
-      end
-
-      @first_name = first_name
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] job_title Value to be assigned
-    def job_title=(job_title)
-      if !job_title.nil? && job_title.to_s.length > 64
-        fail ArgumentError, 'invalid value for "job_title", the character length must be smaller than or equal to 64.'
-      end
-
-      @job_title = job_title
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] last_name Value to be assigned
-    def last_name=(last_name)
-      if last_name.nil?
-        fail ArgumentError, 'last_name cannot be nil'
-      end
-
-      if last_name.to_s.length > 30
-        fail ArgumentError, 'invalid value for "last_name", the character length must be smaller than or equal to 30.'
-      end
-
-      if last_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "last_name", the character length must be great than or equal to 1.'
-      end
-
-      @last_name = last_name
+    if attributes.has_key?(:'tagline')
+      self.tagline = attributes[:'tagline']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if !name.nil? && name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-      end
+    if attributes.has_key?(:'url')
+      self.url = attributes[:'url']
+    end
+  end
 
-      @name = name
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@company.nil? && @company.to_s.length > 64
+      invalid_properties.push('invalid value for "company", the character length must be smaller than or equal to 64.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tagline Value to be assigned
-    def tagline=(tagline)
-      if !tagline.nil? && tagline.to_s.length > 80
-        fail ArgumentError, 'invalid value for "tagline", the character length must be smaller than or equal to 80.'
-      end
 
-      @tagline = tagline
+    if @first_name.nil?
+      invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          company == o.company &&
-          first_name == o.first_name &&
-          job_title == o.job_title &&
-          joined_at == o.joined_at &&
-          last_name == o.last_name &&
-          name == o.name &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm &&
-          tagline == o.tagline &&
-          url == o.url
+    if @first_name.to_s.length > 40
+      invalid_properties.push('invalid value for "first_name", the character length must be smaller than or equal to 40.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if @first_name.to_s.length < 1
+      invalid_properties.push('invalid value for "first_name", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [company, first_name, job_title, joined_at, last_name, name, slug, slug_perm, tagline, url].hash
+
+    if !@job_title.nil? && @job_title.to_s.length > 64
+      invalid_properties.push('invalid value for "job_title", the character length must be smaller than or equal to 64.')
     end
+
+
+    if @last_name.nil?
+      invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
+    end
+
+    if @last_name.to_s.length > 30
+      invalid_properties.push('invalid value for "last_name", the character length must be smaller than or equal to 30.')
+    end
+
+    if @last_name.to_s.length < 1
+      invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@name.nil? && @name.to_s.length < 1
+      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@tagline.nil? && @tagline.to_s.length > 80
+      invalid_properties.push('invalid value for "tagline", the character length must be smaller than or equal to 80.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@company.nil? && @company.to_s.length > 64
+    return false if @first_name.nil?
+    return false if @first_name.to_s.length > 40
+    return false if @first_name.to_s.length < 1
+    return false if !@job_title.nil? && @job_title.to_s.length > 64
+    return false if @last_name.nil?
+    return false if @last_name.to_s.length > 30
+    return false if @last_name.to_s.length < 1
+    return false if !@name.nil? && @name.to_s.length < 1
+    return false if !@tagline.nil? && @tagline.to_s.length > 80
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] company Value to be assigned
+  def company=(company)
+    if !company.nil? && company.to_s.length > 64
+      fail ArgumentError, 'invalid value for "company", the character length must be smaller than or equal to 64.'
+    end
+
+    @company = company
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] first_name Value to be assigned
+  def first_name=(first_name)
+    if first_name.nil?
+      fail ArgumentError, 'first_name cannot be nil'
+    end
+
+    if first_name.to_s.length > 40
+      fail ArgumentError, 'invalid value for "first_name", the character length must be smaller than or equal to 40.'
+    end
+
+    if first_name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "first_name", the character length must be great than or equal to 1.'
+    end
+
+    @first_name = first_name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] job_title Value to be assigned
+  def job_title=(job_title)
+    if !job_title.nil? && job_title.to_s.length > 64
+      fail ArgumentError, 'invalid value for "job_title", the character length must be smaller than or equal to 64.'
+    end
+
+    @job_title = job_title
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] last_name Value to be assigned
+  def last_name=(last_name)
+    if last_name.nil?
+      fail ArgumentError, 'last_name cannot be nil'
+    end
+
+    if last_name.to_s.length > 30
+      fail ArgumentError, 'invalid value for "last_name", the character length must be smaller than or equal to 30.'
+    end
+
+    if last_name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "last_name", the character length must be great than or equal to 1.'
+    end
+
+    @last_name = last_name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if !name.nil? && name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+    end
+
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tagline Value to be assigned
+  def tagline=(tagline)
+    if !tagline.nil? && tagline.to_s.length > 80
+      fail ArgumentError, 'invalid value for "tagline", the character length must be smaller than or equal to 80.'
+    end
+
+    @tagline = tagline
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        company == o.company &&
+        first_name == o.first_name &&
+        job_title == o.job_title &&
+        joined_at == o.joined_at &&
+        last_name == o.last_name &&
+        name == o.name &&
+        slug == o.slug &&
+        slug_perm == o.slug_perm &&
+        tagline == o.tagline &&
+        url == o.url
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [company, first_name, job_title, joined_at, last_name, name, slug, slug_perm, tagline, url].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -388,5 +394,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

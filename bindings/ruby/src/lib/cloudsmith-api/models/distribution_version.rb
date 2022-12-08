@@ -13,110 +13,112 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  # A list of the versions for this distribution
-  class DistributionVersion
-    # The textual name for this version.
-    attr_accessor :name
+# A list of the versions for this distribution
+class DistributionVersion
+  # The textual name for this version.
+  attr_accessor :name
 
-    # The slug identifier for this version
-    attr_accessor :slug
+  # The slug identifier for this version
+  attr_accessor :slug
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'name' => :'name',
-        :'slug' => :'slug'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'name' => :'name',
+      :'slug' => :'slug'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'name' => :'String',
+      :'slug' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'name' => :'String',
-        :'slug' => :'String'
-      }
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@name.nil? && @name.to_s.length > 64
+      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 64.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
+    if !@slug.nil? && @slug.to_s.length < 1
+      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@name.nil? && @name.to_s.length > 64
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 64.')
-      end
 
-      if !@slug.nil? && @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-      end
+    invalid_properties
+  end
 
-      invalid_properties
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@name.nil? && @name.to_s.length > 64
+    return false if !@slug.nil? && @slug.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if !name.nil? && name.to_s.length > 64
+      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 64.'
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@name.nil? && @name.to_s.length > 64
-      return false if !@slug.nil? && @slug.to_s.length < 1
-      true
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] slug Value to be assigned
+  def slug=(slug)
+    if !slug.nil? && slug.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if !name.nil? && name.to_s.length > 64
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 64.'
-      end
+    @slug = slug
+  end
 
-      @name = name
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        name == o.name &&
+        slug == o.slug
+  end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if !slug.nil? && slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-      end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-      @slug = slug
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          name == o.name &&
-          slug == o.slug
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [name, slug].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [name, slug].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -222,5 +224,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

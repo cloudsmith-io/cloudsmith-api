@@ -13,105 +13,97 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class ServiceTeams
-    # The team role associated with the service
-    attr_accessor :role
+class ServiceTeams
+  # The team role associated with the service
+  attr_accessor :role
 
-    # The teams associated with the service
-    attr_accessor :slug
+  # The teams associated with the service
+  attr_accessor :slug
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'role' => :'role',
-        :'slug' => :'slug'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'role' => :'role',
+      :'slug' => :'slug'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'role' => :'String',
+      :'slug' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'role')
+      self.role = attributes[:'role']
+    else
+      self.role = 'Manager'
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'role' => :'String',
-        :'slug' => :'String'
-      }
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@slug.nil? && @slug.to_s.length < 1
+      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+    invalid_properties
+  end
 
-      if attributes.has_key?(:'role')
-        self.role = attributes[:'role']
-      else
-        self.role = 'Manager'
-      end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@slug.nil? && @slug.to_s.length < 1
+    true
+  end
 
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
+  # Custom attribute writer method with validation
+  # @param [Object] slug Value to be assigned
+  def slug=(slug)
+    if !slug.nil? && slug.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@slug.nil? && @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-      end
+    @slug = slug
+  end
 
-      if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "slug", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        role == o.role &&
+        slug == o.slug
+  end
 
-      invalid_properties
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@slug.nil? && @slug.to_s.length < 1
-      return false if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if !slug.nil? && slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-      end
-
-      if !slug.nil? && slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "slug", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
-
-      @slug = slug
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          role == o.role &&
-          slug == o.slug
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [role, slug].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [role, slug].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -217,5 +209,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

@@ -13,348 +13,336 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class RepositoryWebhookRequest
-    attr_accessor :events
+class RepositoryWebhookRequest
+  attr_accessor :events
 
-    # If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.
-    attr_accessor :is_active
+  # If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.
+  attr_accessor :is_active
 
-    # The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
-    attr_accessor :package_query
+  # The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+  attr_accessor :package_query
 
-    # The format of the payloads for webhook requests.
-    attr_accessor :request_body_format
+  # The format of the payloads for webhook requests.
+  attr_accessor :request_body_format
 
-    # The format of the payloads for webhook requests.
-    attr_accessor :request_body_template_format
+  # The format of the payloads for webhook requests.
+  attr_accessor :request_body_template_format
 
-    # The value that will be sent for the 'Content Type' header. 
-    attr_accessor :request_content_type
+  # The value that will be sent for the 'Content Type' header. 
+  attr_accessor :request_content_type
 
-    # The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
-    attr_accessor :secret_header
+  # The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
+  attr_accessor :secret_header
 
-    # The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.
-    attr_accessor :secret_value
+  # The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.
+  attr_accessor :secret_value
 
-    # The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).
-    attr_accessor :signature_key
+  # The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).
+  attr_accessor :signature_key
 
-    # The destination URL that webhook payloads will be POST'ed to.
-    attr_accessor :target_url
+  # The destination URL that webhook payloads will be POST'ed to.
+  attr_accessor :target_url
 
-    attr_accessor :templates
+  attr_accessor :templates
 
-    # If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
-    attr_accessor :verify_ssl
+  # If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
+  attr_accessor :verify_ssl
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
         end
       end
+    end
 
-      def valid?(value)
-        !value || allowable_values.include?(value)
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'events' => :'events',
+      :'is_active' => :'is_active',
+      :'package_query' => :'package_query',
+      :'request_body_format' => :'request_body_format',
+      :'request_body_template_format' => :'request_body_template_format',
+      :'request_content_type' => :'request_content_type',
+      :'secret_header' => :'secret_header',
+      :'secret_value' => :'secret_value',
+      :'signature_key' => :'signature_key',
+      :'target_url' => :'target_url',
+      :'templates' => :'templates',
+      :'verify_ssl' => :'verify_ssl'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'events' => :'Array<String>',
+      :'is_active' => :'BOOLEAN',
+      :'package_query' => :'String',
+      :'request_body_format' => :'Integer',
+      :'request_body_template_format' => :'Integer',
+      :'request_content_type' => :'String',
+      :'secret_header' => :'String',
+      :'secret_value' => :'String',
+      :'signature_key' => :'String',
+      :'target_url' => :'String',
+      :'templates' => :'Array<WebhookTemplate>',
+      :'verify_ssl' => :'BOOLEAN'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'events')
+      if (value = attributes[:'events']).is_a?(Array)
+        self.events = value
       end
     end
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'events' => :'events',
-        :'is_active' => :'is_active',
-        :'package_query' => :'package_query',
-        :'request_body_format' => :'request_body_format',
-        :'request_body_template_format' => :'request_body_template_format',
-        :'request_content_type' => :'request_content_type',
-        :'secret_header' => :'secret_header',
-        :'secret_value' => :'secret_value',
-        :'signature_key' => :'signature_key',
-        :'target_url' => :'target_url',
-        :'templates' => :'templates',
-        :'verify_ssl' => :'verify_ssl'
-      }
+    if attributes.has_key?(:'is_active')
+      self.is_active = attributes[:'is_active']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'events' => :'Array<String>',
-        :'is_active' => :'BOOLEAN',
-        :'package_query' => :'String',
-        :'request_body_format' => :'Integer',
-        :'request_body_template_format' => :'Integer',
-        :'request_content_type' => :'String',
-        :'secret_header' => :'String',
-        :'secret_value' => :'String',
-        :'signature_key' => :'String',
-        :'target_url' => :'String',
-        :'templates' => :'Array<WebhookTemplate>',
-        :'verify_ssl' => :'BOOLEAN'
-      }
+    if attributes.has_key?(:'package_query')
+      self.package_query = attributes[:'package_query']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
+    if attributes.has_key?(:'request_body_format')
+      self.request_body_format = attributes[:'request_body_format']
+    end
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+    if attributes.has_key?(:'request_body_template_format')
+      self.request_body_template_format = attributes[:'request_body_template_format']
+    end
 
-      if attributes.has_key?(:'events')
-        if (value = attributes[:'events']).is_a?(Array)
-          self.events = value
-        end
-      end
+    if attributes.has_key?(:'request_content_type')
+      self.request_content_type = attributes[:'request_content_type']
+    end
 
-      if attributes.has_key?(:'is_active')
-        self.is_active = attributes[:'is_active']
-      end
+    if attributes.has_key?(:'secret_header')
+      self.secret_header = attributes[:'secret_header']
+    end
 
-      if attributes.has_key?(:'package_query')
-        self.package_query = attributes[:'package_query']
-      end
+    if attributes.has_key?(:'secret_value')
+      self.secret_value = attributes[:'secret_value']
+    end
 
-      if attributes.has_key?(:'request_body_format')
-        self.request_body_format = attributes[:'request_body_format']
-      end
+    if attributes.has_key?(:'signature_key')
+      self.signature_key = attributes[:'signature_key']
+    end
 
-      if attributes.has_key?(:'request_body_template_format')
-        self.request_body_template_format = attributes[:'request_body_template_format']
-      end
+    if attributes.has_key?(:'target_url')
+      self.target_url = attributes[:'target_url']
+    end
 
-      if attributes.has_key?(:'request_content_type')
-        self.request_content_type = attributes[:'request_content_type']
-      end
-
-      if attributes.has_key?(:'secret_header')
-        self.secret_header = attributes[:'secret_header']
-      end
-
-      if attributes.has_key?(:'secret_value')
-        self.secret_value = attributes[:'secret_value']
-      end
-
-      if attributes.has_key?(:'signature_key')
-        self.signature_key = attributes[:'signature_key']
-      end
-
-      if attributes.has_key?(:'target_url')
-        self.target_url = attributes[:'target_url']
-      end
-
-      if attributes.has_key?(:'templates')
-        if (value = attributes[:'templates']).is_a?(Array)
-          self.templates = value
-        end
-      end
-
-      if attributes.has_key?(:'verify_ssl')
-        self.verify_ssl = attributes[:'verify_ssl']
+    if attributes.has_key?(:'templates')
+      if (value = attributes[:'templates']).is_a?(Array)
+        self.templates = value
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @events.nil?
-        invalid_properties.push('invalid value for "events", events cannot be nil.')
-      end
+    if attributes.has_key?(:'verify_ssl')
+      self.verify_ssl = attributes[:'verify_ssl']
+    end
+  end
 
-      if !@package_query.nil? && @package_query.to_s.length > 1024
-        invalid_properties.push('invalid value for "package_query", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@request_content_type.nil? && @request_content_type.to_s.length > 128
-        invalid_properties.push('invalid value for "request_content_type", the character length must be smaller than or equal to 128.')
-      end
-
-      if !@secret_header.nil? && @secret_header.to_s.length > 64
-        invalid_properties.push('invalid value for "secret_header", the character length must be smaller than or equal to 64.')
-      end
-
-      if !@secret_header.nil? && @secret_header !~ Regexp.new(/^[-\\w]+$/)
-        invalid_properties.push('invalid value for "secret_header", must conform to the pattern /^[-\\w]+$/.')
-      end
-
-      if !@secret_value.nil? && @secret_value.to_s.length > 512
-        invalid_properties.push('invalid value for "secret_value", the character length must be smaller than or equal to 512.')
-      end
-
-      if !@secret_value.nil? && @secret_value !~ Regexp.new(/^[^\\n\\r]+$/)
-        invalid_properties.push('invalid value for "secret_value", must conform to the pattern /^[^\\n\\r]+$/.')
-      end
-
-      if !@signature_key.nil? && @signature_key.to_s.length > 512
-        invalid_properties.push('invalid value for "signature_key", the character length must be smaller than or equal to 512.')
-      end
-
-      if !@signature_key.nil? && @signature_key.to_s.length < 1
-        invalid_properties.push('invalid value for "signature_key", the character length must be great than or equal to 1.')
-      end
-
-      if @target_url.nil?
-        invalid_properties.push('invalid value for "target_url", target_url cannot be nil.')
-      end
-
-      if @target_url.to_s.length > 255
-        invalid_properties.push('invalid value for "target_url", the character length must be smaller than or equal to 255.')
-      end
-
-      if @target_url.to_s.length < 1
-        invalid_properties.push('invalid value for "target_url", the character length must be great than or equal to 1.')
-      end
-
-      if @templates.nil?
-        invalid_properties.push('invalid value for "templates", templates cannot be nil.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @events.nil?
+      invalid_properties.push('invalid value for "events", events cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @events.nil?
-      return false if !@package_query.nil? && @package_query.to_s.length > 1024
-      return false if !@request_content_type.nil? && @request_content_type.to_s.length > 128
-      return false if !@secret_header.nil? && @secret_header.to_s.length > 64
-      return false if !@secret_header.nil? && @secret_header !~ Regexp.new(/^[-\\w]+$/)
-      return false if !@secret_value.nil? && @secret_value.to_s.length > 512
-      return false if !@secret_value.nil? && @secret_value !~ Regexp.new(/^[^\\n\\r]+$/)
-      return false if !@signature_key.nil? && @signature_key.to_s.length > 512
-      return false if !@signature_key.nil? && @signature_key.to_s.length < 1
-      return false if @target_url.nil?
-      return false if @target_url.to_s.length > 255
-      return false if @target_url.to_s.length < 1
-      return false if @templates.nil?
-      true
+    if !@package_query.nil? && @package_query.to_s.length > 1024
+      invalid_properties.push('invalid value for "package_query", the character length must be smaller than or equal to 1024.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] package_query Value to be assigned
-    def package_query=(package_query)
-      if !package_query.nil? && package_query.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "package_query", the character length must be smaller than or equal to 1024.'
-      end
 
-      @package_query = package_query
+    if !@request_content_type.nil? && @request_content_type.to_s.length > 128
+      invalid_properties.push('invalid value for "request_content_type", the character length must be smaller than or equal to 128.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] request_content_type Value to be assigned
-    def request_content_type=(request_content_type)
-      if !request_content_type.nil? && request_content_type.to_s.length > 128
-        fail ArgumentError, 'invalid value for "request_content_type", the character length must be smaller than or equal to 128.'
-      end
 
-      @request_content_type = request_content_type
+    if !@secret_header.nil? && @secret_header.to_s.length > 64
+      invalid_properties.push('invalid value for "secret_header", the character length must be smaller than or equal to 64.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] secret_header Value to be assigned
-    def secret_header=(secret_header)
-      if !secret_header.nil? && secret_header.to_s.length > 64
-        fail ArgumentError, 'invalid value for "secret_header", the character length must be smaller than or equal to 64.'
-      end
 
-      if !secret_header.nil? && secret_header !~ Regexp.new(/^[-\\w]+$/)
-        fail ArgumentError, 'invalid value for "secret_header", must conform to the pattern /^[-\\w]+$/.'
-      end
-
-      @secret_header = secret_header
+    if !@secret_value.nil? && @secret_value.to_s.length > 512
+      invalid_properties.push('invalid value for "secret_value", the character length must be smaller than or equal to 512.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] secret_value Value to be assigned
-    def secret_value=(secret_value)
-      if !secret_value.nil? && secret_value.to_s.length > 512
-        fail ArgumentError, 'invalid value for "secret_value", the character length must be smaller than or equal to 512.'
-      end
 
-      if !secret_value.nil? && secret_value !~ Regexp.new(/^[^\\n\\r]+$/)
-        fail ArgumentError, 'invalid value for "secret_value", must conform to the pattern /^[^\\n\\r]+$/.'
-      end
-
-      @secret_value = secret_value
+    if !@signature_key.nil? && @signature_key.to_s.length > 512
+      invalid_properties.push('invalid value for "signature_key", the character length must be smaller than or equal to 512.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] signature_key Value to be assigned
-    def signature_key=(signature_key)
-      if !signature_key.nil? && signature_key.to_s.length > 512
-        fail ArgumentError, 'invalid value for "signature_key", the character length must be smaller than or equal to 512.'
-      end
-
-      if !signature_key.nil? && signature_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "signature_key", the character length must be great than or equal to 1.'
-      end
-
-      @signature_key = signature_key
+    if !@signature_key.nil? && @signature_key.to_s.length < 1
+      invalid_properties.push('invalid value for "signature_key", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] target_url Value to be assigned
-    def target_url=(target_url)
-      if target_url.nil?
-        fail ArgumentError, 'target_url cannot be nil'
-      end
 
-      if target_url.to_s.length > 255
-        fail ArgumentError, 'invalid value for "target_url", the character length must be smaller than or equal to 255.'
-      end
-
-      if target_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "target_url", the character length must be great than or equal to 1.'
-      end
-
-      @target_url = target_url
+    if @target_url.nil?
+      invalid_properties.push('invalid value for "target_url", target_url cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          events == o.events &&
-          is_active == o.is_active &&
-          package_query == o.package_query &&
-          request_body_format == o.request_body_format &&
-          request_body_template_format == o.request_body_template_format &&
-          request_content_type == o.request_content_type &&
-          secret_header == o.secret_header &&
-          secret_value == o.secret_value &&
-          signature_key == o.signature_key &&
-          target_url == o.target_url &&
-          templates == o.templates &&
-          verify_ssl == o.verify_ssl
+    if @target_url.to_s.length > 255
+      invalid_properties.push('invalid value for "target_url", the character length must be smaller than or equal to 255.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if @target_url.to_s.length < 1
+      invalid_properties.push('invalid value for "target_url", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [events, is_active, package_query, request_body_format, request_body_template_format, request_content_type, secret_header, secret_value, signature_key, target_url, templates, verify_ssl].hash
+
+    if @templates.nil?
+      invalid_properties.push('invalid value for "templates", templates cannot be nil.')
     end
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @events.nil?
+    return false if !@package_query.nil? && @package_query.to_s.length > 1024
+    return false if !@request_content_type.nil? && @request_content_type.to_s.length > 128
+    return false if !@secret_header.nil? && @secret_header.to_s.length > 64
+    return false if !@secret_value.nil? && @secret_value.to_s.length > 512
+    return false if !@signature_key.nil? && @signature_key.to_s.length > 512
+    return false if !@signature_key.nil? && @signature_key.to_s.length < 1
+    return false if @target_url.nil?
+    return false if @target_url.to_s.length > 255
+    return false if @target_url.to_s.length < 1
+    return false if @templates.nil?
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] package_query Value to be assigned
+  def package_query=(package_query)
+    if !package_query.nil? && package_query.to_s.length > 1024
+      fail ArgumentError, 'invalid value for "package_query", the character length must be smaller than or equal to 1024.'
+    end
+
+    @package_query = package_query
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] request_content_type Value to be assigned
+  def request_content_type=(request_content_type)
+    if !request_content_type.nil? && request_content_type.to_s.length > 128
+      fail ArgumentError, 'invalid value for "request_content_type", the character length must be smaller than or equal to 128.'
+    end
+
+    @request_content_type = request_content_type
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] secret_header Value to be assigned
+  def secret_header=(secret_header)
+    if !secret_header.nil? && secret_header.to_s.length > 64
+      fail ArgumentError, 'invalid value for "secret_header", the character length must be smaller than or equal to 64.'
+    end
+
+    @secret_header = secret_header
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] secret_value Value to be assigned
+  def secret_value=(secret_value)
+    if !secret_value.nil? && secret_value.to_s.length > 512
+      fail ArgumentError, 'invalid value for "secret_value", the character length must be smaller than or equal to 512.'
+    end
+
+    @secret_value = secret_value
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] signature_key Value to be assigned
+  def signature_key=(signature_key)
+    if !signature_key.nil? && signature_key.to_s.length > 512
+      fail ArgumentError, 'invalid value for "signature_key", the character length must be smaller than or equal to 512.'
+    end
+
+    if !signature_key.nil? && signature_key.to_s.length < 1
+      fail ArgumentError, 'invalid value for "signature_key", the character length must be great than or equal to 1.'
+    end
+
+    @signature_key = signature_key
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] target_url Value to be assigned
+  def target_url=(target_url)
+    if target_url.nil?
+      fail ArgumentError, 'target_url cannot be nil'
+    end
+
+    if target_url.to_s.length > 255
+      fail ArgumentError, 'invalid value for "target_url", the character length must be smaller than or equal to 255.'
+    end
+
+    if target_url.to_s.length < 1
+      fail ArgumentError, 'invalid value for "target_url", the character length must be great than or equal to 1.'
+    end
+
+    @target_url = target_url
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        events == o.events &&
+        is_active == o.is_active &&
+        package_query == o.package_query &&
+        request_body_format == o.request_body_format &&
+        request_body_template_format == o.request_body_template_format &&
+        request_content_type == o.request_content_type &&
+        secret_header == o.secret_header &&
+        secret_value == o.secret_value &&
+        signature_key == o.signature_key &&
+        target_url == o.target_url &&
+        templates == o.templates &&
+        verify_ssl == o.verify_ssl
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [events, is_active, package_query, request_body_format, request_body_template_format, request_content_type, secret_header, secret_value, signature_key, target_url, templates, verify_ssl].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -460,5 +448,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

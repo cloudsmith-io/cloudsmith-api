@@ -13,135 +13,135 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  # A set of what the package format supports
-  class FormatSupport
-    # If true the package format supports dependencies
-    attr_accessor :dependencies
+# A set of what the package format supports
+class FormatSupport
+  # If true the package format supports dependencies
+  attr_accessor :dependencies
 
-    # If true the package format supports distributions
-    attr_accessor :distributions
+  # If true the package format supports distributions
+  attr_accessor :distributions
 
-    # If true the package format supports file lists
-    attr_accessor :file_lists
+  # If true the package format supports file lists
+  attr_accessor :file_lists
 
-    # If true the package format supports metadata
-    attr_accessor :metadata
+  # If true the package format supports metadata
+  attr_accessor :metadata
 
-    # If true the package format supports versioning
-    attr_accessor :versioning
+  # If true the package format supports versioning
+  attr_accessor :versioning
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'dependencies' => :'dependencies',
-        :'distributions' => :'distributions',
-        :'file_lists' => :'file_lists',
-        :'metadata' => :'metadata',
-        :'versioning' => :'versioning'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'dependencies' => :'dependencies',
+      :'distributions' => :'distributions',
+      :'file_lists' => :'file_lists',
+      :'metadata' => :'metadata',
+      :'versioning' => :'versioning'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'dependencies' => :'BOOLEAN',
+      :'distributions' => :'BOOLEAN',
+      :'file_lists' => :'BOOLEAN',
+      :'metadata' => :'BOOLEAN',
+      :'versioning' => :'BOOLEAN'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'dependencies')
+      self.dependencies = attributes[:'dependencies']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'dependencies' => :'BOOLEAN',
-        :'distributions' => :'BOOLEAN',
-        :'file_lists' => :'BOOLEAN',
-        :'metadata' => :'BOOLEAN',
-        :'versioning' => :'BOOLEAN'
-      }
+    if attributes.has_key?(:'distributions')
+      self.distributions = attributes[:'distributions']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'dependencies')
-        self.dependencies = attributes[:'dependencies']
-      end
-
-      if attributes.has_key?(:'distributions')
-        self.distributions = attributes[:'distributions']
-      end
-
-      if attributes.has_key?(:'file_lists')
-        self.file_lists = attributes[:'file_lists']
-      end
-
-      if attributes.has_key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.has_key?(:'versioning')
-        self.versioning = attributes[:'versioning']
-      end
+    if attributes.has_key?(:'file_lists')
+      self.file_lists = attributes[:'file_lists']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @dependencies.nil?
-        invalid_properties.push('invalid value for "dependencies", dependencies cannot be nil.')
-      end
-
-      if @distributions.nil?
-        invalid_properties.push('invalid value for "distributions", distributions cannot be nil.')
-      end
-
-      if @file_lists.nil?
-        invalid_properties.push('invalid value for "file_lists", file_lists cannot be nil.')
-      end
-
-      if @metadata.nil?
-        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
-      end
-
-      if @versioning.nil?
-        invalid_properties.push('invalid value for "versioning", versioning cannot be nil.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'metadata')
+      self.metadata = attributes[:'metadata']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @dependencies.nil?
-      return false if @distributions.nil?
-      return false if @file_lists.nil?
-      return false if @metadata.nil?
-      return false if @versioning.nil?
-      true
+    if attributes.has_key?(:'versioning')
+      self.versioning = attributes[:'versioning']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @dependencies.nil?
+      invalid_properties.push('invalid value for "dependencies", dependencies cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          dependencies == o.dependencies &&
-          distributions == o.distributions &&
-          file_lists == o.file_lists &&
-          metadata == o.metadata &&
-          versioning == o.versioning
+    if @distributions.nil?
+      invalid_properties.push('invalid value for "distributions", distributions cannot be nil.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if @file_lists.nil?
+      invalid_properties.push('invalid value for "file_lists", file_lists cannot be nil.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [dependencies, distributions, file_lists, metadata, versioning].hash
+    if @metadata.nil?
+      invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
     end
+
+    if @versioning.nil?
+      invalid_properties.push('invalid value for "versioning", versioning cannot be nil.')
+    end
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @dependencies.nil?
+    return false if @distributions.nil?
+    return false if @file_lists.nil?
+    return false if @metadata.nil?
+    return false if @versioning.nil?
+    true
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        dependencies == o.dependencies &&
+        distributions == o.distributions &&
+        file_lists == o.file_lists &&
+        metadata == o.metadata &&
+        versioning == o.versioning
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [dependencies, distributions, file_lists, metadata, versioning].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -247,5 +247,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

@@ -13,113 +13,115 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class StatusBasicResponse
-    # The message describing the state of the API.
-    attr_accessor :detail
+class StatusBasicResponse
+  # The message describing the state of the API.
+  attr_accessor :detail
 
-    # The current version for the Cloudsmith service.
-    attr_accessor :version
+  # The current version for the Cloudsmith service.
+  attr_accessor :version
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'detail' => :'detail',
-        :'version' => :'version'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'detail' => :'detail',
+      :'version' => :'version'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'detail' => :'String',
+      :'version' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'detail')
+      self.detail = attributes[:'detail']
+    else
+      self.detail = 'Cloudsmith API is operational.'
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'detail' => :'String',
-        :'version' => :'String'
-      }
+    if attributes.has_key?(:'version')
+      self.version = attributes[:'version']
+    else
+      self.version = '1.181.6'
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@detail.nil? && @detail.to_s.length < 1
+      invalid_properties.push('invalid value for "detail", the character length must be great than or equal to 1.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'detail')
-        self.detail = attributes[:'detail']
-      else
-        self.detail = 'Cloudsmith API is operational.'
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      else
-        self.version = '1.181.0'
-      end
+    if !@version.nil? && @version.to_s.length < 1
+      invalid_properties.push('invalid value for "version", the character length must be great than or equal to 1.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@detail.nil? && @detail.to_s.length < 1
-        invalid_properties.push('invalid value for "detail", the character length must be great than or equal to 1.')
-      end
 
-      if !@version.nil? && @version.to_s.length < 1
-        invalid_properties.push('invalid value for "version", the character length must be great than or equal to 1.')
-      end
+    invalid_properties
+  end
 
-      invalid_properties
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@detail.nil? && @detail.to_s.length < 1
+    return false if !@version.nil? && @version.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] detail Value to be assigned
+  def detail=(detail)
+    if !detail.nil? && detail.to_s.length < 1
+      fail ArgumentError, 'invalid value for "detail", the character length must be great than or equal to 1.'
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@detail.nil? && @detail.to_s.length < 1
-      return false if !@version.nil? && @version.to_s.length < 1
-      true
+    @detail = detail
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] version Value to be assigned
+  def version=(version)
+    if !version.nil? && version.to_s.length < 1
+      fail ArgumentError, 'invalid value for "version", the character length must be great than or equal to 1.'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] detail Value to be assigned
-    def detail=(detail)
-      if !detail.nil? && detail.to_s.length < 1
-        fail ArgumentError, 'invalid value for "detail", the character length must be great than or equal to 1.'
-      end
+    @version = version
+  end
 
-      @detail = detail
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        detail == o.detail &&
+        version == o.version
+  end
 
-    # Custom attribute writer method with validation
-    # @param [Object] version Value to be assigned
-    def version=(version)
-      if !version.nil? && version.to_s.length < 1
-        fail ArgumentError, 'invalid value for "version", the character length must be great than or equal to 1.'
-      end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-      @version = version
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          detail == o.detail &&
-          version == o.version
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [detail, version].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [detail, version].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -225,5 +227,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

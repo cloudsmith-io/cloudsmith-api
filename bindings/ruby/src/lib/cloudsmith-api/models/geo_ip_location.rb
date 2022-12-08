@@ -13,218 +13,222 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class GeoIpLocation
-    attr_accessor :city
+class GeoIpLocation
+  attr_accessor :city
 
-    attr_accessor :continent
+  attr_accessor :continent
 
-    attr_accessor :country
+  attr_accessor :country
 
-    attr_accessor :country_code
+  attr_accessor :country_code
 
-    attr_accessor :latitude
+  attr_accessor :latitude
 
-    attr_accessor :longitude
+  attr_accessor :longitude
 
-    attr_accessor :postal_code
+  attr_accessor :postal_code
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'city' => :'city',
-        :'continent' => :'continent',
-        :'country' => :'country',
-        :'country_code' => :'country_code',
-        :'latitude' => :'latitude',
-        :'longitude' => :'longitude',
-        :'postal_code' => :'postal_code'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'city' => :'city',
+      :'continent' => :'continent',
+      :'country' => :'country',
+      :'country_code' => :'country_code',
+      :'latitude' => :'latitude',
+      :'longitude' => :'longitude',
+      :'postal_code' => :'postal_code'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'city' => :'String',
+      :'continent' => :'String',
+      :'country' => :'String',
+      :'country_code' => :'String',
+      :'latitude' => :'String',
+      :'longitude' => :'String',
+      :'postal_code' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'city')
+      self.city = attributes[:'city']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'city' => :'String',
-        :'continent' => :'String',
-        :'country' => :'String',
-        :'country_code' => :'String',
-        :'latitude' => :'String',
-        :'longitude' => :'String',
-        :'postal_code' => :'String'
-      }
+    if attributes.has_key?(:'continent')
+      self.continent = attributes[:'continent']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'city')
-        self.city = attributes[:'city']
-      end
-
-      if attributes.has_key?(:'continent')
-        self.continent = attributes[:'continent']
-      end
-
-      if attributes.has_key?(:'country')
-        self.country = attributes[:'country']
-      end
-
-      if attributes.has_key?(:'country_code')
-        self.country_code = attributes[:'country_code']
-      end
-
-      if attributes.has_key?(:'latitude')
-        self.latitude = attributes[:'latitude']
-      end
-
-      if attributes.has_key?(:'longitude')
-        self.longitude = attributes[:'longitude']
-      end
-
-      if attributes.has_key?(:'postal_code')
-        self.postal_code = attributes[:'postal_code']
-      end
+    if attributes.has_key?(:'country')
+      self.country = attributes[:'country']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @city.nil?
-        invalid_properties.push('invalid value for "city", city cannot be nil.')
-      end
-
-      if @city.to_s.length < 1
-        invalid_properties.push('invalid value for "city", the character length must be great than or equal to 1.')
-      end
-
-      if @continent.nil?
-        invalid_properties.push('invalid value for "continent", continent cannot be nil.')
-      end
-
-      if @continent.to_s.length < 1
-        invalid_properties.push('invalid value for "continent", the character length must be great than or equal to 1.')
-      end
-
-      if @country.nil?
-        invalid_properties.push('invalid value for "country", country cannot be nil.')
-      end
-
-      if @country.to_s.length < 1
-        invalid_properties.push('invalid value for "country", the character length must be great than or equal to 1.')
-      end
-
-      if @postal_code.nil?
-        invalid_properties.push('invalid value for "postal_code", postal_code cannot be nil.')
-      end
-
-      if @postal_code.to_s.length < 1
-        invalid_properties.push('invalid value for "postal_code", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'country_code')
+      self.country_code = attributes[:'country_code']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @city.nil?
-      return false if @city.to_s.length < 1
-      return false if @continent.nil?
-      return false if @continent.to_s.length < 1
-      return false if @country.nil?
-      return false if @country.to_s.length < 1
-      return false if @postal_code.nil?
-      return false if @postal_code.to_s.length < 1
-      true
+    if attributes.has_key?(:'latitude')
+      self.latitude = attributes[:'latitude']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] city Value to be assigned
-    def city=(city)
-      if city.nil?
-        fail ArgumentError, 'city cannot be nil'
-      end
-
-      if city.to_s.length < 1
-        fail ArgumentError, 'invalid value for "city", the character length must be great than or equal to 1.'
-      end
-
-      @city = city
+    if attributes.has_key?(:'longitude')
+      self.longitude = attributes[:'longitude']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] continent Value to be assigned
-    def continent=(continent)
-      if continent.nil?
-        fail ArgumentError, 'continent cannot be nil'
-      end
+    if attributes.has_key?(:'postal_code')
+      self.postal_code = attributes[:'postal_code']
+    end
+  end
 
-      if continent.to_s.length < 1
-        fail ArgumentError, 'invalid value for "continent", the character length must be great than or equal to 1.'
-      end
-
-      @continent = continent
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @city.nil?
+      invalid_properties.push('invalid value for "city", city cannot be nil.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] country Value to be assigned
-    def country=(country)
-      if country.nil?
-        fail ArgumentError, 'country cannot be nil'
-      end
-
-      if country.to_s.length < 1
-        fail ArgumentError, 'invalid value for "country", the character length must be great than or equal to 1.'
-      end
-
-      @country = country
+    if @city.to_s.length < 1
+      invalid_properties.push('invalid value for "city", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] postal_code Value to be assigned
-    def postal_code=(postal_code)
-      if postal_code.nil?
-        fail ArgumentError, 'postal_code cannot be nil'
-      end
 
-      if postal_code.to_s.length < 1
-        fail ArgumentError, 'invalid value for "postal_code", the character length must be great than or equal to 1.'
-      end
-
-      @postal_code = postal_code
+    if @continent.nil?
+      invalid_properties.push('invalid value for "continent", continent cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          city == o.city &&
-          continent == o.continent &&
-          country == o.country &&
-          country_code == o.country_code &&
-          latitude == o.latitude &&
-          longitude == o.longitude &&
-          postal_code == o.postal_code
+    if @continent.to_s.length < 1
+      invalid_properties.push('invalid value for "continent", the character length must be great than or equal to 1.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if @country.nil?
+      invalid_properties.push('invalid value for "country", country cannot be nil.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [city, continent, country, country_code, latitude, longitude, postal_code].hash
+    if @country.to_s.length < 1
+      invalid_properties.push('invalid value for "country", the character length must be great than or equal to 1.')
     end
+
+
+    if @postal_code.nil?
+      invalid_properties.push('invalid value for "postal_code", postal_code cannot be nil.')
+    end
+
+    if @postal_code.to_s.length < 1
+      invalid_properties.push('invalid value for "postal_code", the character length must be great than or equal to 1.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @city.nil?
+    return false if @city.to_s.length < 1
+    return false if @continent.nil?
+    return false if @continent.to_s.length < 1
+    return false if @country.nil?
+    return false if @country.to_s.length < 1
+    return false if @postal_code.nil?
+    return false if @postal_code.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] city Value to be assigned
+  def city=(city)
+    if city.nil?
+      fail ArgumentError, 'city cannot be nil'
+    end
+
+    if city.to_s.length < 1
+      fail ArgumentError, 'invalid value for "city", the character length must be great than or equal to 1.'
+    end
+
+    @city = city
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] continent Value to be assigned
+  def continent=(continent)
+    if continent.nil?
+      fail ArgumentError, 'continent cannot be nil'
+    end
+
+    if continent.to_s.length < 1
+      fail ArgumentError, 'invalid value for "continent", the character length must be great than or equal to 1.'
+    end
+
+    @continent = continent
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] country Value to be assigned
+  def country=(country)
+    if country.nil?
+      fail ArgumentError, 'country cannot be nil'
+    end
+
+    if country.to_s.length < 1
+      fail ArgumentError, 'invalid value for "country", the character length must be great than or equal to 1.'
+    end
+
+    @country = country
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] postal_code Value to be assigned
+  def postal_code=(postal_code)
+    if postal_code.nil?
+      fail ArgumentError, 'postal_code cannot be nil'
+    end
+
+    if postal_code.to_s.length < 1
+      fail ArgumentError, 'invalid value for "postal_code", the character length must be great than or equal to 1.'
+    end
+
+    @postal_code = postal_code
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        city == o.city &&
+        continent == o.continent &&
+        country == o.country &&
+        country_code == o.country_code &&
+        latitude == o.latitude &&
+        longitude == o.longitude &&
+        postal_code == o.postal_code
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [city, continent, country, country_code, latitude, longitude, postal_code].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -330,5 +334,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

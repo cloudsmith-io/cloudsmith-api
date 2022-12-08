@@ -13,160 +13,154 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class OrganizationTeamRequestPatch
-    attr_accessor :description
+class OrganizationTeamRequestPatch
+  attr_accessor :description
 
-    attr_accessor :name
+  attr_accessor :name
 
-    attr_accessor :slug
+  attr_accessor :slug
 
-    attr_accessor :visibility
+  attr_accessor :visibility
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'description' => :'description',
-        :'name' => :'name',
-        :'slug' => :'slug',
-        :'visibility' => :'visibility'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'description' => :'description',
+      :'name' => :'name',
+      :'slug' => :'slug',
+      :'visibility' => :'visibility'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'description' => :'String',
+      :'name' => :'String',
+      :'slug' => :'String',
+      :'visibility' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'description')
+      self.description = attributes[:'description']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'description' => :'String',
-        :'name' => :'String',
-        :'slug' => :'String',
-        :'visibility' => :'String'
-      }
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'visibility')
-        self.visibility = attributes[:'visibility']
-      else
-        self.visibility = 'Visible'
-      end
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@description.nil? && @description.to_s.length > 140
-        invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 140.')
-      end
+    if attributes.has_key?(:'visibility')
+      self.visibility = attributes[:'visibility']
+    else
+      self.visibility = 'Visible'
+    end
+  end
 
-      if !@description.nil? && @description.to_s.length < 1
-        invalid_properties.push('invalid value for "description", the character length must be great than or equal to 1.')
-      end
-
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-      end
-
-      if !@slug.nil? && @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-      end
-
-      if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "slug", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@description.nil? && @description.to_s.length > 140
+      invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 140.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@description.nil? && @description.to_s.length > 140
-      return false if !@description.nil? && @description.to_s.length < 1
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@slug.nil? && @slug.to_s.length < 1
-      return false if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      true
+    if !@description.nil? && @description.to_s.length < 1
+      invalid_properties.push('invalid value for "description", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] description Value to be assigned
-    def description=(description)
-      if !description.nil? && description.to_s.length > 140
-        fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 140.'
-      end
 
-      if !description.nil? && description.to_s.length < 1
-        fail ArgumentError, 'invalid value for "description", the character length must be great than or equal to 1.'
-      end
-
-      @description = description
+    if !@name.nil? && @name.to_s.length < 1
+      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if !name.nil? && name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-      end
 
-      @name = name
+    if !@slug.nil? && @slug.to_s.length < 1
+      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if !slug.nil? && slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-      end
 
-      if !slug.nil? && slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "slug", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
+    invalid_properties
+  end
 
-      @slug = slug
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@description.nil? && @description.to_s.length > 140
+    return false if !@description.nil? && @description.to_s.length < 1
+    return false if !@name.nil? && @name.to_s.length < 1
+    return false if !@slug.nil? && @slug.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] description Value to be assigned
+  def description=(description)
+    if !description.nil? && description.to_s.length > 140
+      fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 140.'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          description == o.description &&
-          name == o.name &&
-          slug == o.slug &&
-          visibility == o.visibility
+    if !description.nil? && description.to_s.length < 1
+      fail ArgumentError, 'invalid value for "description", the character length must be great than or equal to 1.'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    @description = description
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if !name.nil? && name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [description, name, slug, visibility].hash
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] slug Value to be assigned
+  def slug=(slug)
+    if !slug.nil? && slug.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
     end
+
+    @slug = slug
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        description == o.description &&
+        name == o.name &&
+        slug == o.slug &&
+        visibility == o.visibility
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [description, name, slug, visibility].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -272,5 +266,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

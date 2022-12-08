@@ -13,92 +13,92 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageTagRequest
-    attr_accessor :action
+class PackageTagRequest
+  attr_accessor :action
 
-    # If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.
-    attr_accessor :is_immutable
+  # If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.
+  attr_accessor :is_immutable
 
-    # A list of tags to apply the action to. Not required for clears.
-    attr_accessor :tags
+  # A list of tags to apply the action to. Not required for clears.
+  attr_accessor :tags
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'action' => :'action',
-        :'is_immutable' => :'is_immutable',
-        :'tags' => :'tags'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'action' => :'action',
+      :'is_immutable' => :'is_immutable',
+      :'tags' => :'tags'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'action' => :'Integer',
+      :'is_immutable' => :'BOOLEAN',
+      :'tags' => :'Array<String>'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'action')
+      self.action = attributes[:'action']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'action' => :'Integer',
-        :'is_immutable' => :'BOOLEAN',
-        :'tags' => :'Array<String>'
-      }
+    if attributes.has_key?(:'is_immutable')
+      self.is_immutable = attributes[:'is_immutable']
+    else
+      self.is_immutable = false
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'action')
-        self.action = attributes[:'action']
+    if attributes.has_key?(:'tags')
+      if (value = attributes[:'tags']).is_a?(Array)
+        self.tags = value
       end
-
-      if attributes.has_key?(:'is_immutable')
-        self.is_immutable = attributes[:'is_immutable']
-      else
-        self.is_immutable = false
-      end
-
-      if attributes.has_key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
     end
+  end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      invalid_properties
-    end
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    invalid_properties
+  end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      true
-    end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    true
+  end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          action == o.action &&
-          is_immutable == o.is_immutable &&
-          tags == o.tags
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        action == o.action &&
+        is_immutable == o.is_immutable &&
+        tags == o.tags
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [action, is_immutable, tags].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [action, is_immutable, tags].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -204,5 +204,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

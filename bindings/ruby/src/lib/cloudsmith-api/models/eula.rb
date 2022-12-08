@@ -13,136 +13,129 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class Eula
-    # A unique identifier that you can use for your own EULA tracking purposes. This might be a date, or a semantic version, etc. The only requirement is that it is unique across multiple EULAs.
-    attr_accessor :identifier
+class Eula
+  # A unique identifier that you can use for your own EULA tracking purposes. This might be a date, or a semantic version, etc. The only requirement is that it is unique across multiple EULAs.
+  attr_accessor :identifier
 
-    # A sequential identifier that increments by one for each new commit in a repository.
-    attr_accessor :number
+  # A sequential identifier that increments by one for each new commit in a repository.
+  attr_accessor :number
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'identifier' => :'identifier',
-        :'number' => :'number'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'identifier' => :'identifier',
+      :'number' => :'number'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'identifier' => :'String',
+      :'number' => :'Integer'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'identifier')
+      self.identifier = attributes[:'identifier']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'identifier' => :'String',
-        :'number' => :'Integer'
-      }
+    if attributes.has_key?(:'number')
+      self.number = attributes[:'number']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@identifier.nil? && @identifier.to_s.length > 16
+      invalid_properties.push('invalid value for "identifier", the character length must be smaller than or equal to 16.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
-
-      if attributes.has_key?(:'number')
-        self.number = attributes[:'number']
-      end
+    if @number.nil?
+      invalid_properties.push('invalid value for "number", number cannot be nil.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@identifier.nil? && @identifier.to_s.length > 16
-        invalid_properties.push('invalid value for "identifier", the character length must be smaller than or equal to 16.')
-      end
-
-      if !@identifier.nil? && @identifier !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "identifier", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      if @number.nil?
-        invalid_properties.push('invalid value for "number", number cannot be nil.')
-      end
-
-      if @number > 2147483647
-        invalid_properties.push('invalid value for "number", must be smaller than or equal to 2147483647.')
-      end
-
-      if @number < 0
-        invalid_properties.push('invalid value for "number", must be greater than or equal to 0.')
-      end
-
-      invalid_properties
+    if @number > 2147483647
+      invalid_properties.push('invalid value for "number", must be smaller than or equal to 2147483647.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@identifier.nil? && @identifier.to_s.length > 16
-      return false if !@identifier.nil? && @identifier !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if @number.nil?
-      return false if @number > 2147483647
-      return false if @number < 0
-      true
+    if @number < 0
+      invalid_properties.push('invalid value for "number", must be greater than or equal to 0.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] identifier Value to be assigned
-    def identifier=(identifier)
-      if !identifier.nil? && identifier.to_s.length > 16
-        fail ArgumentError, 'invalid value for "identifier", the character length must be smaller than or equal to 16.'
-      end
 
-      if !identifier.nil? && identifier !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "identifier", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
+    invalid_properties
+  end
 
-      @identifier = identifier
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@identifier.nil? && @identifier.to_s.length > 16
+    return false if @number.nil?
+    return false if @number > 2147483647
+    return false if @number < 0
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] identifier Value to be assigned
+  def identifier=(identifier)
+    if !identifier.nil? && identifier.to_s.length > 16
+      fail ArgumentError, 'invalid value for "identifier", the character length must be smaller than or equal to 16.'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] number Value to be assigned
-    def number=(number)
-      if number.nil?
-        fail ArgumentError, 'number cannot be nil'
-      end
+    @identifier = identifier
+  end
 
-      if number > 2147483647
-        fail ArgumentError, 'invalid value for "number", must be smaller than or equal to 2147483647.'
-      end
-
-      if number < 0
-        fail ArgumentError, 'invalid value for "number", must be greater than or equal to 0.'
-      end
-
-      @number = number
+  # Custom attribute writer method with validation
+  # @param [Object] number Value to be assigned
+  def number=(number)
+    if number.nil?
+      fail ArgumentError, 'number cannot be nil'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          identifier == o.identifier &&
-          number == o.number
+    if number > 2147483647
+      fail ArgumentError, 'invalid value for "number", must be smaller than or equal to 2147483647.'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if number < 0
+      fail ArgumentError, 'invalid value for "number", must be greater than or equal to 0.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [identifier, number].hash
-    end
+    @number = number
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        identifier == o.identifier &&
+        number == o.number
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [identifier, number].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -248,5 +241,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

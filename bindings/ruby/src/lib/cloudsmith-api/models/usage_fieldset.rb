@@ -13,87 +13,87 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class UsageFieldset
-    attr_accessor :display
+class UsageFieldset
+  attr_accessor :display
 
-    attr_accessor :raw
+  attr_accessor :raw
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'display' => :'display',
-        :'raw' => :'raw'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'display' => :'display',
+      :'raw' => :'raw'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'display' => :'UsageLimits',
+      :'raw' => :'UsageLimits'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'display')
+      self.display = attributes[:'display']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'display' => :'UsageLimits',
-        :'raw' => :'UsageLimits'
-      }
+    if attributes.has_key?(:'raw')
+      self.raw = attributes[:'raw']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @display.nil?
+      invalid_properties.push('invalid value for "display", display cannot be nil.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'display')
-        self.display = attributes[:'display']
-      end
-
-      if attributes.has_key?(:'raw')
-        self.raw = attributes[:'raw']
-      end
+    if @raw.nil?
+      invalid_properties.push('invalid value for "raw", raw cannot be nil.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @display.nil?
-        invalid_properties.push('invalid value for "display", display cannot be nil.')
-      end
+    invalid_properties
+  end
 
-      if @raw.nil?
-        invalid_properties.push('invalid value for "raw", raw cannot be nil.')
-      end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @display.nil?
+    return false if @raw.nil?
+    true
+  end
 
-      invalid_properties
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        display == o.display &&
+        raw == o.raw
+  end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @display.nil?
-      return false if @raw.nil?
-      true
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          display == o.display &&
-          raw == o.raw
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [display, raw].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [display, raw].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -199,5 +199,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

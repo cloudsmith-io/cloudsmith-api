@@ -13,214 +13,209 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class OrganizationInviteResponse
-    # The email of the user to be invited.
-    attr_accessor :email
+class OrganizationInviteResponse
+  # The email of the user to be invited.
+  attr_accessor :email
 
-    attr_accessor :expires_at
+  attr_accessor :expires_at
 
-    attr_accessor :inviter
+  attr_accessor :inviter
 
-    attr_accessor :inviter_url
+  attr_accessor :inviter_url
 
-    attr_accessor :org
+  attr_accessor :org
 
-    # The role to be assigned to the invited user.
-    attr_accessor :role
+  # The role to be assigned to the invited user.
+  attr_accessor :role
 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # The slug of the user to be invited.
-    attr_accessor :user
+  # The slug of the user to be invited.
+  attr_accessor :user
 
-    attr_accessor :user_url
+  attr_accessor :user_url
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'email' => :'email',
-        :'expires_at' => :'expires_at',
-        :'inviter' => :'inviter',
-        :'inviter_url' => :'inviter_url',
-        :'org' => :'org',
-        :'role' => :'role',
-        :'slug_perm' => :'slug_perm',
-        :'user' => :'user',
-        :'user_url' => :'user_url'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'email' => :'email',
+      :'expires_at' => :'expires_at',
+      :'inviter' => :'inviter',
+      :'inviter_url' => :'inviter_url',
+      :'org' => :'org',
+      :'role' => :'role',
+      :'slug_perm' => :'slug_perm',
+      :'user' => :'user',
+      :'user_url' => :'user_url'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'email' => :'String',
+      :'expires_at' => :'DateTime',
+      :'inviter' => :'String',
+      :'inviter_url' => :'String',
+      :'org' => :'String',
+      :'role' => :'String',
+      :'slug_perm' => :'String',
+      :'user' => :'String',
+      :'user_url' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'email')
+      self.email = attributes[:'email']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'email' => :'String',
-        :'expires_at' => :'DateTime',
-        :'inviter' => :'String',
-        :'inviter_url' => :'String',
-        :'org' => :'String',
-        :'role' => :'String',
-        :'slug_perm' => :'String',
-        :'user' => :'String',
-        :'user_url' => :'String'
-      }
+    if attributes.has_key?(:'expires_at')
+      self.expires_at = attributes[:'expires_at']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'expires_at')
-        self.expires_at = attributes[:'expires_at']
-      end
-
-      if attributes.has_key?(:'inviter')
-        self.inviter = attributes[:'inviter']
-      end
-
-      if attributes.has_key?(:'inviter_url')
-        self.inviter_url = attributes[:'inviter_url']
-      end
-
-      if attributes.has_key?(:'org')
-        self.org = attributes[:'org']
-      end
-
-      if attributes.has_key?(:'role')
-        self.role = attributes[:'role']
-      else
-        self.role = 'Member'
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'user')
-        self.user = attributes[:'user']
-      end
-
-      if attributes.has_key?(:'user_url')
-        self.user_url = attributes[:'user_url']
-      end
+    if attributes.has_key?(:'inviter')
+      self.inviter = attributes[:'inviter']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@email.nil? && @email.to_s.length < 1
-        invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
-      end
-
-      if !@inviter.nil? && @inviter.to_s.length < 1
-        invalid_properties.push('invalid value for "inviter", the character length must be great than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "slug_perm", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      if !@user.nil? && @user.to_s.length < 1
-        invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'inviter_url')
+      self.inviter_url = attributes[:'inviter_url']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@email.nil? && @email.to_s.length < 1
-      return false if !@inviter.nil? && @inviter.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@user.nil? && @user.to_s.length < 1
-      true
+    if attributes.has_key?(:'org')
+      self.org = attributes[:'org']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] email Value to be assigned
-    def email=(email)
-      if !email.nil? && email.to_s.length < 1
-        fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
-      end
-
-      @email = email
+    if attributes.has_key?(:'role')
+      self.role = attributes[:'role']
+    else
+      self.role = 'Member'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] inviter Value to be assigned
-    def inviter=(inviter)
-      if !inviter.nil? && inviter.to_s.length < 1
-        fail ArgumentError, 'invalid value for "inviter", the character length must be great than or equal to 1.'
-      end
-
-      @inviter = inviter
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if !slug_perm.nil? && slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
-      end
-
-      if !slug_perm.nil? && slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "slug_perm", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
-
-      @slug_perm = slug_perm
+    if attributes.has_key?(:'user')
+      self.user = attributes[:'user']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] user Value to be assigned
-    def user=(user)
-      if !user.nil? && user.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
-      end
+    if attributes.has_key?(:'user_url')
+      self.user_url = attributes[:'user_url']
+    end
+  end
 
-      @user = user
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@email.nil? && @email.to_s.length < 1
+      invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          email == o.email &&
-          expires_at == o.expires_at &&
-          inviter == o.inviter &&
-          inviter_url == o.inviter_url &&
-          org == o.org &&
-          role == o.role &&
-          slug_perm == o.slug_perm &&
-          user == o.user &&
-          user_url == o.user_url
+
+    if !@inviter.nil? && @inviter.to_s.length < 1
+      invalid_properties.push('invalid value for "inviter", the character length must be great than or equal to 1.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if !@slug_perm.nil? && @slug_perm.to_s.length < 1
+      invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [email, expires_at, inviter, inviter_url, org, role, slug_perm, user, user_url].hash
+
+    if !@user.nil? && @user.to_s.length < 1
+      invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
     end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@email.nil? && @email.to_s.length < 1
+    return false if !@inviter.nil? && @inviter.to_s.length < 1
+    return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
+    return false if !@user.nil? && @user.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] email Value to be assigned
+  def email=(email)
+    if !email.nil? && email.to_s.length < 1
+      fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
+    end
+
+    @email = email
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] inviter Value to be assigned
+  def inviter=(inviter)
+    if !inviter.nil? && inviter.to_s.length < 1
+      fail ArgumentError, 'invalid value for "inviter", the character length must be great than or equal to 1.'
+    end
+
+    @inviter = inviter
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] slug_perm Value to be assigned
+  def slug_perm=(slug_perm)
+    if !slug_perm.nil? && slug_perm.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
+    end
+
+    @slug_perm = slug_perm
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] user Value to be assigned
+  def user=(user)
+    if !user.nil? && user.to_s.length < 1
+      fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
+    end
+
+    @user = user
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        email == o.email &&
+        expires_at == o.expires_at &&
+        inviter == o.inviter &&
+        inviter_url == o.inviter_url &&
+        org == o.org &&
+        role == o.role &&
+        slug_perm == o.slug_perm &&
+        user == o.user &&
+        user_url == o.user_url
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [email, expires_at, inviter, inviter_url, org, role, slug_perm, user, user_url].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -326,5 +321,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

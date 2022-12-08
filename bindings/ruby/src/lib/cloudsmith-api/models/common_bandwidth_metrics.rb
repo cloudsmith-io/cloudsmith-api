@@ -13,115 +13,115 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class CommonBandwidthMetrics
-    attr_accessor :average
+class CommonBandwidthMetrics
+  attr_accessor :average
 
-    attr_accessor :highest
+  attr_accessor :highest
 
-    attr_accessor :lowest
+  attr_accessor :lowest
 
-    attr_accessor :total
+  attr_accessor :total
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'average' => :'average',
-        :'highest' => :'highest',
-        :'lowest' => :'lowest',
-        :'total' => :'total'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'average' => :'average',
+      :'highest' => :'highest',
+      :'lowest' => :'lowest',
+      :'total' => :'total'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'average' => :'CommonBandwidthMetricsValue',
+      :'highest' => :'CommonBandwidthMetricsValue',
+      :'lowest' => :'CommonBandwidthMetricsValue',
+      :'total' => :'CommonBandwidthMetricsValue'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'average')
+      self.average = attributes[:'average']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'average' => :'CommonBandwidthMetricsValue',
-        :'highest' => :'CommonBandwidthMetricsValue',
-        :'lowest' => :'CommonBandwidthMetricsValue',
-        :'total' => :'CommonBandwidthMetricsValue'
-      }
+    if attributes.has_key?(:'highest')
+      self.highest = attributes[:'highest']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'average')
-        self.average = attributes[:'average']
-      end
-
-      if attributes.has_key?(:'highest')
-        self.highest = attributes[:'highest']
-      end
-
-      if attributes.has_key?(:'lowest')
-        self.lowest = attributes[:'lowest']
-      end
-
-      if attributes.has_key?(:'total')
-        self.total = attributes[:'total']
-      end
+    if attributes.has_key?(:'lowest')
+      self.lowest = attributes[:'lowest']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @average.nil?
-        invalid_properties.push('invalid value for "average", average cannot be nil.')
-      end
+    if attributes.has_key?(:'total')
+      self.total = attributes[:'total']
+    end
+  end
 
-      if @highest.nil?
-        invalid_properties.push('invalid value for "highest", highest cannot be nil.')
-      end
-
-      if @lowest.nil?
-        invalid_properties.push('invalid value for "lowest", lowest cannot be nil.')
-      end
-
-      if @total.nil?
-        invalid_properties.push('invalid value for "total", total cannot be nil.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @average.nil?
+      invalid_properties.push('invalid value for "average", average cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @average.nil?
-      return false if @highest.nil?
-      return false if @lowest.nil?
-      return false if @total.nil?
-      true
+    if @highest.nil?
+      invalid_properties.push('invalid value for "highest", highest cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          average == o.average &&
-          highest == o.highest &&
-          lowest == o.lowest &&
-          total == o.total
+    if @lowest.nil?
+      invalid_properties.push('invalid value for "lowest", lowest cannot be nil.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if @total.nil?
+      invalid_properties.push('invalid value for "total", total cannot be nil.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [average, highest, lowest, total].hash
-    end
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @average.nil?
+    return false if @highest.nil?
+    return false if @lowest.nil?
+    return false if @total.nil?
+    true
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        average == o.average &&
+        highest == o.highest &&
+        lowest == o.lowest &&
+        total == o.total
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [average, highest, lowest, total].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -227,5 +227,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

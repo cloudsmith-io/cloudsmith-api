@@ -13,149 +13,151 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageDependency
-    attr_accessor :dep_type
+class PackageDependency
+  attr_accessor :dep_type
 
-    # The name of the package dependency.
-    attr_accessor :name
+  # The name of the package dependency.
+  attr_accessor :name
 
-    attr_accessor :operator
+  attr_accessor :operator
 
-    # The raw dependency version (if any).
-    attr_accessor :version
+  # The raw dependency version (if any).
+  attr_accessor :version
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'dep_type' => :'dep_type',
-        :'name' => :'name',
-        :'operator' => :'operator',
-        :'version' => :'version'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'dep_type' => :'dep_type',
+      :'name' => :'name',
+      :'operator' => :'operator',
+      :'version' => :'version'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'dep_type' => :'String',
+      :'name' => :'String',
+      :'operator' => :'String',
+      :'version' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'dep_type')
+      self.dep_type = attributes[:'dep_type']
+    else
+      self.dep_type = 'Depends'
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'dep_type' => :'String',
-        :'name' => :'String',
-        :'operator' => :'String',
-        :'version' => :'String'
-      }
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'dep_type')
-        self.dep_type = attributes[:'dep_type']
-      else
-        self.dep_type = 'Depends'
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'operator')
-        self.operator = attributes[:'operator']
-      else
-        self.operator = '='
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
+    if attributes.has_key?(:'operator')
+      self.operator = attributes[:'operator']
+    else
+      self.operator = '='
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
+    if attributes.has_key?(:'version')
+      self.version = attributes[:'version']
+    end
+  end
 
-      if @name.to_s.length > 255
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 255.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-      end
-
-      if !@version.nil? && @version.to_s.length > 128
-        invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
-      end
-
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @name.nil?
-      return false if @name.to_s.length > 255
-      return false if @name.to_s.length < 1
-      return false if !@version.nil? && @version.to_s.length > 128
-      true
+    if @name.to_s.length > 255
+      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 255.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 255
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 255.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-      end
-
-      @name = name
+    if @name.to_s.length < 1
+      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] version Value to be assigned
-    def version=(version)
-      if !version.nil? && version.to_s.length > 128
-        fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
-      end
 
-      @version = version
+    if !@version.nil? && @version.to_s.length > 128
+      invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          dep_type == o.dep_type &&
-          name == o.name &&
-          operator == o.operator &&
-          version == o.version
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @name.nil?
+    return false if @name.to_s.length > 255
+    return false if @name.to_s.length < 1
+    return false if !@version.nil? && @version.to_s.length > 128
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if name.nil?
+      fail ArgumentError, 'name cannot be nil'
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if name.to_s.length > 255
+      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 255.'
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [dep_type, name, operator, version].hash
+    if name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
     end
+
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] version Value to be assigned
+  def version=(version)
+    if !version.nil? && version.to_s.length > 128
+      fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
+    end
+
+    @version = version
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        dep_type == o.dep_type &&
+        name == o.name &&
+        operator == o.operator &&
+        version == o.version
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [dep_type, name, operator, version].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -261,5 +263,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

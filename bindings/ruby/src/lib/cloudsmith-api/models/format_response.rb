@@ -13,269 +13,274 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class FormatResponse
-    # Description of the package format
-    attr_accessor :description
+class FormatResponse
+  # Description of the package format
+  attr_accessor :description
 
-    # The distributions supported by this package format
-    attr_accessor :distributions
+  # The distributions supported by this package format
+  attr_accessor :distributions
 
-    # A non-exhaustive list of extensions supported
-    attr_accessor :extensions
+  # A non-exhaustive list of extensions supported
+  attr_accessor :extensions
 
-    # Name for the package format
-    attr_accessor :name
+  # Name for the package format
+  attr_accessor :name
 
-    # If true the package format is a premium-only feature
-    attr_accessor :premium
+  # If true the package format is a premium-only feature
+  attr_accessor :premium
 
-    # The minimum plan id required for this package format
-    attr_accessor :premium_plan_id
+  # The minimum plan id required for this package format
+  attr_accessor :premium_plan_id
 
-    # The minimum plan name required for this package format
-    attr_accessor :premium_plan_name
+  # The minimum plan name required for this package format
+  attr_accessor :premium_plan_name
 
-    # Slug for the package format
-    attr_accessor :slug
+  # Slug for the package format
+  attr_accessor :slug
 
-    attr_accessor :supports
+  attr_accessor :supports
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'description' => :'description',
-        :'distributions' => :'distributions',
-        :'extensions' => :'extensions',
-        :'name' => :'name',
-        :'premium' => :'premium',
-        :'premium_plan_id' => :'premium_plan_id',
-        :'premium_plan_name' => :'premium_plan_name',
-        :'slug' => :'slug',
-        :'supports' => :'supports'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'description' => :'description',
+      :'distributions' => :'distributions',
+      :'extensions' => :'extensions',
+      :'name' => :'name',
+      :'premium' => :'premium',
+      :'premium_plan_id' => :'premium_plan_id',
+      :'premium_plan_name' => :'premium_plan_name',
+      :'slug' => :'slug',
+      :'supports' => :'supports'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'description' => :'String',
+      :'distributions' => :'Array<Distribution>',
+      :'extensions' => :'Array<String>',
+      :'name' => :'String',
+      :'premium' => :'BOOLEAN',
+      :'premium_plan_id' => :'String',
+      :'premium_plan_name' => :'String',
+      :'slug' => :'String',
+      :'supports' => :'FormatSupport'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'description')
+      self.description = attributes[:'description']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'description' => :'String',
-        :'distributions' => :'Array<Distribution>',
-        :'extensions' => :'Array<String>',
-        :'name' => :'String',
-        :'premium' => :'BOOLEAN',
-        :'premium_plan_id' => :'String',
-        :'premium_plan_name' => :'String',
-        :'slug' => :'String',
-        :'supports' => :'FormatSupport'
-      }
-    end
-
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'distributions')
-        if (value = attributes[:'distributions']).is_a?(Array)
-          self.distributions = value
-        end
-      end
-
-      if attributes.has_key?(:'extensions')
-        if (value = attributes[:'extensions']).is_a?(Array)
-          self.extensions = value
-        end
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'premium')
-        self.premium = attributes[:'premium']
-      end
-
-      if attributes.has_key?(:'premium_plan_id')
-        self.premium_plan_id = attributes[:'premium_plan_id']
-      end
-
-      if attributes.has_key?(:'premium_plan_name')
-        self.premium_plan_name = attributes[:'premium_plan_name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'supports')
-        self.supports = attributes[:'supports']
+    if attributes.has_key?(:'distributions')
+      if (value = attributes[:'distributions']).is_a?(Array)
+        self.distributions = value
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
+    if attributes.has_key?(:'extensions')
+      if (value = attributes[:'extensions']).is_a?(Array)
+        self.extensions = value
       end
-
-      if @description.to_s.length < 1
-        invalid_properties.push('invalid value for "description", the character length must be great than or equal to 1.')
-      end
-
-      if @extensions.nil?
-        invalid_properties.push('invalid value for "extensions", extensions cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-      end
-
-      if @premium.nil?
-        invalid_properties.push('invalid value for "premium", premium cannot be nil.')
-      end
-
-      if !@premium_plan_id.nil? && @premium_plan_id.to_s.length < 1
-        invalid_properties.push('invalid value for "premium_plan_id", the character length must be great than or equal to 1.')
-      end
-
-      if !@premium_plan_name.nil? && @premium_plan_name.to_s.length < 1
-        invalid_properties.push('invalid value for "premium_plan_name", the character length must be great than or equal to 1.')
-      end
-
-      if @slug.nil?
-        invalid_properties.push('invalid value for "slug", slug cannot be nil.')
-      end
-
-      if @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-      end
-
-      if @supports.nil?
-        invalid_properties.push('invalid value for "supports", supports cannot be nil.')
-      end
-
-      invalid_properties
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @description.nil?
-      return false if @description.to_s.length < 1
-      return false if @extensions.nil?
-      return false if @name.nil?
-      return false if @name.to_s.length < 1
-      return false if @premium.nil?
-      return false if !@premium_plan_id.nil? && @premium_plan_id.to_s.length < 1
-      return false if !@premium_plan_name.nil? && @premium_plan_name.to_s.length < 1
-      return false if @slug.nil?
-      return false if @slug.to_s.length < 1
-      return false if @supports.nil?
-      true
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] description Value to be assigned
-    def description=(description)
-      if description.nil?
-        fail ArgumentError, 'description cannot be nil'
-      end
-
-      if description.to_s.length < 1
-        fail ArgumentError, 'invalid value for "description", the character length must be great than or equal to 1.'
-      end
-
-      @description = description
+    if attributes.has_key?(:'premium')
+      self.premium = attributes[:'premium']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-      end
-
-      @name = name
+    if attributes.has_key?(:'premium_plan_id')
+      self.premium_plan_id = attributes[:'premium_plan_id']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] premium_plan_id Value to be assigned
-    def premium_plan_id=(premium_plan_id)
-      if !premium_plan_id.nil? && premium_plan_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "premium_plan_id", the character length must be great than or equal to 1.'
-      end
-
-      @premium_plan_id = premium_plan_id
+    if attributes.has_key?(:'premium_plan_name')
+      self.premium_plan_name = attributes[:'premium_plan_name']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] premium_plan_name Value to be assigned
-    def premium_plan_name=(premium_plan_name)
-      if !premium_plan_name.nil? && premium_plan_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "premium_plan_name", the character length must be great than or equal to 1.'
-      end
-
-      @premium_plan_name = premium_plan_name
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if slug.nil?
-        fail ArgumentError, 'slug cannot be nil'
-      end
+    if attributes.has_key?(:'supports')
+      self.supports = attributes[:'supports']
+    end
+  end
 
-      if slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-      end
-
-      @slug = slug
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @description.nil?
+      invalid_properties.push('invalid value for "description", description cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          description == o.description &&
-          distributions == o.distributions &&
-          extensions == o.extensions &&
-          name == o.name &&
-          premium == o.premium &&
-          premium_plan_id == o.premium_plan_id &&
-          premium_plan_name == o.premium_plan_name &&
-          slug == o.slug &&
-          supports == o.supports
+    if @description.to_s.length < 1
+      invalid_properties.push('invalid value for "description", the character length must be great than or equal to 1.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if @extensions.nil?
+      invalid_properties.push('invalid value for "extensions", extensions cannot be nil.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [description, distributions, extensions, name, premium, premium_plan_id, premium_plan_name, slug, supports].hash
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
+
+    if @name.to_s.length < 1
+      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
+    end
+
+
+    if @premium.nil?
+      invalid_properties.push('invalid value for "premium", premium cannot be nil.')
+    end
+
+    if !@premium_plan_id.nil? && @premium_plan_id.to_s.length < 1
+      invalid_properties.push('invalid value for "premium_plan_id", the character length must be great than or equal to 1.')
+    end
+
+
+    if !@premium_plan_name.nil? && @premium_plan_name.to_s.length < 1
+      invalid_properties.push('invalid value for "premium_plan_name", the character length must be great than or equal to 1.')
+    end
+
+
+    if @slug.nil?
+      invalid_properties.push('invalid value for "slug", slug cannot be nil.')
+    end
+
+    if @slug.to_s.length < 1
+      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
+    end
+
+
+    if @supports.nil?
+      invalid_properties.push('invalid value for "supports", supports cannot be nil.')
+    end
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @description.nil?
+    return false if @description.to_s.length < 1
+    return false if @extensions.nil?
+    return false if @name.nil?
+    return false if @name.to_s.length < 1
+    return false if @premium.nil?
+    return false if !@premium_plan_id.nil? && @premium_plan_id.to_s.length < 1
+    return false if !@premium_plan_name.nil? && @premium_plan_name.to_s.length < 1
+    return false if @slug.nil?
+    return false if @slug.to_s.length < 1
+    return false if @supports.nil?
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] description Value to be assigned
+  def description=(description)
+    if description.nil?
+      fail ArgumentError, 'description cannot be nil'
+    end
+
+    if description.to_s.length < 1
+      fail ArgumentError, 'invalid value for "description", the character length must be great than or equal to 1.'
+    end
+
+    @description = description
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if name.nil?
+      fail ArgumentError, 'name cannot be nil'
+    end
+
+    if name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+    end
+
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] premium_plan_id Value to be assigned
+  def premium_plan_id=(premium_plan_id)
+    if !premium_plan_id.nil? && premium_plan_id.to_s.length < 1
+      fail ArgumentError, 'invalid value for "premium_plan_id", the character length must be great than or equal to 1.'
+    end
+
+    @premium_plan_id = premium_plan_id
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] premium_plan_name Value to be assigned
+  def premium_plan_name=(premium_plan_name)
+    if !premium_plan_name.nil? && premium_plan_name.to_s.length < 1
+      fail ArgumentError, 'invalid value for "premium_plan_name", the character length must be great than or equal to 1.'
+    end
+
+    @premium_plan_name = premium_plan_name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] slug Value to be assigned
+  def slug=(slug)
+    if slug.nil?
+      fail ArgumentError, 'slug cannot be nil'
+    end
+
+    if slug.to_s.length < 1
+      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
+    end
+
+    @slug = slug
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        description == o.description &&
+        distributions == o.distributions &&
+        extensions == o.extensions &&
+        name == o.name &&
+        premium == o.premium &&
+        premium_plan_id == o.premium_plan_id &&
+        premium_plan_name == o.premium_plan_name &&
+        slug == o.slug &&
+        supports == o.supports
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [description, distributions, extensions, name, premium, premium_plan_id, premium_plan_name, slug, supports].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -381,5 +386,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

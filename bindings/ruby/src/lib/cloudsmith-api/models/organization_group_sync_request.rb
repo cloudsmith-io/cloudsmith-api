@@ -13,202 +13,196 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class OrganizationGroupSyncRequest
-    attr_accessor :idp_key
+class OrganizationGroupSyncRequest
+  attr_accessor :idp_key
 
-    attr_accessor :idp_value
+  attr_accessor :idp_value
 
-    attr_accessor :organization
+  attr_accessor :organization
 
-    #  User role within the team.   A `manager` is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A 'member' is a normal user that inherits the settings and privileges  assigned to the team. 
-    attr_accessor :role
+  #  User role within the team.   A `manager` is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A 'member' is a normal user that inherits the settings and privileges  assigned to the team. 
+  attr_accessor :role
 
-    attr_accessor :team
+  attr_accessor :team
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'idp_key' => :'idp_key',
-        :'idp_value' => :'idp_value',
-        :'organization' => :'organization',
-        :'role' => :'role',
-        :'team' => :'team'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'idp_key' => :'idp_key',
+      :'idp_value' => :'idp_value',
+      :'organization' => :'organization',
+      :'role' => :'role',
+      :'team' => :'team'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'idp_key' => :'String',
+      :'idp_value' => :'String',
+      :'organization' => :'String',
+      :'role' => :'String',
+      :'team' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'idp_key')
+      self.idp_key = attributes[:'idp_key']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'idp_key' => :'String',
-        :'idp_value' => :'String',
-        :'organization' => :'String',
-        :'role' => :'String',
-        :'team' => :'String'
-      }
+    if attributes.has_key?(:'idp_value')
+      self.idp_value = attributes[:'idp_value']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'idp_key')
-        self.idp_key = attributes[:'idp_key']
-      end
-
-      if attributes.has_key?(:'idp_value')
-        self.idp_value = attributes[:'idp_value']
-      end
-
-      if attributes.has_key?(:'organization')
-        self.organization = attributes[:'organization']
-      end
-
-      if attributes.has_key?(:'role')
-        self.role = attributes[:'role']
-      else
-        self.role = 'Member'
-      end
-
-      if attributes.has_key?(:'team')
-        self.team = attributes[:'team']
-      end
+    if attributes.has_key?(:'organization')
+      self.organization = attributes[:'organization']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @idp_key.nil?
-        invalid_properties.push('invalid value for "idp_key", idp_key cannot be nil.')
-      end
-
-      if @idp_key.to_s.length > 100
-        invalid_properties.push('invalid value for "idp_key", the character length must be smaller than or equal to 100.')
-      end
-
-      if @idp_key.to_s.length < 1
-        invalid_properties.push('invalid value for "idp_key", the character length must be great than or equal to 1.')
-      end
-
-      if @idp_value.nil?
-        invalid_properties.push('invalid value for "idp_value", idp_value cannot be nil.')
-      end
-
-      if @idp_value.to_s.length > 100
-        invalid_properties.push('invalid value for "idp_value", the character length must be smaller than or equal to 100.')
-      end
-
-      if @idp_value.to_s.length < 1
-        invalid_properties.push('invalid value for "idp_value", the character length must be great than or equal to 1.')
-      end
-
-      if @organization.nil?
-        invalid_properties.push('invalid value for "organization", organization cannot be nil.')
-      end
-
-      if @team.nil?
-        invalid_properties.push('invalid value for "team", team cannot be nil.')
-      end
-
-      if @team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        invalid_properties.push('invalid value for "team", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'role')
+      self.role = attributes[:'role']
+    else
+      self.role = 'Member'
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @idp_key.nil?
-      return false if @idp_key.to_s.length > 100
-      return false if @idp_key.to_s.length < 1
-      return false if @idp_value.nil?
-      return false if @idp_value.to_s.length > 100
-      return false if @idp_value.to_s.length < 1
-      return false if @organization.nil?
-      return false if @team.nil?
-      return false if @team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      true
+    if attributes.has_key?(:'team')
+      self.team = attributes[:'team']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @idp_key.nil?
+      invalid_properties.push('invalid value for "idp_key", idp_key cannot be nil.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] idp_key Value to be assigned
-    def idp_key=(idp_key)
-      if idp_key.nil?
-        fail ArgumentError, 'idp_key cannot be nil'
-      end
-
-      if idp_key.to_s.length > 100
-        fail ArgumentError, 'invalid value for "idp_key", the character length must be smaller than or equal to 100.'
-      end
-
-      if idp_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "idp_key", the character length must be great than or equal to 1.'
-      end
-
-      @idp_key = idp_key
+    if @idp_key.to_s.length > 100
+      invalid_properties.push('invalid value for "idp_key", the character length must be smaller than or equal to 100.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] idp_value Value to be assigned
-    def idp_value=(idp_value)
-      if idp_value.nil?
-        fail ArgumentError, 'idp_value cannot be nil'
-      end
-
-      if idp_value.to_s.length > 100
-        fail ArgumentError, 'invalid value for "idp_value", the character length must be smaller than or equal to 100.'
-      end
-
-      if idp_value.to_s.length < 1
-        fail ArgumentError, 'invalid value for "idp_value", the character length must be great than or equal to 1.'
-      end
-
-      @idp_value = idp_value
+    if @idp_key.to_s.length < 1
+      invalid_properties.push('invalid value for "idp_key", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] team Value to be assigned
-    def team=(team)
-      if team.nil?
-        fail ArgumentError, 'team cannot be nil'
-      end
 
-      if team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-        fail ArgumentError, 'invalid value for "team", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
-      end
-
-      @team = team
+    if @idp_value.nil?
+      invalid_properties.push('invalid value for "idp_value", idp_value cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          idp_key == o.idp_key &&
-          idp_value == o.idp_value &&
-          organization == o.organization &&
-          role == o.role &&
-          team == o.team
+    if @idp_value.to_s.length > 100
+      invalid_properties.push('invalid value for "idp_value", the character length must be smaller than or equal to 100.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if @idp_value.to_s.length < 1
+      invalid_properties.push('invalid value for "idp_value", the character length must be great than or equal to 1.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [idp_key, idp_value, organization, role, team].hash
+
+    if @organization.nil?
+      invalid_properties.push('invalid value for "organization", organization cannot be nil.')
     end
+
+    if @team.nil?
+      invalid_properties.push('invalid value for "team", team cannot be nil.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @idp_key.nil?
+    return false if @idp_key.to_s.length > 100
+    return false if @idp_key.to_s.length < 1
+    return false if @idp_value.nil?
+    return false if @idp_value.to_s.length > 100
+    return false if @idp_value.to_s.length < 1
+    return false if @organization.nil?
+    return false if @team.nil?
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] idp_key Value to be assigned
+  def idp_key=(idp_key)
+    if idp_key.nil?
+      fail ArgumentError, 'idp_key cannot be nil'
+    end
+
+    if idp_key.to_s.length > 100
+      fail ArgumentError, 'invalid value for "idp_key", the character length must be smaller than or equal to 100.'
+    end
+
+    if idp_key.to_s.length < 1
+      fail ArgumentError, 'invalid value for "idp_key", the character length must be great than or equal to 1.'
+    end
+
+    @idp_key = idp_key
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] idp_value Value to be assigned
+  def idp_value=(idp_value)
+    if idp_value.nil?
+      fail ArgumentError, 'idp_value cannot be nil'
+    end
+
+    if idp_value.to_s.length > 100
+      fail ArgumentError, 'invalid value for "idp_value", the character length must be smaller than or equal to 100.'
+    end
+
+    if idp_value.to_s.length < 1
+      fail ArgumentError, 'invalid value for "idp_value", the character length must be great than or equal to 1.'
+    end
+
+    @idp_value = idp_value
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] team Value to be assigned
+  def team=(team)
+    if team.nil?
+      fail ArgumentError, 'team cannot be nil'
+    end
+
+    @team = team
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        idp_key == o.idp_key &&
+        idp_value == o.idp_value &&
+        organization == o.organization &&
+        role == o.role &&
+        team == o.team
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [idp_key, idp_value, organization, role, team].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -314,5 +308,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

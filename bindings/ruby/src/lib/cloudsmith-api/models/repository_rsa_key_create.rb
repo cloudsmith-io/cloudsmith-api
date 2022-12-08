@@ -13,118 +13,120 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class RepositoryRsaKeyCreate
-    # The RSA passphrase used for signing.
-    attr_accessor :rsa_passphrase
+class RepositoryRsaKeyCreate
+  # The RSA passphrase used for signing.
+  attr_accessor :rsa_passphrase
 
-    # The RSA private key.
-    attr_accessor :rsa_private_key
+  # The RSA private key.
+  attr_accessor :rsa_private_key
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'rsa_passphrase' => :'rsa_passphrase',
-        :'rsa_private_key' => :'rsa_private_key'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'rsa_passphrase' => :'rsa_passphrase',
+      :'rsa_private_key' => :'rsa_private_key'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'rsa_passphrase' => :'String',
+      :'rsa_private_key' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'rsa_passphrase')
+      self.rsa_passphrase = attributes[:'rsa_passphrase']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'rsa_passphrase' => :'String',
-        :'rsa_private_key' => :'String'
-      }
+    if attributes.has_key?(:'rsa_private_key')
+      self.rsa_private_key = attributes[:'rsa_private_key']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@rsa_passphrase.nil? && @rsa_passphrase.to_s.length < 1
+      invalid_properties.push('invalid value for "rsa_passphrase", the character length must be great than or equal to 1.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'rsa_passphrase')
-        self.rsa_passphrase = attributes[:'rsa_passphrase']
-      end
-
-      if attributes.has_key?(:'rsa_private_key')
-        self.rsa_private_key = attributes[:'rsa_private_key']
-      end
+    if @rsa_private_key.nil?
+      invalid_properties.push('invalid value for "rsa_private_key", rsa_private_key cannot be nil.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@rsa_passphrase.nil? && @rsa_passphrase.to_s.length < 1
-        invalid_properties.push('invalid value for "rsa_passphrase", the character length must be great than or equal to 1.')
-      end
-
-      if @rsa_private_key.nil?
-        invalid_properties.push('invalid value for "rsa_private_key", rsa_private_key cannot be nil.')
-      end
-
-      if @rsa_private_key.to_s.length < 1
-        invalid_properties.push('invalid value for "rsa_private_key", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if @rsa_private_key.to_s.length < 1
+      invalid_properties.push('invalid value for "rsa_private_key", the character length must be great than or equal to 1.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@rsa_passphrase.nil? && @rsa_passphrase.to_s.length < 1
-      return false if @rsa_private_key.nil?
-      return false if @rsa_private_key.to_s.length < 1
-      true
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@rsa_passphrase.nil? && @rsa_passphrase.to_s.length < 1
+    return false if @rsa_private_key.nil?
+    return false if @rsa_private_key.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] rsa_passphrase Value to be assigned
+  def rsa_passphrase=(rsa_passphrase)
+    if !rsa_passphrase.nil? && rsa_passphrase.to_s.length < 1
+      fail ArgumentError, 'invalid value for "rsa_passphrase", the character length must be great than or equal to 1.'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] rsa_passphrase Value to be assigned
-    def rsa_passphrase=(rsa_passphrase)
-      if !rsa_passphrase.nil? && rsa_passphrase.to_s.length < 1
-        fail ArgumentError, 'invalid value for "rsa_passphrase", the character length must be great than or equal to 1.'
-      end
+    @rsa_passphrase = rsa_passphrase
+  end
 
-      @rsa_passphrase = rsa_passphrase
+  # Custom attribute writer method with validation
+  # @param [Object] rsa_private_key Value to be assigned
+  def rsa_private_key=(rsa_private_key)
+    if rsa_private_key.nil?
+      fail ArgumentError, 'rsa_private_key cannot be nil'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] rsa_private_key Value to be assigned
-    def rsa_private_key=(rsa_private_key)
-      if rsa_private_key.nil?
-        fail ArgumentError, 'rsa_private_key cannot be nil'
-      end
-
-      if rsa_private_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "rsa_private_key", the character length must be great than or equal to 1.'
-      end
-
-      @rsa_private_key = rsa_private_key
+    if rsa_private_key.to_s.length < 1
+      fail ArgumentError, 'invalid value for "rsa_private_key", the character length must be great than or equal to 1.'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          rsa_passphrase == o.rsa_passphrase &&
-          rsa_private_key == o.rsa_private_key
-    end
+    @rsa_private_key = rsa_private_key
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        rsa_passphrase == o.rsa_passphrase &&
+        rsa_private_key == o.rsa_private_key
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [rsa_passphrase, rsa_private_key].hash
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [rsa_passphrase, rsa_private_key].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -230,5 +232,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

@@ -13,109 +13,111 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class UserAuthTokenRequest
-    # Email address to authenticate with
-    attr_accessor :email
+class UserAuthTokenRequest
+  # Email address to authenticate with
+  attr_accessor :email
 
-    # Password to authenticate with
-    attr_accessor :password
+  # Password to authenticate with
+  attr_accessor :password
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'email' => :'email',
-        :'password' => :'password'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'email' => :'email',
+      :'password' => :'password'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'email' => :'String',
+      :'password' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'email')
+      self.email = attributes[:'email']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'email' => :'String',
-        :'password' => :'String'
-      }
+    if attributes.has_key?(:'password')
+      self.password = attributes[:'password']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@email.nil? && @email.to_s.length < 1
+      invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'password')
-        self.password = attributes[:'password']
-      end
+    if !@password.nil? && @password.to_s.length < 1
+      invalid_properties.push('invalid value for "password", the character length must be great than or equal to 1.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@email.nil? && @email.to_s.length < 1
-        invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
-      end
 
-      if !@password.nil? && @password.to_s.length < 1
-        invalid_properties.push('invalid value for "password", the character length must be great than or equal to 1.')
-      end
+    invalid_properties
+  end
 
-      invalid_properties
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@email.nil? && @email.to_s.length < 1
+    return false if !@password.nil? && @password.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] email Value to be assigned
+  def email=(email)
+    if !email.nil? && email.to_s.length < 1
+      fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@email.nil? && @email.to_s.length < 1
-      return false if !@password.nil? && @password.to_s.length < 1
-      true
+    @email = email
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] password Value to be assigned
+  def password=(password)
+    if !password.nil? && password.to_s.length < 1
+      fail ArgumentError, 'invalid value for "password", the character length must be great than or equal to 1.'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] email Value to be assigned
-    def email=(email)
-      if !email.nil? && email.to_s.length < 1
-        fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
-      end
+    @password = password
+  end
 
-      @email = email
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        email == o.email &&
+        password == o.password
+  end
 
-    # Custom attribute writer method with validation
-    # @param [Object] password Value to be assigned
-    def password=(password)
-      if !password.nil? && password.to_s.length < 1
-        fail ArgumentError, 'invalid value for "password", the character length must be great than or equal to 1.'
-      end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-      @password = password
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          email == o.email &&
-          password == o.password
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [email, password].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [email, password].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -221,5 +223,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

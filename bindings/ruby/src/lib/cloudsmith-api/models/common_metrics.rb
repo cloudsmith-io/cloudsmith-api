@@ -13,114 +13,114 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class CommonMetrics
-    attr_accessor :active
+class CommonMetrics
+  attr_accessor :active
 
-    attr_accessor :bandwidth
+  attr_accessor :bandwidth
 
-    attr_accessor :downloads
+  attr_accessor :downloads
 
-    attr_accessor :inactive
+  attr_accessor :inactive
 
-    attr_accessor :total
+  attr_accessor :total
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'active' => :'active',
-        :'bandwidth' => :'bandwidth',
-        :'downloads' => :'downloads',
-        :'inactive' => :'inactive',
-        :'total' => :'total'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'active' => :'active',
+      :'bandwidth' => :'bandwidth',
+      :'downloads' => :'downloads',
+      :'inactive' => :'inactive',
+      :'total' => :'total'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'active' => :'Integer',
+      :'bandwidth' => :'CommonBandwidthMetrics',
+      :'downloads' => :'CommonDownloadsMetrics',
+      :'inactive' => :'Integer',
+      :'total' => :'Integer'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'active')
+      self.active = attributes[:'active']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'active' => :'Integer',
-        :'bandwidth' => :'CommonBandwidthMetrics',
-        :'downloads' => :'CommonDownloadsMetrics',
-        :'inactive' => :'Integer',
-        :'total' => :'Integer'
-      }
+    if attributes.has_key?(:'bandwidth')
+      self.bandwidth = attributes[:'bandwidth']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'active')
-        self.active = attributes[:'active']
-      end
-
-      if attributes.has_key?(:'bandwidth')
-        self.bandwidth = attributes[:'bandwidth']
-      end
-
-      if attributes.has_key?(:'downloads')
-        self.downloads = attributes[:'downloads']
-      end
-
-      if attributes.has_key?(:'inactive')
-        self.inactive = attributes[:'inactive']
-      end
-
-      if attributes.has_key?(:'total')
-        self.total = attributes[:'total']
-      end
+    if attributes.has_key?(:'downloads')
+      self.downloads = attributes[:'downloads']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @bandwidth.nil?
-        invalid_properties.push('invalid value for "bandwidth", bandwidth cannot be nil.')
-      end
-
-      if @downloads.nil?
-        invalid_properties.push('invalid value for "downloads", downloads cannot be nil.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'inactive')
+      self.inactive = attributes[:'inactive']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @bandwidth.nil?
-      return false if @downloads.nil?
-      true
+    if attributes.has_key?(:'total')
+      self.total = attributes[:'total']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @bandwidth.nil?
+      invalid_properties.push('invalid value for "bandwidth", bandwidth cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          active == o.active &&
-          bandwidth == o.bandwidth &&
-          downloads == o.downloads &&
-          inactive == o.inactive &&
-          total == o.total
+    if @downloads.nil?
+      invalid_properties.push('invalid value for "downloads", downloads cannot be nil.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+    invalid_properties
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [active, bandwidth, downloads, inactive, total].hash
-    end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @bandwidth.nil?
+    return false if @downloads.nil?
+    true
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        active == o.active &&
+        bandwidth == o.bandwidth &&
+        downloads == o.downloads &&
+        inactive == o.inactive &&
+        total == o.total
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [active, bandwidth, downloads, inactive, total].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -226,5 +226,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

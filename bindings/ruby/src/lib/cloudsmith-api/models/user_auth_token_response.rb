@@ -13,84 +13,85 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class UserAuthTokenResponse
-    # API token for the authenticated user
-    attr_accessor :token
+class UserAuthTokenResponse
+  # API token for the authenticated user
+  attr_accessor :token
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'token' => :'token'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'token' => :'token'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'token' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'token')
+      self.token = attributes[:'token']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@token.nil? && @token.to_s.length < 1
+      invalid_properties.push('invalid value for "token", the character length must be great than or equal to 1.')
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'token' => :'String'
-      }
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@token.nil? && @token.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] token Value to be assigned
+  def token=(token)
+    if !token.nil? && token.to_s.length < 1
+      fail ArgumentError, 'invalid value for "token", the character length must be great than or equal to 1.'
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
+    @token = token
+  end
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        token == o.token
+  end
 
-      if attributes.has_key?(:'token')
-        self.token = attributes[:'token']
-      end
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@token.nil? && @token.to_s.length < 1
-        invalid_properties.push('invalid value for "token", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@token.nil? && @token.to_s.length < 1
-      true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] token Value to be assigned
-    def token=(token)
-      if !token.nil? && token.to_s.length < 1
-        fail ArgumentError, 'invalid value for "token", the character length must be great than or equal to 1.'
-      end
-
-      @token = token
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          token == o.token
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [token].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [token].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -196,5 +197,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

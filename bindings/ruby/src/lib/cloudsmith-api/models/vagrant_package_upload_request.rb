@@ -13,239 +13,244 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class VagrantPackageUploadRequest
-    # The name of this package.
-    attr_accessor :name
+class VagrantPackageUploadRequest
+  # The name of this package.
+  attr_accessor :name
 
-    # The primary file for the package.
-    attr_accessor :package_file
+  # The primary file for the package.
+  attr_accessor :package_file
 
-    # The virtual machine provider for the box.
-    attr_accessor :provider
+  # The virtual machine provider for the box.
+  attr_accessor :provider
 
-    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-    attr_accessor :republish
+  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+  attr_accessor :republish
 
-    # A comma-separated values list of tags to add to the package.
-    attr_accessor :tags
+  # A comma-separated values list of tags to add to the package.
+  attr_accessor :tags
 
-    # The raw version for this package.
-    attr_accessor :version
+  # The raw version for this package.
+  attr_accessor :version
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'name' => :'name',
-        :'package_file' => :'package_file',
-        :'provider' => :'provider',
-        :'republish' => :'republish',
-        :'tags' => :'tags',
-        :'version' => :'version'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'name' => :'name',
+      :'package_file' => :'package_file',
+      :'provider' => :'provider',
+      :'republish' => :'republish',
+      :'tags' => :'tags',
+      :'version' => :'version'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'name' => :'String',
+      :'package_file' => :'String',
+      :'provider' => :'String',
+      :'republish' => :'BOOLEAN',
+      :'tags' => :'String',
+      :'version' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'name' => :'String',
-        :'package_file' => :'String',
-        :'provider' => :'String',
-        :'republish' => :'BOOLEAN',
-        :'tags' => :'String',
-        :'version' => :'String'
-      }
+    if attributes.has_key?(:'package_file')
+      self.package_file = attributes[:'package_file']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'package_file')
-        self.package_file = attributes[:'package_file']
-      end
-
-      if attributes.has_key?(:'provider')
-        self.provider = attributes[:'provider']
-      end
-
-      if attributes.has_key?(:'republish')
-        self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'tags')
-        self.tags = attributes[:'tags']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
+    if attributes.has_key?(:'provider')
+      self.provider = attributes[:'provider']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 200
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 200.')
-      end
-
-      if @package_file.nil?
-        invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-      end
-
-      if @package_file.to_s.length < 1
-        invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-      end
-
-      if @provider.nil?
-        invalid_properties.push('invalid value for "provider", provider cannot be nil.')
-      end
-
-      if @provider.to_s.length < 1
-        invalid_properties.push('invalid value for "provider", the character length must be great than or equal to 1.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length > 1024
-        invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length < 1
-        invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-      end
-
-      if @version.nil?
-        invalid_properties.push('invalid value for "version", version cannot be nil.')
-      end
-
-      if @version.to_s.length > 128
-        invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'republish')
+      self.republish = attributes[:'republish']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @name.nil?
-      return false if @name.to_s.length > 200
-      return false if @package_file.nil?
-      return false if @package_file.to_s.length < 1
-      return false if @provider.nil?
-      return false if @provider.to_s.length < 1
-      return false if !@tags.nil? && @tags.to_s.length > 1024
-      return false if !@tags.nil? && @tags.to_s.length < 1
-      return false if @version.nil?
-      return false if @version.to_s.length > 128
-      true
+    if attributes.has_key?(:'tags')
+      self.tags = attributes[:'tags']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
+    if attributes.has_key?(:'version')
+      self.version = attributes[:'version']
+    end
+  end
 
-      if name.to_s.length > 200
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
-      end
-
-      @name = name
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] package_file Value to be assigned
-    def package_file=(package_file)
-      if package_file.nil?
-        fail ArgumentError, 'package_file cannot be nil'
-      end
-
-      if package_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-      end
-
-      @package_file = package_file
+    if @name.to_s.length > 200
+      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 200.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] provider Value to be assigned
-    def provider=(provider)
-      if provider.nil?
-        fail ArgumentError, 'provider cannot be nil'
-      end
 
-      if provider.to_s.length < 1
-        fail ArgumentError, 'invalid value for "provider", the character length must be great than or equal to 1.'
-      end
-
-      @provider = provider
+    if @package_file.nil?
+      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tags Value to be assigned
-    def tags=(tags)
-      if !tags.nil? && tags.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-      end
-
-      if !tags.nil? && tags.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-      end
-
-      @tags = tags
+    if @package_file.to_s.length < 1
+      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] version Value to be assigned
-    def version=(version)
-      if version.nil?
-        fail ArgumentError, 'version cannot be nil'
-      end
 
-      if version.to_s.length > 128
-        fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
-      end
-
-      @version = version
+    if @provider.nil?
+      invalid_properties.push('invalid value for "provider", provider cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          name == o.name &&
-          package_file == o.package_file &&
-          provider == o.provider &&
-          republish == o.republish &&
-          tags == o.tags &&
-          version == o.version
+    if @provider.to_s.length < 1
+      invalid_properties.push('invalid value for "provider", the character length must be great than or equal to 1.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if !@tags.nil? && @tags.to_s.length > 1024
+      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [name, package_file, provider, republish, tags, version].hash
+    if !@tags.nil? && @tags.to_s.length < 1
+      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
     end
+
+
+    if @version.nil?
+      invalid_properties.push('invalid value for "version", version cannot be nil.')
+    end
+
+    if @version.to_s.length > 128
+      invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @name.nil?
+    return false if @name.to_s.length > 200
+    return false if @package_file.nil?
+    return false if @package_file.to_s.length < 1
+    return false if @provider.nil?
+    return false if @provider.to_s.length < 1
+    return false if !@tags.nil? && @tags.to_s.length > 1024
+    return false if !@tags.nil? && @tags.to_s.length < 1
+    return false if @version.nil?
+    return false if @version.to_s.length > 128
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] name Value to be assigned
+  def name=(name)
+    if name.nil?
+      fail ArgumentError, 'name cannot be nil'
+    end
+
+    if name.to_s.length > 200
+      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
+    end
+
+    @name = name
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] package_file Value to be assigned
+  def package_file=(package_file)
+    if package_file.nil?
+      fail ArgumentError, 'package_file cannot be nil'
+    end
+
+    if package_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
+    end
+
+    @package_file = package_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] provider Value to be assigned
+  def provider=(provider)
+    if provider.nil?
+      fail ArgumentError, 'provider cannot be nil'
+    end
+
+    if provider.to_s.length < 1
+      fail ArgumentError, 'invalid value for "provider", the character length must be great than or equal to 1.'
+    end
+
+    @provider = provider
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tags Value to be assigned
+  def tags=(tags)
+    if !tags.nil? && tags.to_s.length > 1024
+      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
+    end
+
+    if !tags.nil? && tags.to_s.length < 1
+      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
+    end
+
+    @tags = tags
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] version Value to be assigned
+  def version=(version)
+    if version.nil?
+      fail ArgumentError, 'version cannot be nil'
+    end
+
+    if version.to_s.length > 128
+      fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
+    end
+
+    @version = version
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        name == o.name &&
+        package_file == o.package_file &&
+        provider == o.provider &&
+        republish == o.republish &&
+        tags == o.tags &&
+        version == o.version
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [name, package_file, provider, republish, tags, version].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -351,5 +356,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

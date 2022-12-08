@@ -13,107 +13,108 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  # The team members
-  class OrganizationTeamMembership
-    attr_accessor :role
+# The team members
+class OrganizationTeamMembership
+  attr_accessor :role
 
-    attr_accessor :user
+  attr_accessor :user
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'role' => :'role',
-        :'user' => :'user'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'role' => :'role',
+      :'user' => :'user'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'role' => :'String',
+      :'user' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'role')
+      self.role = attributes[:'role']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'role' => :'String',
-        :'user' => :'String'
-      }
+    if attributes.has_key?(:'user')
+      self.user = attributes[:'user']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @role.nil?
+      invalid_properties.push('invalid value for "role", role cannot be nil.')
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'role')
-        self.role = attributes[:'role']
-      end
-
-      if attributes.has_key?(:'user')
-        self.user = attributes[:'user']
-      end
+    if @user.nil?
+      invalid_properties.push('invalid value for "user", user cannot be nil.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @role.nil?
-        invalid_properties.push('invalid value for "role", role cannot be nil.')
-      end
-
-      if @user.nil?
-        invalid_properties.push('invalid value for "user", user cannot be nil.')
-      end
-
-      if @user.to_s.length < 1
-        invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if @user.to_s.length < 1
+      invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @role.nil?
-      return false if @user.nil?
-      return false if @user.to_s.length < 1
-      true
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @role.nil?
+    return false if @user.nil?
+    return false if @user.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] user Value to be assigned
+  def user=(user)
+    if user.nil?
+      fail ArgumentError, 'user cannot be nil'
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] user Value to be assigned
-    def user=(user)
-      if user.nil?
-        fail ArgumentError, 'user cannot be nil'
-      end
-
-      if user.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
-      end
-
-      @user = user
+    if user.to_s.length < 1
+      fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          role == o.role &&
-          user == o.user
-    end
+    @user = user
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        role == o.role &&
+        user == o.user
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [role, user].hash
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [role, user].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -219,5 +220,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

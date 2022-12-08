@@ -13,166 +13,167 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class History
-    attr_accessor :days
+class History
+  attr_accessor :days
 
-    attr_accessor :display
+  attr_accessor :display
 
-    attr_accessor :_end
+  attr_accessor :_end
 
-    attr_accessor :plan
+  attr_accessor :plan
 
-    attr_accessor :raw
+  attr_accessor :raw
 
-    attr_accessor :start
+  attr_accessor :start
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'days' => :'days',
-        :'display' => :'display',
-        :'_end' => :'end',
-        :'plan' => :'plan',
-        :'raw' => :'raw',
-        :'start' => :'start'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'days' => :'days',
+      :'display' => :'display',
+      :'_end' => :'end',
+      :'plan' => :'plan',
+      :'raw' => :'raw',
+      :'start' => :'start'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'days' => :'Integer',
+      :'display' => :'HistoryFieldset',
+      :'_end' => :'DateTime',
+      :'plan' => :'String',
+      :'raw' => :'HistoryFieldset',
+      :'start' => :'DateTime'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'days')
+      self.days = attributes[:'days']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'days' => :'Integer',
-        :'display' => :'HistoryFieldset',
-        :'_end' => :'DateTime',
-        :'plan' => :'String',
-        :'raw' => :'HistoryFieldset',
-        :'start' => :'DateTime'
-      }
+    if attributes.has_key?(:'display')
+      self.display = attributes[:'display']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'days')
-        self.days = attributes[:'days']
-      end
-
-      if attributes.has_key?(:'display')
-        self.display = attributes[:'display']
-      end
-
-      if attributes.has_key?(:'end')
-        self._end = attributes[:'end']
-      end
-
-      if attributes.has_key?(:'plan')
-        self.plan = attributes[:'plan']
-      end
-
-      if attributes.has_key?(:'raw')
-        self.raw = attributes[:'raw']
-      end
-
-      if attributes.has_key?(:'start')
-        self.start = attributes[:'start']
-      end
+    if attributes.has_key?(:'end')
+      self._end = attributes[:'end']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @display.nil?
-        invalid_properties.push('invalid value for "display", display cannot be nil.')
-      end
-
-      if @_end.nil?
-        invalid_properties.push('invalid value for "_end", _end cannot be nil.')
-      end
-
-      if @plan.nil?
-        invalid_properties.push('invalid value for "plan", plan cannot be nil.')
-      end
-
-      if @plan.to_s.length > 64
-        invalid_properties.push('invalid value for "plan", the character length must be smaller than or equal to 64.')
-      end
-
-      if @plan.to_s.length < 1
-        invalid_properties.push('invalid value for "plan", the character length must be great than or equal to 1.')
-      end
-
-      if @raw.nil?
-        invalid_properties.push('invalid value for "raw", raw cannot be nil.')
-      end
-
-      if @start.nil?
-        invalid_properties.push('invalid value for "start", start cannot be nil.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'plan')
+      self.plan = attributes[:'plan']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @display.nil?
-      return false if @_end.nil?
-      return false if @plan.nil?
-      return false if @plan.to_s.length > 64
-      return false if @plan.to_s.length < 1
-      return false if @raw.nil?
-      return false if @start.nil?
-      true
+    if attributes.has_key?(:'raw')
+      self.raw = attributes[:'raw']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] plan Value to be assigned
-    def plan=(plan)
-      if plan.nil?
-        fail ArgumentError, 'plan cannot be nil'
-      end
+    if attributes.has_key?(:'start')
+      self.start = attributes[:'start']
+    end
+  end
 
-      if plan.to_s.length > 64
-        fail ArgumentError, 'invalid value for "plan", the character length must be smaller than or equal to 64.'
-      end
-
-      if plan.to_s.length < 1
-        fail ArgumentError, 'invalid value for "plan", the character length must be great than or equal to 1.'
-      end
-
-      @plan = plan
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @display.nil?
+      invalid_properties.push('invalid value for "display", display cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          days == o.days &&
-          display == o.display &&
-          _end == o._end &&
-          plan == o.plan &&
-          raw == o.raw &&
-          start == o.start
+    if @_end.nil?
+      invalid_properties.push('invalid value for "_end", _end cannot be nil.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if @plan.nil?
+      invalid_properties.push('invalid value for "plan", plan cannot be nil.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [days, display, _end, plan, raw, start].hash
+    if @plan.to_s.length > 64
+      invalid_properties.push('invalid value for "plan", the character length must be smaller than or equal to 64.')
     end
+
+    if @plan.to_s.length < 1
+      invalid_properties.push('invalid value for "plan", the character length must be great than or equal to 1.')
+    end
+
+
+    if @raw.nil?
+      invalid_properties.push('invalid value for "raw", raw cannot be nil.')
+    end
+
+    if @start.nil?
+      invalid_properties.push('invalid value for "start", start cannot be nil.')
+    end
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @display.nil?
+    return false if @_end.nil?
+    return false if @plan.nil?
+    return false if @plan.to_s.length > 64
+    return false if @plan.to_s.length < 1
+    return false if @raw.nil?
+    return false if @start.nil?
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] plan Value to be assigned
+  def plan=(plan)
+    if plan.nil?
+      fail ArgumentError, 'plan cannot be nil'
+    end
+
+    if plan.to_s.length > 64
+      fail ArgumentError, 'invalid value for "plan", the character length must be smaller than or equal to 64.'
+    end
+
+    if plan.to_s.length < 1
+      fail ArgumentError, 'invalid value for "plan", the character length must be great than or equal to 1.'
+    end
+
+    @plan = plan
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        days == o.days &&
+        display == o.display &&
+        _end == o._end &&
+        plan == o.plan &&
+        raw == o.raw &&
+        start == o.start
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [days, display, _end, plan, raw, start].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -278,5 +279,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

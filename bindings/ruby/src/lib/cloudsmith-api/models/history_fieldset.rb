@@ -13,101 +13,101 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class HistoryFieldset
-    attr_accessor :downloaded
+class HistoryFieldset
+  attr_accessor :downloaded
 
-    attr_accessor :storage_used
+  attr_accessor :storage_used
 
-    attr_accessor :uploaded
+  attr_accessor :uploaded
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'downloaded' => :'downloaded',
-        :'storage_used' => :'storage_used',
-        :'uploaded' => :'uploaded'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'downloaded' => :'downloaded',
+      :'storage_used' => :'storage_used',
+      :'uploaded' => :'uploaded'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'downloaded' => :'Usage',
+      :'storage_used' => :'Usage',
+      :'uploaded' => :'Usage'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'downloaded')
+      self.downloaded = attributes[:'downloaded']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'downloaded' => :'Usage',
-        :'storage_used' => :'Usage',
-        :'uploaded' => :'Usage'
-      }
+    if attributes.has_key?(:'storage_used')
+      self.storage_used = attributes[:'storage_used']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
+    if attributes.has_key?(:'uploaded')
+      self.uploaded = attributes[:'uploaded']
+    end
+  end
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'downloaded')
-        self.downloaded = attributes[:'downloaded']
-      end
-
-      if attributes.has_key?(:'storage_used')
-        self.storage_used = attributes[:'storage_used']
-      end
-
-      if attributes.has_key?(:'uploaded')
-        self.uploaded = attributes[:'uploaded']
-      end
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @downloaded.nil?
+      invalid_properties.push('invalid value for "downloaded", downloaded cannot be nil.')
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @downloaded.nil?
-        invalid_properties.push('invalid value for "downloaded", downloaded cannot be nil.')
-      end
-
-      if @storage_used.nil?
-        invalid_properties.push('invalid value for "storage_used", storage_used cannot be nil.')
-      end
-
-      if @uploaded.nil?
-        invalid_properties.push('invalid value for "uploaded", uploaded cannot be nil.')
-      end
-
-      invalid_properties
+    if @storage_used.nil?
+      invalid_properties.push('invalid value for "storage_used", storage_used cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @downloaded.nil?
-      return false if @storage_used.nil?
-      return false if @uploaded.nil?
-      true
+    if @uploaded.nil?
+      invalid_properties.push('invalid value for "uploaded", uploaded cannot be nil.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          downloaded == o.downloaded &&
-          storage_used == o.storage_used &&
-          uploaded == o.uploaded
-    end
+    invalid_properties
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @downloaded.nil?
+    return false if @storage_used.nil?
+    return false if @uploaded.nil?
+    true
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [downloaded, storage_used, uploaded].hash
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        downloaded == o.downloaded &&
+        storage_used == o.storage_used &&
+        uploaded == o.uploaded
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [downloaded, storage_used, uploaded].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -213,5 +213,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

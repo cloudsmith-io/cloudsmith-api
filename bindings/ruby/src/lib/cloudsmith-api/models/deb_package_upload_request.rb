@@ -13,221 +13,226 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class DebPackageUploadRequest
-    # The changes archive containing the changes made to the source and debian packaging files
-    attr_accessor :changes_file
+class DebPackageUploadRequest
+  # The changes archive containing the changes made to the source and debian packaging files
+  attr_accessor :changes_file
 
-    # The distribution to store the package for.
-    attr_accessor :distribution
+  # The distribution to store the package for.
+  attr_accessor :distribution
 
-    # The primary file for the package.
-    attr_accessor :package_file
+  # The primary file for the package.
+  attr_accessor :package_file
 
-    # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-    attr_accessor :republish
+  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+  attr_accessor :republish
 
-    # The sources archive containing the source code for the binary
-    attr_accessor :sources_file
+  # The sources archive containing the source code for the binary
+  attr_accessor :sources_file
 
-    # A comma-separated values list of tags to add to the package.
-    attr_accessor :tags
+  # A comma-separated values list of tags to add to the package.
+  attr_accessor :tags
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'changes_file' => :'changes_file',
-        :'distribution' => :'distribution',
-        :'package_file' => :'package_file',
-        :'republish' => :'republish',
-        :'sources_file' => :'sources_file',
-        :'tags' => :'tags'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'changes_file' => :'changes_file',
+      :'distribution' => :'distribution',
+      :'package_file' => :'package_file',
+      :'republish' => :'republish',
+      :'sources_file' => :'sources_file',
+      :'tags' => :'tags'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'changes_file' => :'String',
+      :'distribution' => :'String',
+      :'package_file' => :'String',
+      :'republish' => :'BOOLEAN',
+      :'sources_file' => :'String',
+      :'tags' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'changes_file')
+      self.changes_file = attributes[:'changes_file']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'changes_file' => :'String',
-        :'distribution' => :'String',
-        :'package_file' => :'String',
-        :'republish' => :'BOOLEAN',
-        :'sources_file' => :'String',
-        :'tags' => :'String'
-      }
+    if attributes.has_key?(:'distribution')
+      self.distribution = attributes[:'distribution']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'changes_file')
-        self.changes_file = attributes[:'changes_file']
-      end
-
-      if attributes.has_key?(:'distribution')
-        self.distribution = attributes[:'distribution']
-      end
-
-      if attributes.has_key?(:'package_file')
-        self.package_file = attributes[:'package_file']
-      end
-
-      if attributes.has_key?(:'republish')
-        self.republish = attributes[:'republish']
-      end
-
-      if attributes.has_key?(:'sources_file')
-        self.sources_file = attributes[:'sources_file']
-      end
-
-      if attributes.has_key?(:'tags')
-        self.tags = attributes[:'tags']
-      end
+    if attributes.has_key?(:'package_file')
+      self.package_file = attributes[:'package_file']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@changes_file.nil? && @changes_file.to_s.length < 1
-        invalid_properties.push('invalid value for "changes_file", the character length must be great than or equal to 1.')
-      end
-
-      if @distribution.nil?
-        invalid_properties.push('invalid value for "distribution", distribution cannot be nil.')
-      end
-
-      if @distribution.to_s.length < 1
-        invalid_properties.push('invalid value for "distribution", the character length must be great than or equal to 1.')
-      end
-
-      if @package_file.nil?
-        invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-      end
-
-      if @package_file.to_s.length < 1
-        invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@sources_file.nil? && @sources_file.to_s.length < 1
-        invalid_properties.push('invalid value for "sources_file", the character length must be great than or equal to 1.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length > 1024
-        invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length < 1
-        invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'republish')
+      self.republish = attributes[:'republish']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@changes_file.nil? && @changes_file.to_s.length < 1
-      return false if @distribution.nil?
-      return false if @distribution.to_s.length < 1
-      return false if @package_file.nil?
-      return false if @package_file.to_s.length < 1
-      return false if !@sources_file.nil? && @sources_file.to_s.length < 1
-      return false if !@tags.nil? && @tags.to_s.length > 1024
-      return false if !@tags.nil? && @tags.to_s.length < 1
-      true
+    if attributes.has_key?(:'sources_file')
+      self.sources_file = attributes[:'sources_file']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] changes_file Value to be assigned
-    def changes_file=(changes_file)
-      if !changes_file.nil? && changes_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "changes_file", the character length must be great than or equal to 1.'
-      end
+    if attributes.has_key?(:'tags')
+      self.tags = attributes[:'tags']
+    end
+  end
 
-      @changes_file = changes_file
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@changes_file.nil? && @changes_file.to_s.length < 1
+      invalid_properties.push('invalid value for "changes_file", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] distribution Value to be assigned
-    def distribution=(distribution)
-      if distribution.nil?
-        fail ArgumentError, 'distribution cannot be nil'
-      end
 
-      if distribution.to_s.length < 1
-        fail ArgumentError, 'invalid value for "distribution", the character length must be great than or equal to 1.'
-      end
-
-      @distribution = distribution
+    if @distribution.nil?
+      invalid_properties.push('invalid value for "distribution", distribution cannot be nil.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] package_file Value to be assigned
-    def package_file=(package_file)
-      if package_file.nil?
-        fail ArgumentError, 'package_file cannot be nil'
-      end
-
-      if package_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-      end
-
-      @package_file = package_file
+    if @distribution.to_s.length < 1
+      invalid_properties.push('invalid value for "distribution", the character length must be great than or equal to 1.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] sources_file Value to be assigned
-    def sources_file=(sources_file)
-      if !sources_file.nil? && sources_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "sources_file", the character length must be great than or equal to 1.'
-      end
 
-      @sources_file = sources_file
+    if @package_file.nil?
+      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tags Value to be assigned
-    def tags=(tags)
-      if !tags.nil? && tags.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-      end
-
-      if !tags.nil? && tags.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-      end
-
-      @tags = tags
+    if @package_file.to_s.length < 1
+      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          changes_file == o.changes_file &&
-          distribution == o.distribution &&
-          package_file == o.package_file &&
-          republish == o.republish &&
-          sources_file == o.sources_file &&
-          tags == o.tags
+
+    if !@sources_file.nil? && @sources_file.to_s.length < 1
+      invalid_properties.push('invalid value for "sources_file", the character length must be great than or equal to 1.')
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+
+    if !@tags.nil? && @tags.to_s.length > 1024
+      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [changes_file, distribution, package_file, republish, sources_file, tags].hash
+    if !@tags.nil? && @tags.to_s.length < 1
+      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
     end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@changes_file.nil? && @changes_file.to_s.length < 1
+    return false if @distribution.nil?
+    return false if @distribution.to_s.length < 1
+    return false if @package_file.nil?
+    return false if @package_file.to_s.length < 1
+    return false if !@sources_file.nil? && @sources_file.to_s.length < 1
+    return false if !@tags.nil? && @tags.to_s.length > 1024
+    return false if !@tags.nil? && @tags.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] changes_file Value to be assigned
+  def changes_file=(changes_file)
+    if !changes_file.nil? && changes_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "changes_file", the character length must be great than or equal to 1.'
+    end
+
+    @changes_file = changes_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] distribution Value to be assigned
+  def distribution=(distribution)
+    if distribution.nil?
+      fail ArgumentError, 'distribution cannot be nil'
+    end
+
+    if distribution.to_s.length < 1
+      fail ArgumentError, 'invalid value for "distribution", the character length must be great than or equal to 1.'
+    end
+
+    @distribution = distribution
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] package_file Value to be assigned
+  def package_file=(package_file)
+    if package_file.nil?
+      fail ArgumentError, 'package_file cannot be nil'
+    end
+
+    if package_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
+    end
+
+    @package_file = package_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] sources_file Value to be assigned
+  def sources_file=(sources_file)
+    if !sources_file.nil? && sources_file.to_s.length < 1
+      fail ArgumentError, 'invalid value for "sources_file", the character length must be great than or equal to 1.'
+    end
+
+    @sources_file = sources_file
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] tags Value to be assigned
+  def tags=(tags)
+    if !tags.nil? && tags.to_s.length > 1024
+      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
+    end
+
+    if !tags.nil? && tags.to_s.length < 1
+      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
+    end
+
+    @tags = tags
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        changes_file == o.changes_file &&
+        distribution == o.distribution &&
+        package_file == o.package_file &&
+        republish == o.republish &&
+        sources_file == o.sources_file &&
+        tags == o.tags
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [changes_file, distribution, package_file, republish, sources_file, tags].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -333,5 +338,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

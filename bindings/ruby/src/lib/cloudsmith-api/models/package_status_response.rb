@@ -13,234 +13,235 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageStatusResponse
-    attr_accessor :is_downloadable
+class PackageStatusResponse
+  attr_accessor :is_downloadable
 
-    attr_accessor :is_quarantined
+  attr_accessor :is_quarantined
 
-    attr_accessor :is_sync_awaiting
+  attr_accessor :is_sync_awaiting
 
-    attr_accessor :is_sync_completed
+  attr_accessor :is_sync_completed
 
-    attr_accessor :is_sync_failed
+  attr_accessor :is_sync_failed
 
-    attr_accessor :is_sync_in_flight
+  attr_accessor :is_sync_in_flight
 
-    attr_accessor :is_sync_in_progress
+  attr_accessor :is_sync_in_progress
 
-    attr_accessor :self_url
+  attr_accessor :self_url
 
-    # The synchronisation (in progress) stage of the package.
-    attr_accessor :stage
+  # The synchronisation (in progress) stage of the package.
+  attr_accessor :stage
 
-    attr_accessor :stage_str
+  attr_accessor :stage_str
 
-    # The datetime the package stage was updated at.
-    attr_accessor :stage_updated_at
+  # The datetime the package stage was updated at.
+  attr_accessor :stage_updated_at
 
-    # The synchronisation status of the package.
-    attr_accessor :status
+  # The synchronisation status of the package.
+  attr_accessor :status
 
-    # A textual description for the synchronous status reason (if any
-    attr_accessor :status_reason
+  # A textual description for the synchronous status reason (if any
+  attr_accessor :status_reason
 
-    attr_accessor :status_str
+  attr_accessor :status_str
 
-    # The datetime the package status was updated at.
-    attr_accessor :status_updated_at
+  # The datetime the package status was updated at.
+  attr_accessor :status_updated_at
 
-    # The datetime the package sync was finished at.
-    attr_accessor :sync_finished_at
+  # The datetime the package sync was finished at.
+  attr_accessor :sync_finished_at
 
-    # Synchronisation progress (from 0-100)
-    attr_accessor :sync_progress
+  # Synchronisation progress (from 0-100)
+  attr_accessor :sync_progress
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'is_downloadable' => :'is_downloadable',
-        :'is_quarantined' => :'is_quarantined',
-        :'is_sync_awaiting' => :'is_sync_awaiting',
-        :'is_sync_completed' => :'is_sync_completed',
-        :'is_sync_failed' => :'is_sync_failed',
-        :'is_sync_in_flight' => :'is_sync_in_flight',
-        :'is_sync_in_progress' => :'is_sync_in_progress',
-        :'self_url' => :'self_url',
-        :'stage' => :'stage',
-        :'stage_str' => :'stage_str',
-        :'stage_updated_at' => :'stage_updated_at',
-        :'status' => :'status',
-        :'status_reason' => :'status_reason',
-        :'status_str' => :'status_str',
-        :'status_updated_at' => :'status_updated_at',
-        :'sync_finished_at' => :'sync_finished_at',
-        :'sync_progress' => :'sync_progress'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'is_downloadable' => :'is_downloadable',
+      :'is_quarantined' => :'is_quarantined',
+      :'is_sync_awaiting' => :'is_sync_awaiting',
+      :'is_sync_completed' => :'is_sync_completed',
+      :'is_sync_failed' => :'is_sync_failed',
+      :'is_sync_in_flight' => :'is_sync_in_flight',
+      :'is_sync_in_progress' => :'is_sync_in_progress',
+      :'self_url' => :'self_url',
+      :'stage' => :'stage',
+      :'stage_str' => :'stage_str',
+      :'stage_updated_at' => :'stage_updated_at',
+      :'status' => :'status',
+      :'status_reason' => :'status_reason',
+      :'status_str' => :'status_str',
+      :'status_updated_at' => :'status_updated_at',
+      :'sync_finished_at' => :'sync_finished_at',
+      :'sync_progress' => :'sync_progress'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'is_downloadable' => :'BOOLEAN',
+      :'is_quarantined' => :'BOOLEAN',
+      :'is_sync_awaiting' => :'BOOLEAN',
+      :'is_sync_completed' => :'BOOLEAN',
+      :'is_sync_failed' => :'BOOLEAN',
+      :'is_sync_in_flight' => :'BOOLEAN',
+      :'is_sync_in_progress' => :'BOOLEAN',
+      :'self_url' => :'String',
+      :'stage' => :'Integer',
+      :'stage_str' => :'String',
+      :'stage_updated_at' => :'DateTime',
+      :'status' => :'Integer',
+      :'status_reason' => :'String',
+      :'status_str' => :'String',
+      :'status_updated_at' => :'DateTime',
+      :'sync_finished_at' => :'DateTime',
+      :'sync_progress' => :'Integer'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'is_downloadable')
+      self.is_downloadable = attributes[:'is_downloadable']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'is_downloadable' => :'BOOLEAN',
-        :'is_quarantined' => :'BOOLEAN',
-        :'is_sync_awaiting' => :'BOOLEAN',
-        :'is_sync_completed' => :'BOOLEAN',
-        :'is_sync_failed' => :'BOOLEAN',
-        :'is_sync_in_flight' => :'BOOLEAN',
-        :'is_sync_in_progress' => :'BOOLEAN',
-        :'self_url' => :'String',
-        :'stage' => :'Integer',
-        :'stage_str' => :'String',
-        :'stage_updated_at' => :'DateTime',
-        :'status' => :'Integer',
-        :'status_reason' => :'String',
-        :'status_str' => :'String',
-        :'status_updated_at' => :'DateTime',
-        :'sync_finished_at' => :'DateTime',
-        :'sync_progress' => :'Integer'
-      }
+    if attributes.has_key?(:'is_quarantined')
+      self.is_quarantined = attributes[:'is_quarantined']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'is_downloadable')
-        self.is_downloadable = attributes[:'is_downloadable']
-      end
-
-      if attributes.has_key?(:'is_quarantined')
-        self.is_quarantined = attributes[:'is_quarantined']
-      end
-
-      if attributes.has_key?(:'is_sync_awaiting')
-        self.is_sync_awaiting = attributes[:'is_sync_awaiting']
-      end
-
-      if attributes.has_key?(:'is_sync_completed')
-        self.is_sync_completed = attributes[:'is_sync_completed']
-      end
-
-      if attributes.has_key?(:'is_sync_failed')
-        self.is_sync_failed = attributes[:'is_sync_failed']
-      end
-
-      if attributes.has_key?(:'is_sync_in_flight')
-        self.is_sync_in_flight = attributes[:'is_sync_in_flight']
-      end
-
-      if attributes.has_key?(:'is_sync_in_progress')
-        self.is_sync_in_progress = attributes[:'is_sync_in_progress']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'stage')
-        self.stage = attributes[:'stage']
-      end
-
-      if attributes.has_key?(:'stage_str')
-        self.stage_str = attributes[:'stage_str']
-      end
-
-      if attributes.has_key?(:'stage_updated_at')
-        self.stage_updated_at = attributes[:'stage_updated_at']
-      end
-
-      if attributes.has_key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.has_key?(:'status_reason')
-        self.status_reason = attributes[:'status_reason']
-      end
-
-      if attributes.has_key?(:'status_str')
-        self.status_str = attributes[:'status_str']
-      end
-
-      if attributes.has_key?(:'status_updated_at')
-        self.status_updated_at = attributes[:'status_updated_at']
-      end
-
-      if attributes.has_key?(:'sync_finished_at')
-        self.sync_finished_at = attributes[:'sync_finished_at']
-      end
-
-      if attributes.has_key?(:'sync_progress')
-        self.sync_progress = attributes[:'sync_progress']
-      end
+    if attributes.has_key?(:'is_sync_awaiting')
+      self.is_sync_awaiting = attributes[:'is_sync_awaiting']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if !@status_reason.nil? && @status_reason.to_s.length < 1
-        invalid_properties.push('invalid value for "status_reason", the character length must be great than or equal to 1.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'is_sync_completed')
+      self.is_sync_completed = attributes[:'is_sync_completed']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if !@status_reason.nil? && @status_reason.to_s.length < 1
-      true
+    if attributes.has_key?(:'is_sync_failed')
+      self.is_sync_failed = attributes[:'is_sync_failed']
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] status_reason Value to be assigned
-    def status_reason=(status_reason)
-      if !status_reason.nil? && status_reason.to_s.length < 1
-        fail ArgumentError, 'invalid value for "status_reason", the character length must be great than or equal to 1.'
-      end
-
-      @status_reason = status_reason
+    if attributes.has_key?(:'is_sync_in_flight')
+      self.is_sync_in_flight = attributes[:'is_sync_in_flight']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          is_downloadable == o.is_downloadable &&
-          is_quarantined == o.is_quarantined &&
-          is_sync_awaiting == o.is_sync_awaiting &&
-          is_sync_completed == o.is_sync_completed &&
-          is_sync_failed == o.is_sync_failed &&
-          is_sync_in_flight == o.is_sync_in_flight &&
-          is_sync_in_progress == o.is_sync_in_progress &&
-          self_url == o.self_url &&
-          stage == o.stage &&
-          stage_str == o.stage_str &&
-          stage_updated_at == o.stage_updated_at &&
-          status == o.status &&
-          status_reason == o.status_reason &&
-          status_str == o.status_str &&
-          status_updated_at == o.status_updated_at &&
-          sync_finished_at == o.sync_finished_at &&
-          sync_progress == o.sync_progress
+    if attributes.has_key?(:'is_sync_in_progress')
+      self.is_sync_in_progress = attributes[:'is_sync_in_progress']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'self_url')
+      self.self_url = attributes[:'self_url']
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, self_url, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, sync_finished_at, sync_progress].hash
+    if attributes.has_key?(:'stage')
+      self.stage = attributes[:'stage']
     end
+
+    if attributes.has_key?(:'stage_str')
+      self.stage_str = attributes[:'stage_str']
+    end
+
+    if attributes.has_key?(:'stage_updated_at')
+      self.stage_updated_at = attributes[:'stage_updated_at']
+    end
+
+    if attributes.has_key?(:'status')
+      self.status = attributes[:'status']
+    end
+
+    if attributes.has_key?(:'status_reason')
+      self.status_reason = attributes[:'status_reason']
+    end
+
+    if attributes.has_key?(:'status_str')
+      self.status_str = attributes[:'status_str']
+    end
+
+    if attributes.has_key?(:'status_updated_at')
+      self.status_updated_at = attributes[:'status_updated_at']
+    end
+
+    if attributes.has_key?(:'sync_finished_at')
+      self.sync_finished_at = attributes[:'sync_finished_at']
+    end
+
+    if attributes.has_key?(:'sync_progress')
+      self.sync_progress = attributes[:'sync_progress']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if !@status_reason.nil? && @status_reason.to_s.length < 1
+      invalid_properties.push('invalid value for "status_reason", the character length must be great than or equal to 1.')
+    end
+
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if !@status_reason.nil? && @status_reason.to_s.length < 1
+    true
+  end
+
+  # Custom attribute writer method with validation
+  # @param [Object] status_reason Value to be assigned
+  def status_reason=(status_reason)
+    if !status_reason.nil? && status_reason.to_s.length < 1
+      fail ArgumentError, 'invalid value for "status_reason", the character length must be great than or equal to 1.'
+    end
+
+    @status_reason = status_reason
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        is_downloadable == o.is_downloadable &&
+        is_quarantined == o.is_quarantined &&
+        is_sync_awaiting == o.is_sync_awaiting &&
+        is_sync_completed == o.is_sync_completed &&
+        is_sync_failed == o.is_sync_failed &&
+        is_sync_in_flight == o.is_sync_in_flight &&
+        is_sync_in_progress == o.is_sync_in_progress &&
+        self_url == o.self_url &&
+        stage == o.stage &&
+        stage_str == o.stage_str &&
+        stage_updated_at == o.stage_updated_at &&
+        status == o.status &&
+        status_reason == o.status_reason &&
+        status_str == o.status_str &&
+        status_updated_at == o.status_updated_at &&
+        sync_finished_at == o.sync_finished_at &&
+        sync_progress == o.sync_progress
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, self_url, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, sync_finished_at, sync_progress].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -346,5 +347,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end
