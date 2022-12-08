@@ -99,15 +99,6 @@ class History
       invalid_properties.push('invalid value for "plan", plan cannot be nil.')
     end
 
-    if @plan.to_s.length > 64
-      invalid_properties.push('invalid value for "plan", the character length must be smaller than or equal to 64.')
-    end
-
-    if @plan.to_s.length < 1
-      invalid_properties.push('invalid value for "plan", the character length must be great than or equal to 1.')
-    end
-
-
     if @raw.nil?
       invalid_properties.push('invalid value for "raw", raw cannot be nil.')
     end
@@ -125,29 +116,9 @@ class History
     return false if @display.nil?
     return false if @_end.nil?
     return false if @plan.nil?
-    return false if @plan.to_s.length > 64
-    return false if @plan.to_s.length < 1
     return false if @raw.nil?
     return false if @start.nil?
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] plan Value to be assigned
-  def plan=(plan)
-    if plan.nil?
-      fail ArgumentError, 'plan cannot be nil'
-    end
-
-    if plan.to_s.length > 64
-      fail ArgumentError, 'invalid value for "plan", the character length must be smaller than or equal to 64.'
-    end
-
-    if plan.to_s.length < 1
-      fail ArgumentError, 'invalid value for "plan", the character length must be great than or equal to 1.'
-    end
-
-    @plan = plan
   end
 
   # Checks equality by comparing each attribute.

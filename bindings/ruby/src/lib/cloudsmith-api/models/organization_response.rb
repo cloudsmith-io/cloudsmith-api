@@ -98,86 +98,13 @@ class OrganizationResponse
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@country.nil? && @country.to_s.length > 32
-      invalid_properties.push('invalid value for "country", the character length must be smaller than or equal to 32.')
-    end
-
-    if !@country.nil? && @country.to_s.length < 1
-      invalid_properties.push('invalid value for "country", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@location.nil? && @location.to_s.length < 1
-      invalid_properties.push('invalid value for "location", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@name.nil? && @name.to_s.length < 1
-      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@tagline.nil? && @tagline.to_s.length < 1
-      invalid_properties.push('invalid value for "tagline", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@country.nil? && @country.to_s.length > 32
-    return false if !@country.nil? && @country.to_s.length < 1
-    return false if !@location.nil? && @location.to_s.length < 1
-    return false if !@name.nil? && @name.to_s.length < 1
-    return false if !@tagline.nil? && @tagline.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] country Value to be assigned
-  def country=(country)
-    if !country.nil? && country.to_s.length > 32
-      fail ArgumentError, 'invalid value for "country", the character length must be smaller than or equal to 32.'
-    end
-
-    if !country.nil? && country.to_s.length < 1
-      fail ArgumentError, 'invalid value for "country", the character length must be great than or equal to 1.'
-    end
-
-    @country = country
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] location Value to be assigned
-  def location=(location)
-    if !location.nil? && location.to_s.length < 1
-      fail ArgumentError, 'invalid value for "location", the character length must be great than or equal to 1.'
-    end
-
-    @location = location
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] name Value to be assigned
-  def name=(name)
-    if !name.nil? && name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-    end
-
-    @name = name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] tagline Value to be assigned
-  def tagline=(tagline)
-    if !tagline.nil? && tagline.to_s.length < 1
-      fail ArgumentError, 'invalid value for "tagline", the character length must be great than or equal to 1.'
-    end
-
-    @tagline = tagline
   end
 
   # Checks equality by comparing each attribute.

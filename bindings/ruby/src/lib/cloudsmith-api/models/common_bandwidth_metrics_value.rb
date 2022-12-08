@@ -69,20 +69,6 @@ class CommonBandwidthMetricsValue
       invalid_properties.push('invalid value for "display", display cannot be nil.')
     end
 
-    if @display.to_s.length > 64
-      invalid_properties.push('invalid value for "display", the character length must be smaller than or equal to 64.')
-    end
-
-    if @display.to_s.length < 1
-      invalid_properties.push('invalid value for "display", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@units.nil? && @units.to_s.length < 1
-      invalid_properties.push('invalid value for "units", the character length must be great than or equal to 1.')
-    end
-
-
     if @value.nil?
       invalid_properties.push('invalid value for "value", value cannot be nil.')
     end
@@ -94,39 +80,8 @@ class CommonBandwidthMetricsValue
   # @return true if the model is valid
   def valid?
     return false if @display.nil?
-    return false if @display.to_s.length > 64
-    return false if @display.to_s.length < 1
-    return false if !@units.nil? && @units.to_s.length < 1
     return false if @value.nil?
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] display Value to be assigned
-  def display=(display)
-    if display.nil?
-      fail ArgumentError, 'display cannot be nil'
-    end
-
-    if display.to_s.length > 64
-      fail ArgumentError, 'invalid value for "display", the character length must be smaller than or equal to 64.'
-    end
-
-    if display.to_s.length < 1
-      fail ArgumentError, 'invalid value for "display", the character length must be great than or equal to 1.'
-    end
-
-    @display = display
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] units Value to be assigned
-  def units=(units)
-    if !units.nil? && units.to_s.length < 1
-      fail ArgumentError, 'invalid value for "units", the character length must be great than or equal to 1.'
-    end
-
-    @units = units
   end
 
   # Checks equality by comparing each attribute.

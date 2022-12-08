@@ -57,23 +57,9 @@ class Eula
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@identifier.nil? && @identifier.to_s.length > 16
-      invalid_properties.push('invalid value for "identifier", the character length must be smaller than or equal to 16.')
-    end
-
-
     if @number.nil?
       invalid_properties.push('invalid value for "number", number cannot be nil.')
     end
-
-    if @number > 2147483647
-      invalid_properties.push('invalid value for "number", must be smaller than or equal to 2147483647.')
-    end
-
-    if @number < 0
-      invalid_properties.push('invalid value for "number", must be greater than or equal to 0.')
-    end
-
 
     invalid_properties
   end
@@ -81,39 +67,8 @@ class Eula
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@identifier.nil? && @identifier.to_s.length > 16
     return false if @number.nil?
-    return false if @number > 2147483647
-    return false if @number < 0
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] identifier Value to be assigned
-  def identifier=(identifier)
-    if !identifier.nil? && identifier.to_s.length > 16
-      fail ArgumentError, 'invalid value for "identifier", the character length must be smaller than or equal to 16.'
-    end
-
-    @identifier = identifier
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] number Value to be assigned
-  def number=(number)
-    if number.nil?
-      fail ArgumentError, 'number cannot be nil'
-    end
-
-    if number > 2147483647
-      fail ArgumentError, 'invalid value for "number", must be smaller than or equal to 2147483647.'
-    end
-
-    if number < 0
-      fail ArgumentError, 'invalid value for "number", must be greater than or equal to 0.'
-    end
-
-    @number = number
   end
 
   # Checks equality by comparing each attribute.

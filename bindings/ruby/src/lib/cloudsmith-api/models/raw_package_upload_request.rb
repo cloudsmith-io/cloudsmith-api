@@ -111,52 +111,9 @@ class RawPackageUploadRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@content_type.nil? && @content_type.to_s.length > 64
-      invalid_properties.push('invalid value for "content_type", the character length must be smaller than or equal to 64.')
-    end
-
-    if !@content_type.nil? && @content_type.to_s.length < 1
-      invalid_properties.push('invalid value for "content_type", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@description.nil? && @description.to_s.length > 12288
-      invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 12288.')
-    end
-
-
-    if !@name.nil? && @name.to_s.length > 200
-      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 200.')
-    end
-
-
     if @package_file.nil?
       invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
-
-    if @package_file.to_s.length < 1
-      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@summary.nil? && @summary.to_s.length > 255
-      invalid_properties.push('invalid value for "summary", the character length must be smaller than or equal to 255.')
-    end
-
-
-    if !@tags.nil? && @tags.to_s.length > 1024
-      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-    end
-
-    if !@tags.nil? && @tags.to_s.length < 1
-      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@version.nil? && @version.to_s.length > 128
-      invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
-    end
-
 
     invalid_properties
   end
@@ -164,99 +121,8 @@ class RawPackageUploadRequest
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@content_type.nil? && @content_type.to_s.length > 64
-    return false if !@content_type.nil? && @content_type.to_s.length < 1
-    return false if !@description.nil? && @description.to_s.length > 12288
-    return false if !@name.nil? && @name.to_s.length > 200
     return false if @package_file.nil?
-    return false if @package_file.to_s.length < 1
-    return false if !@summary.nil? && @summary.to_s.length > 255
-    return false if !@tags.nil? && @tags.to_s.length > 1024
-    return false if !@tags.nil? && @tags.to_s.length < 1
-    return false if !@version.nil? && @version.to_s.length > 128
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] content_type Value to be assigned
-  def content_type=(content_type)
-    if !content_type.nil? && content_type.to_s.length > 64
-      fail ArgumentError, 'invalid value for "content_type", the character length must be smaller than or equal to 64.'
-    end
-
-    if !content_type.nil? && content_type.to_s.length < 1
-      fail ArgumentError, 'invalid value for "content_type", the character length must be great than or equal to 1.'
-    end
-
-    @content_type = content_type
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] description Value to be assigned
-  def description=(description)
-    if !description.nil? && description.to_s.length > 12288
-      fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 12288.'
-    end
-
-    @description = description
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] name Value to be assigned
-  def name=(name)
-    if !name.nil? && name.to_s.length > 200
-      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
-    end
-
-    @name = name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] package_file Value to be assigned
-  def package_file=(package_file)
-    if package_file.nil?
-      fail ArgumentError, 'package_file cannot be nil'
-    end
-
-    if package_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-    end
-
-    @package_file = package_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] summary Value to be assigned
-  def summary=(summary)
-    if !summary.nil? && summary.to_s.length > 255
-      fail ArgumentError, 'invalid value for "summary", the character length must be smaller than or equal to 255.'
-    end
-
-    @summary = summary
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] tags Value to be assigned
-  def tags=(tags)
-    if !tags.nil? && tags.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-    end
-
-    if !tags.nil? && tags.to_s.length < 1
-      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-    end
-
-    @tags = tags
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] version Value to be assigned
-  def version=(version)
-    if !version.nil? && version.to_s.length > 128
-      fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
-    end
-
-    @version = version
   end
 
   # Checks equality by comparing each attribute.

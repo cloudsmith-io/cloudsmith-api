@@ -52,11 +52,6 @@ class RepositoryTokenSyncRequest
       invalid_properties.push('invalid value for "source", source cannot be nil.')
     end
 
-    if @source.to_s.length < 1
-      invalid_properties.push('invalid value for "source", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
@@ -64,22 +59,7 @@ class RepositoryTokenSyncRequest
   # @return true if the model is valid
   def valid?
     return false if @source.nil?
-    return false if @source.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] source Value to be assigned
-  def source=(source)
-    if source.nil?
-      fail ArgumentError, 'source cannot be nil'
-    end
-
-    if source.to_s.length < 1
-      fail ArgumentError, 'invalid value for "source", the character length must be great than or equal to 1.'
-    end
-
-    @source = source
   end
 
   # Checks equality by comparing each attribute.

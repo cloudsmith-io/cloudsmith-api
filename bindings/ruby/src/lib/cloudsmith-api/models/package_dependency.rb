@@ -81,20 +81,6 @@ class PackageDependency
       invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
 
-    if @name.to_s.length > 255
-      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 255.')
-    end
-
-    if @name.to_s.length < 1
-      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@version.nil? && @version.to_s.length > 128
-      invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
-    end
-
-
     invalid_properties
   end
 
@@ -102,38 +88,7 @@ class PackageDependency
   # @return true if the model is valid
   def valid?
     return false if @name.nil?
-    return false if @name.to_s.length > 255
-    return false if @name.to_s.length < 1
-    return false if !@version.nil? && @version.to_s.length > 128
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] name Value to be assigned
-  def name=(name)
-    if name.nil?
-      fail ArgumentError, 'name cannot be nil'
-    end
-
-    if name.to_s.length > 255
-      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 255.'
-    end
-
-    if name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-    end
-
-    @name = name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] version Value to be assigned
-  def version=(version)
-    if !version.nil? && version.to_s.length > 128
-      fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
-    end
-
-    @version = version
   end
 
   # Checks equality by comparing each attribute.

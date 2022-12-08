@@ -289,76 +289,17 @@ class RepositoryWebhookResponse
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@created_by.nil? && @created_by.to_s.length < 1
-      invalid_properties.push('invalid value for "created_by", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@disable_reason_str.nil? && @disable_reason_str.to_s.length < 1
-      invalid_properties.push('invalid value for "disable_reason_str", the character length must be great than or equal to 1.')
-    end
-
-
     if @events.nil?
       invalid_properties.push('invalid value for "events", events cannot be nil.')
     end
-
-    if !@last_response_status_str.nil? && @last_response_status_str.to_s.length < 1
-      invalid_properties.push('invalid value for "last_response_status_str", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@package_query.nil? && @package_query.to_s.length > 1024
-      invalid_properties.push('invalid value for "package_query", the character length must be smaller than or equal to 1024.')
-    end
-
-
-    if !@request_body_format_str.nil? && @request_body_format_str.to_s.length < 1
-      invalid_properties.push('invalid value for "request_body_format_str", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@request_body_template_format_str.nil? && @request_body_template_format_str.to_s.length < 1
-      invalid_properties.push('invalid value for "request_body_template_format_str", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@request_content_type.nil? && @request_content_type.to_s.length > 128
-      invalid_properties.push('invalid value for "request_content_type", the character length must be smaller than or equal to 128.')
-    end
-
-
-    if !@secret_header.nil? && @secret_header.to_s.length > 64
-      invalid_properties.push('invalid value for "secret_header", the character length must be smaller than or equal to 64.')
-    end
-
-
-    if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
-    end
-
 
     if @target_url.nil?
       invalid_properties.push('invalid value for "target_url", target_url cannot be nil.')
     end
 
-    if @target_url.to_s.length > 255
-      invalid_properties.push('invalid value for "target_url", the character length must be smaller than or equal to 255.')
-    end
-
-    if @target_url.to_s.length < 1
-      invalid_properties.push('invalid value for "target_url", the character length must be great than or equal to 1.')
-    end
-
-
     if @templates.nil?
       invalid_properties.push('invalid value for "templates", templates cannot be nil.')
     end
-
-    if !@updated_by.nil? && @updated_by.to_s.length < 1
-      invalid_properties.push('invalid value for "updated_by", the character length must be great than or equal to 1.')
-    end
-
 
     invalid_properties
   end
@@ -366,140 +307,10 @@ class RepositoryWebhookResponse
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@created_by.nil? && @created_by.to_s.length < 1
-    return false if !@disable_reason_str.nil? && @disable_reason_str.to_s.length < 1
     return false if @events.nil?
-    return false if !@last_response_status_str.nil? && @last_response_status_str.to_s.length < 1
-    return false if !@package_query.nil? && @package_query.to_s.length > 1024
-    return false if !@request_body_format_str.nil? && @request_body_format_str.to_s.length < 1
-    return false if !@request_body_template_format_str.nil? && @request_body_template_format_str.to_s.length < 1
-    return false if !@request_content_type.nil? && @request_content_type.to_s.length > 128
-    return false if !@secret_header.nil? && @secret_header.to_s.length > 64
-    return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
     return false if @target_url.nil?
-    return false if @target_url.to_s.length > 255
-    return false if @target_url.to_s.length < 1
     return false if @templates.nil?
-    return false if !@updated_by.nil? && @updated_by.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] created_by Value to be assigned
-  def created_by=(created_by)
-    if !created_by.nil? && created_by.to_s.length < 1
-      fail ArgumentError, 'invalid value for "created_by", the character length must be great than or equal to 1.'
-    end
-
-    @created_by = created_by
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] disable_reason_str Value to be assigned
-  def disable_reason_str=(disable_reason_str)
-    if !disable_reason_str.nil? && disable_reason_str.to_s.length < 1
-      fail ArgumentError, 'invalid value for "disable_reason_str", the character length must be great than or equal to 1.'
-    end
-
-    @disable_reason_str = disable_reason_str
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] last_response_status_str Value to be assigned
-  def last_response_status_str=(last_response_status_str)
-    if !last_response_status_str.nil? && last_response_status_str.to_s.length < 1
-      fail ArgumentError, 'invalid value for "last_response_status_str", the character length must be great than or equal to 1.'
-    end
-
-    @last_response_status_str = last_response_status_str
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] package_query Value to be assigned
-  def package_query=(package_query)
-    if !package_query.nil? && package_query.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "package_query", the character length must be smaller than or equal to 1024.'
-    end
-
-    @package_query = package_query
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] request_body_format_str Value to be assigned
-  def request_body_format_str=(request_body_format_str)
-    if !request_body_format_str.nil? && request_body_format_str.to_s.length < 1
-      fail ArgumentError, 'invalid value for "request_body_format_str", the character length must be great than or equal to 1.'
-    end
-
-    @request_body_format_str = request_body_format_str
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] request_body_template_format_str Value to be assigned
-  def request_body_template_format_str=(request_body_template_format_str)
-    if !request_body_template_format_str.nil? && request_body_template_format_str.to_s.length < 1
-      fail ArgumentError, 'invalid value for "request_body_template_format_str", the character length must be great than or equal to 1.'
-    end
-
-    @request_body_template_format_str = request_body_template_format_str
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] request_content_type Value to be assigned
-  def request_content_type=(request_content_type)
-    if !request_content_type.nil? && request_content_type.to_s.length > 128
-      fail ArgumentError, 'invalid value for "request_content_type", the character length must be smaller than or equal to 128.'
-    end
-
-    @request_content_type = request_content_type
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] secret_header Value to be assigned
-  def secret_header=(secret_header)
-    if !secret_header.nil? && secret_header.to_s.length > 64
-      fail ArgumentError, 'invalid value for "secret_header", the character length must be smaller than or equal to 64.'
-    end
-
-    @secret_header = secret_header
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] slug_perm Value to be assigned
-  def slug_perm=(slug_perm)
-    if !slug_perm.nil? && slug_perm.to_s.length < 1
-      fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
-    end
-
-    @slug_perm = slug_perm
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] target_url Value to be assigned
-  def target_url=(target_url)
-    if target_url.nil?
-      fail ArgumentError, 'target_url cannot be nil'
-    end
-
-    if target_url.to_s.length > 255
-      fail ArgumentError, 'invalid value for "target_url", the character length must be smaller than or equal to 255.'
-    end
-
-    if target_url.to_s.length < 1
-      fail ArgumentError, 'invalid value for "target_url", the character length must be great than or equal to 1.'
-    end
-
-    @target_url = target_url
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] updated_by Value to be assigned
-  def updated_by=(updated_by)
-    if !updated_by.nil? && updated_by.to_s.length < 1
-      fail ArgumentError, 'invalid value for "updated_by", the character length must be great than or equal to 1.'
-    end
-
-    @updated_by = updated_by
   end
 
   # Checks equality by comparing each attribute.

@@ -55,23 +55,9 @@ class Architecture
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@description.nil? && @description.to_s.length > 64
-      invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 64.')
-    end
-
-
     if @name.nil?
       invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
-
-    if @name.to_s.length > 32
-      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 32.')
-    end
-
-    if @name.to_s.length < 1
-      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-    end
-
 
     invalid_properties
   end
@@ -79,39 +65,8 @@ class Architecture
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@description.nil? && @description.to_s.length > 64
     return false if @name.nil?
-    return false if @name.to_s.length > 32
-    return false if @name.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] description Value to be assigned
-  def description=(description)
-    if !description.nil? && description.to_s.length > 64
-      fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 64.'
-    end
-
-    @description = description
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] name Value to be assigned
-  def name=(name)
-    if name.nil?
-      fail ArgumentError, 'name cannot be nil'
-    end
-
-    if name.to_s.length > 32
-      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 32.'
-    end
-
-    if name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-    end
-
-    @name = name
   end
 
   # Checks equality by comparing each attribute.

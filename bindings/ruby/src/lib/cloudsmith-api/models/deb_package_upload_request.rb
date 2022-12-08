@@ -93,42 +93,13 @@ class DebPackageUploadRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@changes_file.nil? && @changes_file.to_s.length < 1
-      invalid_properties.push('invalid value for "changes_file", the character length must be great than or equal to 1.')
-    end
-
-
     if @distribution.nil?
       invalid_properties.push('invalid value for "distribution", distribution cannot be nil.')
     end
 
-    if @distribution.to_s.length < 1
-      invalid_properties.push('invalid value for "distribution", the character length must be great than or equal to 1.')
-    end
-
-
     if @package_file.nil?
       invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
-
-    if @package_file.to_s.length < 1
-      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@sources_file.nil? && @sources_file.to_s.length < 1
-      invalid_properties.push('invalid value for "sources_file", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@tags.nil? && @tags.to_s.length > 1024
-      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-    end
-
-    if !@tags.nil? && @tags.to_s.length < 1
-      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-    end
-
 
     invalid_properties
   end
@@ -136,77 +107,9 @@ class DebPackageUploadRequest
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@changes_file.nil? && @changes_file.to_s.length < 1
     return false if @distribution.nil?
-    return false if @distribution.to_s.length < 1
     return false if @package_file.nil?
-    return false if @package_file.to_s.length < 1
-    return false if !@sources_file.nil? && @sources_file.to_s.length < 1
-    return false if !@tags.nil? && @tags.to_s.length > 1024
-    return false if !@tags.nil? && @tags.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] changes_file Value to be assigned
-  def changes_file=(changes_file)
-    if !changes_file.nil? && changes_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "changes_file", the character length must be great than or equal to 1.'
-    end
-
-    @changes_file = changes_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] distribution Value to be assigned
-  def distribution=(distribution)
-    if distribution.nil?
-      fail ArgumentError, 'distribution cannot be nil'
-    end
-
-    if distribution.to_s.length < 1
-      fail ArgumentError, 'invalid value for "distribution", the character length must be great than or equal to 1.'
-    end
-
-    @distribution = distribution
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] package_file Value to be assigned
-  def package_file=(package_file)
-    if package_file.nil?
-      fail ArgumentError, 'package_file cannot be nil'
-    end
-
-    if package_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-    end
-
-    @package_file = package_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] sources_file Value to be assigned
-  def sources_file=(sources_file)
-    if !sources_file.nil? && sources_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "sources_file", the character length must be great than or equal to 1.'
-    end
-
-    @sources_file = sources_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] tags Value to be assigned
-  def tags=(tags)
-    if !tags.nil? && tags.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-    end
-
-    if !tags.nil? && tags.to_s.length < 1
-      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-    end
-
-    @tags = tags
   end
 
   # Checks equality by comparing each attribute.

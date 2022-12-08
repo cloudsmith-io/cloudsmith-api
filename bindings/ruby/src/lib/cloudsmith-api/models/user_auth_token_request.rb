@@ -57,45 +57,13 @@ class UserAuthTokenRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@email.nil? && @email.to_s.length < 1
-      invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@password.nil? && @password.to_s.length < 1
-      invalid_properties.push('invalid value for "password", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@email.nil? && @email.to_s.length < 1
-    return false if !@password.nil? && @password.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] email Value to be assigned
-  def email=(email)
-    if !email.nil? && email.to_s.length < 1
-      fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
-    end
-
-    @email = email
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] password Value to be assigned
-  def password=(password)
-    if !password.nil? && password.to_s.length < 1
-      fail ArgumentError, 'invalid value for "password", the character length must be great than or equal to 1.'
-    end
-
-    @password = password
   end
 
   # Checks equality by comparing each attribute.

@@ -64,11 +64,6 @@ class OrganizationTeamMembership
       invalid_properties.push('invalid value for "user", user cannot be nil.')
     end
 
-    if @user.to_s.length < 1
-      invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
@@ -77,22 +72,7 @@ class OrganizationTeamMembership
   def valid?
     return false if @role.nil?
     return false if @user.nil?
-    return false if @user.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] user Value to be assigned
-  def user=(user)
-    if user.nil?
-      fail ArgumentError, 'user cannot be nil'
-    end
-
-    if user.to_s.length < 1
-      fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
-    end
-
-    @user = user
   end
 
   # Checks equality by comparing each attribute.

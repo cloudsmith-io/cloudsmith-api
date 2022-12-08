@@ -63,88 +63,13 @@ class Usage
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@limit.nil? && @limit.to_s.length > 32
-      invalid_properties.push('invalid value for "limit", the character length must be smaller than or equal to 32.')
-    end
-
-    if !@limit.nil? && @limit.to_s.length < 1
-      invalid_properties.push('invalid value for "limit", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@percentage.nil? && @percentage.to_s.length > 10
-      invalid_properties.push('invalid value for "percentage", the character length must be smaller than or equal to 10.')
-    end
-
-    if !@percentage.nil? && @percentage.to_s.length < 1
-      invalid_properties.push('invalid value for "percentage", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@used.nil? && @used.to_s.length > 32
-      invalid_properties.push('invalid value for "used", the character length must be smaller than or equal to 32.')
-    end
-
-    if !@used.nil? && @used.to_s.length < 1
-      invalid_properties.push('invalid value for "used", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@limit.nil? && @limit.to_s.length > 32
-    return false if !@limit.nil? && @limit.to_s.length < 1
-    return false if !@percentage.nil? && @percentage.to_s.length > 10
-    return false if !@percentage.nil? && @percentage.to_s.length < 1
-    return false if !@used.nil? && @used.to_s.length > 32
-    return false if !@used.nil? && @used.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] limit Value to be assigned
-  def limit=(limit)
-    if !limit.nil? && limit.to_s.length > 32
-      fail ArgumentError, 'invalid value for "limit", the character length must be smaller than or equal to 32.'
-    end
-
-    if !limit.nil? && limit.to_s.length < 1
-      fail ArgumentError, 'invalid value for "limit", the character length must be great than or equal to 1.'
-    end
-
-    @limit = limit
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] percentage Value to be assigned
-  def percentage=(percentage)
-    if !percentage.nil? && percentage.to_s.length > 10
-      fail ArgumentError, 'invalid value for "percentage", the character length must be smaller than or equal to 10.'
-    end
-
-    if !percentage.nil? && percentage.to_s.length < 1
-      fail ArgumentError, 'invalid value for "percentage", the character length must be great than or equal to 1.'
-    end
-
-    @percentage = percentage
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] used Value to be assigned
-  def used=(used)
-    if !used.nil? && used.to_s.length > 32
-      fail ArgumentError, 'invalid value for "used", the character length must be smaller than or equal to 32.'
-    end
-
-    if !used.nil? && used.to_s.length < 1
-      fail ArgumentError, 'invalid value for "used", the character length must be great than or equal to 1.'
-    end
-
-    @used = used
   end
 
   # Checks equality by comparing each attribute.

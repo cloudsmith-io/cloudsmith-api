@@ -57,19 +57,9 @@ class RepositoryGpgKeyCreate
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@gpg_passphrase.nil? && @gpg_passphrase.to_s.length < 1
-      invalid_properties.push('invalid value for "gpg_passphrase", the character length must be great than or equal to 1.')
-    end
-
-
     if @gpg_private_key.nil?
       invalid_properties.push('invalid value for "gpg_private_key", gpg_private_key cannot be nil.')
     end
-
-    if @gpg_private_key.to_s.length < 1
-      invalid_properties.push('invalid value for "gpg_private_key", the character length must be great than or equal to 1.')
-    end
-
 
     invalid_properties
   end
@@ -77,34 +67,8 @@ class RepositoryGpgKeyCreate
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@gpg_passphrase.nil? && @gpg_passphrase.to_s.length < 1
     return false if @gpg_private_key.nil?
-    return false if @gpg_private_key.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] gpg_passphrase Value to be assigned
-  def gpg_passphrase=(gpg_passphrase)
-    if !gpg_passphrase.nil? && gpg_passphrase.to_s.length < 1
-      fail ArgumentError, 'invalid value for "gpg_passphrase", the character length must be great than or equal to 1.'
-    end
-
-    @gpg_passphrase = gpg_passphrase
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] gpg_private_key Value to be assigned
-  def gpg_private_key=(gpg_private_key)
-    if gpg_private_key.nil?
-      fail ArgumentError, 'gpg_private_key cannot be nil'
-    end
-
-    if gpg_private_key.to_s.length < 1
-      fail ArgumentError, 'invalid value for "gpg_private_key", the character length must be great than or equal to 1.'
-    end
-
-    @gpg_private_key = gpg_private_key
   end
 
   # Checks equality by comparing each attribute.

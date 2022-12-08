@@ -133,77 +133,13 @@ class OrganizationMembershipResponse
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@email.nil? && @email.to_s.length < 1
-      invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@user.nil? && @user.to_s.length < 1
-      invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@user_id.nil? && @user_id.to_s.length < 1
-      invalid_properties.push('invalid value for "user_id", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@user_name.nil? && @user_name.to_s.length < 1
-      invalid_properties.push('invalid value for "user_name", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@email.nil? && @email.to_s.length < 1
-    return false if !@user.nil? && @user.to_s.length < 1
-    return false if !@user_id.nil? && @user_id.to_s.length < 1
-    return false if !@user_name.nil? && @user_name.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] email Value to be assigned
-  def email=(email)
-    if !email.nil? && email.to_s.length < 1
-      fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
-    end
-
-    @email = email
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] user Value to be assigned
-  def user=(user)
-    if !user.nil? && user.to_s.length < 1
-      fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
-    end
-
-    @user = user
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] user_id Value to be assigned
-  def user_id=(user_id)
-    if !user_id.nil? && user_id.to_s.length < 1
-      fail ArgumentError, 'invalid value for "user_id", the character length must be great than or equal to 1.'
-    end
-
-    @user_id = user_id
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] user_name Value to be assigned
-  def user_name=(user_name)
-    if !user_name.nil? && user_name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "user_name", the character length must be great than or equal to 1.'
-    end
-
-    @user_name = user_name
   end
 
   # Checks equality by comparing each attribute.

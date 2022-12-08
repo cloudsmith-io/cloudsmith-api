@@ -52,11 +52,6 @@ class ErrorDetail
       invalid_properties.push('invalid value for "detail", detail cannot be nil.')
     end
 
-    if @detail.to_s.length < 1
-      invalid_properties.push('invalid value for "detail", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
@@ -64,22 +59,7 @@ class ErrorDetail
   # @return true if the model is valid
   def valid?
     return false if @detail.nil?
-    return false if @detail.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] detail Value to be assigned
-  def detail=(detail)
-    if detail.nil?
-      fail ArgumentError, 'detail cannot be nil'
-    end
-
-    if detail.to_s.length < 1
-      fail ArgumentError, 'invalid value for "detail", the character length must be great than or equal to 1.'
-    end
-
-    @detail = detail
   end
 
   # Checks equality by comparing each attribute.

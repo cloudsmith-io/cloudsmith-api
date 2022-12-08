@@ -129,78 +129,21 @@ class ConanPackageUploadRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@conan_channel.nil? && @conan_channel.to_s.length > 128
-      invalid_properties.push('invalid value for "conan_channel", the character length must be smaller than or equal to 128.')
-    end
-
-    if !@conan_channel.nil? && @conan_channel.to_s.length < 1
-      invalid_properties.push('invalid value for "conan_channel", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@conan_prefix.nil? && @conan_prefix.to_s.length > 128
-      invalid_properties.push('invalid value for "conan_prefix", the character length must be smaller than or equal to 128.')
-    end
-
-    if !@conan_prefix.nil? && @conan_prefix.to_s.length < 1
-      invalid_properties.push('invalid value for "conan_prefix", the character length must be great than or equal to 1.')
-    end
-
-
     if @info_file.nil?
       invalid_properties.push('invalid value for "info_file", info_file cannot be nil.')
     end
-
-    if @info_file.to_s.length < 1
-      invalid_properties.push('invalid value for "info_file", the character length must be great than or equal to 1.')
-    end
-
 
     if @manifest_file.nil?
       invalid_properties.push('invalid value for "manifest_file", manifest_file cannot be nil.')
     end
 
-    if @manifest_file.to_s.length < 1
-      invalid_properties.push('invalid value for "manifest_file", the character length must be great than or equal to 1.')
-    end
-
-
     if @metadata_file.nil?
       invalid_properties.push('invalid value for "metadata_file", metadata_file cannot be nil.')
     end
 
-    if @metadata_file.to_s.length < 1
-      invalid_properties.push('invalid value for "metadata_file", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@name.nil? && @name.to_s.length > 200
-      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 200.')
-    end
-
-
     if @package_file.nil?
       invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
-
-    if @package_file.to_s.length < 1
-      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@tags.nil? && @tags.to_s.length > 1024
-      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-    end
-
-    if !@tags.nil? && @tags.to_s.length < 1
-      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@version.nil? && @version.to_s.length > 128
-      invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
-    end
-
 
     invalid_properties
   end
@@ -208,141 +151,11 @@ class ConanPackageUploadRequest
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@conan_channel.nil? && @conan_channel.to_s.length > 128
-    return false if !@conan_channel.nil? && @conan_channel.to_s.length < 1
-    return false if !@conan_prefix.nil? && @conan_prefix.to_s.length > 128
-    return false if !@conan_prefix.nil? && @conan_prefix.to_s.length < 1
     return false if @info_file.nil?
-    return false if @info_file.to_s.length < 1
     return false if @manifest_file.nil?
-    return false if @manifest_file.to_s.length < 1
     return false if @metadata_file.nil?
-    return false if @metadata_file.to_s.length < 1
-    return false if !@name.nil? && @name.to_s.length > 200
     return false if @package_file.nil?
-    return false if @package_file.to_s.length < 1
-    return false if !@tags.nil? && @tags.to_s.length > 1024
-    return false if !@tags.nil? && @tags.to_s.length < 1
-    return false if !@version.nil? && @version.to_s.length > 128
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] conan_channel Value to be assigned
-  def conan_channel=(conan_channel)
-    if !conan_channel.nil? && conan_channel.to_s.length > 128
-      fail ArgumentError, 'invalid value for "conan_channel", the character length must be smaller than or equal to 128.'
-    end
-
-    if !conan_channel.nil? && conan_channel.to_s.length < 1
-      fail ArgumentError, 'invalid value for "conan_channel", the character length must be great than or equal to 1.'
-    end
-
-    @conan_channel = conan_channel
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] conan_prefix Value to be assigned
-  def conan_prefix=(conan_prefix)
-    if !conan_prefix.nil? && conan_prefix.to_s.length > 128
-      fail ArgumentError, 'invalid value for "conan_prefix", the character length must be smaller than or equal to 128.'
-    end
-
-    if !conan_prefix.nil? && conan_prefix.to_s.length < 1
-      fail ArgumentError, 'invalid value for "conan_prefix", the character length must be great than or equal to 1.'
-    end
-
-    @conan_prefix = conan_prefix
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] info_file Value to be assigned
-  def info_file=(info_file)
-    if info_file.nil?
-      fail ArgumentError, 'info_file cannot be nil'
-    end
-
-    if info_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "info_file", the character length must be great than or equal to 1.'
-    end
-
-    @info_file = info_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] manifest_file Value to be assigned
-  def manifest_file=(manifest_file)
-    if manifest_file.nil?
-      fail ArgumentError, 'manifest_file cannot be nil'
-    end
-
-    if manifest_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "manifest_file", the character length must be great than or equal to 1.'
-    end
-
-    @manifest_file = manifest_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] metadata_file Value to be assigned
-  def metadata_file=(metadata_file)
-    if metadata_file.nil?
-      fail ArgumentError, 'metadata_file cannot be nil'
-    end
-
-    if metadata_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "metadata_file", the character length must be great than or equal to 1.'
-    end
-
-    @metadata_file = metadata_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] name Value to be assigned
-  def name=(name)
-    if !name.nil? && name.to_s.length > 200
-      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
-    end
-
-    @name = name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] package_file Value to be assigned
-  def package_file=(package_file)
-    if package_file.nil?
-      fail ArgumentError, 'package_file cannot be nil'
-    end
-
-    if package_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-    end
-
-    @package_file = package_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] tags Value to be assigned
-  def tags=(tags)
-    if !tags.nil? && tags.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-    end
-
-    if !tags.nil? && tags.to_s.length < 1
-      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-    end
-
-    @tags = tags
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] version Value to be assigned
-  def version=(version)
-    if !version.nil? && version.to_s.length > 128
-      fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
-    end
-
-    @version = version
   end
 
   # Checks equality by comparing each attribute.

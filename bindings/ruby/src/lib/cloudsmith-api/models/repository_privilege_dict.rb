@@ -79,21 +79,6 @@ class RepositoryPrivilegeDict
       invalid_properties.push('invalid value for "privilege", privilege cannot be nil.')
     end
 
-    if !@service.nil? && @service.to_s.length < 1
-      invalid_properties.push('invalid value for "service", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@team.nil? && @team.to_s.length < 1
-      invalid_properties.push('invalid value for "team", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@user.nil? && @user.to_s.length < 1
-      invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
@@ -101,40 +86,7 @@ class RepositoryPrivilegeDict
   # @return true if the model is valid
   def valid?
     return false if @privilege.nil?
-    return false if !@service.nil? && @service.to_s.length < 1
-    return false if !@team.nil? && @team.to_s.length < 1
-    return false if !@user.nil? && @user.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] service Value to be assigned
-  def service=(service)
-    if !service.nil? && service.to_s.length < 1
-      fail ArgumentError, 'invalid value for "service", the character length must be great than or equal to 1.'
-    end
-
-    @service = service
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] team Value to be assigned
-  def team=(team)
-    if !team.nil? && team.to_s.length < 1
-      fail ArgumentError, 'invalid value for "team", the character length must be great than or equal to 1.'
-    end
-
-    @team = team
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] user Value to be assigned
-  def user=(user)
-    if !user.nil? && user.to_s.length < 1
-      fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
-    end
-
-    @user = user
   end
 
   # Checks equality by comparing each attribute.

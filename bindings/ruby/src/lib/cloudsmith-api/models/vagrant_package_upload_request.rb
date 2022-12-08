@@ -97,46 +97,17 @@ class VagrantPackageUploadRequest
       invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
 
-    if @name.to_s.length > 200
-      invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 200.')
-    end
-
-
     if @package_file.nil?
       invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
-
-    if @package_file.to_s.length < 1
-      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-    end
-
 
     if @provider.nil?
       invalid_properties.push('invalid value for "provider", provider cannot be nil.')
     end
 
-    if @provider.to_s.length < 1
-      invalid_properties.push('invalid value for "provider", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@tags.nil? && @tags.to_s.length > 1024
-      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-    end
-
-    if !@tags.nil? && @tags.to_s.length < 1
-      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-    end
-
-
     if @version.nil?
       invalid_properties.push('invalid value for "version", version cannot be nil.')
     end
-
-    if @version.to_s.length > 128
-      invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 128.')
-    end
-
 
     invalid_properties
   end
@@ -145,86 +116,10 @@ class VagrantPackageUploadRequest
   # @return true if the model is valid
   def valid?
     return false if @name.nil?
-    return false if @name.to_s.length > 200
     return false if @package_file.nil?
-    return false if @package_file.to_s.length < 1
     return false if @provider.nil?
-    return false if @provider.to_s.length < 1
-    return false if !@tags.nil? && @tags.to_s.length > 1024
-    return false if !@tags.nil? && @tags.to_s.length < 1
     return false if @version.nil?
-    return false if @version.to_s.length > 128
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] name Value to be assigned
-  def name=(name)
-    if name.nil?
-      fail ArgumentError, 'name cannot be nil'
-    end
-
-    if name.to_s.length > 200
-      fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
-    end
-
-    @name = name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] package_file Value to be assigned
-  def package_file=(package_file)
-    if package_file.nil?
-      fail ArgumentError, 'package_file cannot be nil'
-    end
-
-    if package_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-    end
-
-    @package_file = package_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] provider Value to be assigned
-  def provider=(provider)
-    if provider.nil?
-      fail ArgumentError, 'provider cannot be nil'
-    end
-
-    if provider.to_s.length < 1
-      fail ArgumentError, 'invalid value for "provider", the character length must be great than or equal to 1.'
-    end
-
-    @provider = provider
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] tags Value to be assigned
-  def tags=(tags)
-    if !tags.nil? && tags.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-    end
-
-    if !tags.nil? && tags.to_s.length < 1
-      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-    end
-
-    @tags = tags
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] version Value to be assigned
-  def version=(version)
-    if version.nil?
-      fail ArgumentError, 'version cannot be nil'
-    end
-
-    if version.to_s.length > 128
-      fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 128.'
-    end
-
-    @version = version
   end
 
   # Checks equality by comparing each attribute.

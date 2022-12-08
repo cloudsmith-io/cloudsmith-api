@@ -171,19 +171,9 @@ class NamespaceAuditLogResponse
       invalid_properties.push('invalid value for "actor", actor cannot be nil.')
     end
 
-    if @actor.to_s.length < 1
-      invalid_properties.push('invalid value for "actor", the character length must be great than or equal to 1.')
-    end
-
-
     if @actor_ip_address.nil?
       invalid_properties.push('invalid value for "actor_ip_address", actor_ip_address cannot be nil.')
     end
-
-    if @actor_ip_address.to_s.length < 1
-      invalid_properties.push('invalid value for "actor_ip_address", the character length must be great than or equal to 1.')
-    end
-
 
     if @actor_location.nil?
       invalid_properties.push('invalid value for "actor_location", actor_location cannot be nil.')
@@ -193,28 +183,13 @@ class NamespaceAuditLogResponse
       invalid_properties.push('invalid value for "actor_slug_perm", actor_slug_perm cannot be nil.')
     end
 
-    if @actor_slug_perm.to_s.length < 1
-      invalid_properties.push('invalid value for "actor_slug_perm", the character length must be great than or equal to 1.')
-    end
-
-
     if @context.nil?
       invalid_properties.push('invalid value for "context", context cannot be nil.')
     end
 
-    if @context.to_s.length < 1
-      invalid_properties.push('invalid value for "context", the character length must be great than or equal to 1.')
-    end
-
-
     if @event.nil?
       invalid_properties.push('invalid value for "event", event cannot be nil.')
     end
-
-    if @event.to_s.length < 1
-      invalid_properties.push('invalid value for "event", the character length must be great than or equal to 1.')
-    end
-
 
     if @event_at.nil?
       invalid_properties.push('invalid value for "event_at", event_at cannot be nil.')
@@ -224,51 +199,21 @@ class NamespaceAuditLogResponse
       invalid_properties.push('invalid value for "object", object cannot be nil.')
     end
 
-    if @object.to_s.length < 1
-      invalid_properties.push('invalid value for "object", the character length must be great than or equal to 1.')
-    end
-
-
     if @object_kind.nil?
       invalid_properties.push('invalid value for "object_kind", object_kind cannot be nil.')
     end
-
-    if @object_kind.to_s.length < 1
-      invalid_properties.push('invalid value for "object_kind", the character length must be great than or equal to 1.')
-    end
-
 
     if @object_slug_perm.nil?
       invalid_properties.push('invalid value for "object_slug_perm", object_slug_perm cannot be nil.')
     end
 
-    if @object_slug_perm.to_s.length < 1
-      invalid_properties.push('invalid value for "object_slug_perm", the character length must be great than or equal to 1.')
-    end
-
-
     if @target.nil?
       invalid_properties.push('invalid value for "target", target cannot be nil.')
     end
 
-    if @target.to_s.length < 1
-      invalid_properties.push('invalid value for "target", the character length must be great than or equal to 1.')
-    end
-
-
     if @target_kind.nil?
       invalid_properties.push('invalid value for "target_kind", target_kind cannot be nil.')
     end
-
-    if @target_kind.to_s.length < 1
-      invalid_properties.push('invalid value for "target_kind", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@target_slug_perm.nil? && @target_slug_perm.to_s.length > 24
-      invalid_properties.push('invalid value for "target_slug_perm", the character length must be smaller than or equal to 24.')
-    end
-
 
     invalid_properties
   end
@@ -277,179 +222,18 @@ class NamespaceAuditLogResponse
   # @return true if the model is valid
   def valid?
     return false if @actor.nil?
-    return false if @actor.to_s.length < 1
     return false if @actor_ip_address.nil?
-    return false if @actor_ip_address.to_s.length < 1
     return false if @actor_location.nil?
     return false if @actor_slug_perm.nil?
-    return false if @actor_slug_perm.to_s.length < 1
     return false if @context.nil?
-    return false if @context.to_s.length < 1
     return false if @event.nil?
-    return false if @event.to_s.length < 1
     return false if @event_at.nil?
     return false if @object.nil?
-    return false if @object.to_s.length < 1
     return false if @object_kind.nil?
-    return false if @object_kind.to_s.length < 1
     return false if @object_slug_perm.nil?
-    return false if @object_slug_perm.to_s.length < 1
     return false if @target.nil?
-    return false if @target.to_s.length < 1
     return false if @target_kind.nil?
-    return false if @target_kind.to_s.length < 1
-    return false if !@target_slug_perm.nil? && @target_slug_perm.to_s.length > 24
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] actor Value to be assigned
-  def actor=(actor)
-    if actor.nil?
-      fail ArgumentError, 'actor cannot be nil'
-    end
-
-    if actor.to_s.length < 1
-      fail ArgumentError, 'invalid value for "actor", the character length must be great than or equal to 1.'
-    end
-
-    @actor = actor
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] actor_ip_address Value to be assigned
-  def actor_ip_address=(actor_ip_address)
-    if actor_ip_address.nil?
-      fail ArgumentError, 'actor_ip_address cannot be nil'
-    end
-
-    if actor_ip_address.to_s.length < 1
-      fail ArgumentError, 'invalid value for "actor_ip_address", the character length must be great than or equal to 1.'
-    end
-
-    @actor_ip_address = actor_ip_address
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] actor_slug_perm Value to be assigned
-  def actor_slug_perm=(actor_slug_perm)
-    if actor_slug_perm.nil?
-      fail ArgumentError, 'actor_slug_perm cannot be nil'
-    end
-
-    if actor_slug_perm.to_s.length < 1
-      fail ArgumentError, 'invalid value for "actor_slug_perm", the character length must be great than or equal to 1.'
-    end
-
-    @actor_slug_perm = actor_slug_perm
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] context Value to be assigned
-  def context=(context)
-    if context.nil?
-      fail ArgumentError, 'context cannot be nil'
-    end
-
-    if context.to_s.length < 1
-      fail ArgumentError, 'invalid value for "context", the character length must be great than or equal to 1.'
-    end
-
-    @context = context
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] event Value to be assigned
-  def event=(event)
-    if event.nil?
-      fail ArgumentError, 'event cannot be nil'
-    end
-
-    if event.to_s.length < 1
-      fail ArgumentError, 'invalid value for "event", the character length must be great than or equal to 1.'
-    end
-
-    @event = event
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] object Value to be assigned
-  def object=(object)
-    if object.nil?
-      fail ArgumentError, 'object cannot be nil'
-    end
-
-    if object.to_s.length < 1
-      fail ArgumentError, 'invalid value for "object", the character length must be great than or equal to 1.'
-    end
-
-    @object = object
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] object_kind Value to be assigned
-  def object_kind=(object_kind)
-    if object_kind.nil?
-      fail ArgumentError, 'object_kind cannot be nil'
-    end
-
-    if object_kind.to_s.length < 1
-      fail ArgumentError, 'invalid value for "object_kind", the character length must be great than or equal to 1.'
-    end
-
-    @object_kind = object_kind
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] object_slug_perm Value to be assigned
-  def object_slug_perm=(object_slug_perm)
-    if object_slug_perm.nil?
-      fail ArgumentError, 'object_slug_perm cannot be nil'
-    end
-
-    if object_slug_perm.to_s.length < 1
-      fail ArgumentError, 'invalid value for "object_slug_perm", the character length must be great than or equal to 1.'
-    end
-
-    @object_slug_perm = object_slug_perm
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] target Value to be assigned
-  def target=(target)
-    if target.nil?
-      fail ArgumentError, 'target cannot be nil'
-    end
-
-    if target.to_s.length < 1
-      fail ArgumentError, 'invalid value for "target", the character length must be great than or equal to 1.'
-    end
-
-    @target = target
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] target_kind Value to be assigned
-  def target_kind=(target_kind)
-    if target_kind.nil?
-      fail ArgumentError, 'target_kind cannot be nil'
-    end
-
-    if target_kind.to_s.length < 1
-      fail ArgumentError, 'invalid value for "target_kind", the character length must be great than or equal to 1.'
-    end
-
-    @target_kind = target_kind
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] target_slug_perm Value to be assigned
-  def target_slug_perm=(target_slug_perm)
-    if !target_slug_perm.nil? && target_slug_perm.to_s.length > 24
-      fail ArgumentError, 'invalid value for "target_slug_perm", the character length must be smaller than or equal to 24.'
-    end
-
-    @target_slug_perm = target_slug_perm
   end
 
   # Checks equality by comparing each attribute.

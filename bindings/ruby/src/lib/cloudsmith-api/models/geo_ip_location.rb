@@ -99,37 +99,17 @@ class GeoIpLocation
       invalid_properties.push('invalid value for "city", city cannot be nil.')
     end
 
-    if @city.to_s.length < 1
-      invalid_properties.push('invalid value for "city", the character length must be great than or equal to 1.')
-    end
-
-
     if @continent.nil?
       invalid_properties.push('invalid value for "continent", continent cannot be nil.')
     end
-
-    if @continent.to_s.length < 1
-      invalid_properties.push('invalid value for "continent", the character length must be great than or equal to 1.')
-    end
-
 
     if @country.nil?
       invalid_properties.push('invalid value for "country", country cannot be nil.')
     end
 
-    if @country.to_s.length < 1
-      invalid_properties.push('invalid value for "country", the character length must be great than or equal to 1.')
-    end
-
-
     if @postal_code.nil?
       invalid_properties.push('invalid value for "postal_code", postal_code cannot be nil.')
     end
-
-    if @postal_code.to_s.length < 1
-      invalid_properties.push('invalid value for "postal_code", the character length must be great than or equal to 1.')
-    end
-
 
     invalid_properties
   end
@@ -138,70 +118,10 @@ class GeoIpLocation
   # @return true if the model is valid
   def valid?
     return false if @city.nil?
-    return false if @city.to_s.length < 1
     return false if @continent.nil?
-    return false if @continent.to_s.length < 1
     return false if @country.nil?
-    return false if @country.to_s.length < 1
     return false if @postal_code.nil?
-    return false if @postal_code.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] city Value to be assigned
-  def city=(city)
-    if city.nil?
-      fail ArgumentError, 'city cannot be nil'
-    end
-
-    if city.to_s.length < 1
-      fail ArgumentError, 'invalid value for "city", the character length must be great than or equal to 1.'
-    end
-
-    @city = city
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] continent Value to be assigned
-  def continent=(continent)
-    if continent.nil?
-      fail ArgumentError, 'continent cannot be nil'
-    end
-
-    if continent.to_s.length < 1
-      fail ArgumentError, 'invalid value for "continent", the character length must be great than or equal to 1.'
-    end
-
-    @continent = continent
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] country Value to be assigned
-  def country=(country)
-    if country.nil?
-      fail ArgumentError, 'country cannot be nil'
-    end
-
-    if country.to_s.length < 1
-      fail ArgumentError, 'invalid value for "country", the character length must be great than or equal to 1.'
-    end
-
-    @country = country
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] postal_code Value to be assigned
-  def postal_code=(postal_code)
-    if postal_code.nil?
-      fail ArgumentError, 'postal_code cannot be nil'
-    end
-
-    if postal_code.to_s.length < 1
-      fail ArgumentError, 'invalid value for "postal_code", the character length must be great than or equal to 1.'
-    end
-
-    @postal_code = postal_code
   end
 
   # Checks equality by comparing each attribute.

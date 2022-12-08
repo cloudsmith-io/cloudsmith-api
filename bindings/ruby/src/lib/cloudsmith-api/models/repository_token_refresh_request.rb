@@ -165,136 +165,13 @@ class RepositoryTokenRefreshRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@limit_bandwidth.nil? && @limit_bandwidth > 9223372036854775807
-      invalid_properties.push('invalid value for "limit_bandwidth", must be smaller than or equal to 9223372036854775807.')
-    end
-
-    if !@limit_bandwidth.nil? && @limit_bandwidth < -9223372036854775808
-      invalid_properties.push('invalid value for "limit_bandwidth", must be greater than or equal to -9223372036854775808.')
-    end
-
-
-    if !@limit_num_clients.nil? && @limit_num_clients > 9223372036854775807
-      invalid_properties.push('invalid value for "limit_num_clients", must be smaller than or equal to 9223372036854775807.')
-    end
-
-    if !@limit_num_clients.nil? && @limit_num_clients < -9223372036854775808
-      invalid_properties.push('invalid value for "limit_num_clients", must be greater than or equal to -9223372036854775808.')
-    end
-
-
-    if !@limit_num_downloads.nil? && @limit_num_downloads > 9223372036854775807
-      invalid_properties.push('invalid value for "limit_num_downloads", must be smaller than or equal to 9223372036854775807.')
-    end
-
-    if !@limit_num_downloads.nil? && @limit_num_downloads < -9223372036854775808
-      invalid_properties.push('invalid value for "limit_num_downloads", must be greater than or equal to -9223372036854775808.')
-    end
-
-
-    if !@limit_package_query.nil? && @limit_package_query.to_s.length > 1024
-      invalid_properties.push('invalid value for "limit_package_query", the character length must be smaller than or equal to 1024.')
-    end
-
-
-    if !@limit_path_query.nil? && @limit_path_query.to_s.length > 1024
-      invalid_properties.push('invalid value for "limit_path_query", the character length must be smaller than or equal to 1024.')
-    end
-
-
-    if !@token.nil? && @token.to_s.length < 1
-      invalid_properties.push('invalid value for "token", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@limit_bandwidth.nil? && @limit_bandwidth > 9223372036854775807
-    return false if !@limit_bandwidth.nil? && @limit_bandwidth < -9223372036854775808
-    return false if !@limit_num_clients.nil? && @limit_num_clients > 9223372036854775807
-    return false if !@limit_num_clients.nil? && @limit_num_clients < -9223372036854775808
-    return false if !@limit_num_downloads.nil? && @limit_num_downloads > 9223372036854775807
-    return false if !@limit_num_downloads.nil? && @limit_num_downloads < -9223372036854775808
-    return false if !@limit_package_query.nil? && @limit_package_query.to_s.length > 1024
-    return false if !@limit_path_query.nil? && @limit_path_query.to_s.length > 1024
-    return false if !@token.nil? && @token.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] limit_bandwidth Value to be assigned
-  def limit_bandwidth=(limit_bandwidth)
-    if !limit_bandwidth.nil? && limit_bandwidth > 9223372036854775807
-      fail ArgumentError, 'invalid value for "limit_bandwidth", must be smaller than or equal to 9223372036854775807.'
-    end
-
-    if !limit_bandwidth.nil? && limit_bandwidth < -9223372036854775808
-      fail ArgumentError, 'invalid value for "limit_bandwidth", must be greater than or equal to -9223372036854775808.'
-    end
-
-    @limit_bandwidth = limit_bandwidth
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] limit_num_clients Value to be assigned
-  def limit_num_clients=(limit_num_clients)
-    if !limit_num_clients.nil? && limit_num_clients > 9223372036854775807
-      fail ArgumentError, 'invalid value for "limit_num_clients", must be smaller than or equal to 9223372036854775807.'
-    end
-
-    if !limit_num_clients.nil? && limit_num_clients < -9223372036854775808
-      fail ArgumentError, 'invalid value for "limit_num_clients", must be greater than or equal to -9223372036854775808.'
-    end
-
-    @limit_num_clients = limit_num_clients
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] limit_num_downloads Value to be assigned
-  def limit_num_downloads=(limit_num_downloads)
-    if !limit_num_downloads.nil? && limit_num_downloads > 9223372036854775807
-      fail ArgumentError, 'invalid value for "limit_num_downloads", must be smaller than or equal to 9223372036854775807.'
-    end
-
-    if !limit_num_downloads.nil? && limit_num_downloads < -9223372036854775808
-      fail ArgumentError, 'invalid value for "limit_num_downloads", must be greater than or equal to -9223372036854775808.'
-    end
-
-    @limit_num_downloads = limit_num_downloads
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] limit_package_query Value to be assigned
-  def limit_package_query=(limit_package_query)
-    if !limit_package_query.nil? && limit_package_query.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "limit_package_query", the character length must be smaller than or equal to 1024.'
-    end
-
-    @limit_package_query = limit_package_query
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] limit_path_query Value to be assigned
-  def limit_path_query=(limit_path_query)
-    if !limit_path_query.nil? && limit_path_query.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "limit_path_query", the character length must be smaller than or equal to 1024.'
-    end
-
-    @limit_path_query = limit_path_query
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] token Value to be assigned
-  def token=(token)
-    if !token.nil? && token.to_s.length < 1
-      fail ArgumentError, 'invalid value for "token", the character length must be great than or equal to 1.'
-    end
-
-    @token = token
   end
 
   # Checks equality by comparing each attribute.

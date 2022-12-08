@@ -68,45 +68,13 @@ class OrganizationInviteRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@email.nil? && @email.to_s.length < 1
-      invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@user.nil? && @user.to_s.length < 1
-      invalid_properties.push('invalid value for "user", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@email.nil? && @email.to_s.length < 1
-    return false if !@user.nil? && @user.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] email Value to be assigned
-  def email=(email)
-    if !email.nil? && email.to_s.length < 1
-      fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
-    end
-
-    @email = email
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] user Value to be assigned
-  def user=(user)
-    if !user.nil? && user.to_s.length < 1
-      fail ArgumentError, 'invalid value for "user", the character length must be great than or equal to 1.'
-    end
-
-    @user = user
   end
 
   # Checks equality by comparing each attribute.

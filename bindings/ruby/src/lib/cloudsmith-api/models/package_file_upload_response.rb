@@ -84,61 +84,13 @@ class PackageFileUploadResponse
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@identifier.nil? && @identifier.to_s.length < 1
-      invalid_properties.push('invalid value for "identifier", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@upload_querystring.nil? && @upload_querystring.to_s.length < 1
-      invalid_properties.push('invalid value for "upload_querystring", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@upload_url.nil? && @upload_url.to_s.length < 1
-      invalid_properties.push('invalid value for "upload_url", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@identifier.nil? && @identifier.to_s.length < 1
-    return false if !@upload_querystring.nil? && @upload_querystring.to_s.length < 1
-    return false if !@upload_url.nil? && @upload_url.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] identifier Value to be assigned
-  def identifier=(identifier)
-    if !identifier.nil? && identifier.to_s.length < 1
-      fail ArgumentError, 'invalid value for "identifier", the character length must be great than or equal to 1.'
-    end
-
-    @identifier = identifier
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] upload_querystring Value to be assigned
-  def upload_querystring=(upload_querystring)
-    if !upload_querystring.nil? && upload_querystring.to_s.length < 1
-      fail ArgumentError, 'invalid value for "upload_querystring", the character length must be great than or equal to 1.'
-    end
-
-    @upload_querystring = upload_querystring
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] upload_url Value to be assigned
-  def upload_url=(upload_url)
-    if !upload_url.nil? && upload_url.to_s.length < 1
-      fail ArgumentError, 'invalid value for "upload_url", the character length must be great than or equal to 1.'
-    end
-
-    @upload_url = upload_url
   end
 
   # Checks equality by comparing each attribute.

@@ -153,125 +153,13 @@ class PackageFile
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@checksum_md5.nil? && @checksum_md5.to_s.length < 1
-      invalid_properties.push('invalid value for "checksum_md5", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@checksum_sha1.nil? && @checksum_sha1.to_s.length < 1
-      invalid_properties.push('invalid value for "checksum_sha1", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@checksum_sha256.nil? && @checksum_sha256.to_s.length < 1
-      invalid_properties.push('invalid value for "checksum_sha256", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@checksum_sha512.nil? && @checksum_sha512.to_s.length < 1
-      invalid_properties.push('invalid value for "checksum_sha512", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@filename.nil? && @filename.to_s.length < 1
-      invalid_properties.push('invalid value for "filename", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@tag.nil? && @tag.to_s.length < 1
-      invalid_properties.push('invalid value for "tag", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@checksum_md5.nil? && @checksum_md5.to_s.length < 1
-    return false if !@checksum_sha1.nil? && @checksum_sha1.to_s.length < 1
-    return false if !@checksum_sha256.nil? && @checksum_sha256.to_s.length < 1
-    return false if !@checksum_sha512.nil? && @checksum_sha512.to_s.length < 1
-    return false if !@filename.nil? && @filename.to_s.length < 1
-    return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-    return false if !@tag.nil? && @tag.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] checksum_md5 Value to be assigned
-  def checksum_md5=(checksum_md5)
-    if !checksum_md5.nil? && checksum_md5.to_s.length < 1
-      fail ArgumentError, 'invalid value for "checksum_md5", the character length must be great than or equal to 1.'
-    end
-
-    @checksum_md5 = checksum_md5
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] checksum_sha1 Value to be assigned
-  def checksum_sha1=(checksum_sha1)
-    if !checksum_sha1.nil? && checksum_sha1.to_s.length < 1
-      fail ArgumentError, 'invalid value for "checksum_sha1", the character length must be great than or equal to 1.'
-    end
-
-    @checksum_sha1 = checksum_sha1
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] checksum_sha256 Value to be assigned
-  def checksum_sha256=(checksum_sha256)
-    if !checksum_sha256.nil? && checksum_sha256.to_s.length < 1
-      fail ArgumentError, 'invalid value for "checksum_sha256", the character length must be great than or equal to 1.'
-    end
-
-    @checksum_sha256 = checksum_sha256
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] checksum_sha512 Value to be assigned
-  def checksum_sha512=(checksum_sha512)
-    if !checksum_sha512.nil? && checksum_sha512.to_s.length < 1
-      fail ArgumentError, 'invalid value for "checksum_sha512", the character length must be great than or equal to 1.'
-    end
-
-    @checksum_sha512 = checksum_sha512
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] filename Value to be assigned
-  def filename=(filename)
-    if !filename.nil? && filename.to_s.length < 1
-      fail ArgumentError, 'invalid value for "filename", the character length must be great than or equal to 1.'
-    end
-
-    @filename = filename
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] slug_perm Value to be assigned
-  def slug_perm=(slug_perm)
-    if !slug_perm.nil? && slug_perm.to_s.length < 1
-      fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
-    end
-
-    @slug_perm = slug_perm
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] tag Value to be assigned
-  def tag=(tag)
-    if !tag.nil? && tag.to_s.length < 1
-      fail ArgumentError, 'invalid value for "tag", the character length must be great than or equal to 1.'
-    end
-
-    @tag = tag
   end
 
   # Checks equality by comparing each attribute.

@@ -61,45 +61,13 @@ class StatusBasicResponse
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@detail.nil? && @detail.to_s.length < 1
-      invalid_properties.push('invalid value for "detail", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@version.nil? && @version.to_s.length < 1
-      invalid_properties.push('invalid value for "version", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@detail.nil? && @detail.to_s.length < 1
-    return false if !@version.nil? && @version.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] detail Value to be assigned
-  def detail=(detail)
-    if !detail.nil? && detail.to_s.length < 1
-      fail ArgumentError, 'invalid value for "detail", the character length must be great than or equal to 1.'
-    end
-
-    @detail = detail
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] version Value to be assigned
-  def version=(version)
-    if !version.nil? && version.to_s.length < 1
-      fail ArgumentError, 'invalid value for "version", the character length must be great than or equal to 1.'
-    end
-
-    @version = version
   end
 
   # Checks equality by comparing each attribute.

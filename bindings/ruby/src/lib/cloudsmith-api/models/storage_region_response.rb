@@ -61,19 +61,9 @@ class StorageRegionResponse
       invalid_properties.push('invalid value for "label", label cannot be nil.')
     end
 
-    if @label.to_s.length < 1
-      invalid_properties.push('invalid value for "label", the character length must be great than or equal to 1.')
-    end
-
-
     if @slug.nil?
       invalid_properties.push('invalid value for "slug", slug cannot be nil.')
     end
-
-    if @slug.to_s.length < 1
-      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-    end
-
 
     invalid_properties
   end
@@ -82,38 +72,8 @@ class StorageRegionResponse
   # @return true if the model is valid
   def valid?
     return false if @label.nil?
-    return false if @label.to_s.length < 1
     return false if @slug.nil?
-    return false if @slug.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] label Value to be assigned
-  def label=(label)
-    if label.nil?
-      fail ArgumentError, 'label cannot be nil'
-    end
-
-    if label.to_s.length < 1
-      fail ArgumentError, 'invalid value for "label", the character length must be great than or equal to 1.'
-    end
-
-    @label = label
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] slug Value to be assigned
-  def slug=(slug)
-    if slug.nil?
-      fail ArgumentError, 'slug cannot be nil'
-    end
-
-    if slug.to_s.length < 1
-      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-    end
-
-    @slug = slug
   end
 
   # Checks equality by comparing each attribute.

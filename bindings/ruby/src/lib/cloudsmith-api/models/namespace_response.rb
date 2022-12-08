@@ -71,45 +71,13 @@ class NamespaceResponse
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@slug.nil? && @slug.to_s.length < 1
-      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      invalid_properties.push('invalid value for "slug_perm", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@slug.nil? && @slug.to_s.length < 1
-    return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] slug Value to be assigned
-  def slug=(slug)
-    if !slug.nil? && slug.to_s.length < 1
-      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-    end
-
-    @slug = slug
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] slug_perm Value to be assigned
-  def slug_perm=(slug_perm)
-    if !slug_perm.nil? && slug_perm.to_s.length < 1
-      fail ArgumentError, 'invalid value for "slug_perm", the character length must be great than or equal to 1.'
-    end
-
-    @slug_perm = slug_perm
   end
 
   # Checks equality by comparing each attribute.

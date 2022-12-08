@@ -70,20 +70,6 @@ class GoPackageUploadRequest
       invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
-    if @package_file.to_s.length < 1
-      invalid_properties.push('invalid value for "package_file", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@tags.nil? && @tags.to_s.length > 1024
-      invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-    end
-
-    if !@tags.nil? && @tags.to_s.length < 1
-      invalid_properties.push('invalid value for "tags", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
@@ -91,38 +77,7 @@ class GoPackageUploadRequest
   # @return true if the model is valid
   def valid?
     return false if @package_file.nil?
-    return false if @package_file.to_s.length < 1
-    return false if !@tags.nil? && @tags.to_s.length > 1024
-    return false if !@tags.nil? && @tags.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] package_file Value to be assigned
-  def package_file=(package_file)
-    if package_file.nil?
-      fail ArgumentError, 'package_file cannot be nil'
-    end
-
-    if package_file.to_s.length < 1
-      fail ArgumentError, 'invalid value for "package_file", the character length must be great than or equal to 1.'
-    end
-
-    @package_file = package_file
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] tags Value to be assigned
-  def tags=(tags)
-    if !tags.nil? && tags.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-    end
-
-    if !tags.nil? && tags.to_s.length < 1
-      fail ArgumentError, 'invalid value for "tags", the character length must be great than or equal to 1.'
-    end
-
-    @tags = tags
   end
 
   # Checks equality by comparing each attribute.

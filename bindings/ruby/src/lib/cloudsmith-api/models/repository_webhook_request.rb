@@ -175,47 +175,9 @@ class RepositoryWebhookRequest
       invalid_properties.push('invalid value for "events", events cannot be nil.')
     end
 
-    if !@package_query.nil? && @package_query.to_s.length > 1024
-      invalid_properties.push('invalid value for "package_query", the character length must be smaller than or equal to 1024.')
-    end
-
-
-    if !@request_content_type.nil? && @request_content_type.to_s.length > 128
-      invalid_properties.push('invalid value for "request_content_type", the character length must be smaller than or equal to 128.')
-    end
-
-
-    if !@secret_header.nil? && @secret_header.to_s.length > 64
-      invalid_properties.push('invalid value for "secret_header", the character length must be smaller than or equal to 64.')
-    end
-
-
-    if !@secret_value.nil? && @secret_value.to_s.length > 512
-      invalid_properties.push('invalid value for "secret_value", the character length must be smaller than or equal to 512.')
-    end
-
-
-    if !@signature_key.nil? && @signature_key.to_s.length > 512
-      invalid_properties.push('invalid value for "signature_key", the character length must be smaller than or equal to 512.')
-    end
-
-    if !@signature_key.nil? && @signature_key.to_s.length < 1
-      invalid_properties.push('invalid value for "signature_key", the character length must be great than or equal to 1.')
-    end
-
-
     if @target_url.nil?
       invalid_properties.push('invalid value for "target_url", target_url cannot be nil.')
     end
-
-    if @target_url.to_s.length > 255
-      invalid_properties.push('invalid value for "target_url", the character length must be smaller than or equal to 255.')
-    end
-
-    if @target_url.to_s.length < 1
-      invalid_properties.push('invalid value for "target_url", the character length must be great than or equal to 1.')
-    end
-
 
     if @templates.nil?
       invalid_properties.push('invalid value for "templates", templates cannot be nil.')
@@ -228,89 +190,9 @@ class RepositoryWebhookRequest
   # @return true if the model is valid
   def valid?
     return false if @events.nil?
-    return false if !@package_query.nil? && @package_query.to_s.length > 1024
-    return false if !@request_content_type.nil? && @request_content_type.to_s.length > 128
-    return false if !@secret_header.nil? && @secret_header.to_s.length > 64
-    return false if !@secret_value.nil? && @secret_value.to_s.length > 512
-    return false if !@signature_key.nil? && @signature_key.to_s.length > 512
-    return false if !@signature_key.nil? && @signature_key.to_s.length < 1
     return false if @target_url.nil?
-    return false if @target_url.to_s.length > 255
-    return false if @target_url.to_s.length < 1
     return false if @templates.nil?
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] package_query Value to be assigned
-  def package_query=(package_query)
-    if !package_query.nil? && package_query.to_s.length > 1024
-      fail ArgumentError, 'invalid value for "package_query", the character length must be smaller than or equal to 1024.'
-    end
-
-    @package_query = package_query
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] request_content_type Value to be assigned
-  def request_content_type=(request_content_type)
-    if !request_content_type.nil? && request_content_type.to_s.length > 128
-      fail ArgumentError, 'invalid value for "request_content_type", the character length must be smaller than or equal to 128.'
-    end
-
-    @request_content_type = request_content_type
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] secret_header Value to be assigned
-  def secret_header=(secret_header)
-    if !secret_header.nil? && secret_header.to_s.length > 64
-      fail ArgumentError, 'invalid value for "secret_header", the character length must be smaller than or equal to 64.'
-    end
-
-    @secret_header = secret_header
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] secret_value Value to be assigned
-  def secret_value=(secret_value)
-    if !secret_value.nil? && secret_value.to_s.length > 512
-      fail ArgumentError, 'invalid value for "secret_value", the character length must be smaller than or equal to 512.'
-    end
-
-    @secret_value = secret_value
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] signature_key Value to be assigned
-  def signature_key=(signature_key)
-    if !signature_key.nil? && signature_key.to_s.length > 512
-      fail ArgumentError, 'invalid value for "signature_key", the character length must be smaller than or equal to 512.'
-    end
-
-    if !signature_key.nil? && signature_key.to_s.length < 1
-      fail ArgumentError, 'invalid value for "signature_key", the character length must be great than or equal to 1.'
-    end
-
-    @signature_key = signature_key
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] target_url Value to be assigned
-  def target_url=(target_url)
-    if target_url.nil?
-      fail ArgumentError, 'target_url cannot be nil'
-    end
-
-    if target_url.to_s.length > 255
-      fail ArgumentError, 'invalid value for "target_url", the character length must be smaller than or equal to 255.'
-    end
-
-    if target_url.to_s.length < 1
-      fail ArgumentError, 'invalid value for "target_url", the character length must be great than or equal to 1.'
-    end
-
-    @target_url = target_url
   end
 
   # Checks equality by comparing each attribute.

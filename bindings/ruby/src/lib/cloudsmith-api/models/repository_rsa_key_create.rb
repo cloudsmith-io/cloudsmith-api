@@ -57,19 +57,9 @@ class RepositoryRsaKeyCreate
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@rsa_passphrase.nil? && @rsa_passphrase.to_s.length < 1
-      invalid_properties.push('invalid value for "rsa_passphrase", the character length must be great than or equal to 1.')
-    end
-
-
     if @rsa_private_key.nil?
       invalid_properties.push('invalid value for "rsa_private_key", rsa_private_key cannot be nil.')
     end
-
-    if @rsa_private_key.to_s.length < 1
-      invalid_properties.push('invalid value for "rsa_private_key", the character length must be great than or equal to 1.')
-    end
-
 
     invalid_properties
   end
@@ -77,34 +67,8 @@ class RepositoryRsaKeyCreate
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@rsa_passphrase.nil? && @rsa_passphrase.to_s.length < 1
     return false if @rsa_private_key.nil?
-    return false if @rsa_private_key.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] rsa_passphrase Value to be assigned
-  def rsa_passphrase=(rsa_passphrase)
-    if !rsa_passphrase.nil? && rsa_passphrase.to_s.length < 1
-      fail ArgumentError, 'invalid value for "rsa_passphrase", the character length must be great than or equal to 1.'
-    end
-
-    @rsa_passphrase = rsa_passphrase
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] rsa_private_key Value to be assigned
-  def rsa_private_key=(rsa_private_key)
-    if rsa_private_key.nil?
-      fail ArgumentError, 'rsa_private_key cannot be nil'
-    end
-
-    if rsa_private_key.to_s.length < 1
-      fail ArgumentError, 'invalid value for "rsa_private_key", the character length must be great than or equal to 1.'
-    end
-
-    @rsa_private_key = rsa_private_key
   end
 
   # Checks equality by comparing each attribute.

@@ -103,21 +103,6 @@ class RepositoryGpgKey
       invalid_properties.push('invalid value for "comment", comment cannot be nil.')
     end
 
-    if @comment.to_s.length < 1
-      invalid_properties.push('invalid value for "comment", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@fingerprint.nil? && @fingerprint.to_s.length < 1
-      invalid_properties.push('invalid value for "fingerprint", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@public_key.nil? && @public_key.to_s.length < 1
-      invalid_properties.push('invalid value for "public_key", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
@@ -125,44 +110,7 @@ class RepositoryGpgKey
   # @return true if the model is valid
   def valid?
     return false if @comment.nil?
-    return false if @comment.to_s.length < 1
-    return false if !@fingerprint.nil? && @fingerprint.to_s.length < 1
-    return false if !@public_key.nil? && @public_key.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] comment Value to be assigned
-  def comment=(comment)
-    if comment.nil?
-      fail ArgumentError, 'comment cannot be nil'
-    end
-
-    if comment.to_s.length < 1
-      fail ArgumentError, 'invalid value for "comment", the character length must be great than or equal to 1.'
-    end
-
-    @comment = comment
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] fingerprint Value to be assigned
-  def fingerprint=(fingerprint)
-    if !fingerprint.nil? && fingerprint.to_s.length < 1
-      fail ArgumentError, 'invalid value for "fingerprint", the character length must be great than or equal to 1.'
-    end
-
-    @fingerprint = fingerprint
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] public_key Value to be assigned
-  def public_key=(public_key)
-    if !public_key.nil? && public_key.to_s.length < 1
-      fail ArgumentError, 'invalid value for "public_key", the character length must be great than or equal to 1.'
-    end
-
-    @public_key = public_key
   end
 
   # Checks equality by comparing each attribute.

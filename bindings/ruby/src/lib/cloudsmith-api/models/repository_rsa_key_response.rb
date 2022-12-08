@@ -91,45 +91,13 @@ class RepositoryRsaKeyResponse
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@fingerprint.nil? && @fingerprint.to_s.length < 1
-      invalid_properties.push('invalid value for "fingerprint", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@public_key.nil? && @public_key.to_s.length < 1
-      invalid_properties.push('invalid value for "public_key", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@fingerprint.nil? && @fingerprint.to_s.length < 1
-    return false if !@public_key.nil? && @public_key.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] fingerprint Value to be assigned
-  def fingerprint=(fingerprint)
-    if !fingerprint.nil? && fingerprint.to_s.length < 1
-      fail ArgumentError, 'invalid value for "fingerprint", the character length must be great than or equal to 1.'
-    end
-
-    @fingerprint = fingerprint
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] public_key Value to be assigned
-  def public_key=(public_key)
-    if !public_key.nil? && public_key.to_s.length < 1
-      fail ArgumentError, 'invalid value for "public_key", the character length must be great than or equal to 1.'
-    end
-
-    @public_key = public_key
   end
 
   # Checks equality by comparing each attribute.

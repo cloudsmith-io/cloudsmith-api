@@ -51,11 +51,6 @@ class PackageMoveRequest
       invalid_properties.push('invalid value for "destination", destination cannot be nil.')
     end
 
-    if @destination.to_s.length < 1
-      invalid_properties.push('invalid value for "destination", the character length must be great than or equal to 1.')
-    end
-
-
     invalid_properties
   end
 
@@ -63,22 +58,7 @@ class PackageMoveRequest
   # @return true if the model is valid
   def valid?
     return false if @destination.nil?
-    return false if @destination.to_s.length < 1
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] destination Value to be assigned
-  def destination=(destination)
-    if destination.nil?
-      fail ArgumentError, 'destination cannot be nil'
-    end
-
-    if destination.to_s.length < 1
-      fail ArgumentError, 'invalid value for "destination", the character length must be great than or equal to 1.'
-    end
-
-    @destination = destination
   end
 
   # Checks equality by comparing each attribute.

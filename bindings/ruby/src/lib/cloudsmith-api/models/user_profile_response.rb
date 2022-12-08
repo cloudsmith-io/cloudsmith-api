@@ -120,51 +120,13 @@ class UserProfileResponse
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if !@company.nil? && @company.to_s.length > 64
-      invalid_properties.push('invalid value for "company", the character length must be smaller than or equal to 64.')
-    end
-
-
     if @first_name.nil?
       invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
     end
 
-    if @first_name.to_s.length > 40
-      invalid_properties.push('invalid value for "first_name", the character length must be smaller than or equal to 40.')
-    end
-
-    if @first_name.to_s.length < 1
-      invalid_properties.push('invalid value for "first_name", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@job_title.nil? && @job_title.to_s.length > 64
-      invalid_properties.push('invalid value for "job_title", the character length must be smaller than or equal to 64.')
-    end
-
-
     if @last_name.nil?
       invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
     end
-
-    if @last_name.to_s.length > 30
-      invalid_properties.push('invalid value for "last_name", the character length must be smaller than or equal to 30.')
-    end
-
-    if @last_name.to_s.length < 1
-      invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@name.nil? && @name.to_s.length < 1
-      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@tagline.nil? && @tagline.to_s.length > 80
-      invalid_properties.push('invalid value for "tagline", the character length must be smaller than or equal to 80.')
-    end
-
 
     invalid_properties
   end
@@ -172,93 +134,9 @@ class UserProfileResponse
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if !@company.nil? && @company.to_s.length > 64
     return false if @first_name.nil?
-    return false if @first_name.to_s.length > 40
-    return false if @first_name.to_s.length < 1
-    return false if !@job_title.nil? && @job_title.to_s.length > 64
     return false if @last_name.nil?
-    return false if @last_name.to_s.length > 30
-    return false if @last_name.to_s.length < 1
-    return false if !@name.nil? && @name.to_s.length < 1
-    return false if !@tagline.nil? && @tagline.to_s.length > 80
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] company Value to be assigned
-  def company=(company)
-    if !company.nil? && company.to_s.length > 64
-      fail ArgumentError, 'invalid value for "company", the character length must be smaller than or equal to 64.'
-    end
-
-    @company = company
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] first_name Value to be assigned
-  def first_name=(first_name)
-    if first_name.nil?
-      fail ArgumentError, 'first_name cannot be nil'
-    end
-
-    if first_name.to_s.length > 40
-      fail ArgumentError, 'invalid value for "first_name", the character length must be smaller than or equal to 40.'
-    end
-
-    if first_name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "first_name", the character length must be great than or equal to 1.'
-    end
-
-    @first_name = first_name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] job_title Value to be assigned
-  def job_title=(job_title)
-    if !job_title.nil? && job_title.to_s.length > 64
-      fail ArgumentError, 'invalid value for "job_title", the character length must be smaller than or equal to 64.'
-    end
-
-    @job_title = job_title
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] last_name Value to be assigned
-  def last_name=(last_name)
-    if last_name.nil?
-      fail ArgumentError, 'last_name cannot be nil'
-    end
-
-    if last_name.to_s.length > 30
-      fail ArgumentError, 'invalid value for "last_name", the character length must be smaller than or equal to 30.'
-    end
-
-    if last_name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "last_name", the character length must be great than or equal to 1.'
-    end
-
-    @last_name = last_name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] name Value to be assigned
-  def name=(name)
-    if !name.nil? && name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-    end
-
-    @name = name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] tagline Value to be assigned
-  def tagline=(tagline)
-    if !tagline.nil? && tagline.to_s.length > 80
-      fail ArgumentError, 'invalid value for "tagline", the character length must be smaller than or equal to 80.'
-    end
-
-    @tagline = tagline
   end
 
   # Checks equality by comparing each attribute.

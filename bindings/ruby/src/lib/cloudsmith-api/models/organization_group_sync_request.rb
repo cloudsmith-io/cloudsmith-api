@@ -86,27 +86,9 @@ class OrganizationGroupSyncRequest
       invalid_properties.push('invalid value for "idp_key", idp_key cannot be nil.')
     end
 
-    if @idp_key.to_s.length > 100
-      invalid_properties.push('invalid value for "idp_key", the character length must be smaller than or equal to 100.')
-    end
-
-    if @idp_key.to_s.length < 1
-      invalid_properties.push('invalid value for "idp_key", the character length must be great than or equal to 1.')
-    end
-
-
     if @idp_value.nil?
       invalid_properties.push('invalid value for "idp_value", idp_value cannot be nil.')
     end
-
-    if @idp_value.to_s.length > 100
-      invalid_properties.push('invalid value for "idp_value", the character length must be smaller than or equal to 100.')
-    end
-
-    if @idp_value.to_s.length < 1
-      invalid_properties.push('invalid value for "idp_value", the character length must be great than or equal to 1.')
-    end
-
 
     if @organization.nil?
       invalid_properties.push('invalid value for "organization", organization cannot be nil.')
@@ -116,7 +98,6 @@ class OrganizationGroupSyncRequest
       invalid_properties.push('invalid value for "team", team cannot be nil.')
     end
 
-
     invalid_properties
   end
 
@@ -124,60 +105,10 @@ class OrganizationGroupSyncRequest
   # @return true if the model is valid
   def valid?
     return false if @idp_key.nil?
-    return false if @idp_key.to_s.length > 100
-    return false if @idp_key.to_s.length < 1
     return false if @idp_value.nil?
-    return false if @idp_value.to_s.length > 100
-    return false if @idp_value.to_s.length < 1
     return false if @organization.nil?
     return false if @team.nil?
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] idp_key Value to be assigned
-  def idp_key=(idp_key)
-    if idp_key.nil?
-      fail ArgumentError, 'idp_key cannot be nil'
-    end
-
-    if idp_key.to_s.length > 100
-      fail ArgumentError, 'invalid value for "idp_key", the character length must be smaller than or equal to 100.'
-    end
-
-    if idp_key.to_s.length < 1
-      fail ArgumentError, 'invalid value for "idp_key", the character length must be great than or equal to 1.'
-    end
-
-    @idp_key = idp_key
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] idp_value Value to be assigned
-  def idp_value=(idp_value)
-    if idp_value.nil?
-      fail ArgumentError, 'idp_value cannot be nil'
-    end
-
-    if idp_value.to_s.length > 100
-      fail ArgumentError, 'invalid value for "idp_value", the character length must be smaller than or equal to 100.'
-    end
-
-    if idp_value.to_s.length < 1
-      fail ArgumentError, 'invalid value for "idp_value", the character length must be great than or equal to 1.'
-    end
-
-    @idp_value = idp_value
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] team Value to be assigned
-  def team=(team)
-    if team.nil?
-      fail ArgumentError, 'team cannot be nil'
-    end
-
-    @team = team
   end
 
   # Checks equality by comparing each attribute.

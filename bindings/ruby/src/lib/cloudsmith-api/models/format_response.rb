@@ -127,11 +127,6 @@ class FormatResponse
       invalid_properties.push('invalid value for "description", description cannot be nil.')
     end
 
-    if @description.to_s.length < 1
-      invalid_properties.push('invalid value for "description", the character length must be great than or equal to 1.')
-    end
-
-
     if @extensions.nil?
       invalid_properties.push('invalid value for "extensions", extensions cannot be nil.')
     end
@@ -140,33 +135,13 @@ class FormatResponse
       invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
 
-    if @name.to_s.length < 1
-      invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
-    end
-
-
     if @premium.nil?
       invalid_properties.push('invalid value for "premium", premium cannot be nil.')
     end
 
-    if !@premium_plan_id.nil? && @premium_plan_id.to_s.length < 1
-      invalid_properties.push('invalid value for "premium_plan_id", the character length must be great than or equal to 1.')
-    end
-
-
-    if !@premium_plan_name.nil? && @premium_plan_name.to_s.length < 1
-      invalid_properties.push('invalid value for "premium_plan_name", the character length must be great than or equal to 1.')
-    end
-
-
     if @slug.nil?
       invalid_properties.push('invalid value for "slug", slug cannot be nil.')
     end
-
-    if @slug.to_s.length < 1
-      invalid_properties.push('invalid value for "slug", the character length must be great than or equal to 1.')
-    end
-
 
     if @supports.nil?
       invalid_properties.push('invalid value for "supports", supports cannot be nil.')
@@ -179,79 +154,12 @@ class FormatResponse
   # @return true if the model is valid
   def valid?
     return false if @description.nil?
-    return false if @description.to_s.length < 1
     return false if @extensions.nil?
     return false if @name.nil?
-    return false if @name.to_s.length < 1
     return false if @premium.nil?
-    return false if !@premium_plan_id.nil? && @premium_plan_id.to_s.length < 1
-    return false if !@premium_plan_name.nil? && @premium_plan_name.to_s.length < 1
     return false if @slug.nil?
-    return false if @slug.to_s.length < 1
     return false if @supports.nil?
     true
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] description Value to be assigned
-  def description=(description)
-    if description.nil?
-      fail ArgumentError, 'description cannot be nil'
-    end
-
-    if description.to_s.length < 1
-      fail ArgumentError, 'invalid value for "description", the character length must be great than or equal to 1.'
-    end
-
-    @description = description
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] name Value to be assigned
-  def name=(name)
-    if name.nil?
-      fail ArgumentError, 'name cannot be nil'
-    end
-
-    if name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
-    end
-
-    @name = name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] premium_plan_id Value to be assigned
-  def premium_plan_id=(premium_plan_id)
-    if !premium_plan_id.nil? && premium_plan_id.to_s.length < 1
-      fail ArgumentError, 'invalid value for "premium_plan_id", the character length must be great than or equal to 1.'
-    end
-
-    @premium_plan_id = premium_plan_id
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] premium_plan_name Value to be assigned
-  def premium_plan_name=(premium_plan_name)
-    if !premium_plan_name.nil? && premium_plan_name.to_s.length < 1
-      fail ArgumentError, 'invalid value for "premium_plan_name", the character length must be great than or equal to 1.'
-    end
-
-    @premium_plan_name = premium_plan_name
-  end
-
-  # Custom attribute writer method with validation
-  # @param [Object] slug Value to be assigned
-  def slug=(slug)
-    if slug.nil?
-      fail ArgumentError, 'slug cannot be nil'
-    end
-
-    if slug.to_s.length < 1
-      fail ArgumentError, 'invalid value for "slug", the character length must be great than or equal to 1.'
-    end
-
-    @slug = slug
   end
 
   # Checks equality by comparing each attribute.
