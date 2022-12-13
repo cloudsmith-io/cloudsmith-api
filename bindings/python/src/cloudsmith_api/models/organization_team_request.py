@@ -164,6 +164,13 @@ class OrganizationTeamRequest(object):
         :param visibility: The visibility of this OrganizationTeamRequest.
         :type: str
         """
+        allowed_values = ["Visible", "Hidden"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                visibility not in allowed_values):
+            raise ValueError(
+                "Invalid value for `visibility` ({0}), must be one of {1}"  # noqa: E501
+                .format(visibility, allowed_values)
+            )
 
         self._visibility = visibility
 

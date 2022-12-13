@@ -46,7 +46,7 @@ class VulnerabilitiesApi(object):
         :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[VulnerabilityScanResultsListResponse]
+        :return: list[VulnerabilityScanResultsList]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -70,7 +70,7 @@ class VulnerabilitiesApi(object):
         :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[VulnerabilityScanResultsListResponse]
+        :return: list[VulnerabilityScanResultsList]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -132,7 +132,7 @@ class VulnerabilitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[VulnerabilityScanResultsListResponse]',  # noqa: E501
+            response_type='list[VulnerabilityScanResultsList]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -155,7 +155,7 @@ class VulnerabilitiesApi(object):
         :param str package: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[VulnerabilityScanResultsListResponse]
+        :return: list[VulnerabilityScanResultsList]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -181,7 +181,7 @@ class VulnerabilitiesApi(object):
         :param str package: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[VulnerabilityScanResultsListResponse]
+        :return: list[VulnerabilityScanResultsList]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -255,7 +255,7 @@ class VulnerabilitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[VulnerabilityScanResultsListResponse]',  # noqa: E501
+            response_type='list[VulnerabilityScanResultsList]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -277,7 +277,7 @@ class VulnerabilitiesApi(object):
         :param str repo: (required)
         :param str package: (required)
         :param str scan_id: (required)
-        :return: VulnerabilityScanResultsResponse
+        :return: VulnerabilityScanResults
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -302,7 +302,7 @@ class VulnerabilitiesApi(object):
         :param str repo: (required)
         :param str package: (required)
         :param str scan_id: (required)
-        :return: VulnerabilityScanResultsResponse
+        :return: VulnerabilityScanResults
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -378,7 +378,7 @@ class VulnerabilitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VulnerabilityScanResultsResponse',  # noqa: E501
+            response_type='VulnerabilityScanResults',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -400,7 +400,7 @@ class VulnerabilitiesApi(object):
         :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[VulnerabilityScanResultsListResponse]
+        :return: list[VulnerabilityScanResultsList]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -425,7 +425,7 @@ class VulnerabilitiesApi(object):
         :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[VulnerabilityScanResultsListResponse]
+        :return: list[VulnerabilityScanResultsList]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -493,7 +493,7 @@ class VulnerabilitiesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[VulnerabilityScanResultsListResponse]',  # noqa: E501
+            response_type='list[VulnerabilityScanResultsList]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

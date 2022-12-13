@@ -1,6 +1,6 @@
 # cloudsmith_api.EntitlementsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **entitlements_create**
-> RepositoryTokenResponse entitlements_create(owner, repo, data=data, show_tokens=show_tokens)
+> RepositoryToken entitlements_create(owner, repo, data=data, show_tokens=show_tokens)
 
 Create a specific entitlement in a repository.
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -248,7 +248,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_list**
-> list[RepositoryTokenResponse] entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens, query=query, active=active)
+> list[RepositoryToken] entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens, query=query, active=active)
 
 Get a list of all entitlements in a repository.
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[RepositoryTokenResponse]**](RepositoryTokenResponse.md)
+[**list[RepositoryToken]**](RepositoryToken.md)
 
 ### Authorization
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_partial_update**
-> RepositoryTokenResponse entitlements_partial_update(owner, repo, identifier, data=data, show_tokens=show_tokens)
+> RepositoryToken entitlements_partial_update(owner, repo, identifier, data=data, show_tokens=show_tokens)
 
 Update a specific entitlement in a repository.
 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_read**
-> RepositoryTokenResponse entitlements_read(owner, repo, identifier, fuzzy=fuzzy, show_tokens=show_tokens)
+> RepositoryToken entitlements_read(owner, repo, identifier, fuzzy=fuzzy, show_tokens=show_tokens)
 
 Get a specific entitlement in a repository.
 
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_refresh**
-> RepositoryTokenRefreshResponse entitlements_refresh(owner, repo, identifier, data=data, show_tokens=show_tokens)
+> RepositoryTokenRefresh entitlements_refresh(owner, repo, identifier, data=data, show_tokens=show_tokens)
 
 Refresh an entitlement token in a repository.
 
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenRefreshResponse**](RepositoryTokenRefreshResponse.md)
+[**RepositoryTokenRefresh**](RepositoryTokenRefresh.md)
 
 ### Authorization
 
@@ -559,7 +559,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_sync**
-> RepositoryTokenSyncResponse entitlements_sync(owner, repo, data=data, show_tokens=show_tokens)
+> RepositoryTokenSync entitlements_sync(owner, repo, data=data, show_tokens=show_tokens)
 
 Synchronise tokens from a source repository.
 
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenSyncResponse**](RepositoryTokenSyncResponse.md)
+[**RepositoryTokenSync**](RepositoryTokenSync.md)
 
 ### Authorization
 

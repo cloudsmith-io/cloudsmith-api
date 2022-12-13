@@ -1,6 +1,6 @@
 # cloudsmith_api.VulnerabilitiesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **vulnerabilities_namespace_list**
-> list[VulnerabilityScanResultsListResponse] vulnerabilities_namespace_list(owner, page=page, page_size=page_size)
+> list[VulnerabilityScanResultsList] vulnerabilities_namespace_list(owner, page=page, page_size=page_size)
 
 Lists scan results for a specific namespace.
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[VulnerabilityScanResultsListResponse]**](VulnerabilityScanResultsListResponse.md)
+[**list[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vulnerabilities_package_list**
-> list[VulnerabilityScanResultsListResponse] vulnerabilities_package_list(owner, repo, package, page=page, page_size=page_size)
+> list[VulnerabilityScanResultsList] vulnerabilities_package_list(owner, repo, package, page=page, page_size=page_size)
 
 Lists scan results for a specific package.
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[VulnerabilityScanResultsListResponse]**](VulnerabilityScanResultsListResponse.md)
+[**list[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vulnerabilities_read**
-> VulnerabilityScanResultsResponse vulnerabilities_read(owner, repo, package, scan_id)
+> VulnerabilityScanResults vulnerabilities_read(owner, repo, package, scan_id)
 
 Returns a Scan Result.
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VulnerabilityScanResultsResponse**](VulnerabilityScanResultsResponse.md)
+[**VulnerabilityScanResults**](VulnerabilityScanResults.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vulnerabilities_repo_list**
-> list[VulnerabilityScanResultsListResponse] vulnerabilities_repo_list(owner, repo, page=page, page_size=page_size)
+> list[VulnerabilityScanResultsList] vulnerabilities_repo_list(owner, repo, page=page, page_size=page_size)
 
 Lists scan results for a specific repository.
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[VulnerabilityScanResultsListResponse]**](VulnerabilityScanResultsListResponse.md)
+[**list[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 

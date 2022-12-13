@@ -44,7 +44,7 @@ class QuotaApi(object):
 
         :param async_req bool
         :param str owner: (required)
-        :return: QuotaHistoryResponse
+        :return: QuotaHistory
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -66,7 +66,7 @@ class QuotaApi(object):
 
         :param async_req bool
         :param str owner: (required)
-        :return: QuotaHistoryResponse
+        :return: QuotaHistory
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -124,7 +124,7 @@ class QuotaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuotaHistoryResponse',  # noqa: E501
+            response_type='QuotaHistory',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -143,7 +143,7 @@ class QuotaApi(object):
 
         :param async_req bool
         :param str owner: (required)
-        :return: QuotaHistoryResponse
+        :return: QuotaHistory
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -165,7 +165,7 @@ class QuotaApi(object):
 
         :param async_req bool
         :param str owner: (required)
-        :return: QuotaHistoryResponse
+        :return: QuotaHistory
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -223,7 +223,7 @@ class QuotaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuotaHistoryResponse',  # noqa: E501
+            response_type='QuotaHistory',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -242,7 +242,7 @@ class QuotaApi(object):
 
         :param async_req bool
         :param str owner: (required)
-        :return: QuotaResponse
+        :return: Quota
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -264,7 +264,7 @@ class QuotaApi(object):
 
         :param async_req bool
         :param str owner: (required)
-        :return: QuotaResponse
+        :return: Quota
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -322,7 +322,7 @@ class QuotaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuotaResponse',  # noqa: E501
+            response_type='Quota',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -341,7 +341,7 @@ class QuotaApi(object):
 
         :param async_req bool
         :param str owner: (required)
-        :return: QuotaResponse
+        :return: Quota
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -363,7 +363,7 @@ class QuotaApi(object):
 
         :param async_req bool
         :param str owner: (required)
-        :return: QuotaResponse
+        :return: Quota
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -421,7 +421,7 @@ class QuotaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='QuotaResponse',  # noqa: E501
+            response_type='Quota',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

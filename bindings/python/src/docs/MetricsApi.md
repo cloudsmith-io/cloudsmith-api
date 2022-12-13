@@ -1,6 +1,6 @@
 # cloudsmith_api.MetricsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **metrics_entitlements_account_list**
-> EntitlementUsageMetricsResponse metrics_entitlements_account_list(owner, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
+> EntitlementUsageMetrics metrics_entitlements_account_list(owner, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
 
 View for listing entitlement token metrics, across an account.
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **metrics_entitlements_repo_list**
-> EntitlementUsageMetricsResponse metrics_entitlements_repo_list(owner, repo, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
+> EntitlementUsageMetrics metrics_entitlements_repo_list(owner, repo, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
 
 View for listing entitlement token metrics, for a repository.
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **metrics_packages_list**
-> PackageUsageMetricsResponse metrics_packages_list(owner, repo, page=page, page_size=page_size, finish=finish, packages=packages, start=start)
+> PackageUsageMetrics metrics_packages_list(owner, repo, page=page, page_size=page_size, finish=finish, packages=packages, start=start)
 
 View for listing package usage metrics, for a repository.
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageUsageMetricsResponse**](PackageUsageMetricsResponse.md)
+[**PackageUsageMetrics**](PackageUsageMetrics.md)
 
 ### Authorization
 

@@ -49,7 +49,7 @@ class MetricsApi(object):
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: EntitlementUsageMetricsResponse
+        :return: EntitlementUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -76,7 +76,7 @@ class MetricsApi(object):
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: EntitlementUsageMetricsResponse
+        :return: EntitlementUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -144,7 +144,7 @@ class MetricsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='EntitlementUsageMetricsResponse',  # noqa: E501
+            response_type='EntitlementUsageMetrics',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -169,7 +169,7 @@ class MetricsApi(object):
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: EntitlementUsageMetricsResponse
+        :return: EntitlementUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -197,7 +197,7 @@ class MetricsApi(object):
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str tokens: A comma seperated list of tokens (slug perm) to include in the results.
-        :return: EntitlementUsageMetricsResponse
+        :return: EntitlementUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -271,7 +271,7 @@ class MetricsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='EntitlementUsageMetricsResponse',  # noqa: E501
+            response_type='EntitlementUsageMetrics',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -296,7 +296,7 @@ class MetricsApi(object):
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str packages: A comma seperated list of packages (slug perm) to include in the results.
         :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
-        :return: PackageUsageMetricsResponse
+        :return: PackageUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -324,7 +324,7 @@ class MetricsApi(object):
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
         :param str packages: A comma seperated list of packages (slug perm) to include in the results.
         :param str start: Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
-        :return: PackageUsageMetricsResponse
+        :return: PackageUsageMetrics
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -398,7 +398,7 @@ class MetricsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageUsageMetricsResponse',  # noqa: E501
+            response_type='PackageUsageMetrics',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

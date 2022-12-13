@@ -45,7 +45,7 @@ class NamespacesApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[NamespaceResponse]
+        :return: list[Namespace]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,7 +68,7 @@ class NamespacesApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[NamespaceResponse]
+        :return: list[Namespace]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -124,7 +124,7 @@ class NamespacesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[NamespaceResponse]',  # noqa: E501
+            response_type='list[Namespace]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -143,7 +143,7 @@ class NamespacesApi(object):
 
         :param async_req bool
         :param str slug: (required)
-        :return: NamespaceResponse
+        :return: Namespace
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -165,7 +165,7 @@ class NamespacesApi(object):
 
         :param async_req bool
         :param str slug: (required)
-        :return: NamespaceResponse
+        :return: Namespace
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -223,7 +223,7 @@ class NamespacesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='NamespaceResponse',  # noqa: E501
+            response_type='Namespace',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

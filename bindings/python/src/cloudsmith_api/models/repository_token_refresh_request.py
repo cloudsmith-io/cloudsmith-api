@@ -210,6 +210,13 @@ class RepositoryTokenRefreshRequest(object):
         :param limit_bandwidth_unit: The limit_bandwidth_unit of this RepositoryTokenRefreshRequest.
         :type: str
         """
+        allowed_values = ["Byte", "Kilobyte", "Megabyte", "Gigabyte", "Terabyte", "Petabyte", "Exabyte", "Zettabyte", "Yottabyte"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                limit_bandwidth_unit not in allowed_values):
+            raise ValueError(
+                "Invalid value for `limit_bandwidth_unit` ({0}), must be one of {1}"  # noqa: E501
+                .format(limit_bandwidth_unit, allowed_values)
+            )
 
         self._limit_bandwidth_unit = limit_bandwidth_unit
 
@@ -431,6 +438,13 @@ class RepositoryTokenRefreshRequest(object):
         :param scheduled_reset_period: The scheduled_reset_period of this RepositoryTokenRefreshRequest.
         :type: str
         """
+        allowed_values = ["Never Reset", "Daily", "Weekly", "Fortnightly", "Monthly", "Bi-Monthly", "Quarterly", "Every 6 months", "Annual"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scheduled_reset_period not in allowed_values):
+            raise ValueError(
+                "Invalid value for `scheduled_reset_period` ({0}), must be one of {1}"  # noqa: E501
+                .format(scheduled_reset_period, allowed_values)
+            )
 
         self._scheduled_reset_period = scheduled_reset_period
 

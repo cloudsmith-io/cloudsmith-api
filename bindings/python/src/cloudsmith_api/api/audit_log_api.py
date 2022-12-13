@@ -47,7 +47,7 @@ class AuditLogApi(object):
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying events, actors, or timestamps of log records.
-        :return: list[NamespaceAuditLogResponse]
+        :return: list[NamespaceAuditLog]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -72,7 +72,7 @@ class AuditLogApi(object):
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying events, actors, or timestamps of log records.
-        :return: list[NamespaceAuditLogResponse]
+        :return: list[NamespaceAuditLog]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -136,7 +136,7 @@ class AuditLogApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[NamespaceAuditLogResponse]',  # noqa: E501
+            response_type='list[NamespaceAuditLog]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -159,7 +159,7 @@ class AuditLogApi(object):
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying events, actors, or timestamps of log records.
-        :return: list[RepositoryAuditLogResponse]
+        :return: list[RepositoryAuditLog]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -185,7 +185,7 @@ class AuditLogApi(object):
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying events, actors, or timestamps of log records.
-        :return: list[RepositoryAuditLogResponse]
+        :return: list[RepositoryAuditLog]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -255,7 +255,7 @@ class AuditLogApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[RepositoryAuditLogResponse]',  # noqa: E501
+            response_type='list[RepositoryAuditLog]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

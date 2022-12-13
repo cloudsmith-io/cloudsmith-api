@@ -146,6 +146,13 @@ class ServiceRequest(object):
         :param role: The role of this ServiceRequest.
         :type: str
         """
+        allowed_values = ["Manager", "Member"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                role not in allowed_values):
+            raise ValueError(
+                "Invalid value for `role` ({0}), must be one of {1}"  # noqa: E501
+                .format(role, allowed_values)
+            )
 
         self._role = role
 

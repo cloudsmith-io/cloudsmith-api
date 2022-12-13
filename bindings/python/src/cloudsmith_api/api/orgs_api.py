@@ -45,7 +45,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param OrganizationInviteRequest data:
-        :return: OrganizationInviteResponse
+        :return: OrganizationInvite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,7 +68,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param OrganizationInviteRequest data:
-        :return: OrganizationInviteResponse
+        :return: OrganizationInvite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -128,7 +128,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationInviteResponse',  # noqa: E501
+            response_type='OrganizationInvite',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -255,7 +255,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str slug_perm: (required)
-        :return: OrganizationInviteExtendResponse
+        :return: OrganizationInviteExtend
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -278,7 +278,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str slug_perm: (required)
-        :return: OrganizationInviteExtendResponse
+        :return: OrganizationInviteExtend
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -342,7 +342,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationInviteExtendResponse',  # noqa: E501
+            response_type='OrganizationInviteExtend',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -363,7 +363,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationInviteResponse]
+        :return: list[OrganizationInvite]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -387,7 +387,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationInviteResponse]
+        :return: list[OrganizationInvite]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -449,7 +449,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationInviteResponse]',  # noqa: E501
+            response_type='list[OrganizationInvite]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -470,7 +470,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str slug_perm: (required)
         :param OrganizationInviteUpdateRequestPatch data:
-        :return: OrganizationInviteResponse
+        :return: OrganizationInvite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -494,7 +494,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str slug_perm: (required)
         :param OrganizationInviteUpdateRequestPatch data:
-        :return: OrganizationInviteResponse
+        :return: OrganizationInvite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -560,7 +560,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationInviteResponse',  # noqa: E501
+            response_type='OrganizationInvite',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -580,7 +580,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str slug_perm: (required)
-        :return: OrganizationInviteExtendResponse
+        :return: OrganizationInviteExtend
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -603,7 +603,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str slug_perm: (required)
-        :return: OrganizationInviteExtendResponse
+        :return: OrganizationInviteExtend
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -667,7 +667,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationInviteExtendResponse',  # noqa: E501
+            response_type='OrganizationInviteExtend',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -687,7 +687,7 @@ class OrgsApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationResponse]
+        :return: list[Organization]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -710,7 +710,7 @@ class OrgsApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationResponse]
+        :return: list[Organization]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -766,7 +766,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationResponse]',  # noqa: E501
+            response_type='list[Organization]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -894,7 +894,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationMembershipResponse]
+        :return: list[OrganizationMembership]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -918,7 +918,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationMembershipResponse]
+        :return: list[OrganizationMembership]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -980,7 +980,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationMembershipResponse]',  # noqa: E501
+            response_type='list[OrganizationMembership]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1000,7 +1000,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str member: (required)
-        :return: OrganizationMembershipResponse
+        :return: OrganizationMembership
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1023,7 +1023,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str member: (required)
-        :return: OrganizationMembershipResponse
+        :return: OrganizationMembership
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1087,7 +1087,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationMembershipResponse',  # noqa: E501
+            response_type='OrganizationMembership',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1213,7 +1213,7 @@ class OrgsApi(object):
 
         :param async_req bool
         :param str org: (required)
-        :return: OrganizationResponse
+        :return: Organization
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1235,7 +1235,7 @@ class OrgsApi(object):
 
         :param async_req bool
         :param str org: (required)
-        :return: OrganizationResponse
+        :return: Organization
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1293,7 +1293,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationResponse',  # noqa: E501
+            response_type='Organization',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1313,7 +1313,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param OrganizationGroupSyncRequest data:
-        :return: OrganizationGroupSyncResponse
+        :return: OrganizationGroupSync
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1336,7 +1336,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param OrganizationGroupSyncRequest data:
-        :return: OrganizationGroupSyncResponse
+        :return: OrganizationGroupSync
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1396,7 +1396,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationGroupSyncResponse',  # noqa: E501
+            response_type='OrganizationGroupSync',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1524,7 +1524,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationGroupSyncResponse]
+        :return: list[OrganizationGroupSync]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1548,7 +1548,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationGroupSyncResponse]
+        :return: list[OrganizationGroupSync]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1610,7 +1610,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationGroupSyncResponse]',  # noqa: E501
+            response_type='list[OrganizationGroupSync]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1630,7 +1630,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param ServiceRequest data:
-        :return: ServiceResponse
+        :return: Service
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1653,7 +1653,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param ServiceRequest data:
-        :return: ServiceResponse
+        :return: Service
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1713,7 +1713,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ServiceResponse',  # noqa: E501
+            response_type='Service',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1841,7 +1841,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[ServiceResponse]
+        :return: list[Service]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1865,7 +1865,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[ServiceResponse]
+        :return: list[Service]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1927,7 +1927,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ServiceResponse]',  # noqa: E501
+            response_type='list[Service]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1948,7 +1948,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str service: (required)
         :param ServiceRequestPatch data:
-        :return: ServiceResponse
+        :return: Service
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1972,7 +1972,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str service: (required)
         :param ServiceRequestPatch data:
-        :return: ServiceResponse
+        :return: Service
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2038,7 +2038,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ServiceResponse',  # noqa: E501
+            response_type='Service',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2058,7 +2058,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str service: (required)
-        :return: ServiceResponse
+        :return: Service
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2081,7 +2081,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str service: (required)
-        :return: ServiceResponse
+        :return: Service
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2145,7 +2145,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ServiceResponse',  # noqa: E501
+            response_type='Service',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2165,7 +2165,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str service: (required)
-        :return: ServiceResponse
+        :return: Service
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2188,7 +2188,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str service: (required)
-        :return: ServiceResponse
+        :return: Service
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2252,7 +2252,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ServiceResponse',  # noqa: E501
+            response_type='Service',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2272,7 +2272,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param OrganizationTeamRequest data:
-        :return: OrganizationTeamResponse
+        :return: OrganizationTeam
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2295,7 +2295,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param OrganizationTeamRequest data:
-        :return: OrganizationTeamResponse
+        :return: OrganizationTeam
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2355,7 +2355,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeamResponse',  # noqa: E501
+            response_type='OrganizationTeam',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2483,7 +2483,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationTeamResponse]
+        :return: list[OrganizationTeam]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2507,7 +2507,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[OrganizationTeamResponse]
+        :return: list[OrganizationTeam]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2569,7 +2569,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[OrganizationTeamResponse]',  # noqa: E501
+            response_type='list[OrganizationTeam]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2590,7 +2590,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str team: (required)
         :param OrganizationTeamMembers data:
-        :return: OrganizationTeamMembersResponse
+        :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2614,7 +2614,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str team: (required)
         :param OrganizationTeamMembers data:
-        :return: OrganizationTeamMembersResponse
+        :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2680,7 +2680,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeamMembersResponse',  # noqa: E501
+            response_type='OrganizationTeamMembers',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2700,7 +2700,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
-        :return: OrganizationTeamMembersResponse
+        :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2723,7 +2723,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
-        :return: OrganizationTeamMembersResponse
+        :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2787,7 +2787,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeamMembersResponse',  # noqa: E501
+            response_type='OrganizationTeamMembers',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2807,7 +2807,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
-        :return: OrganizationTeamMembersResponse
+        :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2830,7 +2830,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
-        :return: OrganizationTeamMembersResponse
+        :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2894,7 +2894,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeamMembersResponse',  # noqa: E501
+            response_type='OrganizationTeamMembers',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2915,7 +2915,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str team: (required)
         :param OrganizationTeamRequestPatch data:
-        :return: OrganizationTeamResponse
+        :return: OrganizationTeam
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2939,7 +2939,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str team: (required)
         :param OrganizationTeamRequestPatch data:
-        :return: OrganizationTeamResponse
+        :return: OrganizationTeam
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3005,7 +3005,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeamResponse',  # noqa: E501
+            response_type='OrganizationTeam',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3025,7 +3025,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
-        :return: OrganizationTeamResponse
+        :return: OrganizationTeam
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3048,7 +3048,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
-        :return: OrganizationTeamResponse
+        :return: OrganizationTeam
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3112,7 +3112,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OrganizationTeamResponse',  # noqa: E501
+            response_type='OrganizationTeam',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

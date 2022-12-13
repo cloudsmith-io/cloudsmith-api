@@ -47,7 +47,7 @@ class EntitlementsApi(object):
         :param str repo: (required)
         :param RepositoryTokenRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenResponse
+        :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -72,7 +72,7 @@ class EntitlementsApi(object):
         :param str repo: (required)
         :param RepositoryTokenRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenResponse
+        :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -140,7 +140,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryTokenResponse',  # noqa: E501
+            response_type='RepositoryToken',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -510,7 +510,7 @@ class EntitlementsApi(object):
         :param bool show_tokens: Show entitlement token strings in results
         :param str query: A search term for querying names of entitlements.
         :param bool active: If true, only include active tokens
-        :return: list[RepositoryTokenResponse]
+        :return: list[RepositoryToken]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -538,7 +538,7 @@ class EntitlementsApi(object):
         :param bool show_tokens: Show entitlement token strings in results
         :param str query: A search term for querying names of entitlements.
         :param bool active: If true, only include active tokens
-        :return: list[RepositoryTokenResponse]
+        :return: list[RepositoryToken]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -612,7 +612,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[RepositoryTokenResponse]',  # noqa: E501
+            response_type='list[RepositoryToken]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -635,7 +635,7 @@ class EntitlementsApi(object):
         :param str identifier: (required)
         :param RepositoryTokenRequestPatch data:
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenResponse
+        :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -661,7 +661,7 @@ class EntitlementsApi(object):
         :param str identifier: (required)
         :param RepositoryTokenRequestPatch data:
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenResponse
+        :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -735,7 +735,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryTokenResponse',  # noqa: E501
+            response_type='RepositoryToken',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -758,7 +758,7 @@ class EntitlementsApi(object):
         :param str identifier: (required)
         :param bool fuzzy: If true, entitlement identifiers including name will be fuzzy matched.
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenResponse
+        :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -784,7 +784,7 @@ class EntitlementsApi(object):
         :param str identifier: (required)
         :param bool fuzzy: If true, entitlement identifiers including name will be fuzzy matched.
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenResponse
+        :return: RepositoryToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -858,7 +858,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryTokenResponse',  # noqa: E501
+            response_type='RepositoryToken',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -881,7 +881,7 @@ class EntitlementsApi(object):
         :param str identifier: (required)
         :param RepositoryTokenRefreshRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenRefreshResponse
+        :return: RepositoryTokenRefresh
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -907,7 +907,7 @@ class EntitlementsApi(object):
         :param str identifier: (required)
         :param RepositoryTokenRefreshRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenRefreshResponse
+        :return: RepositoryTokenRefresh
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -981,7 +981,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryTokenRefreshResponse',  # noqa: E501
+            response_type='RepositoryTokenRefresh',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1122,7 +1122,7 @@ class EntitlementsApi(object):
         :param str repo: (required)
         :param RepositoryTokenSyncRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenSyncResponse
+        :return: RepositoryTokenSync
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1147,7 +1147,7 @@ class EntitlementsApi(object):
         :param str repo: (required)
         :param RepositoryTokenSyncRequest data:
         :param bool show_tokens: Show entitlement token strings in results
-        :return: RepositoryTokenSyncResponse
+        :return: RepositoryTokenSync
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1215,7 +1215,7 @@ class EntitlementsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryTokenSyncResponse',  # noqa: E501
+            response_type='RepositoryTokenSync',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

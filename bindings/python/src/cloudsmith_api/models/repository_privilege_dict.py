@@ -88,6 +88,13 @@ class RepositoryPrivilegeDict(object):
         """
         if self._configuration.client_side_validation and privilege is None:
             raise ValueError("Invalid value for `privilege`, must not be `None`")  # noqa: E501
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                privilege not in allowed_values):
+            raise ValueError(
+                "Invalid value for `privilege` ({0}), must be one of {1}"  # noqa: E501
+                .format(privilege, allowed_values)
+            )
 
         self._privilege = privilege
 

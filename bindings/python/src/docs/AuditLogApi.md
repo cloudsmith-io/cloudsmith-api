@@ -1,6 +1,6 @@
 # cloudsmith_api.AuditLogApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **audit_log_namespace_list**
-> list[NamespaceAuditLogResponse] audit_log_namespace_list(owner, page=page, page_size=page_size, query=query)
+> list[NamespaceAuditLog] audit_log_namespace_list(owner, page=page, page_size=page_size, query=query)
 
 Lists audit log entries for a specific namespace.
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[NamespaceAuditLogResponse]**](NamespaceAuditLogResponse.md)
+[**list[NamespaceAuditLog]**](NamespaceAuditLog.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **audit_log_repo_list**
-> list[RepositoryAuditLogResponse] audit_log_repo_list(owner, repo, page=page, page_size=page_size, query=query)
+> list[RepositoryAuditLog] audit_log_repo_list(owner, repo, page=page, page_size=page_size, query=query)
 
 Lists audit log entries for a specific repository.
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[RepositoryAuditLogResponse]**](RepositoryAuditLogResponse.md)
+[**list[RepositoryAuditLog]**](RepositoryAuditLog.md)
 
 ### Authorization
 

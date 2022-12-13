@@ -1,6 +1,6 @@
 # cloudsmith_api.NamespacesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **namespaces_list**
-> list[NamespaceResponse] namespaces_list(page=page, page_size=page_size)
+> list[Namespace] namespaces_list(page=page, page_size=page_size)
 
 Get a list of all namespaces the user belongs to.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[NamespaceResponse]**](NamespaceResponse.md)
+[**list[Namespace]**](Namespace.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **namespaces_read**
-> NamespaceResponse namespaces_read(slug)
+> Namespace namespaces_read(slug)
 
 Views for working with namespaces.
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NamespaceResponse**](NamespaceResponse.md)
+[**Namespace**](Namespace.md)
 
 ### Authorization
 

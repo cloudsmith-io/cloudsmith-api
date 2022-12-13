@@ -1,6 +1,6 @@
 # cloudsmith_api.PackagesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -64,7 +64,7 @@ Method | HTTP request | Description
 
 
 # **packages_copy**
-> PackageCopyResponse packages_copy(owner, repo, identifier, data=data)
+> PackageCopy packages_copy(owner, repo, identifier, data=data)
 
 Copy a package to another repository.
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageCopyResponse**](PackageCopyResponse.md)
+[**PackageCopy**](PackageCopy.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_dependencies**
-> PackageDependenciesResponse packages_dependencies(owner, repo, identifier)
+> PackageDependencies packages_dependencies(owner, repo, identifier)
 
 Get the direct (non-transitive) dependencies list for a package.
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDependenciesResponse**](PackageDependenciesResponse.md)
+[**PackageDependencies**](PackageDependencies.md)
 
 ### Authorization
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_list**
-> list[PackageResponse] packages_list(owner, repo, page=page, page_size=page_size, query=query, sort=sort)
+> list[Package] packages_list(owner, repo, page=page, page_size=page_size, query=query, sort=sort)
 
 Get a list of all packages associated with repository.
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[PackageResponse]**](PackageResponse.md)
+[**list[Package]**](Package.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_move**
-> PackageMoveResponse packages_move(owner, repo, identifier, data=data)
+> PackageMove packages_move(owner, repo, identifier, data=data)
 
 Move a package to another repository.
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageMoveResponse**](PackageMoveResponse.md)
+[**PackageMove**](PackageMove.md)
 
 ### Authorization
 
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_quarantine**
-> PackageQuarantineResponse packages_quarantine(owner, repo, identifier, data=data)
+> PackageQuarantine packages_quarantine(owner, repo, identifier, data=data)
 
 Quarantine or restore a package.
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageQuarantineResponse**](PackageQuarantineResponse.md)
+[**PackageQuarantine**](PackageQuarantine.md)
 
 ### Authorization
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_read**
-> PackageResponse packages_read(owner, repo, identifier)
+> Package packages_read(owner, repo, identifier)
 
 Get a specific package in a repository.
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_resync**
-> PackageResyncResponse packages_resync(owner, repo, identifier)
+> PackageResync packages_resync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResyncResponse**](PackageResyncResponse.md)
+[**PackageResync**](PackageResync.md)
 
 ### Authorization
 
@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_scan**
-> PackageResponse packages_scan(owner, repo, identifier)
+> Package packages_scan(owner, repo, identifier)
 
 Schedule a package for scanning.
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_status**
-> PackageStatusResponse packages_status(owner, repo, identifier)
+> PackageStatus packages_status(owner, repo, identifier)
 
 Get the synchronisation status for a package.
 
@@ -641,7 +641,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageStatusResponse**](PackageStatusResponse.md)
+[**PackageStatus**](PackageStatus.md)
 
 ### Authorization
 
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_tag**
-> PackageResponse packages_tag(owner, repo, identifier, data=data)
+> Package packages_tag(owner, repo, identifier, data=data)
 
 Add/Replace/Remove tags for a package.
 
@@ -701,7 +701,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -715,7 +715,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_alpine**
-> AlpinePackageUploadResponse packages_upload_alpine(owner, repo, data=data)
+> AlpinePackageUpload packages_upload_alpine(owner, repo, data=data)
 
 Create a new Alpine package
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AlpinePackageUploadResponse**](AlpinePackageUploadResponse.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cargo**
-> CargoPackageUploadResponse packages_upload_cargo(owner, repo, data=data)
+> CargoPackageUpload packages_upload_cargo(owner, repo, data=data)
 
 Create a new Cargo package
 
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CargoPackageUploadResponse**](CargoPackageUploadResponse.md)
+[**CargoPackageUpload**](CargoPackageUpload.md)
 
 ### Authorization
 
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cocoapods**
-> CocoapodsPackageUploadResponse packages_upload_cocoapods(owner, repo, data=data)
+> CocoapodsPackageUpload packages_upload_cocoapods(owner, repo, data=data)
 
 Create a new CocoaPods package
 
@@ -875,7 +875,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CocoapodsPackageUploadResponse**](CocoapodsPackageUploadResponse.md)
+[**CocoapodsPackageUpload**](CocoapodsPackageUpload.md)
 
 ### Authorization
 
@@ -889,7 +889,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_composer**
-> ComposerPackageUploadResponse packages_upload_composer(owner, repo, data=data)
+> ComposerPackageUpload packages_upload_composer(owner, repo, data=data)
 
 Create a new Composer package
 
@@ -933,7 +933,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComposerPackageUploadResponse**](ComposerPackageUploadResponse.md)
+[**ComposerPackageUpload**](ComposerPackageUpload.md)
 
 ### Authorization
 
@@ -947,7 +947,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_conan**
-> ConanPackageUploadResponse packages_upload_conan(owner, repo, data=data)
+> ConanPackageUpload packages_upload_conan(owner, repo, data=data)
 
 Create a new Conan package
 
@@ -991,7 +991,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConanPackageUploadResponse**](ConanPackageUploadResponse.md)
+[**ConanPackageUpload**](ConanPackageUpload.md)
 
 ### Authorization
 
@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_conda**
-> CondaPackageUploadResponse packages_upload_conda(owner, repo, data=data)
+> CondaPackageUpload packages_upload_conda(owner, repo, data=data)
 
 Create a new Conda package
 
@@ -1049,7 +1049,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CondaPackageUploadResponse**](CondaPackageUploadResponse.md)
+[**CondaPackageUpload**](CondaPackageUpload.md)
 
 ### Authorization
 
@@ -1063,7 +1063,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cran**
-> CranPackageUploadResponse packages_upload_cran(owner, repo, data=data)
+> CranPackageUpload packages_upload_cran(owner, repo, data=data)
 
 Create a new CRAN package
 
@@ -1107,7 +1107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CranPackageUploadResponse**](CranPackageUploadResponse.md)
+[**CranPackageUpload**](CranPackageUpload.md)
 
 ### Authorization
 
@@ -1121,7 +1121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_dart**
-> DartPackageUploadResponse packages_upload_dart(owner, repo, data=data)
+> DartPackageUpload packages_upload_dart(owner, repo, data=data)
 
 Create a new Dart package
 
@@ -1165,7 +1165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DartPackageUploadResponse**](DartPackageUploadResponse.md)
+[**DartPackageUpload**](DartPackageUpload.md)
 
 ### Authorization
 
@@ -1179,7 +1179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_deb**
-> DebPackageUploadResponse packages_upload_deb(owner, repo, data=data)
+> DebPackageUpload packages_upload_deb(owner, repo, data=data)
 
 Create a new Debian package
 
@@ -1223,7 +1223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DebPackageUploadResponse**](DebPackageUploadResponse.md)
+[**DebPackageUpload**](DebPackageUpload.md)
 
 ### Authorization
 
@@ -1237,7 +1237,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_docker**
-> DockerPackageUploadResponse packages_upload_docker(owner, repo, data=data)
+> DockerPackageUpload packages_upload_docker(owner, repo, data=data)
 
 Create a new Docker package
 
@@ -1281,7 +1281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DockerPackageUploadResponse**](DockerPackageUploadResponse.md)
+[**DockerPackageUpload**](DockerPackageUpload.md)
 
 ### Authorization
 
@@ -1295,7 +1295,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_go**
-> GoPackageUploadResponse packages_upload_go(owner, repo, data=data)
+> GoPackageUpload packages_upload_go(owner, repo, data=data)
 
 Create a new Go package
 
@@ -1339,7 +1339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GoPackageUploadResponse**](GoPackageUploadResponse.md)
+[**GoPackageUpload**](GoPackageUpload.md)
 
 ### Authorization
 
@@ -1353,7 +1353,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_helm**
-> HelmPackageUploadResponse packages_upload_helm(owner, repo, data=data)
+> HelmPackageUpload packages_upload_helm(owner, repo, data=data)
 
 Create a new Helm package
 
@@ -1397,7 +1397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HelmPackageUploadResponse**](HelmPackageUploadResponse.md)
+[**HelmPackageUpload**](HelmPackageUpload.md)
 
 ### Authorization
 
@@ -1411,7 +1411,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_luarocks**
-> LuarocksPackageUploadResponse packages_upload_luarocks(owner, repo, data=data)
+> LuarocksPackageUpload packages_upload_luarocks(owner, repo, data=data)
 
 Create a new LuaRocks package
 
@@ -1455,7 +1455,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LuarocksPackageUploadResponse**](LuarocksPackageUploadResponse.md)
+[**LuarocksPackageUpload**](LuarocksPackageUpload.md)
 
 ### Authorization
 
@@ -1469,7 +1469,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_maven**
-> MavenPackageUploadResponse packages_upload_maven(owner, repo, data=data)
+> MavenPackageUpload packages_upload_maven(owner, repo, data=data)
 
 Create a new Maven package
 
@@ -1513,7 +1513,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MavenPackageUploadResponse**](MavenPackageUploadResponse.md)
+[**MavenPackageUpload**](MavenPackageUpload.md)
 
 ### Authorization
 
@@ -1527,7 +1527,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_npm**
-> NpmPackageUploadResponse packages_upload_npm(owner, repo, data=data)
+> NpmPackageUpload packages_upload_npm(owner, repo, data=data)
 
 Create a new npm package
 
@@ -1571,7 +1571,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NpmPackageUploadResponse**](NpmPackageUploadResponse.md)
+[**NpmPackageUpload**](NpmPackageUpload.md)
 
 ### Authorization
 
@@ -1585,7 +1585,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_nuget**
-> NugetPackageUploadResponse packages_upload_nuget(owner, repo, data=data)
+> NugetPackageUpload packages_upload_nuget(owner, repo, data=data)
 
 Create a new NuGet package
 
@@ -1629,7 +1629,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NugetPackageUploadResponse**](NugetPackageUploadResponse.md)
+[**NugetPackageUpload**](NugetPackageUpload.md)
 
 ### Authorization
 
@@ -1643,7 +1643,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_p2**
-> P2PackageUploadResponse packages_upload_p2(owner, repo, data=data)
+> P2PackageUpload packages_upload_p2(owner, repo, data=data)
 
 Create a new P2 package
 
@@ -1687,7 +1687,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**P2PackageUploadResponse**](P2PackageUploadResponse.md)
+[**P2PackageUpload**](P2PackageUpload.md)
 
 ### Authorization
 
@@ -1701,7 +1701,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_python**
-> PythonPackageUploadResponse packages_upload_python(owner, repo, data=data)
+> PythonPackageUpload packages_upload_python(owner, repo, data=data)
 
 Create a new Python package
 
@@ -1745,7 +1745,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PythonPackageUploadResponse**](PythonPackageUploadResponse.md)
+[**PythonPackageUpload**](PythonPackageUpload.md)
 
 ### Authorization
 
@@ -1759,7 +1759,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_raw**
-> RawPackageUploadResponse packages_upload_raw(owner, repo, data=data)
+> RawPackageUpload packages_upload_raw(owner, repo, data=data)
 
 Create a new Raw package
 
@@ -1803,7 +1803,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RawPackageUploadResponse**](RawPackageUploadResponse.md)
+[**RawPackageUpload**](RawPackageUpload.md)
 
 ### Authorization
 
@@ -1817,7 +1817,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_rpm**
-> RpmPackageUploadResponse packages_upload_rpm(owner, repo, data=data)
+> RpmPackageUpload packages_upload_rpm(owner, repo, data=data)
 
 Create a new RedHat package
 
@@ -1861,7 +1861,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUploadResponse**](RpmPackageUploadResponse.md)
+[**RpmPackageUpload**](RpmPackageUpload.md)
 
 ### Authorization
 
@@ -1875,7 +1875,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_ruby**
-> RubyPackageUploadResponse packages_upload_ruby(owner, repo, data=data)
+> RubyPackageUpload packages_upload_ruby(owner, repo, data=data)
 
 Create a new Ruby package
 
@@ -1919,7 +1919,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RubyPackageUploadResponse**](RubyPackageUploadResponse.md)
+[**RubyPackageUpload**](RubyPackageUpload.md)
 
 ### Authorization
 
@@ -1933,7 +1933,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_terraform**
-> TerraformPackageUploadResponse packages_upload_terraform(owner, repo, data=data)
+> TerraformPackageUpload packages_upload_terraform(owner, repo, data=data)
 
 Create a new Terraform package
 
@@ -1977,7 +1977,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TerraformPackageUploadResponse**](TerraformPackageUploadResponse.md)
+[**TerraformPackageUpload**](TerraformPackageUpload.md)
 
 ### Authorization
 
@@ -1991,7 +1991,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_vagrant**
-> VagrantPackageUploadResponse packages_upload_vagrant(owner, repo, data=data)
+> VagrantPackageUpload packages_upload_vagrant(owner, repo, data=data)
 
 Create a new Vagrant package
 
@@ -2035,7 +2035,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VagrantPackageUploadResponse**](VagrantPackageUploadResponse.md)
+[**VagrantPackageUpload**](VagrantPackageUpload.md)
 
 ### Authorization
 

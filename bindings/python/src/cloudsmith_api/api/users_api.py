@@ -44,7 +44,7 @@ class UsersApi(object):
 
         :param async_req bool
         :param str slug: (required)
-        :return: UserProfileResponse
+        :return: UserProfile
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -66,7 +66,7 @@ class UsersApi(object):
 
         :param async_req bool
         :param str slug: (required)
-        :return: UserProfileResponse
+        :return: UserProfile
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -124,7 +124,7 @@ class UsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='UserProfileResponse',  # noqa: E501
+            response_type='UserProfile',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

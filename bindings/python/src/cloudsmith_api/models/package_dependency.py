@@ -84,6 +84,13 @@ class PackageDependency(object):
         :param dep_type: The dep_type of this PackageDependency.
         :type: str
         """
+        allowed_values = ["Depends", "Pre-Depends", "Recommends", "Suggests", "Enhances", "Replaces", "Breaks", "Built-Using", "Build-Depends", "Build-Depends-Indep", "Build-Conflicts", "Build-Conflicts-Indep", "Conflicts", "Provides", "Obsoletes", "Requires", "Runtime", "Development", "Compile", "Provided", "Test", "System", "Import", "Excluded"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                dep_type not in allowed_values):
+            raise ValueError(
+                "Invalid value for `dep_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(dep_type, allowed_values)
+            )
 
         self._dep_type = dep_type
 
@@ -136,6 +143,13 @@ class PackageDependency(object):
         :param operator: The operator of this PackageDependency.
         :type: str
         """
+        allowed_values = ["=", "!=", "<", "<<", "<=", ">", ">>", ">=", "~=", "~>", "matches"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                operator not in allowed_values):
+            raise ValueError(
+                "Invalid value for `operator` ({0}), must be one of {1}"  # noqa: E501
+                .format(operator, allowed_values)
+            )
 
         self._operator = operator
 

@@ -1,6 +1,6 @@
 # cloudsmith_api.FormatsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **formats_list**
-> list[FormatResponse] formats_list()
+> list[Format] formats_list()
 
 Get a list of all supported package formats.
 
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[FormatResponse]**](FormatResponse.md)
+[**list[Format]**](Format.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **formats_read**
-> FormatResponse formats_read(slug)
+> Format formats_read(slug)
 
 Get a specific supported package format.
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FormatResponse**](FormatResponse.md)
+[**Format**](Format.md)
 
 ### Authorization
 

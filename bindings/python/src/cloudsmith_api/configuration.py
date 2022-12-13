@@ -40,7 +40,7 @@ class Configuration(object):
             return
 
         # Default Base url
-        self.host = "https://api.cloudsmith.io/api/v1"
+        self.host = "https://api.cloudsmith.io/v1"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 

@@ -1,6 +1,6 @@
 # cloudsmith_api.FilesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -71,7 +71,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **files_complete**
-> PackageFileUploadResponse files_complete(owner, repo, identifier, data=data)
+> PackageFileUpload files_complete(owner, repo, identifier, data=data)
 
 Complete a multipart file upload.
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
+[**PackageFileUpload**](PackageFileUpload.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **files_create**
-> PackageFileUploadResponse files_create(owner, repo, data=data)
+> PackageFileUpload files_create(owner, repo, data=data)
 
 Request URL(s) to upload new package file upload(s) to.
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
+[**PackageFileUpload**](PackageFileUpload.md)
 
 ### Authorization
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **files_info**
-> PackageFilePartsUploadResponse files_info(owner, repo, identifier, filename, part_number=part_number)
+> PackageFilePartsUpload files_info(owner, repo, identifier, filename, part_number=part_number)
 
 Get upload information to perform a multipart file upload.
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFilePartsUploadResponse**](PackageFilePartsUploadResponse.md)
+[**PackageFilePartsUpload**](PackageFilePartsUpload.md)
 
 ### Authorization
 

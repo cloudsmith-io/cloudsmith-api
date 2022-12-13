@@ -1,6 +1,6 @@
 # cloudsmith_api.WebhooksApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **webhooks_create**
-> RepositoryWebhookResponse webhooks_create(owner, repo, data=data)
+> RepositoryWebhook webhooks_create(owner, repo, data=data)
 
 Create a specific webhook in a repository.
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -127,7 +127,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhooks_list**
-> list[RepositoryWebhookResponse] webhooks_list(owner, repo, page=page, page_size=page_size)
+> list[RepositoryWebhook] webhooks_list(owner, repo, page=page, page_size=page_size)
 
 Get a list of all webhooks in a repository.
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[RepositoryWebhookResponse]**](RepositoryWebhookResponse.md)
+[**list[RepositoryWebhook]**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhooks_partial_update**
-> RepositoryWebhookResponse webhooks_partial_update(owner, repo, identifier, data=data)
+> RepositoryWebhook webhooks_partial_update(owner, repo, identifier, data=data)
 
 Update a specific webhook in a repository.
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhooks_read**
-> RepositoryWebhookResponse webhooks_read(owner, repo, identifier)
+> RepositoryWebhook webhooks_read(owner, repo, identifier)
 
 Views for working with repository webhooks.
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 

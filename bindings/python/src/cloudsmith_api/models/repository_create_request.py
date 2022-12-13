@@ -246,6 +246,13 @@ class RepositoryCreateRequest(object):
         :param content_kind: The content_kind of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Standard", "Distribution", "Upstream"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                content_kind not in allowed_values):
+            raise ValueError(
+                "Invalid value for `content_kind` ({0}), must be one of {1}"  # noqa: E501
+                .format(content_kind, allowed_values)
+            )
 
         self._content_kind = content_kind
 
@@ -315,6 +322,13 @@ class RepositoryCreateRequest(object):
         :param copy_packages: The copy_packages of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                copy_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `copy_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(copy_packages, allowed_values)
+            )
 
         self._copy_packages = copy_packages
 
@@ -338,6 +352,13 @@ class RepositoryCreateRequest(object):
         :param default_privilege: The default_privilege of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Admin", "Write", "Read", "None"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                default_privilege not in allowed_values):
+            raise ValueError(
+                "Invalid value for `default_privilege` ({0}), must be one of {1}"  # noqa: E501
+                .format(default_privilege, allowed_values)
+            )
 
         self._default_privilege = default_privilege
 
@@ -384,6 +405,13 @@ class RepositoryCreateRequest(object):
         :param delete_packages: The delete_packages of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Admin", "Write"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                delete_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `delete_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(delete_packages, allowed_values)
+            )
 
         self._delete_packages = delete_packages
 
@@ -522,6 +550,13 @@ class RepositoryCreateRequest(object):
         :param move_packages: The move_packages of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                move_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `move_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(move_packages, allowed_values)
+            )
 
         self._move_packages = move_packages
 
@@ -671,6 +706,13 @@ class RepositoryCreateRequest(object):
         :param replace_packages: The replace_packages of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Admin", "Write"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                replace_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `replace_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(replace_packages, allowed_values)
+            )
 
         self._replace_packages = replace_packages
 
@@ -717,6 +759,13 @@ class RepositoryCreateRequest(object):
         :param repository_type_str: The repository_type_str of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Public", "Private"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                repository_type_str not in allowed_values):
+            raise ValueError(
+                "Invalid value for `repository_type_str` ({0}), must be one of {1}"  # noqa: E501
+                .format(repository_type_str, allowed_values)
+            )
 
         self._repository_type_str = repository_type_str
 
@@ -763,6 +812,13 @@ class RepositoryCreateRequest(object):
         :param resync_packages: The resync_packages of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Admin", "Write"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                resync_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `resync_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(resync_packages, allowed_values)
+            )
 
         self._resync_packages = resync_packages
 
@@ -809,6 +865,13 @@ class RepositoryCreateRequest(object):
         :param scan_packages: The scan_packages of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scan_packages not in allowed_values):
+            raise ValueError(
+                "Invalid value for `scan_packages` ({0}), must be one of {1}"  # noqa: E501
+                .format(scan_packages, allowed_values)
+            )
 
         self._scan_packages = scan_packages
 
@@ -1062,6 +1125,13 @@ class RepositoryCreateRequest(object):
         :param view_statistics: The view_statistics of this RepositoryCreateRequest.
         :type: str
         """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                view_statistics not in allowed_values):
+            raise ValueError(
+                "Invalid value for `view_statistics` ({0}), must be one of {1}"  # noqa: E501
+                .format(view_statistics, allowed_values)
+            )
 
         self._view_statistics = view_statistics
 

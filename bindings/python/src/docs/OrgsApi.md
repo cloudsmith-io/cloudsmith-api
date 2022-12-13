@@ -1,6 +1,6 @@
 # cloudsmith_api.OrgsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 
 # **orgs_invites_create**
-> OrganizationInviteResponse orgs_invites_create(org, data=data)
+> OrganizationInvite orgs_invites_create(org, data=data)
 
 Create an organization invite for a specific user
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
+[**OrganizationInvite**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_invites_extend**
-> OrganizationInviteExtendResponse orgs_invites_extend(org, slug_perm)
+> OrganizationInviteExtend orgs_invites_extend(org, slug_perm)
 
 Extend an organization invite.
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
+[**OrganizationInviteExtend**](OrganizationInviteExtend.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_invites_list**
-> list[OrganizationInviteResponse] orgs_invites_list(org, page=page, page_size=page_size)
+> list[OrganizationInvite] orgs_invites_list(org, page=page, page_size=page_size)
 
 Get a list of all invites for an organization.
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[OrganizationInviteResponse]**](OrganizationInviteResponse.md)
+[**list[OrganizationInvite]**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_invites_partial_update**
-> OrganizationInviteResponse orgs_invites_partial_update(org, slug_perm, data=data)
+> OrganizationInvite orgs_invites_partial_update(org, slug_perm, data=data)
 
 Update a specific organization invite.
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
+[**OrganizationInvite**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_invites_resend**
-> OrganizationInviteExtendResponse orgs_invites_resend(org, slug_perm)
+> OrganizationInviteExtend orgs_invites_resend(org, slug_perm)
 
 Resend an organization invite.
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
+[**OrganizationInviteExtend**](OrganizationInviteExtend.md)
 
 ### Authorization
 
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_list**
-> list[OrganizationResponse] orgs_list(page=page, page_size=page_size)
+> list[Organization] orgs_list(page=page, page_size=page_size)
 
 Get a list of all the organizations you are associated with.
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[OrganizationResponse]**](OrganizationResponse.md)
+[**list[Organization]**](Organization.md)
 
 ### Authorization
 
@@ -486,7 +486,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_members_list**
-> list[OrganizationMembershipResponse] orgs_members_list(org, page=page, page_size=page_size)
+> list[OrganizationMembership] orgs_members_list(org, page=page, page_size=page_size)
 
 Get the details for all organization members.
 
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[OrganizationMembershipResponse]**](OrganizationMembershipResponse.md)
+[**list[OrganizationMembership]**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_members_read**
-> OrganizationMembershipResponse orgs_members_read(org, member)
+> OrganizationMembership orgs_members_read(org, member)
 
 Get the details for a specific organization member.
 
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationMembershipResponse**](OrganizationMembershipResponse.md)
+[**OrganizationMembership**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -655,7 +655,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_read**
-> OrganizationResponse orgs_read(org)
+> Organization orgs_read(org)
 
 Get the details for the specific organization.
 
@@ -695,7 +695,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationResponse**](OrganizationResponse.md)
+[**Organization**](Organization.md)
 
 ### Authorization
 
@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_saml_group_sync_create**
-> OrganizationGroupSyncResponse orgs_saml_group_sync_create(org, data=data)
+> OrganizationGroupSync orgs_saml_group_sync_create(org, data=data)
 
 Create a new SAML Group Sync mapping within an organization.
 
@@ -751,7 +751,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationGroupSyncResponse**](OrganizationGroupSyncResponse.md)
+[**OrganizationGroupSync**](OrganizationGroupSync.md)
 
 ### Authorization
 
@@ -820,7 +820,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_saml_group_sync_list**
-> list[OrganizationGroupSyncResponse] orgs_saml_group_sync_list(org, page=page, page_size=page_size)
+> list[OrganizationGroupSync] orgs_saml_group_sync_list(org, page=page, page_size=page_size)
 
 Get the details of all SAML Group Sync mapping within an organization.
 
@@ -864,7 +864,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[OrganizationGroupSyncResponse]**](OrganizationGroupSyncResponse.md)
+[**list[OrganizationGroupSync]**](OrganizationGroupSync.md)
 
 ### Authorization
 
@@ -878,7 +878,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_services_create**
-> ServiceResponse orgs_services_create(org, data=data)
+> Service orgs_services_create(org, data=data)
 
 Create a service within an organization.
 
@@ -920,7 +920,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -989,7 +989,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_services_list**
-> list[ServiceResponse] orgs_services_list(org, page=page, page_size=page_size)
+> list[Service] orgs_services_list(org, page=page, page_size=page_size)
 
 Get a list of all services within an organization.
 
@@ -1033,7 +1033,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[ServiceResponse]**](ServiceResponse.md)
+[**list[Service]**](Service.md)
 
 ### Authorization
 
@@ -1047,7 +1047,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_services_partial_update**
-> ServiceResponse orgs_services_partial_update(org, service, data=data)
+> Service orgs_services_partial_update(org, service, data=data)
 
 Update a service within an organization.
 
@@ -1091,7 +1091,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1105,7 +1105,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_services_read**
-> ServiceResponse orgs_services_read(org, service)
+> Service orgs_services_read(org, service)
 
 Retrieve details of a single service within an organization.
 
@@ -1147,7 +1147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1161,7 +1161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_services_refresh**
-> ServiceResponse orgs_services_refresh(org, service)
+> Service orgs_services_refresh(org, service)
 
 Refresh service API token.
 
@@ -1203,7 +1203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1217,7 +1217,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_create**
-> OrganizationTeamResponse orgs_teams_create(org, data=data)
+> OrganizationTeam orgs_teams_create(org, data=data)
 
 Create a team for this organization.
 
@@ -1259,7 +1259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1328,7 +1328,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_list**
-> list[OrganizationTeamResponse] orgs_teams_list(org, page=page, page_size=page_size)
+> list[OrganizationTeam] orgs_teams_list(org, page=page, page_size=page_size)
 
 Get the details of all teams within an organization.
 
@@ -1372,7 +1372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[OrganizationTeamResponse]**](OrganizationTeamResponse.md)
+[**list[OrganizationTeam]**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1386,7 +1386,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_members_create**
-> OrganizationTeamMembersResponse orgs_teams_members_create(org, team, data=data)
+> OrganizationTeamMembers orgs_teams_members_create(org, team, data=data)
 
 Add users to a team.
 
@@ -1430,7 +1430,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1444,7 +1444,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_members_list**
-> OrganizationTeamMembersResponse orgs_teams_members_list(org, team)
+> OrganizationTeamMembers orgs_teams_members_list(org, team)
 
 List all members for the team.
 
@@ -1486,7 +1486,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1500,7 +1500,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_members_update**
-> OrganizationTeamMembersResponse orgs_teams_members_update(org, team)
+> OrganizationTeamMembers orgs_teams_members_update(org, team)
 
 Replace all team members.
 
@@ -1542,7 +1542,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1556,7 +1556,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_partial_update**
-> OrganizationTeamResponse orgs_teams_partial_update(org, team, data=data)
+> OrganizationTeam orgs_teams_partial_update(org, team, data=data)
 
 Update a specific team in a organization.
 
@@ -1600,7 +1600,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1614,7 +1614,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_read**
-> OrganizationTeamResponse orgs_teams_read(org, team)
+> OrganizationTeam orgs_teams_read(org, team)
 
 Get the details of a specific team within an organization.
 
@@ -1656,7 +1656,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 

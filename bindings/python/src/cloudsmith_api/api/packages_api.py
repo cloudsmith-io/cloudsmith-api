@@ -47,7 +47,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageCopyRequest data:
-        :return: PackageCopyResponse
+        :return: PackageCopy
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -72,7 +72,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageCopyRequest data:
-        :return: PackageCopyResponse
+        :return: PackageCopy
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -144,7 +144,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageCopyResponse',  # noqa: E501
+            response_type='PackageCopy',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -280,7 +280,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageDependenciesResponse
+        :return: PackageDependencies
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -304,7 +304,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageDependenciesResponse
+        :return: PackageDependencies
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -374,7 +374,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageDependenciesResponse',  # noqa: E501
+            response_type='PackageDependencies',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -398,7 +398,7 @@ class PackagesApi(object):
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order.
-        :return: list[PackageResponse]
+        :return: list[Package]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -425,7 +425,7 @@ class PackagesApi(object):
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order.
-        :return: list[PackageResponse]
+        :return: list[Package]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -497,7 +497,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[PackageResponse]',  # noqa: E501
+            response_type='list[Package]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -519,7 +519,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageMoveRequest data:
-        :return: PackageMoveResponse
+        :return: PackageMove
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -544,7 +544,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageMoveRequest data:
-        :return: PackageMoveResponse
+        :return: PackageMove
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -616,7 +616,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageMoveResponse',  # noqa: E501
+            response_type='PackageMove',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -638,7 +638,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageQuarantineRequest data:
-        :return: PackageQuarantineResponse
+        :return: PackageQuarantine
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -663,7 +663,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageQuarantineRequest data:
-        :return: PackageQuarantineResponse
+        :return: PackageQuarantine
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -735,7 +735,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageQuarantineResponse',  # noqa: E501
+            response_type='PackageQuarantine',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -756,7 +756,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageResponse
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -780,7 +780,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageResponse
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -850,7 +850,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageResponse',  # noqa: E501
+            response_type='Package',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -871,7 +871,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageResyncResponse
+        :return: PackageResync
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -895,7 +895,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageResyncResponse
+        :return: PackageResync
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -965,7 +965,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageResyncResponse',  # noqa: E501
+            response_type='PackageResync',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -986,7 +986,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageResponse
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1010,7 +1010,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageResponse
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1080,7 +1080,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageResponse',  # noqa: E501
+            response_type='Package',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1101,7 +1101,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageStatusResponse
+        :return: PackageStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1125,7 +1125,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageStatusResponse
+        :return: PackageStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1195,7 +1195,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageStatusResponse',  # noqa: E501
+            response_type='PackageStatus',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1217,7 +1217,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageTagRequest data:
-        :return: PackageResponse
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1242,7 +1242,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageTagRequest data:
-        :return: PackageResponse
+        :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1314,7 +1314,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageResponse',  # noqa: E501
+            response_type='Package',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1335,7 +1335,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param AlpinePackageUploadRequest data:
-        :return: AlpinePackageUploadResponse
+        :return: AlpinePackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1359,7 +1359,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param AlpinePackageUploadRequest data:
-        :return: AlpinePackageUploadResponse
+        :return: AlpinePackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1425,7 +1425,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='AlpinePackageUploadResponse',  # noqa: E501
+            response_type='AlpinePackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1446,7 +1446,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param CargoPackageUploadRequest data:
-        :return: CargoPackageUploadResponse
+        :return: CargoPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1470,7 +1470,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param CargoPackageUploadRequest data:
-        :return: CargoPackageUploadResponse
+        :return: CargoPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1536,7 +1536,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CargoPackageUploadResponse',  # noqa: E501
+            response_type='CargoPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1557,7 +1557,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param CocoapodsPackageUploadRequest data:
-        :return: CocoapodsPackageUploadResponse
+        :return: CocoapodsPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1581,7 +1581,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param CocoapodsPackageUploadRequest data:
-        :return: CocoapodsPackageUploadResponse
+        :return: CocoapodsPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1647,7 +1647,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CocoapodsPackageUploadResponse',  # noqa: E501
+            response_type='CocoapodsPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1668,7 +1668,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param ComposerPackageUploadRequest data:
-        :return: ComposerPackageUploadResponse
+        :return: ComposerPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1692,7 +1692,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param ComposerPackageUploadRequest data:
-        :return: ComposerPackageUploadResponse
+        :return: ComposerPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1758,7 +1758,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ComposerPackageUploadResponse',  # noqa: E501
+            response_type='ComposerPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1779,7 +1779,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param ConanPackageUploadRequest data:
-        :return: ConanPackageUploadResponse
+        :return: ConanPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1803,7 +1803,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param ConanPackageUploadRequest data:
-        :return: ConanPackageUploadResponse
+        :return: ConanPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1869,7 +1869,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ConanPackageUploadResponse',  # noqa: E501
+            response_type='ConanPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1890,7 +1890,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param CondaPackageUploadRequest data:
-        :return: CondaPackageUploadResponse
+        :return: CondaPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1914,7 +1914,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param CondaPackageUploadRequest data:
-        :return: CondaPackageUploadResponse
+        :return: CondaPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1980,7 +1980,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CondaPackageUploadResponse',  # noqa: E501
+            response_type='CondaPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2001,7 +2001,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param CranPackageUploadRequest data:
-        :return: CranPackageUploadResponse
+        :return: CranPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2025,7 +2025,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param CranPackageUploadRequest data:
-        :return: CranPackageUploadResponse
+        :return: CranPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2091,7 +2091,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CranPackageUploadResponse',  # noqa: E501
+            response_type='CranPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2112,7 +2112,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param DartPackageUploadRequest data:
-        :return: DartPackageUploadResponse
+        :return: DartPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2136,7 +2136,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param DartPackageUploadRequest data:
-        :return: DartPackageUploadResponse
+        :return: DartPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2202,7 +2202,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DartPackageUploadResponse',  # noqa: E501
+            response_type='DartPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2223,7 +2223,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param DebPackageUploadRequest data:
-        :return: DebPackageUploadResponse
+        :return: DebPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2247,7 +2247,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param DebPackageUploadRequest data:
-        :return: DebPackageUploadResponse
+        :return: DebPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2313,7 +2313,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DebPackageUploadResponse',  # noqa: E501
+            response_type='DebPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2334,7 +2334,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param DockerPackageUploadRequest data:
-        :return: DockerPackageUploadResponse
+        :return: DockerPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2358,7 +2358,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param DockerPackageUploadRequest data:
-        :return: DockerPackageUploadResponse
+        :return: DockerPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2424,7 +2424,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DockerPackageUploadResponse',  # noqa: E501
+            response_type='DockerPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2445,7 +2445,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param GoPackageUploadRequest data:
-        :return: GoPackageUploadResponse
+        :return: GoPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2469,7 +2469,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param GoPackageUploadRequest data:
-        :return: GoPackageUploadResponse
+        :return: GoPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2535,7 +2535,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GoPackageUploadResponse',  # noqa: E501
+            response_type='GoPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2556,7 +2556,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param HelmPackageUploadRequest data:
-        :return: HelmPackageUploadResponse
+        :return: HelmPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2580,7 +2580,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param HelmPackageUploadRequest data:
-        :return: HelmPackageUploadResponse
+        :return: HelmPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2646,7 +2646,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='HelmPackageUploadResponse',  # noqa: E501
+            response_type='HelmPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2667,7 +2667,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param LuarocksPackageUploadRequest data:
-        :return: LuarocksPackageUploadResponse
+        :return: LuarocksPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2691,7 +2691,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param LuarocksPackageUploadRequest data:
-        :return: LuarocksPackageUploadResponse
+        :return: LuarocksPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2757,7 +2757,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='LuarocksPackageUploadResponse',  # noqa: E501
+            response_type='LuarocksPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2778,7 +2778,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param MavenPackageUploadRequest data:
-        :return: MavenPackageUploadResponse
+        :return: MavenPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2802,7 +2802,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param MavenPackageUploadRequest data:
-        :return: MavenPackageUploadResponse
+        :return: MavenPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2868,7 +2868,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MavenPackageUploadResponse',  # noqa: E501
+            response_type='MavenPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2889,7 +2889,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param NpmPackageUploadRequest data:
-        :return: NpmPackageUploadResponse
+        :return: NpmPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2913,7 +2913,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param NpmPackageUploadRequest data:
-        :return: NpmPackageUploadResponse
+        :return: NpmPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2979,7 +2979,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='NpmPackageUploadResponse',  # noqa: E501
+            response_type='NpmPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3000,7 +3000,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param NugetPackageUploadRequest data:
-        :return: NugetPackageUploadResponse
+        :return: NugetPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3024,7 +3024,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param NugetPackageUploadRequest data:
-        :return: NugetPackageUploadResponse
+        :return: NugetPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3090,7 +3090,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='NugetPackageUploadResponse',  # noqa: E501
+            response_type='NugetPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3111,7 +3111,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param P2PackageUploadRequest data:
-        :return: P2PackageUploadResponse
+        :return: P2PackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3135,7 +3135,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param P2PackageUploadRequest data:
-        :return: P2PackageUploadResponse
+        :return: P2PackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3201,7 +3201,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='P2PackageUploadResponse',  # noqa: E501
+            response_type='P2PackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3222,7 +3222,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param PythonPackageUploadRequest data:
-        :return: PythonPackageUploadResponse
+        :return: PythonPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3246,7 +3246,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param PythonPackageUploadRequest data:
-        :return: PythonPackageUploadResponse
+        :return: PythonPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3312,7 +3312,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PythonPackageUploadResponse',  # noqa: E501
+            response_type='PythonPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3333,7 +3333,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param RawPackageUploadRequest data:
-        :return: RawPackageUploadResponse
+        :return: RawPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3357,7 +3357,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param RawPackageUploadRequest data:
-        :return: RawPackageUploadResponse
+        :return: RawPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3423,7 +3423,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RawPackageUploadResponse',  # noqa: E501
+            response_type='RawPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3444,7 +3444,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param RpmPackageUploadRequest data:
-        :return: RpmPackageUploadResponse
+        :return: RpmPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3468,7 +3468,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param RpmPackageUploadRequest data:
-        :return: RpmPackageUploadResponse
+        :return: RpmPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3534,7 +3534,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RpmPackageUploadResponse',  # noqa: E501
+            response_type='RpmPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3555,7 +3555,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param RubyPackageUploadRequest data:
-        :return: RubyPackageUploadResponse
+        :return: RubyPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3579,7 +3579,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param RubyPackageUploadRequest data:
-        :return: RubyPackageUploadResponse
+        :return: RubyPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3645,7 +3645,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RubyPackageUploadResponse',  # noqa: E501
+            response_type='RubyPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3666,7 +3666,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param TerraformPackageUploadRequest data:
-        :return: TerraformPackageUploadResponse
+        :return: TerraformPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3690,7 +3690,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param TerraformPackageUploadRequest data:
-        :return: TerraformPackageUploadResponse
+        :return: TerraformPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3756,7 +3756,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TerraformPackageUploadResponse',  # noqa: E501
+            response_type='TerraformPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3777,7 +3777,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param VagrantPackageUploadRequest data:
-        :return: VagrantPackageUploadResponse
+        :return: VagrantPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3801,7 +3801,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param VagrantPackageUploadRequest data:
-        :return: VagrantPackageUploadResponse
+        :return: VagrantPackageUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3867,7 +3867,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VagrantPackageUploadResponse',  # noqa: E501
+            response_type='VagrantPackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

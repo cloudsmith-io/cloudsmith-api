@@ -45,7 +45,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param RepositoryCreateRequest data:
-        :return: RepositoryCreateResponse
+        :return: RepositoryCreate
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -68,7 +68,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param RepositoryCreateRequest data:
-        :return: RepositoryCreateResponse
+        :return: RepositoryCreate
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -128,7 +128,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryCreateResponse',  # noqa: E501
+            response_type='RepositoryCreate',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -256,7 +256,7 @@ class ReposApi(object):
         :param str owner: (required)
         :param str identifier: (required)
         :param RepositoryGpgKeyCreate data:
-        :return: RepositoryGpgKeyResponse
+        :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -280,7 +280,7 @@ class ReposApi(object):
         :param str owner: (required)
         :param str identifier: (required)
         :param RepositoryGpgKeyCreate data:
-        :return: RepositoryGpgKeyResponse
+        :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -346,7 +346,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryGpgKeyResponse',  # noqa: E501
+            response_type='RepositoryGpgKey',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -366,7 +366,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryGpgKeyResponse
+        :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -389,7 +389,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryGpgKeyResponse
+        :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -453,7 +453,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryGpgKeyResponse',  # noqa: E501
+            response_type='RepositoryGpgKey',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -473,7 +473,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryGpgKeyResponse
+        :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -496,7 +496,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryGpgKeyResponse
+        :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -560,7 +560,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryGpgKeyResponse',  # noqa: E501
+            response_type='RepositoryGpgKey',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -581,7 +581,7 @@ class ReposApi(object):
         :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[RepositoryResponse]
+        :return: list[Repository]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -605,7 +605,7 @@ class ReposApi(object):
         :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[RepositoryResponse]
+        :return: list[Repository]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -667,7 +667,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[RepositoryResponse]',  # noqa: E501
+            response_type='list[Repository]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -688,7 +688,7 @@ class ReposApi(object):
         :param str owner: (required)
         :param str identifier: (required)
         :param RepositoryRequestPatch data:
-        :return: RepositoryResponse
+        :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -712,7 +712,7 @@ class ReposApi(object):
         :param str owner: (required)
         :param str identifier: (required)
         :param RepositoryRequestPatch data:
-        :return: RepositoryResponse
+        :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -778,7 +778,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryResponse',  # noqa: E501
+            response_type='Repository',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -800,7 +800,7 @@ class ReposApi(object):
         :param str identifier: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: RepositoryPrivilegeInputResponse
+        :return: RepositoryPrivilegeInput
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -825,7 +825,7 @@ class ReposApi(object):
         :param str identifier: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: RepositoryPrivilegeInputResponse
+        :return: RepositoryPrivilegeInput
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -893,7 +893,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryPrivilegeInputResponse',  # noqa: E501
+            response_type='RepositoryPrivilegeInput',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1135,7 +1135,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryResponse
+        :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1158,7 +1158,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryResponse
+        :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1222,7 +1222,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryResponse',  # noqa: E501
+            response_type='Repository',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1243,7 +1243,7 @@ class ReposApi(object):
         :param str owner: (required)
         :param str identifier: (required)
         :param RepositoryRsaKeyCreate data:
-        :return: RepositoryRsaKeyResponse
+        :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1267,7 +1267,7 @@ class ReposApi(object):
         :param str owner: (required)
         :param str identifier: (required)
         :param RepositoryRsaKeyCreate data:
-        :return: RepositoryRsaKeyResponse
+        :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1333,7 +1333,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryRsaKeyResponse',  # noqa: E501
+            response_type='RepositoryRsaKey',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1353,7 +1353,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryRsaKeyResponse
+        :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1376,7 +1376,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryRsaKeyResponse
+        :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1440,7 +1440,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryRsaKeyResponse',  # noqa: E501
+            response_type='RepositoryRsaKey',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1460,7 +1460,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryRsaKeyResponse
+        :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1483,7 +1483,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryRsaKeyResponse
+        :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1547,7 +1547,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryRsaKeyResponse',  # noqa: E501
+            response_type='RepositoryRsaKey',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1567,7 +1567,7 @@ class ReposApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[RepositoryResponse]
+        :return: list[Repository]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1590,7 +1590,7 @@ class ReposApi(object):
         :param async_req bool
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
-        :return: list[RepositoryResponse]
+        :return: list[Repository]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1646,7 +1646,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[RepositoryResponse]',  # noqa: E501
+            response_type='list[Repository]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

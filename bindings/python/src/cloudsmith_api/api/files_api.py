@@ -166,7 +166,7 @@ class FilesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageFileUploadRequest data:
-        :return: PackageFileUploadResponse
+        :return: PackageFileUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -191,7 +191,7 @@ class FilesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param PackageFileUploadRequest data:
-        :return: PackageFileUploadResponse
+        :return: PackageFileUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -263,7 +263,7 @@ class FilesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageFileUploadResponse',  # noqa: E501
+            response_type='PackageFileUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -284,7 +284,7 @@ class FilesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param PackageFileUploadRequest data:
-        :return: PackageFileUploadResponse
+        :return: PackageFileUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -308,7 +308,7 @@ class FilesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param PackageFileUploadRequest data:
-        :return: PackageFileUploadResponse
+        :return: PackageFileUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -374,7 +374,7 @@ class FilesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageFileUploadResponse',  # noqa: E501
+            response_type='PackageFileUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -397,7 +397,7 @@ class FilesApi(object):
         :param str identifier: (required)
         :param str filename: The filename of the file being uploaded (required)
         :param int part_number: The part number to be uploaded next
-        :return: PackageFilePartsUploadResponse
+        :return: PackageFilePartsUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -423,7 +423,7 @@ class FilesApi(object):
         :param str identifier: (required)
         :param str filename: The filename of the file being uploaded (required)
         :param int part_number: The part number to be uploaded next
-        :return: PackageFilePartsUploadResponse
+        :return: PackageFilePartsUpload
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -501,7 +501,7 @@ class FilesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageFilePartsUploadResponse',  # noqa: E501
+            response_type='PackageFilePartsUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

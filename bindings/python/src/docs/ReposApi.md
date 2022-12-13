@@ -1,6 +1,6 @@
 # cloudsmith_api.ReposApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **repos_create**
-> RepositoryCreateResponse repos_create(owner, data=data)
+> RepositoryCreate repos_create(owner, data=data)
 
 Create a new repository in a given namespace.
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryCreateResponse**](RepositoryCreateResponse.md)
+[**RepositoryCreate**](RepositoryCreate.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_gpg_create**
-> RepositoryGpgKeyResponse repos_gpg_create(owner, identifier, data=data)
+> RepositoryGpgKey repos_gpg_create(owner, identifier, data=data)
 
 Set the active GPG key for the Repository.
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_gpg_list**
-> RepositoryGpgKeyResponse repos_gpg_list(owner, identifier)
+> RepositoryGpgKey repos_gpg_list(owner, identifier)
 
 Retrieve the active GPG key for the Repository.
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
 
 ### Authorization
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_gpg_regenerate**
-> RepositoryGpgKeyResponse repos_gpg_regenerate(owner, identifier)
+> RepositoryGpgKey repos_gpg_regenerate(owner, identifier)
 
 Regenerate GPG Key for the Repository.
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_namespace_list**
-> list[RepositoryResponse] repos_namespace_list(owner, page=page, page_size=page_size)
+> list[Repository] repos_namespace_list(owner, page=page, page_size=page_size)
 
 Get a list of all repositories within a namespace.
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[RepositoryResponse]**](RepositoryResponse.md)
+[**list[Repository]**](Repository.md)
 
 ### Authorization
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_partial_update**
-> RepositoryResponse repos_partial_update(owner, identifier, data=data)
+> Repository repos_partial_update(owner, identifier, data=data)
 
 Update details about a repository in a given namespace.
 
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryResponse**](RepositoryResponse.md)
+[**Repository**](Repository.md)
 
 ### Authorization
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_privileges_list**
-> RepositoryPrivilegeInputResponse repos_privileges_list(owner, identifier, page=page, page_size=page_size)
+> RepositoryPrivilegeInput repos_privileges_list(owner, identifier, page=page, page_size=page_size)
 
 List all explicity created privileges for the repository.
 
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryPrivilegeInputResponse**](RepositoryPrivilegeInputResponse.md)
+[**RepositoryPrivilegeInput**](RepositoryPrivilegeInput.md)
 
 ### Authorization
 
@@ -593,7 +593,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_read**
-> RepositoryResponse repos_read(owner, identifier)
+> Repository repos_read(owner, identifier)
 
 Get a specific repository.
 
@@ -635,7 +635,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryResponse**](RepositoryResponse.md)
+[**Repository**](Repository.md)
 
 ### Authorization
 
@@ -649,7 +649,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_rsa_create**
-> RepositoryRsaKeyResponse repos_rsa_create(owner, identifier, data=data)
+> RepositoryRsaKey repos_rsa_create(owner, identifier, data=data)
 
 Set the active RSA key for the Repository.
 
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
 
 ### Authorization
 
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_rsa_list**
-> RepositoryRsaKeyResponse repos_rsa_list(owner, identifier)
+> RepositoryRsaKey repos_rsa_list(owner, identifier)
 
 Retrieve the active RSA key for the Repository.
 
@@ -749,7 +749,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
 
 ### Authorization
 
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_rsa_regenerate**
-> RepositoryRsaKeyResponse repos_rsa_regenerate(owner, identifier)
+> RepositoryRsaKey repos_rsa_regenerate(owner, identifier)
 
 Regenerate RSA Key for the Repository.
 
@@ -805,7 +805,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
 
 ### Authorization
 
@@ -819,7 +819,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_user_list**
-> list[RepositoryResponse] repos_user_list(page=page, page_size=page_size)
+> list[Repository] repos_user_list(page=page, page_size=page_size)
 
 Get a list of all repositories associated with current user.
 
@@ -861,7 +861,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[RepositoryResponse]**](RepositoryResponse.md)
+[**list[Repository]**](Repository.md)
 
 ### Authorization
 
