@@ -26,7 +26,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-    # @return [Array<NamespaceAuditLogResponse>]
+    # @return [Array<NamespaceAuditLog>]
     def audit_log_namespace_list(owner, opts = {})
       data, _status_code, _headers = audit_log_namespace_list_with_http_info(owner, opts)
       data
@@ -39,7 +39,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-    # @return [Array<(Array<NamespaceAuditLogResponse>, Fixnum, Hash)>] Array<NamespaceAuditLogResponse> data, response status code and response headers
+    # @return [Array<(Array<NamespaceAuditLog>, Fixnum, Hash)>] Array<NamespaceAuditLog> data, response status code and response headers
     def audit_log_namespace_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuditLogApi.audit_log_namespace_list ...'
@@ -76,7 +76,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<NamespaceAuditLogResponse>')
+        :return_type => 'Array<NamespaceAuditLog>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AuditLogApi#audit_log_namespace_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -90,7 +90,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-    # @return [Array<RepositoryAuditLogResponse>]
+    # @return [Array<RepositoryAuditLog>]
     def audit_log_repo_list(owner, repo, opts = {})
       data, _status_code, _headers = audit_log_repo_list_with_http_info(owner, repo, opts)
       data
@@ -104,7 +104,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-    # @return [Array<(Array<RepositoryAuditLogResponse>, Fixnum, Hash)>] Array<RepositoryAuditLogResponse> data, response status code and response headers
+    # @return [Array<(Array<RepositoryAuditLog>, Fixnum, Hash)>] Array<RepositoryAuditLog> data, response status code and response headers
     def audit_log_repo_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AuditLogApi.audit_log_repo_list ...'
@@ -145,7 +145,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RepositoryAuditLogResponse>')
+        :return_type => 'Array<RepositoryAuditLog>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AuditLogApi#audit_log_repo_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

@@ -24,7 +24,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationInviteRequest] :data 
-    # @return [OrganizationInviteResponse]
+    # @return [OrganizationInvite]
     def orgs_invites_create(org, opts = {})
       data, _status_code, _headers = orgs_invites_create_with_http_info(org, opts)
       data
@@ -35,7 +35,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationInviteRequest] :data 
-    # @return [Array<(OrganizationInviteResponse, Fixnum, Hash)>] OrganizationInviteResponse data, response status code and response headers
+    # @return [Array<(OrganizationInvite, Fixnum, Hash)>] OrganizationInvite data, response status code and response headers
     def orgs_invites_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_invites_create ...'
@@ -69,7 +69,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationInviteResponse')
+        :return_type => 'OrganizationInvite')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -139,7 +139,7 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @return [OrganizationInviteExtendResponse]
+    # @return [OrganizationInviteExtend]
     def orgs_invites_extend(org, slug_perm, opts = {})
       data, _status_code, _headers = orgs_invites_extend_with_http_info(org, slug_perm, opts)
       data
@@ -150,7 +150,7 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OrganizationInviteExtendResponse, Fixnum, Hash)>] OrganizationInviteExtendResponse data, response status code and response headers
+    # @return [Array<(OrganizationInviteExtend, Fixnum, Hash)>] OrganizationInviteExtend data, response status code and response headers
     def orgs_invites_extend_with_http_info(org, slug_perm, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_invites_extend ...'
@@ -188,7 +188,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationInviteExtendResponse')
+        :return_type => 'OrganizationInviteExtend')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_extend\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -200,7 +200,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<OrganizationInviteResponse>]
+    # @return [Array<OrganizationInvite>]
     def orgs_invites_list(org, opts = {})
       data, _status_code, _headers = orgs_invites_list_with_http_info(org, opts)
       data
@@ -212,7 +212,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<OrganizationInviteResponse>, Fixnum, Hash)>] Array<OrganizationInviteResponse> data, response status code and response headers
+    # @return [Array<(Array<OrganizationInvite>, Fixnum, Hash)>] Array<OrganizationInvite> data, response status code and response headers
     def orgs_invites_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_invites_list ...'
@@ -248,7 +248,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<OrganizationInviteResponse>')
+        :return_type => 'Array<OrganizationInvite>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -260,7 +260,7 @@ module CloudsmithApi
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationInviteUpdateRequestPatch] :data 
-    # @return [OrganizationInviteResponse]
+    # @return [OrganizationInvite]
     def orgs_invites_partial_update(org, slug_perm, opts = {})
       data, _status_code, _headers = orgs_invites_partial_update_with_http_info(org, slug_perm, opts)
       data
@@ -272,7 +272,7 @@ module CloudsmithApi
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationInviteUpdateRequestPatch] :data 
-    # @return [Array<(OrganizationInviteResponse, Fixnum, Hash)>] OrganizationInviteResponse data, response status code and response headers
+    # @return [Array<(OrganizationInvite, Fixnum, Hash)>] OrganizationInvite data, response status code and response headers
     def orgs_invites_partial_update_with_http_info(org, slug_perm, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_invites_partial_update ...'
@@ -310,7 +310,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationInviteResponse')
+        :return_type => 'OrganizationInvite')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -321,7 +321,7 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @return [OrganizationInviteExtendResponse]
+    # @return [OrganizationInviteExtend]
     def orgs_invites_resend(org, slug_perm, opts = {})
       data, _status_code, _headers = orgs_invites_resend_with_http_info(org, slug_perm, opts)
       data
@@ -332,7 +332,7 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OrganizationInviteExtendResponse, Fixnum, Hash)>] OrganizationInviteExtendResponse data, response status code and response headers
+    # @return [Array<(OrganizationInviteExtend, Fixnum, Hash)>] OrganizationInviteExtend data, response status code and response headers
     def orgs_invites_resend_with_http_info(org, slug_perm, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_invites_resend ...'
@@ -370,7 +370,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationInviteExtendResponse')
+        :return_type => 'OrganizationInviteExtend')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_resend\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -381,7 +381,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<OrganizationResponse>]
+    # @return [Array<Organization>]
     def orgs_list(opts = {})
       data, _status_code, _headers = orgs_list_with_http_info(opts)
       data
@@ -392,7 +392,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<OrganizationResponse>, Fixnum, Hash)>] Array<OrganizationResponse> data, response status code and response headers
+    # @return [Array<(Array<Organization>, Fixnum, Hash)>] Array<Organization> data, response status code and response headers
     def orgs_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_list ...'
@@ -424,7 +424,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<OrganizationResponse>')
+        :return_type => 'Array<Organization>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -495,7 +495,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<OrganizationMembershipResponse>]
+    # @return [Array<OrganizationMembership>]
     def orgs_members_list(org, opts = {})
       data, _status_code, _headers = orgs_members_list_with_http_info(org, opts)
       data
@@ -507,7 +507,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<OrganizationMembershipResponse>, Fixnum, Hash)>] Array<OrganizationMembershipResponse> data, response status code and response headers
+    # @return [Array<(Array<OrganizationMembership>, Fixnum, Hash)>] Array<OrganizationMembership> data, response status code and response headers
     def orgs_members_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_members_list ...'
@@ -543,7 +543,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<OrganizationMembershipResponse>')
+        :return_type => 'Array<OrganizationMembership>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_members_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -554,7 +554,7 @@ module CloudsmithApi
     # @param org 
     # @param member 
     # @param [Hash] opts the optional parameters
-    # @return [OrganizationMembershipResponse]
+    # @return [OrganizationMembership]
     def orgs_members_read(org, member, opts = {})
       data, _status_code, _headers = orgs_members_read_with_http_info(org, member, opts)
       data
@@ -565,7 +565,7 @@ module CloudsmithApi
     # @param org 
     # @param member 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OrganizationMembershipResponse, Fixnum, Hash)>] OrganizationMembershipResponse data, response status code and response headers
+    # @return [Array<(OrganizationMembership, Fixnum, Hash)>] OrganizationMembership data, response status code and response headers
     def orgs_members_read_with_http_info(org, member, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_members_read ...'
@@ -603,7 +603,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationMembershipResponse')
+        :return_type => 'OrganizationMembership')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_members_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -672,7 +672,7 @@ module CloudsmithApi
     # Get the details for the specific organization.
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @return [OrganizationResponse]
+    # @return [Organization]
     def orgs_read(org, opts = {})
       data, _status_code, _headers = orgs_read_with_http_info(org, opts)
       data
@@ -682,7 +682,7 @@ module CloudsmithApi
     # Get the details for the specific organization.
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OrganizationResponse, Fixnum, Hash)>] OrganizationResponse data, response status code and response headers
+    # @return [Array<(Organization, Fixnum, Hash)>] Organization data, response status code and response headers
     def orgs_read_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_read ...'
@@ -716,7 +716,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationResponse')
+        :return_type => 'Organization')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -727,7 +727,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationGroupSyncRequest] :data 
-    # @return [OrganizationGroupSyncResponse]
+    # @return [OrganizationGroupSync]
     def orgs_saml_group_sync_create(org, opts = {})
       data, _status_code, _headers = orgs_saml_group_sync_create_with_http_info(org, opts)
       data
@@ -738,7 +738,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationGroupSyncRequest] :data 
-    # @return [Array<(OrganizationGroupSyncResponse, Fixnum, Hash)>] OrganizationGroupSyncResponse data, response status code and response headers
+    # @return [Array<(OrganizationGroupSync, Fixnum, Hash)>] OrganizationGroupSync data, response status code and response headers
     def orgs_saml_group_sync_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_saml_group_sync_create ...'
@@ -772,7 +772,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationGroupSyncResponse')
+        :return_type => 'OrganizationGroupSync')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_group_sync_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -843,7 +843,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<OrganizationGroupSyncResponse>]
+    # @return [Array<OrganizationGroupSync>]
     def orgs_saml_group_sync_list(org, opts = {})
       data, _status_code, _headers = orgs_saml_group_sync_list_with_http_info(org, opts)
       data
@@ -855,7 +855,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<OrganizationGroupSyncResponse>, Fixnum, Hash)>] Array<OrganizationGroupSyncResponse> data, response status code and response headers
+    # @return [Array<(Array<OrganizationGroupSync>, Fixnum, Hash)>] Array<OrganizationGroupSync> data, response status code and response headers
     def orgs_saml_group_sync_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_saml_group_sync_list ...'
@@ -891,7 +891,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<OrganizationGroupSyncResponse>')
+        :return_type => 'Array<OrganizationGroupSync>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_group_sync_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -902,7 +902,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceRequest] :data 
-    # @return [ServiceResponse]
+    # @return [Service]
     def orgs_services_create(org, opts = {})
       data, _status_code, _headers = orgs_services_create_with_http_info(org, opts)
       data
@@ -913,7 +913,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceRequest] :data 
-    # @return [Array<(ServiceResponse, Fixnum, Hash)>] ServiceResponse data, response status code and response headers
+    # @return [Array<(Service, Fixnum, Hash)>] Service data, response status code and response headers
     def orgs_services_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_create ...'
@@ -947,7 +947,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ServiceResponse')
+        :return_type => 'Service')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_services_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1018,7 +1018,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<ServiceResponse>]
+    # @return [Array<Service>]
     def orgs_services_list(org, opts = {})
       data, _status_code, _headers = orgs_services_list_with_http_info(org, opts)
       data
@@ -1030,7 +1030,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<ServiceResponse>, Fixnum, Hash)>] Array<ServiceResponse> data, response status code and response headers
+    # @return [Array<(Array<Service>, Fixnum, Hash)>] Array<Service> data, response status code and response headers
     def orgs_services_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_list ...'
@@ -1066,7 +1066,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<ServiceResponse>')
+        :return_type => 'Array<Service>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_services_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1078,7 +1078,7 @@ module CloudsmithApi
     # @param service 
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceRequestPatch] :data 
-    # @return [ServiceResponse]
+    # @return [Service]
     def orgs_services_partial_update(org, service, opts = {})
       data, _status_code, _headers = orgs_services_partial_update_with_http_info(org, service, opts)
       data
@@ -1090,7 +1090,7 @@ module CloudsmithApi
     # @param service 
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceRequestPatch] :data 
-    # @return [Array<(ServiceResponse, Fixnum, Hash)>] ServiceResponse data, response status code and response headers
+    # @return [Array<(Service, Fixnum, Hash)>] Service data, response status code and response headers
     def orgs_services_partial_update_with_http_info(org, service, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_partial_update ...'
@@ -1128,7 +1128,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ServiceResponse')
+        :return_type => 'Service')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_services_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1139,7 +1139,7 @@ module CloudsmithApi
     # @param org 
     # @param service 
     # @param [Hash] opts the optional parameters
-    # @return [ServiceResponse]
+    # @return [Service]
     def orgs_services_read(org, service, opts = {})
       data, _status_code, _headers = orgs_services_read_with_http_info(org, service, opts)
       data
@@ -1150,7 +1150,7 @@ module CloudsmithApi
     # @param org 
     # @param service 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ServiceResponse, Fixnum, Hash)>] ServiceResponse data, response status code and response headers
+    # @return [Array<(Service, Fixnum, Hash)>] Service data, response status code and response headers
     def orgs_services_read_with_http_info(org, service, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_read ...'
@@ -1188,7 +1188,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ServiceResponse')
+        :return_type => 'Service')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_services_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1199,7 +1199,7 @@ module CloudsmithApi
     # @param org 
     # @param service 
     # @param [Hash] opts the optional parameters
-    # @return [ServiceResponse]
+    # @return [Service]
     def orgs_services_refresh(org, service, opts = {})
       data, _status_code, _headers = orgs_services_refresh_with_http_info(org, service, opts)
       data
@@ -1210,7 +1210,7 @@ module CloudsmithApi
     # @param org 
     # @param service 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ServiceResponse, Fixnum, Hash)>] ServiceResponse data, response status code and response headers
+    # @return [Array<(Service, Fixnum, Hash)>] Service data, response status code and response headers
     def orgs_services_refresh_with_http_info(org, service, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_refresh ...'
@@ -1248,7 +1248,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ServiceResponse')
+        :return_type => 'Service')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_services_refresh\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1259,7 +1259,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationTeamRequest] :data 
-    # @return [OrganizationTeamResponse]
+    # @return [OrganizationTeam]
     def orgs_teams_create(org, opts = {})
       data, _status_code, _headers = orgs_teams_create_with_http_info(org, opts)
       data
@@ -1270,7 +1270,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationTeamRequest] :data 
-    # @return [Array<(OrganizationTeamResponse, Fixnum, Hash)>] OrganizationTeamResponse data, response status code and response headers
+    # @return [Array<(OrganizationTeam, Fixnum, Hash)>] OrganizationTeam data, response status code and response headers
     def orgs_teams_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_create ...'
@@ -1304,7 +1304,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationTeamResponse')
+        :return_type => 'OrganizationTeam')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1375,7 +1375,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<OrganizationTeamResponse>]
+    # @return [Array<OrganizationTeam>]
     def orgs_teams_list(org, opts = {})
       data, _status_code, _headers = orgs_teams_list_with_http_info(org, opts)
       data
@@ -1387,7 +1387,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<OrganizationTeamResponse>, Fixnum, Hash)>] Array<OrganizationTeamResponse> data, response status code and response headers
+    # @return [Array<(Array<OrganizationTeam>, Fixnum, Hash)>] Array<OrganizationTeam> data, response status code and response headers
     def orgs_teams_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_list ...'
@@ -1423,7 +1423,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<OrganizationTeamResponse>')
+        :return_type => 'Array<OrganizationTeam>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1435,7 +1435,7 @@ module CloudsmithApi
     # @param team 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationTeamMembers] :data 
-    # @return [OrganizationTeamMembersResponse]
+    # @return [OrganizationTeamMembers]
     def orgs_teams_members_create(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_members_create_with_http_info(org, team, opts)
       data
@@ -1447,7 +1447,7 @@ module CloudsmithApi
     # @param team 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationTeamMembers] :data 
-    # @return [Array<(OrganizationTeamMembersResponse, Fixnum, Hash)>] OrganizationTeamMembersResponse data, response status code and response headers
+    # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
     def orgs_teams_members_create_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_members_create ...'
@@ -1485,7 +1485,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationTeamMembersResponse')
+        :return_type => 'OrganizationTeamMembers')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_members_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1496,7 +1496,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @return [OrganizationTeamMembersResponse]
+    # @return [OrganizationTeamMembers]
     def orgs_teams_members_list(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_members_list_with_http_info(org, team, opts)
       data
@@ -1507,7 +1507,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OrganizationTeamMembersResponse, Fixnum, Hash)>] OrganizationTeamMembersResponse data, response status code and response headers
+    # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
     def orgs_teams_members_list_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_members_list ...'
@@ -1545,7 +1545,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationTeamMembersResponse')
+        :return_type => 'OrganizationTeamMembers')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_members_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1556,7 +1556,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @return [OrganizationTeamMembersResponse]
+    # @return [OrganizationTeamMembers]
     def orgs_teams_members_update(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_members_update_with_http_info(org, team, opts)
       data
@@ -1567,7 +1567,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OrganizationTeamMembersResponse, Fixnum, Hash)>] OrganizationTeamMembersResponse data, response status code and response headers
+    # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
     def orgs_teams_members_update_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_members_update ...'
@@ -1605,7 +1605,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationTeamMembersResponse')
+        :return_type => 'OrganizationTeamMembers')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_members_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1617,7 +1617,7 @@ module CloudsmithApi
     # @param team 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationTeamRequestPatch] :data 
-    # @return [OrganizationTeamResponse]
+    # @return [OrganizationTeam]
     def orgs_teams_partial_update(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_partial_update_with_http_info(org, team, opts)
       data
@@ -1629,7 +1629,7 @@ module CloudsmithApi
     # @param team 
     # @param [Hash] opts the optional parameters
     # @option opts [OrganizationTeamRequestPatch] :data 
-    # @return [Array<(OrganizationTeamResponse, Fixnum, Hash)>] OrganizationTeamResponse data, response status code and response headers
+    # @return [Array<(OrganizationTeam, Fixnum, Hash)>] OrganizationTeam data, response status code and response headers
     def orgs_teams_partial_update_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_partial_update ...'
@@ -1667,7 +1667,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationTeamResponse')
+        :return_type => 'OrganizationTeam')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1678,7 +1678,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @return [OrganizationTeamResponse]
+    # @return [OrganizationTeam]
     def orgs_teams_read(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_read_with_http_info(org, team, opts)
       data
@@ -1689,7 +1689,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(OrganizationTeamResponse, Fixnum, Hash)>] OrganizationTeamResponse data, response status code and response headers
+    # @return [Array<(OrganizationTeam, Fixnum, Hash)>] OrganizationTeam data, response status code and response headers
     def orgs_teams_read_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_read ...'
@@ -1727,7 +1727,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationTeamResponse')
+        :return_type => 'OrganizationTeam')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

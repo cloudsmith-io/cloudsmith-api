@@ -42,7 +42,7 @@ describe 'MetricsApi' do
   # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-  # @return [EntitlementUsageMetricsResponse]
+  # @return [EntitlementUsageMetrics]
   describe 'metrics_entitlements_account_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -60,7 +60,7 @@ describe 'MetricsApi' do
   # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
-  # @return [EntitlementUsageMetricsResponse]
+  # @return [EntitlementUsageMetrics]
   describe 'metrics_entitlements_repo_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -78,7 +78,7 @@ describe 'MetricsApi' do
   # @option opts [String] :finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :packages A comma seperated list of packages (slug perm) to include in the results.
   # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
-  # @return [PackageUsageMetricsResponse]
+  # @return [PackageUsageMetrics]
   describe 'metrics_packages_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

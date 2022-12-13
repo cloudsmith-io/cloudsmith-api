@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **namespaces_list**
-> Array&lt;NamespaceResponse&gt; namespaces_list(opts)
+> Array&lt;Namespace&gt; namespaces_list(opts)
 
 Get a list of all namespaces the user belongs to.
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;NamespaceResponse&gt;**](NamespaceResponse.md)
+[**Array&lt;Namespace&gt;**](Namespace.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 
 # **namespaces_read**
-> NamespaceResponse namespaces_read(slug)
+> Namespace namespaces_read(slug)
 
 Views for working with namespaces.
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NamespaceResponse**](NamespaceResponse.md)
+[**Namespace**](Namespace.md)
 
 ### Authorization
 

@@ -36,7 +36,7 @@ describe 'UserApi' do
   # Provide a brief for the current user (if any).
   # Provide a brief for the current user (if any).
   # @param [Hash] opts the optional parameters
-  # @return [UserBriefResponse]
+  # @return [UserBrief]
   describe 'user_self test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -48,7 +48,7 @@ describe 'UserApi' do
   # Retrieve the API key/token for the authenticated user.
   # @param [Hash] opts the optional parameters
   # @option opts [UserAuthTokenRequest] :data 
-  # @return [UserAuthTokenResponse]
+  # @return [UserAuthToken]
   describe 'user_token_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

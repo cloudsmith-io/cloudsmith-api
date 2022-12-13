@@ -35,6 +35,10 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "content_kind"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Standard", "Distribution", "Upstream"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.content_kind = value }.not_to raise_error
+      # end
     end
   end
 
@@ -53,12 +57,20 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "copy_packages"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write", "Read"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.copy_packages = value }.not_to raise_error
+      # end
     end
   end
 
   describe 'test attribute "default_privilege"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write", "Read", "None"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.default_privilege = value }.not_to raise_error
+      # end
     end
   end
 
@@ -71,6 +83,10 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "delete_packages"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.delete_packages = value }.not_to raise_error
+      # end
     end
   end
 
@@ -107,6 +123,10 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "move_packages"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write", "Read"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.move_packages = value }.not_to raise_error
+      # end
     end
   end
 
@@ -143,6 +163,10 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "replace_packages"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.replace_packages = value }.not_to raise_error
+      # end
     end
   end
 
@@ -155,6 +179,10 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "repository_type_str"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Public", "Private"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.repository_type_str = value }.not_to raise_error
+      # end
     end
   end
 
@@ -167,6 +195,10 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "resync_packages"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.resync_packages = value }.not_to raise_error
+      # end
     end
   end
 
@@ -179,6 +211,10 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "scan_packages"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write", "Read"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.scan_packages = value }.not_to raise_error
+      # end
     end
   end
 
@@ -239,6 +275,10 @@ describe 'RepositoryRequestPatch' do
   describe 'test attribute "view_statistics"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write", "Read"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.view_statistics = value }.not_to raise_error
+      # end
     end
   end
 

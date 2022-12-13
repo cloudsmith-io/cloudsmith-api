@@ -37,7 +37,7 @@ describe 'QuotaApi' do
   # Quota history for a given namespace.
   # @param owner 
   # @param [Hash] opts the optional parameters
-  # @return [QuotaHistoryResponse]
+  # @return [QuotaHistory]
   describe 'quota_history_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -49,7 +49,7 @@ describe 'QuotaApi' do
   # Open-source Quota history for a given namespace.
   # @param owner 
   # @param [Hash] opts the optional parameters
-  # @return [QuotaHistoryResponse]
+  # @return [QuotaHistory]
   describe 'quota_oss_history_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -61,7 +61,7 @@ describe 'QuotaApi' do
   # Open-source Quota usage for a given namespace.
   # @param owner 
   # @param [Hash] opts the optional parameters
-  # @return [QuotaResponse]
+  # @return [Quota]
   describe 'quota_oss_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -73,7 +73,7 @@ describe 'QuotaApi' do
   # Quota usage for a given namespace.
   # @param owner 
   # @param [Hash] opts the optional parameters
-  # @return [QuotaResponse]
+  # @return [Quota]
   describe 'quota_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

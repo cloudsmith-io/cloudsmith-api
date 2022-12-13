@@ -47,6 +47,10 @@ describe 'ServiceRequest' do
   describe 'test attribute "role"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Manager", "Member"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.role = value }.not_to raise_error
+      # end
     end
   end
 

@@ -24,6 +24,28 @@ class PackageDependency
   # The raw dependency version (if any).
   attr_accessor :version
 
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -87,8 +109,32 @@ class PackageDependency
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    dep_type_validator = EnumAttributeValidator.new('String', ['Depends', 'Pre-Depends', 'Recommends', 'Suggests', 'Enhances', 'Replaces', 'Breaks', 'Built-Using', 'Build-Depends', 'Build-Depends-Indep', 'Build-Conflicts', 'Build-Conflicts-Indep', 'Conflicts', 'Provides', 'Obsoletes', 'Requires', 'Runtime', 'Development', 'Compile', 'Provided', 'Test', 'System', 'Import', 'Excluded'])
+    return false unless dep_type_validator.valid?(@dep_type)
     return false if @name.nil?
+    operator_validator = EnumAttributeValidator.new('String', ['=', '!=', '<', '<<', '<=', '>', '>>', '>=', '~=', '~>', 'matches'])
+    return false unless operator_validator.valid?(@operator)
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] dep_type Object to be assigned
+  def dep_type=(dep_type)
+    validator = EnumAttributeValidator.new('String', ['Depends', 'Pre-Depends', 'Recommends', 'Suggests', 'Enhances', 'Replaces', 'Breaks', 'Built-Using', 'Build-Depends', 'Build-Depends-Indep', 'Build-Conflicts', 'Build-Conflicts-Indep', 'Conflicts', 'Provides', 'Obsoletes', 'Requires', 'Runtime', 'Development', 'Compile', 'Provided', 'Test', 'System', 'Import', 'Excluded'])
+    unless validator.valid?(dep_type)
+      fail ArgumentError, 'invalid value for "dep_type", must be one of #{validator.allowable_values}.'
+    end
+    @dep_type = dep_type
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] operator Object to be assigned
+  def operator=(operator)
+    validator = EnumAttributeValidator.new('String', ['=', '!=', '<', '<<', '<=', '>', '>>', '>=', '~=', '~>', 'matches'])
+    unless validator.valid?(operator)
+      fail ArgumentError, 'invalid value for "operator", must be one of #{validator.allowable_values}.'
+    end
+    @operator = operator
   end
 
   # Checks equality by comparing each attribute.

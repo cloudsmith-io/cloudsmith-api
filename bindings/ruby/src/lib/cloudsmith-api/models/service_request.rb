@@ -25,6 +25,28 @@ class ServiceRequest
 
   attr_accessor :teams
 
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -89,7 +111,19 @@ class ServiceRequest
   # @return true if the model is valid
   def valid?
     return false if @name.nil?
+    role_validator = EnumAttributeValidator.new('String', ['Manager', 'Member'])
+    return false unless role_validator.valid?(@role)
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] role Object to be assigned
+  def role=(role)
+    validator = EnumAttributeValidator.new('String', ['Manager', 'Member'])
+    unless validator.valid?(role)
+      fail ArgumentError, 'invalid value for "role", must be one of #{validator.allowable_values}.'
+    end
+    @role = role
   end
 
   # Checks equality by comparing each attribute.

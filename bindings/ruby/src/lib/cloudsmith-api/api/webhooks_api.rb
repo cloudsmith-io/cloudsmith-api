@@ -25,7 +25,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryWebhookRequest] :data 
-    # @return [RepositoryWebhookResponse]
+    # @return [RepositoryWebhook]
     def webhooks_create(owner, repo, opts = {})
       data, _status_code, _headers = webhooks_create_with_http_info(owner, repo, opts)
       data
@@ -37,7 +37,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryWebhookRequest] :data 
-    # @return [Array<(RepositoryWebhookResponse, Fixnum, Hash)>] RepositoryWebhookResponse data, response status code and response headers
+    # @return [Array<(RepositoryWebhook, Fixnum, Hash)>] RepositoryWebhook data, response status code and response headers
     def webhooks_create_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.webhooks_create ...'
@@ -75,7 +75,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryWebhookResponse')
+        :return_type => 'RepositoryWebhook')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WebhooksApi#webhooks_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -153,7 +153,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<RepositoryWebhookResponse>]
+    # @return [Array<RepositoryWebhook>]
     def webhooks_list(owner, repo, opts = {})
       data, _status_code, _headers = webhooks_list_with_http_info(owner, repo, opts)
       data
@@ -166,7 +166,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<RepositoryWebhookResponse>, Fixnum, Hash)>] Array<RepositoryWebhookResponse> data, response status code and response headers
+    # @return [Array<(Array<RepositoryWebhook>, Fixnum, Hash)>] Array<RepositoryWebhook> data, response status code and response headers
     def webhooks_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.webhooks_list ...'
@@ -206,7 +206,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RepositoryWebhookResponse>')
+        :return_type => 'Array<RepositoryWebhook>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WebhooksApi#webhooks_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -219,7 +219,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryWebhookRequestPatch] :data 
-    # @return [RepositoryWebhookResponse]
+    # @return [RepositoryWebhook]
     def webhooks_partial_update(owner, repo, identifier, opts = {})
       data, _status_code, _headers = webhooks_partial_update_with_http_info(owner, repo, identifier, opts)
       data
@@ -232,7 +232,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryWebhookRequestPatch] :data 
-    # @return [Array<(RepositoryWebhookResponse, Fixnum, Hash)>] RepositoryWebhookResponse data, response status code and response headers
+    # @return [Array<(RepositoryWebhook, Fixnum, Hash)>] RepositoryWebhook data, response status code and response headers
     def webhooks_partial_update_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.webhooks_partial_update ...'
@@ -274,7 +274,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryWebhookResponse')
+        :return_type => 'RepositoryWebhook')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WebhooksApi#webhooks_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -286,7 +286,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryWebhookResponse]
+    # @return [RepositoryWebhook]
     def webhooks_read(owner, repo, identifier, opts = {})
       data, _status_code, _headers = webhooks_read_with_http_info(owner, repo, identifier, opts)
       data
@@ -298,7 +298,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryWebhookResponse, Fixnum, Hash)>] RepositoryWebhookResponse data, response status code and response headers
+    # @return [Array<(RepositoryWebhook, Fixnum, Hash)>] RepositoryWebhook data, response status code and response headers
     def webhooks_read_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.webhooks_read ...'
@@ -340,7 +340,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryWebhookResponse')
+        :return_type => 'RepositoryWebhook')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WebhooksApi#webhooks_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

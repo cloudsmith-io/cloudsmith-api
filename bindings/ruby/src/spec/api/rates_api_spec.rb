@@ -36,7 +36,7 @@ describe 'RatesApi' do
   # Endpoint to check rate limits for current user.
   # Endpoint to check rate limits for current user.
   # @param [Hash] opts the optional parameters
-  # @return [ResourcesRateCheckResponse]
+  # @return [ResourcesRateCheck]
   describe 'rates_limits_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

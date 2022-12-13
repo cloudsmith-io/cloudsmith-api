@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **quota_history_read**
-> QuotaHistoryResponse quota_history_read(owner)
+> QuotaHistory quota_history_read(owner)
 
 Quota history for a given namespace.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaHistoryResponse**](QuotaHistoryResponse.md)
+[**QuotaHistory**](QuotaHistory.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 
 # **quota_oss_history_read**
-> QuotaHistoryResponse quota_oss_history_read(owner)
+> QuotaHistory quota_oss_history_read(owner)
 
 Open-source Quota history for a given namespace.
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaHistoryResponse**](QuotaHistoryResponse.md)
+[**QuotaHistory**](QuotaHistory.md)
 
 ### Authorization
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 
 # **quota_oss_read**
-> QuotaResponse quota_oss_read(owner)
+> Quota quota_oss_read(owner)
 
 Open-source Quota usage for a given namespace.
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaResponse**](QuotaResponse.md)
+[**Quota**](Quota.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 
 # **quota_read**
-> QuotaResponse quota_read(owner)
+> Quota quota_read(owner)
 
 Quota usage for a given namespace.
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaResponse**](QuotaResponse.md)
+[**Quota**](Quota.md)
 
 ### Authorization
 

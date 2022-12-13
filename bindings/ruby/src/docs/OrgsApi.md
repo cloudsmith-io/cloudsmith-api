@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 
 # **orgs_invites_create**
-> OrganizationInviteResponse orgs_invites_create(org, opts)
+> OrganizationInvite orgs_invites_create(org, opts)
 
 Create an organization invite for a specific user
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
+[**OrganizationInvite**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ nil (empty response body)
 
 
 # **orgs_invites_extend**
-> OrganizationInviteExtendResponse orgs_invites_extend(org, slug_perm)
+> OrganizationInviteExtend orgs_invites_extend(org, slug_perm)
 
 Extend an organization invite.
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
+[**OrganizationInviteExtend**](OrganizationInviteExtend.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_invites_list**
-> Array&lt;OrganizationInviteResponse&gt; orgs_invites_list(org, opts)
+> Array&lt;OrganizationInvite&gt; orgs_invites_list(org, opts)
 
 Get a list of all invites for an organization.
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationInviteResponse&gt;**](OrganizationInviteResponse.md)
+[**Array&lt;OrganizationInvite&gt;**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_invites_partial_update**
-> OrganizationInviteResponse orgs_invites_partial_update(org, slug_perm, opts)
+> OrganizationInvite orgs_invites_partial_update(org, slug_perm, opts)
 
 Update a specific organization invite.
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
+[**OrganizationInvite**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_invites_resend**
-> OrganizationInviteExtendResponse orgs_invites_resend(org, slug_perm)
+> OrganizationInviteExtend orgs_invites_resend(org, slug_perm)
 
 Resend an organization invite.
 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
+[**OrganizationInviteExtend**](OrganizationInviteExtend.md)
 
 ### Authorization
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_list**
-> Array&lt;OrganizationResponse&gt; orgs_list(opts)
+> Array&lt;Organization&gt; orgs_list(opts)
 
 Get a list of all the organizations you are associated with.
 
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationResponse&gt;**](OrganizationResponse.md)
+[**Array&lt;Organization&gt;**](Organization.md)
 
 ### Authorization
 
@@ -498,7 +498,7 @@ nil (empty response body)
 
 
 # **orgs_members_list**
-> Array&lt;OrganizationMembershipResponse&gt; orgs_members_list(org, opts)
+> Array&lt;OrganizationMembership&gt; orgs_members_list(org, opts)
 
 Get the details for all organization members.
 
@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationMembershipResponse&gt;**](OrganizationMembershipResponse.md)
+[**Array&lt;OrganizationMembership&gt;**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -558,7 +558,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_members_read**
-> OrganizationMembershipResponse orgs_members_read(org, member)
+> OrganizationMembership orgs_members_read(org, member)
 
 Get the details for a specific organization member.
 
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationMembershipResponse**](OrganizationMembershipResponse.md)
+[**OrganizationMembership**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ nil (empty response body)
 
 
 # **orgs_read**
-> OrganizationResponse orgs_read(org)
+> Organization orgs_read(org)
 
 Get the details for the specific organization.
 
@@ -711,7 +711,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationResponse**](OrganizationResponse.md)
+[**Organization**](Organization.md)
 
 ### Authorization
 
@@ -725,7 +725,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_saml_group_sync_create**
-> OrganizationGroupSyncResponse orgs_saml_group_sync_create(org, opts)
+> OrganizationGroupSync orgs_saml_group_sync_create(org, opts)
 
 Create a new SAML Group Sync mapping within an organization.
 
@@ -769,7 +769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationGroupSyncResponse**](OrganizationGroupSyncResponse.md)
+[**OrganizationGroupSync**](OrganizationGroupSync.md)
 
 ### Authorization
 
@@ -839,7 +839,7 @@ nil (empty response body)
 
 
 # **orgs_saml_group_sync_list**
-> Array&lt;OrganizationGroupSyncResponse&gt; orgs_saml_group_sync_list(org, opts)
+> Array&lt;OrganizationGroupSync&gt; orgs_saml_group_sync_list(org, opts)
 
 Get the details of all SAML Group Sync mapping within an organization.
 
@@ -885,7 +885,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationGroupSyncResponse&gt;**](OrganizationGroupSyncResponse.md)
+[**Array&lt;OrganizationGroupSync&gt;**](OrganizationGroupSync.md)
 
 ### Authorization
 
@@ -899,7 +899,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_services_create**
-> ServiceResponse orgs_services_create(org, opts)
+> Service orgs_services_create(org, opts)
 
 Create a service within an organization.
 
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1013,7 +1013,7 @@ nil (empty response body)
 
 
 # **orgs_services_list**
-> Array&lt;ServiceResponse&gt; orgs_services_list(org, opts)
+> Array&lt;Service&gt; orgs_services_list(org, opts)
 
 Get a list of all services within an organization.
 
@@ -1059,7 +1059,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;ServiceResponse&gt;**](ServiceResponse.md)
+[**Array&lt;Service&gt;**](Service.md)
 
 ### Authorization
 
@@ -1073,7 +1073,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_services_partial_update**
-> ServiceResponse orgs_services_partial_update(org, service, opts)
+> Service orgs_services_partial_update(org, service, opts)
 
 Update a service within an organization.
 
@@ -1120,7 +1120,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1134,7 +1134,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_services_read**
-> ServiceResponse orgs_services_read(org, service)
+> Service orgs_services_read(org, service)
 
 Retrieve details of a single service within an organization.
 
@@ -1177,7 +1177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1191,7 +1191,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_services_refresh**
-> ServiceResponse orgs_services_refresh(org, service)
+> Service orgs_services_refresh(org, service)
 
 Refresh service API token.
 
@@ -1234,7 +1234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1248,7 +1248,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_create**
-> OrganizationTeamResponse orgs_teams_create(org, opts)
+> OrganizationTeam orgs_teams_create(org, opts)
 
 Create a team for this organization.
 
@@ -1292,7 +1292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1362,7 +1362,7 @@ nil (empty response body)
 
 
 # **orgs_teams_list**
-> Array&lt;OrganizationTeamResponse&gt; orgs_teams_list(org, opts)
+> Array&lt;OrganizationTeam&gt; orgs_teams_list(org, opts)
 
 Get the details of all teams within an organization.
 
@@ -1408,7 +1408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;OrganizationTeamResponse&gt;**](OrganizationTeamResponse.md)
+[**Array&lt;OrganizationTeam&gt;**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1422,7 +1422,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_members_create**
-> OrganizationTeamMembersResponse orgs_teams_members_create(org, team, opts)
+> OrganizationTeamMembers orgs_teams_members_create(org, team, opts)
 
 Add users to a team.
 
@@ -1469,7 +1469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1483,7 +1483,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_members_list**
-> OrganizationTeamMembersResponse orgs_teams_members_list(org, team)
+> OrganizationTeamMembers orgs_teams_members_list(org, team)
 
 List all members for the team.
 
@@ -1526,7 +1526,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1540,7 +1540,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_members_update**
-> OrganizationTeamMembersResponse orgs_teams_members_update(org, team)
+> OrganizationTeamMembers orgs_teams_members_update(org, team)
 
 Replace all team members.
 
@@ -1583,7 +1583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1597,7 +1597,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_partial_update**
-> OrganizationTeamResponse orgs_teams_partial_update(org, team, opts)
+> OrganizationTeam orgs_teams_partial_update(org, team, opts)
 
 Update a specific team in a organization.
 
@@ -1644,7 +1644,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1658,7 +1658,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_read**
-> OrganizationTeamResponse orgs_teams_read(org, team)
+> OrganizationTeam orgs_teams_read(org, team)
 
 Get the details of a specific team within an organization.
 
@@ -1701,7 +1701,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 

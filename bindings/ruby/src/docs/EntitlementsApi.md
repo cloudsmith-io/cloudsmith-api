@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **entitlements_create**
-> RepositoryTokenResponse entitlements_create(owner, repo, opts)
+> RepositoryToken entitlements_create(owner, repo, opts)
 
 Create a specific entitlement in a repository.
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ nil (empty response body)
 
 
 # **entitlements_list**
-> Array&lt;RepositoryTokenResponse&gt; entitlements_list(owner, repo, opts)
+> Array&lt;RepositoryToken&gt; entitlements_list(owner, repo, opts)
 
 Get a list of all entitlements in a repository.
 
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;RepositoryTokenResponse&gt;**](RepositoryTokenResponse.md)
+[**Array&lt;RepositoryToken&gt;**](RepositoryToken.md)
 
 ### Authorization
 
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_partial_update**
-> RepositoryTokenResponse entitlements_partial_update(owner, repo, identifier, opts)
+> RepositoryToken entitlements_partial_update(owner, repo, identifier, opts)
 
 Update a specific entitlement in a repository.
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_read**
-> RepositoryTokenResponse entitlements_read(owner, repo, identifier, opts)
+> RepositoryToken entitlements_read(owner, repo, identifier, opts)
 
 Get a specific entitlement in a repository.
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 
 
 # **entitlements_refresh**
-> RepositoryTokenRefreshResponse entitlements_refresh(owner, repo, identifier, opts)
+> RepositoryTokenRefresh entitlements_refresh(owner, repo, identifier, opts)
 
 Refresh an entitlement token in a repository.
 
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenRefreshResponse**](RepositoryTokenRefreshResponse.md)
+[**RepositoryTokenRefresh**](RepositoryTokenRefresh.md)
 
 ### Authorization
 
@@ -587,7 +587,7 @@ nil (empty response body)
 
 
 # **entitlements_sync**
-> RepositoryTokenSyncResponse entitlements_sync(owner, repo, opts)
+> RepositoryTokenSync entitlements_sync(owner, repo, opts)
 
 Synchronise tokens from a source repository.
 
@@ -636,7 +636,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenSyncResponse**](RepositoryTokenSyncResponse.md)
+[**RepositoryTokenSync**](RepositoryTokenSync.md)
 
 ### Authorization
 

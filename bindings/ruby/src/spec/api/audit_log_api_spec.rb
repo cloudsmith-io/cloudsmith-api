@@ -40,7 +40,7 @@ describe 'AuditLogApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-  # @return [Array<NamespaceAuditLogResponse>]
+  # @return [Array<NamespaceAuditLog>]
   describe 'audit_log_namespace_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -56,7 +56,7 @@ describe 'AuditLogApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :query A search term for querying events, actors, or timestamps of log records.
-  # @return [Array<RepositoryAuditLogResponse>]
+  # @return [Array<RepositoryAuditLog>]
   describe 'audit_log_repo_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

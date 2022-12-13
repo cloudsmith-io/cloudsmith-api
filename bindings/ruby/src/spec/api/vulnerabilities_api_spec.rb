@@ -39,7 +39,7 @@ describe 'VulnerabilitiesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<VulnerabilityScanResultsListResponse>]
+  # @return [Array<VulnerabilityScanResultsList>]
   describe 'vulnerabilities_namespace_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -55,7 +55,7 @@ describe 'VulnerabilitiesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<VulnerabilityScanResultsListResponse>]
+  # @return [Array<VulnerabilityScanResultsList>]
   describe 'vulnerabilities_package_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -70,7 +70,7 @@ describe 'VulnerabilitiesApi' do
   # @param package 
   # @param scan_id 
   # @param [Hash] opts the optional parameters
-  # @return [VulnerabilityScanResultsResponse]
+  # @return [VulnerabilityScanResults]
   describe 'vulnerabilities_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -85,7 +85,7 @@ describe 'VulnerabilitiesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<VulnerabilityScanResultsListResponse>]
+  # @return [Array<VulnerabilityScanResultsList>]
   describe 'vulnerabilities_repo_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

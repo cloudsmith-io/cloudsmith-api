@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **vulnerabilities_namespace_list**
-> Array&lt;VulnerabilityScanResultsListResponse&gt; vulnerabilities_namespace_list(owner, opts)
+> Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_namespace_list(owner, opts)
 
 Lists scan results for a specific namespace.
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;VulnerabilityScanResultsListResponse&gt;**](VulnerabilityScanResultsListResponse.md)
+[**Array&lt;VulnerabilityScanResultsList&gt;**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 
 # **vulnerabilities_package_list**
-> Array&lt;VulnerabilityScanResultsListResponse&gt; vulnerabilities_package_list(owner, repo, package, opts)
+> Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_package_list(owner, repo, package, opts)
 
 Lists scan results for a specific package.
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;VulnerabilityScanResultsListResponse&gt;**](VulnerabilityScanResultsListResponse.md)
+[**Array&lt;VulnerabilityScanResultsList&gt;**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 
 # **vulnerabilities_read**
-> VulnerabilityScanResultsResponse vulnerabilities_read(owner, repo, package, scan_id)
+> VulnerabilityScanResults vulnerabilities_read(owner, repo, package, scan_id)
 
 Returns a Scan Result.
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VulnerabilityScanResultsResponse**](VulnerabilityScanResultsResponse.md)
+[**VulnerabilityScanResults**](VulnerabilityScanResults.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 
 # **vulnerabilities_repo_list**
-> Array&lt;VulnerabilityScanResultsListResponse&gt; vulnerabilities_repo_list(owner, repo, opts)
+> Array&lt;VulnerabilityScanResultsList&gt; vulnerabilities_repo_list(owner, repo, opts)
 
 Lists scan results for a specific repository.
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;VulnerabilityScanResultsListResponse&gt;**](VulnerabilityScanResultsListResponse.md)
+[**Array&lt;VulnerabilityScanResultsList&gt;**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 

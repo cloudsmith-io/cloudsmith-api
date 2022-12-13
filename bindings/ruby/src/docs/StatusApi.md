@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **status_check_basic**
-> StatusBasicResponse status_check_basic
+> StatusBasic status_check_basic
 
 Endpoint to check basic API connectivity.
 
@@ -35,7 +35,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**StatusBasicResponse**](StatusBasicResponse.md)
+[**StatusBasic**](StatusBasic.md)
 
 ### Authorization
 

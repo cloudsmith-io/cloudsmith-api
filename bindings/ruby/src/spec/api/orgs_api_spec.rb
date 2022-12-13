@@ -38,7 +38,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param [Hash] opts the optional parameters
   # @option opts [OrganizationInviteRequest] :data 
-  # @return [OrganizationInviteResponse]
+  # @return [OrganizationInvite]
   describe 'orgs_invites_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -64,7 +64,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
-  # @return [OrganizationInviteExtendResponse]
+  # @return [OrganizationInviteExtend]
   describe 'orgs_invites_extend test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -78,7 +78,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<OrganizationInviteResponse>]
+  # @return [Array<OrganizationInvite>]
   describe 'orgs_invites_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -92,7 +92,7 @@ describe 'OrgsApi' do
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
   # @option opts [OrganizationInviteUpdateRequestPatch] :data 
-  # @return [OrganizationInviteResponse]
+  # @return [OrganizationInvite]
   describe 'orgs_invites_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -105,7 +105,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
-  # @return [OrganizationInviteExtendResponse]
+  # @return [OrganizationInviteExtend]
   describe 'orgs_invites_resend test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -118,7 +118,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<OrganizationResponse>]
+  # @return [Array<Organization>]
   describe 'orgs_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -145,7 +145,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<OrganizationMembershipResponse>]
+  # @return [Array<OrganizationMembership>]
   describe 'orgs_members_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -158,7 +158,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param member 
   # @param [Hash] opts the optional parameters
-  # @return [OrganizationMembershipResponse]
+  # @return [OrganizationMembership]
   describe 'orgs_members_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -183,7 +183,7 @@ describe 'OrgsApi' do
   # Get the details for the specific organization.
   # @param org 
   # @param [Hash] opts the optional parameters
-  # @return [OrganizationResponse]
+  # @return [Organization]
   describe 'orgs_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -196,7 +196,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param [Hash] opts the optional parameters
   # @option opts [OrganizationGroupSyncRequest] :data 
-  # @return [OrganizationGroupSyncResponse]
+  # @return [OrganizationGroupSync]
   describe 'orgs_saml_group_sync_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -223,7 +223,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<OrganizationGroupSyncResponse>]
+  # @return [Array<OrganizationGroupSync>]
   describe 'orgs_saml_group_sync_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -236,7 +236,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param [Hash] opts the optional parameters
   # @option opts [ServiceRequest] :data 
-  # @return [ServiceResponse]
+  # @return [Service]
   describe 'orgs_services_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -263,7 +263,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<ServiceResponse>]
+  # @return [Array<Service>]
   describe 'orgs_services_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -277,7 +277,7 @@ describe 'OrgsApi' do
   # @param service 
   # @param [Hash] opts the optional parameters
   # @option opts [ServiceRequestPatch] :data 
-  # @return [ServiceResponse]
+  # @return [Service]
   describe 'orgs_services_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -290,7 +290,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param service 
   # @param [Hash] opts the optional parameters
-  # @return [ServiceResponse]
+  # @return [Service]
   describe 'orgs_services_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -303,7 +303,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param service 
   # @param [Hash] opts the optional parameters
-  # @return [ServiceResponse]
+  # @return [Service]
   describe 'orgs_services_refresh test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -316,7 +316,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param [Hash] opts the optional parameters
   # @option opts [OrganizationTeamRequest] :data 
-  # @return [OrganizationTeamResponse]
+  # @return [OrganizationTeam]
   describe 'orgs_teams_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -343,7 +343,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<OrganizationTeamResponse>]
+  # @return [Array<OrganizationTeam>]
   describe 'orgs_teams_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -357,7 +357,7 @@ describe 'OrgsApi' do
   # @param team 
   # @param [Hash] opts the optional parameters
   # @option opts [OrganizationTeamMembers] :data 
-  # @return [OrganizationTeamMembersResponse]
+  # @return [OrganizationTeamMembers]
   describe 'orgs_teams_members_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -370,7 +370,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param team 
   # @param [Hash] opts the optional parameters
-  # @return [OrganizationTeamMembersResponse]
+  # @return [OrganizationTeamMembers]
   describe 'orgs_teams_members_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -383,7 +383,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param team 
   # @param [Hash] opts the optional parameters
-  # @return [OrganizationTeamMembersResponse]
+  # @return [OrganizationTeamMembers]
   describe 'orgs_teams_members_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -397,7 +397,7 @@ describe 'OrgsApi' do
   # @param team 
   # @param [Hash] opts the optional parameters
   # @option opts [OrganizationTeamRequestPatch] :data 
-  # @return [OrganizationTeamResponse]
+  # @return [OrganizationTeam]
   describe 'orgs_teams_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -410,7 +410,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param team 
   # @param [Hash] opts the optional parameters
-  # @return [OrganizationTeamResponse]
+  # @return [OrganizationTeam]
   describe 'orgs_teams_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

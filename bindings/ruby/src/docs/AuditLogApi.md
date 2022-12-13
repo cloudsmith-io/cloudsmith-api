@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **audit_log_namespace_list**
-> Array&lt;NamespaceAuditLogResponse&gt; audit_log_namespace_list(owner, opts)
+> Array&lt;NamespaceAuditLog&gt; audit_log_namespace_list(owner, opts)
 
 Lists audit log entries for a specific namespace.
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;NamespaceAuditLogResponse&gt;**](NamespaceAuditLogResponse.md)
+[**Array&lt;NamespaceAuditLog&gt;**](NamespaceAuditLog.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 
 # **audit_log_repo_list**
-> Array&lt;RepositoryAuditLogResponse&gt; audit_log_repo_list(owner, repo, opts)
+> Array&lt;RepositoryAuditLog&gt; audit_log_repo_list(owner, repo, opts)
 
 Lists audit log entries for a specific repository.
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;RepositoryAuditLogResponse&gt;**](RepositoryAuditLogResponse.md)
+[**Array&lt;RepositoryAuditLog&gt;**](RepositoryAuditLog.md)
 
 ### Authorization
 

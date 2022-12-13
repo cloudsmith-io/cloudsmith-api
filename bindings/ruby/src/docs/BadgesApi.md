@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **badges_version_list**
-> PackageVersionBadgeResponse badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
+> PackageVersionBadge badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
 
 Get latest package version for a package or package group.
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageVersionBadgeResponse**](PackageVersionBadgeResponse.md)
+[**PackageVersionBadge**](PackageVersionBadge.md)
 
 ### Authorization
 

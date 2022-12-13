@@ -25,7 +25,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<VulnerabilityScanResultsListResponse>]
+    # @return [Array<VulnerabilityScanResultsList>]
     def vulnerabilities_namespace_list(owner, opts = {})
       data, _status_code, _headers = vulnerabilities_namespace_list_with_http_info(owner, opts)
       data
@@ -37,7 +37,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<VulnerabilityScanResultsListResponse>, Fixnum, Hash)>] Array<VulnerabilityScanResultsListResponse> data, response status code and response headers
+    # @return [Array<(Array<VulnerabilityScanResultsList>, Fixnum, Hash)>] Array<VulnerabilityScanResultsList> data, response status code and response headers
     def vulnerabilities_namespace_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_namespace_list ...'
@@ -73,7 +73,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<VulnerabilityScanResultsListResponse>')
+        :return_type => 'Array<VulnerabilityScanResultsList>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_namespace_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -87,7 +87,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<VulnerabilityScanResultsListResponse>]
+    # @return [Array<VulnerabilityScanResultsList>]
     def vulnerabilities_package_list(owner, repo, package, opts = {})
       data, _status_code, _headers = vulnerabilities_package_list_with_http_info(owner, repo, package, opts)
       data
@@ -101,7 +101,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<VulnerabilityScanResultsListResponse>, Fixnum, Hash)>] Array<VulnerabilityScanResultsListResponse> data, response status code and response headers
+    # @return [Array<(Array<VulnerabilityScanResultsList>, Fixnum, Hash)>] Array<VulnerabilityScanResultsList> data, response status code and response headers
     def vulnerabilities_package_list_with_http_info(owner, repo, package, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_package_list ...'
@@ -145,7 +145,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<VulnerabilityScanResultsListResponse>')
+        :return_type => 'Array<VulnerabilityScanResultsList>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_package_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -158,7 +158,7 @@ module CloudsmithApi
     # @param package 
     # @param scan_id 
     # @param [Hash] opts the optional parameters
-    # @return [VulnerabilityScanResultsResponse]
+    # @return [VulnerabilityScanResults]
     def vulnerabilities_read(owner, repo, package, scan_id, opts = {})
       data, _status_code, _headers = vulnerabilities_read_with_http_info(owner, repo, package, scan_id, opts)
       data
@@ -171,7 +171,7 @@ module CloudsmithApi
     # @param package 
     # @param scan_id 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(VulnerabilityScanResultsResponse, Fixnum, Hash)>] VulnerabilityScanResultsResponse data, response status code and response headers
+    # @return [Array<(VulnerabilityScanResults, Fixnum, Hash)>] VulnerabilityScanResults data, response status code and response headers
     def vulnerabilities_read_with_http_info(owner, repo, package, scan_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_read ...'
@@ -217,7 +217,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'VulnerabilityScanResultsResponse')
+        :return_type => 'VulnerabilityScanResults')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -230,7 +230,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<VulnerabilityScanResultsListResponse>]
+    # @return [Array<VulnerabilityScanResultsList>]
     def vulnerabilities_repo_list(owner, repo, opts = {})
       data, _status_code, _headers = vulnerabilities_repo_list_with_http_info(owner, repo, opts)
       data
@@ -243,7 +243,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<VulnerabilityScanResultsListResponse>, Fixnum, Hash)>] Array<VulnerabilityScanResultsListResponse> data, response status code and response headers
+    # @return [Array<(Array<VulnerabilityScanResultsList>, Fixnum, Hash)>] Array<VulnerabilityScanResultsList> data, response status code and response headers
     def vulnerabilities_repo_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_repo_list ...'
@@ -283,7 +283,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<VulnerabilityScanResultsListResponse>')
+        :return_type => 'Array<VulnerabilityScanResultsList>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: VulnerabilitiesApi#vulnerabilities_repo_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

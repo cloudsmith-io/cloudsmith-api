@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **users_profile_read**
-> UserProfileResponse users_profile_read(slug)
+> UserProfile users_profile_read(slug)
 
 Provide a brief for the specified user (if any).
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserProfileResponse**](UserProfileResponse.md)
+[**UserProfile**](UserProfile.md)
 
 ### Authorization
 

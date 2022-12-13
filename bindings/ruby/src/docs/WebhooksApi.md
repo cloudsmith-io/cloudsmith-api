@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **webhooks_create**
-> RepositoryWebhookResponse webhooks_create(owner, repo, opts)
+> RepositoryWebhook webhooks_create(owner, repo, opts)
 
 Create a specific webhook in a repository.
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ nil (empty response body)
 
 
 # **webhooks_list**
-> Array&lt;RepositoryWebhookResponse&gt; webhooks_list(owner, repo, opts)
+> Array&lt;RepositoryWebhook&gt; webhooks_list(owner, repo, opts)
 
 Get a list of all webhooks in a repository.
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;RepositoryWebhookResponse&gt;**](RepositoryWebhookResponse.md)
+[**Array&lt;RepositoryWebhook&gt;**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_partial_update**
-> RepositoryWebhookResponse webhooks_partial_update(owner, repo, identifier, opts)
+> RepositoryWebhook webhooks_partial_update(owner, repo, identifier, opts)
 
 Update a specific webhook in a repository.
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_read**
-> RepositoryWebhookResponse webhooks_read(owner, repo, identifier)
+> RepositoryWebhook webhooks_read(owner, repo, identifier)
 
 Views for working with repository webhooks.
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 

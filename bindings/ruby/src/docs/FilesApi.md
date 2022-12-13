@@ -75,7 +75,7 @@ nil (empty response body)
 
 
 # **files_complete**
-> PackageFileUploadResponse files_complete(owner, repo, identifier, opts)
+> PackageFileUpload files_complete(owner, repo, identifier, opts)
 
 Complete a multipart file upload.
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
+[**PackageFileUpload**](PackageFileUpload.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 
 # **files_create**
-> PackageFileUploadResponse files_create(owner, repo, opts)
+> PackageFileUpload files_create(owner, repo, opts)
 
 Request URL(s) to upload new package file upload(s) to.
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
+[**PackageFileUpload**](PackageFileUpload.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 
 # **files_info**
-> PackageFilePartsUploadResponse files_info(owner, repo, identifier, filename, opts)
+> PackageFilePartsUpload files_info(owner, repo, identifier, filename, opts)
 
 Get upload information to perform a multipart file upload.
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFilePartsUploadResponse**](PackageFilePartsUploadResponse.md)
+[**PackageFilePartsUpload**](PackageFilePartsUpload.md)
 
 ### Authorization
 

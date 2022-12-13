@@ -36,7 +36,7 @@ describe 'DistrosApi' do
   # Get a list of all supported distributions.
   # Get a list of all supported distributions.
   # @param [Hash] opts the optional parameters
-  # @return [Array<DistributionResponse>]
+  # @return [Array<DistributionFull>]
   describe 'distros_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -48,7 +48,7 @@ describe 'DistrosApi' do
   # View for viewing/listing distributions.
   # @param slug 
   # @param [Hash] opts the optional parameters
-  # @return [DistributionResponse]
+  # @return [DistributionFull]
   describe 'distros_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

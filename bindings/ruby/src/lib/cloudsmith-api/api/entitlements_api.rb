@@ -26,7 +26,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryTokenRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
-    # @return [RepositoryTokenResponse]
+    # @return [RepositoryToken]
     def entitlements_create(owner, repo, opts = {})
       data, _status_code, _headers = entitlements_create_with_http_info(owner, repo, opts)
       data
@@ -39,7 +39,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryTokenRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @return [Array<(RepositoryTokenResponse, Fixnum, Hash)>] RepositoryTokenResponse data, response status code and response headers
+    # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_create_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EntitlementsApi.entitlements_create ...'
@@ -78,7 +78,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryTokenResponse')
+        :return_type => 'RepositoryToken')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EntitlementsApi#entitlements_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -289,7 +289,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
     # @option opts [String] :query A search term for querying names of entitlements.
     # @option opts [BOOLEAN] :active If true, only include active tokens (default to false)
-    # @return [Array<RepositoryTokenResponse>]
+    # @return [Array<RepositoryToken>]
     def entitlements_list(owner, repo, opts = {})
       data, _status_code, _headers = entitlements_list_with_http_info(owner, repo, opts)
       data
@@ -305,7 +305,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [String] :query A search term for querying names of entitlements.
     # @option opts [BOOLEAN] :active If true, only include active tokens
-    # @return [Array<(Array<RepositoryTokenResponse>, Fixnum, Hash)>] Array<RepositoryTokenResponse> data, response status code and response headers
+    # @return [Array<(Array<RepositoryToken>, Fixnum, Hash)>] Array<RepositoryToken> data, response status code and response headers
     def entitlements_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EntitlementsApi.entitlements_list ...'
@@ -348,7 +348,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RepositoryTokenResponse>')
+        :return_type => 'Array<RepositoryToken>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EntitlementsApi#entitlements_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -362,7 +362,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryTokenRequestPatch] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
-    # @return [RepositoryTokenResponse]
+    # @return [RepositoryToken]
     def entitlements_partial_update(owner, repo, identifier, opts = {})
       data, _status_code, _headers = entitlements_partial_update_with_http_info(owner, repo, identifier, opts)
       data
@@ -376,7 +376,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryTokenRequestPatch] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @return [Array<(RepositoryTokenResponse, Fixnum, Hash)>] RepositoryTokenResponse data, response status code and response headers
+    # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_partial_update_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EntitlementsApi.entitlements_partial_update ...'
@@ -419,7 +419,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryTokenResponse')
+        :return_type => 'RepositoryToken')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EntitlementsApi#entitlements_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -433,7 +433,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :fuzzy If true, entitlement identifiers including name will be fuzzy matched. (default to false)
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
-    # @return [RepositoryTokenResponse]
+    # @return [RepositoryToken]
     def entitlements_read(owner, repo, identifier, opts = {})
       data, _status_code, _headers = entitlements_read_with_http_info(owner, repo, identifier, opts)
       data
@@ -447,7 +447,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :fuzzy If true, entitlement identifiers including name will be fuzzy matched.
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @return [Array<(RepositoryTokenResponse, Fixnum, Hash)>] RepositoryTokenResponse data, response status code and response headers
+    # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_read_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EntitlementsApi.entitlements_read ...'
@@ -491,7 +491,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryTokenResponse')
+        :return_type => 'RepositoryToken')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EntitlementsApi#entitlements_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -505,7 +505,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryTokenRefreshRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
-    # @return [RepositoryTokenRefreshResponse]
+    # @return [RepositoryTokenRefresh]
     def entitlements_refresh(owner, repo, identifier, opts = {})
       data, _status_code, _headers = entitlements_refresh_with_http_info(owner, repo, identifier, opts)
       data
@@ -519,7 +519,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryTokenRefreshRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @return [Array<(RepositoryTokenRefreshResponse, Fixnum, Hash)>] RepositoryTokenRefreshResponse data, response status code and response headers
+    # @return [Array<(RepositoryTokenRefresh, Fixnum, Hash)>] RepositoryTokenRefresh data, response status code and response headers
     def entitlements_refresh_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EntitlementsApi.entitlements_refresh ...'
@@ -562,7 +562,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryTokenRefreshResponse')
+        :return_type => 'RepositoryTokenRefresh')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EntitlementsApi#entitlements_refresh\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -643,7 +643,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryTokenSyncRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
-    # @return [RepositoryTokenSyncResponse]
+    # @return [RepositoryTokenSync]
     def entitlements_sync(owner, repo, opts = {})
       data, _status_code, _headers = entitlements_sync_with_http_info(owner, repo, opts)
       data
@@ -656,7 +656,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryTokenSyncRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @return [Array<(RepositoryTokenSyncResponse, Fixnum, Hash)>] RepositoryTokenSyncResponse data, response status code and response headers
+    # @return [Array<(RepositoryTokenSync, Fixnum, Hash)>] RepositoryTokenSync data, response status code and response headers
     def entitlements_sync_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EntitlementsApi.entitlements_sync ...'
@@ -695,7 +695,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryTokenSyncResponse')
+        :return_type => 'RepositoryTokenSync')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EntitlementsApi#entitlements_sync\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

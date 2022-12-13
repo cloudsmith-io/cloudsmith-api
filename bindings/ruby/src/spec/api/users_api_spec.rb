@@ -37,7 +37,7 @@ describe 'UsersApi' do
   # Provide a brief for the specified user (if any).
   # @param slug 
   # @param [Hash] opts the optional parameters
-  # @return [UserProfileResponse]
+  # @return [UserProfile]
   describe 'users_profile_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

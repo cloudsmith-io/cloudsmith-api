@@ -40,7 +40,7 @@ describe 'EntitlementsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryTokenRequest] :data 
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @return [RepositoryTokenResponse]
+  # @return [RepositoryToken]
   describe 'entitlements_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -100,7 +100,7 @@ describe 'EntitlementsApi' do
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [String] :query A search term for querying names of entitlements.
   # @option opts [BOOLEAN] :active If true, only include active tokens
-  # @return [Array<RepositoryTokenResponse>]
+  # @return [Array<RepositoryToken>]
   describe 'entitlements_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -116,7 +116,7 @@ describe 'EntitlementsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryTokenRequestPatch] :data 
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @return [RepositoryTokenResponse]
+  # @return [RepositoryToken]
   describe 'entitlements_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -132,7 +132,7 @@ describe 'EntitlementsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :fuzzy If true, entitlement identifiers including name will be fuzzy matched.
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @return [RepositoryTokenResponse]
+  # @return [RepositoryToken]
   describe 'entitlements_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -148,7 +148,7 @@ describe 'EntitlementsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryTokenRefreshRequest] :data 
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @return [RepositoryTokenRefreshResponse]
+  # @return [RepositoryTokenRefresh]
   describe 'entitlements_refresh test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -178,7 +178,7 @@ describe 'EntitlementsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryTokenSyncRequest] :data 
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-  # @return [RepositoryTokenSyncResponse]
+  # @return [RepositoryTokenSync]
   describe 'entitlements_sync test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

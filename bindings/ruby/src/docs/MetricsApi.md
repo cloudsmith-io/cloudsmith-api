@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **metrics_entitlements_account_list**
-> EntitlementUsageMetricsResponse metrics_entitlements_account_list(owner, opts)
+> EntitlementUsageMetrics metrics_entitlements_account_list(owner, opts)
 
 View for listing entitlement token metrics, across an account.
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 
 # **metrics_entitlements_repo_list**
-> EntitlementUsageMetricsResponse metrics_entitlements_repo_list(owner, repo, opts)
+> EntitlementUsageMetrics metrics_entitlements_repo_list(owner, repo, opts)
 
 View for listing entitlement token metrics, for a repository.
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 
 # **metrics_packages_list**
-> PackageUsageMetricsResponse metrics_packages_list(owner, repo, opts)
+> PackageUsageMetrics metrics_packages_list(owner, repo, opts)
 
 View for listing package usage metrics, for a repository.
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageUsageMetricsResponse**](PackageUsageMetricsResponse.md)
+[**PackageUsageMetrics**](PackageUsageMetrics.md)
 
 ### Authorization
 

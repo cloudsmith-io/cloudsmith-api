@@ -36,7 +36,7 @@ describe 'StorageRegionsApi' do
   # Get a list of all available storage regions.
   # Get a list of all available storage regions.
   # @param [Hash] opts the optional parameters
-  # @return [Array<StorageRegionResponse>]
+  # @return [Array<StorageRegion>]
   describe 'storage_regions_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -48,7 +48,7 @@ describe 'StorageRegionsApi' do
   # Get a specific storage region.
   # @param slug 
   # @param [Hash] opts the optional parameters
-  # @return [StorageRegionResponse]
+  # @return [StorageRegion]
   describe 'storage_regions_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

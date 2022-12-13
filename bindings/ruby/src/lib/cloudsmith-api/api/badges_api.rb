@@ -39,7 +39,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :shields If true, a shields response will be generated (default to false)
     # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added (default to false)
     # @option opts [String] :style Override the shields.io badge style value. (default to flat-square)
-    # @return [PackageVersionBadgeResponse]
+    # @return [PackageVersionBadge]
     def badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts = {})
       data, _status_code, _headers = badges_version_list_with_http_info(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
       data
@@ -65,7 +65,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :shields If true, a shields response will be generated
     # @option opts [BOOLEAN] :show_latest If true, for latest version badges a &#39;(latest)&#39; suffix is added
     # @option opts [String] :style Override the shields.io badge style value.
-    # @return [Array<(PackageVersionBadgeResponse, Fixnum, Hash)>] PackageVersionBadgeResponse data, response status code and response headers
+    # @return [Array<(PackageVersionBadge, Fixnum, Hash)>] PackageVersionBadge data, response status code and response headers
     def badges_version_list_with_http_info(owner, repo, package_format, package_name, package_version, package_identifiers, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BadgesApi.badges_version_list ...'
@@ -130,7 +130,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PackageVersionBadgeResponse')
+        :return_type => 'PackageVersionBadge')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BadgesApi#badges_version_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

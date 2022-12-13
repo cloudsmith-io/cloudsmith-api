@@ -36,7 +36,7 @@ describe 'StatusApi' do
   # Endpoint to check basic API connectivity.
   # Endpoint to check basic API connectivity.
   # @param [Hash] opts the optional parameters
-  # @return [StatusBasicResponse]
+  # @return [StatusBasic]
   describe 'status_check_basic test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

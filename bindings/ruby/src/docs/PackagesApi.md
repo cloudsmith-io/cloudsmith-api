@@ -64,7 +64,7 @@ Method | HTTP request | Description
 
 
 # **packages_copy**
-> PackageCopyResponse packages_copy(owner, repo, identifier, opts)
+> PackageCopy packages_copy(owner, repo, identifier, opts)
 
 Copy a package to another repository.
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageCopyResponse**](PackageCopyResponse.md)
+[**PackageCopy**](PackageCopy.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ nil (empty response body)
 
 
 # **packages_dependencies**
-> PackageDependenciesResponse packages_dependencies(owner, repo, identifier)
+> PackageDependencies packages_dependencies(owner, repo, identifier)
 
 Get the direct (non-transitive) dependencies list for a package.
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDependenciesResponse**](PackageDependenciesResponse.md)
+[**PackageDependencies**](PackageDependencies.md)
 
 ### Authorization
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_list**
-> Array&lt;PackageResponse&gt; packages_list(owner, repo, opts)
+> Array&lt;Package&gt; packages_list(owner, repo, opts)
 
 Get a list of all packages associated with repository.
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;PackageResponse&gt;**](PackageResponse.md)
+[**Array&lt;Package&gt;**](Package.md)
 
 ### Authorization
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_move**
-> PackageMoveResponse packages_move(owner, repo, identifier, opts)
+> PackageMove packages_move(owner, repo, identifier, opts)
 
 Move a package to another repository.
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageMoveResponse**](PackageMoveResponse.md)
+[**PackageMove**](PackageMove.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_quarantine**
-> PackageQuarantineResponse packages_quarantine(owner, repo, identifier, opts)
+> PackageQuarantine packages_quarantine(owner, repo, identifier, opts)
 
 Quarantine or restore a package.
 
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageQuarantineResponse**](PackageQuarantineResponse.md)
+[**PackageQuarantine**](PackageQuarantine.md)
 
 ### Authorization
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_read**
-> PackageResponse packages_read(owner, repo, identifier)
+> Package packages_read(owner, repo, identifier)
 
 Get a specific package in a repository.
 
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_resync**
-> PackageResyncResponse packages_resync(owner, repo, identifier)
+> PackageResync packages_resync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResyncResponse**](PackageResyncResponse.md)
+[**PackageResync**](PackageResync.md)
 
 ### Authorization
 
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_scan**
-> PackageResponse packages_scan(owner, repo, identifier)
+> Package packages_scan(owner, repo, identifier)
 
 Schedule a package for scanning.
 
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_status**
-> PackageStatusResponse packages_status(owner, repo, identifier)
+> PackageStatus packages_status(owner, repo, identifier)
 
 Get the synchronisation status for a package.
 
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageStatusResponse**](PackageStatusResponse.md)
+[**PackageStatus**](PackageStatus.md)
 
 ### Authorization
 
@@ -682,7 +682,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_tag**
-> PackageResponse packages_tag(owner, repo, identifier, opts)
+> Package packages_tag(owner, repo, identifier, opts)
 
 Add/Replace/Remove tags for a package.
 
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**Package**](Package.md)
 
 ### Authorization
 
@@ -746,7 +746,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_alpine**
-> AlpinePackageUploadResponse packages_upload_alpine(owner, repo, opts)
+> AlpinePackageUpload packages_upload_alpine(owner, repo, opts)
 
 Create a new Alpine package
 
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AlpinePackageUploadResponse**](AlpinePackageUploadResponse.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -807,7 +807,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_cargo**
-> CargoPackageUploadResponse packages_upload_cargo(owner, repo, opts)
+> CargoPackageUpload packages_upload_cargo(owner, repo, opts)
 
 Create a new Cargo package
 
@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CargoPackageUploadResponse**](CargoPackageUploadResponse.md)
+[**CargoPackageUpload**](CargoPackageUpload.md)
 
 ### Authorization
 
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_cocoapods**
-> CocoapodsPackageUploadResponse packages_upload_cocoapods(owner, repo, opts)
+> CocoapodsPackageUpload packages_upload_cocoapods(owner, repo, opts)
 
 Create a new CocoaPods package
 
@@ -915,7 +915,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CocoapodsPackageUploadResponse**](CocoapodsPackageUploadResponse.md)
+[**CocoapodsPackageUpload**](CocoapodsPackageUpload.md)
 
 ### Authorization
 
@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_composer**
-> ComposerPackageUploadResponse packages_upload_composer(owner, repo, opts)
+> ComposerPackageUpload packages_upload_composer(owner, repo, opts)
 
 Create a new Composer package
 
@@ -976,7 +976,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComposerPackageUploadResponse**](ComposerPackageUploadResponse.md)
+[**ComposerPackageUpload**](ComposerPackageUpload.md)
 
 ### Authorization
 
@@ -990,7 +990,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_conan**
-> ConanPackageUploadResponse packages_upload_conan(owner, repo, opts)
+> ConanPackageUpload packages_upload_conan(owner, repo, opts)
 
 Create a new Conan package
 
@@ -1037,7 +1037,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConanPackageUploadResponse**](ConanPackageUploadResponse.md)
+[**ConanPackageUpload**](ConanPackageUpload.md)
 
 ### Authorization
 
@@ -1051,7 +1051,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_conda**
-> CondaPackageUploadResponse packages_upload_conda(owner, repo, opts)
+> CondaPackageUpload packages_upload_conda(owner, repo, opts)
 
 Create a new Conda package
 
@@ -1098,7 +1098,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CondaPackageUploadResponse**](CondaPackageUploadResponse.md)
+[**CondaPackageUpload**](CondaPackageUpload.md)
 
 ### Authorization
 
@@ -1112,7 +1112,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_cran**
-> CranPackageUploadResponse packages_upload_cran(owner, repo, opts)
+> CranPackageUpload packages_upload_cran(owner, repo, opts)
 
 Create a new CRAN package
 
@@ -1159,7 +1159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CranPackageUploadResponse**](CranPackageUploadResponse.md)
+[**CranPackageUpload**](CranPackageUpload.md)
 
 ### Authorization
 
@@ -1173,7 +1173,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_dart**
-> DartPackageUploadResponse packages_upload_dart(owner, repo, opts)
+> DartPackageUpload packages_upload_dart(owner, repo, opts)
 
 Create a new Dart package
 
@@ -1220,7 +1220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DartPackageUploadResponse**](DartPackageUploadResponse.md)
+[**DartPackageUpload**](DartPackageUpload.md)
 
 ### Authorization
 
@@ -1234,7 +1234,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_deb**
-> DebPackageUploadResponse packages_upload_deb(owner, repo, opts)
+> DebPackageUpload packages_upload_deb(owner, repo, opts)
 
 Create a new Debian package
 
@@ -1281,7 +1281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DebPackageUploadResponse**](DebPackageUploadResponse.md)
+[**DebPackageUpload**](DebPackageUpload.md)
 
 ### Authorization
 
@@ -1295,7 +1295,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_docker**
-> DockerPackageUploadResponse packages_upload_docker(owner, repo, opts)
+> DockerPackageUpload packages_upload_docker(owner, repo, opts)
 
 Create a new Docker package
 
@@ -1342,7 +1342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DockerPackageUploadResponse**](DockerPackageUploadResponse.md)
+[**DockerPackageUpload**](DockerPackageUpload.md)
 
 ### Authorization
 
@@ -1356,7 +1356,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_go**
-> GoPackageUploadResponse packages_upload_go(owner, repo, opts)
+> GoPackageUpload packages_upload_go(owner, repo, opts)
 
 Create a new Go package
 
@@ -1403,7 +1403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GoPackageUploadResponse**](GoPackageUploadResponse.md)
+[**GoPackageUpload**](GoPackageUpload.md)
 
 ### Authorization
 
@@ -1417,7 +1417,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_helm**
-> HelmPackageUploadResponse packages_upload_helm(owner, repo, opts)
+> HelmPackageUpload packages_upload_helm(owner, repo, opts)
 
 Create a new Helm package
 
@@ -1464,7 +1464,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HelmPackageUploadResponse**](HelmPackageUploadResponse.md)
+[**HelmPackageUpload**](HelmPackageUpload.md)
 
 ### Authorization
 
@@ -1478,7 +1478,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_luarocks**
-> LuarocksPackageUploadResponse packages_upload_luarocks(owner, repo, opts)
+> LuarocksPackageUpload packages_upload_luarocks(owner, repo, opts)
 
 Create a new LuaRocks package
 
@@ -1525,7 +1525,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LuarocksPackageUploadResponse**](LuarocksPackageUploadResponse.md)
+[**LuarocksPackageUpload**](LuarocksPackageUpload.md)
 
 ### Authorization
 
@@ -1539,7 +1539,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_maven**
-> MavenPackageUploadResponse packages_upload_maven(owner, repo, opts)
+> MavenPackageUpload packages_upload_maven(owner, repo, opts)
 
 Create a new Maven package
 
@@ -1586,7 +1586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MavenPackageUploadResponse**](MavenPackageUploadResponse.md)
+[**MavenPackageUpload**](MavenPackageUpload.md)
 
 ### Authorization
 
@@ -1600,7 +1600,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_npm**
-> NpmPackageUploadResponse packages_upload_npm(owner, repo, opts)
+> NpmPackageUpload packages_upload_npm(owner, repo, opts)
 
 Create a new npm package
 
@@ -1647,7 +1647,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NpmPackageUploadResponse**](NpmPackageUploadResponse.md)
+[**NpmPackageUpload**](NpmPackageUpload.md)
 
 ### Authorization
 
@@ -1661,7 +1661,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_nuget**
-> NugetPackageUploadResponse packages_upload_nuget(owner, repo, opts)
+> NugetPackageUpload packages_upload_nuget(owner, repo, opts)
 
 Create a new NuGet package
 
@@ -1708,7 +1708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NugetPackageUploadResponse**](NugetPackageUploadResponse.md)
+[**NugetPackageUpload**](NugetPackageUpload.md)
 
 ### Authorization
 
@@ -1722,7 +1722,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_p2**
-> P2PackageUploadResponse packages_upload_p2(owner, repo, opts)
+> P2PackageUpload packages_upload_p2(owner, repo, opts)
 
 Create a new P2 package
 
@@ -1769,7 +1769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**P2PackageUploadResponse**](P2PackageUploadResponse.md)
+[**P2PackageUpload**](P2PackageUpload.md)
 
 ### Authorization
 
@@ -1783,7 +1783,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_python**
-> PythonPackageUploadResponse packages_upload_python(owner, repo, opts)
+> PythonPackageUpload packages_upload_python(owner, repo, opts)
 
 Create a new Python package
 
@@ -1830,7 +1830,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PythonPackageUploadResponse**](PythonPackageUploadResponse.md)
+[**PythonPackageUpload**](PythonPackageUpload.md)
 
 ### Authorization
 
@@ -1844,7 +1844,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_raw**
-> RawPackageUploadResponse packages_upload_raw(owner, repo, opts)
+> RawPackageUpload packages_upload_raw(owner, repo, opts)
 
 Create a new Raw package
 
@@ -1891,7 +1891,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RawPackageUploadResponse**](RawPackageUploadResponse.md)
+[**RawPackageUpload**](RawPackageUpload.md)
 
 ### Authorization
 
@@ -1905,7 +1905,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_rpm**
-> RpmPackageUploadResponse packages_upload_rpm(owner, repo, opts)
+> RpmPackageUpload packages_upload_rpm(owner, repo, opts)
 
 Create a new RedHat package
 
@@ -1952,7 +1952,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUploadResponse**](RpmPackageUploadResponse.md)
+[**RpmPackageUpload**](RpmPackageUpload.md)
 
 ### Authorization
 
@@ -1966,7 +1966,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_ruby**
-> RubyPackageUploadResponse packages_upload_ruby(owner, repo, opts)
+> RubyPackageUpload packages_upload_ruby(owner, repo, opts)
 
 Create a new Ruby package
 
@@ -2013,7 +2013,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RubyPackageUploadResponse**](RubyPackageUploadResponse.md)
+[**RubyPackageUpload**](RubyPackageUpload.md)
 
 ### Authorization
 
@@ -2027,7 +2027,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_terraform**
-> TerraformPackageUploadResponse packages_upload_terraform(owner, repo, opts)
+> TerraformPackageUpload packages_upload_terraform(owner, repo, opts)
 
 Create a new Terraform package
 
@@ -2074,7 +2074,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TerraformPackageUploadResponse**](TerraformPackageUploadResponse.md)
+[**TerraformPackageUpload**](TerraformPackageUpload.md)
 
 ### Authorization
 
@@ -2088,7 +2088,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_upload_vagrant**
-> VagrantPackageUploadResponse packages_upload_vagrant(owner, repo, opts)
+> VagrantPackageUpload packages_upload_vagrant(owner, repo, opts)
 
 Create a new Vagrant package
 
@@ -2135,7 +2135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VagrantPackageUploadResponse**](VagrantPackageUploadResponse.md)
+[**VagrantPackageUpload**](VagrantPackageUpload.md)
 
 ### Authorization
 

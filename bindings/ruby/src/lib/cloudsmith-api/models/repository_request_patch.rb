@@ -119,6 +119,28 @@ class RepositoryRequestPatch
   # This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.
   attr_accessor :view_statistics
 
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -382,7 +404,127 @@ class RepositoryRequestPatch
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    content_kind_validator = EnumAttributeValidator.new('String', ['Standard', 'Distribution', 'Upstream'])
+    return false unless content_kind_validator.valid?(@content_kind)
+    copy_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless copy_packages_validator.valid?(@copy_packages)
+    default_privilege_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
+    return false unless default_privilege_validator.valid?(@default_privilege)
+    delete_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    return false unless delete_packages_validator.valid?(@delete_packages)
+    move_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless move_packages_validator.valid?(@move_packages)
+    replace_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    return false unless replace_packages_validator.valid?(@replace_packages)
+    repository_type_str_validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
+    return false unless repository_type_str_validator.valid?(@repository_type_str)
+    resync_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    return false unless resync_packages_validator.valid?(@resync_packages)
+    scan_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless scan_packages_validator.valid?(@scan_packages)
+    view_statistics_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless view_statistics_validator.valid?(@view_statistics)
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] content_kind Object to be assigned
+  def content_kind=(content_kind)
+    validator = EnumAttributeValidator.new('String', ['Standard', 'Distribution', 'Upstream'])
+    unless validator.valid?(content_kind)
+      fail ArgumentError, 'invalid value for "content_kind", must be one of #{validator.allowable_values}.'
+    end
+    @content_kind = content_kind
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] copy_packages Object to be assigned
+  def copy_packages=(copy_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(copy_packages)
+      fail ArgumentError, 'invalid value for "copy_packages", must be one of #{validator.allowable_values}.'
+    end
+    @copy_packages = copy_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] default_privilege Object to be assigned
+  def default_privilege=(default_privilege)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
+    unless validator.valid?(default_privilege)
+      fail ArgumentError, 'invalid value for "default_privilege", must be one of #{validator.allowable_values}.'
+    end
+    @default_privilege = default_privilege
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] delete_packages Object to be assigned
+  def delete_packages=(delete_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    unless validator.valid?(delete_packages)
+      fail ArgumentError, 'invalid value for "delete_packages", must be one of #{validator.allowable_values}.'
+    end
+    @delete_packages = delete_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] move_packages Object to be assigned
+  def move_packages=(move_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(move_packages)
+      fail ArgumentError, 'invalid value for "move_packages", must be one of #{validator.allowable_values}.'
+    end
+    @move_packages = move_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] replace_packages Object to be assigned
+  def replace_packages=(replace_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    unless validator.valid?(replace_packages)
+      fail ArgumentError, 'invalid value for "replace_packages", must be one of #{validator.allowable_values}.'
+    end
+    @replace_packages = replace_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] repository_type_str Object to be assigned
+  def repository_type_str=(repository_type_str)
+    validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
+    unless validator.valid?(repository_type_str)
+      fail ArgumentError, 'invalid value for "repository_type_str", must be one of #{validator.allowable_values}.'
+    end
+    @repository_type_str = repository_type_str
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] resync_packages Object to be assigned
+  def resync_packages=(resync_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    unless validator.valid?(resync_packages)
+      fail ArgumentError, 'invalid value for "resync_packages", must be one of #{validator.allowable_values}.'
+    end
+    @resync_packages = resync_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] scan_packages Object to be assigned
+  def scan_packages=(scan_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(scan_packages)
+      fail ArgumentError, 'invalid value for "scan_packages", must be one of #{validator.allowable_values}.'
+    end
+    @scan_packages = scan_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] view_statistics Object to be assigned
+  def view_statistics=(view_statistics)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(view_statistics)
+      fail ArgumentError, 'invalid value for "view_statistics", must be one of #{validator.allowable_values}.'
+    end
+    @view_statistics = view_statistics
   end
 
   # Checks equality by comparing each attribute.

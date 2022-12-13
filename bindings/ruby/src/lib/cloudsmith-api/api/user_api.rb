@@ -22,7 +22,7 @@ module CloudsmithApi
     # Provide a brief for the current user (if any).
     # Provide a brief for the current user (if any).
     # @param [Hash] opts the optional parameters
-    # @return [UserBriefResponse]
+    # @return [UserBrief]
     def user_self(opts = {})
       data, _status_code, _headers = user_self_with_http_info(opts)
       data
@@ -31,7 +31,7 @@ module CloudsmithApi
     # Provide a brief for the current user (if any).
     # Provide a brief for the current user (if any).
     # @param [Hash] opts the optional parameters
-    # @return [Array<(UserBriefResponse, Fixnum, Hash)>] UserBriefResponse data, response status code and response headers
+    # @return [Array<(UserBrief, Fixnum, Hash)>] UserBrief data, response status code and response headers
     def user_self_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserApi.user_self ...'
@@ -61,7 +61,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'UserBriefResponse')
+        :return_type => 'UserBrief')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserApi#user_self\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -71,7 +71,7 @@ module CloudsmithApi
     # Retrieve the API key/token for the authenticated user.
     # @param [Hash] opts the optional parameters
     # @option opts [UserAuthTokenRequest] :data 
-    # @return [UserAuthTokenResponse]
+    # @return [UserAuthToken]
     def user_token_create(opts = {})
       data, _status_code, _headers = user_token_create_with_http_info(opts)
       data
@@ -81,7 +81,7 @@ module CloudsmithApi
     # Retrieve the API key/token for the authenticated user.
     # @param [Hash] opts the optional parameters
     # @option opts [UserAuthTokenRequest] :data 
-    # @return [Array<(UserAuthTokenResponse, Fixnum, Hash)>] UserAuthTokenResponse data, response status code and response headers
+    # @return [Array<(UserAuthToken, Fixnum, Hash)>] UserAuthToken data, response status code and response headers
     def user_token_create_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserApi.user_token_create ...'
@@ -111,7 +111,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'UserAuthTokenResponse')
+        :return_type => 'UserAuthToken')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserApi#user_token_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

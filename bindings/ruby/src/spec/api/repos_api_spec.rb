@@ -38,7 +38,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryCreateRequest] :data 
-  # @return [RepositoryCreateResponse]
+  # @return [RepositoryCreate]
   describe 'repos_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -65,7 +65,7 @@ describe 'ReposApi' do
   # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryGpgKeyCreate] :data 
-  # @return [RepositoryGpgKeyResponse]
+  # @return [RepositoryGpgKey]
   describe 'repos_gpg_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -78,7 +78,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RepositoryGpgKeyResponse]
+  # @return [RepositoryGpgKey]
   describe 'repos_gpg_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -91,7 +91,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RepositoryGpgKeyResponse]
+  # @return [RepositoryGpgKey]
   describe 'repos_gpg_regenerate test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -105,7 +105,7 @@ describe 'ReposApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<RepositoryResponse>]
+  # @return [Array<Repository>]
   describe 'repos_namespace_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -119,7 +119,7 @@ describe 'ReposApi' do
   # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryRequestPatch] :data 
-  # @return [RepositoryResponse]
+  # @return [Repository]
   describe 'repos_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -134,7 +134,7 @@ describe 'ReposApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [RepositoryPrivilegeInputResponse]
+  # @return [RepositoryPrivilegeInput]
   describe 'repos_privileges_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -175,7 +175,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RepositoryResponse]
+  # @return [Repository]
   describe 'repos_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -189,7 +189,7 @@ describe 'ReposApi' do
   # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryRsaKeyCreate] :data 
-  # @return [RepositoryRsaKeyResponse]
+  # @return [RepositoryRsaKey]
   describe 'repos_rsa_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -202,7 +202,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RepositoryRsaKeyResponse]
+  # @return [RepositoryRsaKey]
   describe 'repos_rsa_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -215,7 +215,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RepositoryRsaKeyResponse]
+  # @return [RepositoryRsaKey]
   describe 'repos_rsa_regenerate test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -228,7 +228,7 @@ describe 'ReposApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<RepositoryResponse>]
+  # @return [Array<Repository>]
   describe 'repos_user_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

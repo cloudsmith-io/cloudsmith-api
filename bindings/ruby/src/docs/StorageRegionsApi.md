@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **storage_regions_list**
-> Array&lt;StorageRegionResponse&gt; storage_regions_list
+> Array&lt;StorageRegion&gt; storage_regions_list
 
 Get a list of all available storage regions.
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;StorageRegionResponse&gt;**](StorageRegionResponse.md)
+[**Array&lt;StorageRegion&gt;**](StorageRegion.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 
 
 # **storage_regions_read**
-> StorageRegionResponse storage_regions_read(slug)
+> StorageRegion storage_regions_read(slug)
 
 Get a specific storage region.
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StorageRegionResponse**](StorageRegionResponse.md)
+[**StorageRegion**](StorageRegion.md)
 
 ### Authorization
 

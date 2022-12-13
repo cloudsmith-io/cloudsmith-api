@@ -26,6 +26,28 @@ class RepositoryPrivilegeDict
   # The user identifier (slug).
   attr_accessor :user
 
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -86,7 +108,19 @@ class RepositoryPrivilegeDict
   # @return true if the model is valid
   def valid?
     return false if @privilege.nil?
+    privilege_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless privilege_validator.valid?(@privilege)
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] privilege Object to be assigned
+  def privilege=(privilege)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(privilege)
+      fail ArgumentError, 'invalid value for "privilege", must be one of #{validator.allowable_values}.'
+    end
+    @privilege = privilege
   end
 
   # Checks equality by comparing each attribute.

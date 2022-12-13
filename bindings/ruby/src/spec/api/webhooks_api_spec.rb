@@ -39,7 +39,7 @@ describe 'WebhooksApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryWebhookRequest] :data 
-  # @return [RepositoryWebhookResponse]
+  # @return [RepositoryWebhook]
   describe 'webhooks_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -68,7 +68,7 @@ describe 'WebhooksApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<RepositoryWebhookResponse>]
+  # @return [Array<RepositoryWebhook>]
   describe 'webhooks_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -83,7 +83,7 @@ describe 'WebhooksApi' do
   # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [RepositoryWebhookRequestPatch] :data 
-  # @return [RepositoryWebhookResponse]
+  # @return [RepositoryWebhook]
   describe 'webhooks_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -97,7 +97,7 @@ describe 'WebhooksApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RepositoryWebhookResponse]
+  # @return [RepositoryWebhook]
   describe 'webhooks_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

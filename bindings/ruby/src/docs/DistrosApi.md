@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **distros_list**
-> Array&lt;DistributionResponse&gt; distros_list
+> Array&lt;DistributionFull&gt; distros_list
 
 Get a list of all supported distributions.
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;DistributionResponse&gt;**](DistributionResponse.md)
+[**Array&lt;DistributionFull&gt;**](DistributionFull.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 
 
 # **distros_read**
-> DistributionResponse distros_read(slug)
+> DistributionFull distros_read(slug)
 
 View for viewing/listing distributions.
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DistributionResponse**](DistributionResponse.md)
+[**DistributionFull**](DistributionFull.md)
 
 ### Authorization
 

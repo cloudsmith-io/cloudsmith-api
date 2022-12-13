@@ -35,6 +35,10 @@ describe 'PackageDependency' do
   describe 'test attribute "dep_type"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Depends", "Pre-Depends", "Recommends", "Suggests", "Enhances", "Replaces", "Breaks", "Built-Using", "Build-Depends", "Build-Depends-Indep", "Build-Conflicts", "Build-Conflicts-Indep", "Conflicts", "Provides", "Obsoletes", "Requires", "Runtime", "Development", "Compile", "Provided", "Test", "System", "Import", "Excluded"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.dep_type = value }.not_to raise_error
+      # end
     end
   end
 
@@ -47,6 +51,10 @@ describe 'PackageDependency' do
   describe 'test attribute "operator"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["=", "!=", "<", "<<", "<=", ">", ">>", ">=", "~=", "~>", "matches"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.operator = value }.not_to raise_error
+      # end
     end
   end
 

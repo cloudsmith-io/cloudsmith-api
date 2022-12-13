@@ -24,7 +24,7 @@ module CloudsmithApi
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryCreateRequest] :data 
-    # @return [RepositoryCreateResponse]
+    # @return [RepositoryCreate]
     def repos_create(owner, opts = {})
       data, _status_code, _headers = repos_create_with_http_info(owner, opts)
       data
@@ -35,7 +35,7 @@ module CloudsmithApi
     # @param owner 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryCreateRequest] :data 
-    # @return [Array<(RepositoryCreateResponse, Fixnum, Hash)>] RepositoryCreateResponse data, response status code and response headers
+    # @return [Array<(RepositoryCreate, Fixnum, Hash)>] RepositoryCreate data, response status code and response headers
     def repos_create_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_create ...'
@@ -69,7 +69,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryCreateResponse')
+        :return_type => 'RepositoryCreate')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -140,7 +140,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryGpgKeyCreate] :data 
-    # @return [RepositoryGpgKeyResponse]
+    # @return [RepositoryGpgKey]
     def repos_gpg_create(owner, identifier, opts = {})
       data, _status_code, _headers = repos_gpg_create_with_http_info(owner, identifier, opts)
       data
@@ -152,7 +152,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryGpgKeyCreate] :data 
-    # @return [Array<(RepositoryGpgKeyResponse, Fixnum, Hash)>] RepositoryGpgKeyResponse data, response status code and response headers
+    # @return [Array<(RepositoryGpgKey, Fixnum, Hash)>] RepositoryGpgKey data, response status code and response headers
     def repos_gpg_create_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_gpg_create ...'
@@ -190,7 +190,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGpgKeyResponse')
+        :return_type => 'RepositoryGpgKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_gpg_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -201,7 +201,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryGpgKeyResponse]
+    # @return [RepositoryGpgKey]
     def repos_gpg_list(owner, identifier, opts = {})
       data, _status_code, _headers = repos_gpg_list_with_http_info(owner, identifier, opts)
       data
@@ -212,7 +212,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryGpgKeyResponse, Fixnum, Hash)>] RepositoryGpgKeyResponse data, response status code and response headers
+    # @return [Array<(RepositoryGpgKey, Fixnum, Hash)>] RepositoryGpgKey data, response status code and response headers
     def repos_gpg_list_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_gpg_list ...'
@@ -250,7 +250,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGpgKeyResponse')
+        :return_type => 'RepositoryGpgKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_gpg_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -261,7 +261,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryGpgKeyResponse]
+    # @return [RepositoryGpgKey]
     def repos_gpg_regenerate(owner, identifier, opts = {})
       data, _status_code, _headers = repos_gpg_regenerate_with_http_info(owner, identifier, opts)
       data
@@ -272,7 +272,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryGpgKeyResponse, Fixnum, Hash)>] RepositoryGpgKeyResponse data, response status code and response headers
+    # @return [Array<(RepositoryGpgKey, Fixnum, Hash)>] RepositoryGpgKey data, response status code and response headers
     def repos_gpg_regenerate_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_gpg_regenerate ...'
@@ -310,7 +310,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGpgKeyResponse')
+        :return_type => 'RepositoryGpgKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_gpg_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -322,7 +322,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<RepositoryResponse>]
+    # @return [Array<Repository>]
     def repos_namespace_list(owner, opts = {})
       data, _status_code, _headers = repos_namespace_list_with_http_info(owner, opts)
       data
@@ -334,7 +334,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<RepositoryResponse>, Fixnum, Hash)>] Array<RepositoryResponse> data, response status code and response headers
+    # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
     def repos_namespace_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_namespace_list ...'
@@ -370,7 +370,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RepositoryResponse>')
+        :return_type => 'Array<Repository>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_namespace_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -382,7 +382,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryRequestPatch] :data 
-    # @return [RepositoryResponse]
+    # @return [Repository]
     def repos_partial_update(owner, identifier, opts = {})
       data, _status_code, _headers = repos_partial_update_with_http_info(owner, identifier, opts)
       data
@@ -394,7 +394,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryRequestPatch] :data 
-    # @return [Array<(RepositoryResponse, Fixnum, Hash)>] RepositoryResponse data, response status code and response headers
+    # @return [Array<(Repository, Fixnum, Hash)>] Repository data, response status code and response headers
     def repos_partial_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_partial_update ...'
@@ -432,7 +432,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryResponse')
+        :return_type => 'Repository')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -445,7 +445,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [RepositoryPrivilegeInputResponse]
+    # @return [RepositoryPrivilegeInput]
     def repos_privileges_list(owner, identifier, opts = {})
       data, _status_code, _headers = repos_privileges_list_with_http_info(owner, identifier, opts)
       data
@@ -458,7 +458,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(RepositoryPrivilegeInputResponse, Fixnum, Hash)>] RepositoryPrivilegeInputResponse data, response status code and response headers
+    # @return [Array<(RepositoryPrivilegeInput, Fixnum, Hash)>] RepositoryPrivilegeInput data, response status code and response headers
     def repos_privileges_list_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_privileges_list ...'
@@ -498,7 +498,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryPrivilegeInputResponse')
+        :return_type => 'RepositoryPrivilegeInput')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_privileges_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -631,7 +631,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryResponse]
+    # @return [Repository]
     def repos_read(owner, identifier, opts = {})
       data, _status_code, _headers = repos_read_with_http_info(owner, identifier, opts)
       data
@@ -642,7 +642,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryResponse, Fixnum, Hash)>] RepositoryResponse data, response status code and response headers
+    # @return [Array<(Repository, Fixnum, Hash)>] Repository data, response status code and response headers
     def repos_read_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_read ...'
@@ -680,7 +680,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryResponse')
+        :return_type => 'Repository')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -692,7 +692,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryRsaKeyCreate] :data 
-    # @return [RepositoryRsaKeyResponse]
+    # @return [RepositoryRsaKey]
     def repos_rsa_create(owner, identifier, opts = {})
       data, _status_code, _headers = repos_rsa_create_with_http_info(owner, identifier, opts)
       data
@@ -704,7 +704,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [RepositoryRsaKeyCreate] :data 
-    # @return [Array<(RepositoryRsaKeyResponse, Fixnum, Hash)>] RepositoryRsaKeyResponse data, response status code and response headers
+    # @return [Array<(RepositoryRsaKey, Fixnum, Hash)>] RepositoryRsaKey data, response status code and response headers
     def repos_rsa_create_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_rsa_create ...'
@@ -742,7 +742,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryRsaKeyResponse')
+        :return_type => 'RepositoryRsaKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_rsa_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -753,7 +753,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryRsaKeyResponse]
+    # @return [RepositoryRsaKey]
     def repos_rsa_list(owner, identifier, opts = {})
       data, _status_code, _headers = repos_rsa_list_with_http_info(owner, identifier, opts)
       data
@@ -764,7 +764,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryRsaKeyResponse, Fixnum, Hash)>] RepositoryRsaKeyResponse data, response status code and response headers
+    # @return [Array<(RepositoryRsaKey, Fixnum, Hash)>] RepositoryRsaKey data, response status code and response headers
     def repos_rsa_list_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_rsa_list ...'
@@ -802,7 +802,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryRsaKeyResponse')
+        :return_type => 'RepositoryRsaKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_rsa_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -813,7 +813,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryRsaKeyResponse]
+    # @return [RepositoryRsaKey]
     def repos_rsa_regenerate(owner, identifier, opts = {})
       data, _status_code, _headers = repos_rsa_regenerate_with_http_info(owner, identifier, opts)
       data
@@ -824,7 +824,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryRsaKeyResponse, Fixnum, Hash)>] RepositoryRsaKeyResponse data, response status code and response headers
+    # @return [Array<(RepositoryRsaKey, Fixnum, Hash)>] RepositoryRsaKey data, response status code and response headers
     def repos_rsa_regenerate_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_rsa_regenerate ...'
@@ -862,7 +862,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryRsaKeyResponse')
+        :return_type => 'RepositoryRsaKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_rsa_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -873,7 +873,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<RepositoryResponse>]
+    # @return [Array<Repository>]
     def repos_user_list(opts = {})
       data, _status_code, _headers = repos_user_list_with_http_info(opts)
       data
@@ -884,7 +884,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<RepositoryResponse>, Fixnum, Hash)>] Array<RepositoryResponse> data, response status code and response headers
+    # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
     def repos_user_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_user_list ...'
@@ -916,7 +916,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<RepositoryResponse>')
+        :return_type => 'Array<Repository>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_user_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

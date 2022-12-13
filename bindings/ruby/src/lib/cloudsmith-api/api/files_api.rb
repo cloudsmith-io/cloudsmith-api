@@ -93,7 +93,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [PackageFileUploadRequest] :data 
-    # @return [PackageFileUploadResponse]
+    # @return [PackageFileUpload]
     def files_complete(owner, repo, identifier, opts = {})
       data, _status_code, _headers = files_complete_with_http_info(owner, repo, identifier, opts)
       data
@@ -106,7 +106,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [PackageFileUploadRequest] :data 
-    # @return [Array<(PackageFileUploadResponse, Fixnum, Hash)>] PackageFileUploadResponse data, response status code and response headers
+    # @return [Array<(PackageFileUpload, Fixnum, Hash)>] PackageFileUpload data, response status code and response headers
     def files_complete_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.files_complete ...'
@@ -148,7 +148,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PackageFileUploadResponse')
+        :return_type => 'PackageFileUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#files_complete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -160,7 +160,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackageFileUploadRequest] :data 
-    # @return [PackageFileUploadResponse]
+    # @return [PackageFileUpload]
     def files_create(owner, repo, opts = {})
       data, _status_code, _headers = files_create_with_http_info(owner, repo, opts)
       data
@@ -172,7 +172,7 @@ module CloudsmithApi
     # @param repo 
     # @param [Hash] opts the optional parameters
     # @option opts [PackageFileUploadRequest] :data 
-    # @return [Array<(PackageFileUploadResponse, Fixnum, Hash)>] PackageFileUploadResponse data, response status code and response headers
+    # @return [Array<(PackageFileUpload, Fixnum, Hash)>] PackageFileUpload data, response status code and response headers
     def files_create_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.files_create ...'
@@ -210,7 +210,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PackageFileUploadResponse')
+        :return_type => 'PackageFileUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#files_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -224,7 +224,7 @@ module CloudsmithApi
     # @param filename The filename of the file being uploaded
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :part_number The part number to be uploaded next
-    # @return [PackageFilePartsUploadResponse]
+    # @return [PackageFilePartsUpload]
     def files_info(owner, repo, identifier, filename, opts = {})
       data, _status_code, _headers = files_info_with_http_info(owner, repo, identifier, filename, opts)
       data
@@ -238,7 +238,7 @@ module CloudsmithApi
     # @param filename The filename of the file being uploaded
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :part_number The part number to be uploaded next
-    # @return [Array<(PackageFilePartsUploadResponse, Fixnum, Hash)>] PackageFilePartsUploadResponse data, response status code and response headers
+    # @return [Array<(PackageFilePartsUpload, Fixnum, Hash)>] PackageFilePartsUpload data, response status code and response headers
     def files_info_with_http_info(owner, repo, identifier, filename, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.files_info ...'
@@ -286,7 +286,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PackageFilePartsUploadResponse')
+        :return_type => 'PackageFilePartsUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilesApi#files_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

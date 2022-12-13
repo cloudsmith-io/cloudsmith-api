@@ -23,7 +23,7 @@ module CloudsmithApi
     # Provide a brief for the specified user (if any).
     # @param slug 
     # @param [Hash] opts the optional parameters
-    # @return [UserProfileResponse]
+    # @return [UserProfile]
     def users_profile_read(slug, opts = {})
       data, _status_code, _headers = users_profile_read_with_http_info(slug, opts)
       data
@@ -33,7 +33,7 @@ module CloudsmithApi
     # Provide a brief for the specified user (if any).
     # @param slug 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(UserProfileResponse, Fixnum, Hash)>] UserProfileResponse data, response status code and response headers
+    # @return [Array<(UserProfile, Fixnum, Hash)>] UserProfile data, response status code and response headers
     def users_profile_read_with_http_info(slug, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.users_profile_read ...'
@@ -67,7 +67,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'UserProfileResponse')
+        :return_type => 'UserProfile')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsersApi#users_profile_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

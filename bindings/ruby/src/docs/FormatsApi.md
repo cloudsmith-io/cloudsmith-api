@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **formats_list**
-> Array&lt;FormatResponse&gt; formats_list
+> Array&lt;Format&gt; formats_list
 
 Get a list of all supported package formats.
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;FormatResponse&gt;**](FormatResponse.md)
+[**Array&lt;Format&gt;**](Format.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 
 
 # **formats_read**
-> FormatResponse formats_read(slug)
+> Format formats_read(slug)
 
 Get a specific supported package format.
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FormatResponse**](FormatResponse.md)
+[**Format**](Format.md)
 
 ### Authorization
 

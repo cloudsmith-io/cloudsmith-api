@@ -13,7 +13,6 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-# The entitlements that have been synchronised.
 class RepositoryToken
   attr_accessor :clients
 
@@ -106,6 +105,28 @@ class RepositoryToken
   attr_accessor :user
 
   attr_accessor :user_url
+
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
@@ -380,8 +401,32 @@ class RepositoryToken
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    limit_bandwidth_unit_validator = EnumAttributeValidator.new('String', ['Byte', 'Kilobyte', 'Megabyte', 'Gigabyte', 'Terabyte', 'Petabyte', 'Exabyte', 'Zettabyte', 'Yottabyte'])
+    return false unless limit_bandwidth_unit_validator.valid?(@limit_bandwidth_unit)
     return false if @name.nil?
+    scheduled_reset_period_validator = EnumAttributeValidator.new('String', ['Never Reset', 'Daily', 'Weekly', 'Fortnightly', 'Monthly', 'Bi-Monthly', 'Quarterly', 'Every 6 months', 'Annual'])
+    return false unless scheduled_reset_period_validator.valid?(@scheduled_reset_period)
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] limit_bandwidth_unit Object to be assigned
+  def limit_bandwidth_unit=(limit_bandwidth_unit)
+    validator = EnumAttributeValidator.new('String', ['Byte', 'Kilobyte', 'Megabyte', 'Gigabyte', 'Terabyte', 'Petabyte', 'Exabyte', 'Zettabyte', 'Yottabyte'])
+    unless validator.valid?(limit_bandwidth_unit)
+      fail ArgumentError, 'invalid value for "limit_bandwidth_unit", must be one of #{validator.allowable_values}.'
+    end
+    @limit_bandwidth_unit = limit_bandwidth_unit
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] scheduled_reset_period Object to be assigned
+  def scheduled_reset_period=(scheduled_reset_period)
+    validator = EnumAttributeValidator.new('String', ['Never Reset', 'Daily', 'Weekly', 'Fortnightly', 'Monthly', 'Bi-Monthly', 'Quarterly', 'Every 6 months', 'Annual'])
+    unless validator.valid?(scheduled_reset_period)
+      fail ArgumentError, 'invalid value for "scheduled_reset_period", must be one of #{validator.allowable_values}.'
+    end
+    @scheduled_reset_period = scheduled_reset_period
   end
 
   # Checks equality by comparing each attribute.

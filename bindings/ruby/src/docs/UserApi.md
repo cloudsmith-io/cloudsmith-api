@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **user_self**
-> UserBriefResponse user_self
+> UserBrief user_self
 
 Provide a brief for the current user (if any).
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserBriefResponse**](UserBriefResponse.md)
+[**UserBrief**](UserBrief.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 
 
 # **user_token_create**
-> UserAuthTokenResponse user_token_create(opts)
+> UserAuthToken user_token_create(opts)
 
 Retrieve the API key/token for the authenticated user.
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserAuthTokenResponse**](UserAuthTokenResponse.md)
+[**UserAuthToken**](UserAuthToken.md)
 
 ### Authorization
 

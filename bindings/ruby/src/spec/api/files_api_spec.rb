@@ -55,7 +55,7 @@ describe 'FilesApi' do
   # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [PackageFileUploadRequest] :data 
-  # @return [PackageFileUploadResponse]
+  # @return [PackageFileUpload]
   describe 'files_complete test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -69,7 +69,7 @@ describe 'FilesApi' do
   # @param repo 
   # @param [Hash] opts the optional parameters
   # @option opts [PackageFileUploadRequest] :data 
-  # @return [PackageFileUploadResponse]
+  # @return [PackageFileUpload]
   describe 'files_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -85,7 +85,7 @@ describe 'FilesApi' do
   # @param filename The filename of the file being uploaded
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :part_number The part number to be uploaded next
-  # @return [PackageFilePartsUploadResponse]
+  # @return [PackageFilePartsUpload]
   describe 'files_info test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
