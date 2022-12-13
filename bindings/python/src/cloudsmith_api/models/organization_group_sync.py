@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -48,7 +48,7 @@ class OrganizationGroupSync(object):
         'team': 'team'
     }
 
-    def __init__(self, idp_key=None, idp_value=None, role=None, slug_perm=None, team=None, _configuration=None):  # noqa: E501
+    def __init__(self, idp_key=None, idp_value=None, role='Member', slug_perm=None, team=None, _configuration=None):  # noqa: E501
         """OrganizationGroupSync - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -73,7 +73,6 @@ class OrganizationGroupSync(object):
     def idp_key(self):
         """Gets the idp_key of this OrganizationGroupSync.
 
-        
 
         :return: The idp_key of this OrganizationGroupSync.
         :rtype: str
@@ -84,13 +83,18 @@ class OrganizationGroupSync(object):
     def idp_key(self, idp_key):
         """Sets the idp_key of this OrganizationGroupSync.
 
-        
 
         :param idp_key: The idp_key of this OrganizationGroupSync.
         :type: str
         """
         if self._configuration.client_side_validation and idp_key is None:
             raise ValueError("Invalid value for `idp_key`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                idp_key is not None and len(idp_key) > 100):
+            raise ValueError("Invalid value for `idp_key`, length must be less than or equal to `100`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                idp_key is not None and len(idp_key) < 1):
+            raise ValueError("Invalid value for `idp_key`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._idp_key = idp_key
 
@@ -98,7 +102,6 @@ class OrganizationGroupSync(object):
     def idp_value(self):
         """Gets the idp_value of this OrganizationGroupSync.
 
-        
 
         :return: The idp_value of this OrganizationGroupSync.
         :rtype: str
@@ -109,13 +112,18 @@ class OrganizationGroupSync(object):
     def idp_value(self, idp_value):
         """Sets the idp_value of this OrganizationGroupSync.
 
-        
 
         :param idp_value: The idp_value of this OrganizationGroupSync.
         :type: str
         """
         if self._configuration.client_side_validation and idp_value is None:
             raise ValueError("Invalid value for `idp_value`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                idp_value is not None and len(idp_value) > 100):
+            raise ValueError("Invalid value for `idp_value`, length must be less than or equal to `100`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                idp_value is not None and len(idp_value) < 1):
+            raise ValueError("Invalid value for `idp_value`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._idp_value = idp_value
 
@@ -123,7 +131,7 @@ class OrganizationGroupSync(object):
     def role(self):
         """Gets the role of this OrganizationGroupSync.
 
-                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.         
+         User role within the team.   A `manager` is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A 'member' is a normal user that inherits the settings and privileges  assigned to the team. 
 
         :return: The role of this OrganizationGroupSync.
         :rtype: str
@@ -134,7 +142,7 @@ class OrganizationGroupSync(object):
     def role(self, role):
         """Sets the role of this OrganizationGroupSync.
 
-                User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.         
+         User role within the team.   A `manager` is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A 'member' is a normal user that inherits the settings and privileges  assigned to the team. 
 
         :param role: The role of this OrganizationGroupSync.
         :type: str
@@ -146,7 +154,6 @@ class OrganizationGroupSync(object):
     def slug_perm(self):
         """Gets the slug_perm of this OrganizationGroupSync.
 
-        
 
         :return: The slug_perm of this OrganizationGroupSync.
         :rtype: str
@@ -157,11 +164,16 @@ class OrganizationGroupSync(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this OrganizationGroupSync.
 
-        
 
         :param slug_perm: The slug_perm of this OrganizationGroupSync.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and len(slug_perm) < 1):
+            raise ValueError("Invalid value for `slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
 
@@ -169,7 +181,6 @@ class OrganizationGroupSync(object):
     def team(self):
         """Gets the team of this OrganizationGroupSync.
 
-        
 
         :return: The team of this OrganizationGroupSync.
         :rtype: str
@@ -180,13 +191,15 @@ class OrganizationGroupSync(object):
     def team(self, team):
         """Sets the team of this OrganizationGroupSync.
 
-        
 
         :param team: The team of this OrganizationGroupSync.
         :type: str
         """
         if self._configuration.client_side_validation and team is None:
             raise ValueError("Invalid value for `team`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                team is not None and not re.search('^[-a-zA-Z0-9_]+$', team)):  # noqa: E501
+            raise ValueError(r"Invalid value for `team`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._team = team
 

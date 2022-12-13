@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -34,14 +34,14 @@ class Format(object):
     """
     swagger_types = {
         'description': 'str',
-        'distributions': 'list[FormatsDistributions]',
+        'distributions': 'list[Distribution]',
         'extensions': 'list[str]',
         'name': 'str',
         'premium': 'bool',
         'premium_plan_id': 'str',
         'premium_plan_name': 'str',
         'slug': 'str',
-        'supports': 'object'
+        'supports': 'FormatSupport'
     }
 
     attribute_map = {
@@ -108,6 +108,9 @@ class Format(object):
         """
         if self._configuration.client_side_validation and description is None:
             raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) < 1):
+            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -118,7 +121,7 @@ class Format(object):
         The distributions supported by this package format
 
         :return: The distributions of this Format.
-        :rtype: list[FormatsDistributions]
+        :rtype: list[Distribution]
         """
         return self._distributions
 
@@ -129,7 +132,7 @@ class Format(object):
         The distributions supported by this package format
 
         :param distributions: The distributions of this Format.
-        :type: list[FormatsDistributions]
+        :type: list[Distribution]
         """
 
         self._distributions = distributions
@@ -181,6 +184,9 @@ class Format(object):
         """
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -229,6 +235,9 @@ class Format(object):
         :param premium_plan_id: The premium_plan_id of this Format.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                premium_plan_id is not None and len(premium_plan_id) < 1):
+            raise ValueError("Invalid value for `premium_plan_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._premium_plan_id = premium_plan_id
 
@@ -252,6 +261,9 @@ class Format(object):
         :param premium_plan_name: The premium_plan_name of this Format.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                premium_plan_name is not None and len(premium_plan_name) < 1):
+            raise ValueError("Invalid value for `premium_plan_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._premium_plan_name = premium_plan_name
 
@@ -277,6 +289,9 @@ class Format(object):
         """
         if self._configuration.client_side_validation and slug is None:
             raise ValueError("Invalid value for `slug`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug is not None and len(slug) < 1):
+            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._slug = slug
 
@@ -284,10 +299,9 @@ class Format(object):
     def supports(self):
         """Gets the supports of this Format.
 
-        A set of what the package format supports
 
         :return: The supports of this Format.
-        :rtype: object
+        :rtype: FormatSupport
         """
         return self._supports
 
@@ -295,10 +309,9 @@ class Format(object):
     def supports(self, supports):
         """Sets the supports of this Format.
 
-        A set of what the package format supports
 
         :param supports: The supports of this Format.
-        :type: object
+        :type: FormatSupport
         """
         if self._configuration.client_side_validation and supports is None:
             raise ValueError("Invalid value for `supports`, must not be `None`")  # noqa: E501

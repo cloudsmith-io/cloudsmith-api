@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -14,66 +14,63 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.AlpinePackageUpload;
+import io.cloudsmith.api.models.AlpinePackageUploadRequest;
+import io.cloudsmith.api.models.CargoPackageUpload;
+import io.cloudsmith.api.models.CargoPackageUploadRequest;
+import io.cloudsmith.api.models.CocoapodsPackageUpload;
+import io.cloudsmith.api.models.CocoapodsPackageUploadRequest;
+import io.cloudsmith.api.models.ComposerPackageUpload;
+import io.cloudsmith.api.models.ComposerPackageUploadRequest;
 import io.cloudsmith.api.models.ConanPackageUpload;
+import io.cloudsmith.api.models.ConanPackageUploadRequest;
+import io.cloudsmith.api.models.CondaPackageUpload;
+import io.cloudsmith.api.models.CondaPackageUploadRequest;
+import io.cloudsmith.api.models.CranPackageUpload;
+import io.cloudsmith.api.models.CranPackageUploadRequest;
+import io.cloudsmith.api.models.DartPackageUpload;
+import io.cloudsmith.api.models.DartPackageUploadRequest;
+import io.cloudsmith.api.models.DebPackageUpload;
+import io.cloudsmith.api.models.DebPackageUploadRequest;
+import io.cloudsmith.api.models.DockerPackageUpload;
+import io.cloudsmith.api.models.DockerPackageUploadRequest;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.GoPackageUpload;
+import io.cloudsmith.api.models.GoPackageUploadRequest;
+import io.cloudsmith.api.models.HelmPackageUpload;
+import io.cloudsmith.api.models.HelmPackageUploadRequest;
+import io.cloudsmith.api.models.LuarocksPackageUpload;
+import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
+import io.cloudsmith.api.models.MavenPackageUploadRequest;
 import io.cloudsmith.api.models.ModelPackage;
+import io.cloudsmith.api.models.NpmPackageUpload;
+import io.cloudsmith.api.models.NpmPackageUploadRequest;
+import io.cloudsmith.api.models.NugetPackageUpload;
+import io.cloudsmith.api.models.NugetPackageUploadRequest;
+import io.cloudsmith.api.models.P2PackageUpload;
+import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
+import io.cloudsmith.api.models.PackageCopyRequest;
 import io.cloudsmith.api.models.PackageDependencies;
 import io.cloudsmith.api.models.PackageMove;
+import io.cloudsmith.api.models.PackageMoveRequest;
+import io.cloudsmith.api.models.PackageQuarantine;
+import io.cloudsmith.api.models.PackageQuarantineRequest;
+import io.cloudsmith.api.models.PackageResync;
 import io.cloudsmith.api.models.PackageStatus;
-import io.cloudsmith.api.models.PackagesCopy;
-import io.cloudsmith.api.models.PackagesMove;
-import io.cloudsmith.api.models.PackagesQuarantine;
-import io.cloudsmith.api.models.PackagesTag;
-import io.cloudsmith.api.models.PackagesUploadAlpine;
-import io.cloudsmith.api.models.PackagesUploadCargo;
-import io.cloudsmith.api.models.PackagesUploadCocoapods;
-import io.cloudsmith.api.models.PackagesUploadComposer;
-import io.cloudsmith.api.models.PackagesUploadConan;
-import io.cloudsmith.api.models.PackagesUploadConda;
-import io.cloudsmith.api.models.PackagesUploadCran;
-import io.cloudsmith.api.models.PackagesUploadDart;
-import io.cloudsmith.api.models.PackagesUploadDeb;
-import io.cloudsmith.api.models.PackagesUploadDocker;
-import io.cloudsmith.api.models.PackagesUploadGo;
-import io.cloudsmith.api.models.PackagesUploadHelm;
-import io.cloudsmith.api.models.PackagesUploadLuarocks;
-import io.cloudsmith.api.models.PackagesUploadMaven;
-import io.cloudsmith.api.models.PackagesUploadNpm;
-import io.cloudsmith.api.models.PackagesUploadNuget;
-import io.cloudsmith.api.models.PackagesUploadP2;
-import io.cloudsmith.api.models.PackagesUploadPython;
-import io.cloudsmith.api.models.PackagesUploadRaw;
-import io.cloudsmith.api.models.PackagesUploadRpm;
-import io.cloudsmith.api.models.PackagesUploadRuby;
-import io.cloudsmith.api.models.PackagesUploadTerraform;
-import io.cloudsmith.api.models.PackagesUploadVagrant;
-import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
-import io.cloudsmith.api.models.PackagesValidateuploadCargo;
-import io.cloudsmith.api.models.PackagesValidateuploadCocoapods;
-import io.cloudsmith.api.models.PackagesValidateuploadComposer;
-import io.cloudsmith.api.models.PackagesValidateuploadConan;
-import io.cloudsmith.api.models.PackagesValidateuploadConda;
-import io.cloudsmith.api.models.PackagesValidateuploadCran;
-import io.cloudsmith.api.models.PackagesValidateuploadDart;
-import io.cloudsmith.api.models.PackagesValidateuploadDeb;
-import io.cloudsmith.api.models.PackagesValidateuploadDocker;
-import io.cloudsmith.api.models.PackagesValidateuploadGo;
-import io.cloudsmith.api.models.PackagesValidateuploadHelm;
-import io.cloudsmith.api.models.PackagesValidateuploadLuarocks;
-import io.cloudsmith.api.models.PackagesValidateuploadMaven;
-import io.cloudsmith.api.models.PackagesValidateuploadNpm;
-import io.cloudsmith.api.models.PackagesValidateuploadNuget;
-import io.cloudsmith.api.models.PackagesValidateuploadP2;
-import io.cloudsmith.api.models.PackagesValidateuploadPython;
-import io.cloudsmith.api.models.PackagesValidateuploadRaw;
-import io.cloudsmith.api.models.PackagesValidateuploadRpm;
-import io.cloudsmith.api.models.PackagesValidateuploadRuby;
-import io.cloudsmith.api.models.PackagesValidateuploadTerraform;
-import io.cloudsmith.api.models.PackagesValidateuploadVagrant;
+import io.cloudsmith.api.models.PackageTagRequest;
+import io.cloudsmith.api.models.PythonPackageUpload;
+import io.cloudsmith.api.models.PythonPackageUploadRequest;
 import io.cloudsmith.api.models.RawPackageUpload;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.RawPackageUploadRequest;
+import io.cloudsmith.api.models.RpmPackageUpload;
+import io.cloudsmith.api.models.RpmPackageUploadRequest;
+import io.cloudsmith.api.models.RubyPackageUpload;
+import io.cloudsmith.api.models.RubyPackageUploadRequest;
+import io.cloudsmith.api.models.TerraformPackageUpload;
+import io.cloudsmith.api.models.TerraformPackageUploadRequest;
 import io.cloudsmith.api.models.VagrantPackageUpload;
+import io.cloudsmith.api.models.VagrantPackageUploadRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -105,7 +102,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackagesCopy data = null;
+        PackageCopyRequest data = null;
         PackageCopy response = api.packagesCopy(owner, repo, identifier, data);
 
         // TODO: test validations
@@ -159,8 +156,8 @@ public class PackagesApiTest {
     public void packagesListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String query = null;
         String sort = null;
         List<ModelPackage> response = api.packagesList(owner, repo, page, pageSize, query, sort);
@@ -181,7 +178,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackagesMove data = null;
+        PackageMoveRequest data = null;
         PackageMove response = api.packagesMove(owner, repo, identifier, data);
 
         // TODO: test validations
@@ -200,8 +197,8 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackagesQuarantine data = null;
-        ModelPackage response = api.packagesQuarantine(owner, repo, identifier, data);
+        PackageQuarantineRequest data = null;
+        PackageQuarantine response = api.packagesQuarantine(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -237,7 +234,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        ModelPackage response = api.packagesResync(owner, repo, identifier);
+        PackageResync response = api.packagesResync(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -291,7 +288,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackagesTag data = null;
+        PackageTagRequest data = null;
         ModelPackage response = api.packagesTag(owner, repo, identifier, data);
 
         // TODO: test validations
@@ -309,7 +306,7 @@ public class PackagesApiTest {
     public void packagesUploadAlpineTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadAlpine data = null;
+        AlpinePackageUploadRequest data = null;
         AlpinePackageUpload response = api.packagesUploadAlpine(owner, repo, data);
 
         // TODO: test validations
@@ -327,8 +324,8 @@ public class PackagesApiTest {
     public void packagesUploadCargoTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadCargo data = null;
-        AlpinePackageUpload response = api.packagesUploadCargo(owner, repo, data);
+        CargoPackageUploadRequest data = null;
+        CargoPackageUpload response = api.packagesUploadCargo(owner, repo, data);
 
         // TODO: test validations
     }
@@ -345,8 +342,8 @@ public class PackagesApiTest {
     public void packagesUploadCocoapodsTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadCocoapods data = null;
-        AlpinePackageUpload response = api.packagesUploadCocoapods(owner, repo, data);
+        CocoapodsPackageUploadRequest data = null;
+        CocoapodsPackageUpload response = api.packagesUploadCocoapods(owner, repo, data);
 
         // TODO: test validations
     }
@@ -363,8 +360,8 @@ public class PackagesApiTest {
     public void packagesUploadComposerTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadComposer data = null;
-        AlpinePackageUpload response = api.packagesUploadComposer(owner, repo, data);
+        ComposerPackageUploadRequest data = null;
+        ComposerPackageUpload response = api.packagesUploadComposer(owner, repo, data);
 
         // TODO: test validations
     }
@@ -381,7 +378,7 @@ public class PackagesApiTest {
     public void packagesUploadConanTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadConan data = null;
+        ConanPackageUploadRequest data = null;
         ConanPackageUpload response = api.packagesUploadConan(owner, repo, data);
 
         // TODO: test validations
@@ -399,8 +396,8 @@ public class PackagesApiTest {
     public void packagesUploadCondaTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadConda data = null;
-        AlpinePackageUpload response = api.packagesUploadConda(owner, repo, data);
+        CondaPackageUploadRequest data = null;
+        CondaPackageUpload response = api.packagesUploadConda(owner, repo, data);
 
         // TODO: test validations
     }
@@ -417,8 +414,8 @@ public class PackagesApiTest {
     public void packagesUploadCranTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadCran data = null;
-        AlpinePackageUpload response = api.packagesUploadCran(owner, repo, data);
+        CranPackageUploadRequest data = null;
+        CranPackageUpload response = api.packagesUploadCran(owner, repo, data);
 
         // TODO: test validations
     }
@@ -435,8 +432,8 @@ public class PackagesApiTest {
     public void packagesUploadDartTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadDart data = null;
-        AlpinePackageUpload response = api.packagesUploadDart(owner, repo, data);
+        DartPackageUploadRequest data = null;
+        DartPackageUpload response = api.packagesUploadDart(owner, repo, data);
 
         // TODO: test validations
     }
@@ -453,8 +450,8 @@ public class PackagesApiTest {
     public void packagesUploadDebTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadDeb data = null;
-        AlpinePackageUpload response = api.packagesUploadDeb(owner, repo, data);
+        DebPackageUploadRequest data = null;
+        DebPackageUpload response = api.packagesUploadDeb(owner, repo, data);
 
         // TODO: test validations
     }
@@ -471,8 +468,8 @@ public class PackagesApiTest {
     public void packagesUploadDockerTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadDocker data = null;
-        AlpinePackageUpload response = api.packagesUploadDocker(owner, repo, data);
+        DockerPackageUploadRequest data = null;
+        DockerPackageUpload response = api.packagesUploadDocker(owner, repo, data);
 
         // TODO: test validations
     }
@@ -489,8 +486,8 @@ public class PackagesApiTest {
     public void packagesUploadGoTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadGo data = null;
-        AlpinePackageUpload response = api.packagesUploadGo(owner, repo, data);
+        GoPackageUploadRequest data = null;
+        GoPackageUpload response = api.packagesUploadGo(owner, repo, data);
 
         // TODO: test validations
     }
@@ -507,8 +504,8 @@ public class PackagesApiTest {
     public void packagesUploadHelmTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadHelm data = null;
-        AlpinePackageUpload response = api.packagesUploadHelm(owner, repo, data);
+        HelmPackageUploadRequest data = null;
+        HelmPackageUpload response = api.packagesUploadHelm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -525,8 +522,8 @@ public class PackagesApiTest {
     public void packagesUploadLuarocksTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadLuarocks data = null;
-        AlpinePackageUpload response = api.packagesUploadLuarocks(owner, repo, data);
+        LuarocksPackageUploadRequest data = null;
+        LuarocksPackageUpload response = api.packagesUploadLuarocks(owner, repo, data);
 
         // TODO: test validations
     }
@@ -543,7 +540,7 @@ public class PackagesApiTest {
     public void packagesUploadMavenTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadMaven data = null;
+        MavenPackageUploadRequest data = null;
         MavenPackageUpload response = api.packagesUploadMaven(owner, repo, data);
 
         // TODO: test validations
@@ -561,8 +558,8 @@ public class PackagesApiTest {
     public void packagesUploadNpmTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadNpm data = null;
-        AlpinePackageUpload response = api.packagesUploadNpm(owner, repo, data);
+        NpmPackageUploadRequest data = null;
+        NpmPackageUpload response = api.packagesUploadNpm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -579,8 +576,8 @@ public class PackagesApiTest {
     public void packagesUploadNugetTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadNuget data = null;
-        AlpinePackageUpload response = api.packagesUploadNuget(owner, repo, data);
+        NugetPackageUploadRequest data = null;
+        NugetPackageUpload response = api.packagesUploadNuget(owner, repo, data);
 
         // TODO: test validations
     }
@@ -597,8 +594,8 @@ public class PackagesApiTest {
     public void packagesUploadP2Test() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadP2 data = null;
-        AlpinePackageUpload response = api.packagesUploadP2(owner, repo, data);
+        P2PackageUploadRequest data = null;
+        P2PackageUpload response = api.packagesUploadP2(owner, repo, data);
 
         // TODO: test validations
     }
@@ -615,8 +612,8 @@ public class PackagesApiTest {
     public void packagesUploadPythonTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadPython data = null;
-        AlpinePackageUpload response = api.packagesUploadPython(owner, repo, data);
+        PythonPackageUploadRequest data = null;
+        PythonPackageUpload response = api.packagesUploadPython(owner, repo, data);
 
         // TODO: test validations
     }
@@ -633,7 +630,7 @@ public class PackagesApiTest {
     public void packagesUploadRawTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadRaw data = null;
+        RawPackageUploadRequest data = null;
         RawPackageUpload response = api.packagesUploadRaw(owner, repo, data);
 
         // TODO: test validations
@@ -651,8 +648,8 @@ public class PackagesApiTest {
     public void packagesUploadRpmTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadRpm data = null;
-        AlpinePackageUpload response = api.packagesUploadRpm(owner, repo, data);
+        RpmPackageUploadRequest data = null;
+        RpmPackageUpload response = api.packagesUploadRpm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -669,8 +666,8 @@ public class PackagesApiTest {
     public void packagesUploadRubyTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadRuby data = null;
-        AlpinePackageUpload response = api.packagesUploadRuby(owner, repo, data);
+        RubyPackageUploadRequest data = null;
+        RubyPackageUpload response = api.packagesUploadRuby(owner, repo, data);
 
         // TODO: test validations
     }
@@ -687,8 +684,8 @@ public class PackagesApiTest {
     public void packagesUploadTerraformTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadTerraform data = null;
-        AlpinePackageUpload response = api.packagesUploadTerraform(owner, repo, data);
+        TerraformPackageUploadRequest data = null;
+        TerraformPackageUpload response = api.packagesUploadTerraform(owner, repo, data);
 
         // TODO: test validations
     }
@@ -705,7 +702,7 @@ public class PackagesApiTest {
     public void packagesUploadVagrantTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesUploadVagrant data = null;
+        VagrantPackageUploadRequest data = null;
         VagrantPackageUpload response = api.packagesUploadVagrant(owner, repo, data);
 
         // TODO: test validations
@@ -723,7 +720,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadAlpineTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadAlpine data = null;
+        AlpinePackageUploadRequest data = null;
         api.packagesValidateUploadAlpine(owner, repo, data);
 
         // TODO: test validations
@@ -741,7 +738,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadCargoTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadCargo data = null;
+        CargoPackageUploadRequest data = null;
         api.packagesValidateUploadCargo(owner, repo, data);
 
         // TODO: test validations
@@ -759,7 +756,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadCocoapodsTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadCocoapods data = null;
+        CocoapodsPackageUploadRequest data = null;
         api.packagesValidateUploadCocoapods(owner, repo, data);
 
         // TODO: test validations
@@ -777,7 +774,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadComposerTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadComposer data = null;
+        ComposerPackageUploadRequest data = null;
         api.packagesValidateUploadComposer(owner, repo, data);
 
         // TODO: test validations
@@ -795,7 +792,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadConanTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadConan data = null;
+        ConanPackageUploadRequest data = null;
         api.packagesValidateUploadConan(owner, repo, data);
 
         // TODO: test validations
@@ -813,7 +810,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadCondaTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadConda data = null;
+        CondaPackageUploadRequest data = null;
         api.packagesValidateUploadConda(owner, repo, data);
 
         // TODO: test validations
@@ -831,7 +828,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadCranTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadCran data = null;
+        CranPackageUploadRequest data = null;
         api.packagesValidateUploadCran(owner, repo, data);
 
         // TODO: test validations
@@ -849,7 +846,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadDartTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadDart data = null;
+        DartPackageUploadRequest data = null;
         api.packagesValidateUploadDart(owner, repo, data);
 
         // TODO: test validations
@@ -867,7 +864,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadDebTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadDeb data = null;
+        DebPackageUploadRequest data = null;
         api.packagesValidateUploadDeb(owner, repo, data);
 
         // TODO: test validations
@@ -885,7 +882,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadDockerTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadDocker data = null;
+        DockerPackageUploadRequest data = null;
         api.packagesValidateUploadDocker(owner, repo, data);
 
         // TODO: test validations
@@ -903,7 +900,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadGoTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadGo data = null;
+        GoPackageUploadRequest data = null;
         api.packagesValidateUploadGo(owner, repo, data);
 
         // TODO: test validations
@@ -921,7 +918,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadHelmTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadHelm data = null;
+        HelmPackageUploadRequest data = null;
         api.packagesValidateUploadHelm(owner, repo, data);
 
         // TODO: test validations
@@ -939,7 +936,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadLuarocksTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadLuarocks data = null;
+        LuarocksPackageUploadRequest data = null;
         api.packagesValidateUploadLuarocks(owner, repo, data);
 
         // TODO: test validations
@@ -957,7 +954,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadMavenTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadMaven data = null;
+        MavenPackageUploadRequest data = null;
         api.packagesValidateUploadMaven(owner, repo, data);
 
         // TODO: test validations
@@ -975,7 +972,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadNpmTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadNpm data = null;
+        NpmPackageUploadRequest data = null;
         api.packagesValidateUploadNpm(owner, repo, data);
 
         // TODO: test validations
@@ -993,7 +990,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadNugetTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadNuget data = null;
+        NugetPackageUploadRequest data = null;
         api.packagesValidateUploadNuget(owner, repo, data);
 
         // TODO: test validations
@@ -1011,7 +1008,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadP2Test() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadP2 data = null;
+        P2PackageUploadRequest data = null;
         api.packagesValidateUploadP2(owner, repo, data);
 
         // TODO: test validations
@@ -1029,7 +1026,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadPythonTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadPython data = null;
+        PythonPackageUploadRequest data = null;
         api.packagesValidateUploadPython(owner, repo, data);
 
         // TODO: test validations
@@ -1047,7 +1044,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadRawTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadRaw data = null;
+        RawPackageUploadRequest data = null;
         api.packagesValidateUploadRaw(owner, repo, data);
 
         // TODO: test validations
@@ -1065,7 +1062,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadRpmTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadRpm data = null;
+        RpmPackageUploadRequest data = null;
         api.packagesValidateUploadRpm(owner, repo, data);
 
         // TODO: test validations
@@ -1083,7 +1080,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadRubyTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadRuby data = null;
+        RubyPackageUploadRequest data = null;
         api.packagesValidateUploadRuby(owner, repo, data);
 
         // TODO: test validations
@@ -1101,7 +1098,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadTerraformTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadTerraform data = null;
+        TerraformPackageUploadRequest data = null;
         api.packagesValidateUploadTerraform(owner, repo, data);
 
         // TODO: test validations
@@ -1119,7 +1116,7 @@ public class PackagesApiTest {
     public void packagesValidateUploadVagrantTest() throws Exception {
         String owner = null;
         String repo = null;
-        PackagesValidateuploadVagrant data = null;
+        VagrantPackageUploadRequest data = null;
         api.packagesValidateUploadVagrant(owner, repo, data);
 
         // TODO: test validations

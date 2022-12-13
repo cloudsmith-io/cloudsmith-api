@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -77,6 +77,9 @@ class StorageRegion(object):
         """
         if self._configuration.client_side_validation and label is None:
             raise ValueError("Invalid value for `label`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                label is not None and len(label) < 1):
+            raise ValueError("Invalid value for `label`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._label = label
 
@@ -102,6 +105,9 @@ class StorageRegion(object):
         """
         if self._configuration.client_side_validation and slug is None:
             raise ValueError("Invalid value for `slug`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug is not None and len(slug) < 1):
+            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._slug = slug
 

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,169 +13,160 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class UserProfile
-    # 
-    attr_accessor :company
+class UserProfile
+  attr_accessor :company
 
-    # 
-    attr_accessor :first_name
+  attr_accessor :first_name
 
-    # 
-    attr_accessor :job_title
+  attr_accessor :job_title
 
-    # 
-    attr_accessor :joined_at
+  attr_accessor :joined_at
 
-    # 
-    attr_accessor :last_name
+  attr_accessor :last_name
 
-    # 
-    attr_accessor :name
+  attr_accessor :name
 
-    # 
-    attr_accessor :slug
+  attr_accessor :slug
 
-    # 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
-    attr_accessor :tagline
+  # Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.
+  attr_accessor :tagline
 
-    # 
-    attr_accessor :url
+  attr_accessor :url
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'company' => :'company',
-        :'first_name' => :'first_name',
-        :'job_title' => :'job_title',
-        :'joined_at' => :'joined_at',
-        :'last_name' => :'last_name',
-        :'name' => :'name',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm',
-        :'tagline' => :'tagline',
-        :'url' => :'url'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'company' => :'company',
+      :'first_name' => :'first_name',
+      :'job_title' => :'job_title',
+      :'joined_at' => :'joined_at',
+      :'last_name' => :'last_name',
+      :'name' => :'name',
+      :'slug' => :'slug',
+      :'slug_perm' => :'slug_perm',
+      :'tagline' => :'tagline',
+      :'url' => :'url'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'company' => :'String',
+      :'first_name' => :'String',
+      :'job_title' => :'String',
+      :'joined_at' => :'DateTime',
+      :'last_name' => :'String',
+      :'name' => :'String',
+      :'slug' => :'String',
+      :'slug_perm' => :'String',
+      :'tagline' => :'String',
+      :'url' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'company')
+      self.company = attributes[:'company']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'company' => :'String',
-        :'first_name' => :'String',
-        :'job_title' => :'String',
-        :'joined_at' => :'String',
-        :'last_name' => :'String',
-        :'name' => :'String',
-        :'slug' => :'String',
-        :'slug_perm' => :'String',
-        :'tagline' => :'String',
-        :'url' => :'String'
-      }
+    if attributes.has_key?(:'first_name')
+      self.first_name = attributes[:'first_name']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'company')
-        self.company = attributes[:'company']
-      end
-
-      if attributes.has_key?(:'first_name')
-        self.first_name = attributes[:'first_name']
-      end
-
-      if attributes.has_key?(:'job_title')
-        self.job_title = attributes[:'job_title']
-      end
-
-      if attributes.has_key?(:'joined_at')
-        self.joined_at = attributes[:'joined_at']
-      end
-
-      if attributes.has_key?(:'last_name')
-        self.last_name = attributes[:'last_name']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'tagline')
-        self.tagline = attributes[:'tagline']
-      end
-
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
-      end
+    if attributes.has_key?(:'job_title')
+      self.job_title = attributes[:'job_title']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @first_name.nil?
-        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
-      end
-
-      if @last_name.nil?
-        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'joined_at')
+      self.joined_at = attributes[:'joined_at']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @first_name.nil?
-      return false if @last_name.nil?
-      true
+    if attributes.has_key?(:'last_name')
+      self.last_name = attributes[:'last_name']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          company == o.company &&
-          first_name == o.first_name &&
-          job_title == o.job_title &&
-          joined_at == o.joined_at &&
-          last_name == o.last_name &&
-          name == o.name &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm &&
-          tagline == o.tagline &&
-          url == o.url
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [company, first_name, job_title, joined_at, last_name, name, slug, slug_perm, tagline, url].hash
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
+
+    if attributes.has_key?(:'tagline')
+      self.tagline = attributes[:'tagline']
+    end
+
+    if attributes.has_key?(:'url')
+      self.url = attributes[:'url']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @first_name.nil?
+      invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
+    end
+
+    if @last_name.nil?
+      invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
+    end
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @first_name.nil?
+    return false if @last_name.nil?
+    true
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        company == o.company &&
+        first_name == o.first_name &&
+        job_title == o.job_title &&
+        joined_at == o.joined_at &&
+        last_name == o.last_name &&
+        name == o.name &&
+        slug == o.slug &&
+        slug_perm == o.slug_perm &&
+        tagline == o.tagline &&
+        url == o.url
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [company, first_name, job_title, joined_at, last_name, name, slug, slug_perm, tagline, url].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -281,5 +272,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

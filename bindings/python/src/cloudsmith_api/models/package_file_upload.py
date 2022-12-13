@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -92,6 +92,9 @@ class PackageFileUpload(object):
         :param identifier: The identifier of this PackageFileUpload.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                identifier is not None and len(identifier) < 1):
+            raise ValueError("Invalid value for `identifier`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._identifier = identifier
 
@@ -161,6 +164,9 @@ class PackageFileUpload(object):
         :param upload_querystring: The upload_querystring of this PackageFileUpload.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                upload_querystring is not None and len(upload_querystring) < 1):
+            raise ValueError("Invalid value for `upload_querystring`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._upload_querystring = upload_querystring
 
@@ -184,6 +190,9 @@ class PackageFileUpload(object):
         :param upload_url: The upload_url of this PackageFileUpload.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                upload_url is not None and len(upload_url) < 1):
+            raise ValueError("Invalid value for `upload_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._upload_url = upload_url
 

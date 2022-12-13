@@ -4,13 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**repos_all_list**](ReposApi.md#repos_all_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**repos_gpg_create**](ReposApi.md#repos_gpg_create) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 [**repos_gpg_list**](ReposApi.md#repos_gpg_list) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 [**repos_gpg_regenerate**](ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
-[**repos_list**](ReposApi.md#repos_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**repos_namespace_list**](ReposApi.md#repos_namespace_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
 [**repos_privileges_list**](ReposApi.md#repos_privileges_list) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
 [**repos_privileges_partial_update**](ReposApi.md#repos_privileges_partial_update) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository.
@@ -19,63 +18,7 @@ Method | HTTP request | Description
 [**repos_rsa_create**](ReposApi.md#repos_rsa_create) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 [**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
-
-
-# **repos_all_list**
-> Array&lt;Repository&gt; repos_all_list(opts)
-
-Get a list of all repositories associated with current user.
-
-Get a list of all repositories associated with current user.
-
-### Example
-```ruby
-# load the gem
-require 'cloudsmith-api'
-# setup authorization
-CloudsmithApi.configure do |config|
-  # Configure API key authorization: apikey
-  config.api_key['X-Api-Key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
-end
-
-api_instance = CloudsmithApi::ReposApi.new
-
-opts = { 
-  page: 56, # Integer | A page number within the paginated result set.
-  page_size: 56 # Integer | Number of results to return per page.
-}
-
-begin
-  #Get a list of all repositories associated with current user.
-  result = api_instance.repos_all_list(opts)
-  p result
-rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_all_list: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
-
-### Return type
-
-[**Array&lt;Repository&gt;**](Repository.md)
-
-### Authorization
-
-[apikey](../README.md#apikey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
+[**repos_user_list**](ReposApi.md#repos_user_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 
 
 # **repos_create**
@@ -102,7 +45,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ReposCreate.new # ReposCreate | 
+  data: CloudsmithApi::RepositoryCreateRequest.new # RepositoryCreateRequest | 
 }
 
 begin
@@ -119,7 +62,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
- **data** | [**ReposCreate**](ReposCreate.md)|  | [optional] 
+ **data** | [**RepositoryCreateRequest**](RepositoryCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -132,7 +75,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -187,8 +130,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -218,7 +161,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ReposGpgCreate.new # ReposGpgCreate | 
+  data: CloudsmithApi::RepositoryGpgKeyCreate.new # RepositoryGpgKeyCreate | 
 }
 
 begin
@@ -236,7 +179,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**ReposGpgCreate**](ReposGpgCreate.md)|  | [optional] 
+ **data** | [**RepositoryGpgKeyCreate**](RepositoryGpgKeyCreate.md)|  | [optional] 
 
 ### Return type
 
@@ -249,7 +192,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -305,8 +248,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -362,13 +305,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
-# **repos_list**
-> Array&lt;Repository&gt; repos_list(owner, opts)
+# **repos_namespace_list**
+> Array&lt;Repository&gt; repos_namespace_list(owner, opts)
 
 Get a list of all repositories within a namespace.
 
@@ -397,10 +340,10 @@ opts = {
 
 begin
   #Get a list of all repositories within a namespace.
-  result = api_instance.repos_list(owner, opts)
+  result = api_instance.repos_namespace_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_list: #{e}"
+  puts "Exception when calling ReposApi->repos_namespace_list: #{e}"
 end
 ```
 
@@ -422,8 +365,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -453,7 +396,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ReposPartialUpdate.new # ReposPartialUpdate | 
+  data: CloudsmithApi::RepositoryRequestPatch.new # RepositoryRequestPatch | 
 }
 
 begin
@@ -471,7 +414,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryRequestPatch**](RepositoryRequestPatch.md)|  | [optional] 
 
 ### Return type
 
@@ -484,7 +427,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -546,8 +489,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -577,7 +520,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ReposPrivilegesPartialUpdate.new # ReposPrivilegesPartialUpdate | 
+  data: CloudsmithApi::RepositoryPrivilegeInputRequestPatch.new # RepositoryPrivilegeInputRequestPatch | 
 }
 
 begin
@@ -594,7 +537,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**ReposPrivilegesPartialUpdate**](ReposPrivilegesPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryPrivilegeInputRequestPatch**](RepositoryPrivilegeInputRequestPatch.md)|  | [optional] 
 
 ### Return type
 
@@ -607,7 +550,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -637,7 +580,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ReposPrivilegesUpdate.new # ReposPrivilegesUpdate | 
+  data: CloudsmithApi::RepositoryPrivilegeInputRequest.new # RepositoryPrivilegeInputRequest | 
 }
 
 begin
@@ -654,7 +597,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**ReposPrivilegesUpdate**](ReposPrivilegesUpdate.md)|  | [optional] 
+ **data** | [**RepositoryPrivilegeInputRequest**](RepositoryPrivilegeInputRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -667,7 +610,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -723,8 +666,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -754,7 +697,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ReposRsaCreate.new # ReposRsaCreate | 
+  data: CloudsmithApi::RepositoryRsaKeyCreate.new # RepositoryRsaKeyCreate | 
 }
 
 begin
@@ -772,7 +715,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**ReposRsaCreate**](ReposRsaCreate.md)|  | [optional] 
+ **data** | [**RepositoryRsaKeyCreate**](RepositoryRsaKeyCreate.md)|  | [optional] 
 
 ### Return type
 
@@ -785,7 +728,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -841,8 +784,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -898,8 +841,65 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_user_list**
+> Array&lt;Repository&gt; repos_user_list(opts)
+
+Get a list of all repositories associated with current user.
+
+Get a list of all repositories associated with current user.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #Get a list of all repositories associated with current user.
+  result = api_instance.repos_user_list(opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_user_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;Repository&gt;**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,9 +43,9 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param WebhooksCreate data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RepositoryWebhookRequest data:
         :return: RepositoryWebhook
                  If the method is called asynchronously,
                  returns the request thread.
@@ -67,9 +67,9 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param WebhooksCreate data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param RepositoryWebhookRequest data:
         :return: RepositoryWebhook
                  If the method is called asynchronously,
                  returns the request thread.
@@ -117,6 +117,10 @@ class WebhooksApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -150,9 +154,9 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -174,9 +178,9 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -228,6 +232,14 @@ class WebhooksApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -257,8 +269,8 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :return: list[RepositoryWebhook]
@@ -282,8 +294,8 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :return: list[RepositoryWebhook]
@@ -335,6 +347,14 @@ class WebhooksApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -364,10 +384,10 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param WebhooksPartialUpdate data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param RepositoryWebhookRequestPatch data:
         :return: RepositoryWebhook
                  If the method is called asynchronously,
                  returns the request thread.
@@ -389,10 +409,10 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param WebhooksPartialUpdate data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param RepositoryWebhookRequestPatch data:
         :return: RepositoryWebhook
                  If the method is called asynchronously,
                  returns the request thread.
@@ -446,6 +466,10 @@ class WebhooksApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -479,9 +503,9 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: RepositoryWebhook
                  If the method is called asynchronously,
                  returns the request thread.
@@ -503,9 +527,9 @@ class WebhooksApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :return: RepositoryWebhook
                  If the method is called asynchronously,
                  returns the request thread.
@@ -557,6 +581,14 @@ class WebhooksApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 

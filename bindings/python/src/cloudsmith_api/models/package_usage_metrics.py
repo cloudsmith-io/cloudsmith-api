@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class PackageUsageMetrics(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'packages': 'object'
+        'packages': 'CommonMetrics'
     }
 
     attribute_map = {
@@ -55,10 +55,9 @@ class PackageUsageMetrics(object):
     def packages(self):
         """Gets the packages of this PackageUsageMetrics.
 
-        
 
         :return: The packages of this PackageUsageMetrics.
-        :rtype: object
+        :rtype: CommonMetrics
         """
         return self._packages
 
@@ -66,10 +65,9 @@ class PackageUsageMetrics(object):
     def packages(self, packages):
         """Sets the packages of this PackageUsageMetrics.
 
-        
 
         :param packages: The packages of this PackageUsageMetrics.
-        :type: object
+        :type: CommonMetrics
         """
         if self._configuration.client_side_validation and packages is None:
             raise ValueError("Invalid value for `packages`, must not be `None`")  # noqa: E501

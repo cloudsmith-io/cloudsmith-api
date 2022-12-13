@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -55,22 +55,13 @@ public class UserBrief implements Serializable {
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
-  public UserBrief authenticated(Boolean authenticated) {
-    this.authenticated = authenticated;
-    return this;
-  }
-
    /**
    * If true then you&#39;re logged in as a user.
    * @return authenticated
   **/
-  @ApiModelProperty(example = "true", value = "If true then you're logged in as a user.")
+  @ApiModelProperty(value = "If true then you're logged in as a user.")
   public Boolean isAuthenticated() {
     return authenticated;
-  }
-
-  public void setAuthenticated(Boolean authenticated) {
-    this.authenticated = authenticated;
   }
 
   public UserBrief email(String email) {
@@ -82,7 +73,7 @@ public class UserBrief implements Serializable {
    * Your email address that we use to contact you. This is only visible to you.
    * @return email
   **/
-  @ApiModelProperty(example = "user@example.com", value = "Your email address that we use to contact you. This is only visible to you.")
+ @Size(min=1,max=254)  @ApiModelProperty(value = "Your email address that we use to contact you. This is only visible to you.")
   public String getEmail() {
     return email;
   }
@@ -91,27 +82,13 @@ public class UserBrief implements Serializable {
     this.email = email;
   }
 
-  public UserBrief name(String name) {
-    this.name = name;
-    return this;
-  }
-
    /**
    * The full name of the user (if any).
    * @return name
   **/
-  @ApiModelProperty(example = "Example User", value = "The full name of the user (if any).")
+ @Size(min=1)  @ApiModelProperty(value = "The full name of the user (if any).")
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public UserBrief profileUrl(String profileUrl) {
-    this.profileUrl = profileUrl;
-    return this;
   }
 
    /**
@@ -123,17 +100,8 @@ public class UserBrief implements Serializable {
     return profileUrl;
   }
 
-  public void setProfileUrl(String profileUrl) {
-    this.profileUrl = profileUrl;
-  }
-
-  public UserBrief selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get selfUrl
    * @return selfUrl
   **/
   @ApiModelProperty(value = "")
@@ -141,44 +109,22 @@ public class UserBrief implements Serializable {
     return selfUrl;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
-
-  public UserBrief slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
    /**
-   * 
+   * Get slug
    * @return slug
   **/
-  @ApiModelProperty(example = "example-user", value = "")
+  @ApiModelProperty(value = "")
   public String getSlug() {
     return slug;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public UserBrief slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
-  @ApiModelProperty(example = "x1y2z3z4y", value = "")
+  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
   }
 
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class RepositoryTokenSync(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'tokens': 'list[RepositoryTokenSyncTokens]'
+        'tokens': 'list[RepositoryToken]'
     }
 
     attribute_map = {
@@ -59,7 +59,7 @@ class RepositoryTokenSync(object):
         The entitlements that have been synchronised.
 
         :return: The tokens of this RepositoryTokenSync.
-        :rtype: list[RepositoryTokenSyncTokens]
+        :rtype: list[RepositoryToken]
         """
         return self._tokens
 
@@ -70,7 +70,7 @@ class RepositoryTokenSync(object):
         The entitlements that have been synchronised.
 
         :param tokens: The tokens of this RepositoryTokenSync.
-        :type: list[RepositoryTokenSyncTokens]
+        :type: list[RepositoryToken]
         """
 
         self._tokens = tokens

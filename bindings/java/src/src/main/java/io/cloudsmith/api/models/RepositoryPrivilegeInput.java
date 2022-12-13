@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.RepositoryPrivilegeInputPrivileges;
+import io.cloudsmith.api.models.RepositoryPrivilegeDict;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,14 +38,14 @@ public class RepositoryPrivilegeInput implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("privileges")
-  private List<RepositoryPrivilegeInputPrivileges> privileges = new ArrayList<>();
+  private List<RepositoryPrivilegeDict> privileges = new ArrayList<>();
 
-  public RepositoryPrivilegeInput privileges(List<RepositoryPrivilegeInputPrivileges> privileges) {
+  public RepositoryPrivilegeInput privileges(List<RepositoryPrivilegeDict> privileges) {
     this.privileges = privileges;
     return this;
   }
 
-  public RepositoryPrivilegeInput addPrivilegesItem(RepositoryPrivilegeInputPrivileges privilegesItem) {
+  public RepositoryPrivilegeInput addPrivilegesItem(RepositoryPrivilegeDict privilegesItem) {
     this.privileges.add(privilegesItem);
     return this;
   }
@@ -57,11 +57,11 @@ public class RepositoryPrivilegeInput implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "List of objects with explicit privileges to the repository.")
-  public List<RepositoryPrivilegeInputPrivileges> getPrivileges() {
+  public List<RepositoryPrivilegeDict> getPrivileges() {
     return privileges;
   }
 
-  public void setPrivileges(List<RepositoryPrivilegeInputPrivileges> privileges) {
+  public void setPrivileges(List<RepositoryPrivilegeDict> privileges) {
     this.privileges = privileges;
   }
 

@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -41,13 +42,67 @@ public class OrganizationMembership implements Serializable {
   private Boolean hasTwoFactor = null;
 
   @SerializedName("joined_at")
-  private String joinedAt = null;
+  private OffsetDateTime joinedAt = null;
 
   @SerializedName("last_login_at")
-  private String lastLoginAt = null;
+  private OffsetDateTime lastLoginAt = null;
 
   /**
-   * 
+   * Gets or Sets lastLoginMethod
+   */
+  @JsonAdapter(LastLoginMethodEnum.Adapter.class)
+  public enum LastLoginMethodEnum {
+    UNKNOWN("Unknown"),
+    
+    PASSWORD("Password"),
+    
+    SOCIAL("Social"),
+    
+    SAML("SAML");
+
+    private String value;
+
+    LastLoginMethodEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static LastLoginMethodEnum fromValue(String text) {
+      for (LastLoginMethodEnum b : LastLoginMethodEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<LastLoginMethodEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LastLoginMethodEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LastLoginMethodEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LastLoginMethodEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("last_login_method")
+  private LastLoginMethodEnum lastLoginMethod = LastLoginMethodEnum.UNKNOWN;
+
+  /**
+   * Gets or Sets role
    */
   @JsonAdapter(RoleEnum.Adapter.class)
   public enum RoleEnum {
@@ -98,7 +153,7 @@ public class OrganizationMembership implements Serializable {
   }
 
   @SerializedName("role")
-  private RoleEnum role = null;
+  private RoleEnum role = RoleEnum.OWNER;
 
   @SerializedName("user")
   private String user = null;
@@ -113,7 +168,7 @@ public class OrganizationMembership implements Serializable {
   private String userUrl = null;
 
   /**
-   * 
+   * Gets or Sets visibility
    */
   @JsonAdapter(VisibilityEnum.Adapter.class)
   public enum VisibilityEnum {
@@ -160,33 +215,19 @@ public class OrganizationMembership implements Serializable {
   }
 
   @SerializedName("visibility")
-  private VisibilityEnum visibility = null;
-
-  public OrganizationMembership email(String email) {
-    this.email = email;
-    return this;
-  }
+  private VisibilityEnum visibility = VisibilityEnum.PUBLIC;
 
    /**
-   * 
+   * Get email
    * @return email
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public OrganizationMembership hasTwoFactor(Boolean hasTwoFactor) {
-    this.hasTwoFactor = hasTwoFactor;
-    return this;
-  }
-
    /**
-   * 
+   * Get hasTwoFactor
    * @return hasTwoFactor
   **/
   @ApiModelProperty(value = "")
@@ -194,53 +235,37 @@ public class OrganizationMembership implements Serializable {
     return hasTwoFactor;
   }
 
-  public void setHasTwoFactor(Boolean hasTwoFactor) {
-    this.hasTwoFactor = hasTwoFactor;
-  }
-
-  public OrganizationMembership joinedAt(String joinedAt) {
-    this.joinedAt = joinedAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get joinedAt
    * @return joinedAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getJoinedAt() {
+  public OffsetDateTime getJoinedAt() {
     return joinedAt;
   }
 
-  public void setJoinedAt(String joinedAt) {
-    this.joinedAt = joinedAt;
-  }
-
-  public OrganizationMembership lastLoginAt(String lastLoginAt) {
-    this.lastLoginAt = lastLoginAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get lastLoginAt
    * @return lastLoginAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getLastLoginAt() {
+  public OffsetDateTime getLastLoginAt() {
     return lastLoginAt;
   }
 
-  public void setLastLoginAt(String lastLoginAt) {
-    this.lastLoginAt = lastLoginAt;
-  }
-
-  public OrganizationMembership role(RoleEnum role) {
-    this.role = role;
-    return this;
+   /**
+   * Get lastLoginMethod
+   * @return lastLoginMethod
+  **/
+  @ApiModelProperty(value = "")
+  public LastLoginMethodEnum getLastLoginMethod() {
+    return lastLoginMethod;
   }
 
    /**
-   * 
+   * Get role
    * @return role
   **/
   @ApiModelProperty(value = "")
@@ -248,71 +273,35 @@ public class OrganizationMembership implements Serializable {
     return role;
   }
 
-  public void setRole(RoleEnum role) {
-    this.role = role;
-  }
-
-  public OrganizationMembership user(String user) {
-    this.user = user;
-    return this;
-  }
-
    /**
-   * 
+   * Get user
    * @return user
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getUser() {
     return user;
   }
 
-  public void setUser(String user) {
-    this.user = user;
-  }
-
-  public OrganizationMembership userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
    /**
-   * 
+   * Get userId
    * @return userId
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getUserId() {
     return userId;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public OrganizationMembership userName(String userName) {
-    this.userName = userName;
-    return this;
-  }
-
    /**
-   * 
+   * Get userName
    * @return userName
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getUserName() {
     return userName;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  public OrganizationMembership userUrl(String userUrl) {
-    this.userUrl = userUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get userUrl
    * @return userUrl
   **/
   @ApiModelProperty(value = "")
@@ -320,26 +309,13 @@ public class OrganizationMembership implements Serializable {
     return userUrl;
   }
 
-  public void setUserUrl(String userUrl) {
-    this.userUrl = userUrl;
-  }
-
-  public OrganizationMembership visibility(VisibilityEnum visibility) {
-    this.visibility = visibility;
-    return this;
-  }
-
    /**
-   * 
+   * Get visibility
    * @return visibility
   **/
   @ApiModelProperty(value = "")
   public VisibilityEnum getVisibility() {
     return visibility;
-  }
-
-  public void setVisibility(VisibilityEnum visibility) {
-    this.visibility = visibility;
   }
 
 
@@ -356,6 +332,7 @@ public class OrganizationMembership implements Serializable {
         Objects.equals(this.hasTwoFactor, organizationMembership.hasTwoFactor) &&
         Objects.equals(this.joinedAt, organizationMembership.joinedAt) &&
         Objects.equals(this.lastLoginAt, organizationMembership.lastLoginAt) &&
+        Objects.equals(this.lastLoginMethod, organizationMembership.lastLoginMethod) &&
         Objects.equals(this.role, organizationMembership.role) &&
         Objects.equals(this.user, organizationMembership.user) &&
         Objects.equals(this.userId, organizationMembership.userId) &&
@@ -366,7 +343,7 @@ public class OrganizationMembership implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, hasTwoFactor, joinedAt, lastLoginAt, role, user, userId, userName, userUrl, visibility);
+    return Objects.hash(email, hasTwoFactor, joinedAt, lastLoginAt, lastLoginMethod, role, user, userId, userName, userUrl, visibility);
   }
 
 
@@ -379,6 +356,7 @@ public class OrganizationMembership implements Serializable {
     sb.append("    hasTwoFactor: ").append(toIndentedString(hasTwoFactor)).append("\n");
     sb.append("    joinedAt: ").append(toIndentedString(joinedAt)).append("\n");
     sb.append("    lastLoginAt: ").append(toIndentedString(lastLoginAt)).append("\n");
+    sb.append("    lastLoginMethod: ").append(toIndentedString(lastLoginMethod)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");

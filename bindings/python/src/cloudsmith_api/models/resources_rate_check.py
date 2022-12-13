@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class ResourcesRateCheck(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'resources': 'object'
+        'resources': 'dict(str, RateCheck)'
     }
 
     attribute_map = {
@@ -59,7 +59,7 @@ class ResourcesRateCheck(object):
         Rate limit values per resource
 
         :return: The resources of this ResourcesRateCheck.
-        :rtype: object
+        :rtype: dict(str, RateCheck)
         """
         return self._resources
 
@@ -70,7 +70,7 @@ class ResourcesRateCheck(object):
         Rate limit values per resource
 
         :param resources: The resources of this ResourcesRateCheck.
-        :type: object
+        :type: dict(str, RateCheck)
         """
 
         self._resources = resources

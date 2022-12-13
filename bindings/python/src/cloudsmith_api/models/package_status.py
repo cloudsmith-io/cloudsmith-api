@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,12 +43,12 @@ class PackageStatus(object):
         'self_url': 'str',
         'stage': 'int',
         'stage_str': 'str',
-        'stage_updated_at': 'str',
+        'stage_updated_at': 'datetime',
         'status': 'int',
         'status_reason': 'str',
         'status_str': 'str',
-        'status_updated_at': 'str',
-        'sync_finished_at': 'str',
+        'status_updated_at': 'datetime',
+        'sync_finished_at': 'datetime',
         'sync_progress': 'int'
     }
 
@@ -136,7 +136,6 @@ class PackageStatus(object):
     def is_downloadable(self):
         """Gets the is_downloadable of this PackageStatus.
 
-        
 
         :return: The is_downloadable of this PackageStatus.
         :rtype: bool
@@ -147,7 +146,6 @@ class PackageStatus(object):
     def is_downloadable(self, is_downloadable):
         """Sets the is_downloadable of this PackageStatus.
 
-        
 
         :param is_downloadable: The is_downloadable of this PackageStatus.
         :type: bool
@@ -159,7 +157,6 @@ class PackageStatus(object):
     def is_quarantined(self):
         """Gets the is_quarantined of this PackageStatus.
 
-        
 
         :return: The is_quarantined of this PackageStatus.
         :rtype: bool
@@ -170,7 +167,6 @@ class PackageStatus(object):
     def is_quarantined(self, is_quarantined):
         """Sets the is_quarantined of this PackageStatus.
 
-        
 
         :param is_quarantined: The is_quarantined of this PackageStatus.
         :type: bool
@@ -182,7 +178,6 @@ class PackageStatus(object):
     def is_sync_awaiting(self):
         """Gets the is_sync_awaiting of this PackageStatus.
 
-        
 
         :return: The is_sync_awaiting of this PackageStatus.
         :rtype: bool
@@ -193,7 +188,6 @@ class PackageStatus(object):
     def is_sync_awaiting(self, is_sync_awaiting):
         """Sets the is_sync_awaiting of this PackageStatus.
 
-        
 
         :param is_sync_awaiting: The is_sync_awaiting of this PackageStatus.
         :type: bool
@@ -205,7 +199,6 @@ class PackageStatus(object):
     def is_sync_completed(self):
         """Gets the is_sync_completed of this PackageStatus.
 
-        
 
         :return: The is_sync_completed of this PackageStatus.
         :rtype: bool
@@ -216,7 +209,6 @@ class PackageStatus(object):
     def is_sync_completed(self, is_sync_completed):
         """Sets the is_sync_completed of this PackageStatus.
 
-        
 
         :param is_sync_completed: The is_sync_completed of this PackageStatus.
         :type: bool
@@ -228,7 +220,6 @@ class PackageStatus(object):
     def is_sync_failed(self):
         """Gets the is_sync_failed of this PackageStatus.
 
-        
 
         :return: The is_sync_failed of this PackageStatus.
         :rtype: bool
@@ -239,7 +230,6 @@ class PackageStatus(object):
     def is_sync_failed(self, is_sync_failed):
         """Sets the is_sync_failed of this PackageStatus.
 
-        
 
         :param is_sync_failed: The is_sync_failed of this PackageStatus.
         :type: bool
@@ -251,7 +241,6 @@ class PackageStatus(object):
     def is_sync_in_flight(self):
         """Gets the is_sync_in_flight of this PackageStatus.
 
-        
 
         :return: The is_sync_in_flight of this PackageStatus.
         :rtype: bool
@@ -262,7 +251,6 @@ class PackageStatus(object):
     def is_sync_in_flight(self, is_sync_in_flight):
         """Sets the is_sync_in_flight of this PackageStatus.
 
-        
 
         :param is_sync_in_flight: The is_sync_in_flight of this PackageStatus.
         :type: bool
@@ -274,7 +262,6 @@ class PackageStatus(object):
     def is_sync_in_progress(self):
         """Gets the is_sync_in_progress of this PackageStatus.
 
-        
 
         :return: The is_sync_in_progress of this PackageStatus.
         :rtype: bool
@@ -285,7 +272,6 @@ class PackageStatus(object):
     def is_sync_in_progress(self, is_sync_in_progress):
         """Sets the is_sync_in_progress of this PackageStatus.
 
-        
 
         :param is_sync_in_progress: The is_sync_in_progress of this PackageStatus.
         :type: bool
@@ -297,7 +283,6 @@ class PackageStatus(object):
     def self_url(self):
         """Gets the self_url of this PackageStatus.
 
-        
 
         :return: The self_url of this PackageStatus.
         :rtype: str
@@ -308,7 +293,6 @@ class PackageStatus(object):
     def self_url(self, self_url):
         """Sets the self_url of this PackageStatus.
 
-        
 
         :param self_url: The self_url of this PackageStatus.
         :type: str
@@ -343,7 +327,6 @@ class PackageStatus(object):
     def stage_str(self):
         """Gets the stage_str of this PackageStatus.
 
-        
 
         :return: The stage_str of this PackageStatus.
         :rtype: str
@@ -354,7 +337,6 @@ class PackageStatus(object):
     def stage_str(self, stage_str):
         """Sets the stage_str of this PackageStatus.
 
-        
 
         :param stage_str: The stage_str of this PackageStatus.
         :type: str
@@ -369,7 +351,7 @@ class PackageStatus(object):
         The datetime the package stage was updated at.
 
         :return: The stage_updated_at of this PackageStatus.
-        :rtype: str
+        :rtype: datetime
         """
         return self._stage_updated_at
 
@@ -380,7 +362,7 @@ class PackageStatus(object):
         The datetime the package stage was updated at.
 
         :param stage_updated_at: The stage_updated_at of this PackageStatus.
-        :type: str
+        :type: datetime
         """
 
         self._stage_updated_at = stage_updated_at
@@ -428,6 +410,9 @@ class PackageStatus(object):
         :param status_reason: The status_reason of this PackageStatus.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                status_reason is not None and len(status_reason) < 1):
+            raise ValueError("Invalid value for `status_reason`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._status_reason = status_reason
 
@@ -435,7 +420,6 @@ class PackageStatus(object):
     def status_str(self):
         """Gets the status_str of this PackageStatus.
 
-        
 
         :return: The status_str of this PackageStatus.
         :rtype: str
@@ -446,7 +430,6 @@ class PackageStatus(object):
     def status_str(self, status_str):
         """Sets the status_str of this PackageStatus.
 
-        
 
         :param status_str: The status_str of this PackageStatus.
         :type: str
@@ -461,7 +444,7 @@ class PackageStatus(object):
         The datetime the package status was updated at.
 
         :return: The status_updated_at of this PackageStatus.
-        :rtype: str
+        :rtype: datetime
         """
         return self._status_updated_at
 
@@ -472,7 +455,7 @@ class PackageStatus(object):
         The datetime the package status was updated at.
 
         :param status_updated_at: The status_updated_at of this PackageStatus.
-        :type: str
+        :type: datetime
         """
 
         self._status_updated_at = status_updated_at
@@ -484,7 +467,7 @@ class PackageStatus(object):
         The datetime the package sync was finished at.
 
         :return: The sync_finished_at of this PackageStatus.
-        :rtype: str
+        :rtype: datetime
         """
         return self._sync_finished_at
 
@@ -495,7 +478,7 @@ class PackageStatus(object):
         The datetime the package sync was finished at.
 
         :param sync_finished_at: The sync_finished_at of this PackageStatus.
-        :type: str
+        :type: datetime
         """
 
         self._sync_finished_at = sync_finished_at

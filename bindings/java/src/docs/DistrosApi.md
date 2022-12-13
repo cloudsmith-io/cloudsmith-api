@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="distrosList"></a>
 # **distrosList**
-> List&lt;Distribution&gt; distrosList()
+> List&lt;DistributionFull&gt; distrosList()
 
 Get a list of all supported distributions.
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 
 DistrosApi apiInstance = new DistrosApi();
 try {
-    List<Distribution> result = apiInstance.distrosList();
+    List<DistributionFull> result = apiInstance.distrosList();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistrosApi#distrosList");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Distribution&gt;**](Distribution.md)
+[**List&lt;DistributionFull&gt;**](DistributionFull.md)
 
 ### Authorization
 
@@ -56,12 +56,12 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="distrosRead"></a>
 # **distrosRead**
-> Distribution distrosRead(slug)
+> DistributionFull distrosRead(slug)
 
 View for viewing/listing distributions.
 
@@ -87,7 +87,7 @@ apikey.setApiKey("YOUR API KEY");
 DistrosApi apiInstance = new DistrosApi();
 String slug = "slug_example"; // String | 
 try {
-    Distribution result = apiInstance.distrosRead(slug);
+    DistributionFull result = apiInstance.distrosRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistrosApi#distrosRead");
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](Distribution.md)
+[**DistributionFull**](DistributionFull.md)
 
 ### Authorization
 
@@ -111,6 +111,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

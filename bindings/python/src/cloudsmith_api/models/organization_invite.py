@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -34,7 +34,7 @@ class OrganizationInvite(object):
     """
     swagger_types = {
         'email': 'str',
-        'expires_at': 'str',
+        'expires_at': 'datetime',
         'inviter': 'str',
         'inviter_url': 'str',
         'org': 'str',
@@ -56,7 +56,7 @@ class OrganizationInvite(object):
         'user_url': 'user_url'
     }
 
-    def __init__(self, email=None, expires_at=None, inviter=None, inviter_url=None, org=None, role=None, slug_perm=None, user=None, user_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, email=None, expires_at=None, inviter=None, inviter_url=None, org=None, role='Member', slug_perm=None, user=None, user_url=None, _configuration=None):  # noqa: E501
         """OrganizationInvite - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,7 +96,7 @@ class OrganizationInvite(object):
     def email(self):
         """Gets the email of this OrganizationInvite.
 
-        
+        The email of the user to be invited.
 
         :return: The email of this OrganizationInvite.
         :rtype: str
@@ -107,11 +107,14 @@ class OrganizationInvite(object):
     def email(self, email):
         """Sets the email of this OrganizationInvite.
 
-        
+        The email of the user to be invited.
 
         :param email: The email of this OrganizationInvite.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                email is not None and len(email) < 1):
+            raise ValueError("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._email = email
 
@@ -119,10 +122,9 @@ class OrganizationInvite(object):
     def expires_at(self):
         """Gets the expires_at of this OrganizationInvite.
 
-        
 
         :return: The expires_at of this OrganizationInvite.
-        :rtype: str
+        :rtype: datetime
         """
         return self._expires_at
 
@@ -130,10 +132,9 @@ class OrganizationInvite(object):
     def expires_at(self, expires_at):
         """Sets the expires_at of this OrganizationInvite.
 
-        
 
         :param expires_at: The expires_at of this OrganizationInvite.
-        :type: str
+        :type: datetime
         """
 
         self._expires_at = expires_at
@@ -142,7 +143,6 @@ class OrganizationInvite(object):
     def inviter(self):
         """Gets the inviter of this OrganizationInvite.
 
-        
 
         :return: The inviter of this OrganizationInvite.
         :rtype: str
@@ -153,11 +153,13 @@ class OrganizationInvite(object):
     def inviter(self, inviter):
         """Sets the inviter of this OrganizationInvite.
 
-        
 
         :param inviter: The inviter of this OrganizationInvite.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                inviter is not None and len(inviter) < 1):
+            raise ValueError("Invalid value for `inviter`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._inviter = inviter
 
@@ -165,7 +167,6 @@ class OrganizationInvite(object):
     def inviter_url(self):
         """Gets the inviter_url of this OrganizationInvite.
 
-        
 
         :return: The inviter_url of this OrganizationInvite.
         :rtype: str
@@ -176,7 +177,6 @@ class OrganizationInvite(object):
     def inviter_url(self, inviter_url):
         """Sets the inviter_url of this OrganizationInvite.
 
-        
 
         :param inviter_url: The inviter_url of this OrganizationInvite.
         :type: str
@@ -188,7 +188,6 @@ class OrganizationInvite(object):
     def org(self):
         """Gets the org of this OrganizationInvite.
 
-        
 
         :return: The org of this OrganizationInvite.
         :rtype: str
@@ -199,7 +198,6 @@ class OrganizationInvite(object):
     def org(self, org):
         """Sets the org of this OrganizationInvite.
 
-        
 
         :param org: The org of this OrganizationInvite.
         :type: str
@@ -211,7 +209,7 @@ class OrganizationInvite(object):
     def role(self):
         """Gets the role of this OrganizationInvite.
 
-        
+        The role to be assigned to the invited user.
 
         :return: The role of this OrganizationInvite.
         :rtype: str
@@ -222,7 +220,7 @@ class OrganizationInvite(object):
     def role(self, role):
         """Sets the role of this OrganizationInvite.
 
-        
+        The role to be assigned to the invited user.
 
         :param role: The role of this OrganizationInvite.
         :type: str
@@ -241,7 +239,6 @@ class OrganizationInvite(object):
     def slug_perm(self):
         """Gets the slug_perm of this OrganizationInvite.
 
-        
 
         :return: The slug_perm of this OrganizationInvite.
         :rtype: str
@@ -252,11 +249,16 @@ class OrganizationInvite(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this OrganizationInvite.
 
-        
 
         :param slug_perm: The slug_perm of this OrganizationInvite.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and len(slug_perm) < 1):
+            raise ValueError("Invalid value for `slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
 
@@ -264,7 +266,7 @@ class OrganizationInvite(object):
     def user(self):
         """Gets the user of this OrganizationInvite.
 
-        
+        The slug of the user to be invited.
 
         :return: The user of this OrganizationInvite.
         :rtype: str
@@ -275,11 +277,14 @@ class OrganizationInvite(object):
     def user(self, user):
         """Sets the user of this OrganizationInvite.
 
-        
+        The slug of the user to be invited.
 
         :param user: The user of this OrganizationInvite.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                user is not None and len(user) < 1):
+            raise ValueError("Invalid value for `user`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._user = user
 
@@ -287,7 +292,6 @@ class OrganizationInvite(object):
     def user_url(self):
         """Gets the user_url of this OrganizationInvite.
 
-        
 
         :return: The user_url of this OrganizationInvite.
         :rtype: str
@@ -298,7 +302,6 @@ class OrganizationInvite(object):
     def user_url(self, user_url):
         """Sets the user_url of this OrganizationInvite.
 
-        
 
         :param user_url: The user_url of this OrganizationInvite.
         :type: str

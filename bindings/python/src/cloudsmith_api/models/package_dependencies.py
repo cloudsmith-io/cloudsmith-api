@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class PackageDependencies(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dependencies': 'list[PackageDependenciesDependencies]'
+        'dependencies': 'list[PackageDependency]'
     }
 
     attribute_map = {
@@ -55,10 +55,9 @@ class PackageDependencies(object):
     def dependencies(self):
         """Gets the dependencies of this PackageDependencies.
 
-        
 
         :return: The dependencies of this PackageDependencies.
-        :rtype: list[PackageDependenciesDependencies]
+        :rtype: list[PackageDependency]
         """
         return self._dependencies
 
@@ -66,10 +65,9 @@ class PackageDependencies(object):
     def dependencies(self, dependencies):
         """Sets the dependencies of this PackageDependencies.
 
-        
 
         :param dependencies: The dependencies of this PackageDependencies.
-        :type: list[PackageDependenciesDependencies]
+        :type: list[PackageDependency]
         """
         if self._configuration.client_side_validation and dependencies is None:
             raise ValueError("Invalid value for `dependencies`, must not be `None`")  # noqa: E501

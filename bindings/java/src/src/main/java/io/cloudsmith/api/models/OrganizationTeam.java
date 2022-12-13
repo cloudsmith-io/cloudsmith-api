@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -47,7 +47,7 @@ public class OrganizationTeam implements Serializable {
   private String slugPerm = null;
 
   /**
-   * 
+   * Gets or Sets visibility
    */
   @JsonAdapter(VisibilityEnum.Adapter.class)
   public enum VisibilityEnum {
@@ -94,7 +94,7 @@ public class OrganizationTeam implements Serializable {
   }
 
   @SerializedName("visibility")
-  private VisibilityEnum visibility = null;
+  private VisibilityEnum visibility = VisibilityEnum.VISIBLE;
 
   public OrganizationTeam description(String description) {
     this.description = description;
@@ -102,10 +102,10 @@ public class OrganizationTeam implements Serializable {
   }
 
    /**
-   * 
+   * Get description
    * @return description
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1,max=140)  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
@@ -120,11 +120,11 @@ public class OrganizationTeam implements Serializable {
   }
 
    /**
-   * 
+   * Get name
    * @return name
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
   }
@@ -139,10 +139,10 @@ public class OrganizationTeam implements Serializable {
   }
 
    /**
-   * 
+   * Get slug
    * @return slug
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlug() {
     return slug;
   }
@@ -151,22 +151,13 @@ public class OrganizationTeam implements Serializable {
     this.slug = slug;
   }
 
-  public OrganizationTeam slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
   }
 
   public OrganizationTeam visibility(VisibilityEnum visibility) {
@@ -175,7 +166,7 @@ public class OrganizationTeam implements Serializable {
   }
 
    /**
-   * 
+   * Get visibility
    * @return visibility
   **/
   @ApiModelProperty(value = "")

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -24,7 +24,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [WebhooksCreate] :data 
+    # @option opts [RepositoryWebhookRequest] :data 
     # @return [RepositoryWebhook]
     def webhooks_create(owner, repo, opts = {})
       data, _status_code, _headers = webhooks_create_with_http_info(owner, repo, opts)
@@ -36,7 +36,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [WebhooksCreate] :data 
+    # @option opts [RepositoryWebhookRequest] :data 
     # @return [Array<(RepositoryWebhook, Fixnum, Hash)>] RepositoryWebhook data, response status code and response headers
     def webhooks_create_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -58,6 +58,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -122,6 +124,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -183,6 +189,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -208,7 +218,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [WebhooksPartialUpdate] :data 
+    # @option opts [RepositoryWebhookRequestPatch] :data 
     # @return [RepositoryWebhook]
     def webhooks_partial_update(owner, repo, identifier, opts = {})
       data, _status_code, _headers = webhooks_partial_update_with_http_info(owner, repo, identifier, opts)
@@ -221,7 +231,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [WebhooksPartialUpdate] :data 
+    # @option opts [RepositoryWebhookRequestPatch] :data 
     # @return [Array<(RepositoryWebhook, Fixnum, Hash)>] RepositoryWebhook data, response status code and response headers
     def webhooks_partial_update_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -247,6 +257,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -311,6 +323,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}

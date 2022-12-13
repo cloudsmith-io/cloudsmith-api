@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,10 +13,10 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.RepositoryWebhook;
-import io.cloudsmith.api.models.Status;
-import io.cloudsmith.api.models.WebhooksCreate;
-import io.cloudsmith.api.models.WebhooksPartialUpdate;
+import io.cloudsmith.api.models.RepositoryWebhookRequest;
+import io.cloudsmith.api.models.RepositoryWebhookRequestPatch;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,7 +47,7 @@ public class WebhooksApiTest {
     public void webhooksCreateTest() throws Exception {
         String owner = null;
         String repo = null;
-        WebhooksCreate data = null;
+        RepositoryWebhookRequest data = null;
         RepositoryWebhook response = api.webhooksCreate(owner, repo, data);
 
         // TODO: test validations
@@ -83,8 +83,8 @@ public class WebhooksApiTest {
     public void webhooksListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<RepositoryWebhook> response = api.webhooksList(owner, repo, page, pageSize);
 
         // TODO: test validations
@@ -103,7 +103,7 @@ public class WebhooksApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        WebhooksPartialUpdate data = null;
+        RepositoryWebhookRequestPatch data = null;
         RepositoryWebhook response = api.webhooksPartialUpdate(owner, repo, identifier, data);
 
         // TODO: test validations

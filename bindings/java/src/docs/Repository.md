@@ -9,15 +9,15 @@ Name | Type | Description | Notes
 **contextualAuthRealm** | **Boolean** | If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the &#39;WWW-Authenticate&#39; header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials. |  [optional]
 **copyOwn** | **Boolean** | If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
 **copyPackages** | [**CopyPackagesEnum**](#CopyPackagesEnum) | This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting. |  [optional]
-**createdAt** | **String** |  |  [optional]
+**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **defaultPrivilege** | [**DefaultPrivilegeEnum**](#DefaultPrivilegeEnum) | This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings. |  [optional]
 **deleteOwn** | **Boolean** | If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
 **deletePackages** | [**DeletePackagesEnum**](#DeletePackagesEnum) | This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting. |  [optional]
-**deletedAt** | **String** |  |  [optional]
+**deletedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **description** | **String** | A description of the repository&#39;s purpose/contents. |  [optional]
 **distributes** | **List&lt;String&gt;** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. |  [optional]
 **dockerRefreshTokensEnabled** | **Boolean** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. |  [optional]
-**gpgKeys** | [**List&lt;ReposGpgKeys&gt;**](ReposGpgKeys.md) |  |  [optional]
+**gpgKeys** | [**List&lt;RepositoryGpgKey&gt;**](RepositoryGpgKey.md) |  |  [optional]
 **indexFiles** | **Boolean** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. |  [optional]
 **isOpenSource** | **Boolean** |  |  [optional]
 **isPrivate** | **Boolean** |  |  [optional]
@@ -27,17 +27,17 @@ Name | Type | Description | Notes
 **name** | **String** | A descriptive name for the repository. | 
 **namespace** | **String** | Namespace to which this repository belongs. |  [optional]
 **namespaceUrl** | **String** | API endpoint where data about this namespace can be retrieved. |  [optional]
-**numDownloads** | **Integer** | The number of downloads for packages in the repository. |  [optional]
-**packageCount** | **Integer** | The number of packages in the repository. |  [optional]
-**packageGroupCount** | **Integer** | The number of groups in the repository. |  [optional]
+**numDownloads** | **java.math.BigInteger** | The number of downloads for packages in the repository. |  [optional]
+**packageCount** | **java.math.BigInteger** | The number of packages in the repository. |  [optional]
+**packageGroupCount** | **java.math.BigInteger** | The number of groups in the repository. |  [optional]
 **proxyNpmjs** | **Boolean** | If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied. |  [optional]
 **proxyPypi** | **Boolean** | If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied. |  [optional]
 **rawPackageIndexEnabled** | **Boolean** | If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository. |  [optional]
 **rawPackageIndexSignaturesEnabled** | **Boolean** | If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages. |  [optional]
 **replacePackages** | [**ReplacePackagesEnum**](#ReplacePackagesEnum) | This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail. |  [optional]
 **replacePackagesByDefault** | **Boolean** | If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don&#39;t own. |  [optional]
-**repositoryType** | **Integer** | The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time. |  [optional]
-**repositoryTypeStr** | [**RepositoryTypeStrEnum**](#RepositoryTypeStrEnum) | The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users. |  [optional]
+**repositoryType** | **java.math.BigInteger** | The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time. |  [optional]
+**repositoryTypeStr** | [**RepositoryTypeStrEnum**](#RepositoryTypeStrEnum) | The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users. |  [optional]
 **resyncOwn** | **Boolean** | If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
 **resyncPackages** | [**ResyncPackagesEnum**](#ResyncPackagesEnum) | This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting. |  [optional]
 **scanOwn** | **Boolean** | If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
@@ -45,7 +45,7 @@ Name | Type | Description | Notes
 **selfHtmlUrl** | **String** | Website URL for this repository. |  [optional]
 **selfUrl** | **String** | API endpoint where data about this repository can be retrieved. |  [optional]
 **showSetupAll** | **Boolean** | If checked, the Set Me Up help for all formats will always be shown, even if you don&#39;t have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only. |  [optional]
-**size** | **Integer** | The calculated size of the repository. |  [optional]
+**size** | **java.math.BigInteger** | The calculated size of the repository. |  [optional]
 **sizeStr** | **String** | The calculated size of the repository (human readable). |  [optional]
 **slug** | **String** | The slug identifies the repository in URIs. |  [optional]
 **slugPerm** | **String** | The slug_perm immutably identifies the repository. It will never change once a repository has been created. |  [optional]
@@ -119,7 +119,6 @@ Name | Value
 ---- | -----
 PUBLIC | &quot;Public&quot;
 PRIVATE | &quot;Private&quot;
-OPEN_SOURCE | &quot;Open-Source&quot;
 
 
 <a name="ResyncPackagesEnum"></a>

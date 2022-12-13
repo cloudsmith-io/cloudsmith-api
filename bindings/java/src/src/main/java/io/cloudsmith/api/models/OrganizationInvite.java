@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -38,7 +39,7 @@ public class OrganizationInvite implements Serializable {
   private String email = null;
 
   @SerializedName("expires_at")
-  private String expiresAt = null;
+  private OffsetDateTime expiresAt = null;
 
   @SerializedName("inviter")
   private String inviter = null;
@@ -50,7 +51,7 @@ public class OrganizationInvite implements Serializable {
   private String org = null;
 
   /**
-   * 
+   * The role to be assigned to the invited user.
    */
   @JsonAdapter(RoleEnum.Adapter.class)
   public enum RoleEnum {
@@ -101,7 +102,7 @@ public class OrganizationInvite implements Serializable {
   }
 
   @SerializedName("role")
-  private RoleEnum role = null;
+  private RoleEnum role = RoleEnum.MEMBER;
 
   @SerializedName("slug_perm")
   private String slugPerm = null;
@@ -118,10 +119,10 @@ public class OrganizationInvite implements Serializable {
   }
 
    /**
-   * 
+   * The email of the user to be invited.
    * @return email
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "The email of the user to be invited.")
   public String getEmail() {
     return email;
   }
@@ -130,49 +131,27 @@ public class OrganizationInvite implements Serializable {
     this.email = email;
   }
 
-  public OrganizationInvite expiresAt(String expiresAt) {
-    this.expiresAt = expiresAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get expiresAt
    * @return expiresAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getExpiresAt() {
+  public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
 
-  public void setExpiresAt(String expiresAt) {
-    this.expiresAt = expiresAt;
-  }
-
-  public OrganizationInvite inviter(String inviter) {
-    this.inviter = inviter;
-    return this;
-  }
-
    /**
-   * 
+   * Get inviter
    * @return inviter
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getInviter() {
     return inviter;
   }
 
-  public void setInviter(String inviter) {
-    this.inviter = inviter;
-  }
-
-  public OrganizationInvite inviterUrl(String inviterUrl) {
-    this.inviterUrl = inviterUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get inviterUrl
    * @return inviterUrl
   **/
   @ApiModelProperty(value = "")
@@ -180,26 +159,13 @@ public class OrganizationInvite implements Serializable {
     return inviterUrl;
   }
 
-  public void setInviterUrl(String inviterUrl) {
-    this.inviterUrl = inviterUrl;
-  }
-
-  public OrganizationInvite org(String org) {
-    this.org = org;
-    return this;
-  }
-
    /**
-   * 
+   * Get org
    * @return org
   **/
   @ApiModelProperty(value = "")
   public String getOrg() {
     return org;
-  }
-
-  public void setOrg(String org) {
-    this.org = org;
   }
 
   public OrganizationInvite role(RoleEnum role) {
@@ -208,10 +174,10 @@ public class OrganizationInvite implements Serializable {
   }
 
    /**
-   * 
+   * The role to be assigned to the invited user.
    * @return role
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The role to be assigned to the invited user.")
   public RoleEnum getRole() {
     return role;
   }
@@ -220,22 +186,13 @@ public class OrganizationInvite implements Serializable {
     this.role = role;
   }
 
-  public OrganizationInvite slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
   }
 
   public OrganizationInvite user(String user) {
@@ -244,10 +201,10 @@ public class OrganizationInvite implements Serializable {
   }
 
    /**
-   * 
+   * The slug of the user to be invited.
    * @return user
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "The slug of the user to be invited.")
   public String getUser() {
     return user;
   }
@@ -256,22 +213,13 @@ public class OrganizationInvite implements Serializable {
     this.user = user;
   }
 
-  public OrganizationInvite userUrl(String userUrl) {
-    this.userUrl = userUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get userUrl
    * @return userUrl
   **/
   @ApiModelProperty(value = "")
   public String getUserUrl() {
     return userUrl;
-  }
-
-  public void setUserUrl(String userUrl) {
-    this.userUrl = userUrl;
   }
 
 

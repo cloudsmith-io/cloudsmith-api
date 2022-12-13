@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,20 +13,22 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationGroupSync;
+import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
 import io.cloudsmith.api.models.OrganizationInvite;
+import io.cloudsmith.api.models.OrganizationInviteExtend;
+import io.cloudsmith.api.models.OrganizationInviteRequest;
+import io.cloudsmith.api.models.OrganizationInviteUpdateRequestPatch;
 import io.cloudsmith.api.models.OrganizationMembership;
 import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
-import io.cloudsmith.api.models.OrgsInvitesCreate;
-import io.cloudsmith.api.models.OrgsInvitesExtend;
-import io.cloudsmith.api.models.OrgsSamlgroupsyncCreate;
-import io.cloudsmith.api.models.OrgsTeamsCreate;
-import io.cloudsmith.api.models.OrgsTeamsMembersCreate;
-import io.cloudsmith.api.models.OrgsTeamsMembersUpdate;
-import io.cloudsmith.api.models.OrgsTeamsPartialUpdate;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.OrganizationTeamRequest;
+import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.Service;
+import io.cloudsmith.api.models.ServiceRequest;
+import io.cloudsmith.api.models.ServiceRequestPatch;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -56,7 +58,7 @@ public class OrgsApiTest {
     @Test
     public void orgsInvitesCreateTest() throws Exception {
         String org = null;
-        OrgsInvitesCreate data = null;
+        OrganizationInviteRequest data = null;
         OrganizationInvite response = api.orgsInvitesCreate(org, data);
 
         // TODO: test validations
@@ -91,8 +93,7 @@ public class OrgsApiTest {
     public void orgsInvitesExtendTest() throws Exception {
         String org = null;
         String slugPerm = null;
-        OrgsInvitesExtend data = null;
-        OrganizationInvite response = api.orgsInvitesExtend(org, slugPerm, data);
+        OrganizationInviteExtend response = api.orgsInvitesExtend(org, slugPerm);
 
         // TODO: test validations
     }
@@ -108,9 +109,44 @@ public class OrgsApiTest {
     @Test
     public void orgsInvitesListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationInvite> response = api.orgsInvitesList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a specific organization invite.
+     *
+     * Update a specific organization invite.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsInvitesPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationInviteUpdateRequestPatch data = null;
+        OrganizationInvite response = api.orgsInvitesPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Resend an organization invite.
+     *
+     * Resend an organization invite.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsInvitesResendTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationInviteExtend response = api.orgsInvitesResend(org, slugPerm);
 
         // TODO: test validations
     }
@@ -125,8 +161,8 @@ public class OrgsApiTest {
      */
     @Test
     public void orgsListTest() throws Exception {
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<Organization> response = api.orgsList(page, pageSize);
 
         // TODO: test validations
@@ -160,8 +196,8 @@ public class OrgsApiTest {
     @Test
     public void orgsMembersListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationMembership> response = api.orgsMembersList(org, page, pageSize);
 
         // TODO: test validations
@@ -228,7 +264,7 @@ public class OrgsApiTest {
     @Test
     public void orgsSamlGroupSyncCreateTest() throws Exception {
         String org = null;
-        OrgsSamlgroupsyncCreate data = null;
+        OrganizationGroupSyncRequest data = null;
         OrganizationGroupSync response = api.orgsSamlGroupSyncCreate(org, data);
 
         // TODO: test validations
@@ -262,9 +298,113 @@ public class OrgsApiTest {
     @Test
     public void orgsSamlGroupSyncListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationGroupSync> response = api.orgsSamlGroupSyncList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a service within an organization.
+     *
+     * Create a service within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesCreateTest() throws Exception {
+        String org = null;
+        ServiceRequest data = null;
+        Service response = api.orgsServicesCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a specific service
+     *
+     * Delete a specific service
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesDeleteTest() throws Exception {
+        String org = null;
+        String service = null;
+        api.orgsServicesDelete(org, service);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a list of all services within an organization.
+     *
+     * Get a list of all services within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesListTest() throws Exception {
+        String org = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<Service> response = api.orgsServicesList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a service within an organization.
+     *
+     * Update a service within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesPartialUpdateTest() throws Exception {
+        String org = null;
+        String service = null;
+        ServiceRequestPatch data = null;
+        Service response = api.orgsServicesPartialUpdate(org, service, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve details of a single service within an organization.
+     *
+     * Retrieve details of a single service within an organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesReadTest() throws Exception {
+        String org = null;
+        String service = null;
+        Service response = api.orgsServicesRead(org, service);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Refresh service API token.
+     *
+     * Refresh service API token.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsServicesRefreshTest() throws Exception {
+        String org = null;
+        String service = null;
+        Service response = api.orgsServicesRefresh(org, service);
 
         // TODO: test validations
     }
@@ -280,7 +420,7 @@ public class OrgsApiTest {
     @Test
     public void orgsTeamsCreateTest() throws Exception {
         String org = null;
-        OrgsTeamsCreate data = null;
+        OrganizationTeamRequest data = null;
         OrganizationTeam response = api.orgsTeamsCreate(org, data);
 
         // TODO: test validations
@@ -314,8 +454,8 @@ public class OrgsApiTest {
     @Test
     public void orgsTeamsListTest() throws Exception {
         String org = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         List<OrganizationTeam> response = api.orgsTeamsList(org, page, pageSize);
 
         // TODO: test validations
@@ -333,7 +473,7 @@ public class OrgsApiTest {
     public void orgsTeamsMembersCreateTest() throws Exception {
         String org = null;
         String team = null;
-        OrgsTeamsMembersCreate data = null;
+        OrganizationTeamMembers data = null;
         OrganizationTeamMembers response = api.orgsTeamsMembersCreate(org, team, data);
 
         // TODO: test validations
@@ -368,8 +508,7 @@ public class OrgsApiTest {
     public void orgsTeamsMembersUpdateTest() throws Exception {
         String org = null;
         String team = null;
-        OrgsTeamsMembersUpdate data = null;
-        api.orgsTeamsMembersUpdate(org, team, data);
+        OrganizationTeamMembers response = api.orgsTeamsMembersUpdate(org, team);
 
         // TODO: test validations
     }
@@ -386,16 +525,16 @@ public class OrgsApiTest {
     public void orgsTeamsPartialUpdateTest() throws Exception {
         String org = null;
         String team = null;
-        OrgsTeamsPartialUpdate data = null;
+        OrganizationTeamRequestPatch data = null;
         OrganizationTeam response = api.orgsTeamsPartialUpdate(org, team, data);
 
         // TODO: test validations
     }
     
     /**
-     * Get the details for the specific team.
+     * Get the details of a specific team within an organization.
      *
-     * Get the details for the specific team.
+     * Get the details of a specific team within an organization.
      *
      * @throws Exception
      *          if the Api call fails

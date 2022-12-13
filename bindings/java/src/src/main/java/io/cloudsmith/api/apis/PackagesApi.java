@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -37,66 +37,63 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.AlpinePackageUpload;
+import io.cloudsmith.api.models.AlpinePackageUploadRequest;
+import io.cloudsmith.api.models.CargoPackageUpload;
+import io.cloudsmith.api.models.CargoPackageUploadRequest;
+import io.cloudsmith.api.models.CocoapodsPackageUpload;
+import io.cloudsmith.api.models.CocoapodsPackageUploadRequest;
+import io.cloudsmith.api.models.ComposerPackageUpload;
+import io.cloudsmith.api.models.ComposerPackageUploadRequest;
 import io.cloudsmith.api.models.ConanPackageUpload;
+import io.cloudsmith.api.models.ConanPackageUploadRequest;
+import io.cloudsmith.api.models.CondaPackageUpload;
+import io.cloudsmith.api.models.CondaPackageUploadRequest;
+import io.cloudsmith.api.models.CranPackageUpload;
+import io.cloudsmith.api.models.CranPackageUploadRequest;
+import io.cloudsmith.api.models.DartPackageUpload;
+import io.cloudsmith.api.models.DartPackageUploadRequest;
+import io.cloudsmith.api.models.DebPackageUpload;
+import io.cloudsmith.api.models.DebPackageUploadRequest;
+import io.cloudsmith.api.models.DockerPackageUpload;
+import io.cloudsmith.api.models.DockerPackageUploadRequest;
+import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.GoPackageUpload;
+import io.cloudsmith.api.models.GoPackageUploadRequest;
+import io.cloudsmith.api.models.HelmPackageUpload;
+import io.cloudsmith.api.models.HelmPackageUploadRequest;
+import io.cloudsmith.api.models.LuarocksPackageUpload;
+import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
+import io.cloudsmith.api.models.MavenPackageUploadRequest;
 import io.cloudsmith.api.models.ModelPackage;
+import io.cloudsmith.api.models.NpmPackageUpload;
+import io.cloudsmith.api.models.NpmPackageUploadRequest;
+import io.cloudsmith.api.models.NugetPackageUpload;
+import io.cloudsmith.api.models.NugetPackageUploadRequest;
+import io.cloudsmith.api.models.P2PackageUpload;
+import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
+import io.cloudsmith.api.models.PackageCopyRequest;
 import io.cloudsmith.api.models.PackageDependencies;
 import io.cloudsmith.api.models.PackageMove;
+import io.cloudsmith.api.models.PackageMoveRequest;
+import io.cloudsmith.api.models.PackageQuarantine;
+import io.cloudsmith.api.models.PackageQuarantineRequest;
+import io.cloudsmith.api.models.PackageResync;
 import io.cloudsmith.api.models.PackageStatus;
-import io.cloudsmith.api.models.PackagesCopy;
-import io.cloudsmith.api.models.PackagesMove;
-import io.cloudsmith.api.models.PackagesQuarantine;
-import io.cloudsmith.api.models.PackagesTag;
-import io.cloudsmith.api.models.PackagesUploadAlpine;
-import io.cloudsmith.api.models.PackagesUploadCargo;
-import io.cloudsmith.api.models.PackagesUploadCocoapods;
-import io.cloudsmith.api.models.PackagesUploadComposer;
-import io.cloudsmith.api.models.PackagesUploadConan;
-import io.cloudsmith.api.models.PackagesUploadConda;
-import io.cloudsmith.api.models.PackagesUploadCran;
-import io.cloudsmith.api.models.PackagesUploadDart;
-import io.cloudsmith.api.models.PackagesUploadDeb;
-import io.cloudsmith.api.models.PackagesUploadDocker;
-import io.cloudsmith.api.models.PackagesUploadGo;
-import io.cloudsmith.api.models.PackagesUploadHelm;
-import io.cloudsmith.api.models.PackagesUploadLuarocks;
-import io.cloudsmith.api.models.PackagesUploadMaven;
-import io.cloudsmith.api.models.PackagesUploadNpm;
-import io.cloudsmith.api.models.PackagesUploadNuget;
-import io.cloudsmith.api.models.PackagesUploadP2;
-import io.cloudsmith.api.models.PackagesUploadPython;
-import io.cloudsmith.api.models.PackagesUploadRaw;
-import io.cloudsmith.api.models.PackagesUploadRpm;
-import io.cloudsmith.api.models.PackagesUploadRuby;
-import io.cloudsmith.api.models.PackagesUploadTerraform;
-import io.cloudsmith.api.models.PackagesUploadVagrant;
-import io.cloudsmith.api.models.PackagesValidateuploadAlpine;
-import io.cloudsmith.api.models.PackagesValidateuploadCargo;
-import io.cloudsmith.api.models.PackagesValidateuploadCocoapods;
-import io.cloudsmith.api.models.PackagesValidateuploadComposer;
-import io.cloudsmith.api.models.PackagesValidateuploadConan;
-import io.cloudsmith.api.models.PackagesValidateuploadConda;
-import io.cloudsmith.api.models.PackagesValidateuploadCran;
-import io.cloudsmith.api.models.PackagesValidateuploadDart;
-import io.cloudsmith.api.models.PackagesValidateuploadDeb;
-import io.cloudsmith.api.models.PackagesValidateuploadDocker;
-import io.cloudsmith.api.models.PackagesValidateuploadGo;
-import io.cloudsmith.api.models.PackagesValidateuploadHelm;
-import io.cloudsmith.api.models.PackagesValidateuploadLuarocks;
-import io.cloudsmith.api.models.PackagesValidateuploadMaven;
-import io.cloudsmith.api.models.PackagesValidateuploadNpm;
-import io.cloudsmith.api.models.PackagesValidateuploadNuget;
-import io.cloudsmith.api.models.PackagesValidateuploadP2;
-import io.cloudsmith.api.models.PackagesValidateuploadPython;
-import io.cloudsmith.api.models.PackagesValidateuploadRaw;
-import io.cloudsmith.api.models.PackagesValidateuploadRpm;
-import io.cloudsmith.api.models.PackagesValidateuploadRuby;
-import io.cloudsmith.api.models.PackagesValidateuploadTerraform;
-import io.cloudsmith.api.models.PackagesValidateuploadVagrant;
+import io.cloudsmith.api.models.PackageTagRequest;
+import io.cloudsmith.api.models.PythonPackageUpload;
+import io.cloudsmith.api.models.PythonPackageUploadRequest;
 import io.cloudsmith.api.models.RawPackageUpload;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.RawPackageUploadRequest;
+import io.cloudsmith.api.models.RpmPackageUpload;
+import io.cloudsmith.api.models.RpmPackageUploadRequest;
+import io.cloudsmith.api.models.RubyPackageUpload;
+import io.cloudsmith.api.models.RubyPackageUploadRequest;
+import io.cloudsmith.api.models.TerraformPackageUpload;
+import io.cloudsmith.api.models.TerraformPackageUploadRequest;
 import io.cloudsmith.api.models.VagrantPackageUpload;
+import io.cloudsmith.api.models.VagrantPackageUploadRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -134,7 +131,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesCopyCall(String owner, String repo, String identifier, PackagesCopy data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesCopyCall(String owner, String repo, String identifier, PackageCopyRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -151,7 +148,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -179,13 +176,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesCopyValidateBeforeCall(String owner, String repo, String identifier, PackagesCopy data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesCopyValidateBeforeCall(String owner, String repo, String identifier, PackageCopyRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, identifier, data };
-            Method method = this.getClass().getMethod("packagesCopyWithHttpInfo", String.class, String.class, String.class, PackagesCopy.class);
+            Method method = this.getClass().getMethod("packagesCopyWithHttpInfo", String.class, String.class, String.class, PackageCopyRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -216,7 +213,7 @@ public class PackagesApi {
      * @return PackageCopy
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageCopy packagesCopy(String owner, String repo, String identifier, PackagesCopy data) throws ApiException {
+    public PackageCopy packagesCopy(String owner, String repo, String identifier, PackageCopyRequest data) throws ApiException {
         ApiResponse<PackageCopy> resp = packagesCopyWithHttpInfo(owner, repo, identifier, data);
         return resp.getData();
     }
@@ -231,7 +228,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;PackageCopy&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageCopy> packagesCopyWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackagesCopy data) throws ApiException {
+    public ApiResponse<PackageCopy> packagesCopyWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackageCopyRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesCopyValidateBeforeCall(owner, repo, identifier, data, null, null);
         Type localVarReturnType = new TypeToken<PackageCopy>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -248,7 +245,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesCopyAsync(String owner, String repo, String identifier, PackagesCopy data, final ApiCallback<PackageCopy> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesCopyAsync(String owner, String repo, String identifier, PackageCopyRequest data, final ApiCallback<PackageCopy> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -301,13 +298,13 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -444,13 +441,13 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -570,14 +567,14 @@ public class PackagesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional)
-     * @param sort A field for sorting objects in ascending or descending order. (optional)
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesListCall(String owner, String repo, Integer page, Integer pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -601,13 +598,13 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -629,13 +626,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesListValidateBeforeCall(String owner, String repo, Integer page, Integer pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, page, pageSize, query, sort };
-            Method method = this.getClass().getMethod("packagesListWithHttpInfo", String.class, String.class, Integer.class, Integer.class, String.class, String.class);
+            Method method = this.getClass().getMethod("packagesListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, String.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -663,12 +660,12 @@ public class PackagesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional)
-     * @param sort A field for sorting objects in ascending or descending order. (optional)
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @return List&lt;ModelPackage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ModelPackage> packagesList(String owner, String repo, Integer page, Integer pageSize, String query, String sort) throws ApiException {
+    public List<ModelPackage> packagesList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort) throws ApiException {
         ApiResponse<List<ModelPackage>> resp = packagesListWithHttpInfo(owner, repo, page, pageSize, query, sort);
         return resp.getData();
     }
@@ -680,12 +677,12 @@ public class PackagesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional)
-     * @param sort A field for sorting objects in ascending or descending order. (optional)
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @return ApiResponse&lt;List&lt;ModelPackage&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ModelPackage>> packagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  Integer page,  Integer pageSize,  String query,  String sort) throws ApiException {
+    public ApiResponse<List<ModelPackage>> packagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query,  String sort) throws ApiException {
         com.squareup.okhttp.Call call = packagesListValidateBeforeCall(owner, repo, page, pageSize, query, sort, null, null);
         Type localVarReturnType = new TypeToken<List<ModelPackage>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -698,13 +695,13 @@ public class PackagesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional)
-     * @param sort A field for sorting objects in ascending or descending order. (optional)
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesListAsync(String owner, String repo, Integer page, Integer pageSize, String query, String sort, final ApiCallback<List<ModelPackage>> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ApiCallback<List<ModelPackage>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -741,7 +738,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesMoveCall(String owner, String repo, String identifier, PackagesMove data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesMoveCall(String owner, String repo, String identifier, PackageMoveRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -758,7 +755,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -786,13 +783,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesMoveValidateBeforeCall(String owner, String repo, String identifier, PackagesMove data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesMoveValidateBeforeCall(String owner, String repo, String identifier, PackageMoveRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, identifier, data };
-            Method method = this.getClass().getMethod("packagesMoveWithHttpInfo", String.class, String.class, String.class, PackagesMove.class);
+            Method method = this.getClass().getMethod("packagesMoveWithHttpInfo", String.class, String.class, String.class, PackageMoveRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -823,7 +820,7 @@ public class PackagesApi {
      * @return PackageMove
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageMove packagesMove(String owner, String repo, String identifier, PackagesMove data) throws ApiException {
+    public PackageMove packagesMove(String owner, String repo, String identifier, PackageMoveRequest data) throws ApiException {
         ApiResponse<PackageMove> resp = packagesMoveWithHttpInfo(owner, repo, identifier, data);
         return resp.getData();
     }
@@ -838,7 +835,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;PackageMove&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageMove> packagesMoveWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackagesMove data) throws ApiException {
+    public ApiResponse<PackageMove> packagesMoveWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackageMoveRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesMoveValidateBeforeCall(owner, repo, identifier, data, null, null);
         Type localVarReturnType = new TypeToken<PackageMove>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -855,7 +852,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesMoveAsync(String owner, String repo, String identifier, PackagesMove data, final ApiCallback<PackageMove> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesMoveAsync(String owner, String repo, String identifier, PackageMoveRequest data, final ApiCallback<PackageMove> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -892,7 +889,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesQuarantineCall(String owner, String repo, String identifier, PackagesQuarantine data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesQuarantineCall(String owner, String repo, String identifier, PackageQuarantineRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -909,7 +906,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -937,13 +934,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesQuarantineValidateBeforeCall(String owner, String repo, String identifier, PackagesQuarantine data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesQuarantineValidateBeforeCall(String owner, String repo, String identifier, PackageQuarantineRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, identifier, data };
-            Method method = this.getClass().getMethod("packagesQuarantineWithHttpInfo", String.class, String.class, String.class, PackagesQuarantine.class);
+            Method method = this.getClass().getMethod("packagesQuarantineWithHttpInfo", String.class, String.class, String.class, PackageQuarantineRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -971,11 +968,11 @@ public class PackagesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return ModelPackage
+     * @return PackageQuarantine
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModelPackage packagesQuarantine(String owner, String repo, String identifier, PackagesQuarantine data) throws ApiException {
-        ApiResponse<ModelPackage> resp = packagesQuarantineWithHttpInfo(owner, repo, identifier, data);
+    public PackageQuarantine packagesQuarantine(String owner, String repo, String identifier, PackageQuarantineRequest data) throws ApiException {
+        ApiResponse<PackageQuarantine> resp = packagesQuarantineWithHttpInfo(owner, repo, identifier, data);
         return resp.getData();
     }
 
@@ -986,12 +983,12 @@ public class PackagesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;ModelPackage&gt;
+     * @return ApiResponse&lt;PackageQuarantine&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModelPackage> packagesQuarantineWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackagesQuarantine data) throws ApiException {
+    public ApiResponse<PackageQuarantine> packagesQuarantineWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackageQuarantineRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesQuarantineValidateBeforeCall(owner, repo, identifier, data, null, null);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageQuarantine>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1006,7 +1003,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesQuarantineAsync(String owner, String repo, String identifier, PackagesQuarantine data, final ApiCallback<ModelPackage> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesQuarantineAsync(String owner, String repo, String identifier, PackageQuarantineRequest data, final ApiCallback<PackageQuarantine> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1028,7 +1025,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesQuarantineValidateBeforeCall(owner, repo, identifier, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageQuarantine>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1059,13 +1056,13 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1206,13 +1203,13 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1267,11 +1264,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
-     * @return ModelPackage
+     * @return PackageResync
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModelPackage packagesResync(String owner, String repo, String identifier) throws ApiException {
-        ApiResponse<ModelPackage> resp = packagesResyncWithHttpInfo(owner, repo, identifier);
+    public PackageResync packagesResync(String owner, String repo, String identifier) throws ApiException {
+        ApiResponse<PackageResync> resp = packagesResyncWithHttpInfo(owner, repo, identifier);
         return resp.getData();
     }
 
@@ -1281,12 +1278,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
-     * @return ApiResponse&lt;ModelPackage&gt;
+     * @return ApiResponse&lt;PackageResync&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModelPackage> packagesResyncWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
+    public ApiResponse<PackageResync> packagesResyncWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = packagesResyncValidateBeforeCall(owner, repo, identifier, null, null);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageResync>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1300,7 +1297,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesResyncAsync(String owner, String repo, String identifier, final ApiCallback<ModelPackage> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesResyncAsync(String owner, String repo, String identifier, final ApiCallback<PackageResync> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1322,7 +1319,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesResyncValidateBeforeCall(owner, repo, identifier, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageResync>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1353,13 +1350,13 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1500,13 +1497,13 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1631,7 +1628,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesTagCall(String owner, String repo, String identifier, PackagesTag data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesTagCall(String owner, String repo, String identifier, PackageTagRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -1648,7 +1645,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1676,13 +1673,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesTagValidateBeforeCall(String owner, String repo, String identifier, PackagesTag data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesTagValidateBeforeCall(String owner, String repo, String identifier, PackageTagRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, identifier, data };
-            Method method = this.getClass().getMethod("packagesTagWithHttpInfo", String.class, String.class, String.class, PackagesTag.class);
+            Method method = this.getClass().getMethod("packagesTagWithHttpInfo", String.class, String.class, String.class, PackageTagRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -1713,7 +1710,7 @@ public class PackagesApi {
      * @return ModelPackage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModelPackage packagesTag(String owner, String repo, String identifier, PackagesTag data) throws ApiException {
+    public ModelPackage packagesTag(String owner, String repo, String identifier, PackageTagRequest data) throws ApiException {
         ApiResponse<ModelPackage> resp = packagesTagWithHttpInfo(owner, repo, identifier, data);
         return resp.getData();
     }
@@ -1728,7 +1725,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;ModelPackage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModelPackage> packagesTagWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackagesTag data) throws ApiException {
+    public ApiResponse<ModelPackage> packagesTagWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackageTagRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesTagValidateBeforeCall(owner, repo, identifier, data, null, null);
         Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1745,7 +1742,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesTagAsync(String owner, String repo, String identifier, PackagesTag data, final ApiCallback<ModelPackage> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesTagAsync(String owner, String repo, String identifier, PackageTagRequest data, final ApiCallback<ModelPackage> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1781,7 +1778,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadAlpineCall(String owner, String repo, PackagesUploadAlpine data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadAlpineCall(String owner, String repo, AlpinePackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -1797,7 +1794,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1825,13 +1822,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadAlpineValidateBeforeCall(String owner, String repo, PackagesUploadAlpine data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadAlpineValidateBeforeCall(String owner, String repo, AlpinePackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadAlpineWithHttpInfo", String.class, String.class, PackagesUploadAlpine.class);
+            Method method = this.getClass().getMethod("packagesUploadAlpineWithHttpInfo", String.class, String.class, AlpinePackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -1861,7 +1858,7 @@ public class PackagesApi {
      * @return AlpinePackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadAlpine(String owner, String repo, PackagesUploadAlpine data) throws ApiException {
+    public AlpinePackageUpload packagesUploadAlpine(String owner, String repo, AlpinePackageUploadRequest data) throws ApiException {
         ApiResponse<AlpinePackageUpload> resp = packagesUploadAlpineWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
@@ -1875,7 +1872,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;AlpinePackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadAlpineWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadAlpine data) throws ApiException {
+    public ApiResponse<AlpinePackageUpload> packagesUploadAlpineWithHttpInfo( @NotNull String owner,  @NotNull String repo,  AlpinePackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadAlpineValidateBeforeCall(owner, repo, data, null, null);
         Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1891,7 +1888,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadAlpineAsync(String owner, String repo, PackagesUploadAlpine data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadAlpineAsync(String owner, String repo, AlpinePackageUploadRequest data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1927,7 +1924,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadCargoCall(String owner, String repo, PackagesUploadCargo data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadCargoCall(String owner, String repo, CargoPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -1943,7 +1940,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -1971,13 +1968,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadCargoValidateBeforeCall(String owner, String repo, PackagesUploadCargo data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadCargoValidateBeforeCall(String owner, String repo, CargoPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadCargoWithHttpInfo", String.class, String.class, PackagesUploadCargo.class);
+            Method method = this.getClass().getMethod("packagesUploadCargoWithHttpInfo", String.class, String.class, CargoPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2004,11 +2001,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return CargoPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadCargo(String owner, String repo, PackagesUploadCargo data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadCargoWithHttpInfo(owner, repo, data);
+    public CargoPackageUpload packagesUploadCargo(String owner, String repo, CargoPackageUploadRequest data) throws ApiException {
+        ApiResponse<CargoPackageUpload> resp = packagesUploadCargoWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -2018,12 +2015,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;CargoPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadCargoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadCargo data) throws ApiException {
+    public ApiResponse<CargoPackageUpload> packagesUploadCargoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  CargoPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadCargoValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<CargoPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2037,7 +2034,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadCargoAsync(String owner, String repo, PackagesUploadCargo data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadCargoAsync(String owner, String repo, CargoPackageUploadRequest data, final ApiCallback<CargoPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2059,7 +2056,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadCargoValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<CargoPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2073,7 +2070,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadCocoapodsCall(String owner, String repo, PackagesUploadCocoapods data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadCocoapodsCall(String owner, String repo, CocoapodsPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2089,7 +2086,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2117,13 +2114,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadCocoapodsValidateBeforeCall(String owner, String repo, PackagesUploadCocoapods data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadCocoapodsValidateBeforeCall(String owner, String repo, CocoapodsPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadCocoapodsWithHttpInfo", String.class, String.class, PackagesUploadCocoapods.class);
+            Method method = this.getClass().getMethod("packagesUploadCocoapodsWithHttpInfo", String.class, String.class, CocoapodsPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2150,11 +2147,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return CocoapodsPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadCocoapods(String owner, String repo, PackagesUploadCocoapods data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadCocoapodsWithHttpInfo(owner, repo, data);
+    public CocoapodsPackageUpload packagesUploadCocoapods(String owner, String repo, CocoapodsPackageUploadRequest data) throws ApiException {
+        ApiResponse<CocoapodsPackageUpload> resp = packagesUploadCocoapodsWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -2164,12 +2161,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;CocoapodsPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadCocoapodsWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadCocoapods data) throws ApiException {
+    public ApiResponse<CocoapodsPackageUpload> packagesUploadCocoapodsWithHttpInfo( @NotNull String owner,  @NotNull String repo,  CocoapodsPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadCocoapodsValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<CocoapodsPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2183,7 +2180,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadCocoapodsAsync(String owner, String repo, PackagesUploadCocoapods data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadCocoapodsAsync(String owner, String repo, CocoapodsPackageUploadRequest data, final ApiCallback<CocoapodsPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2205,7 +2202,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadCocoapodsValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<CocoapodsPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2219,7 +2216,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadComposerCall(String owner, String repo, PackagesUploadComposer data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadComposerCall(String owner, String repo, ComposerPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2235,7 +2232,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2263,13 +2260,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadComposerValidateBeforeCall(String owner, String repo, PackagesUploadComposer data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadComposerValidateBeforeCall(String owner, String repo, ComposerPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadComposerWithHttpInfo", String.class, String.class, PackagesUploadComposer.class);
+            Method method = this.getClass().getMethod("packagesUploadComposerWithHttpInfo", String.class, String.class, ComposerPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2296,11 +2293,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return ComposerPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadComposer(String owner, String repo, PackagesUploadComposer data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadComposerWithHttpInfo(owner, repo, data);
+    public ComposerPackageUpload packagesUploadComposer(String owner, String repo, ComposerPackageUploadRequest data) throws ApiException {
+        ApiResponse<ComposerPackageUpload> resp = packagesUploadComposerWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -2310,12 +2307,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;ComposerPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadComposerWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadComposer data) throws ApiException {
+    public ApiResponse<ComposerPackageUpload> packagesUploadComposerWithHttpInfo( @NotNull String owner,  @NotNull String repo,  ComposerPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadComposerValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComposerPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2329,7 +2326,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadComposerAsync(String owner, String repo, PackagesUploadComposer data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadComposerAsync(String owner, String repo, ComposerPackageUploadRequest data, final ApiCallback<ComposerPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2351,7 +2348,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadComposerValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComposerPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2365,7 +2362,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadConanCall(String owner, String repo, PackagesUploadConan data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadConanCall(String owner, String repo, ConanPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2381,7 +2378,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2409,13 +2406,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadConanValidateBeforeCall(String owner, String repo, PackagesUploadConan data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadConanValidateBeforeCall(String owner, String repo, ConanPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadConanWithHttpInfo", String.class, String.class, PackagesUploadConan.class);
+            Method method = this.getClass().getMethod("packagesUploadConanWithHttpInfo", String.class, String.class, ConanPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2445,7 +2442,7 @@ public class PackagesApi {
      * @return ConanPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ConanPackageUpload packagesUploadConan(String owner, String repo, PackagesUploadConan data) throws ApiException {
+    public ConanPackageUpload packagesUploadConan(String owner, String repo, ConanPackageUploadRequest data) throws ApiException {
         ApiResponse<ConanPackageUpload> resp = packagesUploadConanWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
@@ -2459,7 +2456,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;ConanPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ConanPackageUpload> packagesUploadConanWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadConan data) throws ApiException {
+    public ApiResponse<ConanPackageUpload> packagesUploadConanWithHttpInfo( @NotNull String owner,  @NotNull String repo,  ConanPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadConanValidateBeforeCall(owner, repo, data, null, null);
         Type localVarReturnType = new TypeToken<ConanPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2475,7 +2472,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadConanAsync(String owner, String repo, PackagesUploadConan data, final ApiCallback<ConanPackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadConanAsync(String owner, String repo, ConanPackageUploadRequest data, final ApiCallback<ConanPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2511,7 +2508,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadCondaCall(String owner, String repo, PackagesUploadConda data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadCondaCall(String owner, String repo, CondaPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2527,7 +2524,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2555,13 +2552,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadCondaValidateBeforeCall(String owner, String repo, PackagesUploadConda data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadCondaValidateBeforeCall(String owner, String repo, CondaPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadCondaWithHttpInfo", String.class, String.class, PackagesUploadConda.class);
+            Method method = this.getClass().getMethod("packagesUploadCondaWithHttpInfo", String.class, String.class, CondaPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2588,11 +2585,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return CondaPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadConda(String owner, String repo, PackagesUploadConda data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadCondaWithHttpInfo(owner, repo, data);
+    public CondaPackageUpload packagesUploadConda(String owner, String repo, CondaPackageUploadRequest data) throws ApiException {
+        ApiResponse<CondaPackageUpload> resp = packagesUploadCondaWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -2602,12 +2599,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;CondaPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadCondaWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadConda data) throws ApiException {
+    public ApiResponse<CondaPackageUpload> packagesUploadCondaWithHttpInfo( @NotNull String owner,  @NotNull String repo,  CondaPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadCondaValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<CondaPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2621,7 +2618,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadCondaAsync(String owner, String repo, PackagesUploadConda data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadCondaAsync(String owner, String repo, CondaPackageUploadRequest data, final ApiCallback<CondaPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2643,7 +2640,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadCondaValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<CondaPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2657,7 +2654,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadCranCall(String owner, String repo, PackagesUploadCran data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadCranCall(String owner, String repo, CranPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2673,7 +2670,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2701,13 +2698,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadCranValidateBeforeCall(String owner, String repo, PackagesUploadCran data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadCranValidateBeforeCall(String owner, String repo, CranPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadCranWithHttpInfo", String.class, String.class, PackagesUploadCran.class);
+            Method method = this.getClass().getMethod("packagesUploadCranWithHttpInfo", String.class, String.class, CranPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2734,11 +2731,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return CranPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadCran(String owner, String repo, PackagesUploadCran data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadCranWithHttpInfo(owner, repo, data);
+    public CranPackageUpload packagesUploadCran(String owner, String repo, CranPackageUploadRequest data) throws ApiException {
+        ApiResponse<CranPackageUpload> resp = packagesUploadCranWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -2748,12 +2745,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;CranPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadCranWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadCran data) throws ApiException {
+    public ApiResponse<CranPackageUpload> packagesUploadCranWithHttpInfo( @NotNull String owner,  @NotNull String repo,  CranPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadCranValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<CranPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2767,7 +2764,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadCranAsync(String owner, String repo, PackagesUploadCran data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadCranAsync(String owner, String repo, CranPackageUploadRequest data, final ApiCallback<CranPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2789,7 +2786,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadCranValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<CranPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2803,7 +2800,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadDartCall(String owner, String repo, PackagesUploadDart data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadDartCall(String owner, String repo, DartPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2819,7 +2816,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2847,13 +2844,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadDartValidateBeforeCall(String owner, String repo, PackagesUploadDart data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadDartValidateBeforeCall(String owner, String repo, DartPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadDartWithHttpInfo", String.class, String.class, PackagesUploadDart.class);
+            Method method = this.getClass().getMethod("packagesUploadDartWithHttpInfo", String.class, String.class, DartPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -2880,11 +2877,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return DartPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadDart(String owner, String repo, PackagesUploadDart data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadDartWithHttpInfo(owner, repo, data);
+    public DartPackageUpload packagesUploadDart(String owner, String repo, DartPackageUploadRequest data) throws ApiException {
+        ApiResponse<DartPackageUpload> resp = packagesUploadDartWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -2894,12 +2891,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;DartPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadDartWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadDart data) throws ApiException {
+    public ApiResponse<DartPackageUpload> packagesUploadDartWithHttpInfo( @NotNull String owner,  @NotNull String repo,  DartPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadDartValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<DartPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2913,7 +2910,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadDartAsync(String owner, String repo, PackagesUploadDart data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadDartAsync(String owner, String repo, DartPackageUploadRequest data, final ApiCallback<DartPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2935,7 +2932,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadDartValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<DartPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2949,7 +2946,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadDebCall(String owner, String repo, PackagesUploadDeb data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadDebCall(String owner, String repo, DebPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -2965,7 +2962,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -2993,13 +2990,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadDebValidateBeforeCall(String owner, String repo, PackagesUploadDeb data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadDebValidateBeforeCall(String owner, String repo, DebPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadDebWithHttpInfo", String.class, String.class, PackagesUploadDeb.class);
+            Method method = this.getClass().getMethod("packagesUploadDebWithHttpInfo", String.class, String.class, DebPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -3026,11 +3023,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return DebPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadDeb(String owner, String repo, PackagesUploadDeb data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadDebWithHttpInfo(owner, repo, data);
+    public DebPackageUpload packagesUploadDeb(String owner, String repo, DebPackageUploadRequest data) throws ApiException {
+        ApiResponse<DebPackageUpload> resp = packagesUploadDebWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -3040,12 +3037,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;DebPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadDebWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadDeb data) throws ApiException {
+    public ApiResponse<DebPackageUpload> packagesUploadDebWithHttpInfo( @NotNull String owner,  @NotNull String repo,  DebPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadDebValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<DebPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3059,7 +3056,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadDebAsync(String owner, String repo, PackagesUploadDeb data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadDebAsync(String owner, String repo, DebPackageUploadRequest data, final ApiCallback<DebPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3081,7 +3078,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadDebValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<DebPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3095,7 +3092,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadDockerCall(String owner, String repo, PackagesUploadDocker data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadDockerCall(String owner, String repo, DockerPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -3111,7 +3108,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -3139,13 +3136,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadDockerValidateBeforeCall(String owner, String repo, PackagesUploadDocker data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadDockerValidateBeforeCall(String owner, String repo, DockerPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadDockerWithHttpInfo", String.class, String.class, PackagesUploadDocker.class);
+            Method method = this.getClass().getMethod("packagesUploadDockerWithHttpInfo", String.class, String.class, DockerPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -3172,11 +3169,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return DockerPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadDocker(String owner, String repo, PackagesUploadDocker data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadDockerWithHttpInfo(owner, repo, data);
+    public DockerPackageUpload packagesUploadDocker(String owner, String repo, DockerPackageUploadRequest data) throws ApiException {
+        ApiResponse<DockerPackageUpload> resp = packagesUploadDockerWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -3186,12 +3183,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;DockerPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadDockerWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadDocker data) throws ApiException {
+    public ApiResponse<DockerPackageUpload> packagesUploadDockerWithHttpInfo( @NotNull String owner,  @NotNull String repo,  DockerPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadDockerValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<DockerPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3205,7 +3202,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadDockerAsync(String owner, String repo, PackagesUploadDocker data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadDockerAsync(String owner, String repo, DockerPackageUploadRequest data, final ApiCallback<DockerPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3227,7 +3224,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadDockerValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<DockerPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3241,7 +3238,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadGoCall(String owner, String repo, PackagesUploadGo data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadGoCall(String owner, String repo, GoPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -3257,7 +3254,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -3285,13 +3282,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadGoValidateBeforeCall(String owner, String repo, PackagesUploadGo data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadGoValidateBeforeCall(String owner, String repo, GoPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadGoWithHttpInfo", String.class, String.class, PackagesUploadGo.class);
+            Method method = this.getClass().getMethod("packagesUploadGoWithHttpInfo", String.class, String.class, GoPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -3318,11 +3315,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return GoPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadGo(String owner, String repo, PackagesUploadGo data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadGoWithHttpInfo(owner, repo, data);
+    public GoPackageUpload packagesUploadGo(String owner, String repo, GoPackageUploadRequest data) throws ApiException {
+        ApiResponse<GoPackageUpload> resp = packagesUploadGoWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -3332,12 +3329,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;GoPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadGoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadGo data) throws ApiException {
+    public ApiResponse<GoPackageUpload> packagesUploadGoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  GoPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadGoValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<GoPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3351,7 +3348,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadGoAsync(String owner, String repo, PackagesUploadGo data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadGoAsync(String owner, String repo, GoPackageUploadRequest data, final ApiCallback<GoPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3373,7 +3370,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadGoValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<GoPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3387,7 +3384,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadHelmCall(String owner, String repo, PackagesUploadHelm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadHelmCall(String owner, String repo, HelmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -3403,7 +3400,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -3431,13 +3428,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadHelmValidateBeforeCall(String owner, String repo, PackagesUploadHelm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadHelmValidateBeforeCall(String owner, String repo, HelmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadHelmWithHttpInfo", String.class, String.class, PackagesUploadHelm.class);
+            Method method = this.getClass().getMethod("packagesUploadHelmWithHttpInfo", String.class, String.class, HelmPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -3464,11 +3461,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return HelmPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadHelm(String owner, String repo, PackagesUploadHelm data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadHelmWithHttpInfo(owner, repo, data);
+    public HelmPackageUpload packagesUploadHelm(String owner, String repo, HelmPackageUploadRequest data) throws ApiException {
+        ApiResponse<HelmPackageUpload> resp = packagesUploadHelmWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -3478,12 +3475,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;HelmPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadHelmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadHelm data) throws ApiException {
+    public ApiResponse<HelmPackageUpload> packagesUploadHelmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  HelmPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadHelmValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<HelmPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3497,7 +3494,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadHelmAsync(String owner, String repo, PackagesUploadHelm data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadHelmAsync(String owner, String repo, HelmPackageUploadRequest data, final ApiCallback<HelmPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3519,7 +3516,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadHelmValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<HelmPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3533,7 +3530,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadLuarocksCall(String owner, String repo, PackagesUploadLuarocks data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadLuarocksCall(String owner, String repo, LuarocksPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -3549,7 +3546,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -3577,13 +3574,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadLuarocksValidateBeforeCall(String owner, String repo, PackagesUploadLuarocks data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadLuarocksValidateBeforeCall(String owner, String repo, LuarocksPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadLuarocksWithHttpInfo", String.class, String.class, PackagesUploadLuarocks.class);
+            Method method = this.getClass().getMethod("packagesUploadLuarocksWithHttpInfo", String.class, String.class, LuarocksPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -3610,11 +3607,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return LuarocksPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadLuarocks(String owner, String repo, PackagesUploadLuarocks data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadLuarocksWithHttpInfo(owner, repo, data);
+    public LuarocksPackageUpload packagesUploadLuarocks(String owner, String repo, LuarocksPackageUploadRequest data) throws ApiException {
+        ApiResponse<LuarocksPackageUpload> resp = packagesUploadLuarocksWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -3624,12 +3621,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;LuarocksPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadLuarocksWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadLuarocks data) throws ApiException {
+    public ApiResponse<LuarocksPackageUpload> packagesUploadLuarocksWithHttpInfo( @NotNull String owner,  @NotNull String repo,  LuarocksPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadLuarocksValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<LuarocksPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3643,7 +3640,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadLuarocksAsync(String owner, String repo, PackagesUploadLuarocks data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadLuarocksAsync(String owner, String repo, LuarocksPackageUploadRequest data, final ApiCallback<LuarocksPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3665,7 +3662,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadLuarocksValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<LuarocksPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3679,7 +3676,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadMavenCall(String owner, String repo, PackagesUploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadMavenCall(String owner, String repo, MavenPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -3695,7 +3692,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -3723,13 +3720,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadMavenValidateBeforeCall(String owner, String repo, PackagesUploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadMavenValidateBeforeCall(String owner, String repo, MavenPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadMavenWithHttpInfo", String.class, String.class, PackagesUploadMaven.class);
+            Method method = this.getClass().getMethod("packagesUploadMavenWithHttpInfo", String.class, String.class, MavenPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -3759,7 +3756,7 @@ public class PackagesApi {
      * @return MavenPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public MavenPackageUpload packagesUploadMaven(String owner, String repo, PackagesUploadMaven data) throws ApiException {
+    public MavenPackageUpload packagesUploadMaven(String owner, String repo, MavenPackageUploadRequest data) throws ApiException {
         ApiResponse<MavenPackageUpload> resp = packagesUploadMavenWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
@@ -3773,7 +3770,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;MavenPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<MavenPackageUpload> packagesUploadMavenWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadMaven data) throws ApiException {
+    public ApiResponse<MavenPackageUpload> packagesUploadMavenWithHttpInfo( @NotNull String owner,  @NotNull String repo,  MavenPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadMavenValidateBeforeCall(owner, repo, data, null, null);
         Type localVarReturnType = new TypeToken<MavenPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3789,7 +3786,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadMavenAsync(String owner, String repo, PackagesUploadMaven data, final ApiCallback<MavenPackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadMavenAsync(String owner, String repo, MavenPackageUploadRequest data, final ApiCallback<MavenPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3825,7 +3822,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadNpmCall(String owner, String repo, PackagesUploadNpm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadNpmCall(String owner, String repo, NpmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -3841,7 +3838,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -3869,13 +3866,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadNpmValidateBeforeCall(String owner, String repo, PackagesUploadNpm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadNpmValidateBeforeCall(String owner, String repo, NpmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadNpmWithHttpInfo", String.class, String.class, PackagesUploadNpm.class);
+            Method method = this.getClass().getMethod("packagesUploadNpmWithHttpInfo", String.class, String.class, NpmPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -3902,11 +3899,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return NpmPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadNpm(String owner, String repo, PackagesUploadNpm data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadNpmWithHttpInfo(owner, repo, data);
+    public NpmPackageUpload packagesUploadNpm(String owner, String repo, NpmPackageUploadRequest data) throws ApiException {
+        ApiResponse<NpmPackageUpload> resp = packagesUploadNpmWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -3916,12 +3913,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;NpmPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadNpmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadNpm data) throws ApiException {
+    public ApiResponse<NpmPackageUpload> packagesUploadNpmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  NpmPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadNpmValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<NpmPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3935,7 +3932,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadNpmAsync(String owner, String repo, PackagesUploadNpm data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadNpmAsync(String owner, String repo, NpmPackageUploadRequest data, final ApiCallback<NpmPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3957,7 +3954,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadNpmValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<NpmPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3971,7 +3968,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadNugetCall(String owner, String repo, PackagesUploadNuget data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadNugetCall(String owner, String repo, NugetPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -3987,7 +3984,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -4015,13 +4012,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadNugetValidateBeforeCall(String owner, String repo, PackagesUploadNuget data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadNugetValidateBeforeCall(String owner, String repo, NugetPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadNugetWithHttpInfo", String.class, String.class, PackagesUploadNuget.class);
+            Method method = this.getClass().getMethod("packagesUploadNugetWithHttpInfo", String.class, String.class, NugetPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -4048,11 +4045,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return NugetPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadNuget(String owner, String repo, PackagesUploadNuget data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadNugetWithHttpInfo(owner, repo, data);
+    public NugetPackageUpload packagesUploadNuget(String owner, String repo, NugetPackageUploadRequest data) throws ApiException {
+        ApiResponse<NugetPackageUpload> resp = packagesUploadNugetWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -4062,12 +4059,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;NugetPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadNugetWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadNuget data) throws ApiException {
+    public ApiResponse<NugetPackageUpload> packagesUploadNugetWithHttpInfo( @NotNull String owner,  @NotNull String repo,  NugetPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadNugetValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<NugetPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -4081,7 +4078,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadNugetAsync(String owner, String repo, PackagesUploadNuget data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadNugetAsync(String owner, String repo, NugetPackageUploadRequest data, final ApiCallback<NugetPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4103,7 +4100,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadNugetValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<NugetPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4117,7 +4114,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadP2Call(String owner, String repo, PackagesUploadP2 data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadP2Call(String owner, String repo, P2PackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -4133,7 +4130,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -4161,13 +4158,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadP2ValidateBeforeCall(String owner, String repo, PackagesUploadP2 data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadP2ValidateBeforeCall(String owner, String repo, P2PackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadP2WithHttpInfo", String.class, String.class, PackagesUploadP2.class);
+            Method method = this.getClass().getMethod("packagesUploadP2WithHttpInfo", String.class, String.class, P2PackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -4194,11 +4191,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return P2PackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadP2(String owner, String repo, PackagesUploadP2 data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadP2WithHttpInfo(owner, repo, data);
+    public P2PackageUpload packagesUploadP2(String owner, String repo, P2PackageUploadRequest data) throws ApiException {
+        ApiResponse<P2PackageUpload> resp = packagesUploadP2WithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -4208,12 +4205,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;P2PackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadP2WithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadP2 data) throws ApiException {
+    public ApiResponse<P2PackageUpload> packagesUploadP2WithHttpInfo( @NotNull String owner,  @NotNull String repo,  P2PackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadP2ValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2PackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -4227,7 +4224,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadP2Async(String owner, String repo, PackagesUploadP2 data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadP2Async(String owner, String repo, P2PackageUploadRequest data, final ApiCallback<P2PackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4249,7 +4246,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadP2ValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2PackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4263,7 +4260,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadPythonCall(String owner, String repo, PackagesUploadPython data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadPythonCall(String owner, String repo, PythonPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -4279,7 +4276,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -4307,13 +4304,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadPythonValidateBeforeCall(String owner, String repo, PackagesUploadPython data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadPythonValidateBeforeCall(String owner, String repo, PythonPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadPythonWithHttpInfo", String.class, String.class, PackagesUploadPython.class);
+            Method method = this.getClass().getMethod("packagesUploadPythonWithHttpInfo", String.class, String.class, PythonPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -4340,11 +4337,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return PythonPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadPython(String owner, String repo, PackagesUploadPython data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadPythonWithHttpInfo(owner, repo, data);
+    public PythonPackageUpload packagesUploadPython(String owner, String repo, PythonPackageUploadRequest data) throws ApiException {
+        ApiResponse<PythonPackageUpload> resp = packagesUploadPythonWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -4354,12 +4351,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;PythonPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadPythonWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadPython data) throws ApiException {
+    public ApiResponse<PythonPackageUpload> packagesUploadPythonWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PythonPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadPythonValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<PythonPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -4373,7 +4370,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadPythonAsync(String owner, String repo, PackagesUploadPython data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadPythonAsync(String owner, String repo, PythonPackageUploadRequest data, final ApiCallback<PythonPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4395,7 +4392,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadPythonValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<PythonPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4409,7 +4406,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadRawCall(String owner, String repo, PackagesUploadRaw data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadRawCall(String owner, String repo, RawPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -4425,7 +4422,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -4453,13 +4450,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadRawValidateBeforeCall(String owner, String repo, PackagesUploadRaw data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadRawValidateBeforeCall(String owner, String repo, RawPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadRawWithHttpInfo", String.class, String.class, PackagesUploadRaw.class);
+            Method method = this.getClass().getMethod("packagesUploadRawWithHttpInfo", String.class, String.class, RawPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -4489,7 +4486,7 @@ public class PackagesApi {
      * @return RawPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RawPackageUpload packagesUploadRaw(String owner, String repo, PackagesUploadRaw data) throws ApiException {
+    public RawPackageUpload packagesUploadRaw(String owner, String repo, RawPackageUploadRequest data) throws ApiException {
         ApiResponse<RawPackageUpload> resp = packagesUploadRawWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
@@ -4503,7 +4500,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;RawPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RawPackageUpload> packagesUploadRawWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadRaw data) throws ApiException {
+    public ApiResponse<RawPackageUpload> packagesUploadRawWithHttpInfo( @NotNull String owner,  @NotNull String repo,  RawPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadRawValidateBeforeCall(owner, repo, data, null, null);
         Type localVarReturnType = new TypeToken<RawPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4519,7 +4516,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadRawAsync(String owner, String repo, PackagesUploadRaw data, final ApiCallback<RawPackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadRawAsync(String owner, String repo, RawPackageUploadRequest data, final ApiCallback<RawPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4555,7 +4552,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadRpmCall(String owner, String repo, PackagesUploadRpm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadRpmCall(String owner, String repo, RpmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -4571,7 +4568,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -4599,13 +4596,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadRpmValidateBeforeCall(String owner, String repo, PackagesUploadRpm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadRpmValidateBeforeCall(String owner, String repo, RpmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadRpmWithHttpInfo", String.class, String.class, PackagesUploadRpm.class);
+            Method method = this.getClass().getMethod("packagesUploadRpmWithHttpInfo", String.class, String.class, RpmPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -4632,11 +4629,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return RpmPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadRpm(String owner, String repo, PackagesUploadRpm data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadRpmWithHttpInfo(owner, repo, data);
+    public RpmPackageUpload packagesUploadRpm(String owner, String repo, RpmPackageUploadRequest data) throws ApiException {
+        ApiResponse<RpmPackageUpload> resp = packagesUploadRpmWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -4646,12 +4643,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;RpmPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadRpmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadRpm data) throws ApiException {
+    public ApiResponse<RpmPackageUpload> packagesUploadRpmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  RpmPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadRpmValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<RpmPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -4665,7 +4662,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadRpmAsync(String owner, String repo, PackagesUploadRpm data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadRpmAsync(String owner, String repo, RpmPackageUploadRequest data, final ApiCallback<RpmPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4687,7 +4684,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadRpmValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<RpmPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4701,7 +4698,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadRubyCall(String owner, String repo, PackagesUploadRuby data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadRubyCall(String owner, String repo, RubyPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -4717,7 +4714,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -4745,13 +4742,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadRubyValidateBeforeCall(String owner, String repo, PackagesUploadRuby data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadRubyValidateBeforeCall(String owner, String repo, RubyPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadRubyWithHttpInfo", String.class, String.class, PackagesUploadRuby.class);
+            Method method = this.getClass().getMethod("packagesUploadRubyWithHttpInfo", String.class, String.class, RubyPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -4778,11 +4775,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return RubyPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadRuby(String owner, String repo, PackagesUploadRuby data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadRubyWithHttpInfo(owner, repo, data);
+    public RubyPackageUpload packagesUploadRuby(String owner, String repo, RubyPackageUploadRequest data) throws ApiException {
+        ApiResponse<RubyPackageUpload> resp = packagesUploadRubyWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -4792,12 +4789,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;RubyPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadRubyWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadRuby data) throws ApiException {
+    public ApiResponse<RubyPackageUpload> packagesUploadRubyWithHttpInfo( @NotNull String owner,  @NotNull String repo,  RubyPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadRubyValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<RubyPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -4811,7 +4808,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadRubyAsync(String owner, String repo, PackagesUploadRuby data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadRubyAsync(String owner, String repo, RubyPackageUploadRequest data, final ApiCallback<RubyPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4833,7 +4830,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadRubyValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<RubyPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4847,7 +4844,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadTerraformCall(String owner, String repo, PackagesUploadTerraform data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadTerraformCall(String owner, String repo, TerraformPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -4863,7 +4860,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -4891,13 +4888,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadTerraformValidateBeforeCall(String owner, String repo, PackagesUploadTerraform data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadTerraformValidateBeforeCall(String owner, String repo, TerraformPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadTerraformWithHttpInfo", String.class, String.class, PackagesUploadTerraform.class);
+            Method method = this.getClass().getMethod("packagesUploadTerraformWithHttpInfo", String.class, String.class, TerraformPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -4924,11 +4921,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return AlpinePackageUpload
+     * @return TerraformPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AlpinePackageUpload packagesUploadTerraform(String owner, String repo, PackagesUploadTerraform data) throws ApiException {
-        ApiResponse<AlpinePackageUpload> resp = packagesUploadTerraformWithHttpInfo(owner, repo, data);
+    public TerraformPackageUpload packagesUploadTerraform(String owner, String repo, TerraformPackageUploadRequest data) throws ApiException {
+        ApiResponse<TerraformPackageUpload> resp = packagesUploadTerraformWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -4938,12 +4935,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;AlpinePackageUpload&gt;
+     * @return ApiResponse&lt;TerraformPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AlpinePackageUpload> packagesUploadTerraformWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadTerraform data) throws ApiException {
+    public ApiResponse<TerraformPackageUpload> packagesUploadTerraformWithHttpInfo( @NotNull String owner,  @NotNull String repo,  TerraformPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadTerraformValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<TerraformPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -4957,7 +4954,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadTerraformAsync(String owner, String repo, PackagesUploadTerraform data, final ApiCallback<AlpinePackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadTerraformAsync(String owner, String repo, TerraformPackageUploadRequest data, final ApiCallback<TerraformPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4979,7 +4976,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesUploadTerraformValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AlpinePackageUpload>(){}.getType();
+        Type localVarReturnType = new TypeToken<TerraformPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4993,7 +4990,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadVagrantCall(String owner, String repo, PackagesUploadVagrant data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadVagrantCall(String owner, String repo, VagrantPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5009,7 +5006,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -5037,13 +5034,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesUploadVagrantValidateBeforeCall(String owner, String repo, PackagesUploadVagrant data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesUploadVagrantValidateBeforeCall(String owner, String repo, VagrantPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesUploadVagrantWithHttpInfo", String.class, String.class, PackagesUploadVagrant.class);
+            Method method = this.getClass().getMethod("packagesUploadVagrantWithHttpInfo", String.class, String.class, VagrantPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5073,7 +5070,7 @@ public class PackagesApi {
      * @return VagrantPackageUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VagrantPackageUpload packagesUploadVagrant(String owner, String repo, PackagesUploadVagrant data) throws ApiException {
+    public VagrantPackageUpload packagesUploadVagrant(String owner, String repo, VagrantPackageUploadRequest data) throws ApiException {
         ApiResponse<VagrantPackageUpload> resp = packagesUploadVagrantWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
@@ -5087,7 +5084,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;VagrantPackageUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VagrantPackageUpload> packagesUploadVagrantWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesUploadVagrant data) throws ApiException {
+    public ApiResponse<VagrantPackageUpload> packagesUploadVagrantWithHttpInfo( @NotNull String owner,  @NotNull String repo,  VagrantPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesUploadVagrantValidateBeforeCall(owner, repo, data, null, null);
         Type localVarReturnType = new TypeToken<VagrantPackageUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5103,7 +5100,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesUploadVagrantAsync(String owner, String repo, PackagesUploadVagrant data, final ApiCallback<VagrantPackageUpload> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesUploadVagrantAsync(String owner, String repo, VagrantPackageUploadRequest data, final ApiCallback<VagrantPackageUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5139,7 +5136,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadAlpineCall(String owner, String repo, PackagesValidateuploadAlpine data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadAlpineCall(String owner, String repo, AlpinePackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5155,7 +5152,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -5183,13 +5180,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadAlpineValidateBeforeCall(String owner, String repo, PackagesValidateuploadAlpine data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadAlpineValidateBeforeCall(String owner, String repo, AlpinePackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadAlpineWithHttpInfo", String.class, String.class, PackagesValidateuploadAlpine.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadAlpineWithHttpInfo", String.class, String.class, AlpinePackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5218,7 +5215,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadAlpine(String owner, String repo, PackagesValidateuploadAlpine data) throws ApiException {
+    public void packagesValidateUploadAlpine(String owner, String repo, AlpinePackageUploadRequest data) throws ApiException {
         packagesValidateUploadAlpineWithHttpInfo(owner, repo, data);
     }
 
@@ -5231,7 +5228,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadAlpineWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadAlpine data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadAlpineWithHttpInfo( @NotNull String owner,  @NotNull String repo,  AlpinePackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadAlpineValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -5246,7 +5243,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadAlpineAsync(String owner, String repo, PackagesValidateuploadAlpine data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadAlpineAsync(String owner, String repo, AlpinePackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5281,7 +5278,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadCargoCall(String owner, String repo, PackagesValidateuploadCargo data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadCargoCall(String owner, String repo, CargoPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5297,7 +5294,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -5325,13 +5322,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadCargoValidateBeforeCall(String owner, String repo, PackagesValidateuploadCargo data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadCargoValidateBeforeCall(String owner, String repo, CargoPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadCargoWithHttpInfo", String.class, String.class, PackagesValidateuploadCargo.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadCargoWithHttpInfo", String.class, String.class, CargoPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5360,7 +5357,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadCargo(String owner, String repo, PackagesValidateuploadCargo data) throws ApiException {
+    public void packagesValidateUploadCargo(String owner, String repo, CargoPackageUploadRequest data) throws ApiException {
         packagesValidateUploadCargoWithHttpInfo(owner, repo, data);
     }
 
@@ -5373,7 +5370,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadCargoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadCargo data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadCargoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  CargoPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadCargoValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -5388,7 +5385,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadCargoAsync(String owner, String repo, PackagesValidateuploadCargo data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadCargoAsync(String owner, String repo, CargoPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5423,7 +5420,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadCocoapodsCall(String owner, String repo, PackagesValidateuploadCocoapods data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadCocoapodsCall(String owner, String repo, CocoapodsPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5439,7 +5436,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -5467,13 +5464,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadCocoapodsValidateBeforeCall(String owner, String repo, PackagesValidateuploadCocoapods data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadCocoapodsValidateBeforeCall(String owner, String repo, CocoapodsPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadCocoapodsWithHttpInfo", String.class, String.class, PackagesValidateuploadCocoapods.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadCocoapodsWithHttpInfo", String.class, String.class, CocoapodsPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5502,7 +5499,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadCocoapods(String owner, String repo, PackagesValidateuploadCocoapods data) throws ApiException {
+    public void packagesValidateUploadCocoapods(String owner, String repo, CocoapodsPackageUploadRequest data) throws ApiException {
         packagesValidateUploadCocoapodsWithHttpInfo(owner, repo, data);
     }
 
@@ -5515,7 +5512,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadCocoapodsWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadCocoapods data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadCocoapodsWithHttpInfo( @NotNull String owner,  @NotNull String repo,  CocoapodsPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadCocoapodsValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -5530,7 +5527,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadCocoapodsAsync(String owner, String repo, PackagesValidateuploadCocoapods data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadCocoapodsAsync(String owner, String repo, CocoapodsPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5565,7 +5562,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadComposerCall(String owner, String repo, PackagesValidateuploadComposer data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadComposerCall(String owner, String repo, ComposerPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5581,7 +5578,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -5609,13 +5606,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadComposerValidateBeforeCall(String owner, String repo, PackagesValidateuploadComposer data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadComposerValidateBeforeCall(String owner, String repo, ComposerPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadComposerWithHttpInfo", String.class, String.class, PackagesValidateuploadComposer.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadComposerWithHttpInfo", String.class, String.class, ComposerPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5644,7 +5641,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadComposer(String owner, String repo, PackagesValidateuploadComposer data) throws ApiException {
+    public void packagesValidateUploadComposer(String owner, String repo, ComposerPackageUploadRequest data) throws ApiException {
         packagesValidateUploadComposerWithHttpInfo(owner, repo, data);
     }
 
@@ -5657,7 +5654,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadComposerWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadComposer data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadComposerWithHttpInfo( @NotNull String owner,  @NotNull String repo,  ComposerPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadComposerValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -5672,7 +5669,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadComposerAsync(String owner, String repo, PackagesValidateuploadComposer data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadComposerAsync(String owner, String repo, ComposerPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5707,7 +5704,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadConanCall(String owner, String repo, PackagesValidateuploadConan data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadConanCall(String owner, String repo, ConanPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5723,7 +5720,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -5751,13 +5748,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadConanValidateBeforeCall(String owner, String repo, PackagesValidateuploadConan data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadConanValidateBeforeCall(String owner, String repo, ConanPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadConanWithHttpInfo", String.class, String.class, PackagesValidateuploadConan.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadConanWithHttpInfo", String.class, String.class, ConanPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5786,7 +5783,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadConan(String owner, String repo, PackagesValidateuploadConan data) throws ApiException {
+    public void packagesValidateUploadConan(String owner, String repo, ConanPackageUploadRequest data) throws ApiException {
         packagesValidateUploadConanWithHttpInfo(owner, repo, data);
     }
 
@@ -5799,7 +5796,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadConanWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadConan data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadConanWithHttpInfo( @NotNull String owner,  @NotNull String repo,  ConanPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadConanValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -5814,7 +5811,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadConanAsync(String owner, String repo, PackagesValidateuploadConan data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadConanAsync(String owner, String repo, ConanPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5849,7 +5846,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadCondaCall(String owner, String repo, PackagesValidateuploadConda data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadCondaCall(String owner, String repo, CondaPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5865,7 +5862,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -5893,13 +5890,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadCondaValidateBeforeCall(String owner, String repo, PackagesValidateuploadConda data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadCondaValidateBeforeCall(String owner, String repo, CondaPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadCondaWithHttpInfo", String.class, String.class, PackagesValidateuploadConda.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadCondaWithHttpInfo", String.class, String.class, CondaPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5928,7 +5925,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadConda(String owner, String repo, PackagesValidateuploadConda data) throws ApiException {
+    public void packagesValidateUploadConda(String owner, String repo, CondaPackageUploadRequest data) throws ApiException {
         packagesValidateUploadCondaWithHttpInfo(owner, repo, data);
     }
 
@@ -5941,7 +5938,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadCondaWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadConda data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadCondaWithHttpInfo( @NotNull String owner,  @NotNull String repo,  CondaPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadCondaValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -5956,7 +5953,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadCondaAsync(String owner, String repo, PackagesValidateuploadConda data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadCondaAsync(String owner, String repo, CondaPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5991,7 +5988,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadCranCall(String owner, String repo, PackagesValidateuploadCran data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadCranCall(String owner, String repo, CranPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -6007,7 +6004,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -6035,13 +6032,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadCranValidateBeforeCall(String owner, String repo, PackagesValidateuploadCran data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadCranValidateBeforeCall(String owner, String repo, CranPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadCranWithHttpInfo", String.class, String.class, PackagesValidateuploadCran.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadCranWithHttpInfo", String.class, String.class, CranPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -6070,7 +6067,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadCran(String owner, String repo, PackagesValidateuploadCran data) throws ApiException {
+    public void packagesValidateUploadCran(String owner, String repo, CranPackageUploadRequest data) throws ApiException {
         packagesValidateUploadCranWithHttpInfo(owner, repo, data);
     }
 
@@ -6083,7 +6080,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadCranWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadCran data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadCranWithHttpInfo( @NotNull String owner,  @NotNull String repo,  CranPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadCranValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -6098,7 +6095,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadCranAsync(String owner, String repo, PackagesValidateuploadCran data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadCranAsync(String owner, String repo, CranPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6133,7 +6130,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadDartCall(String owner, String repo, PackagesValidateuploadDart data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadDartCall(String owner, String repo, DartPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -6149,7 +6146,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -6177,13 +6174,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadDartValidateBeforeCall(String owner, String repo, PackagesValidateuploadDart data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadDartValidateBeforeCall(String owner, String repo, DartPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadDartWithHttpInfo", String.class, String.class, PackagesValidateuploadDart.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadDartWithHttpInfo", String.class, String.class, DartPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -6212,7 +6209,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadDart(String owner, String repo, PackagesValidateuploadDart data) throws ApiException {
+    public void packagesValidateUploadDart(String owner, String repo, DartPackageUploadRequest data) throws ApiException {
         packagesValidateUploadDartWithHttpInfo(owner, repo, data);
     }
 
@@ -6225,7 +6222,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadDartWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadDart data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadDartWithHttpInfo( @NotNull String owner,  @NotNull String repo,  DartPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadDartValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -6240,7 +6237,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadDartAsync(String owner, String repo, PackagesValidateuploadDart data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadDartAsync(String owner, String repo, DartPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6275,7 +6272,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadDebCall(String owner, String repo, PackagesValidateuploadDeb data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadDebCall(String owner, String repo, DebPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -6291,7 +6288,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -6319,13 +6316,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadDebValidateBeforeCall(String owner, String repo, PackagesValidateuploadDeb data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadDebValidateBeforeCall(String owner, String repo, DebPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadDebWithHttpInfo", String.class, String.class, PackagesValidateuploadDeb.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadDebWithHttpInfo", String.class, String.class, DebPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -6354,7 +6351,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadDeb(String owner, String repo, PackagesValidateuploadDeb data) throws ApiException {
+    public void packagesValidateUploadDeb(String owner, String repo, DebPackageUploadRequest data) throws ApiException {
         packagesValidateUploadDebWithHttpInfo(owner, repo, data);
     }
 
@@ -6367,7 +6364,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadDebWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadDeb data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadDebWithHttpInfo( @NotNull String owner,  @NotNull String repo,  DebPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadDebValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -6382,7 +6379,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadDebAsync(String owner, String repo, PackagesValidateuploadDeb data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadDebAsync(String owner, String repo, DebPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6417,7 +6414,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadDockerCall(String owner, String repo, PackagesValidateuploadDocker data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadDockerCall(String owner, String repo, DockerPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -6433,7 +6430,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -6461,13 +6458,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadDockerValidateBeforeCall(String owner, String repo, PackagesValidateuploadDocker data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadDockerValidateBeforeCall(String owner, String repo, DockerPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadDockerWithHttpInfo", String.class, String.class, PackagesValidateuploadDocker.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadDockerWithHttpInfo", String.class, String.class, DockerPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -6496,7 +6493,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadDocker(String owner, String repo, PackagesValidateuploadDocker data) throws ApiException {
+    public void packagesValidateUploadDocker(String owner, String repo, DockerPackageUploadRequest data) throws ApiException {
         packagesValidateUploadDockerWithHttpInfo(owner, repo, data);
     }
 
@@ -6509,7 +6506,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadDockerWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadDocker data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadDockerWithHttpInfo( @NotNull String owner,  @NotNull String repo,  DockerPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadDockerValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -6524,7 +6521,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadDockerAsync(String owner, String repo, PackagesValidateuploadDocker data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadDockerAsync(String owner, String repo, DockerPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6559,7 +6556,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadGoCall(String owner, String repo, PackagesValidateuploadGo data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadGoCall(String owner, String repo, GoPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -6575,7 +6572,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -6603,13 +6600,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadGoValidateBeforeCall(String owner, String repo, PackagesValidateuploadGo data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadGoValidateBeforeCall(String owner, String repo, GoPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadGoWithHttpInfo", String.class, String.class, PackagesValidateuploadGo.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadGoWithHttpInfo", String.class, String.class, GoPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -6638,7 +6635,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadGo(String owner, String repo, PackagesValidateuploadGo data) throws ApiException {
+    public void packagesValidateUploadGo(String owner, String repo, GoPackageUploadRequest data) throws ApiException {
         packagesValidateUploadGoWithHttpInfo(owner, repo, data);
     }
 
@@ -6651,7 +6648,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadGoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadGo data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadGoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  GoPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadGoValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -6666,7 +6663,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadGoAsync(String owner, String repo, PackagesValidateuploadGo data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadGoAsync(String owner, String repo, GoPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6701,7 +6698,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadHelmCall(String owner, String repo, PackagesValidateuploadHelm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadHelmCall(String owner, String repo, HelmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -6717,7 +6714,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -6745,13 +6742,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadHelmValidateBeforeCall(String owner, String repo, PackagesValidateuploadHelm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadHelmValidateBeforeCall(String owner, String repo, HelmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadHelmWithHttpInfo", String.class, String.class, PackagesValidateuploadHelm.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadHelmWithHttpInfo", String.class, String.class, HelmPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -6780,7 +6777,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadHelm(String owner, String repo, PackagesValidateuploadHelm data) throws ApiException {
+    public void packagesValidateUploadHelm(String owner, String repo, HelmPackageUploadRequest data) throws ApiException {
         packagesValidateUploadHelmWithHttpInfo(owner, repo, data);
     }
 
@@ -6793,7 +6790,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadHelmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadHelm data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadHelmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  HelmPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadHelmValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -6808,7 +6805,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadHelmAsync(String owner, String repo, PackagesValidateuploadHelm data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadHelmAsync(String owner, String repo, HelmPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6843,7 +6840,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadLuarocksCall(String owner, String repo, PackagesValidateuploadLuarocks data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadLuarocksCall(String owner, String repo, LuarocksPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -6859,7 +6856,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -6887,13 +6884,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadLuarocksValidateBeforeCall(String owner, String repo, PackagesValidateuploadLuarocks data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadLuarocksValidateBeforeCall(String owner, String repo, LuarocksPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadLuarocksWithHttpInfo", String.class, String.class, PackagesValidateuploadLuarocks.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadLuarocksWithHttpInfo", String.class, String.class, LuarocksPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -6922,7 +6919,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadLuarocks(String owner, String repo, PackagesValidateuploadLuarocks data) throws ApiException {
+    public void packagesValidateUploadLuarocks(String owner, String repo, LuarocksPackageUploadRequest data) throws ApiException {
         packagesValidateUploadLuarocksWithHttpInfo(owner, repo, data);
     }
 
@@ -6935,7 +6932,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadLuarocksWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadLuarocks data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadLuarocksWithHttpInfo( @NotNull String owner,  @NotNull String repo,  LuarocksPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadLuarocksValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -6950,7 +6947,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadLuarocksAsync(String owner, String repo, PackagesValidateuploadLuarocks data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadLuarocksAsync(String owner, String repo, LuarocksPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6985,7 +6982,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadMavenCall(String owner, String repo, PackagesValidateuploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadMavenCall(String owner, String repo, MavenPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -7001,7 +6998,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -7029,13 +7026,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadMavenValidateBeforeCall(String owner, String repo, PackagesValidateuploadMaven data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadMavenValidateBeforeCall(String owner, String repo, MavenPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadMavenWithHttpInfo", String.class, String.class, PackagesValidateuploadMaven.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadMavenWithHttpInfo", String.class, String.class, MavenPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -7064,7 +7061,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadMaven(String owner, String repo, PackagesValidateuploadMaven data) throws ApiException {
+    public void packagesValidateUploadMaven(String owner, String repo, MavenPackageUploadRequest data) throws ApiException {
         packagesValidateUploadMavenWithHttpInfo(owner, repo, data);
     }
 
@@ -7077,7 +7074,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadMavenWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadMaven data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadMavenWithHttpInfo( @NotNull String owner,  @NotNull String repo,  MavenPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadMavenValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -7092,7 +7089,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadMavenAsync(String owner, String repo, PackagesValidateuploadMaven data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadMavenAsync(String owner, String repo, MavenPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7127,7 +7124,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadNpmCall(String owner, String repo, PackagesValidateuploadNpm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadNpmCall(String owner, String repo, NpmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -7143,7 +7140,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -7171,13 +7168,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadNpmValidateBeforeCall(String owner, String repo, PackagesValidateuploadNpm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadNpmValidateBeforeCall(String owner, String repo, NpmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadNpmWithHttpInfo", String.class, String.class, PackagesValidateuploadNpm.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadNpmWithHttpInfo", String.class, String.class, NpmPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -7206,7 +7203,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadNpm(String owner, String repo, PackagesValidateuploadNpm data) throws ApiException {
+    public void packagesValidateUploadNpm(String owner, String repo, NpmPackageUploadRequest data) throws ApiException {
         packagesValidateUploadNpmWithHttpInfo(owner, repo, data);
     }
 
@@ -7219,7 +7216,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadNpmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadNpm data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadNpmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  NpmPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadNpmValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -7234,7 +7231,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadNpmAsync(String owner, String repo, PackagesValidateuploadNpm data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadNpmAsync(String owner, String repo, NpmPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7269,7 +7266,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadNugetCall(String owner, String repo, PackagesValidateuploadNuget data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadNugetCall(String owner, String repo, NugetPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -7285,7 +7282,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -7313,13 +7310,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadNugetValidateBeforeCall(String owner, String repo, PackagesValidateuploadNuget data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadNugetValidateBeforeCall(String owner, String repo, NugetPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadNugetWithHttpInfo", String.class, String.class, PackagesValidateuploadNuget.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadNugetWithHttpInfo", String.class, String.class, NugetPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -7348,7 +7345,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadNuget(String owner, String repo, PackagesValidateuploadNuget data) throws ApiException {
+    public void packagesValidateUploadNuget(String owner, String repo, NugetPackageUploadRequest data) throws ApiException {
         packagesValidateUploadNugetWithHttpInfo(owner, repo, data);
     }
 
@@ -7361,7 +7358,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadNugetWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadNuget data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadNugetWithHttpInfo( @NotNull String owner,  @NotNull String repo,  NugetPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadNugetValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -7376,7 +7373,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadNugetAsync(String owner, String repo, PackagesValidateuploadNuget data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadNugetAsync(String owner, String repo, NugetPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7411,7 +7408,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadP2Call(String owner, String repo, PackagesValidateuploadP2 data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadP2Call(String owner, String repo, P2PackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -7427,7 +7424,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -7455,13 +7452,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadP2ValidateBeforeCall(String owner, String repo, PackagesValidateuploadP2 data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadP2ValidateBeforeCall(String owner, String repo, P2PackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadP2WithHttpInfo", String.class, String.class, PackagesValidateuploadP2.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadP2WithHttpInfo", String.class, String.class, P2PackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -7490,7 +7487,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadP2(String owner, String repo, PackagesValidateuploadP2 data) throws ApiException {
+    public void packagesValidateUploadP2(String owner, String repo, P2PackageUploadRequest data) throws ApiException {
         packagesValidateUploadP2WithHttpInfo(owner, repo, data);
     }
 
@@ -7503,7 +7500,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadP2WithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadP2 data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadP2WithHttpInfo( @NotNull String owner,  @NotNull String repo,  P2PackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadP2ValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -7518,7 +7515,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadP2Async(String owner, String repo, PackagesValidateuploadP2 data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadP2Async(String owner, String repo, P2PackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7553,7 +7550,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadPythonCall(String owner, String repo, PackagesValidateuploadPython data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadPythonCall(String owner, String repo, PythonPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -7569,7 +7566,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -7597,13 +7594,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadPythonValidateBeforeCall(String owner, String repo, PackagesValidateuploadPython data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadPythonValidateBeforeCall(String owner, String repo, PythonPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadPythonWithHttpInfo", String.class, String.class, PackagesValidateuploadPython.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadPythonWithHttpInfo", String.class, String.class, PythonPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -7632,7 +7629,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadPython(String owner, String repo, PackagesValidateuploadPython data) throws ApiException {
+    public void packagesValidateUploadPython(String owner, String repo, PythonPackageUploadRequest data) throws ApiException {
         packagesValidateUploadPythonWithHttpInfo(owner, repo, data);
     }
 
@@ -7645,7 +7642,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadPythonWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadPython data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadPythonWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PythonPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadPythonValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -7660,7 +7657,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadPythonAsync(String owner, String repo, PackagesValidateuploadPython data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadPythonAsync(String owner, String repo, PythonPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7695,7 +7692,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadRawCall(String owner, String repo, PackagesValidateuploadRaw data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadRawCall(String owner, String repo, RawPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -7711,7 +7708,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -7739,13 +7736,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadRawValidateBeforeCall(String owner, String repo, PackagesValidateuploadRaw data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadRawValidateBeforeCall(String owner, String repo, RawPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadRawWithHttpInfo", String.class, String.class, PackagesValidateuploadRaw.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadRawWithHttpInfo", String.class, String.class, RawPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -7774,7 +7771,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadRaw(String owner, String repo, PackagesValidateuploadRaw data) throws ApiException {
+    public void packagesValidateUploadRaw(String owner, String repo, RawPackageUploadRequest data) throws ApiException {
         packagesValidateUploadRawWithHttpInfo(owner, repo, data);
     }
 
@@ -7787,7 +7784,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadRawWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadRaw data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadRawWithHttpInfo( @NotNull String owner,  @NotNull String repo,  RawPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadRawValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -7802,7 +7799,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadRawAsync(String owner, String repo, PackagesValidateuploadRaw data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadRawAsync(String owner, String repo, RawPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7837,7 +7834,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadRpmCall(String owner, String repo, PackagesValidateuploadRpm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadRpmCall(String owner, String repo, RpmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -7853,7 +7850,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -7881,13 +7878,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadRpmValidateBeforeCall(String owner, String repo, PackagesValidateuploadRpm data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadRpmValidateBeforeCall(String owner, String repo, RpmPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadRpmWithHttpInfo", String.class, String.class, PackagesValidateuploadRpm.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadRpmWithHttpInfo", String.class, String.class, RpmPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -7916,7 +7913,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadRpm(String owner, String repo, PackagesValidateuploadRpm data) throws ApiException {
+    public void packagesValidateUploadRpm(String owner, String repo, RpmPackageUploadRequest data) throws ApiException {
         packagesValidateUploadRpmWithHttpInfo(owner, repo, data);
     }
 
@@ -7929,7 +7926,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadRpmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadRpm data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadRpmWithHttpInfo( @NotNull String owner,  @NotNull String repo,  RpmPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadRpmValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -7944,7 +7941,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadRpmAsync(String owner, String repo, PackagesValidateuploadRpm data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadRpmAsync(String owner, String repo, RpmPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7979,7 +7976,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadRubyCall(String owner, String repo, PackagesValidateuploadRuby data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadRubyCall(String owner, String repo, RubyPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -7995,7 +7992,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -8023,13 +8020,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadRubyValidateBeforeCall(String owner, String repo, PackagesValidateuploadRuby data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadRubyValidateBeforeCall(String owner, String repo, RubyPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadRubyWithHttpInfo", String.class, String.class, PackagesValidateuploadRuby.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadRubyWithHttpInfo", String.class, String.class, RubyPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -8058,7 +8055,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadRuby(String owner, String repo, PackagesValidateuploadRuby data) throws ApiException {
+    public void packagesValidateUploadRuby(String owner, String repo, RubyPackageUploadRequest data) throws ApiException {
         packagesValidateUploadRubyWithHttpInfo(owner, repo, data);
     }
 
@@ -8071,7 +8068,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadRubyWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadRuby data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadRubyWithHttpInfo( @NotNull String owner,  @NotNull String repo,  RubyPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadRubyValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -8086,7 +8083,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadRubyAsync(String owner, String repo, PackagesValidateuploadRuby data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadRubyAsync(String owner, String repo, RubyPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8121,7 +8118,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadTerraformCall(String owner, String repo, PackagesValidateuploadTerraform data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadTerraformCall(String owner, String repo, TerraformPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -8137,7 +8134,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -8165,13 +8162,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadTerraformValidateBeforeCall(String owner, String repo, PackagesValidateuploadTerraform data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadTerraformValidateBeforeCall(String owner, String repo, TerraformPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadTerraformWithHttpInfo", String.class, String.class, PackagesValidateuploadTerraform.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadTerraformWithHttpInfo", String.class, String.class, TerraformPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -8200,7 +8197,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadTerraform(String owner, String repo, PackagesValidateuploadTerraform data) throws ApiException {
+    public void packagesValidateUploadTerraform(String owner, String repo, TerraformPackageUploadRequest data) throws ApiException {
         packagesValidateUploadTerraformWithHttpInfo(owner, repo, data);
     }
 
@@ -8213,7 +8210,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadTerraformWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadTerraform data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadTerraformWithHttpInfo( @NotNull String owner,  @NotNull String repo,  TerraformPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadTerraformValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -8228,7 +8225,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadTerraformAsync(String owner, String repo, PackagesValidateuploadTerraform data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadTerraformAsync(String owner, String repo, TerraformPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8263,7 +8260,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadVagrantCall(String owner, String repo, PackagesValidateuploadVagrant data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadVagrantCall(String owner, String repo, VagrantPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -8279,7 +8276,7 @@ public class PackagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -8307,13 +8304,13 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesValidateUploadVagrantValidateBeforeCall(String owner, String repo, PackagesValidateuploadVagrant data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesValidateUploadVagrantValidateBeforeCall(String owner, String repo, VagrantPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { owner, repo, data };
-            Method method = this.getClass().getMethod("packagesValidateUploadVagrantWithHttpInfo", String.class, String.class, PackagesValidateuploadVagrant.class);
+            Method method = this.getClass().getMethod("packagesValidateUploadVagrantWithHttpInfo", String.class, String.class, VagrantPackageUploadRequest.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -8342,7 +8339,7 @@ public class PackagesApi {
      * @param data  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void packagesValidateUploadVagrant(String owner, String repo, PackagesValidateuploadVagrant data) throws ApiException {
+    public void packagesValidateUploadVagrant(String owner, String repo, VagrantPackageUploadRequest data) throws ApiException {
         packagesValidateUploadVagrantWithHttpInfo(owner, repo, data);
     }
 
@@ -8355,7 +8352,7 @@ public class PackagesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> packagesValidateUploadVagrantWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackagesValidateuploadVagrant data) throws ApiException {
+    public ApiResponse<Void> packagesValidateUploadVagrantWithHttpInfo( @NotNull String owner,  @NotNull String repo,  VagrantPackageUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = packagesValidateUploadVagrantValidateBeforeCall(owner, repo, data, null, null);
         return apiClient.execute(call);
     }
@@ -8370,7 +8367,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesValidateUploadVagrantAsync(String owner, String repo, PackagesValidateuploadVagrant data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesValidateUploadVagrantAsync(String owner, String repo, VagrantPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

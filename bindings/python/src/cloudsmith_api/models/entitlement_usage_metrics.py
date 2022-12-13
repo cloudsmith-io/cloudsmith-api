@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class EntitlementUsageMetrics(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'tokens': 'object'
+        'tokens': 'CommonMetrics'
     }
 
     attribute_map = {
@@ -55,10 +55,9 @@ class EntitlementUsageMetrics(object):
     def tokens(self):
         """Gets the tokens of this EntitlementUsageMetrics.
 
-        
 
         :return: The tokens of this EntitlementUsageMetrics.
-        :rtype: object
+        :rtype: CommonMetrics
         """
         return self._tokens
 
@@ -66,10 +65,9 @@ class EntitlementUsageMetrics(object):
     def tokens(self, tokens):
         """Sets the tokens of this EntitlementUsageMetrics.
 
-        
 
         :param tokens: The tokens of this EntitlementUsageMetrics.
-        :type: object
+        :type: CommonMetrics
         """
         if self._configuration.client_side_validation and tokens is None:
             raise ValueError("Invalid value for `tokens`, must not be `None`")  # noqa: E501

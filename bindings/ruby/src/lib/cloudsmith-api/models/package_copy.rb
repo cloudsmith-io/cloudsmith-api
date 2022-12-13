@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,787 +13,744 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageCopy
-    # 
-    attr_accessor :architectures
+class PackageCopy
+  attr_accessor :architectures
 
-    # 
-    attr_accessor :cdn_url
+  attr_accessor :cdn_url
 
-    # 
-    attr_accessor :checksum_md5
+  attr_accessor :checksum_md5
 
-    # 
-    attr_accessor :checksum_sha1
+  attr_accessor :checksum_sha1
 
-    # 
-    attr_accessor :checksum_sha256
+  attr_accessor :checksum_sha256
 
-    # 
-    attr_accessor :checksum_sha512
+  attr_accessor :checksum_sha512
 
-    # A checksum of all of the package's dependencies.
-    attr_accessor :dependencies_checksum_md5
+  # A checksum of all of the package's dependencies.
+  attr_accessor :dependencies_checksum_md5
 
-    # 
-    attr_accessor :dependencies_url
+  attr_accessor :dependencies_url
 
-    # A textual description of this package.
-    attr_accessor :description
+  # A textual description of this package.
+  attr_accessor :description
 
-    # 
-    attr_accessor :distro
+  attr_accessor :distro
 
-    # 
-    attr_accessor :distro_version
+  attr_accessor :distro_version
 
-    # 
-    attr_accessor :downloads
+  attr_accessor :downloads
 
-    # The epoch of the package version (if any).
-    attr_accessor :epoch
+  # The epoch of the package version (if any).
+  attr_accessor :epoch
 
-    # 
-    attr_accessor :extension
+  attr_accessor :extension
 
-    # 
-    attr_accessor :filename
+  attr_accessor :filename
 
-    # 
-    attr_accessor :files
+  attr_accessor :files
 
-    # 
-    attr_accessor :format
+  attr_accessor :format
 
-    # 
-    attr_accessor :format_url
+  attr_accessor :format_url
 
-    # Unique and permanent identifier for the package.
-    attr_accessor :identifier_perm
+  # Unique and permanent identifier for the package.
+  attr_accessor :identifier_perm
 
-    # 
-    attr_accessor :indexed
+  attr_accessor :indexed
 
-    # 
-    attr_accessor :is_downloadable
+  attr_accessor :is_downloadable
 
-    # 
-    attr_accessor :is_quarantined
+  attr_accessor :is_quarantined
 
-    # 
-    attr_accessor :is_sync_awaiting
+  attr_accessor :is_sync_awaiting
 
-    # 
-    attr_accessor :is_sync_completed
+  attr_accessor :is_sync_completed
 
-    # 
-    attr_accessor :is_sync_failed
+  attr_accessor :is_sync_failed
 
-    # 
-    attr_accessor :is_sync_in_flight
+  attr_accessor :is_sync_in_flight
 
-    # 
-    attr_accessor :is_sync_in_progress
+  attr_accessor :is_sync_in_progress
 
-    # The license of this package.
-    attr_accessor :license
+  # The license of this package.
+  attr_accessor :license
 
-    # The name of this package.
-    attr_accessor :name
+  # The name of this package.
+  attr_accessor :name
 
-    # 
-    attr_accessor :namespace
+  attr_accessor :namespace
 
-    # 
-    attr_accessor :namespace_url
+  attr_accessor :namespace_url
 
-    # 
-    attr_accessor :num_files
+  attr_accessor :num_files
 
-    # 
-    attr_accessor :origin_repository
+  attr_accessor :origin_repository
 
-    # 
-    attr_accessor :origin_repository_url
+  attr_accessor :origin_repository_url
 
-    # The type of package contents.
-    attr_accessor :package_type
+  # The type of package contents.
+  attr_accessor :package_type
 
-    # The release of the package version (if any).
-    attr_accessor :release
+  # The release of the package version (if any).
+  attr_accessor :release
 
-    # The repository the package will be copied to.
-    attr_accessor :repository
+  # The repository the package will be copied to.
+  attr_accessor :repository
 
-    # 
-    attr_accessor :repository_url
+  attr_accessor :repository_url
 
-    # The datetime the security scanning was completed.
-    attr_accessor :security_scan_completed_at
+  # The datetime the security scanning was completed.
+  attr_accessor :security_scan_completed_at
 
-    # The datetime the security scanning was started.
-    attr_accessor :security_scan_started_at
+  # The datetime the security scanning was started.
+  attr_accessor :security_scan_started_at
 
-    # 
-    attr_accessor :security_scan_status
+  attr_accessor :security_scan_status
 
-    # The datetime the security scanning status was updated.
-    attr_accessor :security_scan_status_updated_at
+  # The datetime the security scanning status was updated.
+  attr_accessor :security_scan_status_updated_at
 
-    # 
-    attr_accessor :self_html_url
+  attr_accessor :self_html_url
 
-    # 
-    attr_accessor :self_url
+  attr_accessor :self_url
 
-    # 
-    attr_accessor :signature_url
+  attr_accessor :signature_url
 
-    # The calculated size of the package.
-    attr_accessor :size
+  # The calculated size of the package.
+  attr_accessor :size
 
-    # The public unique identifier for the package.
-    attr_accessor :slug
+  # The public unique identifier for the package.
+  attr_accessor :slug
 
-    # 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # The synchronisation (in progress) stage of the package.
-    attr_accessor :stage
+  # The synchronisation (in progress) stage of the package.
+  attr_accessor :stage
 
-    # 
-    attr_accessor :stage_str
+  attr_accessor :stage_str
 
-    # The datetime the package stage was updated at.
-    attr_accessor :stage_updated_at
+  # The datetime the package stage was updated at.
+  attr_accessor :stage_updated_at
 
-    # The synchronisation status of the package.
-    attr_accessor :status
+  # The synchronisation status of the package.
+  attr_accessor :status
 
-    # A textual description for the synchronous status reason (if any
-    attr_accessor :status_reason
+  # A textual description for the synchronous status reason (if any
+  attr_accessor :status_reason
 
-    # 
-    attr_accessor :status_str
+  attr_accessor :status_str
 
-    # The datetime the package status was updated at.
-    attr_accessor :status_updated_at
+  # The datetime the package status was updated at.
+  attr_accessor :status_updated_at
 
-    # 
-    attr_accessor :status_url
+  attr_accessor :status_url
 
-    # 
-    attr_accessor :subtype
+  attr_accessor :subtype
 
-    # A one-liner synopsis of this package.
-    attr_accessor :summary
+  # A one-liner synopsis of this package.
+  attr_accessor :summary
 
-    # The datetime the package sync was finished at.
-    attr_accessor :sync_finished_at
+  # The datetime the package sync was finished at.
+  attr_accessor :sync_finished_at
 
-    # Synchronisation progress (from 0-100)
-    attr_accessor :sync_progress
+  # Synchronisation progress (from 0-100)
+  attr_accessor :sync_progress
 
-    # All tags on the package, grouped by tag type. This includes immutable tags, but doesn't distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field.
-    attr_accessor :tags
+  attr_accessor :tags
 
-    # All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
-    attr_accessor :tags_immutable
+  attr_accessor :tags_immutable
 
-    # 
-    attr_accessor :type_display
+  attr_accessor :type_display
 
-    # The date this package was uploaded.
-    attr_accessor :uploaded_at
+  # The date this package was uploaded.
+  attr_accessor :uploaded_at
 
-    # 
-    attr_accessor :uploader
+  attr_accessor :uploader
 
-    # 
-    attr_accessor :uploader_url
+  attr_accessor :uploader_url
 
-    # The raw version for this package.
-    attr_accessor :version
+  # The raw version for this package.
+  attr_accessor :version
 
-    # 
-    attr_accessor :version_orig
+  attr_accessor :version_orig
 
-    # 
-    attr_accessor :vulnerability_scan_results_url
+  attr_accessor :vulnerability_scan_results_url
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
         end
       end
+    end
 
-      def valid?(value)
-        !value || allowable_values.include?(value)
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'architectures' => :'architectures',
+      :'cdn_url' => :'cdn_url',
+      :'checksum_md5' => :'checksum_md5',
+      :'checksum_sha1' => :'checksum_sha1',
+      :'checksum_sha256' => :'checksum_sha256',
+      :'checksum_sha512' => :'checksum_sha512',
+      :'dependencies_checksum_md5' => :'dependencies_checksum_md5',
+      :'dependencies_url' => :'dependencies_url',
+      :'description' => :'description',
+      :'distro' => :'distro',
+      :'distro_version' => :'distro_version',
+      :'downloads' => :'downloads',
+      :'epoch' => :'epoch',
+      :'extension' => :'extension',
+      :'filename' => :'filename',
+      :'files' => :'files',
+      :'format' => :'format',
+      :'format_url' => :'format_url',
+      :'identifier_perm' => :'identifier_perm',
+      :'indexed' => :'indexed',
+      :'is_downloadable' => :'is_downloadable',
+      :'is_quarantined' => :'is_quarantined',
+      :'is_sync_awaiting' => :'is_sync_awaiting',
+      :'is_sync_completed' => :'is_sync_completed',
+      :'is_sync_failed' => :'is_sync_failed',
+      :'is_sync_in_flight' => :'is_sync_in_flight',
+      :'is_sync_in_progress' => :'is_sync_in_progress',
+      :'license' => :'license',
+      :'name' => :'name',
+      :'namespace' => :'namespace',
+      :'namespace_url' => :'namespace_url',
+      :'num_files' => :'num_files',
+      :'origin_repository' => :'origin_repository',
+      :'origin_repository_url' => :'origin_repository_url',
+      :'package_type' => :'package_type',
+      :'release' => :'release',
+      :'repository' => :'repository',
+      :'repository_url' => :'repository_url',
+      :'security_scan_completed_at' => :'security_scan_completed_at',
+      :'security_scan_started_at' => :'security_scan_started_at',
+      :'security_scan_status' => :'security_scan_status',
+      :'security_scan_status_updated_at' => :'security_scan_status_updated_at',
+      :'self_html_url' => :'self_html_url',
+      :'self_url' => :'self_url',
+      :'signature_url' => :'signature_url',
+      :'size' => :'size',
+      :'slug' => :'slug',
+      :'slug_perm' => :'slug_perm',
+      :'stage' => :'stage',
+      :'stage_str' => :'stage_str',
+      :'stage_updated_at' => :'stage_updated_at',
+      :'status' => :'status',
+      :'status_reason' => :'status_reason',
+      :'status_str' => :'status_str',
+      :'status_updated_at' => :'status_updated_at',
+      :'status_url' => :'status_url',
+      :'subtype' => :'subtype',
+      :'summary' => :'summary',
+      :'sync_finished_at' => :'sync_finished_at',
+      :'sync_progress' => :'sync_progress',
+      :'tags' => :'tags',
+      :'tags_immutable' => :'tags_immutable',
+      :'type_display' => :'type_display',
+      :'uploaded_at' => :'uploaded_at',
+      :'uploader' => :'uploader',
+      :'uploader_url' => :'uploader_url',
+      :'version' => :'version',
+      :'version_orig' => :'version_orig',
+      :'vulnerability_scan_results_url' => :'vulnerability_scan_results_url'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'architectures' => :'Array<Architecture>',
+      :'cdn_url' => :'String',
+      :'checksum_md5' => :'String',
+      :'checksum_sha1' => :'String',
+      :'checksum_sha256' => :'String',
+      :'checksum_sha512' => :'String',
+      :'dependencies_checksum_md5' => :'String',
+      :'dependencies_url' => :'String',
+      :'description' => :'String',
+      :'distro' => :'Distribution',
+      :'distro_version' => :'DistributionVersion',
+      :'downloads' => :'Integer',
+      :'epoch' => :'Integer',
+      :'extension' => :'String',
+      :'filename' => :'String',
+      :'files' => :'Array<PackageFile>',
+      :'format' => :'String',
+      :'format_url' => :'String',
+      :'identifier_perm' => :'String',
+      :'indexed' => :'BOOLEAN',
+      :'is_downloadable' => :'BOOLEAN',
+      :'is_quarantined' => :'BOOLEAN',
+      :'is_sync_awaiting' => :'BOOLEAN',
+      :'is_sync_completed' => :'BOOLEAN',
+      :'is_sync_failed' => :'BOOLEAN',
+      :'is_sync_in_flight' => :'BOOLEAN',
+      :'is_sync_in_progress' => :'BOOLEAN',
+      :'license' => :'String',
+      :'name' => :'String',
+      :'namespace' => :'String',
+      :'namespace_url' => :'String',
+      :'num_files' => :'Integer',
+      :'origin_repository' => :'String',
+      :'origin_repository_url' => :'String',
+      :'package_type' => :'Integer',
+      :'release' => :'String',
+      :'repository' => :'String',
+      :'repository_url' => :'String',
+      :'security_scan_completed_at' => :'DateTime',
+      :'security_scan_started_at' => :'DateTime',
+      :'security_scan_status' => :'String',
+      :'security_scan_status_updated_at' => :'DateTime',
+      :'self_html_url' => :'String',
+      :'self_url' => :'String',
+      :'signature_url' => :'String',
+      :'size' => :'Integer',
+      :'slug' => :'String',
+      :'slug_perm' => :'String',
+      :'stage' => :'Integer',
+      :'stage_str' => :'String',
+      :'stage_updated_at' => :'DateTime',
+      :'status' => :'Integer',
+      :'status_reason' => :'String',
+      :'status_str' => :'String',
+      :'status_updated_at' => :'DateTime',
+      :'status_url' => :'String',
+      :'subtype' => :'String',
+      :'summary' => :'String',
+      :'sync_finished_at' => :'DateTime',
+      :'sync_progress' => :'Integer',
+      :'tags' => :'Tags',
+      :'tags_immutable' => :'Tags',
+      :'type_display' => :'String',
+      :'uploaded_at' => :'DateTime',
+      :'uploader' => :'String',
+      :'uploader_url' => :'String',
+      :'version' => :'String',
+      :'version_orig' => :'String',
+      :'vulnerability_scan_results_url' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'architectures')
+      if (value = attributes[:'architectures']).is_a?(Array)
+        self.architectures = value
       end
     end
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'architectures' => :'architectures',
-        :'cdn_url' => :'cdn_url',
-        :'checksum_md5' => :'checksum_md5',
-        :'checksum_sha1' => :'checksum_sha1',
-        :'checksum_sha256' => :'checksum_sha256',
-        :'checksum_sha512' => :'checksum_sha512',
-        :'dependencies_checksum_md5' => :'dependencies_checksum_md5',
-        :'dependencies_url' => :'dependencies_url',
-        :'description' => :'description',
-        :'distro' => :'distro',
-        :'distro_version' => :'distro_version',
-        :'downloads' => :'downloads',
-        :'epoch' => :'epoch',
-        :'extension' => :'extension',
-        :'filename' => :'filename',
-        :'files' => :'files',
-        :'format' => :'format',
-        :'format_url' => :'format_url',
-        :'identifier_perm' => :'identifier_perm',
-        :'indexed' => :'indexed',
-        :'is_downloadable' => :'is_downloadable',
-        :'is_quarantined' => :'is_quarantined',
-        :'is_sync_awaiting' => :'is_sync_awaiting',
-        :'is_sync_completed' => :'is_sync_completed',
-        :'is_sync_failed' => :'is_sync_failed',
-        :'is_sync_in_flight' => :'is_sync_in_flight',
-        :'is_sync_in_progress' => :'is_sync_in_progress',
-        :'license' => :'license',
-        :'name' => :'name',
-        :'namespace' => :'namespace',
-        :'namespace_url' => :'namespace_url',
-        :'num_files' => :'num_files',
-        :'origin_repository' => :'origin_repository',
-        :'origin_repository_url' => :'origin_repository_url',
-        :'package_type' => :'package_type',
-        :'release' => :'release',
-        :'repository' => :'repository',
-        :'repository_url' => :'repository_url',
-        :'security_scan_completed_at' => :'security_scan_completed_at',
-        :'security_scan_started_at' => :'security_scan_started_at',
-        :'security_scan_status' => :'security_scan_status',
-        :'security_scan_status_updated_at' => :'security_scan_status_updated_at',
-        :'self_html_url' => :'self_html_url',
-        :'self_url' => :'self_url',
-        :'signature_url' => :'signature_url',
-        :'size' => :'size',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm',
-        :'stage' => :'stage',
-        :'stage_str' => :'stage_str',
-        :'stage_updated_at' => :'stage_updated_at',
-        :'status' => :'status',
-        :'status_reason' => :'status_reason',
-        :'status_str' => :'status_str',
-        :'status_updated_at' => :'status_updated_at',
-        :'status_url' => :'status_url',
-        :'subtype' => :'subtype',
-        :'summary' => :'summary',
-        :'sync_finished_at' => :'sync_finished_at',
-        :'sync_progress' => :'sync_progress',
-        :'tags' => :'tags',
-        :'tags_immutable' => :'tags_immutable',
-        :'type_display' => :'type_display',
-        :'uploaded_at' => :'uploaded_at',
-        :'uploader' => :'uploader',
-        :'uploader_url' => :'uploader_url',
-        :'version' => :'version',
-        :'version_orig' => :'version_orig',
-        :'vulnerability_scan_results_url' => :'vulnerability_scan_results_url'
-      }
+    if attributes.has_key?(:'cdn_url')
+      self.cdn_url = attributes[:'cdn_url']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'architectures' => :'Array<PackagesownerrepoArchitectures>',
-        :'cdn_url' => :'String',
-        :'checksum_md5' => :'String',
-        :'checksum_sha1' => :'String',
-        :'checksum_sha256' => :'String',
-        :'checksum_sha512' => :'String',
-        :'dependencies_checksum_md5' => :'String',
-        :'dependencies_url' => :'String',
-        :'description' => :'String',
-        :'distro' => :'Object',
-        :'distro_version' => :'Object',
-        :'downloads' => :'Integer',
-        :'epoch' => :'Integer',
-        :'extension' => :'String',
-        :'filename' => :'String',
-        :'files' => :'Array<PackagesownerrepoFiles>',
-        :'format' => :'String',
-        :'format_url' => :'String',
-        :'identifier_perm' => :'String',
-        :'indexed' => :'BOOLEAN',
-        :'is_downloadable' => :'BOOLEAN',
-        :'is_quarantined' => :'BOOLEAN',
-        :'is_sync_awaiting' => :'BOOLEAN',
-        :'is_sync_completed' => :'BOOLEAN',
-        :'is_sync_failed' => :'BOOLEAN',
-        :'is_sync_in_flight' => :'BOOLEAN',
-        :'is_sync_in_progress' => :'BOOLEAN',
-        :'license' => :'String',
-        :'name' => :'String',
-        :'namespace' => :'String',
-        :'namespace_url' => :'String',
-        :'num_files' => :'Integer',
-        :'origin_repository' => :'String',
-        :'origin_repository_url' => :'String',
-        :'package_type' => :'Integer',
-        :'release' => :'String',
-        :'repository' => :'String',
-        :'repository_url' => :'String',
-        :'security_scan_completed_at' => :'String',
-        :'security_scan_started_at' => :'String',
-        :'security_scan_status' => :'String',
-        :'security_scan_status_updated_at' => :'String',
-        :'self_html_url' => :'String',
-        :'self_url' => :'String',
-        :'signature_url' => :'String',
-        :'size' => :'Integer',
-        :'slug' => :'String',
-        :'slug_perm' => :'String',
-        :'stage' => :'Integer',
-        :'stage_str' => :'String',
-        :'stage_updated_at' => :'String',
-        :'status' => :'Integer',
-        :'status_reason' => :'String',
-        :'status_str' => :'String',
-        :'status_updated_at' => :'String',
-        :'status_url' => :'String',
-        :'subtype' => :'String',
-        :'summary' => :'String',
-        :'sync_finished_at' => :'String',
-        :'sync_progress' => :'Integer',
-        :'tags' => :'Object',
-        :'tags_immutable' => :'Object',
-        :'type_display' => :'String',
-        :'uploaded_at' => :'String',
-        :'uploader' => :'String',
-        :'uploader_url' => :'String',
-        :'version' => :'String',
-        :'version_orig' => :'String',
-        :'vulnerability_scan_results_url' => :'String'
-      }
+    if attributes.has_key?(:'checksum_md5')
+      self.checksum_md5 = attributes[:'checksum_md5']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'architectures')
-        if (value = attributes[:'architectures']).is_a?(Array)
-          self.architectures = value
-        end
-      end
-
-      if attributes.has_key?(:'cdn_url')
-        self.cdn_url = attributes[:'cdn_url']
-      end
-
-      if attributes.has_key?(:'checksum_md5')
-        self.checksum_md5 = attributes[:'checksum_md5']
-      end
-
-      if attributes.has_key?(:'checksum_sha1')
-        self.checksum_sha1 = attributes[:'checksum_sha1']
-      end
-
-      if attributes.has_key?(:'checksum_sha256')
-        self.checksum_sha256 = attributes[:'checksum_sha256']
-      end
-
-      if attributes.has_key?(:'checksum_sha512')
-        self.checksum_sha512 = attributes[:'checksum_sha512']
-      end
-
-      if attributes.has_key?(:'dependencies_checksum_md5')
-        self.dependencies_checksum_md5 = attributes[:'dependencies_checksum_md5']
-      end
-
-      if attributes.has_key?(:'dependencies_url')
-        self.dependencies_url = attributes[:'dependencies_url']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'distro')
-        self.distro = attributes[:'distro']
-      end
-
-      if attributes.has_key?(:'distro_version')
-        self.distro_version = attributes[:'distro_version']
-      end
-
-      if attributes.has_key?(:'downloads')
-        self.downloads = attributes[:'downloads']
-      end
-
-      if attributes.has_key?(:'epoch')
-        self.epoch = attributes[:'epoch']
-      end
-
-      if attributes.has_key?(:'extension')
-        self.extension = attributes[:'extension']
-      end
-
-      if attributes.has_key?(:'filename')
-        self.filename = attributes[:'filename']
-      end
-
-      if attributes.has_key?(:'files')
-        if (value = attributes[:'files']).is_a?(Array)
-          self.files = value
-        end
-      end
-
-      if attributes.has_key?(:'format')
-        self.format = attributes[:'format']
-      end
-
-      if attributes.has_key?(:'format_url')
-        self.format_url = attributes[:'format_url']
-      end
-
-      if attributes.has_key?(:'identifier_perm')
-        self.identifier_perm = attributes[:'identifier_perm']
-      end
-
-      if attributes.has_key?(:'indexed')
-        self.indexed = attributes[:'indexed']
-      end
-
-      if attributes.has_key?(:'is_downloadable')
-        self.is_downloadable = attributes[:'is_downloadable']
-      end
-
-      if attributes.has_key?(:'is_quarantined')
-        self.is_quarantined = attributes[:'is_quarantined']
-      end
-
-      if attributes.has_key?(:'is_sync_awaiting')
-        self.is_sync_awaiting = attributes[:'is_sync_awaiting']
-      end
-
-      if attributes.has_key?(:'is_sync_completed')
-        self.is_sync_completed = attributes[:'is_sync_completed']
-      end
-
-      if attributes.has_key?(:'is_sync_failed')
-        self.is_sync_failed = attributes[:'is_sync_failed']
-      end
-
-      if attributes.has_key?(:'is_sync_in_flight')
-        self.is_sync_in_flight = attributes[:'is_sync_in_flight']
-      end
-
-      if attributes.has_key?(:'is_sync_in_progress')
-        self.is_sync_in_progress = attributes[:'is_sync_in_progress']
-      end
-
-      if attributes.has_key?(:'license')
-        self.license = attributes[:'license']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'namespace')
-        self.namespace = attributes[:'namespace']
-      end
-
-      if attributes.has_key?(:'namespace_url')
-        self.namespace_url = attributes[:'namespace_url']
-      end
-
-      if attributes.has_key?(:'num_files')
-        self.num_files = attributes[:'num_files']
-      end
-
-      if attributes.has_key?(:'origin_repository')
-        self.origin_repository = attributes[:'origin_repository']
-      end
-
-      if attributes.has_key?(:'origin_repository_url')
-        self.origin_repository_url = attributes[:'origin_repository_url']
-      end
-
-      if attributes.has_key?(:'package_type')
-        self.package_type = attributes[:'package_type']
-      end
-
-      if attributes.has_key?(:'release')
-        self.release = attributes[:'release']
-      end
-
-      if attributes.has_key?(:'repository')
-        self.repository = attributes[:'repository']
-      end
-
-      if attributes.has_key?(:'repository_url')
-        self.repository_url = attributes[:'repository_url']
-      end
-
-      if attributes.has_key?(:'security_scan_completed_at')
-        self.security_scan_completed_at = attributes[:'security_scan_completed_at']
-      end
-
-      if attributes.has_key?(:'security_scan_started_at')
-        self.security_scan_started_at = attributes[:'security_scan_started_at']
-      end
-
-      if attributes.has_key?(:'security_scan_status')
-        self.security_scan_status = attributes[:'security_scan_status']
-      end
-
-      if attributes.has_key?(:'security_scan_status_updated_at')
-        self.security_scan_status_updated_at = attributes[:'security_scan_status_updated_at']
-      end
-
-      if attributes.has_key?(:'self_html_url')
-        self.self_html_url = attributes[:'self_html_url']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'signature_url')
-        self.signature_url = attributes[:'signature_url']
-      end
-
-      if attributes.has_key?(:'size')
-        self.size = attributes[:'size']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'stage')
-        self.stage = attributes[:'stage']
-      end
-
-      if attributes.has_key?(:'stage_str')
-        self.stage_str = attributes[:'stage_str']
-      end
-
-      if attributes.has_key?(:'stage_updated_at')
-        self.stage_updated_at = attributes[:'stage_updated_at']
-      end
-
-      if attributes.has_key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.has_key?(:'status_reason')
-        self.status_reason = attributes[:'status_reason']
-      end
-
-      if attributes.has_key?(:'status_str')
-        self.status_str = attributes[:'status_str']
-      end
-
-      if attributes.has_key?(:'status_updated_at')
-        self.status_updated_at = attributes[:'status_updated_at']
-      end
-
-      if attributes.has_key?(:'status_url')
-        self.status_url = attributes[:'status_url']
-      end
-
-      if attributes.has_key?(:'subtype')
-        self.subtype = attributes[:'subtype']
-      end
-
-      if attributes.has_key?(:'summary')
-        self.summary = attributes[:'summary']
-      end
-
-      if attributes.has_key?(:'sync_finished_at')
-        self.sync_finished_at = attributes[:'sync_finished_at']
-      end
-
-      if attributes.has_key?(:'sync_progress')
-        self.sync_progress = attributes[:'sync_progress']
-      end
-
-      if attributes.has_key?(:'tags')
-        self.tags = attributes[:'tags']
-      end
-
-      if attributes.has_key?(:'tags_immutable')
-        self.tags_immutable = attributes[:'tags_immutable']
-      end
-
-      if attributes.has_key?(:'type_display')
-        self.type_display = attributes[:'type_display']
-      end
-
-      if attributes.has_key?(:'uploaded_at')
-        self.uploaded_at = attributes[:'uploaded_at']
-      end
-
-      if attributes.has_key?(:'uploader')
-        self.uploader = attributes[:'uploader']
-      end
-
-      if attributes.has_key?(:'uploader_url')
-        self.uploader_url = attributes[:'uploader_url']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
-
-      if attributes.has_key?(:'version_orig')
-        self.version_orig = attributes[:'version_orig']
-      end
-
-      if attributes.has_key?(:'vulnerability_scan_results_url')
-        self.vulnerability_scan_results_url = attributes[:'vulnerability_scan_results_url']
+    if attributes.has_key?(:'checksum_sha1')
+      self.checksum_sha1 = attributes[:'checksum_sha1']
+    end
+
+    if attributes.has_key?(:'checksum_sha256')
+      self.checksum_sha256 = attributes[:'checksum_sha256']
+    end
+
+    if attributes.has_key?(:'checksum_sha512')
+      self.checksum_sha512 = attributes[:'checksum_sha512']
+    end
+
+    if attributes.has_key?(:'dependencies_checksum_md5')
+      self.dependencies_checksum_md5 = attributes[:'dependencies_checksum_md5']
+    end
+
+    if attributes.has_key?(:'dependencies_url')
+      self.dependencies_url = attributes[:'dependencies_url']
+    end
+
+    if attributes.has_key?(:'description')
+      self.description = attributes[:'description']
+    end
+
+    if attributes.has_key?(:'distro')
+      self.distro = attributes[:'distro']
+    end
+
+    if attributes.has_key?(:'distro_version')
+      self.distro_version = attributes[:'distro_version']
+    end
+
+    if attributes.has_key?(:'downloads')
+      self.downloads = attributes[:'downloads']
+    end
+
+    if attributes.has_key?(:'epoch')
+      self.epoch = attributes[:'epoch']
+    end
+
+    if attributes.has_key?(:'extension')
+      self.extension = attributes[:'extension']
+    end
+
+    if attributes.has_key?(:'filename')
+      self.filename = attributes[:'filename']
+    end
+
+    if attributes.has_key?(:'files')
+      if (value = attributes[:'files']).is_a?(Array)
+        self.files = value
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      invalid_properties
+    if attributes.has_key?(:'format')
+      self.format = attributes[:'format']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      security_scan_status_validator = EnumAttributeValidator.new('String', ['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported'])
-      return false unless security_scan_status_validator.valid?(@security_scan_status)
-      true
+    if attributes.has_key?(:'format_url')
+      self.format_url = attributes[:'format_url']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] security_scan_status Object to be assigned
-    def security_scan_status=(security_scan_status)
-      validator = EnumAttributeValidator.new('String', ['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported'])
-      unless validator.valid?(security_scan_status)
-        fail ArgumentError, 'invalid value for "security_scan_status", must be one of #{validator.allowable_values}.'
-      end
-      @security_scan_status = security_scan_status
+    if attributes.has_key?(:'identifier_perm')
+      self.identifier_perm = attributes[:'identifier_perm']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          architectures == o.architectures &&
-          cdn_url == o.cdn_url &&
-          checksum_md5 == o.checksum_md5 &&
-          checksum_sha1 == o.checksum_sha1 &&
-          checksum_sha256 == o.checksum_sha256 &&
-          checksum_sha512 == o.checksum_sha512 &&
-          dependencies_checksum_md5 == o.dependencies_checksum_md5 &&
-          dependencies_url == o.dependencies_url &&
-          description == o.description &&
-          distro == o.distro &&
-          distro_version == o.distro_version &&
-          downloads == o.downloads &&
-          epoch == o.epoch &&
-          extension == o.extension &&
-          filename == o.filename &&
-          files == o.files &&
-          format == o.format &&
-          format_url == o.format_url &&
-          identifier_perm == o.identifier_perm &&
-          indexed == o.indexed &&
-          is_downloadable == o.is_downloadable &&
-          is_quarantined == o.is_quarantined &&
-          is_sync_awaiting == o.is_sync_awaiting &&
-          is_sync_completed == o.is_sync_completed &&
-          is_sync_failed == o.is_sync_failed &&
-          is_sync_in_flight == o.is_sync_in_flight &&
-          is_sync_in_progress == o.is_sync_in_progress &&
-          license == o.license &&
-          name == o.name &&
-          namespace == o.namespace &&
-          namespace_url == o.namespace_url &&
-          num_files == o.num_files &&
-          origin_repository == o.origin_repository &&
-          origin_repository_url == o.origin_repository_url &&
-          package_type == o.package_type &&
-          release == o.release &&
-          repository == o.repository &&
-          repository_url == o.repository_url &&
-          security_scan_completed_at == o.security_scan_completed_at &&
-          security_scan_started_at == o.security_scan_started_at &&
-          security_scan_status == o.security_scan_status &&
-          security_scan_status_updated_at == o.security_scan_status_updated_at &&
-          self_html_url == o.self_html_url &&
-          self_url == o.self_url &&
-          signature_url == o.signature_url &&
-          size == o.size &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm &&
-          stage == o.stage &&
-          stage_str == o.stage_str &&
-          stage_updated_at == o.stage_updated_at &&
-          status == o.status &&
-          status_reason == o.status_reason &&
-          status_str == o.status_str &&
-          status_updated_at == o.status_updated_at &&
-          status_url == o.status_url &&
-          subtype == o.subtype &&
-          summary == o.summary &&
-          sync_finished_at == o.sync_finished_at &&
-          sync_progress == o.sync_progress &&
-          tags == o.tags &&
-          tags_immutable == o.tags_immutable &&
-          type_display == o.type_display &&
-          uploaded_at == o.uploaded_at &&
-          uploader == o.uploader &&
-          uploader_url == o.uploader_url &&
-          version == o.version &&
-          version_orig == o.version_orig &&
-          vulnerability_scan_results_url == o.vulnerability_scan_results_url
+    if attributes.has_key?(:'indexed')
+      self.indexed = attributes[:'indexed']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'is_downloadable')
+      self.is_downloadable = attributes[:'is_downloadable']
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    if attributes.has_key?(:'is_quarantined')
+      self.is_quarantined = attributes[:'is_quarantined']
     end
+
+    if attributes.has_key?(:'is_sync_awaiting')
+      self.is_sync_awaiting = attributes[:'is_sync_awaiting']
+    end
+
+    if attributes.has_key?(:'is_sync_completed')
+      self.is_sync_completed = attributes[:'is_sync_completed']
+    end
+
+    if attributes.has_key?(:'is_sync_failed')
+      self.is_sync_failed = attributes[:'is_sync_failed']
+    end
+
+    if attributes.has_key?(:'is_sync_in_flight')
+      self.is_sync_in_flight = attributes[:'is_sync_in_flight']
+    end
+
+    if attributes.has_key?(:'is_sync_in_progress')
+      self.is_sync_in_progress = attributes[:'is_sync_in_progress']
+    end
+
+    if attributes.has_key?(:'license')
+      self.license = attributes[:'license']
+    end
+
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
+    end
+
+    if attributes.has_key?(:'namespace')
+      self.namespace = attributes[:'namespace']
+    end
+
+    if attributes.has_key?(:'namespace_url')
+      self.namespace_url = attributes[:'namespace_url']
+    end
+
+    if attributes.has_key?(:'num_files')
+      self.num_files = attributes[:'num_files']
+    end
+
+    if attributes.has_key?(:'origin_repository')
+      self.origin_repository = attributes[:'origin_repository']
+    end
+
+    if attributes.has_key?(:'origin_repository_url')
+      self.origin_repository_url = attributes[:'origin_repository_url']
+    end
+
+    if attributes.has_key?(:'package_type')
+      self.package_type = attributes[:'package_type']
+    end
+
+    if attributes.has_key?(:'release')
+      self.release = attributes[:'release']
+    end
+
+    if attributes.has_key?(:'repository')
+      self.repository = attributes[:'repository']
+    end
+
+    if attributes.has_key?(:'repository_url')
+      self.repository_url = attributes[:'repository_url']
+    end
+
+    if attributes.has_key?(:'security_scan_completed_at')
+      self.security_scan_completed_at = attributes[:'security_scan_completed_at']
+    end
+
+    if attributes.has_key?(:'security_scan_started_at')
+      self.security_scan_started_at = attributes[:'security_scan_started_at']
+    end
+
+    if attributes.has_key?(:'security_scan_status')
+      self.security_scan_status = attributes[:'security_scan_status']
+    else
+      self.security_scan_status = 'Awaiting Security Scan'
+    end
+
+    if attributes.has_key?(:'security_scan_status_updated_at')
+      self.security_scan_status_updated_at = attributes[:'security_scan_status_updated_at']
+    end
+
+    if attributes.has_key?(:'self_html_url')
+      self.self_html_url = attributes[:'self_html_url']
+    end
+
+    if attributes.has_key?(:'self_url')
+      self.self_url = attributes[:'self_url']
+    end
+
+    if attributes.has_key?(:'signature_url')
+      self.signature_url = attributes[:'signature_url']
+    end
+
+    if attributes.has_key?(:'size')
+      self.size = attributes[:'size']
+    end
+
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
+    end
+
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
+    end
+
+    if attributes.has_key?(:'stage')
+      self.stage = attributes[:'stage']
+    end
+
+    if attributes.has_key?(:'stage_str')
+      self.stage_str = attributes[:'stage_str']
+    end
+
+    if attributes.has_key?(:'stage_updated_at')
+      self.stage_updated_at = attributes[:'stage_updated_at']
+    end
+
+    if attributes.has_key?(:'status')
+      self.status = attributes[:'status']
+    end
+
+    if attributes.has_key?(:'status_reason')
+      self.status_reason = attributes[:'status_reason']
+    end
+
+    if attributes.has_key?(:'status_str')
+      self.status_str = attributes[:'status_str']
+    end
+
+    if attributes.has_key?(:'status_updated_at')
+      self.status_updated_at = attributes[:'status_updated_at']
+    end
+
+    if attributes.has_key?(:'status_url')
+      self.status_url = attributes[:'status_url']
+    end
+
+    if attributes.has_key?(:'subtype')
+      self.subtype = attributes[:'subtype']
+    end
+
+    if attributes.has_key?(:'summary')
+      self.summary = attributes[:'summary']
+    end
+
+    if attributes.has_key?(:'sync_finished_at')
+      self.sync_finished_at = attributes[:'sync_finished_at']
+    end
+
+    if attributes.has_key?(:'sync_progress')
+      self.sync_progress = attributes[:'sync_progress']
+    end
+
+    if attributes.has_key?(:'tags')
+      self.tags = attributes[:'tags']
+    end
+
+    if attributes.has_key?(:'tags_immutable')
+      self.tags_immutable = attributes[:'tags_immutable']
+    end
+
+    if attributes.has_key?(:'type_display')
+      self.type_display = attributes[:'type_display']
+    end
+
+    if attributes.has_key?(:'uploaded_at')
+      self.uploaded_at = attributes[:'uploaded_at']
+    end
+
+    if attributes.has_key?(:'uploader')
+      self.uploader = attributes[:'uploader']
+    end
+
+    if attributes.has_key?(:'uploader_url')
+      self.uploader_url = attributes[:'uploader_url']
+    end
+
+    if attributes.has_key?(:'version')
+      self.version = attributes[:'version']
+    end
+
+    if attributes.has_key?(:'version_orig')
+      self.version_orig = attributes[:'version_orig']
+    end
+
+    if attributes.has_key?(:'vulnerability_scan_results_url')
+      self.vulnerability_scan_results_url = attributes[:'vulnerability_scan_results_url']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    security_scan_status_validator = EnumAttributeValidator.new('String', ['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported'])
+    return false unless security_scan_status_validator.valid?(@security_scan_status)
+    true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] security_scan_status Object to be assigned
+  def security_scan_status=(security_scan_status)
+    validator = EnumAttributeValidator.new('String', ['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported'])
+    unless validator.valid?(security_scan_status)
+      fail ArgumentError, 'invalid value for "security_scan_status", must be one of #{validator.allowable_values}.'
+    end
+    @security_scan_status = security_scan_status
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        architectures == o.architectures &&
+        cdn_url == o.cdn_url &&
+        checksum_md5 == o.checksum_md5 &&
+        checksum_sha1 == o.checksum_sha1 &&
+        checksum_sha256 == o.checksum_sha256 &&
+        checksum_sha512 == o.checksum_sha512 &&
+        dependencies_checksum_md5 == o.dependencies_checksum_md5 &&
+        dependencies_url == o.dependencies_url &&
+        description == o.description &&
+        distro == o.distro &&
+        distro_version == o.distro_version &&
+        downloads == o.downloads &&
+        epoch == o.epoch &&
+        extension == o.extension &&
+        filename == o.filename &&
+        files == o.files &&
+        format == o.format &&
+        format_url == o.format_url &&
+        identifier_perm == o.identifier_perm &&
+        indexed == o.indexed &&
+        is_downloadable == o.is_downloadable &&
+        is_quarantined == o.is_quarantined &&
+        is_sync_awaiting == o.is_sync_awaiting &&
+        is_sync_completed == o.is_sync_completed &&
+        is_sync_failed == o.is_sync_failed &&
+        is_sync_in_flight == o.is_sync_in_flight &&
+        is_sync_in_progress == o.is_sync_in_progress &&
+        license == o.license &&
+        name == o.name &&
+        namespace == o.namespace &&
+        namespace_url == o.namespace_url &&
+        num_files == o.num_files &&
+        origin_repository == o.origin_repository &&
+        origin_repository_url == o.origin_repository_url &&
+        package_type == o.package_type &&
+        release == o.release &&
+        repository == o.repository &&
+        repository_url == o.repository_url &&
+        security_scan_completed_at == o.security_scan_completed_at &&
+        security_scan_started_at == o.security_scan_started_at &&
+        security_scan_status == o.security_scan_status &&
+        security_scan_status_updated_at == o.security_scan_status_updated_at &&
+        self_html_url == o.self_html_url &&
+        self_url == o.self_url &&
+        signature_url == o.signature_url &&
+        size == o.size &&
+        slug == o.slug &&
+        slug_perm == o.slug_perm &&
+        stage == o.stage &&
+        stage_str == o.stage_str &&
+        stage_updated_at == o.stage_updated_at &&
+        status == o.status &&
+        status_reason == o.status_reason &&
+        status_str == o.status_str &&
+        status_updated_at == o.status_updated_at &&
+        status_url == o.status_url &&
+        subtype == o.subtype &&
+        summary == o.summary &&
+        sync_finished_at == o.sync_finished_at &&
+        sync_progress == o.sync_progress &&
+        tags == o.tags &&
+        tags_immutable == o.tags_immutable &&
+        type_display == o.type_display &&
+        uploaded_at == o.uploaded_at &&
+        uploader == o.uploader &&
+        uploader_url == o.uploader_url &&
+        version == o.version &&
+        version_orig == o.version_orig &&
+        vulnerability_scan_results_url == o.vulnerability_scan_results_url
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -899,5 +856,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -38,7 +38,7 @@ describe 'WebhooksApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
-  # @option opts [WebhooksCreate] :data 
+  # @option opts [RepositoryWebhookRequest] :data 
   # @return [RepositoryWebhook]
   describe 'webhooks_create test' do
     it 'should work' do
@@ -82,7 +82,7 @@ describe 'WebhooksApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [WebhooksPartialUpdate] :data 
+  # @option opts [RepositoryWebhookRequestPatch] :data 
   # @return [RepositoryWebhook]
   describe 'webhooks_partial_update test' do
     it 'should work' do

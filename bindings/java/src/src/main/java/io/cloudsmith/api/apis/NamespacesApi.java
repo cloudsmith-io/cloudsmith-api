@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -36,8 +36,8 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Namespace;
-import io.cloudsmith.api.models.Status;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class NamespacesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call namespacesListCall(Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call namespacesListCall(java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -91,13 +91,13 @@ public class NamespacesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -119,13 +119,13 @@ public class NamespacesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call namespacesListValidateBeforeCall(Integer page, Integer pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call namespacesListValidateBeforeCall(java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { page, pageSize };
-            Method method = this.getClass().getMethod("namespacesListWithHttpInfo", Integer.class, Integer.class);
+            Method method = this.getClass().getMethod("namespacesListWithHttpInfo", java.math.BigInteger.class, java.math.BigInteger.class);
             Set<ConstraintViolation<NamespacesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -154,7 +154,7 @@ public class NamespacesApi {
      * @return List&lt;Namespace&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Namespace> namespacesList(Integer page, Integer pageSize) throws ApiException {
+    public List<Namespace> namespacesList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<Namespace>> resp = namespacesListWithHttpInfo(page, pageSize);
         return resp.getData();
     }
@@ -167,7 +167,7 @@ public class NamespacesApi {
      * @return ApiResponse&lt;List&lt;Namespace&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Namespace>> namespacesListWithHttpInfo( Integer page,  Integer pageSize) throws ApiException {
+    public ApiResponse<List<Namespace>> namespacesListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = namespacesListValidateBeforeCall(page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<Namespace>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -182,7 +182,7 @@ public class NamespacesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call namespacesListAsync(Integer page, Integer pageSize, final ApiCallback<List<Namespace>> callback) throws ApiException {
+    public com.squareup.okhttp.Call namespacesListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<Namespace>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -231,13 +231,13 @@ public class NamespacesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

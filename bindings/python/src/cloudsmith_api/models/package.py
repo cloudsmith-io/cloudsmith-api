@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class Package(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'architectures': 'list[PackagesownerrepoArchitectures]',
+        'architectures': 'list[Architecture]',
         'cdn_url': 'str',
         'checksum_md5': 'str',
         'checksum_sha1': 'str',
@@ -42,13 +42,13 @@ class Package(object):
         'dependencies_checksum_md5': 'str',
         'dependencies_url': 'str',
         'description': 'str',
-        'distro': 'object',
-        'distro_version': 'object',
+        'distro': 'Distribution',
+        'distro_version': 'DistributionVersion',
         'downloads': 'int',
         'epoch': 'int',
         'extension': 'str',
         'filename': 'str',
-        'files': 'list[PackagesownerrepoFiles]',
+        'files': 'list[PackageFile]',
         'format': 'str',
         'format_url': 'str',
         'identifier_perm': 'str',
@@ -71,10 +71,10 @@ class Package(object):
         'release': 'str',
         'repository': 'str',
         'repository_url': 'str',
-        'security_scan_completed_at': 'str',
-        'security_scan_started_at': 'str',
+        'security_scan_completed_at': 'datetime',
+        'security_scan_started_at': 'datetime',
         'security_scan_status': 'str',
-        'security_scan_status_updated_at': 'str',
+        'security_scan_status_updated_at': 'datetime',
         'self_html_url': 'str',
         'self_url': 'str',
         'signature_url': 'str',
@@ -83,20 +83,20 @@ class Package(object):
         'slug_perm': 'str',
         'stage': 'int',
         'stage_str': 'str',
-        'stage_updated_at': 'str',
+        'stage_updated_at': 'datetime',
         'status': 'int',
         'status_reason': 'str',
         'status_str': 'str',
-        'status_updated_at': 'str',
+        'status_updated_at': 'datetime',
         'status_url': 'str',
         'subtype': 'str',
         'summary': 'str',
-        'sync_finished_at': 'str',
+        'sync_finished_at': 'datetime',
         'sync_progress': 'int',
-        'tags': 'object',
-        'tags_immutable': 'object',
+        'tags': 'Tags',
+        'tags_immutable': 'Tags',
         'type_display': 'str',
-        'uploaded_at': 'str',
+        'uploaded_at': 'datetime',
         'uploader': 'str',
         'uploader_url': 'str',
         'version': 'str',
@@ -176,7 +176,7 @@ class Package(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status=None, security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """Package - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -396,10 +396,9 @@ class Package(object):
     def architectures(self):
         """Gets the architectures of this Package.
 
-        
 
         :return: The architectures of this Package.
-        :rtype: list[PackagesownerrepoArchitectures]
+        :rtype: list[Architecture]
         """
         return self._architectures
 
@@ -407,10 +406,9 @@ class Package(object):
     def architectures(self, architectures):
         """Sets the architectures of this Package.
 
-        
 
         :param architectures: The architectures of this Package.
-        :type: list[PackagesownerrepoArchitectures]
+        :type: list[Architecture]
         """
 
         self._architectures = architectures
@@ -419,7 +417,6 @@ class Package(object):
     def cdn_url(self):
         """Gets the cdn_url of this Package.
 
-        
 
         :return: The cdn_url of this Package.
         :rtype: str
@@ -430,7 +427,6 @@ class Package(object):
     def cdn_url(self, cdn_url):
         """Sets the cdn_url of this Package.
 
-        
 
         :param cdn_url: The cdn_url of this Package.
         :type: str
@@ -442,7 +438,6 @@ class Package(object):
     def checksum_md5(self):
         """Gets the checksum_md5 of this Package.
 
-        
 
         :return: The checksum_md5 of this Package.
         :rtype: str
@@ -453,7 +448,6 @@ class Package(object):
     def checksum_md5(self, checksum_md5):
         """Sets the checksum_md5 of this Package.
 
-        
 
         :param checksum_md5: The checksum_md5 of this Package.
         :type: str
@@ -465,7 +459,6 @@ class Package(object):
     def checksum_sha1(self):
         """Gets the checksum_sha1 of this Package.
 
-        
 
         :return: The checksum_sha1 of this Package.
         :rtype: str
@@ -476,7 +469,6 @@ class Package(object):
     def checksum_sha1(self, checksum_sha1):
         """Sets the checksum_sha1 of this Package.
 
-        
 
         :param checksum_sha1: The checksum_sha1 of this Package.
         :type: str
@@ -488,7 +480,6 @@ class Package(object):
     def checksum_sha256(self):
         """Gets the checksum_sha256 of this Package.
 
-        
 
         :return: The checksum_sha256 of this Package.
         :rtype: str
@@ -499,7 +490,6 @@ class Package(object):
     def checksum_sha256(self, checksum_sha256):
         """Sets the checksum_sha256 of this Package.
 
-        
 
         :param checksum_sha256: The checksum_sha256 of this Package.
         :type: str
@@ -511,7 +501,6 @@ class Package(object):
     def checksum_sha512(self):
         """Gets the checksum_sha512 of this Package.
 
-        
 
         :return: The checksum_sha512 of this Package.
         :rtype: str
@@ -522,7 +511,6 @@ class Package(object):
     def checksum_sha512(self, checksum_sha512):
         """Sets the checksum_sha512 of this Package.
 
-        
 
         :param checksum_sha512: The checksum_sha512 of this Package.
         :type: str
@@ -550,6 +538,9 @@ class Package(object):
         :param dependencies_checksum_md5: The dependencies_checksum_md5 of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                dependencies_checksum_md5 is not None and len(dependencies_checksum_md5) < 1):
+            raise ValueError("Invalid value for `dependencies_checksum_md5`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._dependencies_checksum_md5 = dependencies_checksum_md5
 
@@ -557,7 +548,6 @@ class Package(object):
     def dependencies_url(self):
         """Gets the dependencies_url of this Package.
 
-        
 
         :return: The dependencies_url of this Package.
         :rtype: str
@@ -568,7 +558,6 @@ class Package(object):
     def dependencies_url(self, dependencies_url):
         """Sets the dependencies_url of this Package.
 
-        
 
         :param dependencies_url: The dependencies_url of this Package.
         :type: str
@@ -596,6 +585,9 @@ class Package(object):
         :param description: The description of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) < 1):
+            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -603,10 +595,9 @@ class Package(object):
     def distro(self):
         """Gets the distro of this Package.
 
-        
 
         :return: The distro of this Package.
-        :rtype: object
+        :rtype: Distribution
         """
         return self._distro
 
@@ -614,10 +605,9 @@ class Package(object):
     def distro(self, distro):
         """Sets the distro of this Package.
 
-        
 
         :param distro: The distro of this Package.
-        :type: object
+        :type: Distribution
         """
 
         self._distro = distro
@@ -626,10 +616,9 @@ class Package(object):
     def distro_version(self):
         """Gets the distro_version of this Package.
 
-        
 
         :return: The distro_version of this Package.
-        :rtype: object
+        :rtype: DistributionVersion
         """
         return self._distro_version
 
@@ -637,10 +626,9 @@ class Package(object):
     def distro_version(self, distro_version):
         """Sets the distro_version of this Package.
 
-        
 
         :param distro_version: The distro_version of this Package.
-        :type: object
+        :type: DistributionVersion
         """
 
         self._distro_version = distro_version
@@ -649,7 +637,6 @@ class Package(object):
     def downloads(self):
         """Gets the downloads of this Package.
 
-        
 
         :return: The downloads of this Package.
         :rtype: int
@@ -660,7 +647,6 @@ class Package(object):
     def downloads(self, downloads):
         """Sets the downloads of this Package.
 
-        
 
         :param downloads: The downloads of this Package.
         :type: int
@@ -695,7 +681,6 @@ class Package(object):
     def extension(self):
         """Gets the extension of this Package.
 
-        
 
         :return: The extension of this Package.
         :rtype: str
@@ -706,7 +691,6 @@ class Package(object):
     def extension(self, extension):
         """Sets the extension of this Package.
 
-        
 
         :param extension: The extension of this Package.
         :type: str
@@ -718,7 +702,6 @@ class Package(object):
     def filename(self):
         """Gets the filename of this Package.
 
-        
 
         :return: The filename of this Package.
         :rtype: str
@@ -729,11 +712,13 @@ class Package(object):
     def filename(self, filename):
         """Sets the filename of this Package.
 
-        
 
         :param filename: The filename of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                filename is not None and len(filename) < 1):
+            raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filename = filename
 
@@ -741,10 +726,9 @@ class Package(object):
     def files(self):
         """Gets the files of this Package.
 
-        
 
         :return: The files of this Package.
-        :rtype: list[PackagesownerrepoFiles]
+        :rtype: list[PackageFile]
         """
         return self._files
 
@@ -752,10 +736,9 @@ class Package(object):
     def files(self, files):
         """Sets the files of this Package.
 
-        
 
         :param files: The files of this Package.
-        :type: list[PackagesownerrepoFiles]
+        :type: list[PackageFile]
         """
 
         self._files = files
@@ -764,7 +747,6 @@ class Package(object):
     def format(self):
         """Gets the format of this Package.
 
-        
 
         :return: The format of this Package.
         :rtype: str
@@ -775,11 +757,13 @@ class Package(object):
     def format(self, format):
         """Sets the format of this Package.
 
-        
 
         :param format: The format of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                format is not None and len(format) < 1):
+            raise ValueError("Invalid value for `format`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._format = format
 
@@ -787,7 +771,6 @@ class Package(object):
     def format_url(self):
         """Gets the format_url of this Package.
 
-        
 
         :return: The format_url of this Package.
         :rtype: str
@@ -798,7 +781,6 @@ class Package(object):
     def format_url(self, format_url):
         """Sets the format_url of this Package.
 
-        
 
         :param format_url: The format_url of this Package.
         :type: str
@@ -826,6 +808,9 @@ class Package(object):
         :param identifier_perm: The identifier_perm of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                identifier_perm is not None and len(identifier_perm) < 1):
+            raise ValueError("Invalid value for `identifier_perm`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._identifier_perm = identifier_perm
 
@@ -833,7 +818,6 @@ class Package(object):
     def indexed(self):
         """Gets the indexed of this Package.
 
-        
 
         :return: The indexed of this Package.
         :rtype: bool
@@ -844,7 +828,6 @@ class Package(object):
     def indexed(self, indexed):
         """Sets the indexed of this Package.
 
-        
 
         :param indexed: The indexed of this Package.
         :type: bool
@@ -856,7 +839,6 @@ class Package(object):
     def is_downloadable(self):
         """Gets the is_downloadable of this Package.
 
-        
 
         :return: The is_downloadable of this Package.
         :rtype: bool
@@ -867,7 +849,6 @@ class Package(object):
     def is_downloadable(self, is_downloadable):
         """Sets the is_downloadable of this Package.
 
-        
 
         :param is_downloadable: The is_downloadable of this Package.
         :type: bool
@@ -879,7 +860,6 @@ class Package(object):
     def is_quarantined(self):
         """Gets the is_quarantined of this Package.
 
-        
 
         :return: The is_quarantined of this Package.
         :rtype: bool
@@ -890,7 +870,6 @@ class Package(object):
     def is_quarantined(self, is_quarantined):
         """Sets the is_quarantined of this Package.
 
-        
 
         :param is_quarantined: The is_quarantined of this Package.
         :type: bool
@@ -902,7 +881,6 @@ class Package(object):
     def is_sync_awaiting(self):
         """Gets the is_sync_awaiting of this Package.
 
-        
 
         :return: The is_sync_awaiting of this Package.
         :rtype: bool
@@ -913,7 +891,6 @@ class Package(object):
     def is_sync_awaiting(self, is_sync_awaiting):
         """Sets the is_sync_awaiting of this Package.
 
-        
 
         :param is_sync_awaiting: The is_sync_awaiting of this Package.
         :type: bool
@@ -925,7 +902,6 @@ class Package(object):
     def is_sync_completed(self):
         """Gets the is_sync_completed of this Package.
 
-        
 
         :return: The is_sync_completed of this Package.
         :rtype: bool
@@ -936,7 +912,6 @@ class Package(object):
     def is_sync_completed(self, is_sync_completed):
         """Sets the is_sync_completed of this Package.
 
-        
 
         :param is_sync_completed: The is_sync_completed of this Package.
         :type: bool
@@ -948,7 +923,6 @@ class Package(object):
     def is_sync_failed(self):
         """Gets the is_sync_failed of this Package.
 
-        
 
         :return: The is_sync_failed of this Package.
         :rtype: bool
@@ -959,7 +933,6 @@ class Package(object):
     def is_sync_failed(self, is_sync_failed):
         """Sets the is_sync_failed of this Package.
 
-        
 
         :param is_sync_failed: The is_sync_failed of this Package.
         :type: bool
@@ -971,7 +944,6 @@ class Package(object):
     def is_sync_in_flight(self):
         """Gets the is_sync_in_flight of this Package.
 
-        
 
         :return: The is_sync_in_flight of this Package.
         :rtype: bool
@@ -982,7 +954,6 @@ class Package(object):
     def is_sync_in_flight(self, is_sync_in_flight):
         """Sets the is_sync_in_flight of this Package.
 
-        
 
         :param is_sync_in_flight: The is_sync_in_flight of this Package.
         :type: bool
@@ -994,7 +965,6 @@ class Package(object):
     def is_sync_in_progress(self):
         """Gets the is_sync_in_progress of this Package.
 
-        
 
         :return: The is_sync_in_progress of this Package.
         :rtype: bool
@@ -1005,7 +975,6 @@ class Package(object):
     def is_sync_in_progress(self, is_sync_in_progress):
         """Sets the is_sync_in_progress of this Package.
 
-        
 
         :param is_sync_in_progress: The is_sync_in_progress of this Package.
         :type: bool
@@ -1033,6 +1002,9 @@ class Package(object):
         :param license: The license of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                license is not None and len(license) < 1):
+            raise ValueError("Invalid value for `license`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._license = license
 
@@ -1056,6 +1028,9 @@ class Package(object):
         :param name: The name of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -1063,7 +1038,6 @@ class Package(object):
     def namespace(self):
         """Gets the namespace of this Package.
 
-        
 
         :return: The namespace of this Package.
         :rtype: str
@@ -1074,11 +1048,13 @@ class Package(object):
     def namespace(self, namespace):
         """Sets the namespace of this Package.
 
-        
 
         :param namespace: The namespace of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                namespace is not None and len(namespace) < 1):
+            raise ValueError("Invalid value for `namespace`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._namespace = namespace
 
@@ -1086,7 +1062,6 @@ class Package(object):
     def namespace_url(self):
         """Gets the namespace_url of this Package.
 
-        
 
         :return: The namespace_url of this Package.
         :rtype: str
@@ -1097,7 +1072,6 @@ class Package(object):
     def namespace_url(self, namespace_url):
         """Sets the namespace_url of this Package.
 
-        
 
         :param namespace_url: The namespace_url of this Package.
         :type: str
@@ -1109,7 +1083,6 @@ class Package(object):
     def num_files(self):
         """Gets the num_files of this Package.
 
-        
 
         :return: The num_files of this Package.
         :rtype: int
@@ -1120,7 +1093,6 @@ class Package(object):
     def num_files(self, num_files):
         """Sets the num_files of this Package.
 
-        
 
         :param num_files: The num_files of this Package.
         :type: int
@@ -1132,7 +1104,6 @@ class Package(object):
     def origin_repository(self):
         """Gets the origin_repository of this Package.
 
-        
 
         :return: The origin_repository of this Package.
         :rtype: str
@@ -1143,11 +1114,13 @@ class Package(object):
     def origin_repository(self, origin_repository):
         """Sets the origin_repository of this Package.
 
-        
 
         :param origin_repository: The origin_repository of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                origin_repository is not None and len(origin_repository) < 1):
+            raise ValueError("Invalid value for `origin_repository`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._origin_repository = origin_repository
 
@@ -1155,7 +1128,6 @@ class Package(object):
     def origin_repository_url(self):
         """Gets the origin_repository_url of this Package.
 
-        
 
         :return: The origin_repository_url of this Package.
         :rtype: str
@@ -1166,7 +1138,6 @@ class Package(object):
     def origin_repository_url(self, origin_repository_url):
         """Sets the origin_repository_url of this Package.
 
-        
 
         :param origin_repository_url: The origin_repository_url of this Package.
         :type: str
@@ -1217,6 +1188,9 @@ class Package(object):
         :param release: The release of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                release is not None and len(release) < 1):
+            raise ValueError("Invalid value for `release`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._release = release
 
@@ -1224,7 +1198,6 @@ class Package(object):
     def repository(self):
         """Gets the repository of this Package.
 
-        
 
         :return: The repository of this Package.
         :rtype: str
@@ -1235,11 +1208,13 @@ class Package(object):
     def repository(self, repository):
         """Sets the repository of this Package.
 
-        
 
         :param repository: The repository of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                repository is not None and len(repository) < 1):
+            raise ValueError("Invalid value for `repository`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._repository = repository
 
@@ -1247,7 +1222,6 @@ class Package(object):
     def repository_url(self):
         """Gets the repository_url of this Package.
 
-        
 
         :return: The repository_url of this Package.
         :rtype: str
@@ -1258,7 +1232,6 @@ class Package(object):
     def repository_url(self, repository_url):
         """Sets the repository_url of this Package.
 
-        
 
         :param repository_url: The repository_url of this Package.
         :type: str
@@ -1273,7 +1246,7 @@ class Package(object):
         The datetime the security scanning was completed.
 
         :return: The security_scan_completed_at of this Package.
-        :rtype: str
+        :rtype: datetime
         """
         return self._security_scan_completed_at
 
@@ -1284,7 +1257,7 @@ class Package(object):
         The datetime the security scanning was completed.
 
         :param security_scan_completed_at: The security_scan_completed_at of this Package.
-        :type: str
+        :type: datetime
         """
 
         self._security_scan_completed_at = security_scan_completed_at
@@ -1296,7 +1269,7 @@ class Package(object):
         The datetime the security scanning was started.
 
         :return: The security_scan_started_at of this Package.
-        :rtype: str
+        :rtype: datetime
         """
         return self._security_scan_started_at
 
@@ -1307,7 +1280,7 @@ class Package(object):
         The datetime the security scanning was started.
 
         :param security_scan_started_at: The security_scan_started_at of this Package.
-        :type: str
+        :type: datetime
         """
 
         self._security_scan_started_at = security_scan_started_at
@@ -1316,7 +1289,6 @@ class Package(object):
     def security_scan_status(self):
         """Gets the security_scan_status of this Package.
 
-        
 
         :return: The security_scan_status of this Package.
         :rtype: str
@@ -1327,7 +1299,6 @@ class Package(object):
     def security_scan_status(self, security_scan_status):
         """Sets the security_scan_status of this Package.
 
-        
 
         :param security_scan_status: The security_scan_status of this Package.
         :type: str
@@ -1349,7 +1320,7 @@ class Package(object):
         The datetime the security scanning status was updated.
 
         :return: The security_scan_status_updated_at of this Package.
-        :rtype: str
+        :rtype: datetime
         """
         return self._security_scan_status_updated_at
 
@@ -1360,7 +1331,7 @@ class Package(object):
         The datetime the security scanning status was updated.
 
         :param security_scan_status_updated_at: The security_scan_status_updated_at of this Package.
-        :type: str
+        :type: datetime
         """
 
         self._security_scan_status_updated_at = security_scan_status_updated_at
@@ -1369,7 +1340,6 @@ class Package(object):
     def self_html_url(self):
         """Gets the self_html_url of this Package.
 
-        
 
         :return: The self_html_url of this Package.
         :rtype: str
@@ -1380,11 +1350,13 @@ class Package(object):
     def self_html_url(self, self_html_url):
         """Sets the self_html_url of this Package.
 
-        
 
         :param self_html_url: The self_html_url of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                self_html_url is not None and len(self_html_url) < 1):
+            raise ValueError("Invalid value for `self_html_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._self_html_url = self_html_url
 
@@ -1392,7 +1364,6 @@ class Package(object):
     def self_url(self):
         """Gets the self_url of this Package.
 
-        
 
         :return: The self_url of this Package.
         :rtype: str
@@ -1403,7 +1374,6 @@ class Package(object):
     def self_url(self, self_url):
         """Sets the self_url of this Package.
 
-        
 
         :param self_url: The self_url of this Package.
         :type: str
@@ -1415,7 +1385,6 @@ class Package(object):
     def signature_url(self):
         """Gets the signature_url of this Package.
 
-        
 
         :return: The signature_url of this Package.
         :rtype: str
@@ -1426,7 +1395,6 @@ class Package(object):
     def signature_url(self, signature_url):
         """Sets the signature_url of this Package.
 
-        
 
         :param signature_url: The signature_url of this Package.
         :type: str
@@ -1477,6 +1445,12 @@ class Package(object):
         :param slug: The slug of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug is not None and len(slug) < 1):
+            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug is not None and not re.search('^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug = slug
 
@@ -1484,7 +1458,6 @@ class Package(object):
     def slug_perm(self):
         """Gets the slug_perm of this Package.
 
-        
 
         :return: The slug_perm of this Package.
         :rtype: str
@@ -1495,11 +1468,16 @@ class Package(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this Package.
 
-        
 
         :param slug_perm: The slug_perm of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and len(slug_perm) < 1):
+            raise ValueError("Invalid value for `slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
 
@@ -1530,7 +1508,6 @@ class Package(object):
     def stage_str(self):
         """Gets the stage_str of this Package.
 
-        
 
         :return: The stage_str of this Package.
         :rtype: str
@@ -1541,7 +1518,6 @@ class Package(object):
     def stage_str(self, stage_str):
         """Sets the stage_str of this Package.
 
-        
 
         :param stage_str: The stage_str of this Package.
         :type: str
@@ -1556,7 +1532,7 @@ class Package(object):
         The datetime the package stage was updated at.
 
         :return: The stage_updated_at of this Package.
-        :rtype: str
+        :rtype: datetime
         """
         return self._stage_updated_at
 
@@ -1567,7 +1543,7 @@ class Package(object):
         The datetime the package stage was updated at.
 
         :param stage_updated_at: The stage_updated_at of this Package.
-        :type: str
+        :type: datetime
         """
 
         self._stage_updated_at = stage_updated_at
@@ -1615,6 +1591,9 @@ class Package(object):
         :param status_reason: The status_reason of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                status_reason is not None and len(status_reason) < 1):
+            raise ValueError("Invalid value for `status_reason`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._status_reason = status_reason
 
@@ -1622,7 +1601,6 @@ class Package(object):
     def status_str(self):
         """Gets the status_str of this Package.
 
-        
 
         :return: The status_str of this Package.
         :rtype: str
@@ -1633,7 +1611,6 @@ class Package(object):
     def status_str(self, status_str):
         """Sets the status_str of this Package.
 
-        
 
         :param status_str: The status_str of this Package.
         :type: str
@@ -1648,7 +1625,7 @@ class Package(object):
         The datetime the package status was updated at.
 
         :return: The status_updated_at of this Package.
-        :rtype: str
+        :rtype: datetime
         """
         return self._status_updated_at
 
@@ -1659,7 +1636,7 @@ class Package(object):
         The datetime the package status was updated at.
 
         :param status_updated_at: The status_updated_at of this Package.
-        :type: str
+        :type: datetime
         """
 
         self._status_updated_at = status_updated_at
@@ -1668,7 +1645,6 @@ class Package(object):
     def status_url(self):
         """Gets the status_url of this Package.
 
-        
 
         :return: The status_url of this Package.
         :rtype: str
@@ -1679,7 +1655,6 @@ class Package(object):
     def status_url(self, status_url):
         """Sets the status_url of this Package.
 
-        
 
         :param status_url: The status_url of this Package.
         :type: str
@@ -1691,7 +1666,6 @@ class Package(object):
     def subtype(self):
         """Gets the subtype of this Package.
 
-        
 
         :return: The subtype of this Package.
         :rtype: str
@@ -1702,7 +1676,6 @@ class Package(object):
     def subtype(self, subtype):
         """Sets the subtype of this Package.
 
-        
 
         :param subtype: The subtype of this Package.
         :type: str
@@ -1730,6 +1703,9 @@ class Package(object):
         :param summary: The summary of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                summary is not None and len(summary) < 1):
+            raise ValueError("Invalid value for `summary`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._summary = summary
 
@@ -1740,7 +1716,7 @@ class Package(object):
         The datetime the package sync was finished at.
 
         :return: The sync_finished_at of this Package.
-        :rtype: str
+        :rtype: datetime
         """
         return self._sync_finished_at
 
@@ -1751,7 +1727,7 @@ class Package(object):
         The datetime the package sync was finished at.
 
         :param sync_finished_at: The sync_finished_at of this Package.
-        :type: str
+        :type: datetime
         """
 
         self._sync_finished_at = sync_finished_at
@@ -1783,10 +1759,9 @@ class Package(object):
     def tags(self):
         """Gets the tags of this Package.
 
-        All tags on the package, grouped by tag type. This includes immutable tags, but doesn't distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field.
 
         :return: The tags of this Package.
-        :rtype: object
+        :rtype: Tags
         """
         return self._tags
 
@@ -1794,10 +1769,9 @@ class Package(object):
     def tags(self, tags):
         """Sets the tags of this Package.
 
-        All tags on the package, grouped by tag type. This includes immutable tags, but doesn't distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field.
 
         :param tags: The tags of this Package.
-        :type: object
+        :type: Tags
         """
 
         self._tags = tags
@@ -1806,10 +1780,9 @@ class Package(object):
     def tags_immutable(self):
         """Gets the tags_immutable of this Package.
 
-        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
 
         :return: The tags_immutable of this Package.
-        :rtype: object
+        :rtype: Tags
         """
         return self._tags_immutable
 
@@ -1817,10 +1790,9 @@ class Package(object):
     def tags_immutable(self, tags_immutable):
         """Sets the tags_immutable of this Package.
 
-        All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
 
         :param tags_immutable: The tags_immutable of this Package.
-        :type: object
+        :type: Tags
         """
 
         self._tags_immutable = tags_immutable
@@ -1829,7 +1801,6 @@ class Package(object):
     def type_display(self):
         """Gets the type_display of this Package.
 
-        
 
         :return: The type_display of this Package.
         :rtype: str
@@ -1840,7 +1811,6 @@ class Package(object):
     def type_display(self, type_display):
         """Sets the type_display of this Package.
 
-        
 
         :param type_display: The type_display of this Package.
         :type: str
@@ -1855,7 +1825,7 @@ class Package(object):
         The date this package was uploaded.
 
         :return: The uploaded_at of this Package.
-        :rtype: str
+        :rtype: datetime
         """
         return self._uploaded_at
 
@@ -1866,7 +1836,7 @@ class Package(object):
         The date this package was uploaded.
 
         :param uploaded_at: The uploaded_at of this Package.
-        :type: str
+        :type: datetime
         """
 
         self._uploaded_at = uploaded_at
@@ -1875,7 +1845,6 @@ class Package(object):
     def uploader(self):
         """Gets the uploader of this Package.
 
-        
 
         :return: The uploader of this Package.
         :rtype: str
@@ -1886,11 +1855,13 @@ class Package(object):
     def uploader(self, uploader):
         """Sets the uploader of this Package.
 
-        
 
         :param uploader: The uploader of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                uploader is not None and len(uploader) < 1):
+            raise ValueError("Invalid value for `uploader`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._uploader = uploader
 
@@ -1898,7 +1869,6 @@ class Package(object):
     def uploader_url(self):
         """Gets the uploader_url of this Package.
 
-        
 
         :return: The uploader_url of this Package.
         :rtype: str
@@ -1909,7 +1879,6 @@ class Package(object):
     def uploader_url(self, uploader_url):
         """Sets the uploader_url of this Package.
 
-        
 
         :param uploader_url: The uploader_url of this Package.
         :type: str
@@ -1937,6 +1906,9 @@ class Package(object):
         :param version: The version of this Package.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                version is not None and len(version) < 1):
+            raise ValueError("Invalid value for `version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._version = version
 
@@ -1944,7 +1916,6 @@ class Package(object):
     def version_orig(self):
         """Gets the version_orig of this Package.
 
-        
 
         :return: The version_orig of this Package.
         :rtype: str
@@ -1955,7 +1926,6 @@ class Package(object):
     def version_orig(self, version_orig):
         """Sets the version_orig of this Package.
 
-        
 
         :param version_orig: The version_orig of this Package.
         :type: str
@@ -1967,7 +1937,6 @@ class Package(object):
     def vulnerability_scan_results_url(self):
         """Gets the vulnerability_scan_results_url of this Package.
 
-        
 
         :return: The vulnerability_scan_results_url of this Package.
         :rtype: str
@@ -1978,7 +1947,6 @@ class Package(object):
     def vulnerability_scan_results_url(self, vulnerability_scan_results_url):
         """Sets the vulnerability_scan_results_url of this Package.
 
-        
 
         :param vulnerability_scan_results_url: The vulnerability_scan_results_url of this Package.
         :type: str

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -39,7 +39,7 @@ describe 'FilesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [FilesAbort] :data 
+  # @option opts [PackageFileUploadRequest] :data 
   # @return [nil]
   describe 'files_abort test' do
     it 'should work' do
@@ -54,7 +54,7 @@ describe 'FilesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [FilesComplete] :data 
+  # @option opts [PackageFileUploadRequest] :data 
   # @return [PackageFileUpload]
   describe 'files_complete test' do
     it 'should work' do
@@ -68,7 +68,7 @@ describe 'FilesApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
-  # @option opts [FilesCreate] :data 
+  # @option opts [PackageFileUploadRequest] :data 
   # @return [PackageFileUpload]
   describe 'files_create test' do
     it 'should work' do
@@ -98,7 +98,7 @@ describe 'FilesApi' do
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
-  # @option opts [FilesValidate] :data 
+  # @option opts [PackageFileUploadRequest] :data 
   # @return [nil]
   describe 'files_validate test' do
     it 'should work' do

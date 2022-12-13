@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **company** | **String** |  | [optional] 
 **first_name** | **String** |  | 
 **job_title** | **String** |  | [optional] 
-**joined_at** | **String** |  | [optional] 
+**joined_at** | **DateTime** |  | [optional] 
 **last_name** | **String** |  | 
 **name** | **String** |  | [optional] 
 **slug** | **String** |  | [optional] 

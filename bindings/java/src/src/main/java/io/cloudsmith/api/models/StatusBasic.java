@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -35,45 +35,27 @@ public class StatusBasic implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("detail")
-  private String detail = null;
+  private String detail = "Cloudsmith API is operational.";
 
   @SerializedName("version")
-  private String version = null;
-
-  public StatusBasic detail(String detail) {
-    this.detail = detail;
-    return this;
-  }
+  private String version = "1.183.1";
 
    /**
    * The message describing the state of the API.
    * @return detail
   **/
-  @ApiModelProperty(example = "Cloudsmith API is operational.", value = "The message describing the state of the API.")
+ @Size(min=1)  @ApiModelProperty(value = "The message describing the state of the API.")
   public String getDetail() {
     return detail;
-  }
-
-  public void setDetail(String detail) {
-    this.detail = detail;
-  }
-
-  public StatusBasic version(String version) {
-    this.version = version;
-    return this;
   }
 
    /**
    * The current version for the Cloudsmith service.
    * @return version
   **/
-  @ApiModelProperty(example = "1.142.3", value = "The current version for the Cloudsmith service.")
+ @Size(min=1)  @ApiModelProperty(value = "The current version for the Cloudsmith service.")
   public String getVersion() {
     return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
   }
 
 

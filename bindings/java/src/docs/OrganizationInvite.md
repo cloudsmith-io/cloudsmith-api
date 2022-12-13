@@ -4,14 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **String** |  |  [optional]
-**expiresAt** | **String** |  |  [optional]
+**email** | **String** | The email of the user to be invited. |  [optional]
+**expiresAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **inviter** | **String** |  |  [optional]
 **inviterUrl** | **String** |  |  [optional]
 **org** | **String** |  |  [optional]
-**role** | [**RoleEnum**](#RoleEnum) |  |  [optional]
+**role** | [**RoleEnum**](#RoleEnum) | The role to be assigned to the invited user. |  [optional]
 **slugPerm** | **String** |  |  [optional]
-**user** | **String** |  |  [optional]
+**user** | **String** | The slug of the user to be invited. |  [optional]
 **userUrl** | **String** |  |  [optional]
 
 

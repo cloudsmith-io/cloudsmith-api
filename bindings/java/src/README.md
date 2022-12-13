@@ -1,6 +1,6 @@
 # cloudsmith-api
 
-Cloudsmith API
+Cloudsmith API (v1)
 - API version: v1
 
 The API to the Cloudsmith Service
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>1.142.3</version>
+  <version>2.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:1.142.3"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-1.142.3.jar`
+* `target/cloudsmith-api-2.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -93,14 +93,14 @@ public class AuditLogApiExample {
 
         AuditLogApi apiInstance = new AuditLogApi();
         String owner = "owner_example"; // String | 
-        Integer page = 56; // Integer | A page number within the paginated result set.
-        Integer pageSize = 56; // Integer | Number of results to return per page.
+        java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+        java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
         String query = "query_example"; // String | A search term for querying events, actors, or timestamps of log records.
         try {
-            List<NamespaceAuditLog> result = apiInstance.auditLogList(owner, page, pageSize, query);
+            List<NamespaceAuditLog> result = apiInstance.auditLogNamespaceList(owner, page, pageSize, query);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AuditLogApi#auditLogList");
+            System.err.println("Exception when calling AuditLogApi#auditLogNamespaceList");
             e.printStackTrace();
         }
     }
@@ -114,8 +114,8 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuditLogApi* | [**auditLogList**](docs/AuditLogApi.md#auditLogList) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
-*AuditLogApi* | [**auditLogList0**](docs/AuditLogApi.md#auditLogList0) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
+*AuditLogApi* | [**auditLogNamespaceList**](docs/AuditLogApi.md#auditLogNamespaceList) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
+*AuditLogApi* | [**auditLogRepoList**](docs/AuditLogApi.md#auditLogRepoList) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
 *BadgesApi* | [**badgesVersionList**](docs/BadgesApi.md#badgesVersionList) | **GET** /badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/ | Get latest package version for a package or package group.
 *DistrosApi* | [**distrosList**](docs/DistrosApi.md#distrosList) | **GET** /distros/ | Get a list of all supported distributions.
 *DistrosApi* | [**distrosRead**](docs/DistrosApi.md#distrosRead) | **GET** /distros/{slug}/ | View for viewing/listing distributions.
@@ -136,8 +136,8 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**filesValidate**](docs/FilesApi.md#filesValidate) | **POST** /files/{owner}/{repo}/validate/ | Validate parameters used for create.
 *FormatsApi* | [**formatsList**](docs/FormatsApi.md#formatsList) | **GET** /formats/ | Get a list of all supported package formats.
 *FormatsApi* | [**formatsRead**](docs/FormatsApi.md#formatsRead) | **GET** /formats/{slug}/ | Get a specific supported package format.
-*MetricsApi* | [**metricsEntitlementsList**](docs/MetricsApi.md#metricsEntitlementsList) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
-*MetricsApi* | [**metricsEntitlementsList0**](docs/MetricsApi.md#metricsEntitlementsList0) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+*MetricsApi* | [**metricsEntitlementsAccountList**](docs/MetricsApi.md#metricsEntitlementsAccountList) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+*MetricsApi* | [**metricsEntitlementsRepoList**](docs/MetricsApi.md#metricsEntitlementsRepoList) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
 *MetricsApi* | [**metricsPackagesList**](docs/MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
@@ -145,6 +145,8 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsInvitesDelete**](docs/OrgsApi.md#orgsInvitesDelete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite
 *OrgsApi* | [**orgsInvitesExtend**](docs/OrgsApi.md#orgsInvitesExtend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
 *OrgsApi* | [**orgsInvitesList**](docs/OrgsApi.md#orgsInvitesList) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
+*OrgsApi* | [**orgsInvitesPartialUpdate**](docs/OrgsApi.md#orgsInvitesPartialUpdate) | **PATCH** /orgs/{org}/invites/{slug_perm}/ | Update a specific organization invite.
+*OrgsApi* | [**orgsInvitesResend**](docs/OrgsApi.md#orgsInvitesResend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 *OrgsApi* | [**orgsMembersDelete**](docs/OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 *OrgsApi* | [**orgsMembersList**](docs/OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
@@ -154,6 +156,12 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 *OrgsApi* | [**orgsSamlGroupSyncDelete**](docs/OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 *OrgsApi* | [**orgsSamlGroupSyncList**](docs/OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
+*OrgsApi* | [**orgsServicesCreate**](docs/OrgsApi.md#orgsServicesCreate) | **POST** /orgs/{org}/services/ | Create a service within an organization.
+*OrgsApi* | [**orgsServicesDelete**](docs/OrgsApi.md#orgsServicesDelete) | **DELETE** /orgs/{org}/services/{service}/ | Delete a specific service
+*OrgsApi* | [**orgsServicesList**](docs/OrgsApi.md#orgsServicesList) | **GET** /orgs/{org}/services/ | Get a list of all services within an organization.
+*OrgsApi* | [**orgsServicesPartialUpdate**](docs/OrgsApi.md#orgsServicesPartialUpdate) | **PATCH** /orgs/{org}/services/{service}/ | Update a service within an organization.
+*OrgsApi* | [**orgsServicesRead**](docs/OrgsApi.md#orgsServicesRead) | **GET** /orgs/{org}/services/{service}/ | Retrieve details of a single service within an organization.
+*OrgsApi* | [**orgsServicesRefresh**](docs/OrgsApi.md#orgsServicesRefresh) | **POST** /orgs/{org}/services/{service}/refresh/ | Refresh service API token.
 *OrgsApi* | [**orgsTeamsCreate**](docs/OrgsApi.md#orgsTeamsCreate) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
 *OrgsApi* | [**orgsTeamsDelete**](docs/OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization.
 *OrgsApi* | [**orgsTeamsList**](docs/OrgsApi.md#orgsTeamsList) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
@@ -161,7 +169,7 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsTeamsMembersList**](docs/OrgsApi.md#orgsTeamsMembersList) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team.
 *OrgsApi* | [**orgsTeamsMembersUpdate**](docs/OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
 *OrgsApi* | [**orgsTeamsPartialUpdate**](docs/OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
-*OrgsApi* | [**orgsTeamsRead**](docs/OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details for the specific team.
+*OrgsApi* | [**orgsTeamsRead**](docs/OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
 *PackagesApi* | [**packagesCopy**](docs/PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 *PackagesApi* | [**packagesDelete**](docs/PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 *PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
@@ -224,13 +232,12 @@ Class | Method | HTTP request | Description
 *QuotaApi* | [**quotaOssRead**](docs/QuotaApi.md#quotaOssRead) | **GET** /quota/oss/{owner}/ | Open-source Quota usage for a given namespace.
 *QuotaApi* | [**quotaRead**](docs/QuotaApi.md#quotaRead) | **GET** /quota/{owner}/ | Quota usage for a given namespace.
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
-*ReposApi* | [**reposAllList**](docs/ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 *ReposApi* | [**reposCreate**](docs/ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 *ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 *ReposApi* | [**reposGpgCreate**](docs/ReposApi.md#reposGpgCreate) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 *ReposApi* | [**reposGpgList**](docs/ReposApi.md#reposGpgList) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 *ReposApi* | [**reposGpgRegenerate**](docs/ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
-*ReposApi* | [**reposList**](docs/ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+*ReposApi* | [**reposNamespaceList**](docs/ReposApi.md#reposNamespaceList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 *ReposApi* | [**reposPartialUpdate**](docs/ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
 *ReposApi* | [**reposPrivilegesList**](docs/ReposApi.md#reposPrivilegesList) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
 *ReposApi* | [**reposPrivilegesPartialUpdate**](docs/ReposApi.md#reposPrivilegesPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository.
@@ -239,16 +246,17 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposRsaCreate**](docs/ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 *ReposApi* | [**reposRsaList**](docs/ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 *ReposApi* | [**reposRsaRegenerate**](docs/ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
+*ReposApi* | [**reposUserList**](docs/ReposApi.md#reposUserList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 *StatusApi* | [**statusCheckBasic**](docs/StatusApi.md#statusCheckBasic) | **GET** /status/check/basic/ | Endpoint to check basic API connectivity.
 *StorageRegionsApi* | [**storageRegionsList**](docs/StorageRegionsApi.md#storageRegionsList) | **GET** /storage-regions/ | Get a list of all available storage regions.
 *StorageRegionsApi* | [**storageRegionsRead**](docs/StorageRegionsApi.md#storageRegionsRead) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
 *UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
-*VulnerabilitiesApi* | [**vulnerabilitiesList**](docs/VulnerabilitiesApi.md#vulnerabilitiesList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
-*VulnerabilitiesApi* | [**vulnerabilitiesList0**](docs/VulnerabilitiesApi.md#vulnerabilitiesList0) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
-*VulnerabilitiesApi* | [**vulnerabilitiesList1**](docs/VulnerabilitiesApi.md#vulnerabilitiesList1) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
+*VulnerabilitiesApi* | [**vulnerabilitiesNamespaceList**](docs/VulnerabilitiesApi.md#vulnerabilitiesNamespaceList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
+*VulnerabilitiesApi* | [**vulnerabilitiesPackageList**](docs/VulnerabilitiesApi.md#vulnerabilitiesPackageList) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
 *VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
+*VulnerabilitiesApi* | [**vulnerabilitiesRepoList**](docs/VulnerabilitiesApi.md#vulnerabilitiesRepoList) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
 *WebhooksApi* | [**webhooksCreate**](docs/WebhooksApi.md#webhooksCreate) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
 *WebhooksApi* | [**webhooksDelete**](docs/WebhooksApi.md#webhooksDelete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
 *WebhooksApi* | [**webhooksList**](docs/WebhooksApi.md#webhooksList) | **GET** /webhooks/{owner}/{repo}/ | Get a list of all webhooks in a repository.
@@ -258,136 +266,154 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AllocatedLimit](docs/AllocatedLimit.md)
  - [AlpinePackageUpload](docs/AlpinePackageUpload.md)
+ - [AlpinePackageUploadRequest](docs/AlpinePackageUploadRequest.md)
+ - [Architecture](docs/Architecture.md)
+ - [CargoPackageUpload](docs/CargoPackageUpload.md)
+ - [CargoPackageUploadRequest](docs/CargoPackageUploadRequest.md)
+ - [CocoapodsPackageUpload](docs/CocoapodsPackageUpload.md)
+ - [CocoapodsPackageUploadRequest](docs/CocoapodsPackageUploadRequest.md)
+ - [CommonBandwidthMetrics](docs/CommonBandwidthMetrics.md)
+ - [CommonBandwidthMetricsValue](docs/CommonBandwidthMetricsValue.md)
+ - [CommonDownloadsMetrics](docs/CommonDownloadsMetrics.md)
+ - [CommonDownloadsMetricsValue](docs/CommonDownloadsMetricsValue.md)
+ - [CommonMetrics](docs/CommonMetrics.md)
+ - [ComposerPackageUpload](docs/ComposerPackageUpload.md)
+ - [ComposerPackageUploadRequest](docs/ComposerPackageUploadRequest.md)
  - [ConanPackageUpload](docs/ConanPackageUpload.md)
+ - [ConanPackageUploadRequest](docs/ConanPackageUploadRequest.md)
+ - [CondaPackageUpload](docs/CondaPackageUpload.md)
+ - [CondaPackageUploadRequest](docs/CondaPackageUploadRequest.md)
+ - [CranPackageUpload](docs/CranPackageUpload.md)
+ - [CranPackageUploadRequest](docs/CranPackageUploadRequest.md)
+ - [DartPackageUpload](docs/DartPackageUpload.md)
+ - [DartPackageUploadRequest](docs/DartPackageUploadRequest.md)
+ - [DebPackageUpload](docs/DebPackageUpload.md)
+ - [DebPackageUploadRequest](docs/DebPackageUploadRequest.md)
  - [Distribution](docs/Distribution.md)
- - [DistrosVersions](docs/DistrosVersions.md)
+ - [DistributionFull](docs/DistributionFull.md)
+ - [DistributionVersion](docs/DistributionVersion.md)
+ - [DockerPackageUpload](docs/DockerPackageUpload.md)
+ - [DockerPackageUploadRequest](docs/DockerPackageUploadRequest.md)
  - [EntitlementUsageMetrics](docs/EntitlementUsageMetrics.md)
- - [EntitlementsCreate](docs/EntitlementsCreate.md)
- - [EntitlementsPartialUpdate](docs/EntitlementsPartialUpdate.md)
- - [EntitlementsRefresh](docs/EntitlementsRefresh.md)
- - [EntitlementsSync](docs/EntitlementsSync.md)
- - [FilesAbort](docs/FilesAbort.md)
- - [FilesComplete](docs/FilesComplete.md)
- - [FilesCreate](docs/FilesCreate.md)
- - [FilesValidate](docs/FilesValidate.md)
+ - [ErrorDetail](docs/ErrorDetail.md)
+ - [Eula](docs/Eula.md)
  - [Format](docs/Format.md)
- - [FormatsDistributions](docs/FormatsDistributions.md)
+ - [FormatSupport](docs/FormatSupport.md)
+ - [GeoIpLocation](docs/GeoIpLocation.md)
+ - [GoPackageUpload](docs/GoPackageUpload.md)
+ - [GoPackageUploadRequest](docs/GoPackageUploadRequest.md)
+ - [HelmPackageUpload](docs/HelmPackageUpload.md)
+ - [HelmPackageUploadRequest](docs/HelmPackageUploadRequest.md)
+ - [History](docs/History.md)
+ - [HistoryFieldset](docs/HistoryFieldset.md)
+ - [LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
+ - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
+ - [MavenPackageUploadRequest](docs/MavenPackageUploadRequest.md)
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [NamespaceAuditLog](docs/NamespaceAuditLog.md)
+ - [NpmPackageUpload](docs/NpmPackageUpload.md)
+ - [NpmPackageUploadRequest](docs/NpmPackageUploadRequest.md)
+ - [NugetPackageUpload](docs/NugetPackageUpload.md)
+ - [NugetPackageUploadRequest](docs/NugetPackageUploadRequest.md)
  - [Organization](docs/Organization.md)
  - [OrganizationGroupSync](docs/OrganizationGroupSync.md)
+ - [OrganizationGroupSyncRequest](docs/OrganizationGroupSyncRequest.md)
  - [OrganizationInvite](docs/OrganizationInvite.md)
+ - [OrganizationInviteExtend](docs/OrganizationInviteExtend.md)
+ - [OrganizationInviteRequest](docs/OrganizationInviteRequest.md)
+ - [OrganizationInviteUpdate](docs/OrganizationInviteUpdate.md)
+ - [OrganizationInviteUpdateRequestPatch](docs/OrganizationInviteUpdateRequestPatch.md)
  - [OrganizationMembership](docs/OrganizationMembership.md)
  - [OrganizationTeam](docs/OrganizationTeam.md)
  - [OrganizationTeamMembers](docs/OrganizationTeamMembers.md)
- - [OrganizationTeamMembersMembers](docs/OrganizationTeamMembersMembers.md)
- - [OrgsInvitesCreate](docs/OrgsInvitesCreate.md)
- - [OrgsInvitesExtend](docs/OrgsInvitesExtend.md)
- - [OrgsSamlgroupsyncCreate](docs/OrgsSamlgroupsyncCreate.md)
- - [OrgsTeamsCreate](docs/OrgsTeamsCreate.md)
- - [OrgsTeamsMembersCreate](docs/OrgsTeamsMembersCreate.md)
- - [OrgsTeamsMembersUpdate](docs/OrgsTeamsMembersUpdate.md)
- - [OrgsTeamsPartialUpdate](docs/OrgsTeamsPartialUpdate.md)
+ - [OrganizationTeamMembership](docs/OrganizationTeamMembership.md)
+ - [OrganizationTeamRequest](docs/OrganizationTeamRequest.md)
+ - [OrganizationTeamRequestPatch](docs/OrganizationTeamRequestPatch.md)
+ - [P2PackageUpload](docs/P2PackageUpload.md)
+ - [P2PackageUploadRequest](docs/P2PackageUploadRequest.md)
  - [PackageCopy](docs/PackageCopy.md)
+ - [PackageCopyRequest](docs/PackageCopyRequest.md)
  - [PackageDependencies](docs/PackageDependencies.md)
- - [PackageDependenciesDependencies](docs/PackageDependenciesDependencies.md)
+ - [PackageDependency](docs/PackageDependency.md)
+ - [PackageFile](docs/PackageFile.md)
  - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
+ - [PackageFileUploadRequest](docs/PackageFileUploadRequest.md)
  - [PackageMove](docs/PackageMove.md)
+ - [PackageMoveRequest](docs/PackageMoveRequest.md)
+ - [PackageQuarantine](docs/PackageQuarantine.md)
+ - [PackageQuarantineRequest](docs/PackageQuarantineRequest.md)
+ - [PackageResync](docs/PackageResync.md)
  - [PackageStatus](docs/PackageStatus.md)
+ - [PackageTag](docs/PackageTag.md)
+ - [PackageTagRequest](docs/PackageTagRequest.md)
  - [PackageUsageMetrics](docs/PackageUsageMetrics.md)
- - [PackagesCopy](docs/PackagesCopy.md)
- - [PackagesMove](docs/PackagesMove.md)
- - [PackagesQuarantine](docs/PackagesQuarantine.md)
- - [PackagesTag](docs/PackagesTag.md)
- - [PackagesUploadAlpine](docs/PackagesUploadAlpine.md)
- - [PackagesUploadCargo](docs/PackagesUploadCargo.md)
- - [PackagesUploadCocoapods](docs/PackagesUploadCocoapods.md)
- - [PackagesUploadComposer](docs/PackagesUploadComposer.md)
- - [PackagesUploadConan](docs/PackagesUploadConan.md)
- - [PackagesUploadConda](docs/PackagesUploadConda.md)
- - [PackagesUploadCran](docs/PackagesUploadCran.md)
- - [PackagesUploadDart](docs/PackagesUploadDart.md)
- - [PackagesUploadDeb](docs/PackagesUploadDeb.md)
- - [PackagesUploadDocker](docs/PackagesUploadDocker.md)
- - [PackagesUploadGo](docs/PackagesUploadGo.md)
- - [PackagesUploadHelm](docs/PackagesUploadHelm.md)
- - [PackagesUploadLuarocks](docs/PackagesUploadLuarocks.md)
- - [PackagesUploadMaven](docs/PackagesUploadMaven.md)
- - [PackagesUploadNpm](docs/PackagesUploadNpm.md)
- - [PackagesUploadNuget](docs/PackagesUploadNuget.md)
- - [PackagesUploadP2](docs/PackagesUploadP2.md)
- - [PackagesUploadPython](docs/PackagesUploadPython.md)
- - [PackagesUploadRaw](docs/PackagesUploadRaw.md)
- - [PackagesUploadRpm](docs/PackagesUploadRpm.md)
- - [PackagesUploadRuby](docs/PackagesUploadRuby.md)
- - [PackagesUploadTerraform](docs/PackagesUploadTerraform.md)
- - [PackagesUploadVagrant](docs/PackagesUploadVagrant.md)
- - [PackagesValidateuploadAlpine](docs/PackagesValidateuploadAlpine.md)
- - [PackagesValidateuploadCargo](docs/PackagesValidateuploadCargo.md)
- - [PackagesValidateuploadCocoapods](docs/PackagesValidateuploadCocoapods.md)
- - [PackagesValidateuploadComposer](docs/PackagesValidateuploadComposer.md)
- - [PackagesValidateuploadConan](docs/PackagesValidateuploadConan.md)
- - [PackagesValidateuploadConda](docs/PackagesValidateuploadConda.md)
- - [PackagesValidateuploadCran](docs/PackagesValidateuploadCran.md)
- - [PackagesValidateuploadDart](docs/PackagesValidateuploadDart.md)
- - [PackagesValidateuploadDeb](docs/PackagesValidateuploadDeb.md)
- - [PackagesValidateuploadDocker](docs/PackagesValidateuploadDocker.md)
- - [PackagesValidateuploadGo](docs/PackagesValidateuploadGo.md)
- - [PackagesValidateuploadHelm](docs/PackagesValidateuploadHelm.md)
- - [PackagesValidateuploadLuarocks](docs/PackagesValidateuploadLuarocks.md)
- - [PackagesValidateuploadMaven](docs/PackagesValidateuploadMaven.md)
- - [PackagesValidateuploadNpm](docs/PackagesValidateuploadNpm.md)
- - [PackagesValidateuploadNuget](docs/PackagesValidateuploadNuget.md)
- - [PackagesValidateuploadP2](docs/PackagesValidateuploadP2.md)
- - [PackagesValidateuploadPython](docs/PackagesValidateuploadPython.md)
- - [PackagesValidateuploadRaw](docs/PackagesValidateuploadRaw.md)
- - [PackagesValidateuploadRpm](docs/PackagesValidateuploadRpm.md)
- - [PackagesValidateuploadRuby](docs/PackagesValidateuploadRuby.md)
- - [PackagesValidateuploadTerraform](docs/PackagesValidateuploadTerraform.md)
- - [PackagesValidateuploadVagrant](docs/PackagesValidateuploadVagrant.md)
- - [PackagesownerrepoArchitectures](docs/PackagesownerrepoArchitectures.md)
- - [PackagesownerrepoFiles](docs/PackagesownerrepoFiles.md)
+ - [PackageVersionBadge](docs/PackageVersionBadge.md)
+ - [PackageVulnerability](docs/PackageVulnerability.md)
+ - [PythonPackageUpload](docs/PythonPackageUpload.md)
+ - [PythonPackageUploadRequest](docs/PythonPackageUploadRequest.md)
  - [Quota](docs/Quota.md)
  - [QuotaHistory](docs/QuotaHistory.md)
- - [QuotaHistoryHistory](docs/QuotaHistoryHistory.md)
+ - [RateCheck](docs/RateCheck.md)
  - [RawPackageUpload](docs/RawPackageUpload.md)
- - [ReposCreate](docs/ReposCreate.md)
- - [ReposGpgCreate](docs/ReposGpgCreate.md)
- - [ReposGpgKeys](docs/ReposGpgKeys.md)
- - [ReposPartialUpdate](docs/ReposPartialUpdate.md)
- - [ReposPrivilegesPartialUpdate](docs/ReposPrivilegesPartialUpdate.md)
- - [ReposPrivilegesUpdate](docs/ReposPrivilegesUpdate.md)
- - [ReposRsaCreate](docs/ReposRsaCreate.md)
+ - [RawPackageUploadRequest](docs/RawPackageUploadRequest.md)
  - [Repository](docs/Repository.md)
  - [RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [RepositoryCreate](docs/RepositoryCreate.md)
+ - [RepositoryCreateRequest](docs/RepositoryCreateRequest.md)
  - [RepositoryGpgKey](docs/RepositoryGpgKey.md)
+ - [RepositoryGpgKeyCreate](docs/RepositoryGpgKeyCreate.md)
+ - [RepositoryPrivilegeDict](docs/RepositoryPrivilegeDict.md)
  - [RepositoryPrivilegeInput](docs/RepositoryPrivilegeInput.md)
- - [RepositoryPrivilegeInputPrivileges](docs/RepositoryPrivilegeInputPrivileges.md)
+ - [RepositoryPrivilegeInputRequest](docs/RepositoryPrivilegeInputRequest.md)
+ - [RepositoryPrivilegeInputRequestPatch](docs/RepositoryPrivilegeInputRequestPatch.md)
+ - [RepositoryRequestPatch](docs/RepositoryRequestPatch.md)
  - [RepositoryRsaKey](docs/RepositoryRsaKey.md)
+ - [RepositoryRsaKeyCreate](docs/RepositoryRsaKeyCreate.md)
  - [RepositoryToken](docs/RepositoryToken.md)
+ - [RepositoryTokenAction](docs/RepositoryTokenAction.md)
  - [RepositoryTokenRefresh](docs/RepositoryTokenRefresh.md)
+ - [RepositoryTokenRefreshRequest](docs/RepositoryTokenRefreshRequest.md)
+ - [RepositoryTokenRequest](docs/RepositoryTokenRequest.md)
+ - [RepositoryTokenRequestPatch](docs/RepositoryTokenRequestPatch.md)
  - [RepositoryTokenSync](docs/RepositoryTokenSync.md)
- - [RepositoryTokenSyncTokens](docs/RepositoryTokenSyncTokens.md)
+ - [RepositoryTokenSyncRequest](docs/RepositoryTokenSyncRequest.md)
  - [RepositoryWebhook](docs/RepositoryWebhook.md)
+ - [RepositoryWebhookRequest](docs/RepositoryWebhookRequest.md)
+ - [RepositoryWebhookRequestPatch](docs/RepositoryWebhookRequestPatch.md)
  - [ResourcesRateCheck](docs/ResourcesRateCheck.md)
- - [Status](docs/Status.md)
+ - [RpmPackageUpload](docs/RpmPackageUpload.md)
+ - [RpmPackageUploadRequest](docs/RpmPackageUploadRequest.md)
+ - [RubyPackageUpload](docs/RubyPackageUpload.md)
+ - [RubyPackageUploadRequest](docs/RubyPackageUploadRequest.md)
+ - [Service](docs/Service.md)
+ - [ServiceRequest](docs/ServiceRequest.md)
+ - [ServiceRequestPatch](docs/ServiceRequestPatch.md)
+ - [ServiceTeams](docs/ServiceTeams.md)
  - [StatusBasic](docs/StatusBasic.md)
  - [StorageRegion](docs/StorageRegion.md)
+ - [Tags](docs/Tags.md)
+ - [TerraformPackageUpload](docs/TerraformPackageUpload.md)
+ - [TerraformPackageUploadRequest](docs/TerraformPackageUploadRequest.md)
+ - [Usage](docs/Usage.md)
+ - [UsageFieldset](docs/UsageFieldset.md)
+ - [UsageLimits](docs/UsageLimits.md)
  - [UserAuthToken](docs/UserAuthToken.md)
+ - [UserAuthTokenRequest](docs/UserAuthTokenRequest.md)
  - [UserBrief](docs/UserBrief.md)
  - [UserProfile](docs/UserProfile.md)
- - [UserTokenCreate](docs/UserTokenCreate.md)
  - [VagrantPackageUpload](docs/VagrantPackageUpload.md)
+ - [VagrantPackageUploadRequest](docs/VagrantPackageUploadRequest.md)
+ - [Vulnerability](docs/Vulnerability.md)
+ - [VulnerabilityScan](docs/VulnerabilityScan.md)
  - [VulnerabilityScanResults](docs/VulnerabilityScanResults.md)
  - [VulnerabilityScanResultsList](docs/VulnerabilityScanResultsList.md)
- - [WebhooksCreate](docs/WebhooksCreate.md)
- - [WebhooksPartialUpdate](docs/WebhooksPartialUpdate.md)
- - [WebhooksownerrepoTemplates](docs/WebhooksownerrepoTemplates.md)
+ - [VulnerabilityScanVersion](docs/VulnerabilityScanVersion.md)
+ - [WebhookTemplate](docs/WebhookTemplate.md)
 
 
 ## Documentation for Authorization

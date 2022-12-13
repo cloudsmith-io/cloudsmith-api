@@ -91,7 +91,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesCopy.new # PackagesCopy | 
+  data: CloudsmithApi::PackageCopyRequest.new # PackageCopyRequest | 
 }
 
 begin
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**PackagesCopy**](PackagesCopy.md)|  | [optional] 
+ **data** | [**PackageCopyRequest**](PackageCopyRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -181,8 +181,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -241,8 +241,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -274,8 +274,8 @@ repo = 'repo_example' # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  query: 'query_example', # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
-  sort: 'sort_example' # String | A field for sorting objects in ascending or descending order.
+  query: '', # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+  sort: '-date' # String | A field for sorting objects in ascending or descending order.
 }
 
 begin
@@ -295,8 +295,8 @@ Name | Type | Description  | Notes
  **repo** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] 
- **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] 
+ **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
 
 ### Return type
 
@@ -308,8 +308,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -341,7 +341,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesMove.new # PackagesMove | 
+  data: CloudsmithApi::PackageMoveRequest.new # PackageMoveRequest | 
 }
 
 begin
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**PackagesMove**](PackagesMove.md)|  | [optional] 
+ **data** | [**PackageMoveRequest**](PackageMoveRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -373,12 +373,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_quarantine**
-> Package packages_quarantine(owner, repo, identifier, opts)
+> PackageQuarantine packages_quarantine(owner, repo, identifier, opts)
 
 Quarantine or restore a package.
 
@@ -405,7 +405,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesQuarantine.new # PackagesQuarantine | 
+  data: CloudsmithApi::PackageQuarantineRequest.new # PackageQuarantineRequest | 
 }
 
 begin
@@ -424,11 +424,11 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**PackagesQuarantine**](PackagesQuarantine.md)|  | [optional] 
+ **data** | [**PackageQuarantineRequest**](PackageQuarantineRequest.md)|  | [optional] 
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageQuarantine**](PackageQuarantine.md)
 
 ### Authorization
 
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -496,13 +496,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
 # **packages_resync**
-> Package packages_resync(owner, repo, identifier)
+> PackageResync packages_resync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageResync**](PackageResync.md)
 
 ### Authorization
 
@@ -556,8 +556,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -616,8 +616,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -676,8 +676,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -709,7 +709,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesTag.new # PackagesTag | 
+  data: CloudsmithApi::PackageTagRequest.new # PackageTagRequest | 
 }
 
 begin
@@ -728,7 +728,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**PackagesTag**](PackagesTag.md)|  | [optional] 
+ **data** | [**PackageTagRequest**](PackageTagRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -771,7 +771,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadAlpine.new # PackagesUploadAlpine | 
+  data: CloudsmithApi::AlpinePackageUploadRequest.new # AlpinePackageUploadRequest | 
 }
 
 begin
@@ -789,7 +789,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadAlpine**](PackagesUploadAlpine.md)|  | [optional] 
+ **data** | [**AlpinePackageUploadRequest**](AlpinePackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -802,12 +802,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_cargo**
-> AlpinePackageUpload packages_upload_cargo(owner, repo, opts)
+> CargoPackageUpload packages_upload_cargo(owner, repo, opts)
 
 Create a new Cargo package
 
@@ -832,7 +832,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadCargo.new # PackagesUploadCargo | 
+  data: CloudsmithApi::CargoPackageUploadRequest.new # CargoPackageUploadRequest | 
 }
 
 begin
@@ -850,11 +850,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadCargo**](PackagesUploadCargo.md)|  | [optional] 
+ **data** | [**CargoPackageUploadRequest**](CargoPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CargoPackageUpload**](CargoPackageUpload.md)
 
 ### Authorization
 
@@ -863,12 +863,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_cocoapods**
-> AlpinePackageUpload packages_upload_cocoapods(owner, repo, opts)
+> CocoapodsPackageUpload packages_upload_cocoapods(owner, repo, opts)
 
 Create a new CocoaPods package
 
@@ -893,7 +893,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadCocoapods.new # PackagesUploadCocoapods | 
+  data: CloudsmithApi::CocoapodsPackageUploadRequest.new # CocoapodsPackageUploadRequest | 
 }
 
 begin
@@ -911,11 +911,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadCocoapods**](PackagesUploadCocoapods.md)|  | [optional] 
+ **data** | [**CocoapodsPackageUploadRequest**](CocoapodsPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CocoapodsPackageUpload**](CocoapodsPackageUpload.md)
 
 ### Authorization
 
@@ -924,12 +924,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_composer**
-> AlpinePackageUpload packages_upload_composer(owner, repo, opts)
+> ComposerPackageUpload packages_upload_composer(owner, repo, opts)
 
 Create a new Composer package
 
@@ -954,7 +954,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadComposer.new # PackagesUploadComposer | 
+  data: CloudsmithApi::ComposerPackageUploadRequest.new # ComposerPackageUploadRequest | 
 }
 
 begin
@@ -972,11 +972,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadComposer**](PackagesUploadComposer.md)|  | [optional] 
+ **data** | [**ComposerPackageUploadRequest**](ComposerPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**ComposerPackageUpload**](ComposerPackageUpload.md)
 
 ### Authorization
 
@@ -985,7 +985,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -1015,7 +1015,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadConan.new # PackagesUploadConan | 
+  data: CloudsmithApi::ConanPackageUploadRequest.new # ConanPackageUploadRequest | 
 }
 
 begin
@@ -1033,7 +1033,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadConan**](PackagesUploadConan.md)|  | [optional] 
+ **data** | [**ConanPackageUploadRequest**](ConanPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1046,12 +1046,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_conda**
-> AlpinePackageUpload packages_upload_conda(owner, repo, opts)
+> CondaPackageUpload packages_upload_conda(owner, repo, opts)
 
 Create a new Conda package
 
@@ -1076,7 +1076,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadConda.new # PackagesUploadConda | 
+  data: CloudsmithApi::CondaPackageUploadRequest.new # CondaPackageUploadRequest | 
 }
 
 begin
@@ -1094,11 +1094,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadConda**](PackagesUploadConda.md)|  | [optional] 
+ **data** | [**CondaPackageUploadRequest**](CondaPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CondaPackageUpload**](CondaPackageUpload.md)
 
 ### Authorization
 
@@ -1107,12 +1107,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_cran**
-> AlpinePackageUpload packages_upload_cran(owner, repo, opts)
+> CranPackageUpload packages_upload_cran(owner, repo, opts)
 
 Create a new CRAN package
 
@@ -1137,7 +1137,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadCran.new # PackagesUploadCran | 
+  data: CloudsmithApi::CranPackageUploadRequest.new # CranPackageUploadRequest | 
 }
 
 begin
@@ -1155,11 +1155,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadCran**](PackagesUploadCran.md)|  | [optional] 
+ **data** | [**CranPackageUploadRequest**](CranPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CranPackageUpload**](CranPackageUpload.md)
 
 ### Authorization
 
@@ -1168,12 +1168,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_dart**
-> AlpinePackageUpload packages_upload_dart(owner, repo, opts)
+> DartPackageUpload packages_upload_dart(owner, repo, opts)
 
 Create a new Dart package
 
@@ -1198,7 +1198,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadDart.new # PackagesUploadDart | 
+  data: CloudsmithApi::DartPackageUploadRequest.new # DartPackageUploadRequest | 
 }
 
 begin
@@ -1216,11 +1216,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadDart**](PackagesUploadDart.md)|  | [optional] 
+ **data** | [**DartPackageUploadRequest**](DartPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DartPackageUpload**](DartPackageUpload.md)
 
 ### Authorization
 
@@ -1229,12 +1229,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_deb**
-> AlpinePackageUpload packages_upload_deb(owner, repo, opts)
+> DebPackageUpload packages_upload_deb(owner, repo, opts)
 
 Create a new Debian package
 
@@ -1259,7 +1259,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadDeb.new # PackagesUploadDeb | 
+  data: CloudsmithApi::DebPackageUploadRequest.new # DebPackageUploadRequest | 
 }
 
 begin
@@ -1277,11 +1277,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadDeb**](PackagesUploadDeb.md)|  | [optional] 
+ **data** | [**DebPackageUploadRequest**](DebPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DebPackageUpload**](DebPackageUpload.md)
 
 ### Authorization
 
@@ -1290,12 +1290,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_docker**
-> AlpinePackageUpload packages_upload_docker(owner, repo, opts)
+> DockerPackageUpload packages_upload_docker(owner, repo, opts)
 
 Create a new Docker package
 
@@ -1320,7 +1320,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadDocker.new # PackagesUploadDocker | 
+  data: CloudsmithApi::DockerPackageUploadRequest.new # DockerPackageUploadRequest | 
 }
 
 begin
@@ -1338,11 +1338,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadDocker**](PackagesUploadDocker.md)|  | [optional] 
+ **data** | [**DockerPackageUploadRequest**](DockerPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DockerPackageUpload**](DockerPackageUpload.md)
 
 ### Authorization
 
@@ -1351,12 +1351,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_go**
-> AlpinePackageUpload packages_upload_go(owner, repo, opts)
+> GoPackageUpload packages_upload_go(owner, repo, opts)
 
 Create a new Go package
 
@@ -1381,7 +1381,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadGo.new # PackagesUploadGo | 
+  data: CloudsmithApi::GoPackageUploadRequest.new # GoPackageUploadRequest | 
 }
 
 begin
@@ -1399,11 +1399,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadGo**](PackagesUploadGo.md)|  | [optional] 
+ **data** | [**GoPackageUploadRequest**](GoPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**GoPackageUpload**](GoPackageUpload.md)
 
 ### Authorization
 
@@ -1412,12 +1412,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_helm**
-> AlpinePackageUpload packages_upload_helm(owner, repo, opts)
+> HelmPackageUpload packages_upload_helm(owner, repo, opts)
 
 Create a new Helm package
 
@@ -1442,7 +1442,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadHelm.new # PackagesUploadHelm | 
+  data: CloudsmithApi::HelmPackageUploadRequest.new # HelmPackageUploadRequest | 
 }
 
 begin
@@ -1460,11 +1460,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadHelm**](PackagesUploadHelm.md)|  | [optional] 
+ **data** | [**HelmPackageUploadRequest**](HelmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**HelmPackageUpload**](HelmPackageUpload.md)
 
 ### Authorization
 
@@ -1473,12 +1473,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_luarocks**
-> AlpinePackageUpload packages_upload_luarocks(owner, repo, opts)
+> LuarocksPackageUpload packages_upload_luarocks(owner, repo, opts)
 
 Create a new LuaRocks package
 
@@ -1503,7 +1503,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadLuarocks.new # PackagesUploadLuarocks | 
+  data: CloudsmithApi::LuarocksPackageUploadRequest.new # LuarocksPackageUploadRequest | 
 }
 
 begin
@@ -1521,11 +1521,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadLuarocks**](PackagesUploadLuarocks.md)|  | [optional] 
+ **data** | [**LuarocksPackageUploadRequest**](LuarocksPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**LuarocksPackageUpload**](LuarocksPackageUpload.md)
 
 ### Authorization
 
@@ -1534,7 +1534,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -1564,7 +1564,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadMaven.new # PackagesUploadMaven | 
+  data: CloudsmithApi::MavenPackageUploadRequest.new # MavenPackageUploadRequest | 
 }
 
 begin
@@ -1582,7 +1582,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadMaven**](PackagesUploadMaven.md)|  | [optional] 
+ **data** | [**MavenPackageUploadRequest**](MavenPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1595,12 +1595,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_npm**
-> AlpinePackageUpload packages_upload_npm(owner, repo, opts)
+> NpmPackageUpload packages_upload_npm(owner, repo, opts)
 
 Create a new npm package
 
@@ -1625,7 +1625,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadNpm.new # PackagesUploadNpm | 
+  data: CloudsmithApi::NpmPackageUploadRequest.new # NpmPackageUploadRequest | 
 }
 
 begin
@@ -1643,11 +1643,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadNpm**](PackagesUploadNpm.md)|  | [optional] 
+ **data** | [**NpmPackageUploadRequest**](NpmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**NpmPackageUpload**](NpmPackageUpload.md)
 
 ### Authorization
 
@@ -1656,12 +1656,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_nuget**
-> AlpinePackageUpload packages_upload_nuget(owner, repo, opts)
+> NugetPackageUpload packages_upload_nuget(owner, repo, opts)
 
 Create a new NuGet package
 
@@ -1686,7 +1686,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadNuget.new # PackagesUploadNuget | 
+  data: CloudsmithApi::NugetPackageUploadRequest.new # NugetPackageUploadRequest | 
 }
 
 begin
@@ -1704,11 +1704,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadNuget**](PackagesUploadNuget.md)|  | [optional] 
+ **data** | [**NugetPackageUploadRequest**](NugetPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**NugetPackageUpload**](NugetPackageUpload.md)
 
 ### Authorization
 
@@ -1717,12 +1717,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_p2**
-> AlpinePackageUpload packages_upload_p2(owner, repo, opts)
+> P2PackageUpload packages_upload_p2(owner, repo, opts)
 
 Create a new P2 package
 
@@ -1747,7 +1747,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadP2.new # PackagesUploadP2 | 
+  data: CloudsmithApi::P2PackageUploadRequest.new # P2PackageUploadRequest | 
 }
 
 begin
@@ -1765,11 +1765,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadP2**](PackagesUploadP2.md)|  | [optional] 
+ **data** | [**P2PackageUploadRequest**](P2PackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**P2PackageUpload**](P2PackageUpload.md)
 
 ### Authorization
 
@@ -1778,12 +1778,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_python**
-> AlpinePackageUpload packages_upload_python(owner, repo, opts)
+> PythonPackageUpload packages_upload_python(owner, repo, opts)
 
 Create a new Python package
 
@@ -1808,7 +1808,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadPython.new # PackagesUploadPython | 
+  data: CloudsmithApi::PythonPackageUploadRequest.new # PythonPackageUploadRequest | 
 }
 
 begin
@@ -1826,11 +1826,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadPython**](PackagesUploadPython.md)|  | [optional] 
+ **data** | [**PythonPackageUploadRequest**](PythonPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**PythonPackageUpload**](PythonPackageUpload.md)
 
 ### Authorization
 
@@ -1839,7 +1839,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -1869,7 +1869,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadRaw.new # PackagesUploadRaw | 
+  data: CloudsmithApi::RawPackageUploadRequest.new # RawPackageUploadRequest | 
 }
 
 begin
@@ -1887,7 +1887,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadRaw**](PackagesUploadRaw.md)|  | [optional] 
+ **data** | [**RawPackageUploadRequest**](RawPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1900,12 +1900,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_rpm**
-> AlpinePackageUpload packages_upload_rpm(owner, repo, opts)
+> RpmPackageUpload packages_upload_rpm(owner, repo, opts)
 
 Create a new RedHat package
 
@@ -1930,7 +1930,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadRpm.new # PackagesUploadRpm | 
+  data: CloudsmithApi::RpmPackageUploadRequest.new # RpmPackageUploadRequest | 
 }
 
 begin
@@ -1948,11 +1948,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadRpm**](PackagesUploadRpm.md)|  | [optional] 
+ **data** | [**RpmPackageUploadRequest**](RpmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**RpmPackageUpload**](RpmPackageUpload.md)
 
 ### Authorization
 
@@ -1961,12 +1961,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_ruby**
-> AlpinePackageUpload packages_upload_ruby(owner, repo, opts)
+> RubyPackageUpload packages_upload_ruby(owner, repo, opts)
 
 Create a new Ruby package
 
@@ -1991,7 +1991,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadRuby.new # PackagesUploadRuby | 
+  data: CloudsmithApi::RubyPackageUploadRequest.new # RubyPackageUploadRequest | 
 }
 
 begin
@@ -2009,11 +2009,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadRuby**](PackagesUploadRuby.md)|  | [optional] 
+ **data** | [**RubyPackageUploadRequest**](RubyPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**RubyPackageUpload**](RubyPackageUpload.md)
 
 ### Authorization
 
@@ -2022,12 +2022,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
 # **packages_upload_terraform**
-> AlpinePackageUpload packages_upload_terraform(owner, repo, opts)
+> TerraformPackageUpload packages_upload_terraform(owner, repo, opts)
 
 Create a new Terraform package
 
@@ -2052,7 +2052,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadTerraform.new # PackagesUploadTerraform | 
+  data: CloudsmithApi::TerraformPackageUploadRequest.new # TerraformPackageUploadRequest | 
 }
 
 begin
@@ -2070,11 +2070,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadTerraform**](PackagesUploadTerraform.md)|  | [optional] 
+ **data** | [**TerraformPackageUploadRequest**](TerraformPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**TerraformPackageUpload**](TerraformPackageUpload.md)
 
 ### Authorization
 
@@ -2083,7 +2083,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2113,7 +2113,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesUploadVagrant.new # PackagesUploadVagrant | 
+  data: CloudsmithApi::VagrantPackageUploadRequest.new # VagrantPackageUploadRequest | 
 }
 
 begin
@@ -2131,7 +2131,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesUploadVagrant**](PackagesUploadVagrant.md)|  | [optional] 
+ **data** | [**VagrantPackageUploadRequest**](VagrantPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2144,7 +2144,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2174,7 +2174,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadAlpine.new # PackagesValidateuploadAlpine | 
+  data: CloudsmithApi::AlpinePackageUploadRequest.new # AlpinePackageUploadRequest | 
 }
 
 begin
@@ -2191,7 +2191,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadAlpine**](PackagesValidateuploadAlpine.md)|  | [optional] 
+ **data** | [**AlpinePackageUploadRequest**](AlpinePackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2204,7 +2204,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2234,7 +2234,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadCargo.new # PackagesValidateuploadCargo | 
+  data: CloudsmithApi::CargoPackageUploadRequest.new # CargoPackageUploadRequest | 
 }
 
 begin
@@ -2251,7 +2251,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadCargo**](PackagesValidateuploadCargo.md)|  | [optional] 
+ **data** | [**CargoPackageUploadRequest**](CargoPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2264,7 +2264,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2294,7 +2294,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadCocoapods.new # PackagesValidateuploadCocoapods | 
+  data: CloudsmithApi::CocoapodsPackageUploadRequest.new # CocoapodsPackageUploadRequest | 
 }
 
 begin
@@ -2311,7 +2311,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadCocoapods**](PackagesValidateuploadCocoapods.md)|  | [optional] 
+ **data** | [**CocoapodsPackageUploadRequest**](CocoapodsPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2324,7 +2324,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2354,7 +2354,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadComposer.new # PackagesValidateuploadComposer | 
+  data: CloudsmithApi::ComposerPackageUploadRequest.new # ComposerPackageUploadRequest | 
 }
 
 begin
@@ -2371,7 +2371,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadComposer**](PackagesValidateuploadComposer.md)|  | [optional] 
+ **data** | [**ComposerPackageUploadRequest**](ComposerPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2384,7 +2384,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2414,7 +2414,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadConan.new # PackagesValidateuploadConan | 
+  data: CloudsmithApi::ConanPackageUploadRequest.new # ConanPackageUploadRequest | 
 }
 
 begin
@@ -2431,7 +2431,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadConan**](PackagesValidateuploadConan.md)|  | [optional] 
+ **data** | [**ConanPackageUploadRequest**](ConanPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2444,7 +2444,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2474,7 +2474,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadConda.new # PackagesValidateuploadConda | 
+  data: CloudsmithApi::CondaPackageUploadRequest.new # CondaPackageUploadRequest | 
 }
 
 begin
@@ -2491,7 +2491,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadConda**](PackagesValidateuploadConda.md)|  | [optional] 
+ **data** | [**CondaPackageUploadRequest**](CondaPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2504,7 +2504,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2534,7 +2534,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadCran.new # PackagesValidateuploadCran | 
+  data: CloudsmithApi::CranPackageUploadRequest.new # CranPackageUploadRequest | 
 }
 
 begin
@@ -2551,7 +2551,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadCran**](PackagesValidateuploadCran.md)|  | [optional] 
+ **data** | [**CranPackageUploadRequest**](CranPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2564,7 +2564,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2594,7 +2594,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadDart.new # PackagesValidateuploadDart | 
+  data: CloudsmithApi::DartPackageUploadRequest.new # DartPackageUploadRequest | 
 }
 
 begin
@@ -2611,7 +2611,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadDart**](PackagesValidateuploadDart.md)|  | [optional] 
+ **data** | [**DartPackageUploadRequest**](DartPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2624,7 +2624,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2654,7 +2654,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadDeb.new # PackagesValidateuploadDeb | 
+  data: CloudsmithApi::DebPackageUploadRequest.new # DebPackageUploadRequest | 
 }
 
 begin
@@ -2671,7 +2671,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadDeb**](PackagesValidateuploadDeb.md)|  | [optional] 
+ **data** | [**DebPackageUploadRequest**](DebPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2684,7 +2684,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2714,7 +2714,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadDocker.new # PackagesValidateuploadDocker | 
+  data: CloudsmithApi::DockerPackageUploadRequest.new # DockerPackageUploadRequest | 
 }
 
 begin
@@ -2731,7 +2731,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadDocker**](PackagesValidateuploadDocker.md)|  | [optional] 
+ **data** | [**DockerPackageUploadRequest**](DockerPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2744,7 +2744,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2774,7 +2774,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadGo.new # PackagesValidateuploadGo | 
+  data: CloudsmithApi::GoPackageUploadRequest.new # GoPackageUploadRequest | 
 }
 
 begin
@@ -2791,7 +2791,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadGo**](PackagesValidateuploadGo.md)|  | [optional] 
+ **data** | [**GoPackageUploadRequest**](GoPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2804,7 +2804,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2834,7 +2834,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadHelm.new # PackagesValidateuploadHelm | 
+  data: CloudsmithApi::HelmPackageUploadRequest.new # HelmPackageUploadRequest | 
 }
 
 begin
@@ -2851,7 +2851,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadHelm**](PackagesValidateuploadHelm.md)|  | [optional] 
+ **data** | [**HelmPackageUploadRequest**](HelmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2864,7 +2864,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2894,7 +2894,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadLuarocks.new # PackagesValidateuploadLuarocks | 
+  data: CloudsmithApi::LuarocksPackageUploadRequest.new # LuarocksPackageUploadRequest | 
 }
 
 begin
@@ -2911,7 +2911,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadLuarocks**](PackagesValidateuploadLuarocks.md)|  | [optional] 
+ **data** | [**LuarocksPackageUploadRequest**](LuarocksPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2924,7 +2924,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -2954,7 +2954,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadMaven.new # PackagesValidateuploadMaven | 
+  data: CloudsmithApi::MavenPackageUploadRequest.new # MavenPackageUploadRequest | 
 }
 
 begin
@@ -2971,7 +2971,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadMaven**](PackagesValidateuploadMaven.md)|  | [optional] 
+ **data** | [**MavenPackageUploadRequest**](MavenPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2984,7 +2984,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3014,7 +3014,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadNpm.new # PackagesValidateuploadNpm | 
+  data: CloudsmithApi::NpmPackageUploadRequest.new # NpmPackageUploadRequest | 
 }
 
 begin
@@ -3031,7 +3031,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadNpm**](PackagesValidateuploadNpm.md)|  | [optional] 
+ **data** | [**NpmPackageUploadRequest**](NpmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3044,7 +3044,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3074,7 +3074,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadNuget.new # PackagesValidateuploadNuget | 
+  data: CloudsmithApi::NugetPackageUploadRequest.new # NugetPackageUploadRequest | 
 }
 
 begin
@@ -3091,7 +3091,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadNuget**](PackagesValidateuploadNuget.md)|  | [optional] 
+ **data** | [**NugetPackageUploadRequest**](NugetPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3104,7 +3104,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3134,7 +3134,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadP2.new # PackagesValidateuploadP2 | 
+  data: CloudsmithApi::P2PackageUploadRequest.new # P2PackageUploadRequest | 
 }
 
 begin
@@ -3151,7 +3151,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadP2**](PackagesValidateuploadP2.md)|  | [optional] 
+ **data** | [**P2PackageUploadRequest**](P2PackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3164,7 +3164,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3194,7 +3194,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadPython.new # PackagesValidateuploadPython | 
+  data: CloudsmithApi::PythonPackageUploadRequest.new # PythonPackageUploadRequest | 
 }
 
 begin
@@ -3211,7 +3211,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadPython**](PackagesValidateuploadPython.md)|  | [optional] 
+ **data** | [**PythonPackageUploadRequest**](PythonPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3224,7 +3224,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3254,7 +3254,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadRaw.new # PackagesValidateuploadRaw | 
+  data: CloudsmithApi::RawPackageUploadRequest.new # RawPackageUploadRequest | 
 }
 
 begin
@@ -3271,7 +3271,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadRaw**](PackagesValidateuploadRaw.md)|  | [optional] 
+ **data** | [**RawPackageUploadRequest**](RawPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3284,7 +3284,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3314,7 +3314,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadRpm.new # PackagesValidateuploadRpm | 
+  data: CloudsmithApi::RpmPackageUploadRequest.new # RpmPackageUploadRequest | 
 }
 
 begin
@@ -3331,7 +3331,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadRpm**](PackagesValidateuploadRpm.md)|  | [optional] 
+ **data** | [**RpmPackageUploadRequest**](RpmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3344,7 +3344,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3374,7 +3374,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadRuby.new # PackagesValidateuploadRuby | 
+  data: CloudsmithApi::RubyPackageUploadRequest.new # RubyPackageUploadRequest | 
 }
 
 begin
@@ -3391,7 +3391,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadRuby**](PackagesValidateuploadRuby.md)|  | [optional] 
+ **data** | [**RubyPackageUploadRequest**](RubyPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3404,7 +3404,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3434,7 +3434,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadTerraform.new # PackagesValidateuploadTerraform | 
+  data: CloudsmithApi::TerraformPackageUploadRequest.new # TerraformPackageUploadRequest | 
 }
 
 begin
@@ -3451,7 +3451,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadTerraform**](PackagesValidateuploadTerraform.md)|  | [optional] 
+ **data** | [**TerraformPackageUploadRequest**](TerraformPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3464,7 +3464,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -3494,7 +3494,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::PackagesValidateuploadVagrant.new # PackagesValidateuploadVagrant | 
+  data: CloudsmithApi::VagrantPackageUploadRequest.new # VagrantPackageUploadRequest | 
 }
 
 begin
@@ -3511,7 +3511,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**PackagesValidateuploadVagrant**](PackagesValidateuploadVagrant.md)|  | [optional] 
+ **data** | [**VagrantPackageUploadRequest**](VagrantPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3524,7 +3524,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -36,12 +36,12 @@ class NamespaceAuditLog(object):
         'actor': 'str',
         'actor_ip_address': 'str',
         'actor_kind': 'str',
-        'actor_location': 'object',
+        'actor_location': 'GeoIpLocation',
         'actor_slug_perm': 'str',
         'actor_url': 'str',
         'context': 'str',
         'event': 'str',
-        'event_at': 'str',
+        'event_at': 'datetime',
         'object': 'str',
         'object_kind': 'str',
         'object_slug_perm': 'str',
@@ -119,7 +119,6 @@ class NamespaceAuditLog(object):
     def actor(self):
         """Gets the actor of this NamespaceAuditLog.
 
-        
 
         :return: The actor of this NamespaceAuditLog.
         :rtype: str
@@ -130,13 +129,15 @@ class NamespaceAuditLog(object):
     def actor(self, actor):
         """Sets the actor of this NamespaceAuditLog.
 
-        
 
         :param actor: The actor of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor is None:
             raise ValueError("Invalid value for `actor`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                actor is not None and len(actor) < 1):
+            raise ValueError("Invalid value for `actor`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._actor = actor
 
@@ -144,7 +145,6 @@ class NamespaceAuditLog(object):
     def actor_ip_address(self):
         """Gets the actor_ip_address of this NamespaceAuditLog.
 
-        
 
         :return: The actor_ip_address of this NamespaceAuditLog.
         :rtype: str
@@ -155,13 +155,15 @@ class NamespaceAuditLog(object):
     def actor_ip_address(self, actor_ip_address):
         """Sets the actor_ip_address of this NamespaceAuditLog.
 
-        
 
         :param actor_ip_address: The actor_ip_address of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor_ip_address is None:
             raise ValueError("Invalid value for `actor_ip_address`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                actor_ip_address is not None and len(actor_ip_address) < 1):
+            raise ValueError("Invalid value for `actor_ip_address`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._actor_ip_address = actor_ip_address
 
@@ -169,7 +171,6 @@ class NamespaceAuditLog(object):
     def actor_kind(self):
         """Gets the actor_kind of this NamespaceAuditLog.
 
-        
 
         :return: The actor_kind of this NamespaceAuditLog.
         :rtype: str
@@ -180,7 +181,6 @@ class NamespaceAuditLog(object):
     def actor_kind(self, actor_kind):
         """Sets the actor_kind of this NamespaceAuditLog.
 
-        
 
         :param actor_kind: The actor_kind of this NamespaceAuditLog.
         :type: str
@@ -192,10 +192,9 @@ class NamespaceAuditLog(object):
     def actor_location(self):
         """Gets the actor_location of this NamespaceAuditLog.
 
-        
 
         :return: The actor_location of this NamespaceAuditLog.
-        :rtype: object
+        :rtype: GeoIpLocation
         """
         return self._actor_location
 
@@ -203,10 +202,9 @@ class NamespaceAuditLog(object):
     def actor_location(self, actor_location):
         """Sets the actor_location of this NamespaceAuditLog.
 
-        
 
         :param actor_location: The actor_location of this NamespaceAuditLog.
-        :type: object
+        :type: GeoIpLocation
         """
         if self._configuration.client_side_validation and actor_location is None:
             raise ValueError("Invalid value for `actor_location`, must not be `None`")  # noqa: E501
@@ -217,7 +215,6 @@ class NamespaceAuditLog(object):
     def actor_slug_perm(self):
         """Gets the actor_slug_perm of this NamespaceAuditLog.
 
-        
 
         :return: The actor_slug_perm of this NamespaceAuditLog.
         :rtype: str
@@ -228,13 +225,15 @@ class NamespaceAuditLog(object):
     def actor_slug_perm(self, actor_slug_perm):
         """Sets the actor_slug_perm of this NamespaceAuditLog.
 
-        
 
         :param actor_slug_perm: The actor_slug_perm of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor_slug_perm is None:
             raise ValueError("Invalid value for `actor_slug_perm`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                actor_slug_perm is not None and len(actor_slug_perm) < 1):
+            raise ValueError("Invalid value for `actor_slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._actor_slug_perm = actor_slug_perm
 
@@ -242,7 +241,6 @@ class NamespaceAuditLog(object):
     def actor_url(self):
         """Gets the actor_url of this NamespaceAuditLog.
 
-        
 
         :return: The actor_url of this NamespaceAuditLog.
         :rtype: str
@@ -253,7 +251,6 @@ class NamespaceAuditLog(object):
     def actor_url(self, actor_url):
         """Sets the actor_url of this NamespaceAuditLog.
 
-        
 
         :param actor_url: The actor_url of this NamespaceAuditLog.
         :type: str
@@ -265,7 +262,6 @@ class NamespaceAuditLog(object):
     def context(self):
         """Gets the context of this NamespaceAuditLog.
 
-        
 
         :return: The context of this NamespaceAuditLog.
         :rtype: str
@@ -276,13 +272,15 @@ class NamespaceAuditLog(object):
     def context(self, context):
         """Sets the context of this NamespaceAuditLog.
 
-        
 
         :param context: The context of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and context is None:
             raise ValueError("Invalid value for `context`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                context is not None and len(context) < 1):
+            raise ValueError("Invalid value for `context`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._context = context
 
@@ -290,7 +288,6 @@ class NamespaceAuditLog(object):
     def event(self):
         """Gets the event of this NamespaceAuditLog.
 
-        
 
         :return: The event of this NamespaceAuditLog.
         :rtype: str
@@ -301,13 +298,15 @@ class NamespaceAuditLog(object):
     def event(self, event):
         """Sets the event of this NamespaceAuditLog.
 
-        
 
         :param event: The event of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and event is None:
             raise ValueError("Invalid value for `event`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                event is not None and len(event) < 1):
+            raise ValueError("Invalid value for `event`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._event = event
 
@@ -315,10 +314,9 @@ class NamespaceAuditLog(object):
     def event_at(self):
         """Gets the event_at of this NamespaceAuditLog.
 
-        
 
         :return: The event_at of this NamespaceAuditLog.
-        :rtype: str
+        :rtype: datetime
         """
         return self._event_at
 
@@ -326,10 +324,9 @@ class NamespaceAuditLog(object):
     def event_at(self, event_at):
         """Sets the event_at of this NamespaceAuditLog.
 
-        
 
         :param event_at: The event_at of this NamespaceAuditLog.
-        :type: str
+        :type: datetime
         """
         if self._configuration.client_side_validation and event_at is None:
             raise ValueError("Invalid value for `event_at`, must not be `None`")  # noqa: E501
@@ -340,7 +337,6 @@ class NamespaceAuditLog(object):
     def object(self):
         """Gets the object of this NamespaceAuditLog.
 
-        
 
         :return: The object of this NamespaceAuditLog.
         :rtype: str
@@ -351,13 +347,15 @@ class NamespaceAuditLog(object):
     def object(self, object):
         """Sets the object of this NamespaceAuditLog.
 
-        
 
         :param object: The object of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object is None:
             raise ValueError("Invalid value for `object`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                object is not None and len(object) < 1):
+            raise ValueError("Invalid value for `object`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._object = object
 
@@ -365,7 +363,6 @@ class NamespaceAuditLog(object):
     def object_kind(self):
         """Gets the object_kind of this NamespaceAuditLog.
 
-        
 
         :return: The object_kind of this NamespaceAuditLog.
         :rtype: str
@@ -376,13 +373,15 @@ class NamespaceAuditLog(object):
     def object_kind(self, object_kind):
         """Sets the object_kind of this NamespaceAuditLog.
 
-        
 
         :param object_kind: The object_kind of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object_kind is None:
             raise ValueError("Invalid value for `object_kind`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                object_kind is not None and len(object_kind) < 1):
+            raise ValueError("Invalid value for `object_kind`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._object_kind = object_kind
 
@@ -390,7 +389,6 @@ class NamespaceAuditLog(object):
     def object_slug_perm(self):
         """Gets the object_slug_perm of this NamespaceAuditLog.
 
-        
 
         :return: The object_slug_perm of this NamespaceAuditLog.
         :rtype: str
@@ -401,13 +399,15 @@ class NamespaceAuditLog(object):
     def object_slug_perm(self, object_slug_perm):
         """Sets the object_slug_perm of this NamespaceAuditLog.
 
-        
 
         :param object_slug_perm: The object_slug_perm of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object_slug_perm is None:
             raise ValueError("Invalid value for `object_slug_perm`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                object_slug_perm is not None and len(object_slug_perm) < 1):
+            raise ValueError("Invalid value for `object_slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._object_slug_perm = object_slug_perm
 
@@ -415,7 +415,6 @@ class NamespaceAuditLog(object):
     def target(self):
         """Gets the target of this NamespaceAuditLog.
 
-        
 
         :return: The target of this NamespaceAuditLog.
         :rtype: str
@@ -426,13 +425,15 @@ class NamespaceAuditLog(object):
     def target(self, target):
         """Sets the target of this NamespaceAuditLog.
 
-        
 
         :param target: The target of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and target is None:
             raise ValueError("Invalid value for `target`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                target is not None and len(target) < 1):
+            raise ValueError("Invalid value for `target`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._target = target
 
@@ -440,7 +441,6 @@ class NamespaceAuditLog(object):
     def target_kind(self):
         """Gets the target_kind of this NamespaceAuditLog.
 
-        
 
         :return: The target_kind of this NamespaceAuditLog.
         :rtype: str
@@ -451,13 +451,15 @@ class NamespaceAuditLog(object):
     def target_kind(self, target_kind):
         """Sets the target_kind of this NamespaceAuditLog.
 
-        
 
         :param target_kind: The target_kind of this NamespaceAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and target_kind is None:
             raise ValueError("Invalid value for `target_kind`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                target_kind is not None and len(target_kind) < 1):
+            raise ValueError("Invalid value for `target_kind`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._target_kind = target_kind
 
@@ -465,7 +467,6 @@ class NamespaceAuditLog(object):
     def target_slug_perm(self):
         """Gets the target_slug_perm of this NamespaceAuditLog.
 
-        
 
         :return: The target_slug_perm of this NamespaceAuditLog.
         :rtype: str
@@ -476,11 +477,16 @@ class NamespaceAuditLog(object):
     def target_slug_perm(self, target_slug_perm):
         """Sets the target_slug_perm of this NamespaceAuditLog.
 
-        
 
         :param target_slug_perm: The target_slug_perm of this NamespaceAuditLog.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                target_slug_perm is not None and len(target_slug_perm) > 24):
+            raise ValueError("Invalid value for `target_slug_perm`, length must be less than or equal to `24`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                target_slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', target_slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `target_slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._target_slug_perm = target_slug_perm
 
@@ -488,7 +494,6 @@ class NamespaceAuditLog(object):
     def uuid(self):
         """Gets the uuid of this NamespaceAuditLog.
 
-        
 
         :return: The uuid of this NamespaceAuditLog.
         :rtype: str
@@ -499,7 +504,6 @@ class NamespaceAuditLog(object):
     def uuid(self, uuid):
         """Sets the uuid of this NamespaceAuditLog.
 
-        
 
         :param uuid: The uuid of this NamespaceAuditLog.
         :type: str

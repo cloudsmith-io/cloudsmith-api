@@ -92,7 +92,7 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-PackagesCopy data = new PackagesCopy(); // PackagesCopy | 
+PackageCopyRequest data = new PackageCopyRequest(); // PackageCopyRequest | 
 try {
     PackageCopy result = apiInstance.packagesCopy(owner, repo, identifier, data);
     System.out.println(result);
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**PackagesCopy**](PackagesCopy.md)|  | [optional]
+ **data** | [**PackageCopyRequest**](PackageCopyRequest.md)|  | [optional]
 
 ### Return type
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesDelete"></a>
 # **packagesDelete**
@@ -179,8 +179,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="packagesDependencies"></a>
 # **packagesDependencies**
@@ -238,8 +238,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="packagesList"></a>
 # **packagesList**
@@ -269,10 +269,10 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
-String query = "query_example"; // String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
-String sort = "sort_example"; // String | A field for sorting objects in ascending or descending order.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+String sort = "-date"; // String | A field for sorting objects in ascending or descending order.
 try {
     List<ModelPackage> result = apiInstance.packagesList(owner, repo, page, pageSize, query, sort);
     System.out.println(result);
@@ -288,10 +288,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
- **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional]
- **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+ **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
 
 ### Return type
 
@@ -303,8 +303,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="packagesMove"></a>
 # **packagesMove**
@@ -335,7 +335,7 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-PackagesMove data = new PackagesMove(); // PackagesMove | 
+PackageMoveRequest data = new PackageMoveRequest(); // PackageMoveRequest | 
 try {
     PackageMove result = apiInstance.packagesMove(owner, repo, identifier, data);
     System.out.println(result);
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**PackagesMove**](PackagesMove.md)|  | [optional]
+ **data** | [**PackageMoveRequest**](PackageMoveRequest.md)|  | [optional]
 
 ### Return type
 
@@ -365,11 +365,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesQuarantine"></a>
 # **packagesQuarantine**
-> ModelPackage packagesQuarantine(owner, repo, identifier, data)
+> PackageQuarantine packagesQuarantine(owner, repo, identifier, data)
 
 Quarantine or restore a package.
 
@@ -396,9 +396,9 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-PackagesQuarantine data = new PackagesQuarantine(); // PackagesQuarantine | 
+PackageQuarantineRequest data = new PackageQuarantineRequest(); // PackageQuarantineRequest | 
 try {
-    ModelPackage result = apiInstance.packagesQuarantine(owner, repo, identifier, data);
+    PackageQuarantine result = apiInstance.packagesQuarantine(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesQuarantine");
@@ -413,11 +413,11 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**PackagesQuarantine**](PackagesQuarantine.md)|  | [optional]
+ **data** | [**PackageQuarantineRequest**](PackageQuarantineRequest.md)|  | [optional]
 
 ### Return type
 
-[**ModelPackage**](ModelPackage.md)
+[**PackageQuarantine**](PackageQuarantine.md)
 
 ### Authorization
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesRead"></a>
 # **packagesRead**
@@ -484,12 +484,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="packagesResync"></a>
 # **packagesResync**
-> ModelPackage packagesResync(owner, repo, identifier)
+> PackageResync packagesResync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -517,7 +517,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    ModelPackage result = apiInstance.packagesResync(owner, repo, identifier);
+    PackageResync result = apiInstance.packagesResync(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesResync");
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](ModelPackage.md)
+[**PackageResync**](PackageResync.md)
 
 ### Authorization
 
@@ -543,8 +543,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="packagesScan"></a>
 # **packagesScan**
@@ -602,8 +602,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="packagesStatus"></a>
 # **packagesStatus**
@@ -661,8 +661,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="packagesTag"></a>
 # **packagesTag**
@@ -693,7 +693,7 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-PackagesTag data = new PackagesTag(); // PackagesTag | 
+PackageTagRequest data = new PackageTagRequest(); // PackageTagRequest | 
 try {
     ModelPackage result = apiInstance.packagesTag(owner, repo, identifier, data);
     System.out.println(result);
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**PackagesTag**](PackagesTag.md)|  | [optional]
+ **data** | [**PackageTagRequest**](PackageTagRequest.md)|  | [optional]
 
 ### Return type
 
@@ -723,7 +723,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadAlpine"></a>
 # **packagesUploadAlpine**
@@ -753,7 +753,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadAlpine data = new PackagesUploadAlpine(); // PackagesUploadAlpine | 
+AlpinePackageUploadRequest data = new AlpinePackageUploadRequest(); // AlpinePackageUploadRequest | 
 try {
     AlpinePackageUpload result = apiInstance.packagesUploadAlpine(owner, repo, data);
     System.out.println(result);
@@ -769,7 +769,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadAlpine**](PackagesUploadAlpine.md)|  | [optional]
+ **data** | [**AlpinePackageUploadRequest**](AlpinePackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -782,11 +782,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadCargo"></a>
 # **packagesUploadCargo**
-> AlpinePackageUpload packagesUploadCargo(owner, repo, data)
+> CargoPackageUpload packagesUploadCargo(owner, repo, data)
 
 Create a new Cargo package
 
@@ -812,9 +812,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadCargo data = new PackagesUploadCargo(); // PackagesUploadCargo | 
+CargoPackageUploadRequest data = new CargoPackageUploadRequest(); // CargoPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadCargo(owner, repo, data);
+    CargoPackageUpload result = apiInstance.packagesUploadCargo(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadCargo");
@@ -828,11 +828,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadCargo**](PackagesUploadCargo.md)|  | [optional]
+ **data** | [**CargoPackageUploadRequest**](CargoPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CargoPackageUpload**](CargoPackageUpload.md)
 
 ### Authorization
 
@@ -841,11 +841,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadCocoapods"></a>
 # **packagesUploadCocoapods**
-> AlpinePackageUpload packagesUploadCocoapods(owner, repo, data)
+> CocoapodsPackageUpload packagesUploadCocoapods(owner, repo, data)
 
 Create a new CocoaPods package
 
@@ -871,9 +871,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadCocoapods data = new PackagesUploadCocoapods(); // PackagesUploadCocoapods | 
+CocoapodsPackageUploadRequest data = new CocoapodsPackageUploadRequest(); // CocoapodsPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadCocoapods(owner, repo, data);
+    CocoapodsPackageUpload result = apiInstance.packagesUploadCocoapods(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadCocoapods");
@@ -887,11 +887,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadCocoapods**](PackagesUploadCocoapods.md)|  | [optional]
+ **data** | [**CocoapodsPackageUploadRequest**](CocoapodsPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CocoapodsPackageUpload**](CocoapodsPackageUpload.md)
 
 ### Authorization
 
@@ -900,11 +900,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadComposer"></a>
 # **packagesUploadComposer**
-> AlpinePackageUpload packagesUploadComposer(owner, repo, data)
+> ComposerPackageUpload packagesUploadComposer(owner, repo, data)
 
 Create a new Composer package
 
@@ -930,9 +930,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadComposer data = new PackagesUploadComposer(); // PackagesUploadComposer | 
+ComposerPackageUploadRequest data = new ComposerPackageUploadRequest(); // ComposerPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadComposer(owner, repo, data);
+    ComposerPackageUpload result = apiInstance.packagesUploadComposer(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadComposer");
@@ -946,11 +946,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadComposer**](PackagesUploadComposer.md)|  | [optional]
+ **data** | [**ComposerPackageUploadRequest**](ComposerPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**ComposerPackageUpload**](ComposerPackageUpload.md)
 
 ### Authorization
 
@@ -959,7 +959,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadConan"></a>
 # **packagesUploadConan**
@@ -989,7 +989,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadConan data = new PackagesUploadConan(); // PackagesUploadConan | 
+ConanPackageUploadRequest data = new ConanPackageUploadRequest(); // ConanPackageUploadRequest | 
 try {
     ConanPackageUpload result = apiInstance.packagesUploadConan(owner, repo, data);
     System.out.println(result);
@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadConan**](PackagesUploadConan.md)|  | [optional]
+ **data** | [**ConanPackageUploadRequest**](ConanPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1018,11 +1018,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadConda"></a>
 # **packagesUploadConda**
-> AlpinePackageUpload packagesUploadConda(owner, repo, data)
+> CondaPackageUpload packagesUploadConda(owner, repo, data)
 
 Create a new Conda package
 
@@ -1048,9 +1048,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadConda data = new PackagesUploadConda(); // PackagesUploadConda | 
+CondaPackageUploadRequest data = new CondaPackageUploadRequest(); // CondaPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadConda(owner, repo, data);
+    CondaPackageUpload result = apiInstance.packagesUploadConda(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadConda");
@@ -1064,11 +1064,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadConda**](PackagesUploadConda.md)|  | [optional]
+ **data** | [**CondaPackageUploadRequest**](CondaPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CondaPackageUpload**](CondaPackageUpload.md)
 
 ### Authorization
 
@@ -1077,11 +1077,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadCran"></a>
 # **packagesUploadCran**
-> AlpinePackageUpload packagesUploadCran(owner, repo, data)
+> CranPackageUpload packagesUploadCran(owner, repo, data)
 
 Create a new CRAN package
 
@@ -1107,9 +1107,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadCran data = new PackagesUploadCran(); // PackagesUploadCran | 
+CranPackageUploadRequest data = new CranPackageUploadRequest(); // CranPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadCran(owner, repo, data);
+    CranPackageUpload result = apiInstance.packagesUploadCran(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadCran");
@@ -1123,11 +1123,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadCran**](PackagesUploadCran.md)|  | [optional]
+ **data** | [**CranPackageUploadRequest**](CranPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CranPackageUpload**](CranPackageUpload.md)
 
 ### Authorization
 
@@ -1136,11 +1136,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadDart"></a>
 # **packagesUploadDart**
-> AlpinePackageUpload packagesUploadDart(owner, repo, data)
+> DartPackageUpload packagesUploadDart(owner, repo, data)
 
 Create a new Dart package
 
@@ -1166,9 +1166,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadDart data = new PackagesUploadDart(); // PackagesUploadDart | 
+DartPackageUploadRequest data = new DartPackageUploadRequest(); // DartPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadDart(owner, repo, data);
+    DartPackageUpload result = apiInstance.packagesUploadDart(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadDart");
@@ -1182,11 +1182,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadDart**](PackagesUploadDart.md)|  | [optional]
+ **data** | [**DartPackageUploadRequest**](DartPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DartPackageUpload**](DartPackageUpload.md)
 
 ### Authorization
 
@@ -1195,11 +1195,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadDeb"></a>
 # **packagesUploadDeb**
-> AlpinePackageUpload packagesUploadDeb(owner, repo, data)
+> DebPackageUpload packagesUploadDeb(owner, repo, data)
 
 Create a new Debian package
 
@@ -1225,9 +1225,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadDeb data = new PackagesUploadDeb(); // PackagesUploadDeb | 
+DebPackageUploadRequest data = new DebPackageUploadRequest(); // DebPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadDeb(owner, repo, data);
+    DebPackageUpload result = apiInstance.packagesUploadDeb(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadDeb");
@@ -1241,11 +1241,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadDeb**](PackagesUploadDeb.md)|  | [optional]
+ **data** | [**DebPackageUploadRequest**](DebPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DebPackageUpload**](DebPackageUpload.md)
 
 ### Authorization
 
@@ -1254,11 +1254,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadDocker"></a>
 # **packagesUploadDocker**
-> AlpinePackageUpload packagesUploadDocker(owner, repo, data)
+> DockerPackageUpload packagesUploadDocker(owner, repo, data)
 
 Create a new Docker package
 
@@ -1284,9 +1284,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadDocker data = new PackagesUploadDocker(); // PackagesUploadDocker | 
+DockerPackageUploadRequest data = new DockerPackageUploadRequest(); // DockerPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadDocker(owner, repo, data);
+    DockerPackageUpload result = apiInstance.packagesUploadDocker(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadDocker");
@@ -1300,11 +1300,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadDocker**](PackagesUploadDocker.md)|  | [optional]
+ **data** | [**DockerPackageUploadRequest**](DockerPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DockerPackageUpload**](DockerPackageUpload.md)
 
 ### Authorization
 
@@ -1313,11 +1313,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadGo"></a>
 # **packagesUploadGo**
-> AlpinePackageUpload packagesUploadGo(owner, repo, data)
+> GoPackageUpload packagesUploadGo(owner, repo, data)
 
 Create a new Go package
 
@@ -1343,9 +1343,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadGo data = new PackagesUploadGo(); // PackagesUploadGo | 
+GoPackageUploadRequest data = new GoPackageUploadRequest(); // GoPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadGo(owner, repo, data);
+    GoPackageUpload result = apiInstance.packagesUploadGo(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadGo");
@@ -1359,11 +1359,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadGo**](PackagesUploadGo.md)|  | [optional]
+ **data** | [**GoPackageUploadRequest**](GoPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**GoPackageUpload**](GoPackageUpload.md)
 
 ### Authorization
 
@@ -1372,11 +1372,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadHelm"></a>
 # **packagesUploadHelm**
-> AlpinePackageUpload packagesUploadHelm(owner, repo, data)
+> HelmPackageUpload packagesUploadHelm(owner, repo, data)
 
 Create a new Helm package
 
@@ -1402,9 +1402,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadHelm data = new PackagesUploadHelm(); // PackagesUploadHelm | 
+HelmPackageUploadRequest data = new HelmPackageUploadRequest(); // HelmPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadHelm(owner, repo, data);
+    HelmPackageUpload result = apiInstance.packagesUploadHelm(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadHelm");
@@ -1418,11 +1418,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadHelm**](PackagesUploadHelm.md)|  | [optional]
+ **data** | [**HelmPackageUploadRequest**](HelmPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**HelmPackageUpload**](HelmPackageUpload.md)
 
 ### Authorization
 
@@ -1431,11 +1431,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadLuarocks"></a>
 # **packagesUploadLuarocks**
-> AlpinePackageUpload packagesUploadLuarocks(owner, repo, data)
+> LuarocksPackageUpload packagesUploadLuarocks(owner, repo, data)
 
 Create a new LuaRocks package
 
@@ -1461,9 +1461,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadLuarocks data = new PackagesUploadLuarocks(); // PackagesUploadLuarocks | 
+LuarocksPackageUploadRequest data = new LuarocksPackageUploadRequest(); // LuarocksPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadLuarocks(owner, repo, data);
+    LuarocksPackageUpload result = apiInstance.packagesUploadLuarocks(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadLuarocks");
@@ -1477,11 +1477,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadLuarocks**](PackagesUploadLuarocks.md)|  | [optional]
+ **data** | [**LuarocksPackageUploadRequest**](LuarocksPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**LuarocksPackageUpload**](LuarocksPackageUpload.md)
 
 ### Authorization
 
@@ -1490,7 +1490,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadMaven"></a>
 # **packagesUploadMaven**
@@ -1520,7 +1520,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadMaven data = new PackagesUploadMaven(); // PackagesUploadMaven | 
+MavenPackageUploadRequest data = new MavenPackageUploadRequest(); // MavenPackageUploadRequest | 
 try {
     MavenPackageUpload result = apiInstance.packagesUploadMaven(owner, repo, data);
     System.out.println(result);
@@ -1536,7 +1536,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadMaven**](PackagesUploadMaven.md)|  | [optional]
+ **data** | [**MavenPackageUploadRequest**](MavenPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1549,11 +1549,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadNpm"></a>
 # **packagesUploadNpm**
-> AlpinePackageUpload packagesUploadNpm(owner, repo, data)
+> NpmPackageUpload packagesUploadNpm(owner, repo, data)
 
 Create a new npm package
 
@@ -1579,9 +1579,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadNpm data = new PackagesUploadNpm(); // PackagesUploadNpm | 
+NpmPackageUploadRequest data = new NpmPackageUploadRequest(); // NpmPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadNpm(owner, repo, data);
+    NpmPackageUpload result = apiInstance.packagesUploadNpm(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadNpm");
@@ -1595,11 +1595,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadNpm**](PackagesUploadNpm.md)|  | [optional]
+ **data** | [**NpmPackageUploadRequest**](NpmPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**NpmPackageUpload**](NpmPackageUpload.md)
 
 ### Authorization
 
@@ -1608,11 +1608,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadNuget"></a>
 # **packagesUploadNuget**
-> AlpinePackageUpload packagesUploadNuget(owner, repo, data)
+> NugetPackageUpload packagesUploadNuget(owner, repo, data)
 
 Create a new NuGet package
 
@@ -1638,9 +1638,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadNuget data = new PackagesUploadNuget(); // PackagesUploadNuget | 
+NugetPackageUploadRequest data = new NugetPackageUploadRequest(); // NugetPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadNuget(owner, repo, data);
+    NugetPackageUpload result = apiInstance.packagesUploadNuget(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadNuget");
@@ -1654,11 +1654,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadNuget**](PackagesUploadNuget.md)|  | [optional]
+ **data** | [**NugetPackageUploadRequest**](NugetPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**NugetPackageUpload**](NugetPackageUpload.md)
 
 ### Authorization
 
@@ -1667,11 +1667,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadP2"></a>
 # **packagesUploadP2**
-> AlpinePackageUpload packagesUploadP2(owner, repo, data)
+> P2PackageUpload packagesUploadP2(owner, repo, data)
 
 Create a new P2 package
 
@@ -1697,9 +1697,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadP2 data = new PackagesUploadP2(); // PackagesUploadP2 | 
+P2PackageUploadRequest data = new P2PackageUploadRequest(); // P2PackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadP2(owner, repo, data);
+    P2PackageUpload result = apiInstance.packagesUploadP2(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadP2");
@@ -1713,11 +1713,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadP2**](PackagesUploadP2.md)|  | [optional]
+ **data** | [**P2PackageUploadRequest**](P2PackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**P2PackageUpload**](P2PackageUpload.md)
 
 ### Authorization
 
@@ -1726,11 +1726,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadPython"></a>
 # **packagesUploadPython**
-> AlpinePackageUpload packagesUploadPython(owner, repo, data)
+> PythonPackageUpload packagesUploadPython(owner, repo, data)
 
 Create a new Python package
 
@@ -1756,9 +1756,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadPython data = new PackagesUploadPython(); // PackagesUploadPython | 
+PythonPackageUploadRequest data = new PythonPackageUploadRequest(); // PythonPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadPython(owner, repo, data);
+    PythonPackageUpload result = apiInstance.packagesUploadPython(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadPython");
@@ -1772,11 +1772,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadPython**](PackagesUploadPython.md)|  | [optional]
+ **data** | [**PythonPackageUploadRequest**](PythonPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**PythonPackageUpload**](PythonPackageUpload.md)
 
 ### Authorization
 
@@ -1785,7 +1785,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadRaw"></a>
 # **packagesUploadRaw**
@@ -1815,7 +1815,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadRaw data = new PackagesUploadRaw(); // PackagesUploadRaw | 
+RawPackageUploadRequest data = new RawPackageUploadRequest(); // RawPackageUploadRequest | 
 try {
     RawPackageUpload result = apiInstance.packagesUploadRaw(owner, repo, data);
     System.out.println(result);
@@ -1831,7 +1831,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadRaw**](PackagesUploadRaw.md)|  | [optional]
+ **data** | [**RawPackageUploadRequest**](RawPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1844,11 +1844,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadRpm"></a>
 # **packagesUploadRpm**
-> AlpinePackageUpload packagesUploadRpm(owner, repo, data)
+> RpmPackageUpload packagesUploadRpm(owner, repo, data)
 
 Create a new RedHat package
 
@@ -1874,9 +1874,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadRpm data = new PackagesUploadRpm(); // PackagesUploadRpm | 
+RpmPackageUploadRequest data = new RpmPackageUploadRequest(); // RpmPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadRpm(owner, repo, data);
+    RpmPackageUpload result = apiInstance.packagesUploadRpm(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadRpm");
@@ -1890,11 +1890,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadRpm**](PackagesUploadRpm.md)|  | [optional]
+ **data** | [**RpmPackageUploadRequest**](RpmPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**RpmPackageUpload**](RpmPackageUpload.md)
 
 ### Authorization
 
@@ -1903,11 +1903,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadRuby"></a>
 # **packagesUploadRuby**
-> AlpinePackageUpload packagesUploadRuby(owner, repo, data)
+> RubyPackageUpload packagesUploadRuby(owner, repo, data)
 
 Create a new Ruby package
 
@@ -1933,9 +1933,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadRuby data = new PackagesUploadRuby(); // PackagesUploadRuby | 
+RubyPackageUploadRequest data = new RubyPackageUploadRequest(); // RubyPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadRuby(owner, repo, data);
+    RubyPackageUpload result = apiInstance.packagesUploadRuby(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadRuby");
@@ -1949,11 +1949,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadRuby**](PackagesUploadRuby.md)|  | [optional]
+ **data** | [**RubyPackageUploadRequest**](RubyPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**RubyPackageUpload**](RubyPackageUpload.md)
 
 ### Authorization
 
@@ -1962,11 +1962,11 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadTerraform"></a>
 # **packagesUploadTerraform**
-> AlpinePackageUpload packagesUploadTerraform(owner, repo, data)
+> TerraformPackageUpload packagesUploadTerraform(owner, repo, data)
 
 Create a new Terraform package
 
@@ -1992,9 +1992,9 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadTerraform data = new PackagesUploadTerraform(); // PackagesUploadTerraform | 
+TerraformPackageUploadRequest data = new TerraformPackageUploadRequest(); // TerraformPackageUploadRequest | 
 try {
-    AlpinePackageUpload result = apiInstance.packagesUploadTerraform(owner, repo, data);
+    TerraformPackageUpload result = apiInstance.packagesUploadTerraform(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadTerraform");
@@ -2008,11 +2008,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadTerraform**](PackagesUploadTerraform.md)|  | [optional]
+ **data** | [**TerraformPackageUploadRequest**](TerraformPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**TerraformPackageUpload**](TerraformPackageUpload.md)
 
 ### Authorization
 
@@ -2021,7 +2021,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesUploadVagrant"></a>
 # **packagesUploadVagrant**
@@ -2051,7 +2051,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesUploadVagrant data = new PackagesUploadVagrant(); // PackagesUploadVagrant | 
+VagrantPackageUploadRequest data = new VagrantPackageUploadRequest(); // VagrantPackageUploadRequest | 
 try {
     VagrantPackageUpload result = apiInstance.packagesUploadVagrant(owner, repo, data);
     System.out.println(result);
@@ -2067,7 +2067,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesUploadVagrant**](PackagesUploadVagrant.md)|  | [optional]
+ **data** | [**VagrantPackageUploadRequest**](VagrantPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2080,7 +2080,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadAlpine"></a>
 # **packagesValidateUploadAlpine**
@@ -2110,7 +2110,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadAlpine data = new PackagesValidateuploadAlpine(); // PackagesValidateuploadAlpine | 
+AlpinePackageUploadRequest data = new AlpinePackageUploadRequest(); // AlpinePackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadAlpine(owner, repo, data);
 } catch (ApiException e) {
@@ -2125,7 +2125,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadAlpine**](PackagesValidateuploadAlpine.md)|  | [optional]
+ **data** | [**AlpinePackageUploadRequest**](AlpinePackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2138,7 +2138,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadCargo"></a>
 # **packagesValidateUploadCargo**
@@ -2168,7 +2168,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadCargo data = new PackagesValidateuploadCargo(); // PackagesValidateuploadCargo | 
+CargoPackageUploadRequest data = new CargoPackageUploadRequest(); // CargoPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadCargo(owner, repo, data);
 } catch (ApiException e) {
@@ -2183,7 +2183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadCargo**](PackagesValidateuploadCargo.md)|  | [optional]
+ **data** | [**CargoPackageUploadRequest**](CargoPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2196,7 +2196,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadCocoapods"></a>
 # **packagesValidateUploadCocoapods**
@@ -2226,7 +2226,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadCocoapods data = new PackagesValidateuploadCocoapods(); // PackagesValidateuploadCocoapods | 
+CocoapodsPackageUploadRequest data = new CocoapodsPackageUploadRequest(); // CocoapodsPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadCocoapods(owner, repo, data);
 } catch (ApiException e) {
@@ -2241,7 +2241,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadCocoapods**](PackagesValidateuploadCocoapods.md)|  | [optional]
+ **data** | [**CocoapodsPackageUploadRequest**](CocoapodsPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2254,7 +2254,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadComposer"></a>
 # **packagesValidateUploadComposer**
@@ -2284,7 +2284,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadComposer data = new PackagesValidateuploadComposer(); // PackagesValidateuploadComposer | 
+ComposerPackageUploadRequest data = new ComposerPackageUploadRequest(); // ComposerPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadComposer(owner, repo, data);
 } catch (ApiException e) {
@@ -2299,7 +2299,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadComposer**](PackagesValidateuploadComposer.md)|  | [optional]
+ **data** | [**ComposerPackageUploadRequest**](ComposerPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2312,7 +2312,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadConan"></a>
 # **packagesValidateUploadConan**
@@ -2342,7 +2342,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadConan data = new PackagesValidateuploadConan(); // PackagesValidateuploadConan | 
+ConanPackageUploadRequest data = new ConanPackageUploadRequest(); // ConanPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadConan(owner, repo, data);
 } catch (ApiException e) {
@@ -2357,7 +2357,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadConan**](PackagesValidateuploadConan.md)|  | [optional]
+ **data** | [**ConanPackageUploadRequest**](ConanPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2370,7 +2370,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadConda"></a>
 # **packagesValidateUploadConda**
@@ -2400,7 +2400,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadConda data = new PackagesValidateuploadConda(); // PackagesValidateuploadConda | 
+CondaPackageUploadRequest data = new CondaPackageUploadRequest(); // CondaPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadConda(owner, repo, data);
 } catch (ApiException e) {
@@ -2415,7 +2415,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadConda**](PackagesValidateuploadConda.md)|  | [optional]
+ **data** | [**CondaPackageUploadRequest**](CondaPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2428,7 +2428,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadCran"></a>
 # **packagesValidateUploadCran**
@@ -2458,7 +2458,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadCran data = new PackagesValidateuploadCran(); // PackagesValidateuploadCran | 
+CranPackageUploadRequest data = new CranPackageUploadRequest(); // CranPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadCran(owner, repo, data);
 } catch (ApiException e) {
@@ -2473,7 +2473,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadCran**](PackagesValidateuploadCran.md)|  | [optional]
+ **data** | [**CranPackageUploadRequest**](CranPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2486,7 +2486,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadDart"></a>
 # **packagesValidateUploadDart**
@@ -2516,7 +2516,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadDart data = new PackagesValidateuploadDart(); // PackagesValidateuploadDart | 
+DartPackageUploadRequest data = new DartPackageUploadRequest(); // DartPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadDart(owner, repo, data);
 } catch (ApiException e) {
@@ -2531,7 +2531,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadDart**](PackagesValidateuploadDart.md)|  | [optional]
+ **data** | [**DartPackageUploadRequest**](DartPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2544,7 +2544,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadDeb"></a>
 # **packagesValidateUploadDeb**
@@ -2574,7 +2574,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadDeb data = new PackagesValidateuploadDeb(); // PackagesValidateuploadDeb | 
+DebPackageUploadRequest data = new DebPackageUploadRequest(); // DebPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadDeb(owner, repo, data);
 } catch (ApiException e) {
@@ -2589,7 +2589,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadDeb**](PackagesValidateuploadDeb.md)|  | [optional]
+ **data** | [**DebPackageUploadRequest**](DebPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2602,7 +2602,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadDocker"></a>
 # **packagesValidateUploadDocker**
@@ -2632,7 +2632,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadDocker data = new PackagesValidateuploadDocker(); // PackagesValidateuploadDocker | 
+DockerPackageUploadRequest data = new DockerPackageUploadRequest(); // DockerPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadDocker(owner, repo, data);
 } catch (ApiException e) {
@@ -2647,7 +2647,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadDocker**](PackagesValidateuploadDocker.md)|  | [optional]
+ **data** | [**DockerPackageUploadRequest**](DockerPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2660,7 +2660,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadGo"></a>
 # **packagesValidateUploadGo**
@@ -2690,7 +2690,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadGo data = new PackagesValidateuploadGo(); // PackagesValidateuploadGo | 
+GoPackageUploadRequest data = new GoPackageUploadRequest(); // GoPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadGo(owner, repo, data);
 } catch (ApiException e) {
@@ -2705,7 +2705,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadGo**](PackagesValidateuploadGo.md)|  | [optional]
+ **data** | [**GoPackageUploadRequest**](GoPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2718,7 +2718,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadHelm"></a>
 # **packagesValidateUploadHelm**
@@ -2748,7 +2748,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadHelm data = new PackagesValidateuploadHelm(); // PackagesValidateuploadHelm | 
+HelmPackageUploadRequest data = new HelmPackageUploadRequest(); // HelmPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadHelm(owner, repo, data);
 } catch (ApiException e) {
@@ -2763,7 +2763,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadHelm**](PackagesValidateuploadHelm.md)|  | [optional]
+ **data** | [**HelmPackageUploadRequest**](HelmPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2776,7 +2776,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadLuarocks"></a>
 # **packagesValidateUploadLuarocks**
@@ -2806,7 +2806,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadLuarocks data = new PackagesValidateuploadLuarocks(); // PackagesValidateuploadLuarocks | 
+LuarocksPackageUploadRequest data = new LuarocksPackageUploadRequest(); // LuarocksPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadLuarocks(owner, repo, data);
 } catch (ApiException e) {
@@ -2821,7 +2821,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadLuarocks**](PackagesValidateuploadLuarocks.md)|  | [optional]
+ **data** | [**LuarocksPackageUploadRequest**](LuarocksPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2834,7 +2834,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadMaven"></a>
 # **packagesValidateUploadMaven**
@@ -2864,7 +2864,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadMaven data = new PackagesValidateuploadMaven(); // PackagesValidateuploadMaven | 
+MavenPackageUploadRequest data = new MavenPackageUploadRequest(); // MavenPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadMaven(owner, repo, data);
 } catch (ApiException e) {
@@ -2879,7 +2879,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadMaven**](PackagesValidateuploadMaven.md)|  | [optional]
+ **data** | [**MavenPackageUploadRequest**](MavenPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2892,7 +2892,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadNpm"></a>
 # **packagesValidateUploadNpm**
@@ -2922,7 +2922,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadNpm data = new PackagesValidateuploadNpm(); // PackagesValidateuploadNpm | 
+NpmPackageUploadRequest data = new NpmPackageUploadRequest(); // NpmPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadNpm(owner, repo, data);
 } catch (ApiException e) {
@@ -2937,7 +2937,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadNpm**](PackagesValidateuploadNpm.md)|  | [optional]
+ **data** | [**NpmPackageUploadRequest**](NpmPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -2950,7 +2950,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadNuget"></a>
 # **packagesValidateUploadNuget**
@@ -2980,7 +2980,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadNuget data = new PackagesValidateuploadNuget(); // PackagesValidateuploadNuget | 
+NugetPackageUploadRequest data = new NugetPackageUploadRequest(); // NugetPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadNuget(owner, repo, data);
 } catch (ApiException e) {
@@ -2995,7 +2995,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadNuget**](PackagesValidateuploadNuget.md)|  | [optional]
+ **data** | [**NugetPackageUploadRequest**](NugetPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3008,7 +3008,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadP2"></a>
 # **packagesValidateUploadP2**
@@ -3038,7 +3038,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadP2 data = new PackagesValidateuploadP2(); // PackagesValidateuploadP2 | 
+P2PackageUploadRequest data = new P2PackageUploadRequest(); // P2PackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadP2(owner, repo, data);
 } catch (ApiException e) {
@@ -3053,7 +3053,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadP2**](PackagesValidateuploadP2.md)|  | [optional]
+ **data** | [**P2PackageUploadRequest**](P2PackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3066,7 +3066,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadPython"></a>
 # **packagesValidateUploadPython**
@@ -3096,7 +3096,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadPython data = new PackagesValidateuploadPython(); // PackagesValidateuploadPython | 
+PythonPackageUploadRequest data = new PythonPackageUploadRequest(); // PythonPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadPython(owner, repo, data);
 } catch (ApiException e) {
@@ -3111,7 +3111,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadPython**](PackagesValidateuploadPython.md)|  | [optional]
+ **data** | [**PythonPackageUploadRequest**](PythonPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3124,7 +3124,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadRaw"></a>
 # **packagesValidateUploadRaw**
@@ -3154,7 +3154,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadRaw data = new PackagesValidateuploadRaw(); // PackagesValidateuploadRaw | 
+RawPackageUploadRequest data = new RawPackageUploadRequest(); // RawPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadRaw(owner, repo, data);
 } catch (ApiException e) {
@@ -3169,7 +3169,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadRaw**](PackagesValidateuploadRaw.md)|  | [optional]
+ **data** | [**RawPackageUploadRequest**](RawPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3182,7 +3182,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadRpm"></a>
 # **packagesValidateUploadRpm**
@@ -3212,7 +3212,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadRpm data = new PackagesValidateuploadRpm(); // PackagesValidateuploadRpm | 
+RpmPackageUploadRequest data = new RpmPackageUploadRequest(); // RpmPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadRpm(owner, repo, data);
 } catch (ApiException e) {
@@ -3227,7 +3227,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadRpm**](PackagesValidateuploadRpm.md)|  | [optional]
+ **data** | [**RpmPackageUploadRequest**](RpmPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3240,7 +3240,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadRuby"></a>
 # **packagesValidateUploadRuby**
@@ -3270,7 +3270,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadRuby data = new PackagesValidateuploadRuby(); // PackagesValidateuploadRuby | 
+RubyPackageUploadRequest data = new RubyPackageUploadRequest(); // RubyPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadRuby(owner, repo, data);
 } catch (ApiException e) {
@@ -3285,7 +3285,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadRuby**](PackagesValidateuploadRuby.md)|  | [optional]
+ **data** | [**RubyPackageUploadRequest**](RubyPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3298,7 +3298,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadTerraform"></a>
 # **packagesValidateUploadTerraform**
@@ -3328,7 +3328,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadTerraform data = new PackagesValidateuploadTerraform(); // PackagesValidateuploadTerraform | 
+TerraformPackageUploadRequest data = new TerraformPackageUploadRequest(); // TerraformPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadTerraform(owner, repo, data);
 } catch (ApiException e) {
@@ -3343,7 +3343,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadTerraform**](PackagesValidateuploadTerraform.md)|  | [optional]
+ **data** | [**TerraformPackageUploadRequest**](TerraformPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3356,7 +3356,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="packagesValidateUploadVagrant"></a>
 # **packagesValidateUploadVagrant**
@@ -3386,7 +3386,7 @@ apikey.setApiKey("YOUR API KEY");
 PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-PackagesValidateuploadVagrant data = new PackagesValidateuploadVagrant(); // PackagesValidateuploadVagrant | 
+VagrantPackageUploadRequest data = new VagrantPackageUploadRequest(); // VagrantPackageUploadRequest | 
 try {
     apiInstance.packagesValidateUploadVagrant(owner, repo, data);
 } catch (ApiException e) {
@@ -3401,7 +3401,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**PackagesValidateuploadVagrant**](PackagesValidateuploadVagrant.md)|  | [optional]
+ **data** | [**VagrantPackageUploadRequest**](VagrantPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -3414,5 +3414,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 

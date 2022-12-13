@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,10 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.WebhooksownerrepoTemplates;
+import io.cloudsmith.api.models.WebhookTemplate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
@@ -38,7 +39,7 @@ public class RepositoryWebhook implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("created_at")
-  private String createdAt = null;
+  private OffsetDateTime createdAt = null;
 
   @SerializedName("created_by")
   private String createdBy = null;
@@ -47,16 +48,77 @@ public class RepositoryWebhook implements Serializable {
   private String createdByUrl = null;
 
   @SerializedName("disable_reason")
-  private Integer disableReason = null;
+  private java.math.BigInteger disableReason = null;
 
   @SerializedName("disable_reason_str")
   private String disableReasonStr = null;
 
+  /**
+   * Gets or Sets events
+   */
+  @JsonAdapter(EventsEnum.Adapter.class)
+  public enum EventsEnum {
+    STAR("*"),
+    
+    PACKAGE_CREATED("package.created"),
+    
+    PACKAGE_DELETED("package.deleted"),
+    
+    PACKAGE_DOWNLOADED("package.downloaded"),
+    
+    PACKAGE_FAILED("package.failed"),
+    
+    PACKAGE_SECURITY_SCANNED("package.security_scanned"),
+    
+    PACKAGE_SYNCED("package.synced"),
+    
+    PACKAGE_SYNCING("package.syncing"),
+    
+    PACKAGE_TAGS_UPDATED("package.tags_updated");
+
+    private String value;
+
+    EventsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EventsEnum fromValue(String text) {
+      for (EventsEnum b : EventsEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EventsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EventsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EventsEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EventsEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("events")
-  private List<String> events = new ArrayList<>();
+  private List<EventsEnum> events = new ArrayList<>();
 
   @SerializedName("identifier")
-  private Integer identifier = null;
+  private java.math.BigInteger identifier = null;
 
   @SerializedName("is_active")
   private Boolean isActive = null;
@@ -65,25 +127,25 @@ public class RepositoryWebhook implements Serializable {
   private Boolean isLastResponseBad = null;
 
   @SerializedName("last_response_status")
-  private Integer lastResponseStatus = null;
+  private java.math.BigInteger lastResponseStatus = null;
 
   @SerializedName("last_response_status_str")
   private String lastResponseStatusStr = null;
 
   @SerializedName("num_sent")
-  private Integer numSent = null;
+  private java.math.BigInteger numSent = null;
 
   @SerializedName("package_query")
   private String packageQuery = null;
 
   @SerializedName("request_body_format")
-  private Integer requestBodyFormat = null;
+  private java.math.BigInteger requestBodyFormat = null;
 
   @SerializedName("request_body_format_str")
   private String requestBodyFormatStr = null;
 
   @SerializedName("request_body_template_format")
-  private Integer requestBodyTemplateFormat = null;
+  private java.math.BigInteger requestBodyTemplateFormat = null;
 
   @SerializedName("request_body_template_format_str")
   private String requestBodyTemplateFormatStr = null;
@@ -104,10 +166,10 @@ public class RepositoryWebhook implements Serializable {
   private String targetUrl = null;
 
   @SerializedName("templates")
-  private List<WebhooksownerrepoTemplates> templates = new ArrayList<>();
+  private List<WebhookTemplate> templates = new ArrayList<>();
 
   @SerializedName("updated_at")
-  private String updatedAt = null;
+  private OffsetDateTime updatedAt = null;
 
   @SerializedName("updated_by")
   private String updatedBy = null;
@@ -118,49 +180,27 @@ public class RepositoryWebhook implements Serializable {
   @SerializedName("verify_ssl")
   private Boolean verifySsl = null;
 
-  public RepositoryWebhook createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdAt
    * @return createdAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public RepositoryWebhook createdBy(String createdBy) {
-    this.createdBy = createdBy;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdBy
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getCreatedBy() {
     return createdBy;
   }
 
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public RepositoryWebhook createdByUrl(String createdByUrl) {
-    this.createdByUrl = createdByUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdByUrl
    * @return createdByUrl
   **/
   @ApiModelProperty(value = "")
@@ -168,86 +208,55 @@ public class RepositoryWebhook implements Serializable {
     return createdByUrl;
   }
 
-  public void setCreatedByUrl(String createdByUrl) {
-    this.createdByUrl = createdByUrl;
-  }
-
-  public RepositoryWebhook disableReason(Integer disableReason) {
-    this.disableReason = disableReason;
-    return this;
-  }
-
    /**
-   * 
+   * Get disableReason
    * @return disableReason
   **/
   @ApiModelProperty(value = "")
-  public Integer getDisableReason() {
+  public java.math.BigInteger getDisableReason() {
     return disableReason;
   }
 
-  public void setDisableReason(Integer disableReason) {
-    this.disableReason = disableReason;
-  }
-
-  public RepositoryWebhook disableReasonStr(String disableReasonStr) {
-    this.disableReasonStr = disableReasonStr;
-    return this;
-  }
-
    /**
-   * 
+   * Get disableReasonStr
    * @return disableReasonStr
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getDisableReasonStr() {
     return disableReasonStr;
   }
 
-  public void setDisableReasonStr(String disableReasonStr) {
-    this.disableReasonStr = disableReasonStr;
-  }
-
-  public RepositoryWebhook events(List<String> events) {
+  public RepositoryWebhook events(List<EventsEnum> events) {
     this.events = events;
     return this;
   }
 
-  public RepositoryWebhook addEventsItem(String eventsItem) {
+  public RepositoryWebhook addEventsItem(EventsEnum eventsItem) {
     this.events.add(eventsItem);
     return this;
   }
 
    /**
-   * 
+   * Get events
    * @return events
   **/
   @NotNull
   @ApiModelProperty(required = true, value = "")
-  public List<String> getEvents() {
+  public List<EventsEnum> getEvents() {
     return events;
   }
 
-  public void setEvents(List<String> events) {
+  public void setEvents(List<EventsEnum> events) {
     this.events = events;
   }
 
-  public RepositoryWebhook identifier(Integer identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
    /**
-   * 
+   * Get identifier
    * @return identifier
   **/
   @ApiModelProperty(value = "")
-  public Integer getIdentifier() {
+  public java.math.BigInteger getIdentifier() {
     return identifier;
-  }
-
-  public void setIdentifier(Integer identifier) {
-    this.identifier = identifier;
   }
 
   public RepositoryWebhook isActive(Boolean isActive) {
@@ -256,10 +265,10 @@ public class RepositoryWebhook implements Serializable {
   }
 
    /**
-   * If enabled, the webhook will trigger on events and send payloads to the configured target URL.
+   * If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.
    * @return isActive
   **/
-  @ApiModelProperty(value = "If enabled, the webhook will trigger on events and send payloads to the configured target URL.")
+  @ApiModelProperty(value = "If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.")
   public Boolean isIsActive() {
     return isActive;
   }
@@ -268,13 +277,8 @@ public class RepositoryWebhook implements Serializable {
     this.isActive = isActive;
   }
 
-  public RepositoryWebhook isLastResponseBad(Boolean isLastResponseBad) {
-    this.isLastResponseBad = isLastResponseBad;
-    return this;
-  }
-
    /**
-   * 
+   * Get isLastResponseBad
    * @return isLastResponseBad
   **/
   @ApiModelProperty(value = "")
@@ -282,62 +286,31 @@ public class RepositoryWebhook implements Serializable {
     return isLastResponseBad;
   }
 
-  public void setIsLastResponseBad(Boolean isLastResponseBad) {
-    this.isLastResponseBad = isLastResponseBad;
-  }
-
-  public RepositoryWebhook lastResponseStatus(Integer lastResponseStatus) {
-    this.lastResponseStatus = lastResponseStatus;
-    return this;
-  }
-
    /**
-   * 
+   * Get lastResponseStatus
    * @return lastResponseStatus
   **/
   @ApiModelProperty(value = "")
-  public Integer getLastResponseStatus() {
+  public java.math.BigInteger getLastResponseStatus() {
     return lastResponseStatus;
   }
 
-  public void setLastResponseStatus(Integer lastResponseStatus) {
-    this.lastResponseStatus = lastResponseStatus;
-  }
-
-  public RepositoryWebhook lastResponseStatusStr(String lastResponseStatusStr) {
-    this.lastResponseStatusStr = lastResponseStatusStr;
-    return this;
-  }
-
    /**
-   * 
+   * Get lastResponseStatusStr
    * @return lastResponseStatusStr
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getLastResponseStatusStr() {
     return lastResponseStatusStr;
   }
 
-  public void setLastResponseStatusStr(String lastResponseStatusStr) {
-    this.lastResponseStatusStr = lastResponseStatusStr;
-  }
-
-  public RepositoryWebhook numSent(Integer numSent) {
-    this.numSent = numSent;
-    return this;
-  }
-
    /**
-   * 
+   * Get numSent
    * @return numSent
   **/
   @ApiModelProperty(value = "")
-  public Integer getNumSent() {
+  public java.math.BigInteger getNumSent() {
     return numSent;
-  }
-
-  public void setNumSent(Integer numSent) {
-    this.numSent = numSent;
   }
 
   public RepositoryWebhook packageQuery(String packageQuery) {
@@ -349,7 +322,7 @@ public class RepositoryWebhook implements Serializable {
    * The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
    * @return packageQuery
   **/
-  @ApiModelProperty(value = "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
+ @Size(max=1024)  @ApiModelProperty(value = "The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
   public String getPackageQuery() {
     return packageQuery;
   }
@@ -358,7 +331,7 @@ public class RepositoryWebhook implements Serializable {
     this.packageQuery = packageQuery;
   }
 
-  public RepositoryWebhook requestBodyFormat(Integer requestBodyFormat) {
+  public RepositoryWebhook requestBodyFormat(java.math.BigInteger requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
     return this;
   }
@@ -368,33 +341,24 @@ public class RepositoryWebhook implements Serializable {
    * @return requestBodyFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public Integer getRequestBodyFormat() {
+  public java.math.BigInteger getRequestBodyFormat() {
     return requestBodyFormat;
   }
 
-  public void setRequestBodyFormat(Integer requestBodyFormat) {
+  public void setRequestBodyFormat(java.math.BigInteger requestBodyFormat) {
     this.requestBodyFormat = requestBodyFormat;
   }
 
-  public RepositoryWebhook requestBodyFormatStr(String requestBodyFormatStr) {
-    this.requestBodyFormatStr = requestBodyFormatStr;
-    return this;
-  }
-
    /**
-   * 
+   * Get requestBodyFormatStr
    * @return requestBodyFormatStr
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getRequestBodyFormatStr() {
     return requestBodyFormatStr;
   }
 
-  public void setRequestBodyFormatStr(String requestBodyFormatStr) {
-    this.requestBodyFormatStr = requestBodyFormatStr;
-  }
-
-  public RepositoryWebhook requestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
+  public RepositoryWebhook requestBodyTemplateFormat(java.math.BigInteger requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
     return this;
   }
@@ -404,30 +368,21 @@ public class RepositoryWebhook implements Serializable {
    * @return requestBodyTemplateFormat
   **/
   @ApiModelProperty(value = "The format of the payloads for webhook requests.")
-  public Integer getRequestBodyTemplateFormat() {
+  public java.math.BigInteger getRequestBodyTemplateFormat() {
     return requestBodyTemplateFormat;
   }
 
-  public void setRequestBodyTemplateFormat(Integer requestBodyTemplateFormat) {
+  public void setRequestBodyTemplateFormat(java.math.BigInteger requestBodyTemplateFormat) {
     this.requestBodyTemplateFormat = requestBodyTemplateFormat;
   }
 
-  public RepositoryWebhook requestBodyTemplateFormatStr(String requestBodyTemplateFormatStr) {
-    this.requestBodyTemplateFormatStr = requestBodyTemplateFormatStr;
-    return this;
-  }
-
    /**
-   * 
+   * Get requestBodyTemplateFormatStr
    * @return requestBodyTemplateFormatStr
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getRequestBodyTemplateFormatStr() {
     return requestBodyTemplateFormatStr;
-  }
-
-  public void setRequestBodyTemplateFormatStr(String requestBodyTemplateFormatStr) {
-    this.requestBodyTemplateFormatStr = requestBodyTemplateFormatStr;
   }
 
   public RepositoryWebhook requestContentType(String requestContentType) {
@@ -439,7 +394,7 @@ public class RepositoryWebhook implements Serializable {
    * The value that will be sent for the &#39;Content Type&#39; header. 
    * @return requestContentType
   **/
-  @ApiModelProperty(value = "The value that will be sent for the 'Content Type' header. ")
+ @Size(max=128)  @ApiModelProperty(value = "The value that will be sent for the 'Content Type' header. ")
   public String getRequestContentType() {
     return requestContentType;
   }
@@ -457,7 +412,7 @@ public class RepositoryWebhook implements Serializable {
    * The header to send the predefined secret in. This must be unique from existing headers or it won&#39;t be sent. You can use this as a form of authentication on the endpoint side.
    * @return secretHeader
   **/
-  @ApiModelProperty(value = "The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.")
+ @Pattern(regexp="^[-\\w]+$") @Size(max=64)  @ApiModelProperty(value = "The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.")
   public String getSecretHeader() {
     return secretHeader;
   }
@@ -466,13 +421,8 @@ public class RepositoryWebhook implements Serializable {
     this.secretHeader = secretHeader;
   }
 
-  public RepositoryWebhook selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get selfUrl
    * @return selfUrl
   **/
   @ApiModelProperty(value = "")
@@ -480,26 +430,13 @@ public class RepositoryWebhook implements Serializable {
     return selfUrl;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
-
-  public RepositoryWebhook slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
   }
 
   public RepositoryWebhook targetUrl(String targetUrl) {
@@ -512,7 +449,7 @@ public class RepositoryWebhook implements Serializable {
    * @return targetUrl
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "The destination URL that webhook payloads will be POST'ed to.")
+ @Size(min=1,max=255)  @ApiModelProperty(required = true, value = "The destination URL that webhook payloads will be POST'ed to.")
   public String getTargetUrl() {
     return targetUrl;
   }
@@ -521,83 +458,57 @@ public class RepositoryWebhook implements Serializable {
     this.targetUrl = targetUrl;
   }
 
-  public RepositoryWebhook templates(List<WebhooksownerrepoTemplates> templates) {
+  public RepositoryWebhook templates(List<WebhookTemplate> templates) {
     this.templates = templates;
     return this;
   }
 
-  public RepositoryWebhook addTemplatesItem(WebhooksownerrepoTemplates templatesItem) {
+  public RepositoryWebhook addTemplatesItem(WebhookTemplate templatesItem) {
     this.templates.add(templatesItem);
     return this;
   }
 
    /**
-   * 
+   * Get templates
    * @return templates
   **/
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "")
-  public List<WebhooksownerrepoTemplates> getTemplates() {
+  public List<WebhookTemplate> getTemplates() {
     return templates;
   }
 
-  public void setTemplates(List<WebhooksownerrepoTemplates> templates) {
+  public void setTemplates(List<WebhookTemplate> templates) {
     this.templates = templates;
   }
 
-  public RepositoryWebhook updatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get updatedAt
    * @return updatedAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getUpdatedAt() {
+  public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-  public RepositoryWebhook updatedBy(String updatedBy) {
-    this.updatedBy = updatedBy;
-    return this;
-  }
-
    /**
-   * 
+   * Get updatedBy
    * @return updatedBy
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getUpdatedBy() {
     return updatedBy;
   }
 
-  public void setUpdatedBy(String updatedBy) {
-    this.updatedBy = updatedBy;
-  }
-
-  public RepositoryWebhook updatedByUrl(String updatedByUrl) {
-    this.updatedByUrl = updatedByUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get updatedByUrl
    * @return updatedByUrl
   **/
   @ApiModelProperty(value = "")
   public String getUpdatedByUrl() {
     return updatedByUrl;
-  }
-
-  public void setUpdatedByUrl(String updatedByUrl) {
-    this.updatedByUrl = updatedByUrl;
   }
 
   public RepositoryWebhook verifySsl(Boolean verifySsl) {

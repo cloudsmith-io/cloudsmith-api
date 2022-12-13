@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,89 +13,89 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageFilePartsUpload
-    # The identifier for the file to use uploading parts.
-    attr_accessor :identifier
+class PackageFilePartsUpload
+  # The identifier for the file to use uploading parts.
+  attr_accessor :identifier
 
-    # The querystring to use for the next-step PUT upload.
-    attr_accessor :upload_querystring
+  # The querystring to use for the next-step PUT upload.
+  attr_accessor :upload_querystring
 
-    # The URL to use for the next-step PUT upload
-    attr_accessor :upload_url
+  # The URL to use for the next-step PUT upload
+  attr_accessor :upload_url
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'identifier' => :'identifier',
-        :'upload_querystring' => :'upload_querystring',
-        :'upload_url' => :'upload_url'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'identifier' => :'identifier',
+      :'upload_querystring' => :'upload_querystring',
+      :'upload_url' => :'upload_url'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'identifier' => :'String',
+      :'upload_querystring' => :'String',
+      :'upload_url' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'identifier')
+      self.identifier = attributes[:'identifier']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'identifier' => :'String',
-        :'upload_querystring' => :'String',
-        :'upload_url' => :'String'
-      }
+    if attributes.has_key?(:'upload_querystring')
+      self.upload_querystring = attributes[:'upload_querystring']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
-
-      if attributes.has_key?(:'upload_querystring')
-        self.upload_querystring = attributes[:'upload_querystring']
-      end
-
-      if attributes.has_key?(:'upload_url')
-        self.upload_url = attributes[:'upload_url']
-      end
+    if attributes.has_key?(:'upload_url')
+      self.upload_url = attributes[:'upload_url']
     end
+  end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      invalid_properties
-    end
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    invalid_properties
+  end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      true
-    end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    true
+  end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          identifier == o.identifier &&
-          upload_querystring == o.upload_querystring &&
-          upload_url == o.upload_url
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        identifier == o.identifier &&
+        upload_querystring == o.upload_querystring &&
+        upload_url == o.upload_url
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [identifier, upload_querystring, upload_url].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [identifier, upload_querystring, upload_url].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -201,5 +201,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

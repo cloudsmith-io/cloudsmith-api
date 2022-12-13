@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**packages** | **Object** |  | 
+**packages** | [**CommonMetrics**](CommonMetrics.md) |  | 
 
 
 

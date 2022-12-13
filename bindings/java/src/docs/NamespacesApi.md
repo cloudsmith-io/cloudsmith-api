@@ -34,8 +34,8 @@ apikey.setApiKey("YOUR API KEY");
 //apikey.setApiKeyPrefix("Token");
 
 NamespacesApi apiInstance = new NamespacesApi();
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
     List<Namespace> result = apiInstance.namespacesList(page, pageSize);
     System.out.println(result);
@@ -49,8 +49,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
 
 ### Return type
 
@@ -62,8 +62,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="namespacesRead"></a>
 # **namespacesRead**
@@ -117,6 +117,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

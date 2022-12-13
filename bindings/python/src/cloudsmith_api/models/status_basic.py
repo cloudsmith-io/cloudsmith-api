@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -42,7 +42,7 @@ class StatusBasic(object):
         'version': 'version'
     }
 
-    def __init__(self, detail=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, detail='Cloudsmith API is operational.', version='1.183.1', _configuration=None):  # noqa: E501
         """StatusBasic - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -77,6 +77,9 @@ class StatusBasic(object):
         :param detail: The detail of this StatusBasic.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                detail is not None and len(detail) < 1):
+            raise ValueError("Invalid value for `detail`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._detail = detail
 
@@ -100,6 +103,9 @@ class StatusBasic(object):
         :param version: The version of this StatusBasic.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                version is not None and len(version) < 1):
+            raise ValueError("Invalid value for `version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._version = version
 

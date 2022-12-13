@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -29,15 +29,15 @@ class TestAuditLogApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_audit_log_list(self):
-        """Test case for audit_log_list
+    def test_audit_log_namespace_list(self):
+        """Test case for audit_log_namespace_list
 
         Lists audit log entries for a specific namespace.  # noqa: E501
         """
         pass
 
-    def test_audit_log_list0(self):
-        """Test case for audit_log_list0
+    def test_audit_log_repo_list(self):
+        """Test case for audit_log_repo_list
 
         Lists audit log entries for a specific repository.  # noqa: E501
         """

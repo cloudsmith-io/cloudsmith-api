@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -37,22 +37,13 @@ public class UserAuthToken implements Serializable {
   @SerializedName("token")
   private String token = null;
 
-  public UserAuthToken token(String token) {
-    this.token = token;
-    return this;
-  }
-
    /**
    * API token for the authenticated user
    * @return token
   **/
-  @ApiModelProperty(example = "y4682jh19cqf0b2ty4682jh19cqf0b2t", value = "API token for the authenticated user")
+ @Size(min=1)  @ApiModelProperty(value = "API token for the authenticated user")
   public String getToken() {
     return token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
   }
 
 

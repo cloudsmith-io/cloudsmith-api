@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -34,7 +34,7 @@ class Organization(object):
     """
     swagger_types = {
         'country': 'str',
-        'created_at': 'str',
+        'created_at': 'datetime',
         'location': 'str',
         'name': 'str',
         'slug': 'str',
@@ -86,7 +86,6 @@ class Organization(object):
     def country(self):
         """Gets the country of this Organization.
 
-        
 
         :return: The country of this Organization.
         :rtype: str
@@ -97,11 +96,16 @@ class Organization(object):
     def country(self, country):
         """Sets the country of this Organization.
 
-        
 
         :param country: The country of this Organization.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                country is not None and len(country) > 32):
+            raise ValueError("Invalid value for `country`, length must be less than or equal to `32`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                country is not None and len(country) < 1):
+            raise ValueError("Invalid value for `country`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._country = country
 
@@ -109,10 +113,9 @@ class Organization(object):
     def created_at(self):
         """Gets the created_at of this Organization.
 
-        
 
         :return: The created_at of this Organization.
-        :rtype: str
+        :rtype: datetime
         """
         return self._created_at
 
@@ -120,10 +123,9 @@ class Organization(object):
     def created_at(self, created_at):
         """Sets the created_at of this Organization.
 
-        
 
         :param created_at: The created_at of this Organization.
-        :type: str
+        :type: datetime
         """
 
         self._created_at = created_at
@@ -148,6 +150,9 @@ class Organization(object):
         :param location: The location of this Organization.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                location is not None and len(location) < 1):
+            raise ValueError("Invalid value for `location`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._location = location
 
@@ -171,6 +176,9 @@ class Organization(object):
         :param name: The name of this Organization.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -178,7 +186,6 @@ class Organization(object):
     def slug(self):
         """Gets the slug of this Organization.
 
-        
 
         :return: The slug of this Organization.
         :rtype: str
@@ -189,7 +196,6 @@ class Organization(object):
     def slug(self, slug):
         """Sets the slug of this Organization.
 
-        
 
         :param slug: The slug of this Organization.
         :type: str
@@ -201,7 +207,6 @@ class Organization(object):
     def slug_perm(self):
         """Gets the slug_perm of this Organization.
 
-        
 
         :return: The slug_perm of this Organization.
         :rtype: str
@@ -212,7 +217,6 @@ class Organization(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this Organization.
 
-        
 
         :param slug_perm: The slug_perm of this Organization.
         :type: str
@@ -240,6 +244,9 @@ class Organization(object):
         :param tagline: The tagline of this Organization.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                tagline is not None and len(tagline) < 1):
+            raise ValueError("Invalid value for `tagline`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tagline = tagline
 

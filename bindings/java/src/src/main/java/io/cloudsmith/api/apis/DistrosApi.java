@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -36,8 +36,8 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import io.cloudsmith.api.models.Distribution;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.DistributionFull;
+import io.cloudsmith.api.models.ErrorDetail;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -85,13 +85,13 @@ public class DistrosApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -143,23 +143,23 @@ public class DistrosApi {
     /**
      * Get a list of all supported distributions.
      * Get a list of all supported distributions.
-     * @return List&lt;Distribution&gt;
+     * @return List&lt;DistributionFull&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Distribution> distrosList() throws ApiException {
-        ApiResponse<List<Distribution>> resp = distrosListWithHttpInfo();
+    public List<DistributionFull> distrosList() throws ApiException {
+        ApiResponse<List<DistributionFull>> resp = distrosListWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get a list of all supported distributions.
      * Get a list of all supported distributions.
-     * @return ApiResponse&lt;List&lt;Distribution&gt;&gt;
+     * @return ApiResponse&lt;List&lt;DistributionFull&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Distribution>> distrosListWithHttpInfo() throws ApiException {
+    public ApiResponse<List<DistributionFull>> distrosListWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = distrosListValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<Distribution>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<DistributionFull>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -170,7 +170,7 @@ public class DistrosApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call distrosListAsync(final ApiCallback<List<Distribution>> callback) throws ApiException {
+    public com.squareup.okhttp.Call distrosListAsync(final ApiCallback<List<DistributionFull>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,7 +192,7 @@ public class DistrosApi {
         }
 
         com.squareup.okhttp.Call call = distrosListValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Distribution>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<DistributionFull>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -219,13 +219,13 @@ public class DistrosApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -278,11 +278,11 @@ public class DistrosApi {
      * View for viewing/listing distributions.
      * View for viewing/listing distributions.
      * @param slug  (required)
-     * @return Distribution
+     * @return DistributionFull
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Distribution distrosRead(String slug) throws ApiException {
-        ApiResponse<Distribution> resp = distrosReadWithHttpInfo(slug);
+    public DistributionFull distrosRead(String slug) throws ApiException {
+        ApiResponse<DistributionFull> resp = distrosReadWithHttpInfo(slug);
         return resp.getData();
     }
 
@@ -290,12 +290,12 @@ public class DistrosApi {
      * View for viewing/listing distributions.
      * View for viewing/listing distributions.
      * @param slug  (required)
-     * @return ApiResponse&lt;Distribution&gt;
+     * @return ApiResponse&lt;DistributionFull&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Distribution> distrosReadWithHttpInfo( @NotNull String slug) throws ApiException {
+    public ApiResponse<DistributionFull> distrosReadWithHttpInfo( @NotNull String slug) throws ApiException {
         com.squareup.okhttp.Call call = distrosReadValidateBeforeCall(slug, null, null);
-        Type localVarReturnType = new TypeToken<Distribution>(){}.getType();
+        Type localVarReturnType = new TypeToken<DistributionFull>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -307,7 +307,7 @@ public class DistrosApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call distrosReadAsync(String slug, final ApiCallback<Distribution> callback) throws ApiException {
+    public com.squareup.okhttp.Call distrosReadAsync(String slug, final ApiCallback<DistributionFull> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -329,7 +329,7 @@ public class DistrosApi {
         }
 
         com.squareup.okhttp.Call call = distrosReadValidateBeforeCall(slug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Distribution>(){}.getType();
+        Type localVarReturnType = new TypeToken<DistributionFull>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

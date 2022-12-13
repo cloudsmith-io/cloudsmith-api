@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usage** | **Object** |  | 
+**usage** | [**UsageFieldset**](UsageFieldset.md) |  | 
 
 
 

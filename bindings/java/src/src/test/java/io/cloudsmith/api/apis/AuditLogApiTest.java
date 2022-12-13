@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,9 +13,9 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.NamespaceAuditLog;
 import io.cloudsmith.api.models.RepositoryAuditLog;
-import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,12 +43,12 @@ public class AuditLogApiTest {
      *          if the Api call fails
      */
     @Test
-    public void auditLogListTest() throws Exception {
+    public void auditLogNamespaceListTest() throws Exception {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String query = null;
-        List<NamespaceAuditLog> response = api.auditLogList(owner, page, pageSize, query);
+        List<NamespaceAuditLog> response = api.auditLogNamespaceList(owner, page, pageSize, query);
 
         // TODO: test validations
     }
@@ -62,13 +62,13 @@ public class AuditLogApiTest {
      *          if the Api call fails
      */
     @Test
-    public void auditLogList0Test() throws Exception {
+    public void auditLogRepoListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String query = null;
-        List<RepositoryAuditLog> response = api.auditLogList0(owner, repo, page, pageSize, query);
+        List<RepositoryAuditLog> response = api.auditLogRepoList(owner, repo, page, pageSize, query);
 
         // TODO: test validations
     }

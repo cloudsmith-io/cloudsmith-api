@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -41,7 +41,7 @@ public class OrganizationGroupSync implements Serializable {
   private String idpValue = null;
 
   @SerializedName("role")
-  private String role = null;
+  private String role = "Member";
 
   @SerializedName("slug_perm")
   private String slugPerm = null;
@@ -55,11 +55,11 @@ public class OrganizationGroupSync implements Serializable {
   }
 
    /**
-   * 
+   * Get idpKey
    * @return idpKey
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=100)  @ApiModelProperty(required = true, value = "")
   public String getIdpKey() {
     return idpKey;
   }
@@ -74,11 +74,11 @@ public class OrganizationGroupSync implements Serializable {
   }
 
    /**
-   * 
+   * Get idpValue
    * @return idpValue
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=100)  @ApiModelProperty(required = true, value = "")
   public String getIdpValue() {
     return idpValue;
   }
@@ -93,10 +93,10 @@ public class OrganizationGroupSync implements Serializable {
   }
 
    /**
-   *         User role within the team.          A &#x60;manager&#x60; is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A &#39;member&#39; is a normal user that inherits the settings and privileges         assigned to the team.         
+   *  User role within the team.   A &#x60;manager&#x60; is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A &#39;member&#39; is a normal user that inherits the settings and privileges  assigned to the team. 
    * @return role
   **/
-  @ApiModelProperty(value = "        User role within the team.          A `manager` is capable of adding/removing others to/from the team, and         can set the role of other users and other settings pertaining to the         team.          A 'member' is a normal user that inherits the settings and privileges         assigned to the team.         ")
+  @ApiModelProperty(value = " User role within the team.   A `manager` is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A 'member' is a normal user that inherits the settings and privileges  assigned to the team. ")
   public String getRole() {
     return role;
   }
@@ -105,22 +105,13 @@ public class OrganizationGroupSync implements Serializable {
     this.role = role;
   }
 
-  public OrganizationGroupSync slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
   }
 
   public OrganizationGroupSync team(String team) {
@@ -129,11 +120,11 @@ public class OrganizationGroupSync implements Serializable {
   }
 
    /**
-   * 
+   * Get team
    * @return team
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$")  @ApiModelProperty(required = true, value = "")
   public String getTeam() {
     return team;
   }

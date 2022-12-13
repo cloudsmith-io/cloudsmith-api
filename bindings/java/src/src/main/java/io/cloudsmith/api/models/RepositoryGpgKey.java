@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -41,7 +42,7 @@ public class RepositoryGpgKey implements Serializable {
   private String comment = null;
 
   @SerializedName("created_at")
-  private String createdAt = null;
+  private OffsetDateTime createdAt = null;
 
   @SerializedName("default")
   private Boolean _default = null;
@@ -55,11 +56,6 @@ public class RepositoryGpgKey implements Serializable {
   @SerializedName("public_key")
   private String publicKey = null;
 
-  public RepositoryGpgKey active(Boolean active) {
-    this.active = active;
-    return this;
-  }
-
    /**
    * If selected this is the active key for this repository.
    * @return active
@@ -69,21 +65,17 @@ public class RepositoryGpgKey implements Serializable {
     return active;
   }
 
-  public void setActive(Boolean active) {
-    this.active = active;
-  }
-
   public RepositoryGpgKey comment(String comment) {
     this.comment = comment;
     return this;
   }
 
    /**
-   * 
+   * Get comment
    * @return comment
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getComment() {
     return comment;
   }
@@ -92,27 +84,14 @@ public class RepositoryGpgKey implements Serializable {
     this.comment = comment;
   }
 
-  public RepositoryGpgKey createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdAt
    * @return createdAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public RepositoryGpgKey _default(Boolean _default) {
-    this._default = _default;
-    return this;
   }
 
    /**
@@ -124,35 +103,17 @@ public class RepositoryGpgKey implements Serializable {
     return _default;
   }
 
-  public void setDefault(Boolean _default) {
-    this._default = _default;
-  }
-
-  public RepositoryGpgKey fingerprint(String fingerprint) {
-    this.fingerprint = fingerprint;
-    return this;
-  }
-
    /**
    * The long identifier used by GPG for this key.
    * @return fingerprint
   **/
-  @ApiModelProperty(value = "The long identifier used by GPG for this key.")
+ @Size(min=1)  @ApiModelProperty(value = "The long identifier used by GPG for this key.")
   public String getFingerprint() {
     return fingerprint;
   }
 
-  public void setFingerprint(String fingerprint) {
-    this.fingerprint = fingerprint;
-  }
-
-  public RepositoryGpgKey fingerprintShort(String fingerprintShort) {
-    this.fingerprintShort = fingerprintShort;
-    return this;
-  }
-
    /**
-   * 
+   * Get fingerprintShort
    * @return fingerprintShort
   **/
   @ApiModelProperty(value = "")
@@ -160,26 +121,13 @@ public class RepositoryGpgKey implements Serializable {
     return fingerprintShort;
   }
 
-  public void setFingerprintShort(String fingerprintShort) {
-    this.fingerprintShort = fingerprintShort;
-  }
-
-  public RepositoryGpgKey publicKey(String publicKey) {
-    this.publicKey = publicKey;
-    return this;
-  }
-
    /**
    * The public key given to repository users.
    * @return publicKey
   **/
-  @ApiModelProperty(value = "The public key given to repository users.")
+ @Size(min=1)  @ApiModelProperty(value = "The public key given to repository users.")
   public String getPublicKey() {
     return publicKey;
-  }
-
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
   }
 
 

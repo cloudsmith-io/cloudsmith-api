@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,17 +33,17 @@ class MetricsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def metrics_entitlements_list(self, owner, **kwargs):  # noqa: E501
+    def metrics_entitlements_account_list(self, owner, **kwargs):  # noqa: E501
         """View for listing entitlement token metrics, across an account.  # noqa: E501
 
         View for listing entitlement token metrics, across an account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.metrics_entitlements_list(owner, async_req=True)
+        >>> thread = api.metrics_entitlements_account_list(owner, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
+        :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -55,22 +55,22 @@ class MetricsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.metrics_entitlements_list_with_http_info(owner, **kwargs)  # noqa: E501
+            return self.metrics_entitlements_account_list_with_http_info(owner, **kwargs)  # noqa: E501
         else:
-            (data) = self.metrics_entitlements_list_with_http_info(owner, **kwargs)  # noqa: E501
+            (data) = self.metrics_entitlements_account_list_with_http_info(owner, **kwargs)  # noqa: E501
             return data
 
-    def metrics_entitlements_list_with_http_info(self, owner, **kwargs):  # noqa: E501
+    def metrics_entitlements_account_list_with_http_info(self, owner, **kwargs):  # noqa: E501
         """View for listing entitlement token metrics, across an account.  # noqa: E501
 
         View for listing entitlement token metrics, across an account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.metrics_entitlements_list_with_http_info(owner, async_req=True)
+        >>> thread = api.metrics_entitlements_account_list_with_http_info(owner, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
+        :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -92,14 +92,14 @@ class MetricsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method metrics_entitlements_list" % key
+                    " to method metrics_entitlements_account_list" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if self.api_client.client_side_validation and ('owner' not in params or
                                                        params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `metrics_entitlements_list`")  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `metrics_entitlements_account_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -125,6 +125,14 @@ class MetricsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -144,18 +152,18 @@ class MetricsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def metrics_entitlements_list0(self, owner, repo, **kwargs):  # noqa: E501
+    def metrics_entitlements_repo_list(self, owner, repo, **kwargs):  # noqa: E501
         """View for listing entitlement token metrics, for a repository.  # noqa: E501
 
         View for listing entitlement token metrics, for a repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.metrics_entitlements_list0(owner, repo, async_req=True)
+        >>> thread = api.metrics_entitlements_repo_list(owner, repo, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -167,23 +175,23 @@ class MetricsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.metrics_entitlements_list0_with_http_info(owner, repo, **kwargs)  # noqa: E501
+            return self.metrics_entitlements_repo_list_with_http_info(owner, repo, **kwargs)  # noqa: E501
         else:
-            (data) = self.metrics_entitlements_list0_with_http_info(owner, repo, **kwargs)  # noqa: E501
+            (data) = self.metrics_entitlements_repo_list_with_http_info(owner, repo, **kwargs)  # noqa: E501
             return data
 
-    def metrics_entitlements_list0_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
+    def metrics_entitlements_repo_list_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
         """View for listing entitlement token metrics, for a repository.  # noqa: E501
 
         View for listing entitlement token metrics, for a repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.metrics_entitlements_list0_with_http_info(owner, repo, async_req=True)
+        >>> thread = api.metrics_entitlements_repo_list_with_http_info(owner, repo, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -205,18 +213,18 @@ class MetricsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method metrics_entitlements_list0" % key
+                    " to method metrics_entitlements_repo_list" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if self.api_client.client_side_validation and ('owner' not in params or
                                                        params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `metrics_entitlements_list0`")  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `metrics_entitlements_repo_list`")  # noqa: E501
         # verify the required parameter 'repo' is set
         if self.api_client.client_side_validation and ('repo' not in params or
                                                        params['repo'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repo` when calling `metrics_entitlements_list0`")  # noqa: E501
+            raise ValueError("Missing the required parameter `repo` when calling `metrics_entitlements_repo_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -244,6 +252,14 @@ class MetricsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -273,8 +289,8 @@ class MetricsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -301,8 +317,8 @@ class MetricsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str finish: Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -363,6 +379,14 @@ class MetricsApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 

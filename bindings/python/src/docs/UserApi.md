@@ -53,8 +53,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -81,7 +81,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.UserApi(cloudsmith_api.ApiClient(configuration))
-data = cloudsmith_api.UserTokenCreate() # UserTokenCreate |  (optional)
+data = cloudsmith_api.UserAuthTokenRequest() # UserAuthTokenRequest |  (optional)
 
 try:
     # Retrieve the API key/token for the authenticated user.
@@ -95,7 +95,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UserTokenCreate**](UserTokenCreate.md)|  | [optional] 
+ **data** | [**UserAuthTokenRequest**](UserAuthTokenRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,97 +33,6 @@ class ReposApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def repos_all_list(self, **kwargs):  # noqa: E501
-        """Get a list of all repositories associated with current user.  # noqa: E501
-
-        Get a list of all repositories associated with current user.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_all_list(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[Repository]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_all_list_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_all_list_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def repos_all_list_with_http_info(self, **kwargs):  # noqa: E501
-        """Get a list of all repositories associated with current user.  # noqa: E501
-
-        Get a list of all repositories associated with current user.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_all_list_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[Repository]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_all_list" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Repository]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def repos_create(self, owner, **kwargs):  # noqa: E501
         """Create a new repository in a given namespace.  # noqa: E501
 
@@ -134,8 +43,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param ReposCreate data:
+        :param str owner: (required)
+        :param RepositoryCreateRequest data:
         :return: RepositoryCreate
                  If the method is called asynchronously,
                  returns the request thread.
@@ -157,8 +66,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param ReposCreate data:
+        :param str owner: (required)
+        :param RepositoryCreateRequest data:
         :return: RepositoryCreate
                  If the method is called asynchronously,
                  returns the request thread.
@@ -200,6 +109,10 @@ class ReposApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -233,8 +146,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -256,8 +169,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -303,6 +216,14 @@ class ReposApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -332,9 +253,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposGpgCreate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryGpgKeyCreate data:
         :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -356,9 +277,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposGpgCreate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryGpgKeyCreate data:
         :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -406,6 +327,10 @@ class ReposApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -439,8 +364,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -462,8 +387,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -509,6 +434,14 @@ class ReposApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -538,8 +471,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -561,8 +494,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: RepositoryGpgKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -608,6 +541,14 @@ class ReposApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -627,17 +568,17 @@ class ReposApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def repos_list(self, owner, **kwargs):  # noqa: E501
+    def repos_namespace_list(self, owner, **kwargs):  # noqa: E501
         """Get a list of all repositories within a namespace.  # noqa: E501
 
         Get a list of all repositories within a namespace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_list(owner, async_req=True)
+        >>> thread = api.repos_namespace_list(owner, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
+        :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :return: list[Repository]
@@ -646,22 +587,22 @@ class ReposApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.repos_list_with_http_info(owner, **kwargs)  # noqa: E501
+            return self.repos_namespace_list_with_http_info(owner, **kwargs)  # noqa: E501
         else:
-            (data) = self.repos_list_with_http_info(owner, **kwargs)  # noqa: E501
+            (data) = self.repos_namespace_list_with_http_info(owner, **kwargs)  # noqa: E501
             return data
 
-    def repos_list_with_http_info(self, owner, **kwargs):  # noqa: E501
+    def repos_namespace_list_with_http_info(self, owner, **kwargs):  # noqa: E501
         """Get a list of all repositories within a namespace.  # noqa: E501
 
         Get a list of all repositories within a namespace.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_list_with_http_info(owner, async_req=True)
+        >>> thread = api.repos_namespace_list_with_http_info(owner, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
+        :param str owner: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :return: list[Repository]
@@ -680,14 +621,14 @@ class ReposApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method repos_list" % key
+                    " to method repos_namespace_list" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'owner' is set
         if self.api_client.client_side_validation and ('owner' not in params or
                                                        params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_list`")  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_namespace_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -707,6 +648,14 @@ class ReposApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -736,9 +685,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposPartialUpdate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryRequestPatch data:
         :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
@@ -760,9 +709,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposPartialUpdate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryRequestPatch data:
         :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
@@ -810,6 +759,10 @@ class ReposApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -843,8 +796,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :return: RepositoryPrivilegeInput
@@ -868,8 +821,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :return: RepositoryPrivilegeInput
@@ -921,6 +874,14 @@ class ReposApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -950,9 +911,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposPrivilegesPartialUpdate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryPrivilegeInputRequestPatch data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -974,9 +935,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposPrivilegesPartialUpdate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryPrivilegeInputRequestPatch data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1024,6 +985,10 @@ class ReposApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1057,9 +1022,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposPrivilegesUpdate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryPrivilegeInputRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1081,9 +1046,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposPrivilegesUpdate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryPrivilegeInputRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1131,6 +1096,10 @@ class ReposApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1164,8 +1133,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1187,8 +1156,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: Repository
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1234,6 +1203,14 @@ class ReposApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1263,9 +1240,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposRsaCreate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryRsaKeyCreate data:
         :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1287,9 +1264,9 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
-        :param ReposRsaCreate data:
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param RepositoryRsaKeyCreate data:
         :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1337,6 +1314,10 @@ class ReposApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1370,8 +1351,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1393,8 +1374,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1440,6 +1421,14 @@ class ReposApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1469,8 +1458,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1492,8 +1481,8 @@ class ReposApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str identifier: (required)
         :return: RepositoryRsaKey
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1539,6 +1528,14 @@ class ReposApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -1551,6 +1548,105 @@ class ReposApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='RepositoryRsaKey',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_user_list(self, **kwargs):  # noqa: E501
+        """Get a list of all repositories associated with current user.  # noqa: E501
+
+        Get a list of all repositories associated with current user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_user_list(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[Repository]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_user_list_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_user_list_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def repos_user_list_with_http_info(self, **kwargs):  # noqa: E501
+        """Get a list of all repositories associated with current user.  # noqa: E501
+
+        Get a list of all repositories associated with current user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_user_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[Repository]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['page', 'page_size']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_user_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Repository]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

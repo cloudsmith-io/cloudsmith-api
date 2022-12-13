@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -257,6 +257,10 @@ describe 'RepositoryCreate' do
   describe 'test attribute "repository_type_str"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Public", "Private"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.repository_type_str = value }.not_to raise_error
+      # end
     end
   end
 

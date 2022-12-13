@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -19,61 +19,11 @@ module CloudsmithApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get a list of all repositories associated with current user.
-    # Get a list of all repositories associated with current user.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<Repository>]
-    def repos_all_list(opts = {})
-      data, _status_code, _headers = repos_all_list_with_http_info(opts)
-      data
-    end
-
-    # Get a list of all repositories associated with current user.
-    # Get a list of all repositories associated with current user.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
-    def repos_all_list_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_all_list ...'
-      end
-      # resource path
-      local_var_path = '/repos/'
-
-      # query parameters
-      query_params = {}
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-
-      # header parameters
-      header_params = {}
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<Repository>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_all_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
     # Create a new repository in a given namespace.
     # Create a new repository in a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposCreate] :data 
+    # @option opts [RepositoryCreateRequest] :data 
     # @return [RepositoryCreate]
     def repos_create(owner, opts = {})
       data, _status_code, _headers = repos_create_with_http_info(owner, opts)
@@ -84,7 +34,7 @@ module CloudsmithApi
     # Create a new repository in a given namespace.
     # @param owner 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposCreate] :data 
+    # @option opts [RepositoryCreateRequest] :data 
     # @return [Array<(RepositoryCreate, Fixnum, Hash)>] RepositoryCreate data, response status code and response headers
     def repos_create_with_http_info(owner, opts = {})
       if @api_client.config.debugging
@@ -102,6 +52,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -160,6 +112,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -183,7 +139,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposGpgCreate] :data 
+    # @option opts [RepositoryGpgKeyCreate] :data 
     # @return [RepositoryGpgKey]
     def repos_gpg_create(owner, identifier, opts = {})
       data, _status_code, _headers = repos_gpg_create_with_http_info(owner, identifier, opts)
@@ -195,7 +151,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposGpgCreate] :data 
+    # @option opts [RepositoryGpgKeyCreate] :data 
     # @return [Array<(RepositoryGpgKey, Fixnum, Hash)>] RepositoryGpgKey data, response status code and response headers
     def repos_gpg_create_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -217,6 +173,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -275,6 +233,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -331,6 +293,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -357,8 +323,8 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @return [Array<Repository>]
-    def repos_list(owner, opts = {})
-      data, _status_code, _headers = repos_list_with_http_info(owner, opts)
+    def repos_namespace_list(owner, opts = {})
+      data, _status_code, _headers = repos_namespace_list_with_http_info(owner, opts)
       data
     end
 
@@ -369,13 +335,13 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
-    def repos_list_with_http_info(owner, opts = {})
+    def repos_namespace_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_list ...'
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_namespace_list ...'
       end
       # verify the required parameter 'owner' is set
       if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_list"
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_namespace_list"
       end
       # resource path
       local_var_path = '/repos/{owner}/'.sub('{' + 'owner' + '}', owner.to_s)
@@ -387,6 +353,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -402,7 +372,7 @@ module CloudsmithApi
         :auth_names => auth_names,
         :return_type => 'Array<Repository>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReposApi#repos_namespace_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -411,7 +381,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposPartialUpdate] :data 
+    # @option opts [RepositoryRequestPatch] :data 
     # @return [Repository]
     def repos_partial_update(owner, identifier, opts = {})
       data, _status_code, _headers = repos_partial_update_with_http_info(owner, identifier, opts)
@@ -423,7 +393,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposPartialUpdate] :data 
+    # @option opts [RepositoryRequestPatch] :data 
     # @return [Array<(Repository, Fixnum, Hash)>] Repository data, response status code and response headers
     def repos_partial_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -445,6 +415,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -509,6 +481,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -533,7 +509,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposPrivilegesPartialUpdate] :data 
+    # @option opts [RepositoryPrivilegeInputRequestPatch] :data 
     # @return [nil]
     def repos_privileges_partial_update(owner, identifier, opts = {})
       repos_privileges_partial_update_with_http_info(owner, identifier, opts)
@@ -545,7 +521,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposPrivilegesPartialUpdate] :data 
+    # @option opts [RepositoryPrivilegeInputRequestPatch] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def repos_privileges_partial_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -567,6 +543,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -592,7 +570,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposPrivilegesUpdate] :data 
+    # @option opts [RepositoryPrivilegeInputRequest] :data 
     # @return [nil]
     def repos_privileges_update(owner, identifier, opts = {})
       repos_privileges_update_with_http_info(owner, identifier, opts)
@@ -604,7 +582,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposPrivilegesUpdate] :data 
+    # @option opts [RepositoryPrivilegeInputRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def repos_privileges_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -626,6 +604,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -683,6 +663,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -707,7 +691,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposRsaCreate] :data 
+    # @option opts [RepositoryRsaKeyCreate] :data 
     # @return [RepositoryRsaKey]
     def repos_rsa_create(owner, identifier, opts = {})
       data, _status_code, _headers = repos_rsa_create_with_http_info(owner, identifier, opts)
@@ -719,7 +703,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [ReposRsaCreate] :data 
+    # @option opts [RepositoryRsaKeyCreate] :data 
     # @return [Array<(RepositoryRsaKey, Fixnum, Hash)>] RepositoryRsaKey data, response status code and response headers
     def repos_rsa_create_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -741,6 +725,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -799,6 +785,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -855,6 +845,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -871,6 +865,60 @@ module CloudsmithApi
         :return_type => 'RepositoryRsaKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_rsa_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a list of all repositories associated with current user.
+    # Get a list of all repositories associated with current user.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<Repository>]
+    def repos_user_list(opts = {})
+      data, _status_code, _headers = repos_user_list_with_http_info(opts)
+      data
+    end
+
+    # Get a list of all repositories associated with current user.
+    # Get a list of all repositories associated with current user.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
+    def repos_user_list_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_user_list ...'
+      end
+      # resource path
+      local_var_path = '/repos/'
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<Repository>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_user_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

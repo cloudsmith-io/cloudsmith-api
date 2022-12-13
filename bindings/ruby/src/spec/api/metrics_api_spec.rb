@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -32,7 +32,7 @@ describe 'MetricsApi' do
     end
   end
 
-  # unit tests for metrics_entitlements_list
+  # unit tests for metrics_entitlements_account_list
   # View for listing entitlement token metrics, across an account.
   # View for listing entitlement token metrics, across an account.
   # @param owner 
@@ -43,13 +43,13 @@ describe 'MetricsApi' do
   # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
   # @return [EntitlementUsageMetrics]
-  describe 'metrics_entitlements_list test' do
+  describe 'metrics_entitlements_account_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for metrics_entitlements_list0
+  # unit tests for metrics_entitlements_repo_list
   # View for listing entitlement token metrics, for a repository.
   # View for listing entitlement token metrics, for a repository.
   # @param owner 
@@ -61,7 +61,7 @@ describe 'MetricsApi' do
   # @option opts [String] :start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;.
   # @option opts [String] :tokens A comma seperated list of tokens (slug perm) to include in the results.
   # @return [EntitlementUsageMetrics]
-  describe 'metrics_entitlements_list0 test' do
+  describe 'metrics_entitlements_repo_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -32,7 +32,7 @@ describe 'VulnerabilitiesApi' do
     end
   end
 
-  # unit tests for vulnerabilities_list
+  # unit tests for vulnerabilities_namespace_list
   # Lists scan results for a specific namespace.
   # Lists scan results for a specific namespace.
   # @param owner 
@@ -40,28 +40,13 @@ describe 'VulnerabilitiesApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @return [Array<VulnerabilityScanResultsList>]
-  describe 'vulnerabilities_list test' do
+  describe 'vulnerabilities_namespace_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for vulnerabilities_list0
-  # Lists scan results for a specific repository.
-  # Lists scan results for a specific repository.
-  # @param owner 
-  # @param repo 
-  # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :page A page number within the paginated result set.
-  # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [Array<VulnerabilityScanResultsList>]
-  describe 'vulnerabilities_list0 test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for vulnerabilities_list1
+  # unit tests for vulnerabilities_package_list
   # Lists scan results for a specific package.
   # Lists scan results for a specific package.
   # @param owner 
@@ -71,7 +56,7 @@ describe 'VulnerabilitiesApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @return [Array<VulnerabilityScanResultsList>]
-  describe 'vulnerabilities_list1 test' do
+  describe 'vulnerabilities_package_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -87,6 +72,21 @@ describe 'VulnerabilitiesApi' do
   # @param [Hash] opts the optional parameters
   # @return [VulnerabilityScanResults]
   describe 'vulnerabilities_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for vulnerabilities_repo_list
+  # Lists scan results for a specific repository.
+  # Lists scan results for a specific repository.
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<VulnerabilityScanResultsList>]
+  describe 'vulnerabilities_repo_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

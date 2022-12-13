@@ -4,12 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**audit_log_list**](AuditLogApi.md#audit_log_list) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
-[**audit_log_list0**](AuditLogApi.md#audit_log_list0) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
+[**audit_log_namespace_list**](AuditLogApi.md#audit_log_namespace_list) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
+[**audit_log_repo_list**](AuditLogApi.md#audit_log_repo_list) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
 
 
-# **audit_log_list**
-> Array&lt;NamespaceAuditLog&gt; audit_log_list(owner, opts)
+# **audit_log_namespace_list**
+> Array&lt;NamespaceAuditLog&gt; audit_log_namespace_list(owner, opts)
 
 Lists audit log entries for a specific namespace.
 
@@ -39,10 +39,10 @@ opts = {
 
 begin
   #Lists audit log entries for a specific namespace.
-  result = api_instance.audit_log_list(owner, opts)
+  result = api_instance.audit_log_namespace_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling AuditLogApi->audit_log_list: #{e}"
+  puts "Exception when calling AuditLogApi->audit_log_namespace_list: #{e}"
 end
 ```
 
@@ -65,13 +65,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
-# **audit_log_list0**
-> Array&lt;RepositoryAuditLog&gt; audit_log_list0(owner, repo, opts)
+# **audit_log_repo_list**
+> Array&lt;RepositoryAuditLog&gt; audit_log_repo_list(owner, repo, opts)
 
 Lists audit log entries for a specific repository.
 
@@ -103,10 +103,10 @@ opts = {
 
 begin
   #Lists audit log entries for a specific repository.
-  result = api_instance.audit_log_list0(owner, repo, opts)
+  result = api_instance.audit_log_repo_list(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling AuditLogApi->audit_log_list0: #{e}"
+  puts "Exception when calling AuditLogApi->audit_log_repo_list: #{e}"
 end
 ```
 
@@ -130,8 +130,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

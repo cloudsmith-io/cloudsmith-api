@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **company** | **String** |  |  [optional]
 **firstName** | **String** |  | 
 **jobTitle** | **String** |  |  [optional]
-**joinedAt** | **String** |  |  [optional]
+**joinedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **lastName** | **String** |  | 
 **name** | **String** |  |  [optional]
 **slug** | **String** |  |  [optional]

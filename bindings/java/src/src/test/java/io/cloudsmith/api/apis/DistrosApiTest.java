@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,8 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.Distribution;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.DistributionFull;
+import io.cloudsmith.api.models.ErrorDetail;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class DistrosApiTest {
      */
     @Test
     public void distrosListTest() throws Exception {
-        List<Distribution> response = api.distrosList();
+        List<DistributionFull> response = api.distrosList();
 
         // TODO: test validations
     }
@@ -59,7 +59,7 @@ public class DistrosApiTest {
     @Test
     public void distrosReadTest() throws Exception {
         String slug = null;
-        Distribution response = api.distrosRead(slug);
+        DistributionFull response = api.distrosRead(slug);
 
         // TODO: test validations
     }

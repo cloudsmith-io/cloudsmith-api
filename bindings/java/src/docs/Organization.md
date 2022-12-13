@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **country** | **String** |  |  [optional]
-**createdAt** | **String** |  |  [optional]
+**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **location** | **String** | The city/town/area your organization is based in. |  [optional]
 **name** | **String** | A descriptive name for your organization. |  [optional]
 **slug** | **String** |  |  [optional]

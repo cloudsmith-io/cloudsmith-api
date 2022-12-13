@@ -4,13 +4,13 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**metrics_entitlements_list**](MetricsApi.md#metrics_entitlements_list) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
-[**metrics_entitlements_list0**](MetricsApi.md#metrics_entitlements_list0) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+[**metrics_entitlements_account_list**](MetricsApi.md#metrics_entitlements_account_list) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+[**metrics_entitlements_repo_list**](MetricsApi.md#metrics_entitlements_repo_list) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
 [**metrics_packages_list**](MetricsApi.md#metrics_packages_list) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 
 
-# **metrics_entitlements_list**
-> EntitlementUsageMetrics metrics_entitlements_list(owner, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
+# **metrics_entitlements_account_list**
+> EntitlementUsageMetrics metrics_entitlements_account_list(owner, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
 
 View for listing entitlement token metrics, across an account.
 
@@ -41,10 +41,10 @@ tokens = 'tokens_example' # str | A comma seperated list of tokens (slug perm) t
 
 try:
     # View for listing entitlement token metrics, across an account.
-    api_response = api_instance.metrics_entitlements_list(owner, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
+    api_response = api_instance.metrics_entitlements_account_list(owner, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling MetricsApi->metrics_entitlements_list: %s\n" % e)
+    print("Exception when calling MetricsApi->metrics_entitlements_account_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -68,13 +68,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **metrics_entitlements_list0**
-> EntitlementUsageMetrics metrics_entitlements_list0(owner, repo, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
+# **metrics_entitlements_repo_list**
+> EntitlementUsageMetrics metrics_entitlements_repo_list(owner, repo, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
 
 View for listing entitlement token metrics, for a repository.
 
@@ -106,10 +106,10 @@ tokens = 'tokens_example' # str | A comma seperated list of tokens (slug perm) t
 
 try:
     # View for listing entitlement token metrics, for a repository.
-    api_response = api_instance.metrics_entitlements_list0(owner, repo, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
+    api_response = api_instance.metrics_entitlements_repo_list(owner, repo, page=page, page_size=page_size, finish=finish, start=start, tokens=tokens)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling MetricsApi->metrics_entitlements_list0: %s\n" % e)
+    print("Exception when calling MetricsApi->metrics_entitlements_repo_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -134,8 +134,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -200,8 +200,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

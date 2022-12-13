@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -24,8 +24,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @option opts [EntitlementsCreate] :data 
+    # @option opts [RepositoryTokenRequest] :data 
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
     # @return [RepositoryToken]
     def entitlements_create(owner, repo, opts = {})
       data, _status_code, _headers = entitlements_create_with_http_info(owner, repo, opts)
@@ -37,8 +37,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryTokenRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @option opts [EntitlementsCreate] :data 
     # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_create_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -61,6 +61,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -125,6 +127,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -186,6 +192,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -247,6 +257,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -272,7 +286,9 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
+    # @option opts [String] :query A search term for querying names of entitlements.
+    # @option opts [BOOLEAN] :active If true, only include active tokens (default to false)
     # @return [Array<RepositoryToken>]
     def entitlements_list(owner, repo, opts = {})
       data, _status_code, _headers = entitlements_list_with_http_info(owner, repo, opts)
@@ -287,6 +303,8 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
+    # @option opts [String] :query A search term for querying names of entitlements.
+    # @option opts [BOOLEAN] :active If true, only include active tokens
     # @return [Array<(Array<RepositoryToken>, Fixnum, Hash)>] Array<RepositoryToken> data, response status code and response headers
     def entitlements_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -308,9 +326,15 @@ module CloudsmithApi
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'active'] = opts[:'active'] if !opts[:'active'].nil?
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -336,8 +360,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @option opts [EntitlementsPartialUpdate] :data 
+    # @option opts [RepositoryTokenRequestPatch] :data 
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
     # @return [RepositoryToken]
     def entitlements_partial_update(owner, repo, identifier, opts = {})
       data, _status_code, _headers = entitlements_partial_update_with_http_info(owner, repo, identifier, opts)
@@ -350,8 +374,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryTokenRequestPatch] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @option opts [EntitlementsPartialUpdate] :data 
     # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_partial_update_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -378,6 +402,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -405,7 +431,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
+    # @option opts [BOOLEAN] :fuzzy If true, entitlement identifiers including name will be fuzzy matched. (default to false)
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
     # @return [RepositoryToken]
     def entitlements_read(owner, repo, identifier, opts = {})
       data, _status_code, _headers = entitlements_read_with_http_info(owner, repo, identifier, opts)
@@ -418,6 +445,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :fuzzy If true, entitlement identifiers including name will be fuzzy matched.
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @return [Array<(RepositoryToken, Fixnum, Hash)>] RepositoryToken data, response status code and response headers
     def entitlements_read_with_http_info(owner, repo, identifier, opts = {})
@@ -441,10 +469,15 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'fuzzy'] = opts[:'fuzzy'] if !opts[:'fuzzy'].nil?
       query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -470,8 +503,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @option opts [EntitlementsRefresh] :data 
+    # @option opts [RepositoryTokenRefreshRequest] :data 
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
     # @return [RepositoryTokenRefresh]
     def entitlements_refresh(owner, repo, identifier, opts = {})
       data, _status_code, _headers = entitlements_refresh_with_http_info(owner, repo, identifier, opts)
@@ -484,8 +517,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryTokenRefreshRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @option opts [EntitlementsRefresh] :data 
     # @return [Array<(RepositoryTokenRefresh, Fixnum, Hash)>] RepositoryTokenRefresh data, response status code and response headers
     def entitlements_refresh_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -512,6 +545,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -539,7 +574,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
     # @return [nil]
     def entitlements_reset(owner, repo, identifier, opts = {})
       entitlements_reset_with_http_info(owner, repo, identifier, opts)
@@ -579,6 +614,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -602,8 +641,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @option opts [EntitlementsSync] :data 
+    # @option opts [RepositoryTokenSyncRequest] :data 
+    # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
     # @return [RepositoryTokenSync]
     def entitlements_sync(owner, repo, opts = {})
       data, _status_code, _headers = entitlements_sync_with_http_info(owner, repo, opts)
@@ -615,8 +654,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryTokenSyncRequest] :data 
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
-    # @option opts [EntitlementsSync] :data 
     # @return [Array<(RepositoryTokenSync, Fixnum, Hash)>] RepositoryTokenSync data, response status code and response headers
     def entitlements_sync_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -639,6 +678,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 

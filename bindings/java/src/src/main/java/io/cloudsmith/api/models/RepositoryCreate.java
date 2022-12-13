@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,10 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.ReposGpgKeys;
+import io.cloudsmith.api.models.RepositoryGpgKey;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
@@ -90,7 +91,7 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("content_kind")
-  private ContentKindEnum contentKind = null;
+  private ContentKindEnum contentKind = ContentKindEnum.STANDARD;
 
   @SerializedName("contextual_auth_realm")
   private Boolean contextualAuthRealm = null;
@@ -148,10 +149,10 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("copy_packages")
-  private CopyPackagesEnum copyPackages = null;
+  private CopyPackagesEnum copyPackages = CopyPackagesEnum.READ;
 
   @SerializedName("created_at")
-  private String createdAt = null;
+  private OffsetDateTime createdAt = null;
 
   /**
    * This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
@@ -205,7 +206,7 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("default_privilege")
-  private DefaultPrivilegeEnum defaultPrivilege = null;
+  private DefaultPrivilegeEnum defaultPrivilege = DefaultPrivilegeEnum.NONE;
 
   @SerializedName("delete_own")
   private Boolean deleteOwn = null;
@@ -258,10 +259,10 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("delete_packages")
-  private DeletePackagesEnum deletePackages = null;
+  private DeletePackagesEnum deletePackages = DeletePackagesEnum.ADMIN;
 
   @SerializedName("deleted_at")
-  private String deletedAt = null;
+  private OffsetDateTime deletedAt = null;
 
   @SerializedName("description")
   private String description = null;
@@ -273,7 +274,7 @@ public class RepositoryCreate implements Serializable {
   private Boolean dockerRefreshTokensEnabled = null;
 
   @SerializedName("gpg_keys")
-  private List<ReposGpgKeys> gpgKeys = null;
+  private List<RepositoryGpgKey> gpgKeys = null;
 
   @SerializedName("index_files")
   private Boolean indexFiles = null;
@@ -340,7 +341,7 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("move_packages")
-  private MovePackagesEnum movePackages = null;
+  private MovePackagesEnum movePackages = MovePackagesEnum.ADMIN;
 
   @SerializedName("name")
   private String name = null;
@@ -352,13 +353,13 @@ public class RepositoryCreate implements Serializable {
   private String namespaceUrl = null;
 
   @SerializedName("num_downloads")
-  private Integer numDownloads = null;
+  private java.math.BigInteger numDownloads = null;
 
   @SerializedName("package_count")
-  private Integer packageCount = null;
+  private java.math.BigInteger packageCount = null;
 
   @SerializedName("package_group_count")
-  private Integer packageGroupCount = null;
+  private java.math.BigInteger packageGroupCount = null;
 
   @SerializedName("proxy_npmjs")
   private Boolean proxyNpmjs = null;
@@ -420,16 +421,63 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("replace_packages")
-  private ReplacePackagesEnum replacePackages = null;
+  private ReplacePackagesEnum replacePackages = ReplacePackagesEnum.WRITE;
 
   @SerializedName("replace_packages_by_default")
   private Boolean replacePackagesByDefault = null;
 
   @SerializedName("repository_type")
-  private Integer repositoryType = null;
+  private java.math.BigInteger repositoryType = null;
+
+  /**
+   * The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.
+   */
+  @JsonAdapter(RepositoryTypeStrEnum.Adapter.class)
+  public enum RepositoryTypeStrEnum {
+    PUBLIC("Public"),
+    
+    PRIVATE("Private");
+
+    private String value;
+
+    RepositoryTypeStrEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RepositoryTypeStrEnum fromValue(String text) {
+      for (RepositoryTypeStrEnum b : RepositoryTypeStrEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RepositoryTypeStrEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RepositoryTypeStrEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RepositoryTypeStrEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RepositoryTypeStrEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("repository_type_str")
-  private String repositoryTypeStr = null;
+  private RepositoryTypeStrEnum repositoryTypeStr = RepositoryTypeStrEnum.PUBLIC;
 
   @SerializedName("resync_own")
   private Boolean resyncOwn = null;
@@ -482,7 +530,7 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("resync_packages")
-  private ResyncPackagesEnum resyncPackages = null;
+  private ResyncPackagesEnum resyncPackages = ResyncPackagesEnum.ADMIN;
 
   @SerializedName("scan_own")
   private Boolean scanOwn = null;
@@ -537,7 +585,7 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("scan_packages")
-  private ScanPackagesEnum scanPackages = null;
+  private ScanPackagesEnum scanPackages = ScanPackagesEnum.READ;
 
   @SerializedName("self_html_url")
   private String selfHtmlUrl = null;
@@ -549,7 +597,7 @@ public class RepositoryCreate implements Serializable {
   private Boolean showSetupAll = null;
 
   @SerializedName("size")
-  private Integer size = null;
+  private java.math.BigInteger size = null;
 
   @SerializedName("size_str")
   private String sizeStr = null;
@@ -561,7 +609,7 @@ public class RepositoryCreate implements Serializable {
   private String slugPerm = null;
 
   @SerializedName("storage_region")
-  private String storageRegion = null;
+  private String storageRegion = "default";
 
   @SerializedName("strict_npm_validation")
   private Boolean strictNpmValidation = null;
@@ -634,12 +682,7 @@ public class RepositoryCreate implements Serializable {
   }
 
   @SerializedName("view_statistics")
-  private ViewStatisticsEnum viewStatistics = null;
-
-  public RepositoryCreate cdnUrl(String cdnUrl) {
-    this.cdnUrl = cdnUrl;
-    return this;
-  }
+  private ViewStatisticsEnum viewStatistics = ViewStatisticsEnum.READ;
 
    /**
    * Base URL from which packages and other artifacts are downloaded.
@@ -648,10 +691,6 @@ public class RepositoryCreate implements Serializable {
   @ApiModelProperty(value = "Base URL from which packages and other artifacts are downloaded.")
   public String getCdnUrl() {
     return cdnUrl;
-  }
-
-  public void setCdnUrl(String cdnUrl) {
-    this.cdnUrl = cdnUrl;
   }
 
   public RepositoryCreate contentKind(ContentKindEnum contentKind) {
@@ -726,22 +765,14 @@ public class RepositoryCreate implements Serializable {
     this.copyPackages = copyPackages;
   }
 
-  public RepositoryCreate createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdAt
    * @return createdAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
   }
 
   public RepositoryCreate defaultPrivilege(DefaultPrivilegeEnum defaultPrivilege) {
@@ -798,22 +829,14 @@ public class RepositoryCreate implements Serializable {
     this.deletePackages = deletePackages;
   }
 
-  public RepositoryCreate deletedAt(String deletedAt) {
-    this.deletedAt = deletedAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get deletedAt
    * @return deletedAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getDeletedAt() {
+  public OffsetDateTime getDeletedAt() {
     return deletedAt;
-  }
-
-  public void setDeletedAt(String deletedAt) {
-    this.deletedAt = deletedAt;
   }
 
   public RepositoryCreate description(String description) {
@@ -878,31 +901,14 @@ public class RepositoryCreate implements Serializable {
     this.dockerRefreshTokensEnabled = dockerRefreshTokensEnabled;
   }
 
-  public RepositoryCreate gpgKeys(List<ReposGpgKeys> gpgKeys) {
-    this.gpgKeys = gpgKeys;
-    return this;
-  }
-
-  public RepositoryCreate addGpgKeysItem(ReposGpgKeys gpgKeysItem) {
-    if (this.gpgKeys == null) {
-      this.gpgKeys = new ArrayList<>();
-    }
-    this.gpgKeys.add(gpgKeysItem);
-    return this;
-  }
-
    /**
-   * 
+   * Get gpgKeys
    * @return gpgKeys
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public List<ReposGpgKeys> getGpgKeys() {
+  public List<RepositoryGpgKey> getGpgKeys() {
     return gpgKeys;
-  }
-
-  public void setGpgKeys(List<ReposGpgKeys> gpgKeys) {
-    this.gpgKeys = gpgKeys;
   }
 
   public RepositoryCreate indexFiles(Boolean indexFiles) {
@@ -923,13 +929,8 @@ public class RepositoryCreate implements Serializable {
     this.indexFiles = indexFiles;
   }
 
-  public RepositoryCreate isOpenSource(Boolean isOpenSource) {
-    this.isOpenSource = isOpenSource;
-    return this;
-  }
-
    /**
-   * 
+   * Get isOpenSource
    * @return isOpenSource
   **/
   @ApiModelProperty(value = "")
@@ -937,17 +938,8 @@ public class RepositoryCreate implements Serializable {
     return isOpenSource;
   }
 
-  public void setIsOpenSource(Boolean isOpenSource) {
-    this.isOpenSource = isOpenSource;
-  }
-
-  public RepositoryCreate isPrivate(Boolean isPrivate) {
-    this.isPrivate = isPrivate;
-    return this;
-  }
-
    /**
-   * 
+   * Get isPrivate
    * @return isPrivate
   **/
   @ApiModelProperty(value = "")
@@ -955,26 +947,13 @@ public class RepositoryCreate implements Serializable {
     return isPrivate;
   }
 
-  public void setIsPrivate(Boolean isPrivate) {
-    this.isPrivate = isPrivate;
-  }
-
-  public RepositoryCreate isPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
-    return this;
-  }
-
    /**
-   * 
+   * Get isPublic
    * @return isPublic
   **/
   @ApiModelProperty(value = "")
   public Boolean isIsPublic() {
     return isPublic;
-  }
-
-  public void setIsPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
   }
 
   public RepositoryCreate moveOwn(Boolean moveOwn) {
@@ -1023,7 +1002,7 @@ public class RepositoryCreate implements Serializable {
    * @return name
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "A descriptive name for the repository.")
+ @Pattern(regexp="^\\w[\\w \\-'\\./]+$") @Size(min=1,max=50)  @ApiModelProperty(required = true, value = "A descriptive name for the repository.")
   public String getName() {
     return name;
   }
@@ -1032,27 +1011,13 @@ public class RepositoryCreate implements Serializable {
     this.name = name;
   }
 
-  public RepositoryCreate namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
    /**
    * Namespace to which this repository belongs.
    * @return namespace
   **/
-  @ApiModelProperty(value = "Namespace to which this repository belongs.")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$")  @ApiModelProperty(value = "Namespace to which this repository belongs.")
   public String getNamespace() {
     return namespace;
-  }
-
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
-  public RepositoryCreate namespaceUrl(String namespaceUrl) {
-    this.namespaceUrl = namespaceUrl;
-    return this;
   }
 
    /**
@@ -1064,31 +1029,13 @@ public class RepositoryCreate implements Serializable {
     return namespaceUrl;
   }
 
-  public void setNamespaceUrl(String namespaceUrl) {
-    this.namespaceUrl = namespaceUrl;
-  }
-
-  public RepositoryCreate numDownloads(Integer numDownloads) {
-    this.numDownloads = numDownloads;
-    return this;
-  }
-
    /**
    * The number of downloads for packages in the repository.
    * @return numDownloads
   **/
   @ApiModelProperty(value = "The number of downloads for packages in the repository.")
-  public Integer getNumDownloads() {
+  public java.math.BigInteger getNumDownloads() {
     return numDownloads;
-  }
-
-  public void setNumDownloads(Integer numDownloads) {
-    this.numDownloads = numDownloads;
-  }
-
-  public RepositoryCreate packageCount(Integer packageCount) {
-    this.packageCount = packageCount;
-    return this;
   }
 
    /**
@@ -1096,17 +1043,8 @@ public class RepositoryCreate implements Serializable {
    * @return packageCount
   **/
   @ApiModelProperty(value = "The number of packages in the repository.")
-  public Integer getPackageCount() {
+  public java.math.BigInteger getPackageCount() {
     return packageCount;
-  }
-
-  public void setPackageCount(Integer packageCount) {
-    this.packageCount = packageCount;
-  }
-
-  public RepositoryCreate packageGroupCount(Integer packageGroupCount) {
-    this.packageGroupCount = packageGroupCount;
-    return this;
   }
 
    /**
@@ -1114,12 +1052,8 @@ public class RepositoryCreate implements Serializable {
    * @return packageGroupCount
   **/
   @ApiModelProperty(value = "The number of groups in the repository.")
-  public Integer getPackageGroupCount() {
+  public java.math.BigInteger getPackageGroupCount() {
     return packageGroupCount;
-  }
-
-  public void setPackageGroupCount(Integer packageGroupCount) {
-    this.packageGroupCount = packageGroupCount;
   }
 
   public RepositoryCreate proxyNpmjs(Boolean proxyNpmjs) {
@@ -1230,39 +1164,30 @@ public class RepositoryCreate implements Serializable {
     this.replacePackagesByDefault = replacePackagesByDefault;
   }
 
-  public RepositoryCreate repositoryType(Integer repositoryType) {
-    this.repositoryType = repositoryType;
-    return this;
-  }
-
    /**
-   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
+   * The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
    * @return repositoryType
   **/
-  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.")
-  public Integer getRepositoryType() {
+  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.")
+  public java.math.BigInteger getRepositoryType() {
     return repositoryType;
   }
 
-  public void setRepositoryType(Integer repositoryType) {
-    this.repositoryType = repositoryType;
-  }
-
-  public RepositoryCreate repositoryTypeStr(String repositoryTypeStr) {
+  public RepositoryCreate repositoryTypeStr(RepositoryTypeStrEnum repositoryTypeStr) {
     this.repositoryTypeStr = repositoryTypeStr;
     return this;
   }
 
    /**
-   * The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
+   * The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.
    * @return repositoryTypeStr
   **/
-  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.")
-  public String getRepositoryTypeStr() {
+  @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.")
+  public RepositoryTypeStrEnum getRepositoryTypeStr() {
     return repositoryTypeStr;
   }
 
-  public void setRepositoryTypeStr(String repositoryTypeStr) {
+  public void setRepositoryTypeStr(RepositoryTypeStrEnum repositoryTypeStr) {
     this.repositoryTypeStr = repositoryTypeStr;
   }
 
@@ -1338,27 +1263,13 @@ public class RepositoryCreate implements Serializable {
     this.scanPackages = scanPackages;
   }
 
-  public RepositoryCreate selfHtmlUrl(String selfHtmlUrl) {
-    this.selfHtmlUrl = selfHtmlUrl;
-    return this;
-  }
-
    /**
    * Website URL for this repository.
    * @return selfHtmlUrl
   **/
-  @ApiModelProperty(value = "Website URL for this repository.")
+ @Size(min=1)  @ApiModelProperty(value = "Website URL for this repository.")
   public String getSelfHtmlUrl() {
     return selfHtmlUrl;
-  }
-
-  public void setSelfHtmlUrl(String selfHtmlUrl) {
-    this.selfHtmlUrl = selfHtmlUrl;
-  }
-
-  public RepositoryCreate selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
   }
 
    /**
@@ -1368,10 +1279,6 @@ public class RepositoryCreate implements Serializable {
   @ApiModelProperty(value = "API endpoint where data about this repository can be retrieved.")
   public String getSelfUrl() {
     return selfUrl;
-  }
-
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
   }
 
   public RepositoryCreate showSetupAll(Boolean showSetupAll) {
@@ -1392,27 +1299,13 @@ public class RepositoryCreate implements Serializable {
     this.showSetupAll = showSetupAll;
   }
 
-  public RepositoryCreate size(Integer size) {
-    this.size = size;
-    return this;
-  }
-
    /**
    * The calculated size of the repository.
    * @return size
   **/
   @ApiModelProperty(value = "The calculated size of the repository.")
-  public Integer getSize() {
+  public java.math.BigInteger getSize() {
     return size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public RepositoryCreate sizeStr(String sizeStr) {
-    this.sizeStr = sizeStr;
-    return this;
   }
 
    /**
@@ -1422,10 +1315,6 @@ public class RepositoryCreate implements Serializable {
   @ApiModelProperty(value = "The calculated size of the repository (human readable).")
   public String getSizeStr() {
     return sizeStr;
-  }
-
-  public void setSizeStr(String sizeStr) {
-    this.sizeStr = sizeStr;
   }
 
   public RepositoryCreate slug(String slug) {
@@ -1446,22 +1335,13 @@ public class RepositoryCreate implements Serializable {
     this.slug = slug;
   }
 
-  public RepositoryCreate slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
    * The slug_perm immutably identifies the repository. It will never change once a repository has been created.
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "The slug_perm immutably identifies the repository. It will never change once a repository has been created.")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "The slug_perm immutably identifies the repository. It will never change once a repository has been created.")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
   }
 
   public RepositoryCreate storageRegion(String storageRegion) {

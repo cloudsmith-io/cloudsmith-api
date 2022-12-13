@@ -4,13 +4,13 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auditLogList**](AuditLogApi.md#auditLogList) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
-[**auditLogList0**](AuditLogApi.md#auditLogList0) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
+[**auditLogNamespaceList**](AuditLogApi.md#auditLogNamespaceList) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
+[**auditLogRepoList**](AuditLogApi.md#auditLogRepoList) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
 
 
-<a name="auditLogList"></a>
-# **auditLogList**
-> List&lt;NamespaceAuditLog&gt; auditLogList(owner, page, pageSize, query)
+<a name="auditLogNamespaceList"></a>
+# **auditLogNamespaceList**
+> List&lt;NamespaceAuditLog&gt; auditLogNamespaceList(owner, page, pageSize, query)
 
 Lists audit log entries for a specific namespace.
 
@@ -35,14 +35,14 @@ apikey.setApiKey("YOUR API KEY");
 
 AuditLogApi apiInstance = new AuditLogApi();
 String owner = "owner_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String query = "query_example"; // String | A search term for querying events, actors, or timestamps of log records.
 try {
-    List<NamespaceAuditLog> result = apiInstance.auditLogList(owner, page, pageSize, query);
+    List<NamespaceAuditLog> result = apiInstance.auditLogNamespaceList(owner, page, pageSize, query);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuditLogApi#auditLogList");
+    System.err.println("Exception when calling AuditLogApi#auditLogNamespaceList");
     e.printStackTrace();
 }
 ```
@@ -52,8 +52,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **query** | **String**| A search term for querying events, actors, or timestamps of log records. | [optional]
 
 ### Return type
@@ -66,12 +66,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
-<a name="auditLogList0"></a>
-# **auditLogList0**
-> List&lt;RepositoryAuditLog&gt; auditLogList0(owner, repo, page, pageSize, query)
+<a name="auditLogRepoList"></a>
+# **auditLogRepoList**
+> List&lt;RepositoryAuditLog&gt; auditLogRepoList(owner, repo, page, pageSize, query)
 
 Lists audit log entries for a specific repository.
 
@@ -97,14 +97,14 @@ apikey.setApiKey("YOUR API KEY");
 AuditLogApi apiInstance = new AuditLogApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String query = "query_example"; // String | A search term for querying events, actors, or timestamps of log records.
 try {
-    List<RepositoryAuditLog> result = apiInstance.auditLogList0(owner, repo, page, pageSize, query);
+    List<RepositoryAuditLog> result = apiInstance.auditLogRepoList(owner, repo, page, pageSize, query);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuditLogApi#auditLogList0");
+    System.err.println("Exception when calling AuditLogApi#auditLogRepoList");
     e.printStackTrace();
 }
 ```
@@ -115,8 +115,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **query** | **String**| A search term for querying events, actors, or timestamps of log records. | [optional]
 
 ### Return type
@@ -129,6 +129,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

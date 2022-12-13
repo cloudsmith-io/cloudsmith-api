@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **company** | **str** |  | [optional] 
 **first_name** | **str** |  | 
 **job_title** | **str** |  | [optional] 
-**joined_at** | **str** |  | [optional] 
+**joined_at** | **datetime** |  | [optional] 
 **last_name** | **str** |  | 
 **name** | **str** |  | [optional] 
 **slug** | **str** |  | [optional] 

@@ -4,14 +4,14 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**metricsEntitlementsList**](MetricsApi.md#metricsEntitlementsList) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
-[**metricsEntitlementsList0**](MetricsApi.md#metricsEntitlementsList0) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
+[**metricsEntitlementsAccountList**](MetricsApi.md#metricsEntitlementsAccountList) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
+[**metricsEntitlementsRepoList**](MetricsApi.md#metricsEntitlementsRepoList) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
 [**metricsPackagesList**](MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 
 
-<a name="metricsEntitlementsList"></a>
-# **metricsEntitlementsList**
-> EntitlementUsageMetrics metricsEntitlementsList(owner, page, pageSize, finish, start, tokens)
+<a name="metricsEntitlementsAccountList"></a>
+# **metricsEntitlementsAccountList**
+> EntitlementUsageMetrics metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens)
 
 View for listing entitlement token metrics, across an account.
 
@@ -36,16 +36,16 @@ apikey.setApiKey("YOUR API KEY");
 
 MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String finish = "finish_example"; // String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsList(owner, page, pageSize, finish, start, tokens);
+    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MetricsApi#metricsEntitlementsList");
+    System.err.println("Exception when calling MetricsApi#metricsEntitlementsAccountList");
     e.printStackTrace();
 }
 ```
@@ -55,8 +55,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
  **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional]
@@ -71,12 +71,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
-<a name="metricsEntitlementsList0"></a>
-# **metricsEntitlementsList0**
-> EntitlementUsageMetrics metricsEntitlementsList0(owner, repo, page, pageSize, finish, start, tokens)
+<a name="metricsEntitlementsRepoList"></a>
+# **metricsEntitlementsRepoList**
+> EntitlementUsageMetrics metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens)
 
 View for listing entitlement token metrics, for a repository.
 
@@ -102,16 +102,16 @@ apikey.setApiKey("YOUR API KEY");
 MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String finish = "finish_example"; // String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsList0(owner, repo, page, pageSize, finish, start, tokens);
+    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MetricsApi#metricsEntitlementsList0");
+    System.err.println("Exception when calling MetricsApi#metricsEntitlementsRepoList");
     e.printStackTrace();
 }
 ```
@@ -122,8 +122,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
  **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
  **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional]
@@ -138,8 +138,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="metricsPackagesList"></a>
 # **metricsPackagesList**
@@ -169,8 +169,8 @@ apikey.setApiKey("YOUR API KEY");
 MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String finish = "finish_example"; // String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String packages = "packages_example"; // String | A comma seperated list of packages (slug perm) to include in the results.
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -189,8 +189,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
  **packages** | **String**| A comma seperated list of packages (slug perm) to include in the results. | [optional]
  **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional]
@@ -205,6 +205,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

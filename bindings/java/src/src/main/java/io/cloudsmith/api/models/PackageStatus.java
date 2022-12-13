@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -59,16 +60,16 @@ public class PackageStatus implements Serializable {
   private String selfUrl = null;
 
   @SerializedName("stage")
-  private Integer stage = null;
+  private java.math.BigInteger stage = null;
 
   @SerializedName("stage_str")
   private String stageStr = null;
 
   @SerializedName("stage_updated_at")
-  private String stageUpdatedAt = null;
+  private OffsetDateTime stageUpdatedAt = null;
 
   @SerializedName("status")
-  private Integer status = null;
+  private java.math.BigInteger status = null;
 
   @SerializedName("status_reason")
   private String statusReason = null;
@@ -77,21 +78,16 @@ public class PackageStatus implements Serializable {
   private String statusStr = null;
 
   @SerializedName("status_updated_at")
-  private String statusUpdatedAt = null;
+  private OffsetDateTime statusUpdatedAt = null;
 
   @SerializedName("sync_finished_at")
-  private String syncFinishedAt = null;
+  private OffsetDateTime syncFinishedAt = null;
 
   @SerializedName("sync_progress")
-  private Integer syncProgress = null;
-
-  public PackageStatus isDownloadable(Boolean isDownloadable) {
-    this.isDownloadable = isDownloadable;
-    return this;
-  }
+  private java.math.BigInteger syncProgress = null;
 
    /**
-   * 
+   * Get isDownloadable
    * @return isDownloadable
   **/
   @ApiModelProperty(value = "")
@@ -99,17 +95,8 @@ public class PackageStatus implements Serializable {
     return isDownloadable;
   }
 
-  public void setIsDownloadable(Boolean isDownloadable) {
-    this.isDownloadable = isDownloadable;
-  }
-
-  public PackageStatus isQuarantined(Boolean isQuarantined) {
-    this.isQuarantined = isQuarantined;
-    return this;
-  }
-
    /**
-   * 
+   * Get isQuarantined
    * @return isQuarantined
   **/
   @ApiModelProperty(value = "")
@@ -117,17 +104,8 @@ public class PackageStatus implements Serializable {
     return isQuarantined;
   }
 
-  public void setIsQuarantined(Boolean isQuarantined) {
-    this.isQuarantined = isQuarantined;
-  }
-
-  public PackageStatus isSyncAwaiting(Boolean isSyncAwaiting) {
-    this.isSyncAwaiting = isSyncAwaiting;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncAwaiting
    * @return isSyncAwaiting
   **/
   @ApiModelProperty(value = "")
@@ -135,17 +113,8 @@ public class PackageStatus implements Serializable {
     return isSyncAwaiting;
   }
 
-  public void setIsSyncAwaiting(Boolean isSyncAwaiting) {
-    this.isSyncAwaiting = isSyncAwaiting;
-  }
-
-  public PackageStatus isSyncCompleted(Boolean isSyncCompleted) {
-    this.isSyncCompleted = isSyncCompleted;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncCompleted
    * @return isSyncCompleted
   **/
   @ApiModelProperty(value = "")
@@ -153,17 +122,8 @@ public class PackageStatus implements Serializable {
     return isSyncCompleted;
   }
 
-  public void setIsSyncCompleted(Boolean isSyncCompleted) {
-    this.isSyncCompleted = isSyncCompleted;
-  }
-
-  public PackageStatus isSyncFailed(Boolean isSyncFailed) {
-    this.isSyncFailed = isSyncFailed;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncFailed
    * @return isSyncFailed
   **/
   @ApiModelProperty(value = "")
@@ -171,17 +131,8 @@ public class PackageStatus implements Serializable {
     return isSyncFailed;
   }
 
-  public void setIsSyncFailed(Boolean isSyncFailed) {
-    this.isSyncFailed = isSyncFailed;
-  }
-
-  public PackageStatus isSyncInFlight(Boolean isSyncInFlight) {
-    this.isSyncInFlight = isSyncInFlight;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncInFlight
    * @return isSyncInFlight
   **/
   @ApiModelProperty(value = "")
@@ -189,17 +140,8 @@ public class PackageStatus implements Serializable {
     return isSyncInFlight;
   }
 
-  public void setIsSyncInFlight(Boolean isSyncInFlight) {
-    this.isSyncInFlight = isSyncInFlight;
-  }
-
-  public PackageStatus isSyncInProgress(Boolean isSyncInProgress) {
-    this.isSyncInProgress = isSyncInProgress;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncInProgress
    * @return isSyncInProgress
   **/
   @ApiModelProperty(value = "")
@@ -207,17 +149,8 @@ public class PackageStatus implements Serializable {
     return isSyncInProgress;
   }
 
-  public void setIsSyncInProgress(Boolean isSyncInProgress) {
-    this.isSyncInProgress = isSyncInProgress;
-  }
-
-  public PackageStatus selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get selfUrl
    * @return selfUrl
   **/
   @ApiModelProperty(value = "")
@@ -225,35 +158,17 @@ public class PackageStatus implements Serializable {
     return selfUrl;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
-
-  public PackageStatus stage(Integer stage) {
-    this.stage = stage;
-    return this;
-  }
-
    /**
    * The synchronisation (in progress) stage of the package.
    * @return stage
   **/
   @ApiModelProperty(value = "The synchronisation (in progress) stage of the package.")
-  public Integer getStage() {
+  public java.math.BigInteger getStage() {
     return stage;
   }
 
-  public void setStage(Integer stage) {
-    this.stage = stage;
-  }
-
-  public PackageStatus stageStr(String stageStr) {
-    this.stageStr = stageStr;
-    return this;
-  }
-
    /**
-   * 
+   * Get stageStr
    * @return stageStr
   **/
   @ApiModelProperty(value = "")
@@ -261,31 +176,14 @@ public class PackageStatus implements Serializable {
     return stageStr;
   }
 
-  public void setStageStr(String stageStr) {
-    this.stageStr = stageStr;
-  }
-
-  public PackageStatus stageUpdatedAt(String stageUpdatedAt) {
-    this.stageUpdatedAt = stageUpdatedAt;
-    return this;
-  }
-
    /**
    * The datetime the package stage was updated at.
    * @return stageUpdatedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the package stage was updated at.")
-  public String getStageUpdatedAt() {
+  public OffsetDateTime getStageUpdatedAt() {
     return stageUpdatedAt;
-  }
-
-  public void setStageUpdatedAt(String stageUpdatedAt) {
-    this.stageUpdatedAt = stageUpdatedAt;
-  }
-
-  public PackageStatus status(Integer status) {
-    this.status = status;
-    return this;
   }
 
    /**
@@ -293,39 +191,21 @@ public class PackageStatus implements Serializable {
    * @return status
   **/
   @ApiModelProperty(value = "The synchronisation status of the package.")
-  public Integer getStatus() {
+  public java.math.BigInteger getStatus() {
     return status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public PackageStatus statusReason(String statusReason) {
-    this.statusReason = statusReason;
-    return this;
   }
 
    /**
    * A textual description for the synchronous status reason (if any
    * @return statusReason
   **/
-  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+ @Size(min=1)  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
   public String getStatusReason() {
     return statusReason;
   }
 
-  public void setStatusReason(String statusReason) {
-    this.statusReason = statusReason;
-  }
-
-  public PackageStatus statusStr(String statusStr) {
-    this.statusStr = statusStr;
-    return this;
-  }
-
    /**
-   * 
+   * Get statusStr
    * @return statusStr
   **/
   @ApiModelProperty(value = "")
@@ -333,49 +213,24 @@ public class PackageStatus implements Serializable {
     return statusStr;
   }
 
-  public void setStatusStr(String statusStr) {
-    this.statusStr = statusStr;
-  }
-
-  public PackageStatus statusUpdatedAt(String statusUpdatedAt) {
-    this.statusUpdatedAt = statusUpdatedAt;
-    return this;
-  }
-
    /**
    * The datetime the package status was updated at.
    * @return statusUpdatedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the package status was updated at.")
-  public String getStatusUpdatedAt() {
+  public OffsetDateTime getStatusUpdatedAt() {
     return statusUpdatedAt;
-  }
-
-  public void setStatusUpdatedAt(String statusUpdatedAt) {
-    this.statusUpdatedAt = statusUpdatedAt;
-  }
-
-  public PackageStatus syncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
-    return this;
   }
 
    /**
    * The datetime the package sync was finished at.
    * @return syncFinishedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the package sync was finished at.")
-  public String getSyncFinishedAt() {
+  public OffsetDateTime getSyncFinishedAt() {
     return syncFinishedAt;
-  }
-
-  public void setSyncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
-  }
-
-  public PackageStatus syncProgress(Integer syncProgress) {
-    this.syncProgress = syncProgress;
-    return this;
   }
 
    /**
@@ -383,12 +238,8 @@ public class PackageStatus implements Serializable {
    * @return syncProgress
   **/
   @ApiModelProperty(value = "Synchronisation progress (from 0-100)")
-  public Integer getSyncProgress() {
+  public java.math.BigInteger getSyncProgress() {
     return syncProgress;
-  }
-
-  public void setSyncProgress(Integer syncProgress) {
-    this.syncProgress = syncProgress;
   }
 
 

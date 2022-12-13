@@ -8,6 +8,7 @@ root_dir=$(readlink -f "$self_dir/../..")
 
 src_dir="$self_dir/src"
 build_json="$src_dir/build.json"
+template_dir="$self_dir/templates"
 
 rm -rf $src_dir
 mkdir -p $src_dir
@@ -18,7 +19,7 @@ cat > $build_json <<EOC
     "apiPackage": "io.cloudsmith.api.apis",
     "artifactId": "$project_dash",
     "artifactUrl": "$openapi_url",
-    "artifactVersion": "$api_version",
+    "artifactVersion": "$package_version",
     "artifactDescription": "$summary",
     "dateLibrary": "java8",
     "developerName": "$author",
@@ -45,8 +46,10 @@ cat > $build_json <<EOC
 EOC
 
 $root_dir/bin/swagger-codegen-cli generate \
+    --type-mappings Integer=java.math.BigInteger \
     -c $build_json \
     -i $openapi_url \
     -l java \
     -o $src_dir \
+    -t $template_dir \
     $common_codegen_options

@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,13 +13,10 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.FilesAbort;
-import io.cloudsmith.api.models.FilesComplete;
-import io.cloudsmith.api.models.FilesCreate;
-import io.cloudsmith.api.models.FilesValidate;
+import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.PackageFilePartsUpload;
 import io.cloudsmith.api.models.PackageFileUpload;
-import io.cloudsmith.api.models.Status;
+import io.cloudsmith.api.models.PackageFileUploadRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -51,7 +48,7 @@ public class FilesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        FilesAbort data = null;
+        PackageFileUploadRequest data = null;
         api.filesAbort(owner, repo, identifier, data);
 
         // TODO: test validations
@@ -70,7 +67,7 @@ public class FilesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        FilesComplete data = null;
+        PackageFileUploadRequest data = null;
         PackageFileUpload response = api.filesComplete(owner, repo, identifier, data);
 
         // TODO: test validations
@@ -88,7 +85,7 @@ public class FilesApiTest {
     public void filesCreateTest() throws Exception {
         String owner = null;
         String repo = null;
-        FilesCreate data = null;
+        PackageFileUploadRequest data = null;
         PackageFileUpload response = api.filesCreate(owner, repo, data);
 
         // TODO: test validations
@@ -108,7 +105,7 @@ public class FilesApiTest {
         String repo = null;
         String identifier = null;
         String filename = null;
-        Integer partNumber = null;
+        java.math.BigInteger partNumber = null;
         PackageFilePartsUpload response = api.filesInfo(owner, repo, identifier, filename, partNumber);
 
         // TODO: test validations
@@ -126,7 +123,7 @@ public class FilesApiTest {
     public void filesValidateTest() throws Exception {
         String owner = null;
         String repo = null;
-        FilesValidate data = null;
+        PackageFileUploadRequest data = null;
         api.filesValidate(owner, repo, data);
 
         // TODO: test validations

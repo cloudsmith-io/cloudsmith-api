@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class OrganizationTeamMembers(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'members': 'list[OrganizationTeamMembersMembers]'
+        'members': 'list[OrganizationTeamMembership]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class OrganizationTeamMembers(object):
         The team members
 
         :return: The members of this OrganizationTeamMembers.
-        :rtype: list[OrganizationTeamMembersMembers]
+        :rtype: list[OrganizationTeamMembership]
         """
         return self._members
 
@@ -69,7 +69,7 @@ class OrganizationTeamMembers(object):
         The team members
 
         :param members: The members of this OrganizationTeamMembers.
-        :type: list[OrganizationTeamMembersMembers]
+        :type: list[OrganizationTeamMembership]
         """
         if self._configuration.client_side_validation and members is None:
             raise ValueError("Invalid value for `members`, must not be `None`")  # noqa: E501

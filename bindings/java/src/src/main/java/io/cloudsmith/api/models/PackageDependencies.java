@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.PackageDependenciesDependencies;
+import io.cloudsmith.api.models.PackageDependency;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,30 +38,30 @@ public class PackageDependencies implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("dependencies")
-  private List<PackageDependenciesDependencies> dependencies = new ArrayList<>();
+  private List<PackageDependency> dependencies = new ArrayList<>();
 
-  public PackageDependencies dependencies(List<PackageDependenciesDependencies> dependencies) {
+  public PackageDependencies dependencies(List<PackageDependency> dependencies) {
     this.dependencies = dependencies;
     return this;
   }
 
-  public PackageDependencies addDependenciesItem(PackageDependenciesDependencies dependenciesItem) {
+  public PackageDependencies addDependenciesItem(PackageDependency dependenciesItem) {
     this.dependencies.add(dependenciesItem);
     return this;
   }
 
    /**
-   * 
+   * Get dependencies
    * @return dependencies
   **/
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "")
-  public List<PackageDependenciesDependencies> getDependencies() {
+  public List<PackageDependency> getDependencies() {
     return dependencies;
   }
 
-  public void setDependencies(List<PackageDependenciesDependencies> dependencies) {
+  public void setDependencies(List<PackageDependency> dependencies) {
     this.dependencies = dependencies;
   }
 

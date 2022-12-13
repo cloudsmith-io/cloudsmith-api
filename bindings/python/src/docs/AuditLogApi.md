@@ -4,12 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**audit_log_list**](AuditLogApi.md#audit_log_list) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
-[**audit_log_list0**](AuditLogApi.md#audit_log_list0) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
+[**audit_log_namespace_list**](AuditLogApi.md#audit_log_namespace_list) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
+[**audit_log_repo_list**](AuditLogApi.md#audit_log_repo_list) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
 
 
-# **audit_log_list**
-> list[NamespaceAuditLog] audit_log_list(owner, page=page, page_size=page_size, query=query)
+# **audit_log_namespace_list**
+> list[NamespaceAuditLog] audit_log_namespace_list(owner, page=page, page_size=page_size, query=query)
 
 Lists audit log entries for a specific namespace.
 
@@ -38,10 +38,10 @@ query = 'query_example' # str | A search term for querying events, actors, or ti
 
 try:
     # Lists audit log entries for a specific namespace.
-    api_response = api_instance.audit_log_list(owner, page=page, page_size=page_size, query=query)
+    api_response = api_instance.audit_log_namespace_list(owner, page=page, page_size=page_size, query=query)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuditLogApi->audit_log_list: %s\n" % e)
+    print("Exception when calling AuditLogApi->audit_log_namespace_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -63,13 +63,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **audit_log_list0**
-> list[RepositoryAuditLog] audit_log_list0(owner, repo, page=page, page_size=page_size, query=query)
+# **audit_log_repo_list**
+> list[RepositoryAuditLog] audit_log_repo_list(owner, repo, page=page, page_size=page_size, query=query)
 
 Lists audit log entries for a specific repository.
 
@@ -99,10 +99,10 @@ query = 'query_example' # str | A search term for querying events, actors, or ti
 
 try:
     # Lists audit log entries for a specific repository.
-    api_response = api_instance.audit_log_list0(owner, repo, page=page, page_size=page_size, query=query)
+    api_response = api_instance.audit_log_repo_list(owner, repo, page=page, page_size=page_size, query=query)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuditLogApi->audit_log_list0: %s\n" % e)
+    print("Exception when calling AuditLogApi->audit_log_repo_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -125,8 +125,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

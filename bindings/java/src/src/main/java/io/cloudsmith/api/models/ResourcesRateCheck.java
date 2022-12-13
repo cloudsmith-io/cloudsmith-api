@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,9 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.RateCheck;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -35,24 +39,16 @@ public class ResourcesRateCheck implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("resources")
-  private Object resources = null;
-
-  public ResourcesRateCheck resources(Object resources) {
-    this.resources = resources;
-    return this;
-  }
+  private Map<String, RateCheck> resources = null;
 
    /**
    * Rate limit values per resource
    * @return resources
   **/
-  @ApiModelProperty(example = "{\"core\":{\"interval\":5.123456789,\"limit\":3600,\"remaining\":3595,\"reset\":1664464100,\"reset_iso_8601\":\"2022-09-29T15:08:20.344920+00:00\",\"throttled\":false}}", value = "Rate limit values per resource")
-  public Object getResources() {
+  @Valid
+  @ApiModelProperty(value = "Rate limit values per resource")
+  public Map<String, RateCheck> getResources() {
     return resources;
-  }
-
-  public void setResources(Object resources) {
-    this.resources = resources;
   }
 
 

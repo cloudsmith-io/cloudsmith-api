@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tokens** | **Object** |  | 
+**tokens** | [**CommonMetrics**](CommonMetrics.md) |  | 
 
 
 

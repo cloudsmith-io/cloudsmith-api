@@ -19,7 +19,7 @@ upload_to_maven_central() {
 
 upload_to_cloudsmith() {
   echo "Uploading to Cloudsmith ..."
-  base_name="target/${project_dash}-${api_version}"
+  base_name="target/${project_dash}-${package_version}"
   export PATH="$HOME/.local/bin:$PATH"
   cloudsmith push maven \
     ${cloudsmith_repo_api} \

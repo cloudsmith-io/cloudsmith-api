@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -50,7 +50,7 @@ public class StorageRegion implements Serializable {
    * @return label
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "Name of the storage region")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "Name of the storage region")
   public String getLabel() {
     return label;
   }
@@ -69,7 +69,7 @@ public class StorageRegion implements Serializable {
    * @return slug
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "Slug for the storage region")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "Slug for the storage region")
   public String getSlug() {
     return slug;
   }

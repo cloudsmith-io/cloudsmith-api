@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,205 +13,222 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class OrganizationMembership
-    # 
-    attr_accessor :email
+class OrganizationMembership
+  attr_accessor :email
 
-    # 
-    attr_accessor :has_two_factor
+  attr_accessor :has_two_factor
 
-    # 
-    attr_accessor :joined_at
+  attr_accessor :joined_at
 
-    # 
-    attr_accessor :last_login_at
+  attr_accessor :last_login_at
 
-    # 
-    attr_accessor :role
+  attr_accessor :last_login_method
 
-    # 
-    attr_accessor :user
+  attr_accessor :role
 
-    # 
-    attr_accessor :user_id
+  attr_accessor :user
 
-    # 
-    attr_accessor :user_name
+  attr_accessor :user_id
 
-    # 
-    attr_accessor :user_url
+  attr_accessor :user_name
 
-    # 
-    attr_accessor :visibility
+  attr_accessor :user_url
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+  attr_accessor :visibility
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
         end
       end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
     end
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'email' => :'email',
-        :'has_two_factor' => :'has_two_factor',
-        :'joined_at' => :'joined_at',
-        :'last_login_at' => :'last_login_at',
-        :'role' => :'role',
-        :'user' => :'user',
-        :'user_id' => :'user_id',
-        :'user_name' => :'user_name',
-        :'user_url' => :'user_url',
-        :'visibility' => :'visibility'
-      }
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'email' => :'email',
+      :'has_two_factor' => :'has_two_factor',
+      :'joined_at' => :'joined_at',
+      :'last_login_at' => :'last_login_at',
+      :'last_login_method' => :'last_login_method',
+      :'role' => :'role',
+      :'user' => :'user',
+      :'user_id' => :'user_id',
+      :'user_name' => :'user_name',
+      :'user_url' => :'user_url',
+      :'visibility' => :'visibility'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'email' => :'String',
+      :'has_two_factor' => :'BOOLEAN',
+      :'joined_at' => :'DateTime',
+      :'last_login_at' => :'DateTime',
+      :'last_login_method' => :'String',
+      :'role' => :'String',
+      :'user' => :'String',
+      :'user_id' => :'String',
+      :'user_name' => :'String',
+      :'user_url' => :'String',
+      :'visibility' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'email')
+      self.email = attributes[:'email']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'email' => :'String',
-        :'has_two_factor' => :'BOOLEAN',
-        :'joined_at' => :'String',
-        :'last_login_at' => :'String',
-        :'role' => :'String',
-        :'user' => :'String',
-        :'user_id' => :'String',
-        :'user_name' => :'String',
-        :'user_url' => :'String',
-        :'visibility' => :'String'
-      }
+    if attributes.has_key?(:'has_two_factor')
+      self.has_two_factor = attributes[:'has_two_factor']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'has_two_factor')
-        self.has_two_factor = attributes[:'has_two_factor']
-      end
-
-      if attributes.has_key?(:'joined_at')
-        self.joined_at = attributes[:'joined_at']
-      end
-
-      if attributes.has_key?(:'last_login_at')
-        self.last_login_at = attributes[:'last_login_at']
-      end
-
-      if attributes.has_key?(:'role')
-        self.role = attributes[:'role']
-      end
-
-      if attributes.has_key?(:'user')
-        self.user = attributes[:'user']
-      end
-
-      if attributes.has_key?(:'user_id')
-        self.user_id = attributes[:'user_id']
-      end
-
-      if attributes.has_key?(:'user_name')
-        self.user_name = attributes[:'user_name']
-      end
-
-      if attributes.has_key?(:'user_url')
-        self.user_url = attributes[:'user_url']
-      end
-
-      if attributes.has_key?(:'visibility')
-        self.visibility = attributes[:'visibility']
-      end
+    if attributes.has_key?(:'joined_at')
+      self.joined_at = attributes[:'joined_at']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      invalid_properties
+    if attributes.has_key?(:'last_login_at')
+      self.last_login_at = attributes[:'last_login_at']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      role_validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
-      return false unless role_validator.valid?(@role)
-      visibility_validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
-      return false unless visibility_validator.valid?(@visibility)
-      true
+    if attributes.has_key?(:'last_login_method')
+      self.last_login_method = attributes[:'last_login_method']
+    else
+      self.last_login_method = 'Unknown'
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] role Object to be assigned
-    def role=(role)
-      validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
-      unless validator.valid?(role)
-        fail ArgumentError, 'invalid value for "role", must be one of #{validator.allowable_values}.'
-      end
-      @role = role
+    if attributes.has_key?(:'role')
+      self.role = attributes[:'role']
+    else
+      self.role = 'Owner'
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] visibility Object to be assigned
-    def visibility=(visibility)
-      validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
-      unless validator.valid?(visibility)
-        fail ArgumentError, 'invalid value for "visibility", must be one of #{validator.allowable_values}.'
-      end
-      @visibility = visibility
+    if attributes.has_key?(:'user')
+      self.user = attributes[:'user']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          email == o.email &&
-          has_two_factor == o.has_two_factor &&
-          joined_at == o.joined_at &&
-          last_login_at == o.last_login_at &&
-          role == o.role &&
-          user == o.user &&
-          user_id == o.user_id &&
-          user_name == o.user_name &&
-          user_url == o.user_url &&
-          visibility == o.visibility
+    if attributes.has_key?(:'user_id')
+      self.user_id = attributes[:'user_id']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'user_name')
+      self.user_name = attributes[:'user_name']
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [email, has_two_factor, joined_at, last_login_at, role, user, user_id, user_name, user_url, visibility].hash
+    if attributes.has_key?(:'user_url')
+      self.user_url = attributes[:'user_url']
     end
+
+    if attributes.has_key?(:'visibility')
+      self.visibility = attributes[:'visibility']
+    else
+      self.visibility = 'Public'
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    last_login_method_validator = EnumAttributeValidator.new('String', ['Unknown', 'Password', 'Social', 'SAML'])
+    return false unless last_login_method_validator.valid?(@last_login_method)
+    role_validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
+    return false unless role_validator.valid?(@role)
+    visibility_validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
+    return false unless visibility_validator.valid?(@visibility)
+    true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] last_login_method Object to be assigned
+  def last_login_method=(last_login_method)
+    validator = EnumAttributeValidator.new('String', ['Unknown', 'Password', 'Social', 'SAML'])
+    unless validator.valid?(last_login_method)
+      fail ArgumentError, 'invalid value for "last_login_method", must be one of #{validator.allowable_values}.'
+    end
+    @last_login_method = last_login_method
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] role Object to be assigned
+  def role=(role)
+    validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
+    unless validator.valid?(role)
+      fail ArgumentError, 'invalid value for "role", must be one of #{validator.allowable_values}.'
+    end
+    @role = role
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] visibility Object to be assigned
+  def visibility=(visibility)
+    validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
+    unless validator.valid?(visibility)
+      fail ArgumentError, 'invalid value for "visibility", must be one of #{validator.allowable_values}.'
+    end
+    @visibility = visibility
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        email == o.email &&
+        has_two_factor == o.has_two_factor &&
+        joined_at == o.joined_at &&
+        last_login_at == o.last_login_at &&
+        last_login_method == o.last_login_method &&
+        role == o.role &&
+        user == o.user &&
+        user_id == o.user_id &&
+        user_name == o.user_name &&
+        user_url == o.user_url &&
+        visibility == o.visibility
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [email, has_two_factor, joined_at, last_login_at, last_login_method, role, user, user_id, user_name, user_url, visibility].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -317,5 +334,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **distros_list**
-> list[Distribution] distros_list()
+> list[DistributionFull] distros_list()
 
 Get a list of all supported distributions.
 
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[Distribution]**](Distribution.md)
+[**list[DistributionFull]**](DistributionFull.md)
 
 ### Authorization
 
@@ -53,13 +53,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **distros_read**
-> Distribution distros_read(slug)
+> DistributionFull distros_read(slug)
 
 View for viewing/listing distributions.
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](Distribution.md)
+[**DistributionFull**](DistributionFull.md)
 
 ### Authorization
 
@@ -107,8 +107,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

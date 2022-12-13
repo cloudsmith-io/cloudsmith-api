@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -97,6 +97,14 @@ class UserApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -126,7 +134,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserTokenCreate data:
+        :param UserAuthTokenRequest data:
         :return: UserAuthToken
                  If the method is called asynchronously,
                  returns the request thread.
@@ -148,7 +156,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UserTokenCreate data:
+        :param UserAuthTokenRequest data:
         :return: UserAuthToken
                  If the method is called asynchronously,
                  returns the request thread.
@@ -184,6 +192,10 @@ class UserApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501

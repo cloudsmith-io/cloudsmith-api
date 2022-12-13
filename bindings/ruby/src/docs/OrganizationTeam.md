@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **slug** | **String** |  | [optional] 
 **slug_perm** | **String** |  | [optional] 
-**visibility** | **String** |  | [optional] 
+**visibility** | **String** |  | [optional] [default to &#39;Visible&#39;]
 
 

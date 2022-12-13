@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,7 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.FormatsDistributions;
+import io.cloudsmith.api.models.Distribution;
+import io.cloudsmith.api.models.FormatSupport;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class Format implements Serializable {
   private String description = null;
 
   @SerializedName("distributions")
-  private List<FormatsDistributions> distributions = null;
+  private List<Distribution> distributions = null;
 
   @SerializedName("extensions")
   private List<String> extensions = new ArrayList<>();
@@ -62,7 +63,7 @@ public class Format implements Serializable {
   private String slug = null;
 
   @SerializedName("supports")
-  private Object supports = null;
+  private FormatSupport supports = null;
 
   public Format description(String description) {
     this.description = description;
@@ -74,7 +75,7 @@ public class Format implements Serializable {
    * @return description
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "Description of the package format")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "Description of the package format")
   public String getDescription() {
     return description;
   }
@@ -83,12 +84,12 @@ public class Format implements Serializable {
     this.description = description;
   }
 
-  public Format distributions(List<FormatsDistributions> distributions) {
+  public Format distributions(List<Distribution> distributions) {
     this.distributions = distributions;
     return this;
   }
 
-  public Format addDistributionsItem(FormatsDistributions distributionsItem) {
+  public Format addDistributionsItem(Distribution distributionsItem) {
     if (this.distributions == null) {
       this.distributions = new ArrayList<>();
     }
@@ -102,11 +103,11 @@ public class Format implements Serializable {
   **/
   @Valid
   @ApiModelProperty(value = "The distributions supported by this package format")
-  public List<FormatsDistributions> getDistributions() {
+  public List<Distribution> getDistributions() {
     return distributions;
   }
 
-  public void setDistributions(List<FormatsDistributions> distributions) {
+  public void setDistributions(List<Distribution> distributions) {
     this.distributions = distributions;
   }
 
@@ -144,7 +145,7 @@ public class Format implements Serializable {
    * @return name
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "Name for the package format")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "Name for the package format")
   public String getName() {
     return name;
   }
@@ -181,7 +182,7 @@ public class Format implements Serializable {
    * The minimum plan id required for this package format
    * @return premiumPlanId
   **/
-  @ApiModelProperty(value = "The minimum plan id required for this package format")
+ @Size(min=1)  @ApiModelProperty(value = "The minimum plan id required for this package format")
   public String getPremiumPlanId() {
     return premiumPlanId;
   }
@@ -199,7 +200,7 @@ public class Format implements Serializable {
    * The minimum plan name required for this package format
    * @return premiumPlanName
   **/
-  @ApiModelProperty(value = "The minimum plan name required for this package format")
+ @Size(min=1)  @ApiModelProperty(value = "The minimum plan name required for this package format")
   public String getPremiumPlanName() {
     return premiumPlanName;
   }
@@ -218,7 +219,7 @@ public class Format implements Serializable {
    * @return slug
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "Slug for the package format")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "Slug for the package format")
   public String getSlug() {
     return slug;
   }
@@ -227,22 +228,23 @@ public class Format implements Serializable {
     this.slug = slug;
   }
 
-  public Format supports(Object supports) {
+  public Format supports(FormatSupport supports) {
     this.supports = supports;
     return this;
   }
 
    /**
-   * A set of what the package format supports
+   * Get supports
    * @return supports
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "A set of what the package format supports")
-  public Object getSupports() {
+  @Valid
+  @ApiModelProperty(required = true, value = "")
+  public FormatSupport getSupports() {
     return supports;
   }
 
-  public void setSupports(Object supports) {
+  public void setSupports(FormatSupport supports) {
     this.supports = supports;
   }
 

@@ -7,16 +7,16 @@ Name | Type | Description | Notes
 **actor** | **String** |  | 
 **actorIpAddress** | **String** |  | 
 **actorKind** | **String** |  |  [optional]
-**actorLocation** | **Object** |  | 
+**actorLocation** | [**GeoIpLocation**](GeoIpLocation.md) |  | 
 **actorSlugPerm** | **String** |  | 
 **actorUrl** | **String** |  |  [optional]
 **context** | **String** |  | 
 **event** | **String** |  | 
-**eventAt** | **String** |  | 
+**eventAt** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 **object** | **String** |  | 
 **objectKind** | **String** |  | 
 **objectSlugPerm** | **String** |  | 
-**uuid** | **String** |  |  [optional]
+**uuid** | [**UUID**](UUID.md) |  |  [optional]
 
 
 

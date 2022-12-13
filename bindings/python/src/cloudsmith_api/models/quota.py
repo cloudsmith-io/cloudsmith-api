@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class Quota(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'usage': 'object'
+        'usage': 'UsageFieldset'
     }
 
     attribute_map = {
@@ -55,10 +55,9 @@ class Quota(object):
     def usage(self):
         """Gets the usage of this Quota.
 
-        
 
         :return: The usage of this Quota.
-        :rtype: object
+        :rtype: UsageFieldset
         """
         return self._usage
 
@@ -66,10 +65,9 @@ class Quota(object):
     def usage(self, usage):
         """Sets the usage of this Quota.
 
-        
 
         :param usage: The usage of this Quota.
-        :type: object
+        :type: UsageFieldset
         """
         if self._configuration.client_side_validation and usage is None:
             raise ValueError("Invalid value for `usage`, must not be `None`")  # noqa: E501

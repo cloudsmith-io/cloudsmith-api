@@ -4,13 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reposAllList**](ReposApi.md#reposAllList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 [**reposCreate**](ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 [**reposDelete**](ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**reposGpgCreate**](ReposApi.md#reposGpgCreate) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 [**reposGpgList**](ReposApi.md#reposGpgList) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 [**reposGpgRegenerate**](ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
-[**reposList**](ReposApi.md#reposList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
+[**reposNamespaceList**](ReposApi.md#reposNamespaceList) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
 [**reposPartialUpdate**](ReposApi.md#reposPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
 [**reposPrivilegesList**](ReposApi.md#reposPrivilegesList) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
 [**reposPrivilegesPartialUpdate**](ReposApi.md#reposPrivilegesPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository.
@@ -19,64 +18,8 @@ Method | HTTP request | Description
 [**reposRsaCreate**](ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 [**reposRsaList**](ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**reposRsaRegenerate**](ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
+[**reposUserList**](ReposApi.md#reposUserList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 
-
-<a name="reposAllList"></a>
-# **reposAllList**
-> List&lt;Repository&gt; reposAllList(page, pageSize)
-
-Get a list of all repositories associated with current user.
-
-Get a list of all repositories associated with current user.
-
-### Example
-```java
-// Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.ReposApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
-
-ReposApi apiInstance = new ReposApi();
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
-try {
-    List<Repository> result = apiInstance.reposAllList(page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ReposApi#reposAllList");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
-
-### Return type
-
-[**List&lt;Repository&gt;**](Repository.md)
-
-### Authorization
-
-[apikey](../README.md#apikey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
 
 <a name="reposCreate"></a>
 # **reposCreate**
@@ -105,7 +48,7 @@ apikey.setApiKey("YOUR API KEY");
 
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
-ReposCreate data = new ReposCreate(); // ReposCreate | 
+RepositoryCreateRequest data = new RepositoryCreateRequest(); // RepositoryCreateRequest | 
 try {
     RepositoryCreate result = apiInstance.reposCreate(owner, data);
     System.out.println(result);
@@ -120,7 +63,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
- **data** | [**ReposCreate**](ReposCreate.md)|  | [optional]
+ **data** | [**RepositoryCreateRequest**](RepositoryCreateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -133,7 +76,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="reposDelete"></a>
 # **reposDelete**
@@ -188,8 +131,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="reposGpgCreate"></a>
 # **reposGpgCreate**
@@ -219,7 +162,7 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-ReposGpgCreate data = new ReposGpgCreate(); // ReposGpgCreate | 
+RepositoryGpgKeyCreate data = new RepositoryGpgKeyCreate(); // RepositoryGpgKeyCreate | 
 try {
     RepositoryGpgKey result = apiInstance.reposGpgCreate(owner, identifier, data);
     System.out.println(result);
@@ -235,7 +178,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**ReposGpgCreate**](ReposGpgCreate.md)|  | [optional]
+ **data** | [**RepositoryGpgKeyCreate**](RepositoryGpgKeyCreate.md)|  | [optional]
 
 ### Return type
 
@@ -248,7 +191,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="reposGpgList"></a>
 # **reposGpgList**
@@ -304,8 +247,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="reposGpgRegenerate"></a>
 # **reposGpgRegenerate**
@@ -361,12 +304,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
-<a name="reposList"></a>
-# **reposList**
-> List&lt;Repository&gt; reposList(owner, page, pageSize)
+<a name="reposNamespaceList"></a>
+# **reposNamespaceList**
+> List&lt;Repository&gt; reposNamespaceList(owner, page, pageSize)
 
 Get a list of all repositories within a namespace.
 
@@ -391,13 +334,13 @@ apikey.setApiKey("YOUR API KEY");
 
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<Repository> result = apiInstance.reposList(owner, page, pageSize);
+    List<Repository> result = apiInstance.reposNamespaceList(owner, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReposApi#reposList");
+    System.err.println("Exception when calling ReposApi#reposNamespaceList");
     e.printStackTrace();
 }
 ```
@@ -407,8 +350,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
 
 ### Return type
 
@@ -420,8 +363,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="reposPartialUpdate"></a>
 # **reposPartialUpdate**
@@ -451,7 +394,7 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-ReposPartialUpdate data = new ReposPartialUpdate(); // ReposPartialUpdate | 
+RepositoryRequestPatch data = new RepositoryRequestPatch(); // RepositoryRequestPatch | 
 try {
     Repository result = apiInstance.reposPartialUpdate(owner, identifier, data);
     System.out.println(result);
@@ -467,7 +410,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**ReposPartialUpdate**](ReposPartialUpdate.md)|  | [optional]
+ **data** | [**RepositoryRequestPatch**](RepositoryRequestPatch.md)|  | [optional]
 
 ### Return type
 
@@ -480,7 +423,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="reposPrivilegesList"></a>
 # **reposPrivilegesList**
@@ -510,8 +453,8 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
     RepositoryPrivilegeInput result = apiInstance.reposPrivilegesList(owner, identifier, page, pageSize);
     System.out.println(result);
@@ -527,8 +470,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
 
 ### Return type
 
@@ -540,8 +483,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="reposPrivilegesPartialUpdate"></a>
 # **reposPrivilegesPartialUpdate**
@@ -571,7 +514,7 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-ReposPrivilegesPartialUpdate data = new ReposPrivilegesPartialUpdate(); // ReposPrivilegesPartialUpdate | 
+RepositoryPrivilegeInputRequestPatch data = new RepositoryPrivilegeInputRequestPatch(); // RepositoryPrivilegeInputRequestPatch | 
 try {
     apiInstance.reposPrivilegesPartialUpdate(owner, identifier, data);
 } catch (ApiException e) {
@@ -586,7 +529,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**ReposPrivilegesPartialUpdate**](ReposPrivilegesPartialUpdate.md)|  | [optional]
+ **data** | [**RepositoryPrivilegeInputRequestPatch**](RepositoryPrivilegeInputRequestPatch.md)|  | [optional]
 
 ### Return type
 
@@ -599,7 +542,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="reposPrivilegesUpdate"></a>
 # **reposPrivilegesUpdate**
@@ -629,7 +572,7 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-ReposPrivilegesUpdate data = new ReposPrivilegesUpdate(); // ReposPrivilegesUpdate | 
+RepositoryPrivilegeInputRequest data = new RepositoryPrivilegeInputRequest(); // RepositoryPrivilegeInputRequest | 
 try {
     apiInstance.reposPrivilegesUpdate(owner, identifier, data);
 } catch (ApiException e) {
@@ -644,7 +587,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**ReposPrivilegesUpdate**](ReposPrivilegesUpdate.md)|  | [optional]
+ **data** | [**RepositoryPrivilegeInputRequest**](RepositoryPrivilegeInputRequest.md)|  | [optional]
 
 ### Return type
 
@@ -657,7 +600,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="reposRead"></a>
 # **reposRead**
@@ -713,8 +656,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="reposRsaCreate"></a>
 # **reposRsaCreate**
@@ -744,7 +687,7 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-ReposRsaCreate data = new ReposRsaCreate(); // ReposRsaCreate | 
+RepositoryRsaKeyCreate data = new RepositoryRsaKeyCreate(); // RepositoryRsaKeyCreate | 
 try {
     RepositoryRsaKey result = apiInstance.reposRsaCreate(owner, identifier, data);
     System.out.println(result);
@@ -760,7 +703,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**ReposRsaCreate**](ReposRsaCreate.md)|  | [optional]
+ **data** | [**RepositoryRsaKeyCreate**](RepositoryRsaKeyCreate.md)|  | [optional]
 
 ### Return type
 
@@ -773,7 +716,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="reposRsaList"></a>
 # **reposRsaList**
@@ -829,8 +772,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="reposRsaRegenerate"></a>
 # **reposRsaRegenerate**
@@ -886,6 +829,63 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUserList"></a>
+# **reposUserList**
+> List&lt;Repository&gt; reposUserList(page, pageSize)
+
+Get a list of all repositories associated with current user.
+
+Get a list of all repositories associated with current user.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<Repository> result = apiInstance.reposUserList(page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUserList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;Repository&gt;**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

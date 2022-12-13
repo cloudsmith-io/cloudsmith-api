@@ -56,8 +56,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="userTokenCreate"></a>
 # **userTokenCreate**
@@ -85,7 +85,7 @@ apikey.setApiKey("YOUR API KEY");
 //apikey.setApiKeyPrefix("Token");
 
 UserApi apiInstance = new UserApi();
-UserTokenCreate data = new UserTokenCreate(); // UserTokenCreate | 
+UserAuthTokenRequest data = new UserAuthTokenRequest(); // UserAuthTokenRequest | 
 try {
     UserAuthToken result = apiInstance.userTokenCreate(data);
     System.out.println(result);
@@ -99,7 +99,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UserTokenCreate**](UserTokenCreate.md)|  | [optional]
+ **data** | [**UserAuthTokenRequest**](UserAuthTokenRequest.md)|  | [optional]
 
 ### Return type
 
@@ -112,5 +112,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 

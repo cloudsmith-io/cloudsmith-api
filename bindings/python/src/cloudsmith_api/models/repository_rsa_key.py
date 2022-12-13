@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -34,7 +34,7 @@ class RepositoryRsaKey(object):
     """
     swagger_types = {
         'active': 'bool',
-        'created_at': 'str',
+        'created_at': 'datetime',
         'default': 'bool',
         'fingerprint': 'str',
         'fingerprint_short': 'str',
@@ -104,10 +104,9 @@ class RepositoryRsaKey(object):
     def created_at(self):
         """Gets the created_at of this RepositoryRsaKey.
 
-        
 
         :return: The created_at of this RepositoryRsaKey.
-        :rtype: str
+        :rtype: datetime
         """
         return self._created_at
 
@@ -115,10 +114,9 @@ class RepositoryRsaKey(object):
     def created_at(self, created_at):
         """Sets the created_at of this RepositoryRsaKey.
 
-        
 
         :param created_at: The created_at of this RepositoryRsaKey.
-        :type: str
+        :type: datetime
         """
 
         self._created_at = created_at
@@ -166,6 +164,9 @@ class RepositoryRsaKey(object):
         :param fingerprint: The fingerprint of this RepositoryRsaKey.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                fingerprint is not None and len(fingerprint) < 1):
+            raise ValueError("Invalid value for `fingerprint`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._fingerprint = fingerprint
 
@@ -173,7 +174,6 @@ class RepositoryRsaKey(object):
     def fingerprint_short(self):
         """Gets the fingerprint_short of this RepositoryRsaKey.
 
-        
 
         :return: The fingerprint_short of this RepositoryRsaKey.
         :rtype: str
@@ -184,7 +184,6 @@ class RepositoryRsaKey(object):
     def fingerprint_short(self, fingerprint_short):
         """Sets the fingerprint_short of this RepositoryRsaKey.
 
-        
 
         :param fingerprint_short: The fingerprint_short of this RepositoryRsaKey.
         :type: str
@@ -212,6 +211,9 @@ class RepositoryRsaKey(object):
         :param public_key: The public_key of this RepositoryRsaKey.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                public_key is not None and len(public_key) < 1):
+            raise ValueError("Invalid value for `public_key`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._public_key = public_key
 

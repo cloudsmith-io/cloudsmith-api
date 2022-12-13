@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,136 +13,102 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class Distribution
-    # 
-    attr_accessor :format
+# The distributions supported by this package format
+class Distribution
+  attr_accessor :name
 
-    # 
-    attr_accessor :format_url
+  attr_accessor :self_url
 
-    # 
-    attr_accessor :name
+  # The slug identifier for this distribution
+  attr_accessor :slug
 
-    # 
-    attr_accessor :self_url
+  attr_accessor :variants
 
-    # The slug identifier for this distribution
-    attr_accessor :slug
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'name' => :'name',
+      :'self_url' => :'self_url',
+      :'slug' => :'slug',
+      :'variants' => :'variants'
+    }
+  end
 
-    # 
-    attr_accessor :variants
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'name' => :'String',
+      :'self_url' => :'String',
+      :'slug' => :'String',
+      :'variants' => :'String'
+    }
+  end
 
-    # A list of the versions for this distribution
-    attr_accessor :versions
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'format' => :'format',
-        :'format_url' => :'format_url',
-        :'name' => :'name',
-        :'self_url' => :'self_url',
-        :'slug' => :'slug',
-        :'variants' => :'variants',
-        :'versions' => :'versions'
-      }
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'format' => :'String',
-        :'format_url' => :'String',
-        :'name' => :'String',
-        :'self_url' => :'String',
-        :'slug' => :'String',
-        :'variants' => :'String',
-        :'versions' => :'Array<DistrosVersions>'
-      }
+    if attributes.has_key?(:'self_url')
+      self.self_url = attributes[:'self_url']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'format')
-        self.format = attributes[:'format']
-      end
-
-      if attributes.has_key?(:'format_url')
-        self.format_url = attributes[:'format_url']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'variants')
-        self.variants = attributes[:'variants']
-      end
-
-      if attributes.has_key?(:'versions')
-        if (value = attributes[:'versions']).is_a?(Array)
-          self.versions = value
-        end
-      end
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
+    if attributes.has_key?(:'variants')
+      self.variants = attributes[:'variants']
+    end
+  end
 
-      invalid_properties
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @name.nil?
-      true
-    end
+    invalid_properties
+  end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          format == o.format &&
-          format_url == o.format_url &&
-          name == o.name &&
-          self_url == o.self_url &&
-          slug == o.slug &&
-          variants == o.variants &&
-          versions == o.versions
-    end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @name.nil?
+    true
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        name == o.name &&
+        self_url == o.self_url &&
+        slug == o.slug &&
+        variants == o.variants
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [format, format_url, name, self_url, slug, variants, versions].hash
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [name, self_url, slug, variants].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -248,5 +214,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

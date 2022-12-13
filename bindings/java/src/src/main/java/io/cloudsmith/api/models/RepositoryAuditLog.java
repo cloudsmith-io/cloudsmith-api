@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.GeoIpLocation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.UUID;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -44,7 +47,7 @@ public class RepositoryAuditLog implements Serializable {
   private String actorKind = null;
 
   @SerializedName("actor_location")
-  private Object actorLocation = null;
+  private GeoIpLocation actorLocation = null;
 
   @SerializedName("actor_slug_perm")
   private String actorSlugPerm = null;
@@ -59,7 +62,7 @@ public class RepositoryAuditLog implements Serializable {
   private String event = null;
 
   @SerializedName("event_at")
-  private String eventAt = null;
+  private OffsetDateTime eventAt = null;
 
   @SerializedName("object")
   private String object = null;
@@ -71,7 +74,7 @@ public class RepositoryAuditLog implements Serializable {
   private String objectSlugPerm = null;
 
   @SerializedName("uuid")
-  private String uuid = null;
+  private UUID uuid = null;
 
   public RepositoryAuditLog actor(String actor) {
     this.actor = actor;
@@ -79,11 +82,11 @@ public class RepositoryAuditLog implements Serializable {
   }
 
    /**
-   * 
+   * Get actor
    * @return actor
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getActor() {
     return actor;
   }
@@ -98,11 +101,11 @@ public class RepositoryAuditLog implements Serializable {
   }
 
    /**
-   * 
+   * Get actorIpAddress
    * @return actorIpAddress
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getActorIpAddress() {
     return actorIpAddress;
   }
@@ -111,13 +114,8 @@ public class RepositoryAuditLog implements Serializable {
     this.actorIpAddress = actorIpAddress;
   }
 
-  public RepositoryAuditLog actorKind(String actorKind) {
-    this.actorKind = actorKind;
-    return this;
-  }
-
    /**
-   * 
+   * Get actorKind
    * @return actorKind
   **/
   @ApiModelProperty(value = "")
@@ -125,26 +123,23 @@ public class RepositoryAuditLog implements Serializable {
     return actorKind;
   }
 
-  public void setActorKind(String actorKind) {
-    this.actorKind = actorKind;
-  }
-
-  public RepositoryAuditLog actorLocation(Object actorLocation) {
+  public RepositoryAuditLog actorLocation(GeoIpLocation actorLocation) {
     this.actorLocation = actorLocation;
     return this;
   }
 
    /**
-   * 
+   * Get actorLocation
    * @return actorLocation
   **/
   @NotNull
+  @Valid
   @ApiModelProperty(required = true, value = "")
-  public Object getActorLocation() {
+  public GeoIpLocation getActorLocation() {
     return actorLocation;
   }
 
-  public void setActorLocation(Object actorLocation) {
+  public void setActorLocation(GeoIpLocation actorLocation) {
     this.actorLocation = actorLocation;
   }
 
@@ -154,11 +149,11 @@ public class RepositoryAuditLog implements Serializable {
   }
 
    /**
-   * 
+   * Get actorSlugPerm
    * @return actorSlugPerm
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getActorSlugPerm() {
     return actorSlugPerm;
   }
@@ -167,22 +162,13 @@ public class RepositoryAuditLog implements Serializable {
     this.actorSlugPerm = actorSlugPerm;
   }
 
-  public RepositoryAuditLog actorUrl(String actorUrl) {
-    this.actorUrl = actorUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get actorUrl
    * @return actorUrl
   **/
   @ApiModelProperty(value = "")
   public String getActorUrl() {
     return actorUrl;
-  }
-
-  public void setActorUrl(String actorUrl) {
-    this.actorUrl = actorUrl;
   }
 
   public RepositoryAuditLog context(String context) {
@@ -191,11 +177,11 @@ public class RepositoryAuditLog implements Serializable {
   }
 
    /**
-   * 
+   * Get context
    * @return context
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getContext() {
     return context;
   }
@@ -210,11 +196,11 @@ public class RepositoryAuditLog implements Serializable {
   }
 
    /**
-   * 
+   * Get event
    * @return event
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getEvent() {
     return event;
   }
@@ -223,22 +209,23 @@ public class RepositoryAuditLog implements Serializable {
     this.event = event;
   }
 
-  public RepositoryAuditLog eventAt(String eventAt) {
+  public RepositoryAuditLog eventAt(OffsetDateTime eventAt) {
     this.eventAt = eventAt;
     return this;
   }
 
    /**
-   * 
+   * Get eventAt
    * @return eventAt
   **/
   @NotNull
+  @Valid
   @ApiModelProperty(required = true, value = "")
-  public String getEventAt() {
+  public OffsetDateTime getEventAt() {
     return eventAt;
   }
 
-  public void setEventAt(String eventAt) {
+  public void setEventAt(OffsetDateTime eventAt) {
     this.eventAt = eventAt;
   }
 
@@ -248,11 +235,11 @@ public class RepositoryAuditLog implements Serializable {
   }
 
    /**
-   * 
+   * Get object
    * @return object
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getObject() {
     return object;
   }
@@ -267,11 +254,11 @@ public class RepositoryAuditLog implements Serializable {
   }
 
    /**
-   * 
+   * Get objectKind
    * @return objectKind
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getObjectKind() {
     return objectKind;
   }
@@ -286,11 +273,11 @@ public class RepositoryAuditLog implements Serializable {
   }
 
    /**
-   * 
+   * Get objectSlugPerm
    * @return objectSlugPerm
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getObjectSlugPerm() {
     return objectSlugPerm;
   }
@@ -299,22 +286,14 @@ public class RepositoryAuditLog implements Serializable {
     this.objectSlugPerm = objectSlugPerm;
   }
 
-  public RepositoryAuditLog uuid(String uuid) {
-    this.uuid = uuid;
-    return this;
-  }
-
    /**
-   * 
+   * Get uuid
    * @return uuid
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getUuid() {
+  public UUID getUuid() {
     return uuid;
-  }
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
   }
 
 

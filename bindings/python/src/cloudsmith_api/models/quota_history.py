@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class QuotaHistory(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'history': 'list[QuotaHistoryHistory]'
+        'history': 'list[History]'
     }
 
     attribute_map = {
@@ -55,10 +55,9 @@ class QuotaHistory(object):
     def history(self):
         """Gets the history of this QuotaHistory.
 
-        
 
         :return: The history of this QuotaHistory.
-        :rtype: list[QuotaHistoryHistory]
+        :rtype: list[History]
         """
         return self._history
 
@@ -66,10 +65,9 @@ class QuotaHistory(object):
     def history(self, history):
         """Sets the history of this QuotaHistory.
 
-        
 
         :param history: The history of this QuotaHistory.
-        :type: list[QuotaHistoryHistory]
+        :type: list[History]
         """
         if self._configuration.client_side_validation and history is None:
             raise ValueError("Invalid value for `history`, must not be `None`")  # noqa: E501

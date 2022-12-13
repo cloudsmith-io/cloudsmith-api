@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -71,7 +71,6 @@ class Namespace(object):
     def name(self):
         """Gets the name of this Namespace.
 
-        
 
         :return: The name of this Namespace.
         :rtype: str
@@ -82,7 +81,6 @@ class Namespace(object):
     def name(self, name):
         """Sets the name of this Namespace.
 
-        
 
         :param name: The name of this Namespace.
         :type: str
@@ -94,7 +92,6 @@ class Namespace(object):
     def slug(self):
         """Gets the slug of this Namespace.
 
-        
 
         :return: The slug of this Namespace.
         :rtype: str
@@ -105,11 +102,16 @@ class Namespace(object):
     def slug(self, slug):
         """Sets the slug of this Namespace.
 
-        
 
         :param slug: The slug of this Namespace.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug is not None and len(slug) < 1):
+            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug is not None and not re.search('^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug = slug
 
@@ -117,7 +119,6 @@ class Namespace(object):
     def slug_perm(self):
         """Gets the slug_perm of this Namespace.
 
-        
 
         :return: The slug_perm of this Namespace.
         :rtype: str
@@ -128,11 +129,16 @@ class Namespace(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this Namespace.
 
-        
 
         :param slug_perm: The slug_perm of this Namespace.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and len(slug_perm) < 1):
+            raise ValueError("Invalid value for `slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
 
@@ -140,7 +146,6 @@ class Namespace(object):
     def type_name(self):
         """Gets the type_name of this Namespace.
 
-        
 
         :return: The type_name of this Namespace.
         :rtype: str
@@ -151,7 +156,6 @@ class Namespace(object):
     def type_name(self, type_name):
         """Sets the type_name of this Namespace.
 
-        
 
         :param type_name: The type_name of this Namespace.
         :type: str

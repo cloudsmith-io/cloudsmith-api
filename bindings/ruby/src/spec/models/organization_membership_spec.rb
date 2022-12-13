@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -53,6 +53,16 @@ describe 'OrganizationMembership' do
   describe 'test attribute "last_login_at"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "last_login_method"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Unknown", "Password", "Social", "SAML"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.last_login_method = value }.not_to raise_error
+      # end
     end
   end
 

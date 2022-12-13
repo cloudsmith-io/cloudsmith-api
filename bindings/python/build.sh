@@ -18,7 +18,7 @@ cat > $build_json <<EOC
     "hideGenerationTimestamp": $hide_generation_timestamp,
     "packageName": "$project_underscore",
     "projectName": "$project_dash",
-    "packageVersion": "$api_version",
+    "packageVersion": "$package_version",
     "packageUrl": "$openapi_url",
     "sortParamsByRequiredFlag": $sort_params
 }
@@ -29,5 +29,5 @@ $root_dir/bin/swagger-codegen-cli generate \
     -i $openapi_url \
     -l python \
     -o $src_dir \
-    -t $template_dir
+    -t $template_dir \
     $common_codegen_options

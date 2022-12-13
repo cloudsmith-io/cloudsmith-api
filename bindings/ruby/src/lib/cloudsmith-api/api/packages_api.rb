@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -25,7 +25,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesCopy] :data 
+    # @option opts [PackageCopyRequest] :data 
     # @return [PackageCopy]
     def packages_copy(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_copy_with_http_info(owner, repo, identifier, opts)
@@ -38,7 +38,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesCopy] :data 
+    # @option opts [PackageCopyRequest] :data 
     # @return [Array<(PackageCopy, Fixnum, Hash)>] PackageCopy data, response status code and response headers
     def packages_copy_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -64,6 +64,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -128,6 +130,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -189,6 +195,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -215,8 +225,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
-    # @option opts [String] :sort A field for sorting objects in ascending or descending order.
+    # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (default to )
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order. (default to -date)
     # @return [Array<Package>]
     def packages_list(owner, repo, opts = {})
       data, _status_code, _headers = packages_list_with_http_info(owner, repo, opts)
@@ -257,6 +267,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -282,7 +296,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesMove] :data 
+    # @option opts [PackageMoveRequest] :data 
     # @return [PackageMove]
     def packages_move(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_move_with_http_info(owner, repo, identifier, opts)
@@ -295,7 +309,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesMove] :data 
+    # @option opts [PackageMoveRequest] :data 
     # @return [Array<(PackageMove, Fixnum, Hash)>] PackageMove data, response status code and response headers
     def packages_move_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -321,6 +335,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -348,8 +364,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesQuarantine] :data 
-    # @return [Package]
+    # @option opts [PackageQuarantineRequest] :data 
+    # @return [PackageQuarantine]
     def packages_quarantine(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_quarantine_with_http_info(owner, repo, identifier, opts)
       data
@@ -361,8 +377,8 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesQuarantine] :data 
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @option opts [PackageQuarantineRequest] :data 
+    # @return [Array<(PackageQuarantine, Fixnum, Hash)>] PackageQuarantine data, response status code and response headers
     def packages_quarantine_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_quarantine ...'
@@ -387,6 +403,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -402,7 +420,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'PackageQuarantine')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_quarantine\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -451,6 +469,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -476,7 +498,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Package]
+    # @return [PackageResync]
     def packages_resync(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_resync_with_http_info(owner, repo, identifier, opts)
       data
@@ -488,7 +510,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(PackageResync, Fixnum, Hash)>] PackageResync data, response status code and response headers
     def packages_resync_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_resync ...'
@@ -513,6 +535,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -526,7 +552,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'PackageResync')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_resync\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -575,6 +601,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -637,6 +667,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -662,7 +696,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesTag] :data 
+    # @option opts [PackageTagRequest] :data 
     # @return [Package]
     def packages_tag(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_tag_with_http_info(owner, repo, identifier, opts)
@@ -675,7 +709,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesTag] :data 
+    # @option opts [PackageTagRequest] :data 
     # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_tag_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -701,6 +735,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -727,7 +763,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadAlpine] :data 
+    # @option opts [AlpinePackageUploadRequest] :data 
     # @return [AlpinePackageUpload]
     def packages_upload_alpine(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_alpine_with_http_info(owner, repo, opts)
@@ -739,7 +775,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadAlpine] :data 
+    # @option opts [AlpinePackageUploadRequest] :data 
     # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
     def packages_upload_alpine_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -761,6 +797,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -787,8 +825,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadCargo] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [CargoPackageUploadRequest] :data 
+    # @return [CargoPackageUpload]
     def packages_upload_cargo(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_cargo_with_http_info(owner, repo, opts)
       data
@@ -799,8 +837,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadCargo] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [CargoPackageUploadRequest] :data 
+    # @return [Array<(CargoPackageUpload, Fixnum, Hash)>] CargoPackageUpload data, response status code and response headers
     def packages_upload_cargo_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_cargo ...'
@@ -821,6 +859,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -836,7 +876,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'CargoPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_cargo\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -847,8 +887,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadCocoapods] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [CocoapodsPackageUploadRequest] :data 
+    # @return [CocoapodsPackageUpload]
     def packages_upload_cocoapods(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_cocoapods_with_http_info(owner, repo, opts)
       data
@@ -859,8 +899,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadCocoapods] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [CocoapodsPackageUploadRequest] :data 
+    # @return [Array<(CocoapodsPackageUpload, Fixnum, Hash)>] CocoapodsPackageUpload data, response status code and response headers
     def packages_upload_cocoapods_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_cocoapods ...'
@@ -881,6 +921,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -896,7 +938,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'CocoapodsPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_cocoapods\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -907,8 +949,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadComposer] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [ComposerPackageUploadRequest] :data 
+    # @return [ComposerPackageUpload]
     def packages_upload_composer(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_composer_with_http_info(owner, repo, opts)
       data
@@ -919,8 +961,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadComposer] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [ComposerPackageUploadRequest] :data 
+    # @return [Array<(ComposerPackageUpload, Fixnum, Hash)>] ComposerPackageUpload data, response status code and response headers
     def packages_upload_composer_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_composer ...'
@@ -941,6 +983,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -956,7 +1000,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'ComposerPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_composer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -967,7 +1011,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadConan] :data 
+    # @option opts [ConanPackageUploadRequest] :data 
     # @return [ConanPackageUpload]
     def packages_upload_conan(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_conan_with_http_info(owner, repo, opts)
@@ -979,7 +1023,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadConan] :data 
+    # @option opts [ConanPackageUploadRequest] :data 
     # @return [Array<(ConanPackageUpload, Fixnum, Hash)>] ConanPackageUpload data, response status code and response headers
     def packages_upload_conan_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -1001,6 +1045,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1027,8 +1073,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadConda] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [CondaPackageUploadRequest] :data 
+    # @return [CondaPackageUpload]
     def packages_upload_conda(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_conda_with_http_info(owner, repo, opts)
       data
@@ -1039,8 +1085,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadConda] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [CondaPackageUploadRequest] :data 
+    # @return [Array<(CondaPackageUpload, Fixnum, Hash)>] CondaPackageUpload data, response status code and response headers
     def packages_upload_conda_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_conda ...'
@@ -1061,6 +1107,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1076,7 +1124,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'CondaPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_conda\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1087,8 +1135,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadCran] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [CranPackageUploadRequest] :data 
+    # @return [CranPackageUpload]
     def packages_upload_cran(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_cran_with_http_info(owner, repo, opts)
       data
@@ -1099,8 +1147,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadCran] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [CranPackageUploadRequest] :data 
+    # @return [Array<(CranPackageUpload, Fixnum, Hash)>] CranPackageUpload data, response status code and response headers
     def packages_upload_cran_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_cran ...'
@@ -1121,6 +1169,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1136,7 +1186,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'CranPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_cran\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1147,8 +1197,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadDart] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [DartPackageUploadRequest] :data 
+    # @return [DartPackageUpload]
     def packages_upload_dart(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_dart_with_http_info(owner, repo, opts)
       data
@@ -1159,8 +1209,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadDart] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [DartPackageUploadRequest] :data 
+    # @return [Array<(DartPackageUpload, Fixnum, Hash)>] DartPackageUpload data, response status code and response headers
     def packages_upload_dart_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_dart ...'
@@ -1181,6 +1231,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1196,7 +1248,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'DartPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_dart\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1207,8 +1259,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadDeb] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [DebPackageUploadRequest] :data 
+    # @return [DebPackageUpload]
     def packages_upload_deb(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_deb_with_http_info(owner, repo, opts)
       data
@@ -1219,8 +1271,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadDeb] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [DebPackageUploadRequest] :data 
+    # @return [Array<(DebPackageUpload, Fixnum, Hash)>] DebPackageUpload data, response status code and response headers
     def packages_upload_deb_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_deb ...'
@@ -1241,6 +1293,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1256,7 +1310,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'DebPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_deb\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1267,8 +1321,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadDocker] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [DockerPackageUploadRequest] :data 
+    # @return [DockerPackageUpload]
     def packages_upload_docker(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_docker_with_http_info(owner, repo, opts)
       data
@@ -1279,8 +1333,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadDocker] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [DockerPackageUploadRequest] :data 
+    # @return [Array<(DockerPackageUpload, Fixnum, Hash)>] DockerPackageUpload data, response status code and response headers
     def packages_upload_docker_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_docker ...'
@@ -1301,6 +1355,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1316,7 +1372,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'DockerPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_docker\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1327,8 +1383,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadGo] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [GoPackageUploadRequest] :data 
+    # @return [GoPackageUpload]
     def packages_upload_go(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_go_with_http_info(owner, repo, opts)
       data
@@ -1339,8 +1395,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadGo] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [GoPackageUploadRequest] :data 
+    # @return [Array<(GoPackageUpload, Fixnum, Hash)>] GoPackageUpload data, response status code and response headers
     def packages_upload_go_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_go ...'
@@ -1361,6 +1417,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1376,7 +1434,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'GoPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_go\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1387,8 +1445,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadHelm] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [HelmPackageUploadRequest] :data 
+    # @return [HelmPackageUpload]
     def packages_upload_helm(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_helm_with_http_info(owner, repo, opts)
       data
@@ -1399,8 +1457,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadHelm] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [HelmPackageUploadRequest] :data 
+    # @return [Array<(HelmPackageUpload, Fixnum, Hash)>] HelmPackageUpload data, response status code and response headers
     def packages_upload_helm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_helm ...'
@@ -1421,6 +1479,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1436,7 +1496,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'HelmPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_helm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1447,8 +1507,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadLuarocks] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [LuarocksPackageUploadRequest] :data 
+    # @return [LuarocksPackageUpload]
     def packages_upload_luarocks(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_luarocks_with_http_info(owner, repo, opts)
       data
@@ -1459,8 +1519,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadLuarocks] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [LuarocksPackageUploadRequest] :data 
+    # @return [Array<(LuarocksPackageUpload, Fixnum, Hash)>] LuarocksPackageUpload data, response status code and response headers
     def packages_upload_luarocks_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_luarocks ...'
@@ -1481,6 +1541,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1496,7 +1558,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'LuarocksPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_luarocks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1507,7 +1569,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadMaven] :data 
+    # @option opts [MavenPackageUploadRequest] :data 
     # @return [MavenPackageUpload]
     def packages_upload_maven(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_maven_with_http_info(owner, repo, opts)
@@ -1519,7 +1581,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadMaven] :data 
+    # @option opts [MavenPackageUploadRequest] :data 
     # @return [Array<(MavenPackageUpload, Fixnum, Hash)>] MavenPackageUpload data, response status code and response headers
     def packages_upload_maven_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -1541,6 +1603,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1567,8 +1631,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadNpm] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [NpmPackageUploadRequest] :data 
+    # @return [NpmPackageUpload]
     def packages_upload_npm(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_npm_with_http_info(owner, repo, opts)
       data
@@ -1579,8 +1643,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadNpm] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [NpmPackageUploadRequest] :data 
+    # @return [Array<(NpmPackageUpload, Fixnum, Hash)>] NpmPackageUpload data, response status code and response headers
     def packages_upload_npm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_npm ...'
@@ -1601,6 +1665,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1616,7 +1682,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'NpmPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_npm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1627,8 +1693,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadNuget] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [NugetPackageUploadRequest] :data 
+    # @return [NugetPackageUpload]
     def packages_upload_nuget(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_nuget_with_http_info(owner, repo, opts)
       data
@@ -1639,8 +1705,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadNuget] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [NugetPackageUploadRequest] :data 
+    # @return [Array<(NugetPackageUpload, Fixnum, Hash)>] NugetPackageUpload data, response status code and response headers
     def packages_upload_nuget_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_nuget ...'
@@ -1661,6 +1727,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1676,7 +1744,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'NugetPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_nuget\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1687,8 +1755,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadP2] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [P2PackageUploadRequest] :data 
+    # @return [P2PackageUpload]
     def packages_upload_p2(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_p2_with_http_info(owner, repo, opts)
       data
@@ -1699,8 +1767,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadP2] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [P2PackageUploadRequest] :data 
+    # @return [Array<(P2PackageUpload, Fixnum, Hash)>] P2PackageUpload data, response status code and response headers
     def packages_upload_p2_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_p2 ...'
@@ -1721,6 +1789,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1736,7 +1806,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'P2PackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_p2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1747,8 +1817,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadPython] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [PythonPackageUploadRequest] :data 
+    # @return [PythonPackageUpload]
     def packages_upload_python(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_python_with_http_info(owner, repo, opts)
       data
@@ -1759,8 +1829,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadPython] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [PythonPackageUploadRequest] :data 
+    # @return [Array<(PythonPackageUpload, Fixnum, Hash)>] PythonPackageUpload data, response status code and response headers
     def packages_upload_python_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_python ...'
@@ -1781,6 +1851,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1796,7 +1868,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'PythonPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_python\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1807,7 +1879,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadRaw] :data 
+    # @option opts [RawPackageUploadRequest] :data 
     # @return [RawPackageUpload]
     def packages_upload_raw(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_raw_with_http_info(owner, repo, opts)
@@ -1819,7 +1891,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadRaw] :data 
+    # @option opts [RawPackageUploadRequest] :data 
     # @return [Array<(RawPackageUpload, Fixnum, Hash)>] RawPackageUpload data, response status code and response headers
     def packages_upload_raw_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -1841,6 +1913,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1867,8 +1941,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadRpm] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [RpmPackageUploadRequest] :data 
+    # @return [RpmPackageUpload]
     def packages_upload_rpm(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_rpm_with_http_info(owner, repo, opts)
       data
@@ -1879,8 +1953,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadRpm] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [RpmPackageUploadRequest] :data 
+    # @return [Array<(RpmPackageUpload, Fixnum, Hash)>] RpmPackageUpload data, response status code and response headers
     def packages_upload_rpm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_rpm ...'
@@ -1901,6 +1975,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1916,7 +1992,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'RpmPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_rpm\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1927,8 +2003,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadRuby] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [RubyPackageUploadRequest] :data 
+    # @return [RubyPackageUpload]
     def packages_upload_ruby(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_ruby_with_http_info(owner, repo, opts)
       data
@@ -1939,8 +2015,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadRuby] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [RubyPackageUploadRequest] :data 
+    # @return [Array<(RubyPackageUpload, Fixnum, Hash)>] RubyPackageUpload data, response status code and response headers
     def packages_upload_ruby_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_ruby ...'
@@ -1961,6 +2037,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1976,7 +2054,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'RubyPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_ruby\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1987,8 +2065,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadTerraform] :data 
-    # @return [AlpinePackageUpload]
+    # @option opts [TerraformPackageUploadRequest] :data 
+    # @return [TerraformPackageUpload]
     def packages_upload_terraform(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_terraform_with_http_info(owner, repo, opts)
       data
@@ -1999,8 +2077,8 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadTerraform] :data 
-    # @return [Array<(AlpinePackageUpload, Fixnum, Hash)>] AlpinePackageUpload data, response status code and response headers
+    # @option opts [TerraformPackageUploadRequest] :data 
+    # @return [Array<(TerraformPackageUpload, Fixnum, Hash)>] TerraformPackageUpload data, response status code and response headers
     def packages_upload_terraform_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_terraform ...'
@@ -2021,6 +2099,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2036,7 +2116,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AlpinePackageUpload')
+        :return_type => 'TerraformPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_terraform\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2047,7 +2127,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadVagrant] :data 
+    # @option opts [VagrantPackageUploadRequest] :data 
     # @return [VagrantPackageUpload]
     def packages_upload_vagrant(owner, repo, opts = {})
       data, _status_code, _headers = packages_upload_vagrant_with_http_info(owner, repo, opts)
@@ -2059,7 +2139,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesUploadVagrant] :data 
+    # @option opts [VagrantPackageUploadRequest] :data 
     # @return [Array<(VagrantPackageUpload, Fixnum, Hash)>] VagrantPackageUpload data, response status code and response headers
     def packages_upload_vagrant_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2081,6 +2161,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2107,7 +2189,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadAlpine] :data 
+    # @option opts [AlpinePackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_alpine(owner, repo, opts = {})
       packages_validate_upload_alpine_with_http_info(owner, repo, opts)
@@ -2119,7 +2201,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadAlpine] :data 
+    # @option opts [AlpinePackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_alpine_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2141,6 +2223,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2166,7 +2250,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadCargo] :data 
+    # @option opts [CargoPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_cargo(owner, repo, opts = {})
       packages_validate_upload_cargo_with_http_info(owner, repo, opts)
@@ -2178,7 +2262,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadCargo] :data 
+    # @option opts [CargoPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_cargo_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2200,6 +2284,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2225,7 +2311,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadCocoapods] :data 
+    # @option opts [CocoapodsPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_cocoapods(owner, repo, opts = {})
       packages_validate_upload_cocoapods_with_http_info(owner, repo, opts)
@@ -2237,7 +2323,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadCocoapods] :data 
+    # @option opts [CocoapodsPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_cocoapods_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2259,6 +2345,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2284,7 +2372,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadComposer] :data 
+    # @option opts [ComposerPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_composer(owner, repo, opts = {})
       packages_validate_upload_composer_with_http_info(owner, repo, opts)
@@ -2296,7 +2384,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadComposer] :data 
+    # @option opts [ComposerPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_composer_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2318,6 +2406,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2343,7 +2433,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadConan] :data 
+    # @option opts [ConanPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_conan(owner, repo, opts = {})
       packages_validate_upload_conan_with_http_info(owner, repo, opts)
@@ -2355,7 +2445,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadConan] :data 
+    # @option opts [ConanPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_conan_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2377,6 +2467,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2402,7 +2494,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadConda] :data 
+    # @option opts [CondaPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_conda(owner, repo, opts = {})
       packages_validate_upload_conda_with_http_info(owner, repo, opts)
@@ -2414,7 +2506,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadConda] :data 
+    # @option opts [CondaPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_conda_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2436,6 +2528,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2461,7 +2555,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadCran] :data 
+    # @option opts [CranPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_cran(owner, repo, opts = {})
       packages_validate_upload_cran_with_http_info(owner, repo, opts)
@@ -2473,7 +2567,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadCran] :data 
+    # @option opts [CranPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_cran_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2495,6 +2589,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2520,7 +2616,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadDart] :data 
+    # @option opts [DartPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_dart(owner, repo, opts = {})
       packages_validate_upload_dart_with_http_info(owner, repo, opts)
@@ -2532,7 +2628,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadDart] :data 
+    # @option opts [DartPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_dart_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2554,6 +2650,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2579,7 +2677,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadDeb] :data 
+    # @option opts [DebPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_deb(owner, repo, opts = {})
       packages_validate_upload_deb_with_http_info(owner, repo, opts)
@@ -2591,7 +2689,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadDeb] :data 
+    # @option opts [DebPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_deb_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2613,6 +2711,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2638,7 +2738,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadDocker] :data 
+    # @option opts [DockerPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_docker(owner, repo, opts = {})
       packages_validate_upload_docker_with_http_info(owner, repo, opts)
@@ -2650,7 +2750,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadDocker] :data 
+    # @option opts [DockerPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_docker_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2672,6 +2772,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2697,7 +2799,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadGo] :data 
+    # @option opts [GoPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_go(owner, repo, opts = {})
       packages_validate_upload_go_with_http_info(owner, repo, opts)
@@ -2709,7 +2811,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadGo] :data 
+    # @option opts [GoPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_go_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2731,6 +2833,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2756,7 +2860,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadHelm] :data 
+    # @option opts [HelmPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_helm(owner, repo, opts = {})
       packages_validate_upload_helm_with_http_info(owner, repo, opts)
@@ -2768,7 +2872,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadHelm] :data 
+    # @option opts [HelmPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_helm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2790,6 +2894,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2815,7 +2921,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadLuarocks] :data 
+    # @option opts [LuarocksPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_luarocks(owner, repo, opts = {})
       packages_validate_upload_luarocks_with_http_info(owner, repo, opts)
@@ -2827,7 +2933,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadLuarocks] :data 
+    # @option opts [LuarocksPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_luarocks_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2849,6 +2955,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2874,7 +2982,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadMaven] :data 
+    # @option opts [MavenPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_maven(owner, repo, opts = {})
       packages_validate_upload_maven_with_http_info(owner, repo, opts)
@@ -2886,7 +2994,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadMaven] :data 
+    # @option opts [MavenPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_maven_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2908,6 +3016,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2933,7 +3043,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadNpm] :data 
+    # @option opts [NpmPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_npm(owner, repo, opts = {})
       packages_validate_upload_npm_with_http_info(owner, repo, opts)
@@ -2945,7 +3055,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadNpm] :data 
+    # @option opts [NpmPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_npm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -2967,6 +3077,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -2992,7 +3104,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadNuget] :data 
+    # @option opts [NugetPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_nuget(owner, repo, opts = {})
       packages_validate_upload_nuget_with_http_info(owner, repo, opts)
@@ -3004,7 +3116,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadNuget] :data 
+    # @option opts [NugetPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_nuget_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -3026,6 +3138,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -3051,7 +3165,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadP2] :data 
+    # @option opts [P2PackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_p2(owner, repo, opts = {})
       packages_validate_upload_p2_with_http_info(owner, repo, opts)
@@ -3063,7 +3177,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadP2] :data 
+    # @option opts [P2PackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_p2_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -3085,6 +3199,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -3110,7 +3226,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadPython] :data 
+    # @option opts [PythonPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_python(owner, repo, opts = {})
       packages_validate_upload_python_with_http_info(owner, repo, opts)
@@ -3122,7 +3238,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadPython] :data 
+    # @option opts [PythonPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_python_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -3144,6 +3260,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -3169,7 +3287,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadRaw] :data 
+    # @option opts [RawPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_raw(owner, repo, opts = {})
       packages_validate_upload_raw_with_http_info(owner, repo, opts)
@@ -3181,7 +3299,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadRaw] :data 
+    # @option opts [RawPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_raw_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -3203,6 +3321,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -3228,7 +3348,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadRpm] :data 
+    # @option opts [RpmPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_rpm(owner, repo, opts = {})
       packages_validate_upload_rpm_with_http_info(owner, repo, opts)
@@ -3240,7 +3360,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadRpm] :data 
+    # @option opts [RpmPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_rpm_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -3262,6 +3382,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -3287,7 +3409,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadRuby] :data 
+    # @option opts [RubyPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_ruby(owner, repo, opts = {})
       packages_validate_upload_ruby_with_http_info(owner, repo, opts)
@@ -3299,7 +3421,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadRuby] :data 
+    # @option opts [RubyPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_ruby_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -3321,6 +3443,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -3346,7 +3470,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadTerraform] :data 
+    # @option opts [TerraformPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_terraform(owner, repo, opts = {})
       packages_validate_upload_terraform_with_http_info(owner, repo, opts)
@@ -3358,7 +3482,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadTerraform] :data 
+    # @option opts [TerraformPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_terraform_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -3380,6 +3504,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -3405,7 +3531,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadVagrant] :data 
+    # @option opts [VagrantPackageUploadRequest] :data 
     # @return [nil]
     def packages_validate_upload_vagrant(owner, repo, opts = {})
       packages_validate_upload_vagrant_with_http_info(owner, repo, opts)
@@ -3417,7 +3543,7 @@ module CloudsmithApi
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
-    # @option opts [PackagesValidateuploadVagrant] :data 
+    # @option opts [VagrantPackageUploadRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def packages_validate_upload_vagrant_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -3439,6 +3565,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 

@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -38,7 +39,7 @@ public class Organization implements Serializable {
   private String country = null;
 
   @SerializedName("created_at")
-  private String createdAt = null;
+  private OffsetDateTime createdAt = null;
 
   @SerializedName("location")
   private String location = null;
@@ -55,85 +56,45 @@ public class Organization implements Serializable {
   @SerializedName("tagline")
   private String tagline = null;
 
-  public Organization country(String country) {
-    this.country = country;
-    return this;
-  }
-
    /**
-   * 
+   * Get country
    * @return country
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1,max=32)  @ApiModelProperty(value = "")
   public String getCountry() {
     return country;
   }
 
-  public void setCountry(String country) {
-    this.country = country;
-  }
-
-  public Organization createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdAt
    * @return createdAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public Organization location(String location) {
-    this.location = location;
-    return this;
   }
 
    /**
    * The city/town/area your organization is based in.
    * @return location
   **/
-  @ApiModelProperty(value = "The city/town/area your organization is based in.")
+ @Size(min=1)  @ApiModelProperty(value = "The city/town/area your organization is based in.")
   public String getLocation() {
     return location;
-  }
-
-  public void setLocation(String location) {
-    this.location = location;
-  }
-
-  public Organization name(String name) {
-    this.name = name;
-    return this;
   }
 
    /**
    * A descriptive name for your organization.
    * @return name
   **/
-  @ApiModelProperty(value = "A descriptive name for your organization.")
+ @Size(min=1)  @ApiModelProperty(value = "A descriptive name for your organization.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Organization slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
    /**
-   * 
+   * Get slug
    * @return slug
   **/
   @ApiModelProperty(value = "")
@@ -141,17 +102,8 @@ public class Organization implements Serializable {
     return slug;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public Organization slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
   @ApiModelProperty(value = "")
@@ -159,26 +111,13 @@ public class Organization implements Serializable {
     return slugPerm;
   }
 
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-  }
-
-  public Organization tagline(String tagline) {
-    this.tagline = tagline;
-    return this;
-  }
-
    /**
    * A short public descriptive for your organization.
    * @return tagline
   **/
-  @ApiModelProperty(value = "A short public descriptive for your organization.")
+ @Size(min=1)  @ApiModelProperty(value = "A short public descriptive for your organization.")
   public String getTagline() {
     return tagline;
-  }
-
-  public void setTagline(String tagline) {
-    this.tagline = tagline;
   }
 
 

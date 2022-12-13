@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.QuotaHistoryHistory;
+import io.cloudsmith.api.models.History;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,30 +38,30 @@ public class QuotaHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("history")
-  private List<QuotaHistoryHistory> history = new ArrayList<>();
+  private List<History> history = new ArrayList<>();
 
-  public QuotaHistory history(List<QuotaHistoryHistory> history) {
+  public QuotaHistory history(List<History> history) {
     this.history = history;
     return this;
   }
 
-  public QuotaHistory addHistoryItem(QuotaHistoryHistory historyItem) {
+  public QuotaHistory addHistoryItem(History historyItem) {
     this.history.add(historyItem);
     return this;
   }
 
    /**
-   * 
+   * Get history
    * @return history
   **/
   @NotNull
   @Valid
-  @ApiModelProperty(example = "[{\"days\":30,\"display\":{\"downloaded\":{\"limit\":\"2 TB\",\"percentage\":\"0.0%\",\"used\":\"0 B\"},\"storage_used\":{\"limit\":\"1 TB\",\"percentage\":\"0.109%\",\"used\":\"1.1 GB\"},\"uploaded\":{\"limit\":\"Unlimited\",\"percentage\":\"∞\",\"used\":\"0 B\"}},\"end\":\"2020-10-10 12:35:23+00:00\",\"plan\":\"Package (Velocity)\",\"raw\":{\"downloaded\":{\"limit\":2199023255552,\"percentage\":0.0,\"used\":0},\"storage_used\":{\"limit\":1099511627776,\"percentage\":0.109,\"used\":1197653687},\"uploaded\":{\"limit\":\"\",\"percentage\":0.0,\"used\":0}},\"start\":\"2020-09-10 12:35:23+00:00\"}]", required = true, value = "")
-  public List<QuotaHistoryHistory> getHistory() {
+  @ApiModelProperty(required = true, value = "")
+  public List<History> getHistory() {
     return history;
   }
 
-  public void setHistory(List<QuotaHistoryHistory> history) {
+  public void setHistory(List<History> history) {
     this.history = history;
   }
 

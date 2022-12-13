@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -13,8 +13,8 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Format;
-import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
 

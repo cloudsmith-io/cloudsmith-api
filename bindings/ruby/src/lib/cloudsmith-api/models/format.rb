@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,183 +13,182 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class Format
-    # Description of the package format
-    attr_accessor :description
+class Format
+  # Description of the package format
+  attr_accessor :description
 
-    # The distributions supported by this package format
-    attr_accessor :distributions
+  # The distributions supported by this package format
+  attr_accessor :distributions
 
-    # A non-exhaustive list of extensions supported
-    attr_accessor :extensions
+  # A non-exhaustive list of extensions supported
+  attr_accessor :extensions
 
-    # Name for the package format
-    attr_accessor :name
+  # Name for the package format
+  attr_accessor :name
 
-    # If true the package format is a premium-only feature
-    attr_accessor :premium
+  # If true the package format is a premium-only feature
+  attr_accessor :premium
 
-    # The minimum plan id required for this package format
-    attr_accessor :premium_plan_id
+  # The minimum plan id required for this package format
+  attr_accessor :premium_plan_id
 
-    # The minimum plan name required for this package format
-    attr_accessor :premium_plan_name
+  # The minimum plan name required for this package format
+  attr_accessor :premium_plan_name
 
-    # Slug for the package format
-    attr_accessor :slug
+  # Slug for the package format
+  attr_accessor :slug
 
-    # A set of what the package format supports
-    attr_accessor :supports
+  attr_accessor :supports
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'description' => :'description',
-        :'distributions' => :'distributions',
-        :'extensions' => :'extensions',
-        :'name' => :'name',
-        :'premium' => :'premium',
-        :'premium_plan_id' => :'premium_plan_id',
-        :'premium_plan_name' => :'premium_plan_name',
-        :'slug' => :'slug',
-        :'supports' => :'supports'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'description' => :'description',
+      :'distributions' => :'distributions',
+      :'extensions' => :'extensions',
+      :'name' => :'name',
+      :'premium' => :'premium',
+      :'premium_plan_id' => :'premium_plan_id',
+      :'premium_plan_name' => :'premium_plan_name',
+      :'slug' => :'slug',
+      :'supports' => :'supports'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'description' => :'String',
+      :'distributions' => :'Array<Distribution>',
+      :'extensions' => :'Array<String>',
+      :'name' => :'String',
+      :'premium' => :'BOOLEAN',
+      :'premium_plan_id' => :'String',
+      :'premium_plan_name' => :'String',
+      :'slug' => :'String',
+      :'supports' => :'FormatSupport'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'description')
+      self.description = attributes[:'description']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'description' => :'String',
-        :'distributions' => :'Array<FormatsDistributions>',
-        :'extensions' => :'Array<String>',
-        :'name' => :'String',
-        :'premium' => :'BOOLEAN',
-        :'premium_plan_id' => :'String',
-        :'premium_plan_name' => :'String',
-        :'slug' => :'String',
-        :'supports' => :'Object'
-      }
-    end
-
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'distributions')
-        if (value = attributes[:'distributions']).is_a?(Array)
-          self.distributions = value
-        end
-      end
-
-      if attributes.has_key?(:'extensions')
-        if (value = attributes[:'extensions']).is_a?(Array)
-          self.extensions = value
-        end
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'premium')
-        self.premium = attributes[:'premium']
-      end
-
-      if attributes.has_key?(:'premium_plan_id')
-        self.premium_plan_id = attributes[:'premium_plan_id']
-      end
-
-      if attributes.has_key?(:'premium_plan_name')
-        self.premium_plan_name = attributes[:'premium_plan_name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'supports')
-        self.supports = attributes[:'supports']
+    if attributes.has_key?(:'distributions')
+      if (value = attributes[:'distributions']).is_a?(Array)
+        self.distributions = value
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
+    if attributes.has_key?(:'extensions')
+      if (value = attributes[:'extensions']).is_a?(Array)
+        self.extensions = value
       end
-
-      if @extensions.nil?
-        invalid_properties.push('invalid value for "extensions", extensions cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @premium.nil?
-        invalid_properties.push('invalid value for "premium", premium cannot be nil.')
-      end
-
-      if @slug.nil?
-        invalid_properties.push('invalid value for "slug", slug cannot be nil.')
-      end
-
-      if @supports.nil?
-        invalid_properties.push('invalid value for "supports", supports cannot be nil.')
-      end
-
-      invalid_properties
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @description.nil?
-      return false if @extensions.nil?
-      return false if @name.nil?
-      return false if @premium.nil?
-      return false if @slug.nil?
-      return false if @supports.nil?
-      true
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          description == o.description &&
-          distributions == o.distributions &&
-          extensions == o.extensions &&
-          name == o.name &&
-          premium == o.premium &&
-          premium_plan_id == o.premium_plan_id &&
-          premium_plan_name == o.premium_plan_name &&
-          slug == o.slug &&
-          supports == o.supports
+    if attributes.has_key?(:'premium')
+      self.premium = attributes[:'premium']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'premium_plan_id')
+      self.premium_plan_id = attributes[:'premium_plan_id']
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [description, distributions, extensions, name, premium, premium_plan_id, premium_plan_name, slug, supports].hash
+    if attributes.has_key?(:'premium_plan_name')
+      self.premium_plan_name = attributes[:'premium_plan_name']
     end
+
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
+    end
+
+    if attributes.has_key?(:'supports')
+      self.supports = attributes[:'supports']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @description.nil?
+      invalid_properties.push('invalid value for "description", description cannot be nil.')
+    end
+
+    if @extensions.nil?
+      invalid_properties.push('invalid value for "extensions", extensions cannot be nil.')
+    end
+
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
+    end
+
+    if @premium.nil?
+      invalid_properties.push('invalid value for "premium", premium cannot be nil.')
+    end
+
+    if @slug.nil?
+      invalid_properties.push('invalid value for "slug", slug cannot be nil.')
+    end
+
+    if @supports.nil?
+      invalid_properties.push('invalid value for "supports", supports cannot be nil.')
+    end
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @description.nil?
+    return false if @extensions.nil?
+    return false if @name.nil?
+    return false if @premium.nil?
+    return false if @slug.nil?
+    return false if @supports.nil?
+    true
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        description == o.description &&
+        distributions == o.distributions &&
+        extensions == o.extensions &&
+        name == o.name &&
+        premium == o.premium &&
+        premium_plan_id == o.premium_plan_id &&
+        premium_plan_name == o.premium_plan_name &&
+        slug == o.slug &&
+        supports == o.supports
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [description, distributions, extensions, name, premium, premium_plan_id, premium_plan_name, slug, supports].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -295,5 +294,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -47,7 +47,7 @@ describe 'UserApi' do
   # Retrieve the API key/token for the authenticated user.
   # Retrieve the API key/token for the authenticated user.
   # @param [Hash] opts the optional parameters
-  # @option opts [UserTokenCreate] :data 
+  # @option opts [UserAuthTokenRequest] :data 
   # @return [UserAuthToken]
   describe 'user_token_create test' do
     it 'should work' do

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,750 +13,766 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class Repository
-    # Base URL from which packages and other artifacts are downloaded.
-    attr_accessor :cdn_url
+class Repository
+  # Base URL from which packages and other artifacts are downloaded.
+  attr_accessor :cdn_url
 
-    # The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
-    attr_accessor :content_kind
+  # The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+  attr_accessor :content_kind
 
-    # If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.
-    attr_accessor :contextual_auth_realm
+  # If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.
+  attr_accessor :contextual_auth_realm
 
-    # If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
-    attr_accessor :copy_own
+  # If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+  attr_accessor :copy_own
 
-    # This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
-    attr_accessor :copy_packages
+  # This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
+  attr_accessor :copy_packages
 
-    # 
-    attr_accessor :created_at
+  attr_accessor :created_at
 
-    # This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
-    attr_accessor :default_privilege
+  # This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
+  attr_accessor :default_privilege
 
-    # If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
-    attr_accessor :delete_own
+  # If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+  attr_accessor :delete_own
 
-    # This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
-    attr_accessor :delete_packages
+  # This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
+  attr_accessor :delete_packages
 
-    # 
-    attr_accessor :deleted_at
+  attr_accessor :deleted_at
 
-    # A description of the repository's purpose/contents.
-    attr_accessor :description
+  # A description of the repository's purpose/contents.
+  attr_accessor :description
 
-    # The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.
-    attr_accessor :distributes
+  # The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.
+  attr_accessor :distributes
 
-    # If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.
-    attr_accessor :docker_refresh_tokens_enabled
+  # If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.
+  attr_accessor :docker_refresh_tokens_enabled
 
-    # 
-    attr_accessor :gpg_keys
+  attr_accessor :gpg_keys
 
-    # If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
-    attr_accessor :index_files
+  # If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
+  attr_accessor :index_files
 
-    # 
-    attr_accessor :is_open_source
+  attr_accessor :is_open_source
 
-    # 
-    attr_accessor :is_private
+  attr_accessor :is_private
 
-    # 
-    attr_accessor :is_public
+  attr_accessor :is_public
 
-    # If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
-    attr_accessor :move_own
+  # If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+  attr_accessor :move_own
 
-    # This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.
-    attr_accessor :move_packages
+  # This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.
+  attr_accessor :move_packages
 
-    # A descriptive name for the repository.
-    attr_accessor :name
+  # A descriptive name for the repository.
+  attr_accessor :name
 
-    # Namespace to which this repository belongs.
-    attr_accessor :namespace
+  # Namespace to which this repository belongs.
+  attr_accessor :namespace
 
-    # API endpoint where data about this namespace can be retrieved.
-    attr_accessor :namespace_url
+  # API endpoint where data about this namespace can be retrieved.
+  attr_accessor :namespace_url
 
-    # The number of downloads for packages in the repository.
-    attr_accessor :num_downloads
+  # The number of downloads for packages in the repository.
+  attr_accessor :num_downloads
 
-    # The number of packages in the repository.
-    attr_accessor :package_count
+  # The number of packages in the repository.
+  attr_accessor :package_count
 
-    # The number of groups in the repository.
-    attr_accessor :package_group_count
+  # The number of groups in the repository.
+  attr_accessor :package_group_count
 
-    # If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.
-    attr_accessor :proxy_npmjs
+  # If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied.
+  attr_accessor :proxy_npmjs
 
-    # If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.
-    attr_accessor :proxy_pypi
+  # If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.
+  attr_accessor :proxy_pypi
 
-    # If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.
-    attr_accessor :raw_package_index_enabled
+  # If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.
+  attr_accessor :raw_package_index_enabled
 
-    # If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.
-    attr_accessor :raw_package_index_signatures_enabled
+  # If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.
+  attr_accessor :raw_package_index_signatures_enabled
 
-    # This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.
-    attr_accessor :replace_packages
+  # This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.
+  attr_accessor :replace_packages
 
-    # If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.
-    attr_accessor :replace_packages_by_default
+  # If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.
+  attr_accessor :replace_packages_by_default
 
-    # The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
-    attr_accessor :repository_type
+  # The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
+  attr_accessor :repository_type
 
-    # The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
-    attr_accessor :repository_type_str
+  # The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.
+  attr_accessor :repository_type_str
 
-    # If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
-    attr_accessor :resync_own
+  # If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+  attr_accessor :resync_own
 
-    # This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.
-    attr_accessor :resync_packages
+  # This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.
+  attr_accessor :resync_packages
 
-    # If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
-    attr_accessor :scan_own
+  # If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
+  attr_accessor :scan_own
 
-    # This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.
-    attr_accessor :scan_packages
+  # This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.
+  attr_accessor :scan_packages
 
-    # Website URL for this repository.
-    attr_accessor :self_html_url
+  # Website URL for this repository.
+  attr_accessor :self_html_url
 
-    # API endpoint where data about this repository can be retrieved.
-    attr_accessor :self_url
+  # API endpoint where data about this repository can be retrieved.
+  attr_accessor :self_url
 
-    # If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.
-    attr_accessor :show_setup_all
+  # If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.
+  attr_accessor :show_setup_all
 
-    # The calculated size of the repository.
-    attr_accessor :size
+  # The calculated size of the repository.
+  attr_accessor :size
 
-    # The calculated size of the repository (human readable).
-    attr_accessor :size_str
+  # The calculated size of the repository (human readable).
+  attr_accessor :size_str
 
-    # The slug identifies the repository in URIs.
-    attr_accessor :slug
+  # The slug identifies the repository in URIs.
+  attr_accessor :slug
 
-    # The slug_perm immutably identifies the repository. It will never change once a repository has been created.
-    attr_accessor :slug_perm
+  # The slug_perm immutably identifies the repository. It will never change once a repository has been created.
+  attr_accessor :slug_perm
 
-    # The Cloudsmith region in which package files are stored.
-    attr_accessor :storage_region
+  # The Cloudsmith region in which package files are stored.
+  attr_accessor :storage_region
 
-    # If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
-    attr_accessor :strict_npm_validation
+  # If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
+  attr_accessor :strict_npm_validation
 
-    # If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.
-    attr_accessor :use_debian_labels
+  # If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.
+  attr_accessor :use_debian_labels
 
-    # If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.
-    attr_accessor :use_default_cargo_upstream
+  # If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.
+  attr_accessor :use_default_cargo_upstream
 
-    # If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).
-    attr_accessor :use_noarch_packages
+  # If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).
+  attr_accessor :use_noarch_packages
 
-    # If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.
-    attr_accessor :use_source_packages
+  # If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.
+  attr_accessor :use_source_packages
 
-    # If checked, vulnerability scanning will be enabled for all supported packages within this repository.
-    attr_accessor :use_vulnerability_scanning
+  # If checked, vulnerability scanning will be enabled for all supported packages within this repository.
+  attr_accessor :use_vulnerability_scanning
 
-    # If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.
-    attr_accessor :user_entitlements_enabled
+  # If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.
+  attr_accessor :user_entitlements_enabled
 
-    # This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.
-    attr_accessor :view_statistics
+  # This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.
+  attr_accessor :view_statistics
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
         end
       end
+    end
 
-      def valid?(value)
-        !value || allowable_values.include?(value)
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'cdn_url' => :'cdn_url',
+      :'content_kind' => :'content_kind',
+      :'contextual_auth_realm' => :'contextual_auth_realm',
+      :'copy_own' => :'copy_own',
+      :'copy_packages' => :'copy_packages',
+      :'created_at' => :'created_at',
+      :'default_privilege' => :'default_privilege',
+      :'delete_own' => :'delete_own',
+      :'delete_packages' => :'delete_packages',
+      :'deleted_at' => :'deleted_at',
+      :'description' => :'description',
+      :'distributes' => :'distributes',
+      :'docker_refresh_tokens_enabled' => :'docker_refresh_tokens_enabled',
+      :'gpg_keys' => :'gpg_keys',
+      :'index_files' => :'index_files',
+      :'is_open_source' => :'is_open_source',
+      :'is_private' => :'is_private',
+      :'is_public' => :'is_public',
+      :'move_own' => :'move_own',
+      :'move_packages' => :'move_packages',
+      :'name' => :'name',
+      :'namespace' => :'namespace',
+      :'namespace_url' => :'namespace_url',
+      :'num_downloads' => :'num_downloads',
+      :'package_count' => :'package_count',
+      :'package_group_count' => :'package_group_count',
+      :'proxy_npmjs' => :'proxy_npmjs',
+      :'proxy_pypi' => :'proxy_pypi',
+      :'raw_package_index_enabled' => :'raw_package_index_enabled',
+      :'raw_package_index_signatures_enabled' => :'raw_package_index_signatures_enabled',
+      :'replace_packages' => :'replace_packages',
+      :'replace_packages_by_default' => :'replace_packages_by_default',
+      :'repository_type' => :'repository_type',
+      :'repository_type_str' => :'repository_type_str',
+      :'resync_own' => :'resync_own',
+      :'resync_packages' => :'resync_packages',
+      :'scan_own' => :'scan_own',
+      :'scan_packages' => :'scan_packages',
+      :'self_html_url' => :'self_html_url',
+      :'self_url' => :'self_url',
+      :'show_setup_all' => :'show_setup_all',
+      :'size' => :'size',
+      :'size_str' => :'size_str',
+      :'slug' => :'slug',
+      :'slug_perm' => :'slug_perm',
+      :'storage_region' => :'storage_region',
+      :'strict_npm_validation' => :'strict_npm_validation',
+      :'use_debian_labels' => :'use_debian_labels',
+      :'use_default_cargo_upstream' => :'use_default_cargo_upstream',
+      :'use_noarch_packages' => :'use_noarch_packages',
+      :'use_source_packages' => :'use_source_packages',
+      :'use_vulnerability_scanning' => :'use_vulnerability_scanning',
+      :'user_entitlements_enabled' => :'user_entitlements_enabled',
+      :'view_statistics' => :'view_statistics'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'cdn_url' => :'String',
+      :'content_kind' => :'String',
+      :'contextual_auth_realm' => :'BOOLEAN',
+      :'copy_own' => :'BOOLEAN',
+      :'copy_packages' => :'String',
+      :'created_at' => :'DateTime',
+      :'default_privilege' => :'String',
+      :'delete_own' => :'BOOLEAN',
+      :'delete_packages' => :'String',
+      :'deleted_at' => :'DateTime',
+      :'description' => :'String',
+      :'distributes' => :'Array<String>',
+      :'docker_refresh_tokens_enabled' => :'BOOLEAN',
+      :'gpg_keys' => :'Array<RepositoryGpgKey>',
+      :'index_files' => :'BOOLEAN',
+      :'is_open_source' => :'BOOLEAN',
+      :'is_private' => :'BOOLEAN',
+      :'is_public' => :'BOOLEAN',
+      :'move_own' => :'BOOLEAN',
+      :'move_packages' => :'String',
+      :'name' => :'String',
+      :'namespace' => :'String',
+      :'namespace_url' => :'String',
+      :'num_downloads' => :'Integer',
+      :'package_count' => :'Integer',
+      :'package_group_count' => :'Integer',
+      :'proxy_npmjs' => :'BOOLEAN',
+      :'proxy_pypi' => :'BOOLEAN',
+      :'raw_package_index_enabled' => :'BOOLEAN',
+      :'raw_package_index_signatures_enabled' => :'BOOLEAN',
+      :'replace_packages' => :'String',
+      :'replace_packages_by_default' => :'BOOLEAN',
+      :'repository_type' => :'Integer',
+      :'repository_type_str' => :'String',
+      :'resync_own' => :'BOOLEAN',
+      :'resync_packages' => :'String',
+      :'scan_own' => :'BOOLEAN',
+      :'scan_packages' => :'String',
+      :'self_html_url' => :'String',
+      :'self_url' => :'String',
+      :'show_setup_all' => :'BOOLEAN',
+      :'size' => :'Integer',
+      :'size_str' => :'String',
+      :'slug' => :'String',
+      :'slug_perm' => :'String',
+      :'storage_region' => :'String',
+      :'strict_npm_validation' => :'BOOLEAN',
+      :'use_debian_labels' => :'BOOLEAN',
+      :'use_default_cargo_upstream' => :'BOOLEAN',
+      :'use_noarch_packages' => :'BOOLEAN',
+      :'use_source_packages' => :'BOOLEAN',
+      :'use_vulnerability_scanning' => :'BOOLEAN',
+      :'user_entitlements_enabled' => :'BOOLEAN',
+      :'view_statistics' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'cdn_url')
+      self.cdn_url = attributes[:'cdn_url']
+    end
+
+    if attributes.has_key?(:'content_kind')
+      self.content_kind = attributes[:'content_kind']
+    else
+      self.content_kind = 'Standard'
+    end
+
+    if attributes.has_key?(:'contextual_auth_realm')
+      self.contextual_auth_realm = attributes[:'contextual_auth_realm']
+    end
+
+    if attributes.has_key?(:'copy_own')
+      self.copy_own = attributes[:'copy_own']
+    end
+
+    if attributes.has_key?(:'copy_packages')
+      self.copy_packages = attributes[:'copy_packages']
+    else
+      self.copy_packages = 'Read'
+    end
+
+    if attributes.has_key?(:'created_at')
+      self.created_at = attributes[:'created_at']
+    end
+
+    if attributes.has_key?(:'default_privilege')
+      self.default_privilege = attributes[:'default_privilege']
+    else
+      self.default_privilege = 'None'
+    end
+
+    if attributes.has_key?(:'delete_own')
+      self.delete_own = attributes[:'delete_own']
+    end
+
+    if attributes.has_key?(:'delete_packages')
+      self.delete_packages = attributes[:'delete_packages']
+    else
+      self.delete_packages = 'Admin'
+    end
+
+    if attributes.has_key?(:'deleted_at')
+      self.deleted_at = attributes[:'deleted_at']
+    end
+
+    if attributes.has_key?(:'description')
+      self.description = attributes[:'description']
+    end
+
+    if attributes.has_key?(:'distributes')
+      if (value = attributes[:'distributes']).is_a?(Array)
+        self.distributes = value
       end
     end
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'cdn_url' => :'cdn_url',
-        :'content_kind' => :'content_kind',
-        :'contextual_auth_realm' => :'contextual_auth_realm',
-        :'copy_own' => :'copy_own',
-        :'copy_packages' => :'copy_packages',
-        :'created_at' => :'created_at',
-        :'default_privilege' => :'default_privilege',
-        :'delete_own' => :'delete_own',
-        :'delete_packages' => :'delete_packages',
-        :'deleted_at' => :'deleted_at',
-        :'description' => :'description',
-        :'distributes' => :'distributes',
-        :'docker_refresh_tokens_enabled' => :'docker_refresh_tokens_enabled',
-        :'gpg_keys' => :'gpg_keys',
-        :'index_files' => :'index_files',
-        :'is_open_source' => :'is_open_source',
-        :'is_private' => :'is_private',
-        :'is_public' => :'is_public',
-        :'move_own' => :'move_own',
-        :'move_packages' => :'move_packages',
-        :'name' => :'name',
-        :'namespace' => :'namespace',
-        :'namespace_url' => :'namespace_url',
-        :'num_downloads' => :'num_downloads',
-        :'package_count' => :'package_count',
-        :'package_group_count' => :'package_group_count',
-        :'proxy_npmjs' => :'proxy_npmjs',
-        :'proxy_pypi' => :'proxy_pypi',
-        :'raw_package_index_enabled' => :'raw_package_index_enabled',
-        :'raw_package_index_signatures_enabled' => :'raw_package_index_signatures_enabled',
-        :'replace_packages' => :'replace_packages',
-        :'replace_packages_by_default' => :'replace_packages_by_default',
-        :'repository_type' => :'repository_type',
-        :'repository_type_str' => :'repository_type_str',
-        :'resync_own' => :'resync_own',
-        :'resync_packages' => :'resync_packages',
-        :'scan_own' => :'scan_own',
-        :'scan_packages' => :'scan_packages',
-        :'self_html_url' => :'self_html_url',
-        :'self_url' => :'self_url',
-        :'show_setup_all' => :'show_setup_all',
-        :'size' => :'size',
-        :'size_str' => :'size_str',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm',
-        :'storage_region' => :'storage_region',
-        :'strict_npm_validation' => :'strict_npm_validation',
-        :'use_debian_labels' => :'use_debian_labels',
-        :'use_default_cargo_upstream' => :'use_default_cargo_upstream',
-        :'use_noarch_packages' => :'use_noarch_packages',
-        :'use_source_packages' => :'use_source_packages',
-        :'use_vulnerability_scanning' => :'use_vulnerability_scanning',
-        :'user_entitlements_enabled' => :'user_entitlements_enabled',
-        :'view_statistics' => :'view_statistics'
-      }
+    if attributes.has_key?(:'docker_refresh_tokens_enabled')
+      self.docker_refresh_tokens_enabled = attributes[:'docker_refresh_tokens_enabled']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'cdn_url' => :'String',
-        :'content_kind' => :'String',
-        :'contextual_auth_realm' => :'BOOLEAN',
-        :'copy_own' => :'BOOLEAN',
-        :'copy_packages' => :'String',
-        :'created_at' => :'String',
-        :'default_privilege' => :'String',
-        :'delete_own' => :'BOOLEAN',
-        :'delete_packages' => :'String',
-        :'deleted_at' => :'String',
-        :'description' => :'String',
-        :'distributes' => :'Array<String>',
-        :'docker_refresh_tokens_enabled' => :'BOOLEAN',
-        :'gpg_keys' => :'Array<ReposGpgKeys>',
-        :'index_files' => :'BOOLEAN',
-        :'is_open_source' => :'BOOLEAN',
-        :'is_private' => :'BOOLEAN',
-        :'is_public' => :'BOOLEAN',
-        :'move_own' => :'BOOLEAN',
-        :'move_packages' => :'String',
-        :'name' => :'String',
-        :'namespace' => :'String',
-        :'namespace_url' => :'String',
-        :'num_downloads' => :'Integer',
-        :'package_count' => :'Integer',
-        :'package_group_count' => :'Integer',
-        :'proxy_npmjs' => :'BOOLEAN',
-        :'proxy_pypi' => :'BOOLEAN',
-        :'raw_package_index_enabled' => :'BOOLEAN',
-        :'raw_package_index_signatures_enabled' => :'BOOLEAN',
-        :'replace_packages' => :'String',
-        :'replace_packages_by_default' => :'BOOLEAN',
-        :'repository_type' => :'Integer',
-        :'repository_type_str' => :'String',
-        :'resync_own' => :'BOOLEAN',
-        :'resync_packages' => :'String',
-        :'scan_own' => :'BOOLEAN',
-        :'scan_packages' => :'String',
-        :'self_html_url' => :'String',
-        :'self_url' => :'String',
-        :'show_setup_all' => :'BOOLEAN',
-        :'size' => :'Integer',
-        :'size_str' => :'String',
-        :'slug' => :'String',
-        :'slug_perm' => :'String',
-        :'storage_region' => :'String',
-        :'strict_npm_validation' => :'BOOLEAN',
-        :'use_debian_labels' => :'BOOLEAN',
-        :'use_default_cargo_upstream' => :'BOOLEAN',
-        :'use_noarch_packages' => :'BOOLEAN',
-        :'use_source_packages' => :'BOOLEAN',
-        :'use_vulnerability_scanning' => :'BOOLEAN',
-        :'user_entitlements_enabled' => :'BOOLEAN',
-        :'view_statistics' => :'String'
-      }
-    end
-
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'cdn_url')
-        self.cdn_url = attributes[:'cdn_url']
-      end
-
-      if attributes.has_key?(:'content_kind')
-        self.content_kind = attributes[:'content_kind']
-      end
-
-      if attributes.has_key?(:'contextual_auth_realm')
-        self.contextual_auth_realm = attributes[:'contextual_auth_realm']
-      end
-
-      if attributes.has_key?(:'copy_own')
-        self.copy_own = attributes[:'copy_own']
-      end
-
-      if attributes.has_key?(:'copy_packages')
-        self.copy_packages = attributes[:'copy_packages']
-      end
-
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'default_privilege')
-        self.default_privilege = attributes[:'default_privilege']
-      end
-
-      if attributes.has_key?(:'delete_own')
-        self.delete_own = attributes[:'delete_own']
-      end
-
-      if attributes.has_key?(:'delete_packages')
-        self.delete_packages = attributes[:'delete_packages']
-      end
-
-      if attributes.has_key?(:'deleted_at')
-        self.deleted_at = attributes[:'deleted_at']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'distributes')
-        if (value = attributes[:'distributes']).is_a?(Array)
-          self.distributes = value
-        end
-      end
-
-      if attributes.has_key?(:'docker_refresh_tokens_enabled')
-        self.docker_refresh_tokens_enabled = attributes[:'docker_refresh_tokens_enabled']
-      end
-
-      if attributes.has_key?(:'gpg_keys')
-        if (value = attributes[:'gpg_keys']).is_a?(Array)
-          self.gpg_keys = value
-        end
-      end
-
-      if attributes.has_key?(:'index_files')
-        self.index_files = attributes[:'index_files']
-      end
-
-      if attributes.has_key?(:'is_open_source')
-        self.is_open_source = attributes[:'is_open_source']
-      end
-
-      if attributes.has_key?(:'is_private')
-        self.is_private = attributes[:'is_private']
-      end
-
-      if attributes.has_key?(:'is_public')
-        self.is_public = attributes[:'is_public']
-      end
-
-      if attributes.has_key?(:'move_own')
-        self.move_own = attributes[:'move_own']
-      end
-
-      if attributes.has_key?(:'move_packages')
-        self.move_packages = attributes[:'move_packages']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'namespace')
-        self.namespace = attributes[:'namespace']
-      end
-
-      if attributes.has_key?(:'namespace_url')
-        self.namespace_url = attributes[:'namespace_url']
-      end
-
-      if attributes.has_key?(:'num_downloads')
-        self.num_downloads = attributes[:'num_downloads']
-      end
-
-      if attributes.has_key?(:'package_count')
-        self.package_count = attributes[:'package_count']
-      end
-
-      if attributes.has_key?(:'package_group_count')
-        self.package_group_count = attributes[:'package_group_count']
-      end
-
-      if attributes.has_key?(:'proxy_npmjs')
-        self.proxy_npmjs = attributes[:'proxy_npmjs']
-      end
-
-      if attributes.has_key?(:'proxy_pypi')
-        self.proxy_pypi = attributes[:'proxy_pypi']
-      end
-
-      if attributes.has_key?(:'raw_package_index_enabled')
-        self.raw_package_index_enabled = attributes[:'raw_package_index_enabled']
-      end
-
-      if attributes.has_key?(:'raw_package_index_signatures_enabled')
-        self.raw_package_index_signatures_enabled = attributes[:'raw_package_index_signatures_enabled']
-      end
-
-      if attributes.has_key?(:'replace_packages')
-        self.replace_packages = attributes[:'replace_packages']
-      end
-
-      if attributes.has_key?(:'replace_packages_by_default')
-        self.replace_packages_by_default = attributes[:'replace_packages_by_default']
-      end
-
-      if attributes.has_key?(:'repository_type')
-        self.repository_type = attributes[:'repository_type']
-      end
-
-      if attributes.has_key?(:'repository_type_str')
-        self.repository_type_str = attributes[:'repository_type_str']
-      end
-
-      if attributes.has_key?(:'resync_own')
-        self.resync_own = attributes[:'resync_own']
-      end
-
-      if attributes.has_key?(:'resync_packages')
-        self.resync_packages = attributes[:'resync_packages']
-      end
-
-      if attributes.has_key?(:'scan_own')
-        self.scan_own = attributes[:'scan_own']
-      end
-
-      if attributes.has_key?(:'scan_packages')
-        self.scan_packages = attributes[:'scan_packages']
-      end
-
-      if attributes.has_key?(:'self_html_url')
-        self.self_html_url = attributes[:'self_html_url']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'show_setup_all')
-        self.show_setup_all = attributes[:'show_setup_all']
-      end
-
-      if attributes.has_key?(:'size')
-        self.size = attributes[:'size']
-      end
-
-      if attributes.has_key?(:'size_str')
-        self.size_str = attributes[:'size_str']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'storage_region')
-        self.storage_region = attributes[:'storage_region']
-      end
-
-      if attributes.has_key?(:'strict_npm_validation')
-        self.strict_npm_validation = attributes[:'strict_npm_validation']
-      end
-
-      if attributes.has_key?(:'use_debian_labels')
-        self.use_debian_labels = attributes[:'use_debian_labels']
-      end
-
-      if attributes.has_key?(:'use_default_cargo_upstream')
-        self.use_default_cargo_upstream = attributes[:'use_default_cargo_upstream']
-      end
-
-      if attributes.has_key?(:'use_noarch_packages')
-        self.use_noarch_packages = attributes[:'use_noarch_packages']
-      end
-
-      if attributes.has_key?(:'use_source_packages')
-        self.use_source_packages = attributes[:'use_source_packages']
-      end
-
-      if attributes.has_key?(:'use_vulnerability_scanning')
-        self.use_vulnerability_scanning = attributes[:'use_vulnerability_scanning']
-      end
-
-      if attributes.has_key?(:'user_entitlements_enabled')
-        self.user_entitlements_enabled = attributes[:'user_entitlements_enabled']
-      end
-
-      if attributes.has_key?(:'view_statistics')
-        self.view_statistics = attributes[:'view_statistics']
+    if attributes.has_key?(:'gpg_keys')
+      if (value = attributes[:'gpg_keys']).is_a?(Array)
+        self.gpg_keys = value
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'index_files')
+      self.index_files = attributes[:'index_files']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      content_kind_validator = EnumAttributeValidator.new('String', ['Standard', 'Distribution', 'Upstream'])
-      return false unless content_kind_validator.valid?(@content_kind)
-      copy_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-      return false unless copy_packages_validator.valid?(@copy_packages)
-      default_privilege_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
-      return false unless default_privilege_validator.valid?(@default_privilege)
-      delete_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
-      return false unless delete_packages_validator.valid?(@delete_packages)
-      move_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-      return false unless move_packages_validator.valid?(@move_packages)
-      return false if @name.nil?
-      replace_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
-      return false unless replace_packages_validator.valid?(@replace_packages)
-      repository_type_str_validator = EnumAttributeValidator.new('String', ['Public', 'Private', 'Open-Source'])
-      return false unless repository_type_str_validator.valid?(@repository_type_str)
-      resync_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
-      return false unless resync_packages_validator.valid?(@resync_packages)
-      scan_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-      return false unless scan_packages_validator.valid?(@scan_packages)
-      view_statistics_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-      return false unless view_statistics_validator.valid?(@view_statistics)
-      true
+    if attributes.has_key?(:'is_open_source')
+      self.is_open_source = attributes[:'is_open_source']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] content_kind Object to be assigned
-    def content_kind=(content_kind)
-      validator = EnumAttributeValidator.new('String', ['Standard', 'Distribution', 'Upstream'])
-      unless validator.valid?(content_kind)
-        fail ArgumentError, 'invalid value for "content_kind", must be one of #{validator.allowable_values}.'
-      end
-      @content_kind = content_kind
+    if attributes.has_key?(:'is_private')
+      self.is_private = attributes[:'is_private']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] copy_packages Object to be assigned
-    def copy_packages=(copy_packages)
-      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-      unless validator.valid?(copy_packages)
-        fail ArgumentError, 'invalid value for "copy_packages", must be one of #{validator.allowable_values}.'
-      end
-      @copy_packages = copy_packages
+    if attributes.has_key?(:'is_public')
+      self.is_public = attributes[:'is_public']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] default_privilege Object to be assigned
-    def default_privilege=(default_privilege)
-      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
-      unless validator.valid?(default_privilege)
-        fail ArgumentError, 'invalid value for "default_privilege", must be one of #{validator.allowable_values}.'
-      end
-      @default_privilege = default_privilege
+    if attributes.has_key?(:'move_own')
+      self.move_own = attributes[:'move_own']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] delete_packages Object to be assigned
-    def delete_packages=(delete_packages)
-      validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
-      unless validator.valid?(delete_packages)
-        fail ArgumentError, 'invalid value for "delete_packages", must be one of #{validator.allowable_values}.'
-      end
-      @delete_packages = delete_packages
+    if attributes.has_key?(:'move_packages')
+      self.move_packages = attributes[:'move_packages']
+    else
+      self.move_packages = 'Admin'
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] move_packages Object to be assigned
-    def move_packages=(move_packages)
-      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-      unless validator.valid?(move_packages)
-        fail ArgumentError, 'invalid value for "move_packages", must be one of #{validator.allowable_values}.'
-      end
-      @move_packages = move_packages
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] replace_packages Object to be assigned
-    def replace_packages=(replace_packages)
-      validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
-      unless validator.valid?(replace_packages)
-        fail ArgumentError, 'invalid value for "replace_packages", must be one of #{validator.allowable_values}.'
-      end
-      @replace_packages = replace_packages
+    if attributes.has_key?(:'namespace')
+      self.namespace = attributes[:'namespace']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] repository_type_str Object to be assigned
-    def repository_type_str=(repository_type_str)
-      validator = EnumAttributeValidator.new('String', ['Public', 'Private', 'Open-Source'])
-      unless validator.valid?(repository_type_str)
-        fail ArgumentError, 'invalid value for "repository_type_str", must be one of #{validator.allowable_values}.'
-      end
-      @repository_type_str = repository_type_str
+    if attributes.has_key?(:'namespace_url')
+      self.namespace_url = attributes[:'namespace_url']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] resync_packages Object to be assigned
-    def resync_packages=(resync_packages)
-      validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
-      unless validator.valid?(resync_packages)
-        fail ArgumentError, 'invalid value for "resync_packages", must be one of #{validator.allowable_values}.'
-      end
-      @resync_packages = resync_packages
+    if attributes.has_key?(:'num_downloads')
+      self.num_downloads = attributes[:'num_downloads']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] scan_packages Object to be assigned
-    def scan_packages=(scan_packages)
-      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-      unless validator.valid?(scan_packages)
-        fail ArgumentError, 'invalid value for "scan_packages", must be one of #{validator.allowable_values}.'
-      end
-      @scan_packages = scan_packages
+    if attributes.has_key?(:'package_count')
+      self.package_count = attributes[:'package_count']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] view_statistics Object to be assigned
-    def view_statistics=(view_statistics)
-      validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-      unless validator.valid?(view_statistics)
-        fail ArgumentError, 'invalid value for "view_statistics", must be one of #{validator.allowable_values}.'
-      end
-      @view_statistics = view_statistics
+    if attributes.has_key?(:'package_group_count')
+      self.package_group_count = attributes[:'package_group_count']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          cdn_url == o.cdn_url &&
-          content_kind == o.content_kind &&
-          contextual_auth_realm == o.contextual_auth_realm &&
-          copy_own == o.copy_own &&
-          copy_packages == o.copy_packages &&
-          created_at == o.created_at &&
-          default_privilege == o.default_privilege &&
-          delete_own == o.delete_own &&
-          delete_packages == o.delete_packages &&
-          deleted_at == o.deleted_at &&
-          description == o.description &&
-          distributes == o.distributes &&
-          docker_refresh_tokens_enabled == o.docker_refresh_tokens_enabled &&
-          gpg_keys == o.gpg_keys &&
-          index_files == o.index_files &&
-          is_open_source == o.is_open_source &&
-          is_private == o.is_private &&
-          is_public == o.is_public &&
-          move_own == o.move_own &&
-          move_packages == o.move_packages &&
-          name == o.name &&
-          namespace == o.namespace &&
-          namespace_url == o.namespace_url &&
-          num_downloads == o.num_downloads &&
-          package_count == o.package_count &&
-          package_group_count == o.package_group_count &&
-          proxy_npmjs == o.proxy_npmjs &&
-          proxy_pypi == o.proxy_pypi &&
-          raw_package_index_enabled == o.raw_package_index_enabled &&
-          raw_package_index_signatures_enabled == o.raw_package_index_signatures_enabled &&
-          replace_packages == o.replace_packages &&
-          replace_packages_by_default == o.replace_packages_by_default &&
-          repository_type == o.repository_type &&
-          repository_type_str == o.repository_type_str &&
-          resync_own == o.resync_own &&
-          resync_packages == o.resync_packages &&
-          scan_own == o.scan_own &&
-          scan_packages == o.scan_packages &&
-          self_html_url == o.self_html_url &&
-          self_url == o.self_url &&
-          show_setup_all == o.show_setup_all &&
-          size == o.size &&
-          size_str == o.size_str &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm &&
-          storage_region == o.storage_region &&
-          strict_npm_validation == o.strict_npm_validation &&
-          use_debian_labels == o.use_debian_labels &&
-          use_default_cargo_upstream == o.use_default_cargo_upstream &&
-          use_noarch_packages == o.use_noarch_packages &&
-          use_source_packages == o.use_source_packages &&
-          use_vulnerability_scanning == o.use_vulnerability_scanning &&
-          user_entitlements_enabled == o.user_entitlements_enabled &&
-          view_statistics == o.view_statistics
+    if attributes.has_key?(:'proxy_npmjs')
+      self.proxy_npmjs = attributes[:'proxy_npmjs']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'proxy_pypi')
+      self.proxy_pypi = attributes[:'proxy_pypi']
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, move_own, move_packages, name, namespace, namespace_url, num_downloads, package_count, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, use_debian_labels, use_default_cargo_upstream, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+    if attributes.has_key?(:'raw_package_index_enabled')
+      self.raw_package_index_enabled = attributes[:'raw_package_index_enabled']
     end
+
+    if attributes.has_key?(:'raw_package_index_signatures_enabled')
+      self.raw_package_index_signatures_enabled = attributes[:'raw_package_index_signatures_enabled']
+    end
+
+    if attributes.has_key?(:'replace_packages')
+      self.replace_packages = attributes[:'replace_packages']
+    else
+      self.replace_packages = 'Write'
+    end
+
+    if attributes.has_key?(:'replace_packages_by_default')
+      self.replace_packages_by_default = attributes[:'replace_packages_by_default']
+    end
+
+    if attributes.has_key?(:'repository_type')
+      self.repository_type = attributes[:'repository_type']
+    end
+
+    if attributes.has_key?(:'repository_type_str')
+      self.repository_type_str = attributes[:'repository_type_str']
+    else
+      self.repository_type_str = 'Public'
+    end
+
+    if attributes.has_key?(:'resync_own')
+      self.resync_own = attributes[:'resync_own']
+    end
+
+    if attributes.has_key?(:'resync_packages')
+      self.resync_packages = attributes[:'resync_packages']
+    else
+      self.resync_packages = 'Admin'
+    end
+
+    if attributes.has_key?(:'scan_own')
+      self.scan_own = attributes[:'scan_own']
+    end
+
+    if attributes.has_key?(:'scan_packages')
+      self.scan_packages = attributes[:'scan_packages']
+    else
+      self.scan_packages = 'Read'
+    end
+
+    if attributes.has_key?(:'self_html_url')
+      self.self_html_url = attributes[:'self_html_url']
+    end
+
+    if attributes.has_key?(:'self_url')
+      self.self_url = attributes[:'self_url']
+    end
+
+    if attributes.has_key?(:'show_setup_all')
+      self.show_setup_all = attributes[:'show_setup_all']
+    end
+
+    if attributes.has_key?(:'size')
+      self.size = attributes[:'size']
+    end
+
+    if attributes.has_key?(:'size_str')
+      self.size_str = attributes[:'size_str']
+    end
+
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
+    end
+
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
+    end
+
+    if attributes.has_key?(:'storage_region')
+      self.storage_region = attributes[:'storage_region']
+    else
+      self.storage_region = 'default'
+    end
+
+    if attributes.has_key?(:'strict_npm_validation')
+      self.strict_npm_validation = attributes[:'strict_npm_validation']
+    end
+
+    if attributes.has_key?(:'use_debian_labels')
+      self.use_debian_labels = attributes[:'use_debian_labels']
+    end
+
+    if attributes.has_key?(:'use_default_cargo_upstream')
+      self.use_default_cargo_upstream = attributes[:'use_default_cargo_upstream']
+    end
+
+    if attributes.has_key?(:'use_noarch_packages')
+      self.use_noarch_packages = attributes[:'use_noarch_packages']
+    end
+
+    if attributes.has_key?(:'use_source_packages')
+      self.use_source_packages = attributes[:'use_source_packages']
+    end
+
+    if attributes.has_key?(:'use_vulnerability_scanning')
+      self.use_vulnerability_scanning = attributes[:'use_vulnerability_scanning']
+    end
+
+    if attributes.has_key?(:'user_entitlements_enabled')
+      self.user_entitlements_enabled = attributes[:'user_entitlements_enabled']
+    end
+
+    if attributes.has_key?(:'view_statistics')
+      self.view_statistics = attributes[:'view_statistics']
+    else
+      self.view_statistics = 'Read'
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
+    end
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    content_kind_validator = EnumAttributeValidator.new('String', ['Standard', 'Distribution', 'Upstream'])
+    return false unless content_kind_validator.valid?(@content_kind)
+    copy_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless copy_packages_validator.valid?(@copy_packages)
+    default_privilege_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
+    return false unless default_privilege_validator.valid?(@default_privilege)
+    delete_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    return false unless delete_packages_validator.valid?(@delete_packages)
+    move_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless move_packages_validator.valid?(@move_packages)
+    return false if @name.nil?
+    replace_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    return false unless replace_packages_validator.valid?(@replace_packages)
+    repository_type_str_validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
+    return false unless repository_type_str_validator.valid?(@repository_type_str)
+    resync_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    return false unless resync_packages_validator.valid?(@resync_packages)
+    scan_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless scan_packages_validator.valid?(@scan_packages)
+    view_statistics_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    return false unless view_statistics_validator.valid?(@view_statistics)
+    true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] content_kind Object to be assigned
+  def content_kind=(content_kind)
+    validator = EnumAttributeValidator.new('String', ['Standard', 'Distribution', 'Upstream'])
+    unless validator.valid?(content_kind)
+      fail ArgumentError, 'invalid value for "content_kind", must be one of #{validator.allowable_values}.'
+    end
+    @content_kind = content_kind
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] copy_packages Object to be assigned
+  def copy_packages=(copy_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(copy_packages)
+      fail ArgumentError, 'invalid value for "copy_packages", must be one of #{validator.allowable_values}.'
+    end
+    @copy_packages = copy_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] default_privilege Object to be assigned
+  def default_privilege=(default_privilege)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read', 'None'])
+    unless validator.valid?(default_privilege)
+      fail ArgumentError, 'invalid value for "default_privilege", must be one of #{validator.allowable_values}.'
+    end
+    @default_privilege = default_privilege
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] delete_packages Object to be assigned
+  def delete_packages=(delete_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    unless validator.valid?(delete_packages)
+      fail ArgumentError, 'invalid value for "delete_packages", must be one of #{validator.allowable_values}.'
+    end
+    @delete_packages = delete_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] move_packages Object to be assigned
+  def move_packages=(move_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(move_packages)
+      fail ArgumentError, 'invalid value for "move_packages", must be one of #{validator.allowable_values}.'
+    end
+    @move_packages = move_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] replace_packages Object to be assigned
+  def replace_packages=(replace_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    unless validator.valid?(replace_packages)
+      fail ArgumentError, 'invalid value for "replace_packages", must be one of #{validator.allowable_values}.'
+    end
+    @replace_packages = replace_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] repository_type_str Object to be assigned
+  def repository_type_str=(repository_type_str)
+    validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
+    unless validator.valid?(repository_type_str)
+      fail ArgumentError, 'invalid value for "repository_type_str", must be one of #{validator.allowable_values}.'
+    end
+    @repository_type_str = repository_type_str
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] resync_packages Object to be assigned
+  def resync_packages=(resync_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
+    unless validator.valid?(resync_packages)
+      fail ArgumentError, 'invalid value for "resync_packages", must be one of #{validator.allowable_values}.'
+    end
+    @resync_packages = resync_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] scan_packages Object to be assigned
+  def scan_packages=(scan_packages)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(scan_packages)
+      fail ArgumentError, 'invalid value for "scan_packages", must be one of #{validator.allowable_values}.'
+    end
+    @scan_packages = scan_packages
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] view_statistics Object to be assigned
+  def view_statistics=(view_statistics)
+    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
+    unless validator.valid?(view_statistics)
+      fail ArgumentError, 'invalid value for "view_statistics", must be one of #{validator.allowable_values}.'
+    end
+    @view_statistics = view_statistics
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        cdn_url == o.cdn_url &&
+        content_kind == o.content_kind &&
+        contextual_auth_realm == o.contextual_auth_realm &&
+        copy_own == o.copy_own &&
+        copy_packages == o.copy_packages &&
+        created_at == o.created_at &&
+        default_privilege == o.default_privilege &&
+        delete_own == o.delete_own &&
+        delete_packages == o.delete_packages &&
+        deleted_at == o.deleted_at &&
+        description == o.description &&
+        distributes == o.distributes &&
+        docker_refresh_tokens_enabled == o.docker_refresh_tokens_enabled &&
+        gpg_keys == o.gpg_keys &&
+        index_files == o.index_files &&
+        is_open_source == o.is_open_source &&
+        is_private == o.is_private &&
+        is_public == o.is_public &&
+        move_own == o.move_own &&
+        move_packages == o.move_packages &&
+        name == o.name &&
+        namespace == o.namespace &&
+        namespace_url == o.namespace_url &&
+        num_downloads == o.num_downloads &&
+        package_count == o.package_count &&
+        package_group_count == o.package_group_count &&
+        proxy_npmjs == o.proxy_npmjs &&
+        proxy_pypi == o.proxy_pypi &&
+        raw_package_index_enabled == o.raw_package_index_enabled &&
+        raw_package_index_signatures_enabled == o.raw_package_index_signatures_enabled &&
+        replace_packages == o.replace_packages &&
+        replace_packages_by_default == o.replace_packages_by_default &&
+        repository_type == o.repository_type &&
+        repository_type_str == o.repository_type_str &&
+        resync_own == o.resync_own &&
+        resync_packages == o.resync_packages &&
+        scan_own == o.scan_own &&
+        scan_packages == o.scan_packages &&
+        self_html_url == o.self_html_url &&
+        self_url == o.self_url &&
+        show_setup_all == o.show_setup_all &&
+        size == o.size &&
+        size_str == o.size_str &&
+        slug == o.slug &&
+        slug_perm == o.slug_perm &&
+        storage_region == o.storage_region &&
+        strict_npm_validation == o.strict_npm_validation &&
+        use_debian_labels == o.use_debian_labels &&
+        use_default_cargo_upstream == o.use_default_cargo_upstream &&
+        use_noarch_packages == o.use_noarch_packages &&
+        use_source_packages == o.use_source_packages &&
+        use_vulnerability_scanning == o.use_vulnerability_scanning &&
+        user_entitlements_enabled == o.user_entitlements_enabled &&
+        view_statistics == o.view_statistics
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, move_own, move_packages, name, namespace, namespace_url, num_downloads, package_count, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, use_debian_labels, use_default_cargo_upstream, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -862,5 +878,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

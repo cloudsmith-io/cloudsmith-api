@@ -40,7 +40,7 @@ FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-FilesAbort data = new FilesAbort(); // FilesAbort | 
+PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
     apiInstance.filesAbort(owner, repo, identifier, data);
 } catch (ApiException e) {
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**FilesAbort**](FilesAbort.md)|  | [optional]
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -69,7 +69,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="filesComplete"></a>
 # **filesComplete**
@@ -100,7 +100,7 @@ FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-FilesComplete data = new FilesComplete(); // FilesComplete | 
+PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
     PackageFileUpload result = apiInstance.filesComplete(owner, repo, identifier, data);
     System.out.println(result);
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**FilesComplete**](FilesComplete.md)|  | [optional]
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="filesCreate"></a>
 # **filesCreate**
@@ -160,7 +160,7 @@ apikey.setApiKey("YOUR API KEY");
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-FilesCreate data = new FilesCreate(); // FilesCreate | 
+PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
     PackageFileUpload result = apiInstance.filesCreate(owner, repo, data);
     System.out.println(result);
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**FilesCreate**](FilesCreate.md)|  | [optional]
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="filesInfo"></a>
 # **filesInfo**
@@ -221,7 +221,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 String filename = "filename_example"; // String | The filename of the file being uploaded
-Integer partNumber = 56; // Integer | The part number to be uploaded next
+java.math.BigInteger partNumber = new java.math.BigInteger(); // java.math.BigInteger | The part number to be uploaded next
 try {
     PackageFilePartsUpload result = apiInstance.filesInfo(owner, repo, identifier, filename, partNumber);
     System.out.println(result);
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
  **repo** | **String**|  |
  **identifier** | **String**|  |
  **filename** | **String**| The filename of the file being uploaded |
- **partNumber** | **Integer**| The part number to be uploaded next | [optional]
+ **partNumber** | **java.math.BigInteger**| The part number to be uploaded next | [optional]
 
 ### Return type
 
@@ -251,8 +251,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="filesValidate"></a>
 # **filesValidate**
@@ -282,7 +282,7 @@ apikey.setApiKey("YOUR API KEY");
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-FilesValidate data = new FilesValidate(); // FilesValidate | 
+PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
     apiInstance.filesValidate(owner, repo, data);
 } catch (ApiException e) {
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**FilesValidate**](FilesValidate.md)|  | [optional]
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -310,5 +310,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 

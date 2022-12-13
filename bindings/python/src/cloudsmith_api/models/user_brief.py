@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -125,6 +125,12 @@ class UserBrief(object):
         :param email: The email of this UserBrief.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                email is not None and len(email) > 254):
+            raise ValueError("Invalid value for `email`, length must be less than or equal to `254`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                email is not None and len(email) < 1):
+            raise ValueError("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._email = email
 
@@ -148,6 +154,9 @@ class UserBrief(object):
         :param name: The name of this UserBrief.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -178,7 +187,6 @@ class UserBrief(object):
     def self_url(self):
         """Gets the self_url of this UserBrief.
 
-        
 
         :return: The self_url of this UserBrief.
         :rtype: str
@@ -189,7 +197,6 @@ class UserBrief(object):
     def self_url(self, self_url):
         """Sets the self_url of this UserBrief.
 
-        
 
         :param self_url: The self_url of this UserBrief.
         :type: str
@@ -201,7 +208,6 @@ class UserBrief(object):
     def slug(self):
         """Gets the slug of this UserBrief.
 
-        
 
         :return: The slug of this UserBrief.
         :rtype: str
@@ -212,7 +218,6 @@ class UserBrief(object):
     def slug(self, slug):
         """Sets the slug of this UserBrief.
 
-        
 
         :param slug: The slug of this UserBrief.
         :type: str
@@ -224,7 +229,6 @@ class UserBrief(object):
     def slug_perm(self):
         """Gets the slug_perm of this UserBrief.
 
-        
 
         :return: The slug_perm of this UserBrief.
         :rtype: str
@@ -235,7 +239,6 @@ class UserBrief(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this UserBrief.
 
-        
 
         :param slug_perm: The slug_perm of this UserBrief.
         :type: str

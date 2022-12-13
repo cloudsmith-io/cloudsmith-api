@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,74 +13,73 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class PackageUsageMetrics
-    # 
-    attr_accessor :packages
+class PackageUsageMetrics
+  attr_accessor :packages
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'packages' => :'packages'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'packages' => :'packages'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'packages' => :'CommonMetrics'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'packages')
+      self.packages = attributes[:'packages']
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @packages.nil?
+      invalid_properties.push('invalid value for "packages", packages cannot be nil.')
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'packages' => :'Object'
-      }
-    end
+    invalid_properties
+  end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @packages.nil?
+    true
+  end
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        packages == o.packages
+  end
 
-      if attributes.has_key?(:'packages')
-        self.packages = attributes[:'packages']
-      end
-    end
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @packages.nil?
-        invalid_properties.push('invalid value for "packages", packages cannot be nil.')
-      end
-
-      invalid_properties
-    end
-
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @packages.nil?
-      true
-    end
-
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          packages == o.packages
-    end
-
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
-
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [packages].hash
-    end
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [packages].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -186,5 +185,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

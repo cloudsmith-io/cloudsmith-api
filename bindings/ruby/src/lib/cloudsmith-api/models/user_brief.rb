@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,129 +13,126 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class UserBrief
-    # If true then you're logged in as a user.
-    attr_accessor :authenticated
+class UserBrief
+  # If true then you're logged in as a user.
+  attr_accessor :authenticated
 
-    # Your email address that we use to contact you. This is only visible to you.
-    attr_accessor :email
+  # Your email address that we use to contact you. This is only visible to you.
+  attr_accessor :email
 
-    # The full name of the user (if any).
-    attr_accessor :name
+  # The full name of the user (if any).
+  attr_accessor :name
 
-    # The URL for the full profile of the user.
-    attr_accessor :profile_url
+  # The URL for the full profile of the user.
+  attr_accessor :profile_url
 
-    # 
-    attr_accessor :self_url
+  attr_accessor :self_url
 
-    # 
-    attr_accessor :slug
+  attr_accessor :slug
 
-    # 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'authenticated' => :'authenticated',
-        :'email' => :'email',
-        :'name' => :'name',
-        :'profile_url' => :'profile_url',
-        :'self_url' => :'self_url',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'authenticated' => :'authenticated',
+      :'email' => :'email',
+      :'name' => :'name',
+      :'profile_url' => :'profile_url',
+      :'self_url' => :'self_url',
+      :'slug' => :'slug',
+      :'slug_perm' => :'slug_perm'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'authenticated' => :'BOOLEAN',
+      :'email' => :'String',
+      :'name' => :'String',
+      :'profile_url' => :'String',
+      :'self_url' => :'String',
+      :'slug' => :'String',
+      :'slug_perm' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'authenticated')
+      self.authenticated = attributes[:'authenticated']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'authenticated' => :'BOOLEAN',
-        :'email' => :'String',
-        :'name' => :'String',
-        :'profile_url' => :'String',
-        :'self_url' => :'String',
-        :'slug' => :'String',
-        :'slug_perm' => :'String'
-      }
+    if attributes.has_key?(:'email')
+      self.email = attributes[:'email']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'authenticated')
-        self.authenticated = attributes[:'authenticated']
-      end
-
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'profile_url')
-        self.profile_url = attributes[:'profile_url']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      invalid_properties
+    if attributes.has_key?(:'profile_url')
+      self.profile_url = attributes[:'profile_url']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      true
+    if attributes.has_key?(:'self_url')
+      self.self_url = attributes[:'self_url']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          authenticated == o.authenticated &&
-          email == o.email &&
-          name == o.name &&
-          profile_url == o.profile_url &&
-          self_url == o.self_url &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [authenticated, email, name, profile_url, self_url, slug, slug_perm].hash
-    end
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    true
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        authenticated == o.authenticated &&
+        email == o.email &&
+        name == o.name &&
+        profile_url == o.profile_url &&
+        self_url == o.self_url &&
+        slug == o.slug &&
+        slug_perm == o.slug_perm
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [authenticated, email, name, profile_url, self_url, slug, slug_perm].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -241,5 +238,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

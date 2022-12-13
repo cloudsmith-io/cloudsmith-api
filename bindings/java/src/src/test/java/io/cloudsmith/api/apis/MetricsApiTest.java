@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -14,8 +14,8 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.EntitlementUsageMetrics;
+import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.PackageUsageMetrics;
-import io.cloudsmith.api.models.Status;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,14 +43,14 @@ public class MetricsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void metricsEntitlementsListTest() throws Exception {
+    public void metricsEntitlementsAccountListTest() throws Exception {
         String owner = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String finish = null;
         String start = null;
         String tokens = null;
-        EntitlementUsageMetrics response = api.metricsEntitlementsList(owner, page, pageSize, finish, start, tokens);
+        EntitlementUsageMetrics response = api.metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens);
 
         // TODO: test validations
     }
@@ -64,15 +64,15 @@ public class MetricsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void metricsEntitlementsList0Test() throws Exception {
+    public void metricsEntitlementsRepoListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String finish = null;
         String start = null;
         String tokens = null;
-        EntitlementUsageMetrics response = api.metricsEntitlementsList0(owner, repo, page, pageSize, finish, start, tokens);
+        EntitlementUsageMetrics response = api.metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens);
 
         // TODO: test validations
     }
@@ -89,8 +89,8 @@ public class MetricsApiTest {
     public void metricsPackagesListTest() throws Exception {
         String owner = null;
         String repo = null;
-        Integer page = null;
-        Integer pageSize = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
         String finish = null;
         String packages = null;
         String start = null;

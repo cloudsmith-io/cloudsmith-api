@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -44,6 +44,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -66,7 +70,7 @@ module CloudsmithApi
     # Retrieve the API key/token for the authenticated user.
     # Retrieve the API key/token for the authenticated user.
     # @param [Hash] opts the optional parameters
-    # @option opts [UserTokenCreate] :data 
+    # @option opts [UserAuthTokenRequest] :data 
     # @return [UserAuthToken]
     def user_token_create(opts = {})
       data, _status_code, _headers = user_token_create_with_http_info(opts)
@@ -76,7 +80,7 @@ module CloudsmithApi
     # Retrieve the API key/token for the authenticated user.
     # Retrieve the API key/token for the authenticated user.
     # @param [Hash] opts the optional parameters
-    # @option opts [UserTokenCreate] :data 
+    # @option opts [UserAuthTokenRequest] :data 
     # @return [Array<(UserAuthToken, Fixnum, Hash)>] UserAuthToken data, response status code and response headers
     def user_token_create_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -90,6 +94,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 

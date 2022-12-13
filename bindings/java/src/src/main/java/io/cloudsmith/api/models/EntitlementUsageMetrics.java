@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.CommonMetrics;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -35,24 +36,25 @@ public class EntitlementUsageMetrics implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("tokens")
-  private Object tokens = null;
+  private CommonMetrics tokens = null;
 
-  public EntitlementUsageMetrics tokens(Object tokens) {
+  public EntitlementUsageMetrics tokens(CommonMetrics tokens) {
     this.tokens = tokens;
     return this;
   }
 
    /**
-   * 
+   * Get tokens
    * @return tokens
   **/
   @NotNull
-  @ApiModelProperty(example = "{\"active\":1,\"bandwidth\":{\"average\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"highest\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"lowest\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11},\"total\":{\"display\":\"11 B\",\"units\":\"bytes\",\"value\":11}},\"downloads\":{\"average\":{\"value\":5},\"highest\":{\"value\":5},\"lowest\":{\"value\":5},\"total\":{\"value\":5}},\"inactive\":0,\"total\":0}", required = true, value = "")
-  public Object getTokens() {
+  @Valid
+  @ApiModelProperty(required = true, value = "")
+  public CommonMetrics getTokens() {
     return tokens;
   }
 
-  public void setTokens(Object tokens) {
+  public void setTokens(CommonMetrics tokens) {
     this.tokens = tokens;
   }
 

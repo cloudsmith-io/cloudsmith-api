@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -44,7 +45,7 @@ public class UserProfile implements Serializable {
   private String jobTitle = null;
 
   @SerializedName("joined_at")
-  private String joinedAt = null;
+  private OffsetDateTime joinedAt = null;
 
   @SerializedName("last_name")
   private String lastName = null;
@@ -70,10 +71,10 @@ public class UserProfile implements Serializable {
   }
 
    /**
-   * 
+   * Get company
    * @return company
   **/
-  @ApiModelProperty(value = "")
+ @Size(max=64)  @ApiModelProperty(value = "")
   public String getCompany() {
     return company;
   }
@@ -88,11 +89,11 @@ public class UserProfile implements Serializable {
   }
 
    /**
-   * 
+   * Get firstName
    * @return firstName
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=40)  @ApiModelProperty(required = true, value = "")
   public String getFirstName() {
     return firstName;
   }
@@ -107,10 +108,10 @@ public class UserProfile implements Serializable {
   }
 
    /**
-   * 
+   * Get jobTitle
    * @return jobTitle
   **/
-  @ApiModelProperty(value = "")
+ @Size(max=64)  @ApiModelProperty(value = "")
   public String getJobTitle() {
     return jobTitle;
   }
@@ -119,21 +120,22 @@ public class UserProfile implements Serializable {
     this.jobTitle = jobTitle;
   }
 
-  public UserProfile joinedAt(String joinedAt) {
+  public UserProfile joinedAt(OffsetDateTime joinedAt) {
     this.joinedAt = joinedAt;
     return this;
   }
 
    /**
-   * 
+   * Get joinedAt
    * @return joinedAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getJoinedAt() {
+  public OffsetDateTime getJoinedAt() {
     return joinedAt;
   }
 
-  public void setJoinedAt(String joinedAt) {
+  public void setJoinedAt(OffsetDateTime joinedAt) {
     this.joinedAt = joinedAt;
   }
 
@@ -143,11 +145,11 @@ public class UserProfile implements Serializable {
   }
 
    /**
-   * 
+   * Get lastName
    * @return lastName
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=30)  @ApiModelProperty(required = true, value = "")
   public String getLastName() {
     return lastName;
   }
@@ -156,31 +158,17 @@ public class UserProfile implements Serializable {
     this.lastName = lastName;
   }
 
-  public UserProfile name(String name) {
-    this.name = name;
-    return this;
-  }
-
    /**
-   * 
+   * Get name
    * @return name
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public UserProfile slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
    /**
-   * 
+   * Get slug
    * @return slug
   **/
   @ApiModelProperty(value = "")
@@ -188,26 +176,13 @@ public class UserProfile implements Serializable {
     return slug;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public UserProfile slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
   @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
   }
 
   public UserProfile tagline(String tagline) {
@@ -219,7 +194,7 @@ public class UserProfile implements Serializable {
    * Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it&#39;s public and it represents who you are.
    * @return tagline
   **/
-  @ApiModelProperty(value = "Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.")
+ @Size(max=80)  @ApiModelProperty(value = "Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.")
   public String getTagline() {
     return tagline;
   }
@@ -228,22 +203,13 @@ public class UserProfile implements Serializable {
     this.tagline = tagline;
   }
 
-  public UserProfile url(String url) {
-    this.url = url;
-    return this;
-  }
-
    /**
-   * 
+   * Get url
    * @return url
   **/
   @ApiModelProperty(value = "")
   public String getUrl() {
     return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
   }
 
 

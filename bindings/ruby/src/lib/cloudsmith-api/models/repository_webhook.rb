@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,348 +13,351 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class RepositoryWebhook
-    # 
-    attr_accessor :created_at
+class RepositoryWebhook
+  attr_accessor :created_at
 
-    # 
-    attr_accessor :created_by
+  attr_accessor :created_by
 
-    # 
-    attr_accessor :created_by_url
+  attr_accessor :created_by_url
 
-    # 
-    attr_accessor :disable_reason
+  attr_accessor :disable_reason
 
-    # 
-    attr_accessor :disable_reason_str
+  attr_accessor :disable_reason_str
 
-    # 
-    attr_accessor :events
+  attr_accessor :events
 
-    # 
-    attr_accessor :identifier
+  attr_accessor :identifier
 
-    # If enabled, the webhook will trigger on events and send payloads to the configured target URL.
-    attr_accessor :is_active
+  # If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.
+  attr_accessor :is_active
 
-    # 
-    attr_accessor :is_last_response_bad
+  attr_accessor :is_last_response_bad
 
-    # 
-    attr_accessor :last_response_status
+  attr_accessor :last_response_status
 
-    # 
-    attr_accessor :last_response_status_str
+  attr_accessor :last_response_status_str
 
-    # 
-    attr_accessor :num_sent
+  attr_accessor :num_sent
 
-    # The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
-    attr_accessor :package_query
+  # The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
+  attr_accessor :package_query
 
-    # The format of the payloads for webhook requests.
-    attr_accessor :request_body_format
+  # The format of the payloads for webhook requests.
+  attr_accessor :request_body_format
 
-    # 
-    attr_accessor :request_body_format_str
+  attr_accessor :request_body_format_str
 
-    # The format of the payloads for webhook requests.
-    attr_accessor :request_body_template_format
+  # The format of the payloads for webhook requests.
+  attr_accessor :request_body_template_format
 
-    # 
-    attr_accessor :request_body_template_format_str
+  attr_accessor :request_body_template_format_str
 
-    # The value that will be sent for the 'Content Type' header. 
-    attr_accessor :request_content_type
+  # The value that will be sent for the 'Content Type' header. 
+  attr_accessor :request_content_type
 
-    # The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
-    attr_accessor :secret_header
+  # The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.
+  attr_accessor :secret_header
 
-    # 
-    attr_accessor :self_url
+  attr_accessor :self_url
 
-    # 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # The destination URL that webhook payloads will be POST'ed to.
-    attr_accessor :target_url
+  # The destination URL that webhook payloads will be POST'ed to.
+  attr_accessor :target_url
 
-    # 
-    attr_accessor :templates
+  attr_accessor :templates
 
-    # 
-    attr_accessor :updated_at
+  attr_accessor :updated_at
 
-    # 
-    attr_accessor :updated_by
+  attr_accessor :updated_by
 
-    # 
-    attr_accessor :updated_by_url
+  attr_accessor :updated_by_url
 
-    # If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
-    attr_accessor :verify_ssl
+  # If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.
+  attr_accessor :verify_ssl
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'created_at' => :'created_at',
-        :'created_by' => :'created_by',
-        :'created_by_url' => :'created_by_url',
-        :'disable_reason' => :'disable_reason',
-        :'disable_reason_str' => :'disable_reason_str',
-        :'events' => :'events',
-        :'identifier' => :'identifier',
-        :'is_active' => :'is_active',
-        :'is_last_response_bad' => :'is_last_response_bad',
-        :'last_response_status' => :'last_response_status',
-        :'last_response_status_str' => :'last_response_status_str',
-        :'num_sent' => :'num_sent',
-        :'package_query' => :'package_query',
-        :'request_body_format' => :'request_body_format',
-        :'request_body_format_str' => :'request_body_format_str',
-        :'request_body_template_format' => :'request_body_template_format',
-        :'request_body_template_format_str' => :'request_body_template_format_str',
-        :'request_content_type' => :'request_content_type',
-        :'secret_header' => :'secret_header',
-        :'self_url' => :'self_url',
-        :'slug_perm' => :'slug_perm',
-        :'target_url' => :'target_url',
-        :'templates' => :'templates',
-        :'updated_at' => :'updated_at',
-        :'updated_by' => :'updated_by',
-        :'updated_by_url' => :'updated_by_url',
-        :'verify_ssl' => :'verify_ssl'
-      }
-    end
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'created_at' => :'String',
-        :'created_by' => :'String',
-        :'created_by_url' => :'String',
-        :'disable_reason' => :'Integer',
-        :'disable_reason_str' => :'String',
-        :'events' => :'Array<String>',
-        :'identifier' => :'Integer',
-        :'is_active' => :'BOOLEAN',
-        :'is_last_response_bad' => :'BOOLEAN',
-        :'last_response_status' => :'Integer',
-        :'last_response_status_str' => :'String',
-        :'num_sent' => :'Integer',
-        :'package_query' => :'String',
-        :'request_body_format' => :'Integer',
-        :'request_body_format_str' => :'String',
-        :'request_body_template_format' => :'Integer',
-        :'request_body_template_format_str' => :'String',
-        :'request_content_type' => :'String',
-        :'secret_header' => :'String',
-        :'self_url' => :'String',
-        :'slug_perm' => :'String',
-        :'target_url' => :'String',
-        :'templates' => :'Array<WebhooksownerrepoTemplates>',
-        :'updated_at' => :'String',
-        :'updated_by' => :'String',
-        :'updated_by_url' => :'String',
-        :'verify_ssl' => :'BOOLEAN'
-      }
-    end
-
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'created_by')
-        self.created_by = attributes[:'created_by']
-      end
-
-      if attributes.has_key?(:'created_by_url')
-        self.created_by_url = attributes[:'created_by_url']
-      end
-
-      if attributes.has_key?(:'disable_reason')
-        self.disable_reason = attributes[:'disable_reason']
-      end
-
-      if attributes.has_key?(:'disable_reason_str')
-        self.disable_reason_str = attributes[:'disable_reason_str']
-      end
-
-      if attributes.has_key?(:'events')
-        if (value = attributes[:'events']).is_a?(Array)
-          self.events = value
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
         end
       end
+    end
 
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
 
-      if attributes.has_key?(:'is_active')
-        self.is_active = attributes[:'is_active']
-      end
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'created_at' => :'created_at',
+      :'created_by' => :'created_by',
+      :'created_by_url' => :'created_by_url',
+      :'disable_reason' => :'disable_reason',
+      :'disable_reason_str' => :'disable_reason_str',
+      :'events' => :'events',
+      :'identifier' => :'identifier',
+      :'is_active' => :'is_active',
+      :'is_last_response_bad' => :'is_last_response_bad',
+      :'last_response_status' => :'last_response_status',
+      :'last_response_status_str' => :'last_response_status_str',
+      :'num_sent' => :'num_sent',
+      :'package_query' => :'package_query',
+      :'request_body_format' => :'request_body_format',
+      :'request_body_format_str' => :'request_body_format_str',
+      :'request_body_template_format' => :'request_body_template_format',
+      :'request_body_template_format_str' => :'request_body_template_format_str',
+      :'request_content_type' => :'request_content_type',
+      :'secret_header' => :'secret_header',
+      :'self_url' => :'self_url',
+      :'slug_perm' => :'slug_perm',
+      :'target_url' => :'target_url',
+      :'templates' => :'templates',
+      :'updated_at' => :'updated_at',
+      :'updated_by' => :'updated_by',
+      :'updated_by_url' => :'updated_by_url',
+      :'verify_ssl' => :'verify_ssl'
+    }
+  end
 
-      if attributes.has_key?(:'is_last_response_bad')
-        self.is_last_response_bad = attributes[:'is_last_response_bad']
-      end
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'created_at' => :'DateTime',
+      :'created_by' => :'String',
+      :'created_by_url' => :'String',
+      :'disable_reason' => :'Integer',
+      :'disable_reason_str' => :'String',
+      :'events' => :'Array<String>',
+      :'identifier' => :'Integer',
+      :'is_active' => :'BOOLEAN',
+      :'is_last_response_bad' => :'BOOLEAN',
+      :'last_response_status' => :'Integer',
+      :'last_response_status_str' => :'String',
+      :'num_sent' => :'Integer',
+      :'package_query' => :'String',
+      :'request_body_format' => :'Integer',
+      :'request_body_format_str' => :'String',
+      :'request_body_template_format' => :'Integer',
+      :'request_body_template_format_str' => :'String',
+      :'request_content_type' => :'String',
+      :'secret_header' => :'String',
+      :'self_url' => :'String',
+      :'slug_perm' => :'String',
+      :'target_url' => :'String',
+      :'templates' => :'Array<WebhookTemplate>',
+      :'updated_at' => :'DateTime',
+      :'updated_by' => :'String',
+      :'updated_by_url' => :'String',
+      :'verify_ssl' => :'BOOLEAN'
+    }
+  end
 
-      if attributes.has_key?(:'last_response_status')
-        self.last_response_status = attributes[:'last_response_status']
-      end
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
 
-      if attributes.has_key?(:'last_response_status_str')
-        self.last_response_status_str = attributes[:'last_response_status_str']
-      end
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'num_sent')
-        self.num_sent = attributes[:'num_sent']
-      end
+    if attributes.has_key?(:'created_at')
+      self.created_at = attributes[:'created_at']
+    end
 
-      if attributes.has_key?(:'package_query')
-        self.package_query = attributes[:'package_query']
-      end
+    if attributes.has_key?(:'created_by')
+      self.created_by = attributes[:'created_by']
+    end
 
-      if attributes.has_key?(:'request_body_format')
-        self.request_body_format = attributes[:'request_body_format']
-      end
+    if attributes.has_key?(:'created_by_url')
+      self.created_by_url = attributes[:'created_by_url']
+    end
 
-      if attributes.has_key?(:'request_body_format_str')
-        self.request_body_format_str = attributes[:'request_body_format_str']
-      end
+    if attributes.has_key?(:'disable_reason')
+      self.disable_reason = attributes[:'disable_reason']
+    end
 
-      if attributes.has_key?(:'request_body_template_format')
-        self.request_body_template_format = attributes[:'request_body_template_format']
-      end
+    if attributes.has_key?(:'disable_reason_str')
+      self.disable_reason_str = attributes[:'disable_reason_str']
+    end
 
-      if attributes.has_key?(:'request_body_template_format_str')
-        self.request_body_template_format_str = attributes[:'request_body_template_format_str']
-      end
-
-      if attributes.has_key?(:'request_content_type')
-        self.request_content_type = attributes[:'request_content_type']
-      end
-
-      if attributes.has_key?(:'secret_header')
-        self.secret_header = attributes[:'secret_header']
-      end
-
-      if attributes.has_key?(:'self_url')
-        self.self_url = attributes[:'self_url']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'target_url')
-        self.target_url = attributes[:'target_url']
-      end
-
-      if attributes.has_key?(:'templates')
-        if (value = attributes[:'templates']).is_a?(Array)
-          self.templates = value
-        end
-      end
-
-      if attributes.has_key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      end
-
-      if attributes.has_key?(:'updated_by')
-        self.updated_by = attributes[:'updated_by']
-      end
-
-      if attributes.has_key?(:'updated_by_url')
-        self.updated_by_url = attributes[:'updated_by_url']
-      end
-
-      if attributes.has_key?(:'verify_ssl')
-        self.verify_ssl = attributes[:'verify_ssl']
+    if attributes.has_key?(:'events')
+      if (value = attributes[:'events']).is_a?(Array)
+        self.events = value
       end
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @events.nil?
-        invalid_properties.push('invalid value for "events", events cannot be nil.')
+    if attributes.has_key?(:'identifier')
+      self.identifier = attributes[:'identifier']
+    end
+
+    if attributes.has_key?(:'is_active')
+      self.is_active = attributes[:'is_active']
+    end
+
+    if attributes.has_key?(:'is_last_response_bad')
+      self.is_last_response_bad = attributes[:'is_last_response_bad']
+    end
+
+    if attributes.has_key?(:'last_response_status')
+      self.last_response_status = attributes[:'last_response_status']
+    end
+
+    if attributes.has_key?(:'last_response_status_str')
+      self.last_response_status_str = attributes[:'last_response_status_str']
+    end
+
+    if attributes.has_key?(:'num_sent')
+      self.num_sent = attributes[:'num_sent']
+    end
+
+    if attributes.has_key?(:'package_query')
+      self.package_query = attributes[:'package_query']
+    end
+
+    if attributes.has_key?(:'request_body_format')
+      self.request_body_format = attributes[:'request_body_format']
+    end
+
+    if attributes.has_key?(:'request_body_format_str')
+      self.request_body_format_str = attributes[:'request_body_format_str']
+    end
+
+    if attributes.has_key?(:'request_body_template_format')
+      self.request_body_template_format = attributes[:'request_body_template_format']
+    end
+
+    if attributes.has_key?(:'request_body_template_format_str')
+      self.request_body_template_format_str = attributes[:'request_body_template_format_str']
+    end
+
+    if attributes.has_key?(:'request_content_type')
+      self.request_content_type = attributes[:'request_content_type']
+    end
+
+    if attributes.has_key?(:'secret_header')
+      self.secret_header = attributes[:'secret_header']
+    end
+
+    if attributes.has_key?(:'self_url')
+      self.self_url = attributes[:'self_url']
+    end
+
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
+    end
+
+    if attributes.has_key?(:'target_url')
+      self.target_url = attributes[:'target_url']
+    end
+
+    if attributes.has_key?(:'templates')
+      if (value = attributes[:'templates']).is_a?(Array)
+        self.templates = value
       end
-
-      if @target_url.nil?
-        invalid_properties.push('invalid value for "target_url", target_url cannot be nil.')
-      end
-
-      if @templates.nil?
-        invalid_properties.push('invalid value for "templates", templates cannot be nil.')
-      end
-
-      invalid_properties
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @events.nil?
-      return false if @target_url.nil?
-      return false if @templates.nil?
-      true
+    if attributes.has_key?(:'updated_at')
+      self.updated_at = attributes[:'updated_at']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          created_at == o.created_at &&
-          created_by == o.created_by &&
-          created_by_url == o.created_by_url &&
-          disable_reason == o.disable_reason &&
-          disable_reason_str == o.disable_reason_str &&
-          events == o.events &&
-          identifier == o.identifier &&
-          is_active == o.is_active &&
-          is_last_response_bad == o.is_last_response_bad &&
-          last_response_status == o.last_response_status &&
-          last_response_status_str == o.last_response_status_str &&
-          num_sent == o.num_sent &&
-          package_query == o.package_query &&
-          request_body_format == o.request_body_format &&
-          request_body_format_str == o.request_body_format_str &&
-          request_body_template_format == o.request_body_template_format &&
-          request_body_template_format_str == o.request_body_template_format_str &&
-          request_content_type == o.request_content_type &&
-          secret_header == o.secret_header &&
-          self_url == o.self_url &&
-          slug_perm == o.slug_perm &&
-          target_url == o.target_url &&
-          templates == o.templates &&
-          updated_at == o.updated_at &&
-          updated_by == o.updated_by &&
-          updated_by_url == o.updated_by_url &&
-          verify_ssl == o.verify_ssl
+    if attributes.has_key?(:'updated_by')
+      self.updated_by = attributes[:'updated_by']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'updated_by_url')
+      self.updated_by_url = attributes[:'updated_by_url']
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [created_at, created_by, created_by_url, disable_reason, disable_reason_str, events, identifier, is_active, is_last_response_bad, last_response_status, last_response_status_str, num_sent, package_query, request_body_format, request_body_format_str, request_body_template_format, request_body_template_format_str, request_content_type, secret_header, self_url, slug_perm, target_url, templates, updated_at, updated_by, updated_by_url, verify_ssl].hash
+    if attributes.has_key?(:'verify_ssl')
+      self.verify_ssl = attributes[:'verify_ssl']
     end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @events.nil?
+      invalid_properties.push('invalid value for "events", events cannot be nil.')
+    end
+
+    if @target_url.nil?
+      invalid_properties.push('invalid value for "target_url", target_url cannot be nil.')
+    end
+
+    if @templates.nil?
+      invalid_properties.push('invalid value for "templates", templates cannot be nil.')
+    end
+
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @events.nil?
+    return false if @target_url.nil?
+    return false if @templates.nil?
+    true
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        created_at == o.created_at &&
+        created_by == o.created_by &&
+        created_by_url == o.created_by_url &&
+        disable_reason == o.disable_reason &&
+        disable_reason_str == o.disable_reason_str &&
+        events == o.events &&
+        identifier == o.identifier &&
+        is_active == o.is_active &&
+        is_last_response_bad == o.is_last_response_bad &&
+        last_response_status == o.last_response_status &&
+        last_response_status_str == o.last_response_status_str &&
+        num_sent == o.num_sent &&
+        package_query == o.package_query &&
+        request_body_format == o.request_body_format &&
+        request_body_format_str == o.request_body_format_str &&
+        request_body_template_format == o.request_body_template_format &&
+        request_body_template_format_str == o.request_body_template_format_str &&
+        request_content_type == o.request_content_type &&
+        secret_header == o.secret_header &&
+        self_url == o.self_url &&
+        slug_perm == o.slug_perm &&
+        target_url == o.target_url &&
+        templates == o.templates &&
+        updated_at == o.updated_at &&
+        updated_by == o.updated_by &&
+        updated_by_url == o.updated_by_url &&
+        verify_ssl == o.verify_ssl
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [created_at, created_by, created_by_url, disable_reason, disable_reason_str, events, identifier, is_active, is_last_response_bad, last_response_status, last_response_status_str, num_sent, package_query, request_body_format, request_body_format_str, request_body_template_format, request_body_template_format_str, request_content_type, secret_header, self_url, slug_perm, target_url, templates, updated_at, updated_by, updated_by_url, verify_ssl].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -460,5 +463,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

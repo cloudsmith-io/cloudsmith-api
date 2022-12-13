@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,119 +13,117 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class RepositoryRsaKey
-    # If selected this is the active key for this repository.
-    attr_accessor :active
+class RepositoryRsaKey
+  # If selected this is the active key for this repository.
+  attr_accessor :active
 
-    # 
-    attr_accessor :created_at
+  attr_accessor :created_at
 
-    # If selected this is the default key for this repository.
-    attr_accessor :default
+  # If selected this is the default key for this repository.
+  attr_accessor :default
 
-    # The long identifier used by RSA for this key.
-    attr_accessor :fingerprint
+  # The long identifier used by RSA for this key.
+  attr_accessor :fingerprint
 
-    # 
-    attr_accessor :fingerprint_short
+  attr_accessor :fingerprint_short
 
-    # The public key given to repository users.
-    attr_accessor :public_key
+  # The public key given to repository users.
+  attr_accessor :public_key
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'active' => :'active',
-        :'created_at' => :'created_at',
-        :'default' => :'default',
-        :'fingerprint' => :'fingerprint',
-        :'fingerprint_short' => :'fingerprint_short',
-        :'public_key' => :'public_key'
-      }
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'active' => :'active',
+      :'created_at' => :'created_at',
+      :'default' => :'default',
+      :'fingerprint' => :'fingerprint',
+      :'fingerprint_short' => :'fingerprint_short',
+      :'public_key' => :'public_key'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'active' => :'BOOLEAN',
+      :'created_at' => :'DateTime',
+      :'default' => :'BOOLEAN',
+      :'fingerprint' => :'String',
+      :'fingerprint_short' => :'String',
+      :'public_key' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'active')
+      self.active = attributes[:'active']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'active' => :'BOOLEAN',
-        :'created_at' => :'String',
-        :'default' => :'BOOLEAN',
-        :'fingerprint' => :'String',
-        :'fingerprint_short' => :'String',
-        :'public_key' => :'String'
-      }
+    if attributes.has_key?(:'created_at')
+      self.created_at = attributes[:'created_at']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'active')
-        self.active = attributes[:'active']
-      end
-
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'default')
-        self.default = attributes[:'default']
-      end
-
-      if attributes.has_key?(:'fingerprint')
-        self.fingerprint = attributes[:'fingerprint']
-      end
-
-      if attributes.has_key?(:'fingerprint_short')
-        self.fingerprint_short = attributes[:'fingerprint_short']
-      end
-
-      if attributes.has_key?(:'public_key')
-        self.public_key = attributes[:'public_key']
-      end
+    if attributes.has_key?(:'default')
+      self.default = attributes[:'default']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      invalid_properties
+    if attributes.has_key?(:'fingerprint')
+      self.fingerprint = attributes[:'fingerprint']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      true
+    if attributes.has_key?(:'fingerprint_short')
+      self.fingerprint_short = attributes[:'fingerprint_short']
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          active == o.active &&
-          created_at == o.created_at &&
-          default == o.default &&
-          fingerprint == o.fingerprint &&
-          fingerprint_short == o.fingerprint_short &&
-          public_key == o.public_key
+    if attributes.has_key?(:'public_key')
+      self.public_key = attributes[:'public_key']
     end
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
-    end
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    invalid_properties
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [active, created_at, default, fingerprint, fingerprint_short, public_key].hash
-    end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    true
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        active == o.active &&
+        created_at == o.created_at &&
+        default == o.default &&
+        fingerprint == o.fingerprint &&
+        fingerprint_short == o.fingerprint_short &&
+        public_key == o.public_key
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [active, created_at, default, fingerprint, fingerprint_short, public_key].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -231,5 +229,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

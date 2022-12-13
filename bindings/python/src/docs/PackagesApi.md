@@ -89,7 +89,7 @@ api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackagesCopy() # PackagesCopy |  (optional)
+data = cloudsmith_api.PackageCopyRequest() # PackageCopyRequest |  (optional)
 
 try:
     # Copy a package to another repository.
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**PackagesCopy**](PackagesCopy.md)|  | [optional] 
+ **data** | [**PackageCopyRequest**](PackageCopyRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -175,8 +175,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -233,8 +233,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -265,8 +265,8 @@ owner = 'owner_example' # str |
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
-query = 'query_example' # str | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional)
-sort = 'sort_example' # str | A field for sorting objects in ascending or descending order. (optional)
+query = '' # str | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional) (default to )
+sort = '-date' # str | A field for sorting objects in ascending or descending order. (optional) (default to -date)
 
 try:
     # Get a list of all packages associated with repository.
@@ -284,8 +284,8 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] 
- **sort** | **str**| A field for sorting objects in ascending or descending order. | [optional] 
+ **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] [default to ]
+ **sort** | **str**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
 
 ### Return type
 
@@ -297,8 +297,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -328,7 +328,7 @@ api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackagesMove() # PackagesMove |  (optional)
+data = cloudsmith_api.PackageMoveRequest() # PackageMoveRequest |  (optional)
 
 try:
     # Move a package to another repository.
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**PackagesMove**](PackagesMove.md)|  | [optional] 
+ **data** | [**PackageMoveRequest**](PackageMoveRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -358,12 +358,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_quarantine**
-> Package packages_quarantine(owner, repo, identifier, data=data)
+> PackageQuarantine packages_quarantine(owner, repo, identifier, data=data)
 
 Quarantine or restore a package.
 
@@ -388,7 +388,7 @@ api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackagesQuarantine() # PackagesQuarantine |  (optional)
+data = cloudsmith_api.PackageQuarantineRequest() # PackageQuarantineRequest |  (optional)
 
 try:
     # Quarantine or restore a package.
@@ -405,11 +405,11 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**PackagesQuarantine**](PackagesQuarantine.md)|  | [optional] 
+ **data** | [**PackageQuarantineRequest**](PackageQuarantineRequest.md)|  | [optional] 
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageQuarantine**](PackageQuarantine.md)
 
 ### Authorization
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -475,13 +475,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_resync**
-> Package packages_resync(owner, repo, identifier)
+> PackageResync packages_resync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageResync**](PackageResync.md)
 
 ### Authorization
 
@@ -533,8 +533,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -591,8 +591,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -649,8 +649,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -680,7 +680,7 @@ api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackagesTag() # PackagesTag |  (optional)
+data = cloudsmith_api.PackageTagRequest() # PackageTagRequest |  (optional)
 
 try:
     # Add/Replace/Remove tags for a package.
@@ -697,7 +697,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**PackagesTag**](PackagesTag.md)|  | [optional] 
+ **data** | [**PackageTagRequest**](PackageTagRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -739,7 +739,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadAlpine() # PackagesUploadAlpine |  (optional)
+data = cloudsmith_api.AlpinePackageUploadRequest() # AlpinePackageUploadRequest |  (optional)
 
 try:
     # Create a new Alpine package
@@ -755,7 +755,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadAlpine**](PackagesUploadAlpine.md)|  | [optional] 
+ **data** | [**AlpinePackageUploadRequest**](AlpinePackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -768,12 +768,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cargo**
-> AlpinePackageUpload packages_upload_cargo(owner, repo, data=data)
+> CargoPackageUpload packages_upload_cargo(owner, repo, data=data)
 
 Create a new Cargo package
 
@@ -797,7 +797,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadCargo() # PackagesUploadCargo |  (optional)
+data = cloudsmith_api.CargoPackageUploadRequest() # CargoPackageUploadRequest |  (optional)
 
 try:
     # Create a new Cargo package
@@ -813,11 +813,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadCargo**](PackagesUploadCargo.md)|  | [optional] 
+ **data** | [**CargoPackageUploadRequest**](CargoPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CargoPackageUpload**](CargoPackageUpload.md)
 
 ### Authorization
 
@@ -826,12 +826,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cocoapods**
-> AlpinePackageUpload packages_upload_cocoapods(owner, repo, data=data)
+> CocoapodsPackageUpload packages_upload_cocoapods(owner, repo, data=data)
 
 Create a new CocoaPods package
 
@@ -855,7 +855,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadCocoapods() # PackagesUploadCocoapods |  (optional)
+data = cloudsmith_api.CocoapodsPackageUploadRequest() # CocoapodsPackageUploadRequest |  (optional)
 
 try:
     # Create a new CocoaPods package
@@ -871,11 +871,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadCocoapods**](PackagesUploadCocoapods.md)|  | [optional] 
+ **data** | [**CocoapodsPackageUploadRequest**](CocoapodsPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CocoapodsPackageUpload**](CocoapodsPackageUpload.md)
 
 ### Authorization
 
@@ -884,12 +884,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_composer**
-> AlpinePackageUpload packages_upload_composer(owner, repo, data=data)
+> ComposerPackageUpload packages_upload_composer(owner, repo, data=data)
 
 Create a new Composer package
 
@@ -913,7 +913,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadComposer() # PackagesUploadComposer |  (optional)
+data = cloudsmith_api.ComposerPackageUploadRequest() # ComposerPackageUploadRequest |  (optional)
 
 try:
     # Create a new Composer package
@@ -929,11 +929,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadComposer**](PackagesUploadComposer.md)|  | [optional] 
+ **data** | [**ComposerPackageUploadRequest**](ComposerPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**ComposerPackageUpload**](ComposerPackageUpload.md)
 
 ### Authorization
 
@@ -942,7 +942,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -971,7 +971,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadConan() # PackagesUploadConan |  (optional)
+data = cloudsmith_api.ConanPackageUploadRequest() # ConanPackageUploadRequest |  (optional)
 
 try:
     # Create a new Conan package
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadConan**](PackagesUploadConan.md)|  | [optional] 
+ **data** | [**ConanPackageUploadRequest**](ConanPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1000,12 +1000,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_conda**
-> AlpinePackageUpload packages_upload_conda(owner, repo, data=data)
+> CondaPackageUpload packages_upload_conda(owner, repo, data=data)
 
 Create a new Conda package
 
@@ -1029,7 +1029,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadConda() # PackagesUploadConda |  (optional)
+data = cloudsmith_api.CondaPackageUploadRequest() # CondaPackageUploadRequest |  (optional)
 
 try:
     # Create a new Conda package
@@ -1045,11 +1045,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadConda**](PackagesUploadConda.md)|  | [optional] 
+ **data** | [**CondaPackageUploadRequest**](CondaPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CondaPackageUpload**](CondaPackageUpload.md)
 
 ### Authorization
 
@@ -1058,12 +1058,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cran**
-> AlpinePackageUpload packages_upload_cran(owner, repo, data=data)
+> CranPackageUpload packages_upload_cran(owner, repo, data=data)
 
 Create a new CRAN package
 
@@ -1087,7 +1087,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadCran() # PackagesUploadCran |  (optional)
+data = cloudsmith_api.CranPackageUploadRequest() # CranPackageUploadRequest |  (optional)
 
 try:
     # Create a new CRAN package
@@ -1103,11 +1103,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadCran**](PackagesUploadCran.md)|  | [optional] 
+ **data** | [**CranPackageUploadRequest**](CranPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**CranPackageUpload**](CranPackageUpload.md)
 
 ### Authorization
 
@@ -1116,12 +1116,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_dart**
-> AlpinePackageUpload packages_upload_dart(owner, repo, data=data)
+> DartPackageUpload packages_upload_dart(owner, repo, data=data)
 
 Create a new Dart package
 
@@ -1145,7 +1145,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadDart() # PackagesUploadDart |  (optional)
+data = cloudsmith_api.DartPackageUploadRequest() # DartPackageUploadRequest |  (optional)
 
 try:
     # Create a new Dart package
@@ -1161,11 +1161,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadDart**](PackagesUploadDart.md)|  | [optional] 
+ **data** | [**DartPackageUploadRequest**](DartPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DartPackageUpload**](DartPackageUpload.md)
 
 ### Authorization
 
@@ -1174,12 +1174,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_deb**
-> AlpinePackageUpload packages_upload_deb(owner, repo, data=data)
+> DebPackageUpload packages_upload_deb(owner, repo, data=data)
 
 Create a new Debian package
 
@@ -1203,7 +1203,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadDeb() # PackagesUploadDeb |  (optional)
+data = cloudsmith_api.DebPackageUploadRequest() # DebPackageUploadRequest |  (optional)
 
 try:
     # Create a new Debian package
@@ -1219,11 +1219,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadDeb**](PackagesUploadDeb.md)|  | [optional] 
+ **data** | [**DebPackageUploadRequest**](DebPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DebPackageUpload**](DebPackageUpload.md)
 
 ### Authorization
 
@@ -1232,12 +1232,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_docker**
-> AlpinePackageUpload packages_upload_docker(owner, repo, data=data)
+> DockerPackageUpload packages_upload_docker(owner, repo, data=data)
 
 Create a new Docker package
 
@@ -1261,7 +1261,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadDocker() # PackagesUploadDocker |  (optional)
+data = cloudsmith_api.DockerPackageUploadRequest() # DockerPackageUploadRequest |  (optional)
 
 try:
     # Create a new Docker package
@@ -1277,11 +1277,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadDocker**](PackagesUploadDocker.md)|  | [optional] 
+ **data** | [**DockerPackageUploadRequest**](DockerPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**DockerPackageUpload**](DockerPackageUpload.md)
 
 ### Authorization
 
@@ -1290,12 +1290,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_go**
-> AlpinePackageUpload packages_upload_go(owner, repo, data=data)
+> GoPackageUpload packages_upload_go(owner, repo, data=data)
 
 Create a new Go package
 
@@ -1319,7 +1319,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadGo() # PackagesUploadGo |  (optional)
+data = cloudsmith_api.GoPackageUploadRequest() # GoPackageUploadRequest |  (optional)
 
 try:
     # Create a new Go package
@@ -1335,11 +1335,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadGo**](PackagesUploadGo.md)|  | [optional] 
+ **data** | [**GoPackageUploadRequest**](GoPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**GoPackageUpload**](GoPackageUpload.md)
 
 ### Authorization
 
@@ -1348,12 +1348,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_helm**
-> AlpinePackageUpload packages_upload_helm(owner, repo, data=data)
+> HelmPackageUpload packages_upload_helm(owner, repo, data=data)
 
 Create a new Helm package
 
@@ -1377,7 +1377,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadHelm() # PackagesUploadHelm |  (optional)
+data = cloudsmith_api.HelmPackageUploadRequest() # HelmPackageUploadRequest |  (optional)
 
 try:
     # Create a new Helm package
@@ -1393,11 +1393,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadHelm**](PackagesUploadHelm.md)|  | [optional] 
+ **data** | [**HelmPackageUploadRequest**](HelmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**HelmPackageUpload**](HelmPackageUpload.md)
 
 ### Authorization
 
@@ -1406,12 +1406,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_luarocks**
-> AlpinePackageUpload packages_upload_luarocks(owner, repo, data=data)
+> LuarocksPackageUpload packages_upload_luarocks(owner, repo, data=data)
 
 Create a new LuaRocks package
 
@@ -1435,7 +1435,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadLuarocks() # PackagesUploadLuarocks |  (optional)
+data = cloudsmith_api.LuarocksPackageUploadRequest() # LuarocksPackageUploadRequest |  (optional)
 
 try:
     # Create a new LuaRocks package
@@ -1451,11 +1451,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadLuarocks**](PackagesUploadLuarocks.md)|  | [optional] 
+ **data** | [**LuarocksPackageUploadRequest**](LuarocksPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**LuarocksPackageUpload**](LuarocksPackageUpload.md)
 
 ### Authorization
 
@@ -1464,7 +1464,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1493,7 +1493,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadMaven() # PackagesUploadMaven |  (optional)
+data = cloudsmith_api.MavenPackageUploadRequest() # MavenPackageUploadRequest |  (optional)
 
 try:
     # Create a new Maven package
@@ -1509,7 +1509,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadMaven**](PackagesUploadMaven.md)|  | [optional] 
+ **data** | [**MavenPackageUploadRequest**](MavenPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1522,12 +1522,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_npm**
-> AlpinePackageUpload packages_upload_npm(owner, repo, data=data)
+> NpmPackageUpload packages_upload_npm(owner, repo, data=data)
 
 Create a new npm package
 
@@ -1551,7 +1551,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadNpm() # PackagesUploadNpm |  (optional)
+data = cloudsmith_api.NpmPackageUploadRequest() # NpmPackageUploadRequest |  (optional)
 
 try:
     # Create a new npm package
@@ -1567,11 +1567,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadNpm**](PackagesUploadNpm.md)|  | [optional] 
+ **data** | [**NpmPackageUploadRequest**](NpmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**NpmPackageUpload**](NpmPackageUpload.md)
 
 ### Authorization
 
@@ -1580,12 +1580,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_nuget**
-> AlpinePackageUpload packages_upload_nuget(owner, repo, data=data)
+> NugetPackageUpload packages_upload_nuget(owner, repo, data=data)
 
 Create a new NuGet package
 
@@ -1609,7 +1609,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadNuget() # PackagesUploadNuget |  (optional)
+data = cloudsmith_api.NugetPackageUploadRequest() # NugetPackageUploadRequest |  (optional)
 
 try:
     # Create a new NuGet package
@@ -1625,11 +1625,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadNuget**](PackagesUploadNuget.md)|  | [optional] 
+ **data** | [**NugetPackageUploadRequest**](NugetPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**NugetPackageUpload**](NugetPackageUpload.md)
 
 ### Authorization
 
@@ -1638,12 +1638,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_p2**
-> AlpinePackageUpload packages_upload_p2(owner, repo, data=data)
+> P2PackageUpload packages_upload_p2(owner, repo, data=data)
 
 Create a new P2 package
 
@@ -1667,7 +1667,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadP2() # PackagesUploadP2 |  (optional)
+data = cloudsmith_api.P2PackageUploadRequest() # P2PackageUploadRequest |  (optional)
 
 try:
     # Create a new P2 package
@@ -1683,11 +1683,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadP2**](PackagesUploadP2.md)|  | [optional] 
+ **data** | [**P2PackageUploadRequest**](P2PackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**P2PackageUpload**](P2PackageUpload.md)
 
 ### Authorization
 
@@ -1696,12 +1696,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_python**
-> AlpinePackageUpload packages_upload_python(owner, repo, data=data)
+> PythonPackageUpload packages_upload_python(owner, repo, data=data)
 
 Create a new Python package
 
@@ -1725,7 +1725,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadPython() # PackagesUploadPython |  (optional)
+data = cloudsmith_api.PythonPackageUploadRequest() # PythonPackageUploadRequest |  (optional)
 
 try:
     # Create a new Python package
@@ -1741,11 +1741,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadPython**](PackagesUploadPython.md)|  | [optional] 
+ **data** | [**PythonPackageUploadRequest**](PythonPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**PythonPackageUpload**](PythonPackageUpload.md)
 
 ### Authorization
 
@@ -1754,7 +1754,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1783,7 +1783,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadRaw() # PackagesUploadRaw |  (optional)
+data = cloudsmith_api.RawPackageUploadRequest() # RawPackageUploadRequest |  (optional)
 
 try:
     # Create a new Raw package
@@ -1799,7 +1799,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadRaw**](PackagesUploadRaw.md)|  | [optional] 
+ **data** | [**RawPackageUploadRequest**](RawPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1812,12 +1812,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_rpm**
-> AlpinePackageUpload packages_upload_rpm(owner, repo, data=data)
+> RpmPackageUpload packages_upload_rpm(owner, repo, data=data)
 
 Create a new RedHat package
 
@@ -1841,7 +1841,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadRpm() # PackagesUploadRpm |  (optional)
+data = cloudsmith_api.RpmPackageUploadRequest() # RpmPackageUploadRequest |  (optional)
 
 try:
     # Create a new RedHat package
@@ -1857,11 +1857,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadRpm**](PackagesUploadRpm.md)|  | [optional] 
+ **data** | [**RpmPackageUploadRequest**](RpmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**RpmPackageUpload**](RpmPackageUpload.md)
 
 ### Authorization
 
@@ -1870,12 +1870,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_ruby**
-> AlpinePackageUpload packages_upload_ruby(owner, repo, data=data)
+> RubyPackageUpload packages_upload_ruby(owner, repo, data=data)
 
 Create a new Ruby package
 
@@ -1899,7 +1899,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadRuby() # PackagesUploadRuby |  (optional)
+data = cloudsmith_api.RubyPackageUploadRequest() # RubyPackageUploadRequest |  (optional)
 
 try:
     # Create a new Ruby package
@@ -1915,11 +1915,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadRuby**](PackagesUploadRuby.md)|  | [optional] 
+ **data** | [**RubyPackageUploadRequest**](RubyPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**RubyPackageUpload**](RubyPackageUpload.md)
 
 ### Authorization
 
@@ -1928,12 +1928,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_terraform**
-> AlpinePackageUpload packages_upload_terraform(owner, repo, data=data)
+> TerraformPackageUpload packages_upload_terraform(owner, repo, data=data)
 
 Create a new Terraform package
 
@@ -1957,7 +1957,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadTerraform() # PackagesUploadTerraform |  (optional)
+data = cloudsmith_api.TerraformPackageUploadRequest() # TerraformPackageUploadRequest |  (optional)
 
 try:
     # Create a new Terraform package
@@ -1973,11 +1973,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadTerraform**](PackagesUploadTerraform.md)|  | [optional] 
+ **data** | [**TerraformPackageUploadRequest**](TerraformPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
-[**AlpinePackageUpload**](AlpinePackageUpload.md)
+[**TerraformPackageUpload**](TerraformPackageUpload.md)
 
 ### Authorization
 
@@ -1986,7 +1986,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2015,7 +2015,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesUploadVagrant() # PackagesUploadVagrant |  (optional)
+data = cloudsmith_api.VagrantPackageUploadRequest() # VagrantPackageUploadRequest |  (optional)
 
 try:
     # Create a new Vagrant package
@@ -2031,7 +2031,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesUploadVagrant**](PackagesUploadVagrant.md)|  | [optional] 
+ **data** | [**VagrantPackageUploadRequest**](VagrantPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2044,7 +2044,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2073,7 +2073,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadAlpine() # PackagesValidateuploadAlpine |  (optional)
+data = cloudsmith_api.AlpinePackageUploadRequest() # AlpinePackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Alpine package
@@ -2088,7 +2088,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadAlpine**](PackagesValidateuploadAlpine.md)|  | [optional] 
+ **data** | [**AlpinePackageUploadRequest**](AlpinePackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2101,7 +2101,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2130,7 +2130,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadCargo() # PackagesValidateuploadCargo |  (optional)
+data = cloudsmith_api.CargoPackageUploadRequest() # CargoPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Cargo package
@@ -2145,7 +2145,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadCargo**](PackagesValidateuploadCargo.md)|  | [optional] 
+ **data** | [**CargoPackageUploadRequest**](CargoPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2158,7 +2158,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2187,7 +2187,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadCocoapods() # PackagesValidateuploadCocoapods |  (optional)
+data = cloudsmith_api.CocoapodsPackageUploadRequest() # CocoapodsPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create CocoaPods package
@@ -2202,7 +2202,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadCocoapods**](PackagesValidateuploadCocoapods.md)|  | [optional] 
+ **data** | [**CocoapodsPackageUploadRequest**](CocoapodsPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2215,7 +2215,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2244,7 +2244,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadComposer() # PackagesValidateuploadComposer |  (optional)
+data = cloudsmith_api.ComposerPackageUploadRequest() # ComposerPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Composer package
@@ -2259,7 +2259,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadComposer**](PackagesValidateuploadComposer.md)|  | [optional] 
+ **data** | [**ComposerPackageUploadRequest**](ComposerPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2272,7 +2272,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2301,7 +2301,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadConan() # PackagesValidateuploadConan |  (optional)
+data = cloudsmith_api.ConanPackageUploadRequest() # ConanPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Conan package
@@ -2316,7 +2316,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadConan**](PackagesValidateuploadConan.md)|  | [optional] 
+ **data** | [**ConanPackageUploadRequest**](ConanPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2329,7 +2329,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2358,7 +2358,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadConda() # PackagesValidateuploadConda |  (optional)
+data = cloudsmith_api.CondaPackageUploadRequest() # CondaPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Conda package
@@ -2373,7 +2373,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadConda**](PackagesValidateuploadConda.md)|  | [optional] 
+ **data** | [**CondaPackageUploadRequest**](CondaPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2386,7 +2386,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2415,7 +2415,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadCran() # PackagesValidateuploadCran |  (optional)
+data = cloudsmith_api.CranPackageUploadRequest() # CranPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create CRAN package
@@ -2430,7 +2430,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadCran**](PackagesValidateuploadCran.md)|  | [optional] 
+ **data** | [**CranPackageUploadRequest**](CranPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2443,7 +2443,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2472,7 +2472,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadDart() # PackagesValidateuploadDart |  (optional)
+data = cloudsmith_api.DartPackageUploadRequest() # DartPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Dart package
@@ -2487,7 +2487,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadDart**](PackagesValidateuploadDart.md)|  | [optional] 
+ **data** | [**DartPackageUploadRequest**](DartPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2500,7 +2500,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2529,7 +2529,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadDeb() # PackagesValidateuploadDeb |  (optional)
+data = cloudsmith_api.DebPackageUploadRequest() # DebPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Debian package
@@ -2544,7 +2544,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadDeb**](PackagesValidateuploadDeb.md)|  | [optional] 
+ **data** | [**DebPackageUploadRequest**](DebPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2557,7 +2557,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2586,7 +2586,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadDocker() # PackagesValidateuploadDocker |  (optional)
+data = cloudsmith_api.DockerPackageUploadRequest() # DockerPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Docker package
@@ -2601,7 +2601,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadDocker**](PackagesValidateuploadDocker.md)|  | [optional] 
+ **data** | [**DockerPackageUploadRequest**](DockerPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2614,7 +2614,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2643,7 +2643,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadGo() # PackagesValidateuploadGo |  (optional)
+data = cloudsmith_api.GoPackageUploadRequest() # GoPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Go package
@@ -2658,7 +2658,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadGo**](PackagesValidateuploadGo.md)|  | [optional] 
+ **data** | [**GoPackageUploadRequest**](GoPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2671,7 +2671,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2700,7 +2700,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadHelm() # PackagesValidateuploadHelm |  (optional)
+data = cloudsmith_api.HelmPackageUploadRequest() # HelmPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Helm package
@@ -2715,7 +2715,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadHelm**](PackagesValidateuploadHelm.md)|  | [optional] 
+ **data** | [**HelmPackageUploadRequest**](HelmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2728,7 +2728,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2757,7 +2757,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadLuarocks() # PackagesValidateuploadLuarocks |  (optional)
+data = cloudsmith_api.LuarocksPackageUploadRequest() # LuarocksPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create LuaRocks package
@@ -2772,7 +2772,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadLuarocks**](PackagesValidateuploadLuarocks.md)|  | [optional] 
+ **data** | [**LuarocksPackageUploadRequest**](LuarocksPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2785,7 +2785,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2814,7 +2814,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadMaven() # PackagesValidateuploadMaven |  (optional)
+data = cloudsmith_api.MavenPackageUploadRequest() # MavenPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Maven package
@@ -2829,7 +2829,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadMaven**](PackagesValidateuploadMaven.md)|  | [optional] 
+ **data** | [**MavenPackageUploadRequest**](MavenPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2842,7 +2842,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2871,7 +2871,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadNpm() # PackagesValidateuploadNpm |  (optional)
+data = cloudsmith_api.NpmPackageUploadRequest() # NpmPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create npm package
@@ -2886,7 +2886,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadNpm**](PackagesValidateuploadNpm.md)|  | [optional] 
+ **data** | [**NpmPackageUploadRequest**](NpmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2899,7 +2899,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2928,7 +2928,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadNuget() # PackagesValidateuploadNuget |  (optional)
+data = cloudsmith_api.NugetPackageUploadRequest() # NugetPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create NuGet package
@@ -2943,7 +2943,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadNuget**](PackagesValidateuploadNuget.md)|  | [optional] 
+ **data** | [**NugetPackageUploadRequest**](NugetPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -2956,7 +2956,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2985,7 +2985,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadP2() # PackagesValidateuploadP2 |  (optional)
+data = cloudsmith_api.P2PackageUploadRequest() # P2PackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create P2 package
@@ -3000,7 +3000,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadP2**](PackagesValidateuploadP2.md)|  | [optional] 
+ **data** | [**P2PackageUploadRequest**](P2PackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3013,7 +3013,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3042,7 +3042,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadPython() # PackagesValidateuploadPython |  (optional)
+data = cloudsmith_api.PythonPackageUploadRequest() # PythonPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Python package
@@ -3057,7 +3057,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadPython**](PackagesValidateuploadPython.md)|  | [optional] 
+ **data** | [**PythonPackageUploadRequest**](PythonPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3070,7 +3070,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3099,7 +3099,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadRaw() # PackagesValidateuploadRaw |  (optional)
+data = cloudsmith_api.RawPackageUploadRequest() # RawPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Raw package
@@ -3114,7 +3114,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadRaw**](PackagesValidateuploadRaw.md)|  | [optional] 
+ **data** | [**RawPackageUploadRequest**](RawPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3127,7 +3127,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3156,7 +3156,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadRpm() # PackagesValidateuploadRpm |  (optional)
+data = cloudsmith_api.RpmPackageUploadRequest() # RpmPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create RedHat package
@@ -3171,7 +3171,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadRpm**](PackagesValidateuploadRpm.md)|  | [optional] 
+ **data** | [**RpmPackageUploadRequest**](RpmPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3184,7 +3184,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3213,7 +3213,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadRuby() # PackagesValidateuploadRuby |  (optional)
+data = cloudsmith_api.RubyPackageUploadRequest() # RubyPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Ruby package
@@ -3228,7 +3228,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadRuby**](PackagesValidateuploadRuby.md)|  | [optional] 
+ **data** | [**RubyPackageUploadRequest**](RubyPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3241,7 +3241,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3270,7 +3270,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadTerraform() # PackagesValidateuploadTerraform |  (optional)
+data = cloudsmith_api.TerraformPackageUploadRequest() # TerraformPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Terraform package
@@ -3285,7 +3285,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadTerraform**](PackagesValidateuploadTerraform.md)|  | [optional] 
+ **data** | [**TerraformPackageUploadRequest**](TerraformPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3298,7 +3298,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3327,7 +3327,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.PackagesValidateuploadVagrant() # PackagesValidateuploadVagrant |  (optional)
+data = cloudsmith_api.VagrantPackageUploadRequest() # VagrantPackageUploadRequest |  (optional)
 
 try:
     # Validate parameters for create Vagrant package
@@ -3342,7 +3342,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**PackagesValidateuploadVagrant**](PackagesValidateuploadVagrant.md)|  | [optional] 
+ **data** | [**VagrantPackageUploadRequest**](VagrantPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -3355,7 +3355,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

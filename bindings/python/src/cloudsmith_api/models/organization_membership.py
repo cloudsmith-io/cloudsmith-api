@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -35,8 +35,9 @@ class OrganizationMembership(object):
     swagger_types = {
         'email': 'str',
         'has_two_factor': 'bool',
-        'joined_at': 'str',
-        'last_login_at': 'str',
+        'joined_at': 'datetime',
+        'last_login_at': 'datetime',
+        'last_login_method': 'str',
         'role': 'str',
         'user': 'str',
         'user_id': 'str',
@@ -50,6 +51,7 @@ class OrganizationMembership(object):
         'has_two_factor': 'has_two_factor',
         'joined_at': 'joined_at',
         'last_login_at': 'last_login_at',
+        'last_login_method': 'last_login_method',
         'role': 'role',
         'user': 'user',
         'user_id': 'user_id',
@@ -58,7 +60,7 @@ class OrganizationMembership(object):
         'visibility': 'visibility'
     }
 
-    def __init__(self, email=None, has_two_factor=None, joined_at=None, last_login_at=None, role=None, user=None, user_id=None, user_name=None, user_url=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, email=None, has_two_factor=None, joined_at=None, last_login_at=None, last_login_method='Unknown', role='Owner', user=None, user_id=None, user_name=None, user_url=None, visibility='Public', _configuration=None):  # noqa: E501
         """OrganizationMembership - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class OrganizationMembership(object):
         self._has_two_factor = None
         self._joined_at = None
         self._last_login_at = None
+        self._last_login_method = None
         self._role = None
         self._user = None
         self._user_id = None
@@ -84,6 +87,8 @@ class OrganizationMembership(object):
             self.joined_at = joined_at
         if last_login_at is not None:
             self.last_login_at = last_login_at
+        if last_login_method is not None:
+            self.last_login_method = last_login_method
         if role is not None:
             self.role = role
         if user is not None:
@@ -101,7 +106,6 @@ class OrganizationMembership(object):
     def email(self):
         """Gets the email of this OrganizationMembership.
 
-        
 
         :return: The email of this OrganizationMembership.
         :rtype: str
@@ -112,11 +116,13 @@ class OrganizationMembership(object):
     def email(self, email):
         """Sets the email of this OrganizationMembership.
 
-        
 
         :param email: The email of this OrganizationMembership.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                email is not None and len(email) < 1):
+            raise ValueError("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._email = email
 
@@ -124,7 +130,6 @@ class OrganizationMembership(object):
     def has_two_factor(self):
         """Gets the has_two_factor of this OrganizationMembership.
 
-        
 
         :return: The has_two_factor of this OrganizationMembership.
         :rtype: bool
@@ -135,7 +140,6 @@ class OrganizationMembership(object):
     def has_two_factor(self, has_two_factor):
         """Sets the has_two_factor of this OrganizationMembership.
 
-        
 
         :param has_two_factor: The has_two_factor of this OrganizationMembership.
         :type: bool
@@ -147,10 +151,9 @@ class OrganizationMembership(object):
     def joined_at(self):
         """Gets the joined_at of this OrganizationMembership.
 
-        
 
         :return: The joined_at of this OrganizationMembership.
-        :rtype: str
+        :rtype: datetime
         """
         return self._joined_at
 
@@ -158,10 +161,9 @@ class OrganizationMembership(object):
     def joined_at(self, joined_at):
         """Sets the joined_at of this OrganizationMembership.
 
-        
 
         :param joined_at: The joined_at of this OrganizationMembership.
-        :type: str
+        :type: datetime
         """
 
         self._joined_at = joined_at
@@ -170,10 +172,9 @@ class OrganizationMembership(object):
     def last_login_at(self):
         """Gets the last_login_at of this OrganizationMembership.
 
-        
 
         :return: The last_login_at of this OrganizationMembership.
-        :rtype: str
+        :rtype: datetime
         """
         return self._last_login_at
 
@@ -181,19 +182,45 @@ class OrganizationMembership(object):
     def last_login_at(self, last_login_at):
         """Sets the last_login_at of this OrganizationMembership.
 
-        
 
         :param last_login_at: The last_login_at of this OrganizationMembership.
-        :type: str
+        :type: datetime
         """
 
         self._last_login_at = last_login_at
 
     @property
+    def last_login_method(self):
+        """Gets the last_login_method of this OrganizationMembership.
+
+
+        :return: The last_login_method of this OrganizationMembership.
+        :rtype: str
+        """
+        return self._last_login_method
+
+    @last_login_method.setter
+    def last_login_method(self, last_login_method):
+        """Sets the last_login_method of this OrganizationMembership.
+
+
+        :param last_login_method: The last_login_method of this OrganizationMembership.
+        :type: str
+        """
+        allowed_values = ["Unknown", "Password", "Social", "SAML"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                last_login_method not in allowed_values):
+            raise ValueError(
+                "Invalid value for `last_login_method` ({0}), must be one of {1}"  # noqa: E501
+                .format(last_login_method, allowed_values)
+            )
+
+        self._last_login_method = last_login_method
+
+    @property
     def role(self):
         """Gets the role of this OrganizationMembership.
 
-        
 
         :return: The role of this OrganizationMembership.
         :rtype: str
@@ -204,7 +231,6 @@ class OrganizationMembership(object):
     def role(self, role):
         """Sets the role of this OrganizationMembership.
 
-        
 
         :param role: The role of this OrganizationMembership.
         :type: str
@@ -223,7 +249,6 @@ class OrganizationMembership(object):
     def user(self):
         """Gets the user of this OrganizationMembership.
 
-        
 
         :return: The user of this OrganizationMembership.
         :rtype: str
@@ -234,11 +259,13 @@ class OrganizationMembership(object):
     def user(self, user):
         """Sets the user of this OrganizationMembership.
 
-        
 
         :param user: The user of this OrganizationMembership.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                user is not None and len(user) < 1):
+            raise ValueError("Invalid value for `user`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._user = user
 
@@ -246,7 +273,6 @@ class OrganizationMembership(object):
     def user_id(self):
         """Gets the user_id of this OrganizationMembership.
 
-        
 
         :return: The user_id of this OrganizationMembership.
         :rtype: str
@@ -257,11 +283,13 @@ class OrganizationMembership(object):
     def user_id(self, user_id):
         """Sets the user_id of this OrganizationMembership.
 
-        
 
         :param user_id: The user_id of this OrganizationMembership.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                user_id is not None and len(user_id) < 1):
+            raise ValueError("Invalid value for `user_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._user_id = user_id
 
@@ -269,7 +297,6 @@ class OrganizationMembership(object):
     def user_name(self):
         """Gets the user_name of this OrganizationMembership.
 
-        
 
         :return: The user_name of this OrganizationMembership.
         :rtype: str
@@ -280,11 +307,13 @@ class OrganizationMembership(object):
     def user_name(self, user_name):
         """Sets the user_name of this OrganizationMembership.
 
-        
 
         :param user_name: The user_name of this OrganizationMembership.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                user_name is not None and len(user_name) < 1):
+            raise ValueError("Invalid value for `user_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._user_name = user_name
 
@@ -292,7 +321,6 @@ class OrganizationMembership(object):
     def user_url(self):
         """Gets the user_url of this OrganizationMembership.
 
-        
 
         :return: The user_url of this OrganizationMembership.
         :rtype: str
@@ -303,7 +331,6 @@ class OrganizationMembership(object):
     def user_url(self, user_url):
         """Sets the user_url of this OrganizationMembership.
 
-        
 
         :param user_url: The user_url of this OrganizationMembership.
         :type: str
@@ -315,7 +342,6 @@ class OrganizationMembership(object):
     def visibility(self):
         """Gets the visibility of this OrganizationMembership.
 
-        
 
         :return: The visibility of this OrganizationMembership.
         :rtype: str
@@ -326,7 +352,6 @@ class OrganizationMembership(object):
     def visibility(self, visibility):
         """Sets the visibility of this OrganizationMembership.
 
-        
 
         :param visibility: The visibility of this OrganizationMembership.
         :type: str

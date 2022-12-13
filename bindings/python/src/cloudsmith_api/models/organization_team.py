@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -48,7 +48,7 @@ class OrganizationTeam(object):
         'visibility': 'visibility'
     }
 
-    def __init__(self, description=None, name=None, slug=None, slug_perm=None, visibility=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, name=None, slug=None, slug_perm=None, visibility='Visible', _configuration=None):  # noqa: E501
         """OrganizationTeam - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,7 +75,6 @@ class OrganizationTeam(object):
     def description(self):
         """Gets the description of this OrganizationTeam.
 
-        
 
         :return: The description of this OrganizationTeam.
         :rtype: str
@@ -86,11 +85,16 @@ class OrganizationTeam(object):
     def description(self, description):
         """Sets the description of this OrganizationTeam.
 
-        
 
         :param description: The description of this OrganizationTeam.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) > 140):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `140`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                description is not None and len(description) < 1):
+            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -98,7 +102,6 @@ class OrganizationTeam(object):
     def name(self):
         """Gets the name of this OrganizationTeam.
 
-        
 
         :return: The name of this OrganizationTeam.
         :rtype: str
@@ -109,13 +112,15 @@ class OrganizationTeam(object):
     def name(self, name):
         """Sets the name of this OrganizationTeam.
 
-        
 
         :param name: The name of this OrganizationTeam.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -123,7 +128,6 @@ class OrganizationTeam(object):
     def slug(self):
         """Gets the slug of this OrganizationTeam.
 
-        
 
         :return: The slug of this OrganizationTeam.
         :rtype: str
@@ -134,11 +138,16 @@ class OrganizationTeam(object):
     def slug(self, slug):
         """Sets the slug of this OrganizationTeam.
 
-        
 
         :param slug: The slug of this OrganizationTeam.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug is not None and len(slug) < 1):
+            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug is not None and not re.search('^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug = slug
 
@@ -146,7 +155,6 @@ class OrganizationTeam(object):
     def slug_perm(self):
         """Gets the slug_perm of this OrganizationTeam.
 
-        
 
         :return: The slug_perm of this OrganizationTeam.
         :rtype: str
@@ -157,11 +165,16 @@ class OrganizationTeam(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this OrganizationTeam.
 
-        
 
         :param slug_perm: The slug_perm of this OrganizationTeam.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and len(slug_perm) < 1):
+            raise ValueError("Invalid value for `slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
 
@@ -169,7 +182,6 @@ class OrganizationTeam(object):
     def visibility(self):
         """Gets the visibility of this OrganizationTeam.
 
-        
 
         :return: The visibility of this OrganizationTeam.
         :rtype: str
@@ -180,7 +192,6 @@ class OrganizationTeam(object):
     def visibility(self, visibility):
         """Sets the visibility of this OrganizationTeam.
 
-        
 
         :param visibility: The visibility of this OrganizationTeam.
         :type: str

@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -43,58 +43,31 @@ public class PackageFilePartsUpload implements Serializable {
   @SerializedName("upload_url")
   private String uploadUrl = null;
 
-  public PackageFilePartsUpload identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
    /**
    * The identifier for the file to use uploading parts.
    * @return identifier
   **/
-  @ApiModelProperty(value = "The identifier for the file to use uploading parts.")
+ @Size(min=1)  @ApiModelProperty(value = "The identifier for the file to use uploading parts.")
   public String getIdentifier() {
     return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public PackageFilePartsUpload uploadQuerystring(String uploadQuerystring) {
-    this.uploadQuerystring = uploadQuerystring;
-    return this;
   }
 
    /**
    * The querystring to use for the next-step PUT upload.
    * @return uploadQuerystring
   **/
-  @ApiModelProperty(value = "The querystring to use for the next-step PUT upload.")
+ @Size(min=1)  @ApiModelProperty(value = "The querystring to use for the next-step PUT upload.")
   public String getUploadQuerystring() {
     return uploadQuerystring;
-  }
-
-  public void setUploadQuerystring(String uploadQuerystring) {
-    this.uploadQuerystring = uploadQuerystring;
-  }
-
-  public PackageFilePartsUpload uploadUrl(String uploadUrl) {
-    this.uploadUrl = uploadUrl;
-    return this;
   }
 
    /**
    * The URL to use for the next-step PUT upload
    * @return uploadUrl
   **/
-  @ApiModelProperty(value = "The URL to use for the next-step PUT upload")
+ @Size(min=1)  @ApiModelProperty(value = "The URL to use for the next-step PUT upload")
   public String getUploadUrl() {
     return uploadUrl;
-  }
-
-  public void setUploadUrl(String uploadUrl) {
-    this.uploadUrl = uploadUrl;
   }
 
 

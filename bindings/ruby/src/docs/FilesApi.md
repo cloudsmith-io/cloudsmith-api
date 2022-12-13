@@ -39,7 +39,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::FilesAbort.new # FilesAbort | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**FilesAbort**](FilesAbort.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -70,7 +70,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -102,7 +102,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::FilesComplete.new # FilesComplete | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**FilesComplete**](FilesComplete.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -164,7 +164,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::FilesCreate.new # FilesCreate | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**FilesCreate**](FilesCreate.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -261,8 +261,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -292,7 +292,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::FilesValidate.new # FilesValidate | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**FilesValidate**](FilesValidate.md)|  | [optional] 
+ **data** | [**PackageFileUploadRequest**](PackageFileUploadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -322,7 +322,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 

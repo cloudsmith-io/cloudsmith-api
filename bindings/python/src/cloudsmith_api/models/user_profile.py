@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -36,7 +36,7 @@ class UserProfile(object):
         'company': 'str',
         'first_name': 'str',
         'job_title': 'str',
-        'joined_at': 'str',
+        'joined_at': 'datetime',
         'last_name': 'str',
         'name': 'str',
         'slug': 'str',
@@ -99,7 +99,6 @@ class UserProfile(object):
     def company(self):
         """Gets the company of this UserProfile.
 
-        
 
         :return: The company of this UserProfile.
         :rtype: str
@@ -110,11 +109,13 @@ class UserProfile(object):
     def company(self, company):
         """Sets the company of this UserProfile.
 
-        
 
         :param company: The company of this UserProfile.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                company is not None and len(company) > 64):
+            raise ValueError("Invalid value for `company`, length must be less than or equal to `64`")  # noqa: E501
 
         self._company = company
 
@@ -122,7 +123,6 @@ class UserProfile(object):
     def first_name(self):
         """Gets the first_name of this UserProfile.
 
-        
 
         :return: The first_name of this UserProfile.
         :rtype: str
@@ -133,13 +133,18 @@ class UserProfile(object):
     def first_name(self, first_name):
         """Sets the first_name of this UserProfile.
 
-        
 
         :param first_name: The first_name of this UserProfile.
         :type: str
         """
         if self._configuration.client_side_validation and first_name is None:
             raise ValueError("Invalid value for `first_name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                first_name is not None and len(first_name) > 40):
+            raise ValueError("Invalid value for `first_name`, length must be less than or equal to `40`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                first_name is not None and len(first_name) < 1):
+            raise ValueError("Invalid value for `first_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._first_name = first_name
 
@@ -147,7 +152,6 @@ class UserProfile(object):
     def job_title(self):
         """Gets the job_title of this UserProfile.
 
-        
 
         :return: The job_title of this UserProfile.
         :rtype: str
@@ -158,11 +162,13 @@ class UserProfile(object):
     def job_title(self, job_title):
         """Sets the job_title of this UserProfile.
 
-        
 
         :param job_title: The job_title of this UserProfile.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                job_title is not None and len(job_title) > 64):
+            raise ValueError("Invalid value for `job_title`, length must be less than or equal to `64`")  # noqa: E501
 
         self._job_title = job_title
 
@@ -170,10 +176,9 @@ class UserProfile(object):
     def joined_at(self):
         """Gets the joined_at of this UserProfile.
 
-        
 
         :return: The joined_at of this UserProfile.
-        :rtype: str
+        :rtype: datetime
         """
         return self._joined_at
 
@@ -181,10 +186,9 @@ class UserProfile(object):
     def joined_at(self, joined_at):
         """Sets the joined_at of this UserProfile.
 
-        
 
         :param joined_at: The joined_at of this UserProfile.
-        :type: str
+        :type: datetime
         """
 
         self._joined_at = joined_at
@@ -193,7 +197,6 @@ class UserProfile(object):
     def last_name(self):
         """Gets the last_name of this UserProfile.
 
-        
 
         :return: The last_name of this UserProfile.
         :rtype: str
@@ -204,13 +207,18 @@ class UserProfile(object):
     def last_name(self, last_name):
         """Sets the last_name of this UserProfile.
 
-        
 
         :param last_name: The last_name of this UserProfile.
         :type: str
         """
         if self._configuration.client_side_validation and last_name is None:
             raise ValueError("Invalid value for `last_name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                last_name is not None and len(last_name) > 30):
+            raise ValueError("Invalid value for `last_name`, length must be less than or equal to `30`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                last_name is not None and len(last_name) < 1):
+            raise ValueError("Invalid value for `last_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._last_name = last_name
 
@@ -218,7 +226,6 @@ class UserProfile(object):
     def name(self):
         """Gets the name of this UserProfile.
 
-        
 
         :return: The name of this UserProfile.
         :rtype: str
@@ -229,11 +236,13 @@ class UserProfile(object):
     def name(self, name):
         """Sets the name of this UserProfile.
 
-        
 
         :param name: The name of this UserProfile.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -241,7 +250,6 @@ class UserProfile(object):
     def slug(self):
         """Gets the slug of this UserProfile.
 
-        
 
         :return: The slug of this UserProfile.
         :rtype: str
@@ -252,7 +260,6 @@ class UserProfile(object):
     def slug(self, slug):
         """Sets the slug of this UserProfile.
 
-        
 
         :param slug: The slug of this UserProfile.
         :type: str
@@ -264,7 +271,6 @@ class UserProfile(object):
     def slug_perm(self):
         """Gets the slug_perm of this UserProfile.
 
-        
 
         :return: The slug_perm of this UserProfile.
         :rtype: str
@@ -275,7 +281,6 @@ class UserProfile(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this UserProfile.
 
-        
 
         :param slug_perm: The slug_perm of this UserProfile.
         :type: str
@@ -303,6 +308,9 @@ class UserProfile(object):
         :param tagline: The tagline of this UserProfile.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                tagline is not None and len(tagline) > 80):
+            raise ValueError("Invalid value for `tagline`, length must be less than or equal to `80`")  # noqa: E501
 
         self._tagline = tagline
 
@@ -310,7 +318,6 @@ class UserProfile(object):
     def url(self):
         """Gets the url of this UserProfile.
 
-        
 
         :return: The url of this UserProfile.
         :rtype: str
@@ -321,7 +328,6 @@ class UserProfile(object):
     def url(self, url):
         """Sets the url of this UserProfile.
 
-        
 
         :param url: The url of this UserProfile.
         :type: str

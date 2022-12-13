@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **country** | **str** |  | [optional] 
-**created_at** | **str** |  | [optional] 
+**created_at** | **datetime** |  | [optional] 
 **location** | **str** | The city/town/area your organization is based in. | [optional] 
 **name** | **str** | A descriptive name for your organization. | [optional] 
 **slug** | **str** |  | [optional] 

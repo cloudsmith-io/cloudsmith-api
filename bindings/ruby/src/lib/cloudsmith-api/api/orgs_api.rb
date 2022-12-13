@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -23,7 +23,7 @@ module CloudsmithApi
     # Create an organization invite for a specific user
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsInvitesCreate] :data 
+    # @option opts [OrganizationInviteRequest] :data 
     # @return [OrganizationInvite]
     def orgs_invites_create(org, opts = {})
       data, _status_code, _headers = orgs_invites_create_with_http_info(org, opts)
@@ -34,7 +34,7 @@ module CloudsmithApi
     # Create an organization invite for a specific user
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsInvitesCreate] :data 
+    # @option opts [OrganizationInviteRequest] :data 
     # @return [Array<(OrganizationInvite, Fixnum, Hash)>] OrganizationInvite data, response status code and response headers
     def orgs_invites_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
@@ -52,6 +52,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -110,6 +112,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -133,8 +139,7 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsInvitesExtend] :data 
-    # @return [OrganizationInvite]
+    # @return [OrganizationInviteExtend]
     def orgs_invites_extend(org, slug_perm, opts = {})
       data, _status_code, _headers = orgs_invites_extend_with_http_info(org, slug_perm, opts)
       data
@@ -145,8 +150,7 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsInvitesExtend] :data 
-    # @return [Array<(OrganizationInvite, Fixnum, Hash)>] OrganizationInvite data, response status code and response headers
+    # @return [Array<(OrganizationInviteExtend, Fixnum, Hash)>] OrganizationInviteExtend data, response status code and response headers
     def orgs_invites_extend_with_http_info(org, slug_perm, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_invites_extend ...'
@@ -167,6 +171,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -174,7 +180,7 @@ module CloudsmithApi
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
+      post_body = nil
       auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -182,7 +188,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'OrganizationInvite')
+        :return_type => 'OrganizationInviteExtend')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_extend\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -225,6 +231,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -241,6 +251,128 @@ module CloudsmithApi
         :return_type => 'Array<OrganizationInvite>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a specific organization invite.
+    # Update a specific organization invite.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationInviteUpdateRequestPatch] :data 
+    # @return [OrganizationInvite]
+    def orgs_invites_partial_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_invites_partial_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Update a specific organization invite.
+    # Update a specific organization invite.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationInviteUpdateRequestPatch] :data 
+    # @return [Array<(OrganizationInvite, Fixnum, Hash)>] OrganizationInvite data, response status code and response headers
+    def orgs_invites_partial_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_invites_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_invites_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_invites_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/invites/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationInvite')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Resend an organization invite.
+    # Resend an organization invite.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationInviteExtend]
+    def orgs_invites_resend(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_invites_resend_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Resend an organization invite.
+    # Resend an organization invite.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationInviteExtend, Fixnum, Hash)>] OrganizationInviteExtend data, response status code and response headers
+    def orgs_invites_resend_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_invites_resend ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_invites_resend"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_invites_resend"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/invites/{slug_perm}/resend/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationInviteExtend')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_invites_resend\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -275,6 +407,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -331,6 +467,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -386,6 +526,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -442,6 +586,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -498,6 +646,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -547,6 +699,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -570,7 +726,7 @@ module CloudsmithApi
     # Create a new SAML Group Sync mapping within an organization.
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsSamlgroupsyncCreate] :data 
+    # @option opts [OrganizationGroupSyncRequest] :data 
     # @return [OrganizationGroupSync]
     def orgs_saml_group_sync_create(org, opts = {})
       data, _status_code, _headers = orgs_saml_group_sync_create_with_http_info(org, opts)
@@ -581,7 +737,7 @@ module CloudsmithApi
     # Create a new SAML Group Sync mapping within an organization.
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsSamlgroupsyncCreate] :data 
+    # @option opts [OrganizationGroupSyncRequest] :data 
     # @return [Array<(OrganizationGroupSync, Fixnum, Hash)>] OrganizationGroupSync data, response status code and response headers
     def orgs_saml_group_sync_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
@@ -599,6 +755,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -657,6 +815,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -712,6 +874,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -731,11 +897,368 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Create a service within an organization.
+    # Create a service within an organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ServiceRequest] :data 
+    # @return [Service]
+    def orgs_services_create(org, opts = {})
+      data, _status_code, _headers = orgs_services_create_with_http_info(org, opts)
+      data
+    end
+
+    # Create a service within an organization.
+    # Create a service within an organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ServiceRequest] :data 
+    # @return [Array<(Service, Fixnum, Hash)>] Service data, response status code and response headers
+    def orgs_services_create_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_create ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_services_create"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/services/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Service')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_services_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a specific service
+    # Delete a specific service
+    # @param org 
+    # @param service 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_services_delete(org, service, opts = {})
+      orgs_services_delete_with_http_info(org, service, opts)
+      nil
+    end
+
+    # Delete a specific service
+    # Delete a specific service
+    # @param org 
+    # @param service 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_services_delete_with_http_info(org, service, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_delete ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_services_delete"
+      end
+      # verify the required parameter 'service' is set
+      if @api_client.config.client_side_validation && service.nil?
+        fail ArgumentError, "Missing the required parameter 'service' when calling OrgsApi.orgs_services_delete"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/services/{service}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'service' + '}', service.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_services_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a list of all services within an organization.
+    # Get a list of all services within an organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<Service>]
+    def orgs_services_list(org, opts = {})
+      data, _status_code, _headers = orgs_services_list_with_http_info(org, opts)
+      data
+    end
+
+    # Get a list of all services within an organization.
+    # Get a list of all services within an organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<Service>, Fixnum, Hash)>] Array<Service> data, response status code and response headers
+    def orgs_services_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_services_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/services/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<Service>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_services_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a service within an organization.
+    # Update a service within an organization.
+    # @param org 
+    # @param service 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ServiceRequestPatch] :data 
+    # @return [Service]
+    def orgs_services_partial_update(org, service, opts = {})
+      data, _status_code, _headers = orgs_services_partial_update_with_http_info(org, service, opts)
+      data
+    end
+
+    # Update a service within an organization.
+    # Update a service within an organization.
+    # @param org 
+    # @param service 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ServiceRequestPatch] :data 
+    # @return [Array<(Service, Fixnum, Hash)>] Service data, response status code and response headers
+    def orgs_services_partial_update_with_http_info(org, service, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_services_partial_update"
+      end
+      # verify the required parameter 'service' is set
+      if @api_client.config.client_side_validation && service.nil?
+        fail ArgumentError, "Missing the required parameter 'service' when calling OrgsApi.orgs_services_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/services/{service}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'service' + '}', service.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Service')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_services_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve details of a single service within an organization.
+    # Retrieve details of a single service within an organization.
+    # @param org 
+    # @param service 
+    # @param [Hash] opts the optional parameters
+    # @return [Service]
+    def orgs_services_read(org, service, opts = {})
+      data, _status_code, _headers = orgs_services_read_with_http_info(org, service, opts)
+      data
+    end
+
+    # Retrieve details of a single service within an organization.
+    # Retrieve details of a single service within an organization.
+    # @param org 
+    # @param service 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Service, Fixnum, Hash)>] Service data, response status code and response headers
+    def orgs_services_read_with_http_info(org, service, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_read ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_services_read"
+      end
+      # verify the required parameter 'service' is set
+      if @api_client.config.client_side_validation && service.nil?
+        fail ArgumentError, "Missing the required parameter 'service' when calling OrgsApi.orgs_services_read"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/services/{service}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'service' + '}', service.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Service')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_services_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Refresh service API token.
+    # Refresh service API token.
+    # @param org 
+    # @param service 
+    # @param [Hash] opts the optional parameters
+    # @return [Service]
+    def orgs_services_refresh(org, service, opts = {})
+      data, _status_code, _headers = orgs_services_refresh_with_http_info(org, service, opts)
+      data
+    end
+
+    # Refresh service API token.
+    # Refresh service API token.
+    # @param org 
+    # @param service 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Service, Fixnum, Hash)>] Service data, response status code and response headers
+    def orgs_services_refresh_with_http_info(org, service, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_services_refresh ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_services_refresh"
+      end
+      # verify the required parameter 'service' is set
+      if @api_client.config.client_side_validation && service.nil?
+        fail ArgumentError, "Missing the required parameter 'service' when calling OrgsApi.orgs_services_refresh"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/services/{service}/refresh/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'service' + '}', service.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Service')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_services_refresh\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Create a team for this organization.
     # Create a team for this organization.
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsTeamsCreate] :data 
+    # @option opts [OrganizationTeamRequest] :data 
     # @return [OrganizationTeam]
     def orgs_teams_create(org, opts = {})
       data, _status_code, _headers = orgs_teams_create_with_http_info(org, opts)
@@ -746,7 +1269,7 @@ module CloudsmithApi
     # Create a team for this organization.
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsTeamsCreate] :data 
+    # @option opts [OrganizationTeamRequest] :data 
     # @return [Array<(OrganizationTeam, Fixnum, Hash)>] OrganizationTeam data, response status code and response headers
     def orgs_teams_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
@@ -764,6 +1287,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -822,6 +1347,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -877,6 +1406,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -901,7 +1434,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsTeamsMembersCreate] :data 
+    # @option opts [OrganizationTeamMembers] :data 
     # @return [OrganizationTeamMembers]
     def orgs_teams_members_create(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_members_create_with_http_info(org, team, opts)
@@ -913,7 +1446,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsTeamsMembersCreate] :data 
+    # @option opts [OrganizationTeamMembers] :data 
     # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
     def orgs_teams_members_create_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
@@ -935,6 +1468,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -993,6 +1528,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -1017,11 +1556,10 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsTeamsMembersUpdate] :data 
-    # @return [nil]
+    # @return [OrganizationTeamMembers]
     def orgs_teams_members_update(org, team, opts = {})
-      orgs_teams_members_update_with_http_info(org, team, opts)
-      nil
+      data, _status_code, _headers = orgs_teams_members_update_with_http_info(org, team, opts)
+      data
     end
 
     # Replace all team members.
@@ -1029,8 +1567,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsTeamsMembersUpdate] :data 
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
     def orgs_teams_members_update_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_teams_members_update ...'
@@ -1051,6 +1588,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1058,14 +1597,15 @@ module CloudsmithApi
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
+      post_body = nil
       auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => 'OrganizationTeamMembers')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_members_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1076,7 +1616,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsTeamsPartialUpdate] :data 
+    # @option opts [OrganizationTeamRequestPatch] :data 
     # @return [OrganizationTeam]
     def orgs_teams_partial_update(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_partial_update_with_http_info(org, team, opts)
@@ -1088,7 +1628,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
-    # @option opts [OrgsTeamsPartialUpdate] :data 
+    # @option opts [OrganizationTeamRequestPatch] :data 
     # @return [Array<(OrganizationTeam, Fixnum, Hash)>] OrganizationTeam data, response status code and response headers
     def orgs_teams_partial_update_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
@@ -1110,6 +1650,8 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
@@ -1131,8 +1673,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Get the details for the specific team.
-    # Get the details for the specific team.
+    # Get the details of a specific team within an organization.
+    # Get the details of a specific team within an organization.
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
@@ -1142,8 +1684,8 @@ module CloudsmithApi
       data
     end
 
-    # Get the details for the specific team.
-    # Get the details for the specific team.
+    # Get the details of a specific team within an organization.
+    # Get the details of a specific team within an organization.
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
@@ -1168,6 +1710,10 @@ module CloudsmithApi
 
       # header parameters
       header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}

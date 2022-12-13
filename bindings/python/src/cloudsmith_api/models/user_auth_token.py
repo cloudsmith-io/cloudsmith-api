@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -72,6 +72,9 @@ class UserAuthToken(object):
         :param token: The token of this UserAuthToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                token is not None and len(token) < 1):
+            raise ValueError("Invalid value for `token`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._token = token
 

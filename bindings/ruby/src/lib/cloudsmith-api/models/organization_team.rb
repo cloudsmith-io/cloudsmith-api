@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,148 +13,145 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class OrganizationTeam
-    # 
-    attr_accessor :description
+class OrganizationTeam
+  attr_accessor :description
 
-    # 
-    attr_accessor :name
+  attr_accessor :name
 
-    # 
-    attr_accessor :slug
+  attr_accessor :slug
 
-    # 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # 
-    attr_accessor :visibility
+  attr_accessor :visibility
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
         end
       end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
     end
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'description' => :'description',
-        :'name' => :'name',
-        :'slug' => :'slug',
-        :'slug_perm' => :'slug_perm',
-        :'visibility' => :'visibility'
-      }
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'description' => :'description',
+      :'name' => :'name',
+      :'slug' => :'slug',
+      :'slug_perm' => :'slug_perm',
+      :'visibility' => :'visibility'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'description' => :'String',
+      :'name' => :'String',
+      :'slug' => :'String',
+      :'slug_perm' => :'String',
+      :'visibility' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'description')
+      self.description = attributes[:'description']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'description' => :'String',
-        :'name' => :'String',
-        :'slug' => :'String',
-        :'slug_perm' => :'String',
-        :'visibility' => :'String'
-      }
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'slug')
-        self.slug = attributes[:'slug']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'visibility')
-        self.visibility = attributes[:'visibility']
-      end
+    if attributes.has_key?(:'slug')
+      self.slug = attributes[:'slug']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      invalid_properties
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      return false if @name.nil?
-      visibility_validator = EnumAttributeValidator.new('String', ['Visible', 'Hidden'])
-      return false unless visibility_validator.valid?(@visibility)
-      true
+    if attributes.has_key?(:'visibility')
+      self.visibility = attributes[:'visibility']
+    else
+      self.visibility = 'Visible'
+    end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] visibility Object to be assigned
-    def visibility=(visibility)
-      validator = EnumAttributeValidator.new('String', ['Visible', 'Hidden'])
-      unless validator.valid?(visibility)
-        fail ArgumentError, 'invalid value for "visibility", must be one of #{validator.allowable_values}.'
-      end
-      @visibility = visibility
-    end
+    invalid_properties
+  end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          description == o.description &&
-          name == o.name &&
-          slug == o.slug &&
-          slug_perm == o.slug_perm &&
-          visibility == o.visibility
-    end
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    return false if @name.nil?
+    visibility_validator = EnumAttributeValidator.new('String', ['Visible', 'Hidden'])
+    return false unless visibility_validator.valid?(@visibility)
+    true
+  end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] visibility Object to be assigned
+  def visibility=(visibility)
+    validator = EnumAttributeValidator.new('String', ['Visible', 'Hidden'])
+    unless validator.valid?(visibility)
+      fail ArgumentError, 'invalid value for "visibility", must be one of #{validator.allowable_values}.'
     end
+    @visibility = visibility
+  end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [description, name, slug, slug_perm, visibility].hash
-    end
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        description == o.description &&
+        name == o.name &&
+        slug == o.slug &&
+        slug_perm == o.slug_perm &&
+        visibility == o.visibility
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [description, name, slug, slug_perm, visibility].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -260,5 +257,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

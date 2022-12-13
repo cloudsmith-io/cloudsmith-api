@@ -3,14 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_at** | **str** |  | [optional] 
+**created_at** | **datetime** |  | [optional] 
 **created_by** | **str** |  | [optional] 
 **created_by_url** | **str** |  | [optional] 
 **disable_reason** | **int** |  | [optional] 
 **disable_reason_str** | **str** |  | [optional] 
 **events** | **list[str]** |  | 
 **identifier** | **int** |  | [optional] 
-**is_active** | **bool** | If enabled, the webhook will trigger on events and send payloads to the configured target URL. | [optional] 
+**is_active** | **bool** | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. | [optional] 
 **is_last_response_bad** | **bool** |  | [optional] 
 **last_response_status** | **int** |  | [optional] 
 **last_response_status_str** | **str** |  | [optional] 
@@ -25,8 +25,8 @@ Name | Type | Description | Notes
 **self_url** | **str** |  | [optional] 
 **slug_perm** | **str** |  | [optional] 
 **target_url** | **str** | The destination URL that webhook payloads will be POST&#39;ed to. | 
-**templates** | [**list[WebhooksownerrepoTemplates]**](WebhooksownerrepoTemplates.md) |  | 
-**updated_at** | **str** |  | [optional] 
+**templates** | [**list[WebhookTemplate]**](WebhookTemplate.md) |  | 
+**updated_at** | **datetime** |  | [optional] 
 **updated_by** | **str** |  | [optional] 
 **updated_by_url** | **str** |  | [optional] 
 **verify_ssl** | **bool** | If enabled, SSL certificates is verified when webhooks are sent. It&#39;s recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks. | [optional] 

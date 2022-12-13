@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,44 +33,31 @@ class Distribution(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'format': 'str',
-        'format_url': 'str',
         'name': 'str',
         'self_url': 'str',
         'slug': 'str',
-        'variants': 'str',
-        'versions': 'list[DistrosVersions]'
+        'variants': 'str'
     }
 
     attribute_map = {
-        'format': 'format',
-        'format_url': 'format_url',
         'name': 'name',
         'self_url': 'self_url',
         'slug': 'slug',
-        'variants': 'variants',
-        'versions': 'versions'
+        'variants': 'variants'
     }
 
-    def __init__(self, format=None, format_url=None, name=None, self_url=None, slug=None, variants=None, versions=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, self_url=None, slug=None, variants=None, _configuration=None):  # noqa: E501
         """Distribution - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._format = None
-        self._format_url = None
         self._name = None
         self._self_url = None
         self._slug = None
         self._variants = None
-        self._versions = None
         self.discriminator = None
 
-        if format is not None:
-            self.format = format
-        if format_url is not None:
-            self.format_url = format_url
         self.name = name
         if self_url is not None:
             self.self_url = self_url
@@ -78,60 +65,11 @@ class Distribution(object):
             self.slug = slug
         if variants is not None:
             self.variants = variants
-        if versions is not None:
-            self.versions = versions
-
-    @property
-    def format(self):
-        """Gets the format of this Distribution.
-
-        
-
-        :return: The format of this Distribution.
-        :rtype: str
-        """
-        return self._format
-
-    @format.setter
-    def format(self, format):
-        """Sets the format of this Distribution.
-
-        
-
-        :param format: The format of this Distribution.
-        :type: str
-        """
-
-        self._format = format
-
-    @property
-    def format_url(self):
-        """Gets the format_url of this Distribution.
-
-        
-
-        :return: The format_url of this Distribution.
-        :rtype: str
-        """
-        return self._format_url
-
-    @format_url.setter
-    def format_url(self, format_url):
-        """Sets the format_url of this Distribution.
-
-        
-
-        :param format_url: The format_url of this Distribution.
-        :type: str
-        """
-
-        self._format_url = format_url
 
     @property
     def name(self):
         """Gets the name of this Distribution.
 
-        
 
         :return: The name of this Distribution.
         :rtype: str
@@ -142,13 +80,18 @@ class Distribution(object):
     def name(self, name):
         """Sets the name of this Distribution.
 
-        
 
         :param name: The name of this Distribution.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) > 32):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `32`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -156,7 +99,6 @@ class Distribution(object):
     def self_url(self):
         """Gets the self_url of this Distribution.
 
-        
 
         :return: The self_url of this Distribution.
         :rtype: str
@@ -167,7 +109,6 @@ class Distribution(object):
     def self_url(self, self_url):
         """Sets the self_url of this Distribution.
 
-        
 
         :param self_url: The self_url of this Distribution.
         :type: str
@@ -195,6 +136,9 @@ class Distribution(object):
         :param slug: The slug of this Distribution.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug is not None and len(slug) < 1):
+            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._slug = slug
 
@@ -202,7 +146,6 @@ class Distribution(object):
     def variants(self):
         """Gets the variants of this Distribution.
 
-        
 
         :return: The variants of this Distribution.
         :rtype: str
@@ -213,36 +156,15 @@ class Distribution(object):
     def variants(self, variants):
         """Sets the variants of this Distribution.
 
-        
 
         :param variants: The variants of this Distribution.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                variants is not None and len(variants) > 128):
+            raise ValueError("Invalid value for `variants`, length must be less than or equal to `128`")  # noqa: E501
 
         self._variants = variants
-
-    @property
-    def versions(self):
-        """Gets the versions of this Distribution.
-
-        A list of the versions for this distribution
-
-        :return: The versions of this Distribution.
-        :rtype: list[DistrosVersions]
-        """
-        return self._versions
-
-    @versions.setter
-    def versions(self, versions):
-        """Sets the versions of this Distribution.
-
-        A list of the versions for this distribution
-
-        :param versions: The versions of this Distribution.
-        :type: list[DistrosVersions]
-        """
-
-        self._versions = versions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

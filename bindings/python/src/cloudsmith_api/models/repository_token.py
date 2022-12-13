@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -34,15 +34,15 @@ class RepositoryToken(object):
     """
     swagger_types = {
         'clients': 'int',
-        'created_at': 'str',
+        'created_at': 'datetime',
         'created_by': 'str',
         'created_by_url': 'str',
         'default': 'bool',
         'disable_url': 'str',
         'downloads': 'int',
         'enable_url': 'str',
-        'eula_accepted': 'object',
-        'eula_accepted_at': 'str',
+        'eula_accepted': 'Eula',
+        'eula_accepted_at': 'datetime',
         'eula_accepted_from': 'str',
         'eula_required': 'bool',
         'has_limits': 'bool',
@@ -51,8 +51,8 @@ class RepositoryToken(object):
         'is_limited': 'bool',
         'limit_bandwidth': 'int',
         'limit_bandwidth_unit': 'str',
-        'limit_date_range_from': 'str',
-        'limit_date_range_to': 'str',
+        'limit_date_range_from': 'datetime',
+        'limit_date_range_to': 'datetime',
         'limit_num_clients': 'int',
         'limit_num_downloads': 'int',
         'limit_package_query': 'str',
@@ -61,12 +61,12 @@ class RepositoryToken(object):
         'name': 'str',
         'refresh_url': 'str',
         'reset_url': 'str',
-        'scheduled_reset_at': 'str',
+        'scheduled_reset_at': 'datetime',
         'scheduled_reset_period': 'str',
         'self_url': 'str',
         'slug_perm': 'str',
         'token': 'str',
-        'updated_at': 'str',
+        'updated_at': 'datetime',
         'updated_by': 'str',
         'updated_by_url': 'str',
         'usage': 'str',
@@ -116,7 +116,7 @@ class RepositoryToken(object):
         'user_url': 'user_url'
     }
 
-    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, disable_url=None, downloads=None, enable_url=None, eula_accepted=None, eula_accepted_at=None, eula_accepted_from=None, eula_required=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit=None, limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, reset_url=None, scheduled_reset_at=None, scheduled_reset_period=None, self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, disable_url=None, downloads=None, enable_url=None, eula_accepted=None, eula_accepted_at=None, eula_accepted_from=None, eula_required=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit='Byte', limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, reset_url=None, scheduled_reset_at=None, scheduled_reset_period='Never Reset', self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None, _configuration=None):  # noqa: E501
         """RepositoryToken - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -245,7 +245,6 @@ class RepositoryToken(object):
     def clients(self):
         """Gets the clients of this RepositoryToken.
 
-        
 
         :return: The clients of this RepositoryToken.
         :rtype: int
@@ -256,7 +255,6 @@ class RepositoryToken(object):
     def clients(self, clients):
         """Sets the clients of this RepositoryToken.
 
-        
 
         :param clients: The clients of this RepositoryToken.
         :type: int
@@ -271,7 +269,7 @@ class RepositoryToken(object):
         The datetime the token was updated at.
 
         :return: The created_at of this RepositoryToken.
-        :rtype: str
+        :rtype: datetime
         """
         return self._created_at
 
@@ -282,7 +280,7 @@ class RepositoryToken(object):
         The datetime the token was updated at.
 
         :param created_at: The created_at of this RepositoryToken.
-        :type: str
+        :type: datetime
         """
 
         self._created_at = created_at
@@ -291,7 +289,6 @@ class RepositoryToken(object):
     def created_by(self):
         """Gets the created_by of this RepositoryToken.
 
-        
 
         :return: The created_by of this RepositoryToken.
         :rtype: str
@@ -302,11 +299,13 @@ class RepositoryToken(object):
     def created_by(self, created_by):
         """Sets the created_by of this RepositoryToken.
 
-        
 
         :param created_by: The created_by of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                created_by is not None and len(created_by) < 1):
+            raise ValueError("Invalid value for `created_by`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -314,7 +313,6 @@ class RepositoryToken(object):
     def created_by_url(self):
         """Gets the created_by_url of this RepositoryToken.
 
-        
 
         :return: The created_by_url of this RepositoryToken.
         :rtype: str
@@ -325,7 +323,6 @@ class RepositoryToken(object):
     def created_by_url(self, created_by_url):
         """Sets the created_by_url of this RepositoryToken.
 
-        
 
         :param created_by_url: The created_by_url of this RepositoryToken.
         :type: str
@@ -360,7 +357,6 @@ class RepositoryToken(object):
     def disable_url(self):
         """Gets the disable_url of this RepositoryToken.
 
-        
 
         :return: The disable_url of this RepositoryToken.
         :rtype: str
@@ -371,7 +367,6 @@ class RepositoryToken(object):
     def disable_url(self, disable_url):
         """Sets the disable_url of this RepositoryToken.
 
-        
 
         :param disable_url: The disable_url of this RepositoryToken.
         :type: str
@@ -383,7 +378,6 @@ class RepositoryToken(object):
     def downloads(self):
         """Gets the downloads of this RepositoryToken.
 
-        
 
         :return: The downloads of this RepositoryToken.
         :rtype: int
@@ -394,7 +388,6 @@ class RepositoryToken(object):
     def downloads(self, downloads):
         """Sets the downloads of this RepositoryToken.
 
-        
 
         :param downloads: The downloads of this RepositoryToken.
         :type: int
@@ -406,7 +399,6 @@ class RepositoryToken(object):
     def enable_url(self):
         """Gets the enable_url of this RepositoryToken.
 
-        
 
         :return: The enable_url of this RepositoryToken.
         :rtype: str
@@ -417,7 +409,6 @@ class RepositoryToken(object):
     def enable_url(self, enable_url):
         """Sets the enable_url of this RepositoryToken.
 
-        
 
         :param enable_url: The enable_url of this RepositoryToken.
         :type: str
@@ -429,10 +420,9 @@ class RepositoryToken(object):
     def eula_accepted(self):
         """Gets the eula_accepted of this RepositoryToken.
 
-        
 
         :return: The eula_accepted of this RepositoryToken.
-        :rtype: object
+        :rtype: Eula
         """
         return self._eula_accepted
 
@@ -440,10 +430,9 @@ class RepositoryToken(object):
     def eula_accepted(self, eula_accepted):
         """Sets the eula_accepted of this RepositoryToken.
 
-        
 
         :param eula_accepted: The eula_accepted of this RepositoryToken.
-        :type: object
+        :type: Eula
         """
 
         self._eula_accepted = eula_accepted
@@ -455,7 +444,7 @@ class RepositoryToken(object):
         The datetime the EULA was accepted at.
 
         :return: The eula_accepted_at of this RepositoryToken.
-        :rtype: str
+        :rtype: datetime
         """
         return self._eula_accepted_at
 
@@ -466,7 +455,7 @@ class RepositoryToken(object):
         The datetime the EULA was accepted at.
 
         :param eula_accepted_at: The eula_accepted_at of this RepositoryToken.
-        :type: str
+        :type: datetime
         """
 
         self._eula_accepted_at = eula_accepted_at
@@ -475,7 +464,6 @@ class RepositoryToken(object):
     def eula_accepted_from(self):
         """Gets the eula_accepted_from of this RepositoryToken.
 
-        
 
         :return: The eula_accepted_from of this RepositoryToken.
         :rtype: str
@@ -486,11 +474,13 @@ class RepositoryToken(object):
     def eula_accepted_from(self, eula_accepted_from):
         """Sets the eula_accepted_from of this RepositoryToken.
 
-        
 
         :param eula_accepted_from: The eula_accepted_from of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                eula_accepted_from is not None and len(eula_accepted_from) < 1):
+            raise ValueError("Invalid value for `eula_accepted_from`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._eula_accepted_from = eula_accepted_from
 
@@ -521,7 +511,6 @@ class RepositoryToken(object):
     def has_limits(self):
         """Gets the has_limits of this RepositoryToken.
 
-        
 
         :return: The has_limits of this RepositoryToken.
         :rtype: bool
@@ -532,7 +521,6 @@ class RepositoryToken(object):
     def has_limits(self, has_limits):
         """Sets the has_limits of this RepositoryToken.
 
-        
 
         :param has_limits: The has_limits of this RepositoryToken.
         :type: bool
@@ -544,7 +532,6 @@ class RepositoryToken(object):
     def identifier(self):
         """Gets the identifier of this RepositoryToken.
 
-        
 
         :return: The identifier of this RepositoryToken.
         :rtype: int
@@ -555,7 +542,6 @@ class RepositoryToken(object):
     def identifier(self, identifier):
         """Sets the identifier of this RepositoryToken.
 
-        
 
         :param identifier: The identifier of this RepositoryToken.
         :type: int
@@ -590,7 +576,6 @@ class RepositoryToken(object):
     def is_limited(self):
         """Gets the is_limited of this RepositoryToken.
 
-        
 
         :return: The is_limited of this RepositoryToken.
         :rtype: bool
@@ -601,7 +586,6 @@ class RepositoryToken(object):
     def is_limited(self, is_limited):
         """Sets the is_limited of this RepositoryToken.
 
-        
 
         :param is_limited: The is_limited of this RepositoryToken.
         :type: bool
@@ -629,6 +613,12 @@ class RepositoryToken(object):
         :param limit_bandwidth: The limit_bandwidth of this RepositoryToken.
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                limit_bandwidth is not None and limit_bandwidth > 9223372036854775807):  # noqa: E501
+            raise ValueError("Invalid value for `limit_bandwidth`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                limit_bandwidth is not None and limit_bandwidth < -9223372036854775808):  # noqa: E501
+            raise ValueError("Invalid value for `limit_bandwidth`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._limit_bandwidth = limit_bandwidth
 
@@ -636,7 +626,6 @@ class RepositoryToken(object):
     def limit_bandwidth_unit(self):
         """Gets the limit_bandwidth_unit of this RepositoryToken.
 
-        
 
         :return: The limit_bandwidth_unit of this RepositoryToken.
         :rtype: str
@@ -647,7 +636,6 @@ class RepositoryToken(object):
     def limit_bandwidth_unit(self, limit_bandwidth_unit):
         """Sets the limit_bandwidth_unit of this RepositoryToken.
 
-        
 
         :param limit_bandwidth_unit: The limit_bandwidth_unit of this RepositoryToken.
         :type: str
@@ -669,7 +657,7 @@ class RepositoryToken(object):
         The starting date/time the token is allowed to be used from.
 
         :return: The limit_date_range_from of this RepositoryToken.
-        :rtype: str
+        :rtype: datetime
         """
         return self._limit_date_range_from
 
@@ -680,7 +668,7 @@ class RepositoryToken(object):
         The starting date/time the token is allowed to be used from.
 
         :param limit_date_range_from: The limit_date_range_from of this RepositoryToken.
-        :type: str
+        :type: datetime
         """
 
         self._limit_date_range_from = limit_date_range_from
@@ -692,7 +680,7 @@ class RepositoryToken(object):
         The ending date/time the token is allowed to be used until.
 
         :return: The limit_date_range_to of this RepositoryToken.
-        :rtype: str
+        :rtype: datetime
         """
         return self._limit_date_range_to
 
@@ -703,7 +691,7 @@ class RepositoryToken(object):
         The ending date/time the token is allowed to be used until.
 
         :param limit_date_range_to: The limit_date_range_to of this RepositoryToken.
-        :type: str
+        :type: datetime
         """
 
         self._limit_date_range_to = limit_date_range_to
@@ -728,6 +716,12 @@ class RepositoryToken(object):
         :param limit_num_clients: The limit_num_clients of this RepositoryToken.
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                limit_num_clients is not None and limit_num_clients > 9223372036854775807):  # noqa: E501
+            raise ValueError("Invalid value for `limit_num_clients`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                limit_num_clients is not None and limit_num_clients < -9223372036854775808):  # noqa: E501
+            raise ValueError("Invalid value for `limit_num_clients`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._limit_num_clients = limit_num_clients
 
@@ -751,6 +745,12 @@ class RepositoryToken(object):
         :param limit_num_downloads: The limit_num_downloads of this RepositoryToken.
         :type: int
         """
+        if (self._configuration.client_side_validation and
+                limit_num_downloads is not None and limit_num_downloads > 9223372036854775807):  # noqa: E501
+            raise ValueError("Invalid value for `limit_num_downloads`, must be a value less than or equal to `9223372036854775807`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                limit_num_downloads is not None and limit_num_downloads < -9223372036854775808):  # noqa: E501
+            raise ValueError("Invalid value for `limit_num_downloads`, must be a value greater than or equal to `-9223372036854775808`")  # noqa: E501
 
         self._limit_num_downloads = limit_num_downloads
 
@@ -774,6 +774,9 @@ class RepositoryToken(object):
         :param limit_package_query: The limit_package_query of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                limit_package_query is not None and len(limit_package_query) > 1024):
+            raise ValueError("Invalid value for `limit_package_query`, length must be less than or equal to `1024`")  # noqa: E501
 
         self._limit_package_query = limit_package_query
 
@@ -797,6 +800,9 @@ class RepositoryToken(object):
         :param limit_path_query: The limit_path_query of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                limit_path_query is not None and len(limit_path_query) > 1024):
+            raise ValueError("Invalid value for `limit_path_query`, length must be less than or equal to `1024`")  # noqa: E501
 
         self._limit_path_query = limit_path_query
 
@@ -804,7 +810,6 @@ class RepositoryToken(object):
     def metadata(self):
         """Gets the metadata of this RepositoryToken.
 
-        
 
         :return: The metadata of this RepositoryToken.
         :rtype: object
@@ -815,7 +820,6 @@ class RepositoryToken(object):
     def metadata(self, metadata):
         """Sets the metadata of this RepositoryToken.
 
-        
 
         :param metadata: The metadata of this RepositoryToken.
         :type: object
@@ -827,7 +831,6 @@ class RepositoryToken(object):
     def name(self):
         """Gets the name of this RepositoryToken.
 
-        
 
         :return: The name of this RepositoryToken.
         :rtype: str
@@ -838,13 +841,15 @@ class RepositoryToken(object):
     def name(self, name):
         """Sets the name of this RepositoryToken.
 
-        
 
         :param name: The name of this RepositoryToken.
         :type: str
         """
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -852,7 +857,6 @@ class RepositoryToken(object):
     def refresh_url(self):
         """Gets the refresh_url of this RepositoryToken.
 
-        
 
         :return: The refresh_url of this RepositoryToken.
         :rtype: str
@@ -863,7 +867,6 @@ class RepositoryToken(object):
     def refresh_url(self, refresh_url):
         """Sets the refresh_url of this RepositoryToken.
 
-        
 
         :param refresh_url: The refresh_url of this RepositoryToken.
         :type: str
@@ -875,7 +878,6 @@ class RepositoryToken(object):
     def reset_url(self):
         """Gets the reset_url of this RepositoryToken.
 
-        
 
         :return: The reset_url of this RepositoryToken.
         :rtype: str
@@ -886,7 +888,6 @@ class RepositoryToken(object):
     def reset_url(self, reset_url):
         """Sets the reset_url of this RepositoryToken.
 
-        
 
         :param reset_url: The reset_url of this RepositoryToken.
         :type: str
@@ -901,7 +902,7 @@ class RepositoryToken(object):
         The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
 
         :return: The scheduled_reset_at of this RepositoryToken.
-        :rtype: str
+        :rtype: datetime
         """
         return self._scheduled_reset_at
 
@@ -912,7 +913,7 @@ class RepositoryToken(object):
         The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.
 
         :param scheduled_reset_at: The scheduled_reset_at of this RepositoryToken.
-        :type: str
+        :type: datetime
         """
 
         self._scheduled_reset_at = scheduled_reset_at
@@ -921,7 +922,6 @@ class RepositoryToken(object):
     def scheduled_reset_period(self):
         """Gets the scheduled_reset_period of this RepositoryToken.
 
-        
 
         :return: The scheduled_reset_period of this RepositoryToken.
         :rtype: str
@@ -932,7 +932,6 @@ class RepositoryToken(object):
     def scheduled_reset_period(self, scheduled_reset_period):
         """Sets the scheduled_reset_period of this RepositoryToken.
 
-        
 
         :param scheduled_reset_period: The scheduled_reset_period of this RepositoryToken.
         :type: str
@@ -951,7 +950,6 @@ class RepositoryToken(object):
     def self_url(self):
         """Gets the self_url of this RepositoryToken.
 
-        
 
         :return: The self_url of this RepositoryToken.
         :rtype: str
@@ -962,7 +960,6 @@ class RepositoryToken(object):
     def self_url(self, self_url):
         """Sets the self_url of this RepositoryToken.
 
-        
 
         :param self_url: The self_url of this RepositoryToken.
         :type: str
@@ -974,7 +971,6 @@ class RepositoryToken(object):
     def slug_perm(self):
         """Gets the slug_perm of this RepositoryToken.
 
-        
 
         :return: The slug_perm of this RepositoryToken.
         :rtype: str
@@ -985,11 +981,16 @@ class RepositoryToken(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this RepositoryToken.
 
-        
 
         :param slug_perm: The slug_perm of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and len(slug_perm) < 1):
+            raise ValueError("Invalid value for `slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
 
@@ -997,7 +998,6 @@ class RepositoryToken(object):
     def token(self):
         """Gets the token of this RepositoryToken.
 
-        
 
         :return: The token of this RepositoryToken.
         :rtype: str
@@ -1008,11 +1008,13 @@ class RepositoryToken(object):
     def token(self, token):
         """Sets the token of this RepositoryToken.
 
-        
 
         :param token: The token of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                token is not None and len(token) < 1):
+            raise ValueError("Invalid value for `token`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._token = token
 
@@ -1023,7 +1025,7 @@ class RepositoryToken(object):
         The datetime the token was updated at.
 
         :return: The updated_at of this RepositoryToken.
-        :rtype: str
+        :rtype: datetime
         """
         return self._updated_at
 
@@ -1034,7 +1036,7 @@ class RepositoryToken(object):
         The datetime the token was updated at.
 
         :param updated_at: The updated_at of this RepositoryToken.
-        :type: str
+        :type: datetime
         """
 
         self._updated_at = updated_at
@@ -1043,7 +1045,6 @@ class RepositoryToken(object):
     def updated_by(self):
         """Gets the updated_by of this RepositoryToken.
 
-        
 
         :return: The updated_by of this RepositoryToken.
         :rtype: str
@@ -1054,11 +1055,13 @@ class RepositoryToken(object):
     def updated_by(self, updated_by):
         """Sets the updated_by of this RepositoryToken.
 
-        
 
         :param updated_by: The updated_by of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                updated_by is not None and len(updated_by) < 1):
+            raise ValueError("Invalid value for `updated_by`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._updated_by = updated_by
 
@@ -1066,7 +1069,6 @@ class RepositoryToken(object):
     def updated_by_url(self):
         """Gets the updated_by_url of this RepositoryToken.
 
-        
 
         :return: The updated_by_url of this RepositoryToken.
         :rtype: str
@@ -1077,7 +1079,6 @@ class RepositoryToken(object):
     def updated_by_url(self, updated_by_url):
         """Sets the updated_by_url of this RepositoryToken.
 
-        
 
         :param updated_by_url: The updated_by_url of this RepositoryToken.
         :type: str
@@ -1089,7 +1090,6 @@ class RepositoryToken(object):
     def usage(self):
         """Gets the usage of this RepositoryToken.
 
-        
 
         :return: The usage of this RepositoryToken.
         :rtype: str
@@ -1100,11 +1100,13 @@ class RepositoryToken(object):
     def usage(self, usage):
         """Sets the usage of this RepositoryToken.
 
-        
 
         :param usage: The usage of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                usage is not None and len(usage) < 1):
+            raise ValueError("Invalid value for `usage`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._usage = usage
 
@@ -1112,7 +1114,6 @@ class RepositoryToken(object):
     def user(self):
         """Gets the user of this RepositoryToken.
 
-        
 
         :return: The user of this RepositoryToken.
         :rtype: str
@@ -1123,11 +1124,13 @@ class RepositoryToken(object):
     def user(self, user):
         """Sets the user of this RepositoryToken.
 
-        
 
         :param user: The user of this RepositoryToken.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                user is not None and len(user) < 1):
+            raise ValueError("Invalid value for `user`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._user = user
 
@@ -1135,7 +1138,6 @@ class RepositoryToken(object):
     def user_url(self):
         """Gets the user_url of this RepositoryToken.
 
-        
 
         :return: The user_url of this RepositoryToken.
         :rtype: str
@@ -1146,7 +1148,6 @@ class RepositoryToken(object):
     def user_url(self, user_url):
         """Sets the user_url of this RepositoryToken.
 
-        
 
         :param user_url: The user_url of this RepositoryToken.
         :type: str

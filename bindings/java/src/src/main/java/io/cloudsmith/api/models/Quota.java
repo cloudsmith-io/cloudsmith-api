@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.UsageFieldset;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -35,24 +36,25 @@ public class Quota implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("usage")
-  private Object usage = null;
+  private UsageFieldset usage = null;
 
-  public Quota usage(Object usage) {
+  public Quota usage(UsageFieldset usage) {
     this.usage = usage;
     return this;
   }
 
    /**
-   * 
+   * Get usage
    * @return usage
   **/
   @NotNull
-  @ApiModelProperty(example = "{\"display\":{\"bandwidth\":{\"configured\":\"60 GB\",\"percentage_used\":\"0.0%\",\"plan_limit\":\"2 TB\",\"used\":\"0 B\"},\"storage\":{\"configured\":\"30 GB\",\"percentage_used\":\"0.109%\",\"plan_limit\":\"1 TB\",\"used\":\"1.1 GB\"}},\"raw\":{\"bandwidth\":{\"configured\":64424509440,\"percentage_used\":0.0,\"plan_limit\":2199023255552,\"used\":0},\"storage\":{\"configured\":32212254720,\"percentage_used\":0.109,\"plan_limit\":1099511627776,\"used\":1197653687}}}", required = true, value = "")
-  public Object getUsage() {
+  @Valid
+  @ApiModelProperty(required = true, value = "")
+  public UsageFieldset getUsage() {
     return usage;
   }
 
-  public void setUsage(Object usage) {
+  public void setUsage(UsageFieldset usage) {
     this.usage = usage;
   }
 

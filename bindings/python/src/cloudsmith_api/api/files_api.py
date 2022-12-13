@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -43,10 +43,10 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param FilesAbort data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageFileUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -68,10 +68,10 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param FilesAbort data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageFileUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -125,6 +125,10 @@ class FilesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -158,10 +162,10 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param FilesComplete data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageFileUploadRequest data:
         :return: PackageFileUpload
                  If the method is called asynchronously,
                  returns the request thread.
@@ -183,10 +187,10 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
-        :param FilesComplete data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageFileUploadRequest data:
         :return: PackageFileUpload
                  If the method is called asynchronously,
                  returns the request thread.
@@ -240,6 +244,10 @@ class FilesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -273,9 +281,9 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param FilesCreate data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param PackageFileUploadRequest data:
         :return: PackageFileUpload
                  If the method is called asynchronously,
                  returns the request thread.
@@ -297,9 +305,9 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param FilesCreate data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param PackageFileUploadRequest data:
         :return: PackageFileUpload
                  If the method is called asynchronously,
                  returns the request thread.
@@ -347,6 +355,10 @@ class FilesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -380,9 +392,9 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :param str filename: The filename of the file being uploaded (required)
         :param int part_number: The part number to be uploaded next
         :return: PackageFilePartsUpload
@@ -406,9 +418,9 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param str identifier:  (required)
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
         :param str filename: The filename of the file being uploaded (required)
         :param int part_number: The part number to be uploaded next
         :return: PackageFilePartsUpload
@@ -470,6 +482,14 @@ class FilesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['apikey']  # noqa: E501
 
@@ -499,9 +519,9 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param FilesValidate data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param PackageFileUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -523,9 +543,9 @@ class FilesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner:  (required)
-        :param str repo:  (required)
-        :param FilesValidate data:
+        :param str owner: (required)
+        :param str repo: (required)
+        :param PackageFileUploadRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -573,6 +593,10 @@ class FilesApi(object):
         body_params = None
         if 'data' in params:
             body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501

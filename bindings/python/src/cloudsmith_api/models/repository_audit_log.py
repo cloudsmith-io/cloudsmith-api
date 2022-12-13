@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -36,12 +36,12 @@ class RepositoryAuditLog(object):
         'actor': 'str',
         'actor_ip_address': 'str',
         'actor_kind': 'str',
-        'actor_location': 'object',
+        'actor_location': 'GeoIpLocation',
         'actor_slug_perm': 'str',
         'actor_url': 'str',
         'context': 'str',
         'event': 'str',
-        'event_at': 'str',
+        'event_at': 'datetime',
         'object': 'str',
         'object_kind': 'str',
         'object_slug_perm': 'str',
@@ -106,7 +106,6 @@ class RepositoryAuditLog(object):
     def actor(self):
         """Gets the actor of this RepositoryAuditLog.
 
-        
 
         :return: The actor of this RepositoryAuditLog.
         :rtype: str
@@ -117,13 +116,15 @@ class RepositoryAuditLog(object):
     def actor(self, actor):
         """Sets the actor of this RepositoryAuditLog.
 
-        
 
         :param actor: The actor of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor is None:
             raise ValueError("Invalid value for `actor`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                actor is not None and len(actor) < 1):
+            raise ValueError("Invalid value for `actor`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._actor = actor
 
@@ -131,7 +132,6 @@ class RepositoryAuditLog(object):
     def actor_ip_address(self):
         """Gets the actor_ip_address of this RepositoryAuditLog.
 
-        
 
         :return: The actor_ip_address of this RepositoryAuditLog.
         :rtype: str
@@ -142,13 +142,15 @@ class RepositoryAuditLog(object):
     def actor_ip_address(self, actor_ip_address):
         """Sets the actor_ip_address of this RepositoryAuditLog.
 
-        
 
         :param actor_ip_address: The actor_ip_address of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor_ip_address is None:
             raise ValueError("Invalid value for `actor_ip_address`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                actor_ip_address is not None and len(actor_ip_address) < 1):
+            raise ValueError("Invalid value for `actor_ip_address`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._actor_ip_address = actor_ip_address
 
@@ -156,7 +158,6 @@ class RepositoryAuditLog(object):
     def actor_kind(self):
         """Gets the actor_kind of this RepositoryAuditLog.
 
-        
 
         :return: The actor_kind of this RepositoryAuditLog.
         :rtype: str
@@ -167,7 +168,6 @@ class RepositoryAuditLog(object):
     def actor_kind(self, actor_kind):
         """Sets the actor_kind of this RepositoryAuditLog.
 
-        
 
         :param actor_kind: The actor_kind of this RepositoryAuditLog.
         :type: str
@@ -179,10 +179,9 @@ class RepositoryAuditLog(object):
     def actor_location(self):
         """Gets the actor_location of this RepositoryAuditLog.
 
-        
 
         :return: The actor_location of this RepositoryAuditLog.
-        :rtype: object
+        :rtype: GeoIpLocation
         """
         return self._actor_location
 
@@ -190,10 +189,9 @@ class RepositoryAuditLog(object):
     def actor_location(self, actor_location):
         """Sets the actor_location of this RepositoryAuditLog.
 
-        
 
         :param actor_location: The actor_location of this RepositoryAuditLog.
-        :type: object
+        :type: GeoIpLocation
         """
         if self._configuration.client_side_validation and actor_location is None:
             raise ValueError("Invalid value for `actor_location`, must not be `None`")  # noqa: E501
@@ -204,7 +202,6 @@ class RepositoryAuditLog(object):
     def actor_slug_perm(self):
         """Gets the actor_slug_perm of this RepositoryAuditLog.
 
-        
 
         :return: The actor_slug_perm of this RepositoryAuditLog.
         :rtype: str
@@ -215,13 +212,15 @@ class RepositoryAuditLog(object):
     def actor_slug_perm(self, actor_slug_perm):
         """Sets the actor_slug_perm of this RepositoryAuditLog.
 
-        
 
         :param actor_slug_perm: The actor_slug_perm of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and actor_slug_perm is None:
             raise ValueError("Invalid value for `actor_slug_perm`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                actor_slug_perm is not None and len(actor_slug_perm) < 1):
+            raise ValueError("Invalid value for `actor_slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._actor_slug_perm = actor_slug_perm
 
@@ -229,7 +228,6 @@ class RepositoryAuditLog(object):
     def actor_url(self):
         """Gets the actor_url of this RepositoryAuditLog.
 
-        
 
         :return: The actor_url of this RepositoryAuditLog.
         :rtype: str
@@ -240,7 +238,6 @@ class RepositoryAuditLog(object):
     def actor_url(self, actor_url):
         """Sets the actor_url of this RepositoryAuditLog.
 
-        
 
         :param actor_url: The actor_url of this RepositoryAuditLog.
         :type: str
@@ -252,7 +249,6 @@ class RepositoryAuditLog(object):
     def context(self):
         """Gets the context of this RepositoryAuditLog.
 
-        
 
         :return: The context of this RepositoryAuditLog.
         :rtype: str
@@ -263,13 +259,15 @@ class RepositoryAuditLog(object):
     def context(self, context):
         """Sets the context of this RepositoryAuditLog.
 
-        
 
         :param context: The context of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and context is None:
             raise ValueError("Invalid value for `context`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                context is not None and len(context) < 1):
+            raise ValueError("Invalid value for `context`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._context = context
 
@@ -277,7 +275,6 @@ class RepositoryAuditLog(object):
     def event(self):
         """Gets the event of this RepositoryAuditLog.
 
-        
 
         :return: The event of this RepositoryAuditLog.
         :rtype: str
@@ -288,13 +285,15 @@ class RepositoryAuditLog(object):
     def event(self, event):
         """Sets the event of this RepositoryAuditLog.
 
-        
 
         :param event: The event of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and event is None:
             raise ValueError("Invalid value for `event`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                event is not None and len(event) < 1):
+            raise ValueError("Invalid value for `event`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._event = event
 
@@ -302,10 +301,9 @@ class RepositoryAuditLog(object):
     def event_at(self):
         """Gets the event_at of this RepositoryAuditLog.
 
-        
 
         :return: The event_at of this RepositoryAuditLog.
-        :rtype: str
+        :rtype: datetime
         """
         return self._event_at
 
@@ -313,10 +311,9 @@ class RepositoryAuditLog(object):
     def event_at(self, event_at):
         """Sets the event_at of this RepositoryAuditLog.
 
-        
 
         :param event_at: The event_at of this RepositoryAuditLog.
-        :type: str
+        :type: datetime
         """
         if self._configuration.client_side_validation and event_at is None:
             raise ValueError("Invalid value for `event_at`, must not be `None`")  # noqa: E501
@@ -327,7 +324,6 @@ class RepositoryAuditLog(object):
     def object(self):
         """Gets the object of this RepositoryAuditLog.
 
-        
 
         :return: The object of this RepositoryAuditLog.
         :rtype: str
@@ -338,13 +334,15 @@ class RepositoryAuditLog(object):
     def object(self, object):
         """Sets the object of this RepositoryAuditLog.
 
-        
 
         :param object: The object of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object is None:
             raise ValueError("Invalid value for `object`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                object is not None and len(object) < 1):
+            raise ValueError("Invalid value for `object`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._object = object
 
@@ -352,7 +350,6 @@ class RepositoryAuditLog(object):
     def object_kind(self):
         """Gets the object_kind of this RepositoryAuditLog.
 
-        
 
         :return: The object_kind of this RepositoryAuditLog.
         :rtype: str
@@ -363,13 +360,15 @@ class RepositoryAuditLog(object):
     def object_kind(self, object_kind):
         """Sets the object_kind of this RepositoryAuditLog.
 
-        
 
         :param object_kind: The object_kind of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object_kind is None:
             raise ValueError("Invalid value for `object_kind`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                object_kind is not None and len(object_kind) < 1):
+            raise ValueError("Invalid value for `object_kind`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._object_kind = object_kind
 
@@ -377,7 +376,6 @@ class RepositoryAuditLog(object):
     def object_slug_perm(self):
         """Gets the object_slug_perm of this RepositoryAuditLog.
 
-        
 
         :return: The object_slug_perm of this RepositoryAuditLog.
         :rtype: str
@@ -388,13 +386,15 @@ class RepositoryAuditLog(object):
     def object_slug_perm(self, object_slug_perm):
         """Sets the object_slug_perm of this RepositoryAuditLog.
 
-        
 
         :param object_slug_perm: The object_slug_perm of this RepositoryAuditLog.
         :type: str
         """
         if self._configuration.client_side_validation and object_slug_perm is None:
             raise ValueError("Invalid value for `object_slug_perm`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                object_slug_perm is not None and len(object_slug_perm) < 1):
+            raise ValueError("Invalid value for `object_slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._object_slug_perm = object_slug_perm
 
@@ -402,7 +402,6 @@ class RepositoryAuditLog(object):
     def uuid(self):
         """Gets the uuid of this RepositoryAuditLog.
 
-        
 
         :return: The uuid of this RepositoryAuditLog.
         :rtype: str
@@ -413,7 +412,6 @@ class RepositoryAuditLog(object):
     def uuid(self, uuid):
         """Sets the uuid of this RepositoryAuditLog.
 
-        
 
         :param uuid: The uuid of this RepositoryAuditLog.
         :type: str

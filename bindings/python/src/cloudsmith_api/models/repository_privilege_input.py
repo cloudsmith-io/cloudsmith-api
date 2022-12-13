@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class RepositoryPrivilegeInput(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'privileges': 'list[RepositoryPrivilegeInputPrivileges]'
+        'privileges': 'list[RepositoryPrivilegeDict]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class RepositoryPrivilegeInput(object):
         List of objects with explicit privileges to the repository.
 
         :return: The privileges of this RepositoryPrivilegeInput.
-        :rtype: list[RepositoryPrivilegeInputPrivileges]
+        :rtype: list[RepositoryPrivilegeDict]
         """
         return self._privileges
 
@@ -69,7 +69,7 @@ class RepositoryPrivilegeInput(object):
         List of objects with explicit privileges to the repository.
 
         :param privileges: The privileges of this RepositoryPrivilegeInput.
-        :type: list[RepositoryPrivilegeInputPrivileges]
+        :type: list[RepositoryPrivilegeDict]
         """
         if self._configuration.client_side_validation and privileges is None:
             raise ValueError("Invalid value for `privileges`, must not be `None`")  # noqa: E501

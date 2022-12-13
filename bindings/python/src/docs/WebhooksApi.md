@@ -36,7 +36,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
-data = cloudsmith_api.WebhooksCreate() # WebhooksCreate |  (optional)
+data = cloudsmith_api.RepositoryWebhookRequest() # RepositoryWebhookRequest |  (optional)
 
 try:
     # Create a specific webhook in a repository.
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
- **data** | [**WebhooksCreate**](WebhooksCreate.md)|  | [optional] 
+ **data** | [**RepositoryWebhookRequest**](RepositoryWebhookRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -121,8 +121,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -181,8 +181,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -212,7 +212,7 @@ api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.WebhooksPartialUpdate() # WebhooksPartialUpdate |  (optional)
+data = cloudsmith_api.RepositoryWebhookRequestPatch() # RepositoryWebhookRequestPatch |  (optional)
 
 try:
     # Update a specific webhook in a repository.
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryWebhookRequestPatch**](RepositoryWebhookRequestPatch.md)|  | [optional] 
 
 ### Return type
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -299,8 +299,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

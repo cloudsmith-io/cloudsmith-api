@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **badges_version_list**
-> Object badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
+> PackageVersionBadge badges_version_list(owner, repo, package_format, package_name, package_version, package_identifiers, opts)
 
 Get latest package version for a package or package group.
 
@@ -41,17 +41,17 @@ package_version = 'package_version_example' # String |
 package_identifiers = 'package_identifiers_example' # String | 
 
 opts = { 
-  badge_token: 'badge_token_example', # String | Badge token to authenticate for private packages
-  cache_seconds: 'cache_seconds_example', # String | Override the shields.io badge cacheSeconds value.
-  color: 'color_example', # String | Override the shields.io badge color value.
-  label: 'label_example', # String | Override the shields.io badge label value.
-  label_color: 'label_color_example', # String | Override the shields.io badge labelColor value.
-  logo_color: 'logo_color_example', # String | Override the shields.io badge logoColor value.
-  logo_width: 'logo_width_example', # String | Override the shields.io badge logoWidth value.
-  render: true, # BOOLEAN | If true, badge will be rendered
-  shields: true, # BOOLEAN | If true, a shields response will be generated
-  show_latest: true, # BOOLEAN | If true, for latest version badges a '(latest)' suffix is added
-  style: 'style_example' # String | Override the shields.io badge style value.
+  badge_token: '', # String | Badge token to authenticate for private packages
+  cache_seconds: '300', # String | Override the shields.io badge cacheSeconds value.
+  color: '12577E', # String | Override the shields.io badge color value.
+  label: 'cloudsmith', # String | Override the shields.io badge label value.
+  label_color: '021F2F', # String | Override the shields.io badge labelColor value.
+  logo_color: '45B6EE', # String | Override the shields.io badge logoColor value.
+  logo_width: '10', # String | Override the shields.io badge logoWidth value.
+  render: false, # BOOLEAN | If true, badge will be rendered
+  shields: false, # BOOLEAN | If true, a shields response will be generated
+  show_latest: false, # BOOLEAN | If true, for latest version badges a '(latest)' suffix is added
+  style: 'flat-square' # String | Override the shields.io badge style value.
 }
 
 begin
@@ -73,21 +73,21 @@ Name | Type | Description  | Notes
  **package_name** | **String**|  | 
  **package_version** | **String**|  | 
  **package_identifiers** | **String**|  | 
- **badge_token** | **String**| Badge token to authenticate for private packages | [optional] 
- **cache_seconds** | **String**| Override the shields.io badge cacheSeconds value. | [optional] 
- **color** | **String**| Override the shields.io badge color value. | [optional] 
- **label** | **String**| Override the shields.io badge label value. | [optional] 
- **label_color** | **String**| Override the shields.io badge labelColor value. | [optional] 
- **logo_color** | **String**| Override the shields.io badge logoColor value. | [optional] 
- **logo_width** | **String**| Override the shields.io badge logoWidth value. | [optional] 
- **render** | **BOOLEAN**| If true, badge will be rendered | [optional] 
- **shields** | **BOOLEAN**| If true, a shields response will be generated | [optional] 
- **show_latest** | **BOOLEAN**| If true, for latest version badges a &#39;(latest)&#39; suffix is added | [optional] 
- **style** | **String**| Override the shields.io badge style value. | [optional] 
+ **badge_token** | **String**| Badge token to authenticate for private packages | [optional] [default to ]
+ **cache_seconds** | **String**| Override the shields.io badge cacheSeconds value. | [optional] [default to 300]
+ **color** | **String**| Override the shields.io badge color value. | [optional] [default to 12577E]
+ **label** | **String**| Override the shields.io badge label value. | [optional] [default to cloudsmith]
+ **label_color** | **String**| Override the shields.io badge labelColor value. | [optional] [default to 021F2F]
+ **logo_color** | **String**| Override the shields.io badge logoColor value. | [optional] [default to 45B6EE]
+ **logo_width** | **String**| Override the shields.io badge logoWidth value. | [optional] [default to 10]
+ **render** | **BOOLEAN**| If true, badge will be rendered | [optional] [default to false]
+ **shields** | **BOOLEAN**| If true, a shields response will be generated | [optional] [default to false]
+ **show_latest** | **BOOLEAN**| If true, for latest version badges a &#39;(latest)&#39; suffix is added | [optional] [default to false]
+ **style** | **String**| Override the shields.io badge style value. | [optional] [default to flat-square]
 
 ### Return type
 
-**Object**
+[**PackageVersionBadge**](PackageVersionBadge.md)
 
 ### Authorization
 
@@ -95,8 +95,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

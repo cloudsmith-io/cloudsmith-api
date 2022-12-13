@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -29,22 +29,15 @@ class TestVulnerabilitiesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_vulnerabilities_list(self):
-        """Test case for vulnerabilities_list
+    def test_vulnerabilities_namespace_list(self):
+        """Test case for vulnerabilities_namespace_list
 
         Lists scan results for a specific namespace.  # noqa: E501
         """
         pass
 
-    def test_vulnerabilities_list0(self):
-        """Test case for vulnerabilities_list0
-
-        Lists scan results for a specific repository.  # noqa: E501
-        """
-        pass
-
-    def test_vulnerabilities_list1(self):
-        """Test case for vulnerabilities_list1
+    def test_vulnerabilities_package_list(self):
+        """Test case for vulnerabilities_package_list
 
         Lists scan results for a specific package.  # noqa: E501
         """
@@ -54,6 +47,13 @@ class TestVulnerabilitiesApi(unittest.TestCase):
         """Test case for vulnerabilities_read
 
         Returns a Scan Result.  # noqa: E501
+        """
+        pass
+
+    def test_vulnerabilities_repo_list(self):
+        """Test case for vulnerabilities_repo_list
+
+        Lists scan results for a specific repository.  # noqa: E501
         """
         pass
 

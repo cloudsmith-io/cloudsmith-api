@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 **actor** | **str** |  | 
 **actor_ip_address** | **str** |  | 
 **actor_kind** | **str** |  | [optional] 
-**actor_location** | **object** |  | 
+**actor_location** | [**GeoIpLocation**](GeoIpLocation.md) |  | 
 **actor_slug_perm** | **str** |  | 
 **actor_url** | **str** |  | [optional] 
 **context** | **str** |  | 
 **event** | **str** |  | 
-**event_at** | **str** |  | 
+**event_at** | **datetime** |  | 
 **object** | **str** |  | 
 **object_kind** | **str** |  | 
 **object_slug_perm** | **str** |  | 

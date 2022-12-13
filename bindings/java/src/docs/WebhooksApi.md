@@ -39,7 +39,7 @@ apikey.setApiKey("YOUR API KEY");
 WebhooksApi apiInstance = new WebhooksApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-WebhooksCreate data = new WebhooksCreate(); // WebhooksCreate | 
+RepositoryWebhookRequest data = new RepositoryWebhookRequest(); // RepositoryWebhookRequest | 
 try {
     RepositoryWebhook result = apiInstance.webhooksCreate(owner, repo, data);
     System.out.println(result);
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **data** | [**WebhooksCreate**](WebhooksCreate.md)|  | [optional]
+ **data** | [**RepositoryWebhookRequest**](RepositoryWebhookRequest.md)|  | [optional]
 
 ### Return type
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="webhooksDelete"></a>
 # **webhooksDelete**
@@ -125,8 +125,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="webhooksList"></a>
 # **webhooksList**
@@ -156,8 +156,8 @@ apikey.setApiKey("YOUR API KEY");
 WebhooksApi apiInstance = new WebhooksApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
-Integer page = 56; // Integer | A page number within the paginated result set.
-Integer pageSize = 56; // Integer | Number of results to return per page.
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
     List<RepositoryWebhook> result = apiInstance.webhooksList(owner, repo, page, pageSize);
     System.out.println(result);
@@ -173,8 +173,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **repo** | **String**|  |
- **page** | **Integer**| A page number within the paginated result set. | [optional]
- **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
 
 ### Return type
 
@@ -186,8 +186,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="webhooksPartialUpdate"></a>
 # **webhooksPartialUpdate**
@@ -218,7 +218,7 @@ WebhooksApi apiInstance = new WebhooksApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
-WebhooksPartialUpdate data = new WebhooksPartialUpdate(); // WebhooksPartialUpdate | 
+RepositoryWebhookRequestPatch data = new RepositoryWebhookRequestPatch(); // RepositoryWebhookRequestPatch | 
 try {
     RepositoryWebhook result = apiInstance.webhooksPartialUpdate(owner, repo, identifier, data);
     System.out.println(result);
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional]
+ **data** | [**RepositoryWebhookRequestPatch**](RepositoryWebhookRequestPatch.md)|  | [optional]
 
 ### Return type
 
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="webhooksRead"></a>
 # **webhooksRead**
@@ -306,6 +306,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 

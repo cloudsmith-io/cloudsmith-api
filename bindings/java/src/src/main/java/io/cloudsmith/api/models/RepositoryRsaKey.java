@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -38,7 +39,7 @@ public class RepositoryRsaKey implements Serializable {
   private Boolean active = null;
 
   @SerializedName("created_at")
-  private String createdAt = null;
+  private OffsetDateTime createdAt = null;
 
   @SerializedName("default")
   private Boolean _default = null;
@@ -52,11 +53,6 @@ public class RepositoryRsaKey implements Serializable {
   @SerializedName("public_key")
   private String publicKey = null;
 
-  public RepositoryRsaKey active(Boolean active) {
-    this.active = active;
-    return this;
-  }
-
    /**
    * If selected this is the active key for this repository.
    * @return active
@@ -66,31 +62,14 @@ public class RepositoryRsaKey implements Serializable {
     return active;
   }
 
-  public void setActive(Boolean active) {
-    this.active = active;
-  }
-
-  public RepositoryRsaKey createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
    /**
-   * 
+   * Get createdAt
    * @return createdAt
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public RepositoryRsaKey _default(Boolean _default) {
-    this._default = _default;
-    return this;
   }
 
    /**
@@ -102,35 +81,17 @@ public class RepositoryRsaKey implements Serializable {
     return _default;
   }
 
-  public void setDefault(Boolean _default) {
-    this._default = _default;
-  }
-
-  public RepositoryRsaKey fingerprint(String fingerprint) {
-    this.fingerprint = fingerprint;
-    return this;
-  }
-
    /**
    * The long identifier used by RSA for this key.
    * @return fingerprint
   **/
-  @ApiModelProperty(value = "The long identifier used by RSA for this key.")
+ @Size(min=1)  @ApiModelProperty(value = "The long identifier used by RSA for this key.")
   public String getFingerprint() {
     return fingerprint;
   }
 
-  public void setFingerprint(String fingerprint) {
-    this.fingerprint = fingerprint;
-  }
-
-  public RepositoryRsaKey fingerprintShort(String fingerprintShort) {
-    this.fingerprintShort = fingerprintShort;
-    return this;
-  }
-
    /**
-   * 
+   * Get fingerprintShort
    * @return fingerprintShort
   **/
   @ApiModelProperty(value = "")
@@ -138,26 +99,13 @@ public class RepositoryRsaKey implements Serializable {
     return fingerprintShort;
   }
 
-  public void setFingerprintShort(String fingerprintShort) {
-    this.fingerprintShort = fingerprintShort;
-  }
-
-  public RepositoryRsaKey publicKey(String publicKey) {
-    this.publicKey = publicKey;
-    return this;
-  }
-
    /**
    * The public key given to repository users.
    * @return publicKey
   **/
-  @ApiModelProperty(value = "The public key given to repository users.")
+ @Size(min=1)  @ApiModelProperty(value = "The public key given to repository users.")
   public String getPublicKey() {
     return publicKey;
-  }
-
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
   }
 
 

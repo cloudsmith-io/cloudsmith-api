@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -46,13 +46,8 @@ public class Namespace implements Serializable {
   @SerializedName("type_name")
   private String typeName = null;
 
-  public Namespace name(String name) {
-    this.name = name;
-    return this;
-  }
-
    /**
-   * 
+   * Get name
    * @return name
   **/
   @ApiModelProperty(value = "")
@@ -60,62 +55,31 @@ public class Namespace implements Serializable {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Namespace slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
    /**
-   * 
+   * Get slug
    * @return slug
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlug() {
     return slug;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public Namespace slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
   }
 
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-  }
-
-  public Namespace typeName(String typeName) {
-    this.typeName = typeName;
-    return this;
-  }
-
    /**
-   * 
+   * Get typeName
    * @return typeName
   **/
   @ApiModelProperty(value = "")
   public String getTypeName() {
     return typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
   }
 
 

@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -13,183 +13,179 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-  class OrganizationInvite
-    # 
-    attr_accessor :email
+class OrganizationInvite
+  # The email of the user to be invited.
+  attr_accessor :email
 
-    # 
-    attr_accessor :expires_at
+  attr_accessor :expires_at
 
-    # 
-    attr_accessor :inviter
+  attr_accessor :inviter
 
-    # 
-    attr_accessor :inviter_url
+  attr_accessor :inviter_url
 
-    # 
-    attr_accessor :org
+  attr_accessor :org
 
-    # 
-    attr_accessor :role
+  # The role to be assigned to the invited user.
+  attr_accessor :role
 
-    # 
-    attr_accessor :slug_perm
+  attr_accessor :slug_perm
 
-    # 
-    attr_accessor :user
+  # The slug of the user to be invited.
+  attr_accessor :user
 
-    # 
-    attr_accessor :user_url
+  attr_accessor :user_url
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
         end
       end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
     end
 
-    # Attribute mapping from ruby-style variable name to JSON key.
-    def self.attribute_map
-      {
-        :'email' => :'email',
-        :'expires_at' => :'expires_at',
-        :'inviter' => :'inviter',
-        :'inviter_url' => :'inviter_url',
-        :'org' => :'org',
-        :'role' => :'role',
-        :'slug_perm' => :'slug_perm',
-        :'user' => :'user',
-        :'user_url' => :'user_url'
-      }
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
+  # Attribute mapping from ruby-style variable name to JSON key.
+  def self.attribute_map
+    {
+      :'email' => :'email',
+      :'expires_at' => :'expires_at',
+      :'inviter' => :'inviter',
+      :'inviter_url' => :'inviter_url',
+      :'org' => :'org',
+      :'role' => :'role',
+      :'slug_perm' => :'slug_perm',
+      :'user' => :'user',
+      :'user_url' => :'user_url'
+    }
+  end
+
+  # Attribute type mapping.
+  def self.swagger_types
+    {
+      :'email' => :'String',
+      :'expires_at' => :'DateTime',
+      :'inviter' => :'String',
+      :'inviter_url' => :'String',
+      :'org' => :'String',
+      :'role' => :'String',
+      :'slug_perm' => :'String',
+      :'user' => :'String',
+      :'user_url' => :'String'
+    }
+  end
+
+  # Initializes the object
+  # @param [Hash] attributes Model attributes in the form of hash
+  def initialize(attributes = {})
+    return unless attributes.is_a?(Hash)
+
+    # convert string to symbol for hash key
+    attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'email')
+      self.email = attributes[:'email']
     end
 
-    # Attribute type mapping.
-    def self.swagger_types
-      {
-        :'email' => :'String',
-        :'expires_at' => :'String',
-        :'inviter' => :'String',
-        :'inviter_url' => :'String',
-        :'org' => :'String',
-        :'role' => :'String',
-        :'slug_perm' => :'String',
-        :'user' => :'String',
-        :'user_url' => :'String'
-      }
+    if attributes.has_key?(:'expires_at')
+      self.expires_at = attributes[:'expires_at']
     end
 
-    # Initializes the object
-    # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
-
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'expires_at')
-        self.expires_at = attributes[:'expires_at']
-      end
-
-      if attributes.has_key?(:'inviter')
-        self.inviter = attributes[:'inviter']
-      end
-
-      if attributes.has_key?(:'inviter_url')
-        self.inviter_url = attributes[:'inviter_url']
-      end
-
-      if attributes.has_key?(:'org')
-        self.org = attributes[:'org']
-      end
-
-      if attributes.has_key?(:'role')
-        self.role = attributes[:'role']
-      end
-
-      if attributes.has_key?(:'slug_perm')
-        self.slug_perm = attributes[:'slug_perm']
-      end
-
-      if attributes.has_key?(:'user')
-        self.user = attributes[:'user']
-      end
-
-      if attributes.has_key?(:'user_url')
-        self.user_url = attributes[:'user_url']
-      end
+    if attributes.has_key?(:'inviter')
+      self.inviter = attributes[:'inviter']
     end
 
-    # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properties with the reasons
-    def list_invalid_properties
-      invalid_properties = Array.new
-      invalid_properties
+    if attributes.has_key?(:'inviter_url')
+      self.inviter_url = attributes[:'inviter_url']
     end
 
-    # Check to see if the all the properties in the model are valid
-    # @return true if the model is valid
-    def valid?
-      role_validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
-      return false unless role_validator.valid?(@role)
-      true
+    if attributes.has_key?(:'org')
+      self.org = attributes[:'org']
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] role Object to be assigned
-    def role=(role)
-      validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
-      unless validator.valid?(role)
-        fail ArgumentError, 'invalid value for "role", must be one of #{validator.allowable_values}.'
-      end
-      @role = role
+    if attributes.has_key?(:'role')
+      self.role = attributes[:'role']
+    else
+      self.role = 'Member'
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.equal?(o)
-      self.class == o.class &&
-          email == o.email &&
-          expires_at == o.expires_at &&
-          inviter == o.inviter &&
-          inviter_url == o.inviter_url &&
-          org == o.org &&
-          role == o.role &&
-          slug_perm == o.slug_perm &&
-          user == o.user &&
-          user_url == o.user_url
+    if attributes.has_key?(:'slug_perm')
+      self.slug_perm = attributes[:'slug_perm']
     end
 
-    # @see the `==` method
-    # @param [Object] Object to be compared
-    def eql?(o)
-      self == o
+    if attributes.has_key?(:'user')
+      self.user = attributes[:'user']
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
-    def hash
-      [email, expires_at, inviter, inviter_url, org, role, slug_perm, user, user_url].hash
+    if attributes.has_key?(:'user_url')
+      self.user_url = attributes[:'user_url']
     end
+  end
+
+  # Show invalid properties with the reasons. Usually used together with valid?
+  # @return Array for valid properties with the reasons
+  def list_invalid_properties
+    invalid_properties = Array.new
+    invalid_properties
+  end
+
+  # Check to see if the all the properties in the model are valid
+  # @return true if the model is valid
+  def valid?
+    role_validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
+    return false unless role_validator.valid?(@role)
+    true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] role Object to be assigned
+  def role=(role)
+    validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
+    unless validator.valid?(role)
+      fail ArgumentError, 'invalid value for "role", must be one of #{validator.allowable_values}.'
+    end
+    @role = role
+  end
+
+  # Checks equality by comparing each attribute.
+  # @param [Object] Object to be compared
+  def ==(o)
+    return true if self.equal?(o)
+    self.class == o.class &&
+        email == o.email &&
+        expires_at == o.expires_at &&
+        inviter == o.inviter &&
+        inviter_url == o.inviter_url &&
+        org == o.org &&
+        role == o.role &&
+        slug_perm == o.slug_perm &&
+        user == o.user &&
+        user_url == o.user_url
+  end
+
+  # @see the `==` method
+  # @param [Object] Object to be compared
+  def eql?(o)
+    self == o
+  end
+
+  # Calculates hash code according to all attributes.
+  # @return [Fixnum] Hash code
+  def hash
+    [email, expires_at, inviter, inviter_url, org, role, slug_perm, user, user_url].hash
+  end
 
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
@@ -295,5 +291,5 @@ module CloudsmithApi
       end
     end
 
-  end
+end
 end

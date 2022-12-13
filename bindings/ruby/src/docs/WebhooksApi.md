@@ -37,7 +37,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::WebhooksCreate.new # WebhooksCreate | 
+  data: CloudsmithApi::RepositoryWebhookRequest.new # RepositoryWebhookRequest | 
 }
 
 begin
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **repo** | **String**|  | 
- **data** | [**WebhooksCreate**](WebhooksCreate.md)|  | [optional] 
+ **data** | [**RepositoryWebhookRequest**](RepositoryWebhookRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -126,8 +126,8 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -189,8 +189,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 
@@ -222,7 +222,7 @@ repo = 'repo_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::WebhooksPartialUpdate.new # WebhooksPartialUpdate | 
+  data: CloudsmithApi::RepositoryWebhookRequestPatch.new # RepositoryWebhookRequestPatch | 
 }
 
 begin
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**WebhooksPartialUpdate**](WebhooksPartialUpdate.md)|  | [optional] 
+ **data** | [**RepositoryWebhookRequestPatch**](RepositoryWebhookRequestPatch.md)|  | [optional] 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 
@@ -313,8 +313,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 

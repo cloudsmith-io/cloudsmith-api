@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.RepositoryTokenSyncTokens;
+import io.cloudsmith.api.models.RepositoryToken;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,20 +38,7 @@ public class RepositoryTokenSync implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("tokens")
-  private List<RepositoryTokenSyncTokens> tokens = null;
-
-  public RepositoryTokenSync tokens(List<RepositoryTokenSyncTokens> tokens) {
-    this.tokens = tokens;
-    return this;
-  }
-
-  public RepositoryTokenSync addTokensItem(RepositoryTokenSyncTokens tokensItem) {
-    if (this.tokens == null) {
-      this.tokens = new ArrayList<>();
-    }
-    this.tokens.add(tokensItem);
-    return this;
-  }
+  private List<RepositoryToken> tokens = null;
 
    /**
    * The entitlements that have been synchronised.
@@ -59,12 +46,8 @@ public class RepositoryTokenSync implements Serializable {
   **/
   @Valid
   @ApiModelProperty(value = "The entitlements that have been synchronised.")
-  public List<RepositoryTokenSyncTokens> getTokens() {
+  public List<RepositoryToken> getTokens() {
     return tokens;
-  }
-
-  public void setTokens(List<RepositoryTokenSyncTokens> tokens) {
-    this.tokens = tokens;
   }
 
 

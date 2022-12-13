@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -33,7 +33,7 @@ class RepositoryWebhook(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'created_at': 'str',
+        'created_at': 'datetime',
         'created_by': 'str',
         'created_by_url': 'str',
         'disable_reason': 'int',
@@ -55,8 +55,8 @@ class RepositoryWebhook(object):
         'self_url': 'str',
         'slug_perm': 'str',
         'target_url': 'str',
-        'templates': 'list[WebhooksownerrepoTemplates]',
-        'updated_at': 'str',
+        'templates': 'list[WebhookTemplate]',
+        'updated_at': 'datetime',
         'updated_by': 'str',
         'updated_by_url': 'str',
         'verify_ssl': 'bool'
@@ -183,10 +183,9 @@ class RepositoryWebhook(object):
     def created_at(self):
         """Gets the created_at of this RepositoryWebhook.
 
-        
 
         :return: The created_at of this RepositoryWebhook.
-        :rtype: str
+        :rtype: datetime
         """
         return self._created_at
 
@@ -194,10 +193,9 @@ class RepositoryWebhook(object):
     def created_at(self, created_at):
         """Sets the created_at of this RepositoryWebhook.
 
-        
 
         :param created_at: The created_at of this RepositoryWebhook.
-        :type: str
+        :type: datetime
         """
 
         self._created_at = created_at
@@ -206,7 +204,6 @@ class RepositoryWebhook(object):
     def created_by(self):
         """Gets the created_by of this RepositoryWebhook.
 
-        
 
         :return: The created_by of this RepositoryWebhook.
         :rtype: str
@@ -217,11 +214,13 @@ class RepositoryWebhook(object):
     def created_by(self, created_by):
         """Sets the created_by of this RepositoryWebhook.
 
-        
 
         :param created_by: The created_by of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                created_by is not None and len(created_by) < 1):
+            raise ValueError("Invalid value for `created_by`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -229,7 +228,6 @@ class RepositoryWebhook(object):
     def created_by_url(self):
         """Gets the created_by_url of this RepositoryWebhook.
 
-        
 
         :return: The created_by_url of this RepositoryWebhook.
         :rtype: str
@@ -240,7 +238,6 @@ class RepositoryWebhook(object):
     def created_by_url(self, created_by_url):
         """Sets the created_by_url of this RepositoryWebhook.
 
-        
 
         :param created_by_url: The created_by_url of this RepositoryWebhook.
         :type: str
@@ -252,7 +249,6 @@ class RepositoryWebhook(object):
     def disable_reason(self):
         """Gets the disable_reason of this RepositoryWebhook.
 
-        
 
         :return: The disable_reason of this RepositoryWebhook.
         :rtype: int
@@ -263,7 +259,6 @@ class RepositoryWebhook(object):
     def disable_reason(self, disable_reason):
         """Sets the disable_reason of this RepositoryWebhook.
 
-        
 
         :param disable_reason: The disable_reason of this RepositoryWebhook.
         :type: int
@@ -275,7 +270,6 @@ class RepositoryWebhook(object):
     def disable_reason_str(self):
         """Gets the disable_reason_str of this RepositoryWebhook.
 
-        
 
         :return: The disable_reason_str of this RepositoryWebhook.
         :rtype: str
@@ -286,11 +280,13 @@ class RepositoryWebhook(object):
     def disable_reason_str(self, disable_reason_str):
         """Sets the disable_reason_str of this RepositoryWebhook.
 
-        
 
         :param disable_reason_str: The disable_reason_str of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                disable_reason_str is not None and len(disable_reason_str) < 1):
+            raise ValueError("Invalid value for `disable_reason_str`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._disable_reason_str = disable_reason_str
 
@@ -298,7 +294,6 @@ class RepositoryWebhook(object):
     def events(self):
         """Gets the events of this RepositoryWebhook.
 
-        
 
         :return: The events of this RepositoryWebhook.
         :rtype: list[str]
@@ -309,13 +304,20 @@ class RepositoryWebhook(object):
     def events(self, events):
         """Sets the events of this RepositoryWebhook.
 
-        
 
         :param events: The events of this RepositoryWebhook.
         :type: list[str]
         """
         if self._configuration.client_side_validation and events is None:
             raise ValueError("Invalid value for `events`, must not be `None`")  # noqa: E501
+        allowed_values = ["*", "package.created", "package.deleted", "package.downloaded", "package.failed", "package.security_scanned", "package.synced", "package.syncing", "package.tags_updated"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                not set(events).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `events` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(events) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
 
         self._events = events
 
@@ -323,7 +325,6 @@ class RepositoryWebhook(object):
     def identifier(self):
         """Gets the identifier of this RepositoryWebhook.
 
-        
 
         :return: The identifier of this RepositoryWebhook.
         :rtype: int
@@ -334,7 +335,6 @@ class RepositoryWebhook(object):
     def identifier(self, identifier):
         """Sets the identifier of this RepositoryWebhook.
 
-        
 
         :param identifier: The identifier of this RepositoryWebhook.
         :type: int
@@ -346,7 +346,7 @@ class RepositoryWebhook(object):
     def is_active(self):
         """Gets the is_active of this RepositoryWebhook.
 
-        If enabled, the webhook will trigger on events and send payloads to the configured target URL.
+        If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.
 
         :return: The is_active of this RepositoryWebhook.
         :rtype: bool
@@ -357,7 +357,7 @@ class RepositoryWebhook(object):
     def is_active(self, is_active):
         """Sets the is_active of this RepositoryWebhook.
 
-        If enabled, the webhook will trigger on events and send payloads to the configured target URL.
+        If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.
 
         :param is_active: The is_active of this RepositoryWebhook.
         :type: bool
@@ -369,7 +369,6 @@ class RepositoryWebhook(object):
     def is_last_response_bad(self):
         """Gets the is_last_response_bad of this RepositoryWebhook.
 
-        
 
         :return: The is_last_response_bad of this RepositoryWebhook.
         :rtype: bool
@@ -380,7 +379,6 @@ class RepositoryWebhook(object):
     def is_last_response_bad(self, is_last_response_bad):
         """Sets the is_last_response_bad of this RepositoryWebhook.
 
-        
 
         :param is_last_response_bad: The is_last_response_bad of this RepositoryWebhook.
         :type: bool
@@ -392,7 +390,6 @@ class RepositoryWebhook(object):
     def last_response_status(self):
         """Gets the last_response_status of this RepositoryWebhook.
 
-        
 
         :return: The last_response_status of this RepositoryWebhook.
         :rtype: int
@@ -403,7 +400,6 @@ class RepositoryWebhook(object):
     def last_response_status(self, last_response_status):
         """Sets the last_response_status of this RepositoryWebhook.
 
-        
 
         :param last_response_status: The last_response_status of this RepositoryWebhook.
         :type: int
@@ -415,7 +411,6 @@ class RepositoryWebhook(object):
     def last_response_status_str(self):
         """Gets the last_response_status_str of this RepositoryWebhook.
 
-        
 
         :return: The last_response_status_str of this RepositoryWebhook.
         :rtype: str
@@ -426,11 +421,13 @@ class RepositoryWebhook(object):
     def last_response_status_str(self, last_response_status_str):
         """Sets the last_response_status_str of this RepositoryWebhook.
 
-        
 
         :param last_response_status_str: The last_response_status_str of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                last_response_status_str is not None and len(last_response_status_str) < 1):
+            raise ValueError("Invalid value for `last_response_status_str`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._last_response_status_str = last_response_status_str
 
@@ -438,7 +435,6 @@ class RepositoryWebhook(object):
     def num_sent(self):
         """Gets the num_sent of this RepositoryWebhook.
 
-        
 
         :return: The num_sent of this RepositoryWebhook.
         :rtype: int
@@ -449,7 +445,6 @@ class RepositoryWebhook(object):
     def num_sent(self, num_sent):
         """Sets the num_sent of this RepositoryWebhook.
 
-        
 
         :param num_sent: The num_sent of this RepositoryWebhook.
         :type: int
@@ -477,6 +472,9 @@ class RepositoryWebhook(object):
         :param package_query: The package_query of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                package_query is not None and len(package_query) > 1024):
+            raise ValueError("Invalid value for `package_query`, length must be less than or equal to `1024`")  # noqa: E501
 
         self._package_query = package_query
 
@@ -507,7 +505,6 @@ class RepositoryWebhook(object):
     def request_body_format_str(self):
         """Gets the request_body_format_str of this RepositoryWebhook.
 
-        
 
         :return: The request_body_format_str of this RepositoryWebhook.
         :rtype: str
@@ -518,11 +515,13 @@ class RepositoryWebhook(object):
     def request_body_format_str(self, request_body_format_str):
         """Sets the request_body_format_str of this RepositoryWebhook.
 
-        
 
         :param request_body_format_str: The request_body_format_str of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                request_body_format_str is not None and len(request_body_format_str) < 1):
+            raise ValueError("Invalid value for `request_body_format_str`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._request_body_format_str = request_body_format_str
 
@@ -553,7 +552,6 @@ class RepositoryWebhook(object):
     def request_body_template_format_str(self):
         """Gets the request_body_template_format_str of this RepositoryWebhook.
 
-        
 
         :return: The request_body_template_format_str of this RepositoryWebhook.
         :rtype: str
@@ -564,11 +562,13 @@ class RepositoryWebhook(object):
     def request_body_template_format_str(self, request_body_template_format_str):
         """Sets the request_body_template_format_str of this RepositoryWebhook.
 
-        
 
         :param request_body_template_format_str: The request_body_template_format_str of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                request_body_template_format_str is not None and len(request_body_template_format_str) < 1):
+            raise ValueError("Invalid value for `request_body_template_format_str`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._request_body_template_format_str = request_body_template_format_str
 
@@ -592,6 +592,9 @@ class RepositoryWebhook(object):
         :param request_content_type: The request_content_type of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                request_content_type is not None and len(request_content_type) > 128):
+            raise ValueError("Invalid value for `request_content_type`, length must be less than or equal to `128`")  # noqa: E501
 
         self._request_content_type = request_content_type
 
@@ -615,6 +618,12 @@ class RepositoryWebhook(object):
         :param secret_header: The secret_header of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                secret_header is not None and len(secret_header) > 64):
+            raise ValueError("Invalid value for `secret_header`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                secret_header is not None and not re.search('^[-\\w]+$', secret_header)):  # noqa: E501
+            raise ValueError(r"Invalid value for `secret_header`, must be a follow pattern or equal to `/^[-\\w]+$/`")  # noqa: E501
 
         self._secret_header = secret_header
 
@@ -622,7 +631,6 @@ class RepositoryWebhook(object):
     def self_url(self):
         """Gets the self_url of this RepositoryWebhook.
 
-        
 
         :return: The self_url of this RepositoryWebhook.
         :rtype: str
@@ -633,7 +641,6 @@ class RepositoryWebhook(object):
     def self_url(self, self_url):
         """Sets the self_url of this RepositoryWebhook.
 
-        
 
         :param self_url: The self_url of this RepositoryWebhook.
         :type: str
@@ -645,7 +652,6 @@ class RepositoryWebhook(object):
     def slug_perm(self):
         """Gets the slug_perm of this RepositoryWebhook.
 
-        
 
         :return: The slug_perm of this RepositoryWebhook.
         :rtype: str
@@ -656,11 +662,16 @@ class RepositoryWebhook(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this RepositoryWebhook.
 
-        
 
         :param slug_perm: The slug_perm of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and len(slug_perm) < 1):
+            raise ValueError("Invalid value for `slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
 
@@ -686,6 +697,12 @@ class RepositoryWebhook(object):
         """
         if self._configuration.client_side_validation and target_url is None:
             raise ValueError("Invalid value for `target_url`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                target_url is not None and len(target_url) > 255):
+            raise ValueError("Invalid value for `target_url`, length must be less than or equal to `255`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                target_url is not None and len(target_url) < 1):
+            raise ValueError("Invalid value for `target_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._target_url = target_url
 
@@ -693,10 +710,9 @@ class RepositoryWebhook(object):
     def templates(self):
         """Gets the templates of this RepositoryWebhook.
 
-        
 
         :return: The templates of this RepositoryWebhook.
-        :rtype: list[WebhooksownerrepoTemplates]
+        :rtype: list[WebhookTemplate]
         """
         return self._templates
 
@@ -704,10 +720,9 @@ class RepositoryWebhook(object):
     def templates(self, templates):
         """Sets the templates of this RepositoryWebhook.
 
-        
 
         :param templates: The templates of this RepositoryWebhook.
-        :type: list[WebhooksownerrepoTemplates]
+        :type: list[WebhookTemplate]
         """
         if self._configuration.client_side_validation and templates is None:
             raise ValueError("Invalid value for `templates`, must not be `None`")  # noqa: E501
@@ -718,10 +733,9 @@ class RepositoryWebhook(object):
     def updated_at(self):
         """Gets the updated_at of this RepositoryWebhook.
 
-        
 
         :return: The updated_at of this RepositoryWebhook.
-        :rtype: str
+        :rtype: datetime
         """
         return self._updated_at
 
@@ -729,10 +743,9 @@ class RepositoryWebhook(object):
     def updated_at(self, updated_at):
         """Sets the updated_at of this RepositoryWebhook.
 
-        
 
         :param updated_at: The updated_at of this RepositoryWebhook.
-        :type: str
+        :type: datetime
         """
 
         self._updated_at = updated_at
@@ -741,7 +754,6 @@ class RepositoryWebhook(object):
     def updated_by(self):
         """Gets the updated_by of this RepositoryWebhook.
 
-        
 
         :return: The updated_by of this RepositoryWebhook.
         :rtype: str
@@ -752,11 +764,13 @@ class RepositoryWebhook(object):
     def updated_by(self, updated_by):
         """Sets the updated_by of this RepositoryWebhook.
 
-        
 
         :param updated_by: The updated_by of this RepositoryWebhook.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                updated_by is not None and len(updated_by) < 1):
+            raise ValueError("Invalid value for `updated_by`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._updated_by = updated_by
 
@@ -764,7 +778,6 @@ class RepositoryWebhook(object):
     def updated_by_url(self):
         """Gets the updated_by_url of this RepositoryWebhook.
 
-        
 
         :return: The updated_by_url of this RepositoryWebhook.
         :rtype: str
@@ -775,7 +788,6 @@ class RepositoryWebhook(object):
     def updated_by_url(self, updated_by_url):
         """Sets the updated_by_url of this RepositoryWebhook.
 
-        
 
         :param updated_by_url: The updated_by_url of this RepositoryWebhook.
         :type: str

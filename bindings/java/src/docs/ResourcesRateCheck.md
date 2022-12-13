@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resources** | **Object** | Rate limit values per resource |  [optional]
+**resources** | [**Map&lt;String, RateCheck&gt;**](RateCheck.md) | Rate limit values per resource |  [optional]
 
 
 

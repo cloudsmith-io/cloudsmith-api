@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -49,27 +49,13 @@ public class PackageFileUpload implements Serializable {
   @SerializedName("upload_url")
   private String uploadUrl = null;
 
-  public PackageFileUpload identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
    /**
    * The identifier for the file to use when creating packages
    * @return identifier
   **/
-  @ApiModelProperty(value = "The identifier for the file to use when creating packages")
+ @Size(min=1)  @ApiModelProperty(value = "The identifier for the file to use when creating packages")
   public String getIdentifier() {
     return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public PackageFileUpload uploadFields(Object uploadFields) {
-    this.uploadFields = uploadFields;
-    return this;
   }
 
    /**
@@ -81,15 +67,6 @@ public class PackageFileUpload implements Serializable {
     return uploadFields;
   }
 
-  public void setUploadFields(Object uploadFields) {
-    this.uploadFields = uploadFields;
-  }
-
-  public PackageFileUpload uploadHeaders(Object uploadHeaders) {
-    this.uploadHeaders = uploadHeaders;
-    return this;
-  }
-
    /**
    * The dictionary of headers that must be sent with uploads
    * @return uploadHeaders
@@ -99,44 +76,22 @@ public class PackageFileUpload implements Serializable {
     return uploadHeaders;
   }
 
-  public void setUploadHeaders(Object uploadHeaders) {
-    this.uploadHeaders = uploadHeaders;
-  }
-
-  public PackageFileUpload uploadQuerystring(String uploadQuerystring) {
-    this.uploadQuerystring = uploadQuerystring;
-    return this;
-  }
-
    /**
    * The querystring to use for the next-step POST or PUT upload
    * @return uploadQuerystring
   **/
-  @ApiModelProperty(value = "The querystring to use for the next-step POST or PUT upload")
+ @Size(min=1)  @ApiModelProperty(value = "The querystring to use for the next-step POST or PUT upload")
   public String getUploadQuerystring() {
     return uploadQuerystring;
-  }
-
-  public void setUploadQuerystring(String uploadQuerystring) {
-    this.uploadQuerystring = uploadQuerystring;
-  }
-
-  public PackageFileUpload uploadUrl(String uploadUrl) {
-    this.uploadUrl = uploadUrl;
-    return this;
   }
 
    /**
    * The URL to use for the next-step POST or PUT upload
    * @return uploadUrl
   **/
-  @ApiModelProperty(value = "The URL to use for the next-step POST or PUT upload")
+ @Size(min=1)  @ApiModelProperty(value = "The URL to use for the next-step POST or PUT upload")
   public String getUploadUrl() {
     return uploadUrl;
-  }
-
-  public void setUploadUrl(String uploadUrl) {
-    this.uploadUrl = uploadUrl;
   }
 
 

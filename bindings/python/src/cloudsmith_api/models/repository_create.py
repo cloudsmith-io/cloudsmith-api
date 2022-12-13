@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    Cloudsmith API
+    Cloudsmith API (v1)
 
     The API to the Cloudsmith Service  # noqa: E501
 
@@ -38,15 +38,15 @@ class RepositoryCreate(object):
         'contextual_auth_realm': 'bool',
         'copy_own': 'bool',
         'copy_packages': 'str',
-        'created_at': 'str',
+        'created_at': 'datetime',
         'default_privilege': 'str',
         'delete_own': 'bool',
         'delete_packages': 'str',
-        'deleted_at': 'str',
+        'deleted_at': 'datetime',
         'description': 'str',
         'distributes': 'list[str]',
         'docker_refresh_tokens_enabled': 'bool',
-        'gpg_keys': 'list[ReposGpgKeys]',
+        'gpg_keys': 'list[RepositoryGpgKey]',
         'index_files': 'bool',
         'is_open_source': 'bool',
         'is_private': 'bool',
@@ -146,7 +146,7 @@ class RepositoryCreate(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, cdn_url=None, content_kind=None, contextual_auth_realm=None, copy_own=None, copy_packages=None, created_at=None, default_privilege=None, delete_own=None, delete_packages=None, deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, move_own=None, move_packages=None, name=None, namespace=None, namespace_url=None, num_downloads=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages=None, replace_packages_by_default=None, repository_type=None, repository_type_str=None, resync_own=None, resync_packages=None, scan_own=None, scan_packages=None, self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region=None, strict_npm_validation=None, use_debian_labels=None, use_default_cargo_upstream=None, use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics=None, _configuration=None):  # noqa: E501
+    def __init__(self, cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, num_downloads=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, use_debian_labels=None, use_default_cargo_upstream=None, use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryCreate - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -449,10 +449,9 @@ class RepositoryCreate(object):
     def created_at(self):
         """Gets the created_at of this RepositoryCreate.
 
-        
 
         :return: The created_at of this RepositoryCreate.
-        :rtype: str
+        :rtype: datetime
         """
         return self._created_at
 
@@ -460,10 +459,9 @@ class RepositoryCreate(object):
     def created_at(self, created_at):
         """Sets the created_at of this RepositoryCreate.
 
-        
 
         :param created_at: The created_at of this RepositoryCreate.
-        :type: str
+        :type: datetime
         """
 
         self._created_at = created_at
@@ -555,10 +553,9 @@ class RepositoryCreate(object):
     def deleted_at(self):
         """Gets the deleted_at of this RepositoryCreate.
 
-        
 
         :return: The deleted_at of this RepositoryCreate.
-        :rtype: str
+        :rtype: datetime
         """
         return self._deleted_at
 
@@ -566,10 +563,9 @@ class RepositoryCreate(object):
     def deleted_at(self, deleted_at):
         """Sets the deleted_at of this RepositoryCreate.
 
-        
 
         :param deleted_at: The deleted_at of this RepositoryCreate.
-        :type: str
+        :type: datetime
         """
 
         self._deleted_at = deleted_at
@@ -647,10 +643,9 @@ class RepositoryCreate(object):
     def gpg_keys(self):
         """Gets the gpg_keys of this RepositoryCreate.
 
-        
 
         :return: The gpg_keys of this RepositoryCreate.
-        :rtype: list[ReposGpgKeys]
+        :rtype: list[RepositoryGpgKey]
         """
         return self._gpg_keys
 
@@ -658,10 +653,9 @@ class RepositoryCreate(object):
     def gpg_keys(self, gpg_keys):
         """Sets the gpg_keys of this RepositoryCreate.
 
-        
 
         :param gpg_keys: The gpg_keys of this RepositoryCreate.
-        :type: list[ReposGpgKeys]
+        :type: list[RepositoryGpgKey]
         """
 
         self._gpg_keys = gpg_keys
@@ -693,7 +687,6 @@ class RepositoryCreate(object):
     def is_open_source(self):
         """Gets the is_open_source of this RepositoryCreate.
 
-        
 
         :return: The is_open_source of this RepositoryCreate.
         :rtype: bool
@@ -704,7 +697,6 @@ class RepositoryCreate(object):
     def is_open_source(self, is_open_source):
         """Sets the is_open_source of this RepositoryCreate.
 
-        
 
         :param is_open_source: The is_open_source of this RepositoryCreate.
         :type: bool
@@ -716,7 +708,6 @@ class RepositoryCreate(object):
     def is_private(self):
         """Gets the is_private of this RepositoryCreate.
 
-        
 
         :return: The is_private of this RepositoryCreate.
         :rtype: bool
@@ -727,7 +718,6 @@ class RepositoryCreate(object):
     def is_private(self, is_private):
         """Sets the is_private of this RepositoryCreate.
 
-        
 
         :param is_private: The is_private of this RepositoryCreate.
         :type: bool
@@ -739,7 +729,6 @@ class RepositoryCreate(object):
     def is_public(self):
         """Gets the is_public of this RepositoryCreate.
 
-        
 
         :return: The is_public of this RepositoryCreate.
         :rtype: bool
@@ -750,7 +739,6 @@ class RepositoryCreate(object):
     def is_public(self, is_public):
         """Sets the is_public of this RepositoryCreate.
 
-        
 
         :param is_public: The is_public of this RepositoryCreate.
         :type: bool
@@ -833,6 +821,15 @@ class RepositoryCreate(object):
         """
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) > 50):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `50`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and not re.search('^\\w[\\w \\-\'\\.\/]+$', name)):  # noqa: E501
+            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/]+$/`")  # noqa: E501
 
         self._name = name
 
@@ -856,6 +853,9 @@ class RepositoryCreate(object):
         :param namespace: The namespace of this RepositoryCreate.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                namespace is not None and not re.search('^[-a-zA-Z0-9_]+$', namespace)):  # noqa: E501
+            raise ValueError(r"Invalid value for `namespace`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._namespace = namespace
 
@@ -1100,7 +1100,7 @@ class RepositoryCreate(object):
     def repository_type(self):
         """Gets the repository_type of this RepositoryCreate.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
+        The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
 
         :return: The repository_type of this RepositoryCreate.
         :rtype: int
@@ -1111,7 +1111,7 @@ class RepositoryCreate(object):
     def repository_type(self, repository_type):
         """Sets the repository_type of this RepositoryCreate.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
+        The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.
 
         :param repository_type: The repository_type of this RepositoryCreate.
         :type: int
@@ -1123,7 +1123,7 @@ class RepositoryCreate(object):
     def repository_type_str(self):
         """Gets the repository_type_str of this RepositoryCreate.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
+        The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.
 
         :return: The repository_type_str of this RepositoryCreate.
         :rtype: str
@@ -1134,11 +1134,18 @@ class RepositoryCreate(object):
     def repository_type_str(self, repository_type_str):
         """Sets the repository_type_str of this RepositoryCreate.
 
-        The repository type changes how it is accessed and billed. Private repositories can only be used on paid plans, but are visible only to you or authorised delegates. Public repositories are free to use on all plans and visible to all Cloudsmith users.
+        The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.
 
         :param repository_type_str: The repository_type_str of this RepositoryCreate.
         :type: str
         """
+        allowed_values = ["Public", "Private"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                repository_type_str not in allowed_values):
+            raise ValueError(
+                "Invalid value for `repository_type_str` ({0}), must be one of {1}"  # noqa: E501
+                .format(repository_type_str, allowed_values)
+            )
 
         self._repository_type_str = repository_type_str
 
@@ -1268,6 +1275,9 @@ class RepositoryCreate(object):
         :param self_html_url: The self_html_url of this RepositoryCreate.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                self_html_url is not None and len(self_html_url) < 1):
+            raise ValueError("Invalid value for `self_html_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._self_html_url = self_html_url
 
@@ -1406,6 +1416,12 @@ class RepositoryCreate(object):
         :param slug_perm: The slug_perm of this RepositoryCreate.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and len(slug_perm) < 1):
+            raise ValueError("Invalid value for `slug_perm`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                slug_perm is not None and not re.search('^[-a-zA-Z0-9_]+$', slug_perm)):  # noqa: E501
+            raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
 

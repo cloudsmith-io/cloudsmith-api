@@ -1,5 +1,5 @@
 =begin
-#Cloudsmith API
+#Cloudsmith API (v1)
 
 #The API to the Cloudsmith Service
 
@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.26
 =end
 
 module CloudsmithApi
-  VERSION = '1.142.3'
+  VERSION = '2.0.0'
 end

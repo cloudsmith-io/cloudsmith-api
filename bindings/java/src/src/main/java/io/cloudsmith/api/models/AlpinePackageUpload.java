@@ -1,5 +1,5 @@
 /*
- * Cloudsmith API
+ * Cloudsmith API (v1)
  * The API to the Cloudsmith Service
  *
  * OpenAPI spec version: v1
@@ -20,11 +20,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.PackagesownerrepoArchitectures;
-import io.cloudsmith.api.models.PackagesownerrepoFiles;
+import io.cloudsmith.api.models.Architecture;
+import io.cloudsmith.api.models.Distribution;
+import io.cloudsmith.api.models.DistributionVersion;
+import io.cloudsmith.api.models.PackageFile;
+import io.cloudsmith.api.models.Tags;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
@@ -39,7 +43,7 @@ public class AlpinePackageUpload implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("architectures")
-  private List<PackagesownerrepoArchitectures> architectures = null;
+  private List<Architecture> architectures = null;
 
   @SerializedName("cdn_url")
   private String cdnUrl = null;
@@ -66,16 +70,16 @@ public class AlpinePackageUpload implements Serializable {
   private String description = null;
 
   @SerializedName("distro")
-  private Object distro = null;
+  private Distribution distro = null;
 
   @SerializedName("distro_version")
-  private Object distroVersion = null;
+  private DistributionVersion distroVersion = null;
 
   @SerializedName("downloads")
-  private Integer downloads = null;
+  private java.math.BigInteger downloads = null;
 
   @SerializedName("epoch")
-  private Integer epoch = null;
+  private java.math.BigInteger epoch = null;
 
   @SerializedName("extension")
   private String extension = null;
@@ -84,7 +88,7 @@ public class AlpinePackageUpload implements Serializable {
   private String filename = null;
 
   @SerializedName("files")
-  private List<PackagesownerrepoFiles> files = null;
+  private List<PackageFile> files = null;
 
   @SerializedName("format")
   private String format = null;
@@ -132,7 +136,7 @@ public class AlpinePackageUpload implements Serializable {
   private String namespaceUrl = null;
 
   @SerializedName("num_files")
-  private Integer numFiles = null;
+  private java.math.BigInteger numFiles = null;
 
   @SerializedName("origin_repository")
   private String originRepository = null;
@@ -141,7 +145,7 @@ public class AlpinePackageUpload implements Serializable {
   private String originRepositoryUrl = null;
 
   @SerializedName("package_type")
-  private Integer packageType = null;
+  private java.math.BigInteger packageType = null;
 
   @SerializedName("release")
   private String release = null;
@@ -153,13 +157,13 @@ public class AlpinePackageUpload implements Serializable {
   private String repositoryUrl = null;
 
   @SerializedName("security_scan_completed_at")
-  private String securityScanCompletedAt = null;
+  private OffsetDateTime securityScanCompletedAt = null;
 
   @SerializedName("security_scan_started_at")
-  private String securityScanStartedAt = null;
+  private OffsetDateTime securityScanStartedAt = null;
 
   /**
-   * 
+   * Gets or Sets securityScanStatus
    */
   @JsonAdapter(SecurityScanStatusEnum.Adapter.class)
   public enum SecurityScanStatusEnum {
@@ -218,10 +222,10 @@ public class AlpinePackageUpload implements Serializable {
   }
 
   @SerializedName("security_scan_status")
-  private SecurityScanStatusEnum securityScanStatus = null;
+  private SecurityScanStatusEnum securityScanStatus = SecurityScanStatusEnum.AWAITING_SECURITY_SCAN;
 
   @SerializedName("security_scan_status_updated_at")
-  private String securityScanStatusUpdatedAt = null;
+  private OffsetDateTime securityScanStatusUpdatedAt = null;
 
   @SerializedName("self_html_url")
   private String selfHtmlUrl = null;
@@ -233,7 +237,7 @@ public class AlpinePackageUpload implements Serializable {
   private String signatureUrl = null;
 
   @SerializedName("size")
-  private Integer size = null;
+  private java.math.BigInteger size = null;
 
   @SerializedName("slug")
   private String slug = null;
@@ -242,16 +246,16 @@ public class AlpinePackageUpload implements Serializable {
   private String slugPerm = null;
 
   @SerializedName("stage")
-  private Integer stage = null;
+  private java.math.BigInteger stage = null;
 
   @SerializedName("stage_str")
   private String stageStr = null;
 
   @SerializedName("stage_updated_at")
-  private String stageUpdatedAt = null;
+  private OffsetDateTime stageUpdatedAt = null;
 
   @SerializedName("status")
-  private Integer status = null;
+  private java.math.BigInteger status = null;
 
   @SerializedName("status_reason")
   private String statusReason = null;
@@ -260,7 +264,7 @@ public class AlpinePackageUpload implements Serializable {
   private String statusStr = null;
 
   @SerializedName("status_updated_at")
-  private String statusUpdatedAt = null;
+  private OffsetDateTime statusUpdatedAt = null;
 
   @SerializedName("status_url")
   private String statusUrl = null;
@@ -272,19 +276,19 @@ public class AlpinePackageUpload implements Serializable {
   private String summary = null;
 
   @SerializedName("sync_finished_at")
-  private String syncFinishedAt = null;
+  private OffsetDateTime syncFinishedAt = null;
 
   @SerializedName("sync_progress")
-  private Integer syncProgress = null;
+  private java.math.BigInteger syncProgress = null;
 
   @SerializedName("tags_immutable")
-  private Object tagsImmutable = null;
+  private Tags tagsImmutable = null;
 
   @SerializedName("type_display")
   private String typeDisplay = null;
 
   @SerializedName("uploaded_at")
-  private String uploadedAt = null;
+  private OffsetDateTime uploadedAt = null;
 
   @SerializedName("uploader")
   private String uploader = null;
@@ -301,40 +305,18 @@ public class AlpinePackageUpload implements Serializable {
   @SerializedName("vulnerability_scan_results_url")
   private String vulnerabilityScanResultsUrl = null;
 
-  public AlpinePackageUpload architectures(List<PackagesownerrepoArchitectures> architectures) {
-    this.architectures = architectures;
-    return this;
-  }
-
-  public AlpinePackageUpload addArchitecturesItem(PackagesownerrepoArchitectures architecturesItem) {
-    if (this.architectures == null) {
-      this.architectures = new ArrayList<>();
-    }
-    this.architectures.add(architecturesItem);
-    return this;
-  }
-
    /**
-   * 
+   * Get architectures
    * @return architectures
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public List<PackagesownerrepoArchitectures> getArchitectures() {
+  public List<Architecture> getArchitectures() {
     return architectures;
   }
 
-  public void setArchitectures(List<PackagesownerrepoArchitectures> architectures) {
-    this.architectures = architectures;
-  }
-
-  public AlpinePackageUpload cdnUrl(String cdnUrl) {
-    this.cdnUrl = cdnUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get cdnUrl
    * @return cdnUrl
   **/
   @ApiModelProperty(value = "")
@@ -342,17 +324,8 @@ public class AlpinePackageUpload implements Serializable {
     return cdnUrl;
   }
 
-  public void setCdnUrl(String cdnUrl) {
-    this.cdnUrl = cdnUrl;
-  }
-
-  public AlpinePackageUpload checksumMd5(String checksumMd5) {
-    this.checksumMd5 = checksumMd5;
-    return this;
-  }
-
    /**
-   * 
+   * Get checksumMd5
    * @return checksumMd5
   **/
   @ApiModelProperty(value = "")
@@ -360,17 +333,8 @@ public class AlpinePackageUpload implements Serializable {
     return checksumMd5;
   }
 
-  public void setChecksumMd5(String checksumMd5) {
-    this.checksumMd5 = checksumMd5;
-  }
-
-  public AlpinePackageUpload checksumSha1(String checksumSha1) {
-    this.checksumSha1 = checksumSha1;
-    return this;
-  }
-
    /**
-   * 
+   * Get checksumSha1
    * @return checksumSha1
   **/
   @ApiModelProperty(value = "")
@@ -378,17 +342,8 @@ public class AlpinePackageUpload implements Serializable {
     return checksumSha1;
   }
 
-  public void setChecksumSha1(String checksumSha1) {
-    this.checksumSha1 = checksumSha1;
-  }
-
-  public AlpinePackageUpload checksumSha256(String checksumSha256) {
-    this.checksumSha256 = checksumSha256;
-    return this;
-  }
-
    /**
-   * 
+   * Get checksumSha256
    * @return checksumSha256
   **/
   @ApiModelProperty(value = "")
@@ -396,17 +351,8 @@ public class AlpinePackageUpload implements Serializable {
     return checksumSha256;
   }
 
-  public void setChecksumSha256(String checksumSha256) {
-    this.checksumSha256 = checksumSha256;
-  }
-
-  public AlpinePackageUpload checksumSha512(String checksumSha512) {
-    this.checksumSha512 = checksumSha512;
-    return this;
-  }
-
    /**
-   * 
+   * Get checksumSha512
    * @return checksumSha512
   **/
   @ApiModelProperty(value = "")
@@ -414,35 +360,17 @@ public class AlpinePackageUpload implements Serializable {
     return checksumSha512;
   }
 
-  public void setChecksumSha512(String checksumSha512) {
-    this.checksumSha512 = checksumSha512;
-  }
-
-  public AlpinePackageUpload dependenciesChecksumMd5(String dependenciesChecksumMd5) {
-    this.dependenciesChecksumMd5 = dependenciesChecksumMd5;
-    return this;
-  }
-
    /**
    * A checksum of all of the package&#39;s dependencies.
    * @return dependenciesChecksumMd5
   **/
-  @ApiModelProperty(value = "A checksum of all of the package's dependencies.")
+ @Size(min=1)  @ApiModelProperty(value = "A checksum of all of the package's dependencies.")
   public String getDependenciesChecksumMd5() {
     return dependenciesChecksumMd5;
   }
 
-  public void setDependenciesChecksumMd5(String dependenciesChecksumMd5) {
-    this.dependenciesChecksumMd5 = dependenciesChecksumMd5;
-  }
-
-  public AlpinePackageUpload dependenciesUrl(String dependenciesUrl) {
-    this.dependenciesUrl = dependenciesUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get dependenciesUrl
    * @return dependenciesUrl
   **/
   @ApiModelProperty(value = "")
@@ -450,85 +378,60 @@ public class AlpinePackageUpload implements Serializable {
     return dependenciesUrl;
   }
 
-  public void setDependenciesUrl(String dependenciesUrl) {
-    this.dependenciesUrl = dependenciesUrl;
-  }
-
-  public AlpinePackageUpload description(String description) {
-    this.description = description;
-    return this;
-  }
-
    /**
    * A textual description of this package.
    * @return description
   **/
-  @ApiModelProperty(value = "A textual description of this package.")
+ @Size(min=1)  @ApiModelProperty(value = "A textual description of this package.")
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public AlpinePackageUpload distro(Object distro) {
+  public AlpinePackageUpload distro(Distribution distro) {
     this.distro = distro;
     return this;
   }
 
    /**
-   * 
+   * Get distro
    * @return distro
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public Object getDistro() {
+  public Distribution getDistro() {
     return distro;
   }
 
-  public void setDistro(Object distro) {
+  public void setDistro(Distribution distro) {
     this.distro = distro;
   }
 
-  public AlpinePackageUpload distroVersion(Object distroVersion) {
+  public AlpinePackageUpload distroVersion(DistributionVersion distroVersion) {
     this.distroVersion = distroVersion;
     return this;
   }
 
    /**
-   * 
+   * Get distroVersion
    * @return distroVersion
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public Object getDistroVersion() {
+  public DistributionVersion getDistroVersion() {
     return distroVersion;
   }
 
-  public void setDistroVersion(Object distroVersion) {
+  public void setDistroVersion(DistributionVersion distroVersion) {
     this.distroVersion = distroVersion;
   }
 
-  public AlpinePackageUpload downloads(Integer downloads) {
-    this.downloads = downloads;
-    return this;
-  }
-
    /**
-   * 
+   * Get downloads
    * @return downloads
   **/
   @ApiModelProperty(value = "")
-  public Integer getDownloads() {
+  public java.math.BigInteger getDownloads() {
     return downloads;
-  }
-
-  public void setDownloads(Integer downloads) {
-    this.downloads = downloads;
-  }
-
-  public AlpinePackageUpload epoch(Integer epoch) {
-    this.epoch = epoch;
-    return this;
   }
 
    /**
@@ -536,21 +439,12 @@ public class AlpinePackageUpload implements Serializable {
    * @return epoch
   **/
   @ApiModelProperty(value = "The epoch of the package version (if any).")
-  public Integer getEpoch() {
+  public java.math.BigInteger getEpoch() {
     return epoch;
   }
 
-  public void setEpoch(Integer epoch) {
-    this.epoch = epoch;
-  }
-
-  public AlpinePackageUpload extension(String extension) {
-    this.extension = extension;
-    return this;
-  }
-
    /**
-   * 
+   * Get extension
    * @return extension
   **/
   @ApiModelProperty(value = "")
@@ -558,80 +452,36 @@ public class AlpinePackageUpload implements Serializable {
     return extension;
   }
 
-  public void setExtension(String extension) {
-    this.extension = extension;
-  }
-
-  public AlpinePackageUpload filename(String filename) {
-    this.filename = filename;
-    return this;
-  }
-
    /**
-   * 
+   * Get filename
    * @return filename
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getFilename() {
     return filename;
   }
 
-  public void setFilename(String filename) {
-    this.filename = filename;
-  }
-
-  public AlpinePackageUpload files(List<PackagesownerrepoFiles> files) {
-    this.files = files;
-    return this;
-  }
-
-  public AlpinePackageUpload addFilesItem(PackagesownerrepoFiles filesItem) {
-    if (this.files == null) {
-      this.files = new ArrayList<>();
-    }
-    this.files.add(filesItem);
-    return this;
-  }
-
    /**
-   * 
+   * Get files
    * @return files
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public List<PackagesownerrepoFiles> getFiles() {
+  public List<PackageFile> getFiles() {
     return files;
   }
 
-  public void setFiles(List<PackagesownerrepoFiles> files) {
-    this.files = files;
-  }
-
-  public AlpinePackageUpload format(String format) {
-    this.format = format;
-    return this;
-  }
-
    /**
-   * 
+   * Get format
    * @return format
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getFormat() {
     return format;
   }
 
-  public void setFormat(String format) {
-    this.format = format;
-  }
-
-  public AlpinePackageUpload formatUrl(String formatUrl) {
-    this.formatUrl = formatUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get formatUrl
    * @return formatUrl
   **/
   @ApiModelProperty(value = "")
@@ -639,35 +489,17 @@ public class AlpinePackageUpload implements Serializable {
     return formatUrl;
   }
 
-  public void setFormatUrl(String formatUrl) {
-    this.formatUrl = formatUrl;
-  }
-
-  public AlpinePackageUpload identifierPerm(String identifierPerm) {
-    this.identifierPerm = identifierPerm;
-    return this;
-  }
-
    /**
    * Unique and permanent identifier for the package.
    * @return identifierPerm
   **/
-  @ApiModelProperty(value = "Unique and permanent identifier for the package.")
+ @Size(min=1)  @ApiModelProperty(value = "Unique and permanent identifier for the package.")
   public String getIdentifierPerm() {
     return identifierPerm;
   }
 
-  public void setIdentifierPerm(String identifierPerm) {
-    this.identifierPerm = identifierPerm;
-  }
-
-  public AlpinePackageUpload indexed(Boolean indexed) {
-    this.indexed = indexed;
-    return this;
-  }
-
    /**
-   * 
+   * Get indexed
    * @return indexed
   **/
   @ApiModelProperty(value = "")
@@ -675,17 +507,8 @@ public class AlpinePackageUpload implements Serializable {
     return indexed;
   }
 
-  public void setIndexed(Boolean indexed) {
-    this.indexed = indexed;
-  }
-
-  public AlpinePackageUpload isDownloadable(Boolean isDownloadable) {
-    this.isDownloadable = isDownloadable;
-    return this;
-  }
-
    /**
-   * 
+   * Get isDownloadable
    * @return isDownloadable
   **/
   @ApiModelProperty(value = "")
@@ -693,17 +516,8 @@ public class AlpinePackageUpload implements Serializable {
     return isDownloadable;
   }
 
-  public void setIsDownloadable(Boolean isDownloadable) {
-    this.isDownloadable = isDownloadable;
-  }
-
-  public AlpinePackageUpload isQuarantined(Boolean isQuarantined) {
-    this.isQuarantined = isQuarantined;
-    return this;
-  }
-
    /**
-   * 
+   * Get isQuarantined
    * @return isQuarantined
   **/
   @ApiModelProperty(value = "")
@@ -711,17 +525,8 @@ public class AlpinePackageUpload implements Serializable {
     return isQuarantined;
   }
 
-  public void setIsQuarantined(Boolean isQuarantined) {
-    this.isQuarantined = isQuarantined;
-  }
-
-  public AlpinePackageUpload isSyncAwaiting(Boolean isSyncAwaiting) {
-    this.isSyncAwaiting = isSyncAwaiting;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncAwaiting
    * @return isSyncAwaiting
   **/
   @ApiModelProperty(value = "")
@@ -729,17 +534,8 @@ public class AlpinePackageUpload implements Serializable {
     return isSyncAwaiting;
   }
 
-  public void setIsSyncAwaiting(Boolean isSyncAwaiting) {
-    this.isSyncAwaiting = isSyncAwaiting;
-  }
-
-  public AlpinePackageUpload isSyncCompleted(Boolean isSyncCompleted) {
-    this.isSyncCompleted = isSyncCompleted;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncCompleted
    * @return isSyncCompleted
   **/
   @ApiModelProperty(value = "")
@@ -747,17 +543,8 @@ public class AlpinePackageUpload implements Serializable {
     return isSyncCompleted;
   }
 
-  public void setIsSyncCompleted(Boolean isSyncCompleted) {
-    this.isSyncCompleted = isSyncCompleted;
-  }
-
-  public AlpinePackageUpload isSyncFailed(Boolean isSyncFailed) {
-    this.isSyncFailed = isSyncFailed;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncFailed
    * @return isSyncFailed
   **/
   @ApiModelProperty(value = "")
@@ -765,17 +552,8 @@ public class AlpinePackageUpload implements Serializable {
     return isSyncFailed;
   }
 
-  public void setIsSyncFailed(Boolean isSyncFailed) {
-    this.isSyncFailed = isSyncFailed;
-  }
-
-  public AlpinePackageUpload isSyncInFlight(Boolean isSyncInFlight) {
-    this.isSyncInFlight = isSyncInFlight;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncInFlight
    * @return isSyncInFlight
   **/
   @ApiModelProperty(value = "")
@@ -783,17 +561,8 @@ public class AlpinePackageUpload implements Serializable {
     return isSyncInFlight;
   }
 
-  public void setIsSyncInFlight(Boolean isSyncInFlight) {
-    this.isSyncInFlight = isSyncInFlight;
-  }
-
-  public AlpinePackageUpload isSyncInProgress(Boolean isSyncInProgress) {
-    this.isSyncInProgress = isSyncInProgress;
-    return this;
-  }
-
    /**
-   * 
+   * Get isSyncInProgress
    * @return isSyncInProgress
   **/
   @ApiModelProperty(value = "")
@@ -801,71 +570,35 @@ public class AlpinePackageUpload implements Serializable {
     return isSyncInProgress;
   }
 
-  public void setIsSyncInProgress(Boolean isSyncInProgress) {
-    this.isSyncInProgress = isSyncInProgress;
-  }
-
-  public AlpinePackageUpload license(String license) {
-    this.license = license;
-    return this;
-  }
-
    /**
    * The license of this package.
    * @return license
   **/
-  @ApiModelProperty(value = "The license of this package.")
+ @Size(min=1)  @ApiModelProperty(value = "The license of this package.")
   public String getLicense() {
     return license;
-  }
-
-  public void setLicense(String license) {
-    this.license = license;
-  }
-
-  public AlpinePackageUpload name(String name) {
-    this.name = name;
-    return this;
   }
 
    /**
    * The name of this package.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of this package.")
+ @Size(min=1)  @ApiModelProperty(value = "The name of this package.")
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public AlpinePackageUpload namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
    /**
-   * 
+   * Get namespace
    * @return namespace
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getNamespace() {
     return namespace;
   }
 
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
-  public AlpinePackageUpload namespaceUrl(String namespaceUrl) {
-    this.namespaceUrl = namespaceUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get namespaceUrl
    * @return namespaceUrl
   **/
   @ApiModelProperty(value = "")
@@ -873,53 +606,26 @@ public class AlpinePackageUpload implements Serializable {
     return namespaceUrl;
   }
 
-  public void setNamespaceUrl(String namespaceUrl) {
-    this.namespaceUrl = namespaceUrl;
-  }
-
-  public AlpinePackageUpload numFiles(Integer numFiles) {
-    this.numFiles = numFiles;
-    return this;
-  }
-
    /**
-   * 
+   * Get numFiles
    * @return numFiles
   **/
   @ApiModelProperty(value = "")
-  public Integer getNumFiles() {
+  public java.math.BigInteger getNumFiles() {
     return numFiles;
   }
 
-  public void setNumFiles(Integer numFiles) {
-    this.numFiles = numFiles;
-  }
-
-  public AlpinePackageUpload originRepository(String originRepository) {
-    this.originRepository = originRepository;
-    return this;
-  }
-
    /**
-   * 
+   * Get originRepository
    * @return originRepository
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getOriginRepository() {
     return originRepository;
   }
 
-  public void setOriginRepository(String originRepository) {
-    this.originRepository = originRepository;
-  }
-
-  public AlpinePackageUpload originRepositoryUrl(String originRepositoryUrl) {
-    this.originRepositoryUrl = originRepositoryUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get originRepositoryUrl
    * @return originRepositoryUrl
   **/
   @ApiModelProperty(value = "")
@@ -927,71 +633,35 @@ public class AlpinePackageUpload implements Serializable {
     return originRepositoryUrl;
   }
 
-  public void setOriginRepositoryUrl(String originRepositoryUrl) {
-    this.originRepositoryUrl = originRepositoryUrl;
-  }
-
-  public AlpinePackageUpload packageType(Integer packageType) {
-    this.packageType = packageType;
-    return this;
-  }
-
    /**
    * The type of package contents.
    * @return packageType
   **/
   @ApiModelProperty(value = "The type of package contents.")
-  public Integer getPackageType() {
+  public java.math.BigInteger getPackageType() {
     return packageType;
-  }
-
-  public void setPackageType(Integer packageType) {
-    this.packageType = packageType;
-  }
-
-  public AlpinePackageUpload release(String release) {
-    this.release = release;
-    return this;
   }
 
    /**
    * The release of the package version (if any).
    * @return release
   **/
-  @ApiModelProperty(value = "The release of the package version (if any).")
+ @Size(min=1)  @ApiModelProperty(value = "The release of the package version (if any).")
   public String getRelease() {
     return release;
   }
 
-  public void setRelease(String release) {
-    this.release = release;
-  }
-
-  public AlpinePackageUpload repository(String repository) {
-    this.repository = repository;
-    return this;
-  }
-
    /**
-   * 
+   * Get repository
    * @return repository
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getRepository() {
     return repository;
   }
 
-  public void setRepository(String repository) {
-    this.repository = repository;
-  }
-
-  public AlpinePackageUpload repositoryUrl(String repositoryUrl) {
-    this.repositoryUrl = repositoryUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get repositoryUrl
    * @return repositoryUrl
   **/
   @ApiModelProperty(value = "")
@@ -999,53 +669,28 @@ public class AlpinePackageUpload implements Serializable {
     return repositoryUrl;
   }
 
-  public void setRepositoryUrl(String repositoryUrl) {
-    this.repositoryUrl = repositoryUrl;
-  }
-
-  public AlpinePackageUpload securityScanCompletedAt(String securityScanCompletedAt) {
-    this.securityScanCompletedAt = securityScanCompletedAt;
-    return this;
-  }
-
    /**
    * The datetime the security scanning was completed.
    * @return securityScanCompletedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the security scanning was completed.")
-  public String getSecurityScanCompletedAt() {
+  public OffsetDateTime getSecurityScanCompletedAt() {
     return securityScanCompletedAt;
-  }
-
-  public void setSecurityScanCompletedAt(String securityScanCompletedAt) {
-    this.securityScanCompletedAt = securityScanCompletedAt;
-  }
-
-  public AlpinePackageUpload securityScanStartedAt(String securityScanStartedAt) {
-    this.securityScanStartedAt = securityScanStartedAt;
-    return this;
   }
 
    /**
    * The datetime the security scanning was started.
    * @return securityScanStartedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the security scanning was started.")
-  public String getSecurityScanStartedAt() {
+  public OffsetDateTime getSecurityScanStartedAt() {
     return securityScanStartedAt;
   }
 
-  public void setSecurityScanStartedAt(String securityScanStartedAt) {
-    this.securityScanStartedAt = securityScanStartedAt;
-  }
-
-  public AlpinePackageUpload securityScanStatus(SecurityScanStatusEnum securityScanStatus) {
-    this.securityScanStatus = securityScanStatus;
-    return this;
-  }
-
    /**
-   * 
+   * Get securityScanStatus
    * @return securityScanStatus
   **/
   @ApiModelProperty(value = "")
@@ -1053,53 +698,27 @@ public class AlpinePackageUpload implements Serializable {
     return securityScanStatus;
   }
 
-  public void setSecurityScanStatus(SecurityScanStatusEnum securityScanStatus) {
-    this.securityScanStatus = securityScanStatus;
-  }
-
-  public AlpinePackageUpload securityScanStatusUpdatedAt(String securityScanStatusUpdatedAt) {
-    this.securityScanStatusUpdatedAt = securityScanStatusUpdatedAt;
-    return this;
-  }
-
    /**
    * The datetime the security scanning status was updated.
    * @return securityScanStatusUpdatedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the security scanning status was updated.")
-  public String getSecurityScanStatusUpdatedAt() {
+  public OffsetDateTime getSecurityScanStatusUpdatedAt() {
     return securityScanStatusUpdatedAt;
   }
 
-  public void setSecurityScanStatusUpdatedAt(String securityScanStatusUpdatedAt) {
-    this.securityScanStatusUpdatedAt = securityScanStatusUpdatedAt;
-  }
-
-  public AlpinePackageUpload selfHtmlUrl(String selfHtmlUrl) {
-    this.selfHtmlUrl = selfHtmlUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get selfHtmlUrl
    * @return selfHtmlUrl
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getSelfHtmlUrl() {
     return selfHtmlUrl;
   }
 
-  public void setSelfHtmlUrl(String selfHtmlUrl) {
-    this.selfHtmlUrl = selfHtmlUrl;
-  }
-
-  public AlpinePackageUpload selfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get selfUrl
    * @return selfUrl
   **/
   @ApiModelProperty(value = "")
@@ -1107,17 +726,8 @@ public class AlpinePackageUpload implements Serializable {
     return selfUrl;
   }
 
-  public void setSelfUrl(String selfUrl) {
-    this.selfUrl = selfUrl;
-  }
-
-  public AlpinePackageUpload signatureUrl(String signatureUrl) {
-    this.signatureUrl = signatureUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get signatureUrl
    * @return signatureUrl
   **/
   @ApiModelProperty(value = "")
@@ -1125,67 +735,31 @@ public class AlpinePackageUpload implements Serializable {
     return signatureUrl;
   }
 
-  public void setSignatureUrl(String signatureUrl) {
-    this.signatureUrl = signatureUrl;
-  }
-
-  public AlpinePackageUpload size(Integer size) {
-    this.size = size;
-    return this;
-  }
-
    /**
    * The calculated size of the package.
    * @return size
   **/
   @ApiModelProperty(value = "The calculated size of the package.")
-  public Integer getSize() {
+  public java.math.BigInteger getSize() {
     return size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public AlpinePackageUpload slug(String slug) {
-    this.slug = slug;
-    return this;
   }
 
    /**
    * The public unique identifier for the package.
    * @return slug
   **/
-  @ApiModelProperty(value = "The public unique identifier for the package.")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "The public unique identifier for the package.")
   public String getSlug() {
     return slug;
   }
 
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public AlpinePackageUpload slugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-    return this;
-  }
-
    /**
-   * 
+   * Get slugPerm
    * @return slugPerm
   **/
-  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
-  }
-
-  public void setSlugPerm(String slugPerm) {
-    this.slugPerm = slugPerm;
-  }
-
-  public AlpinePackageUpload stage(Integer stage) {
-    this.stage = stage;
-    return this;
   }
 
    /**
@@ -1193,21 +767,12 @@ public class AlpinePackageUpload implements Serializable {
    * @return stage
   **/
   @ApiModelProperty(value = "The synchronisation (in progress) stage of the package.")
-  public Integer getStage() {
+  public java.math.BigInteger getStage() {
     return stage;
   }
 
-  public void setStage(Integer stage) {
-    this.stage = stage;
-  }
-
-  public AlpinePackageUpload stageStr(String stageStr) {
-    this.stageStr = stageStr;
-    return this;
-  }
-
    /**
-   * 
+   * Get stageStr
    * @return stageStr
   **/
   @ApiModelProperty(value = "")
@@ -1215,31 +780,14 @@ public class AlpinePackageUpload implements Serializable {
     return stageStr;
   }
 
-  public void setStageStr(String stageStr) {
-    this.stageStr = stageStr;
-  }
-
-  public AlpinePackageUpload stageUpdatedAt(String stageUpdatedAt) {
-    this.stageUpdatedAt = stageUpdatedAt;
-    return this;
-  }
-
    /**
    * The datetime the package stage was updated at.
    * @return stageUpdatedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the package stage was updated at.")
-  public String getStageUpdatedAt() {
+  public OffsetDateTime getStageUpdatedAt() {
     return stageUpdatedAt;
-  }
-
-  public void setStageUpdatedAt(String stageUpdatedAt) {
-    this.stageUpdatedAt = stageUpdatedAt;
-  }
-
-  public AlpinePackageUpload status(Integer status) {
-    this.status = status;
-    return this;
   }
 
    /**
@@ -1247,39 +795,21 @@ public class AlpinePackageUpload implements Serializable {
    * @return status
   **/
   @ApiModelProperty(value = "The synchronisation status of the package.")
-  public Integer getStatus() {
+  public java.math.BigInteger getStatus() {
     return status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public AlpinePackageUpload statusReason(String statusReason) {
-    this.statusReason = statusReason;
-    return this;
   }
 
    /**
    * A textual description for the synchronous status reason (if any
    * @return statusReason
   **/
-  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+ @Size(min=1)  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
   public String getStatusReason() {
     return statusReason;
   }
 
-  public void setStatusReason(String statusReason) {
-    this.statusReason = statusReason;
-  }
-
-  public AlpinePackageUpload statusStr(String statusStr) {
-    this.statusStr = statusStr;
-    return this;
-  }
-
    /**
-   * 
+   * Get statusStr
    * @return statusStr
   **/
   @ApiModelProperty(value = "")
@@ -1287,35 +817,18 @@ public class AlpinePackageUpload implements Serializable {
     return statusStr;
   }
 
-  public void setStatusStr(String statusStr) {
-    this.statusStr = statusStr;
-  }
-
-  public AlpinePackageUpload statusUpdatedAt(String statusUpdatedAt) {
-    this.statusUpdatedAt = statusUpdatedAt;
-    return this;
-  }
-
    /**
    * The datetime the package status was updated at.
    * @return statusUpdatedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the package status was updated at.")
-  public String getStatusUpdatedAt() {
+  public OffsetDateTime getStatusUpdatedAt() {
     return statusUpdatedAt;
   }
 
-  public void setStatusUpdatedAt(String statusUpdatedAt) {
-    this.statusUpdatedAt = statusUpdatedAt;
-  }
-
-  public AlpinePackageUpload statusUrl(String statusUrl) {
-    this.statusUrl = statusUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get statusUrl
    * @return statusUrl
   **/
   @ApiModelProperty(value = "")
@@ -1323,17 +836,8 @@ public class AlpinePackageUpload implements Serializable {
     return statusUrl;
   }
 
-  public void setStatusUrl(String statusUrl) {
-    this.statusUrl = statusUrl;
-  }
-
-  public AlpinePackageUpload subtype(String subtype) {
-    this.subtype = subtype;
-    return this;
-  }
-
    /**
-   * 
+   * Get subtype
    * @return subtype
   **/
   @ApiModelProperty(value = "")
@@ -1341,49 +845,23 @@ public class AlpinePackageUpload implements Serializable {
     return subtype;
   }
 
-  public void setSubtype(String subtype) {
-    this.subtype = subtype;
-  }
-
-  public AlpinePackageUpload summary(String summary) {
-    this.summary = summary;
-    return this;
-  }
-
    /**
    * A one-liner synopsis of this package.
    * @return summary
   **/
-  @ApiModelProperty(value = "A one-liner synopsis of this package.")
+ @Size(min=1)  @ApiModelProperty(value = "A one-liner synopsis of this package.")
   public String getSummary() {
     return summary;
-  }
-
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
-
-  public AlpinePackageUpload syncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
-    return this;
   }
 
    /**
    * The datetime the package sync was finished at.
    * @return syncFinishedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The datetime the package sync was finished at.")
-  public String getSyncFinishedAt() {
+  public OffsetDateTime getSyncFinishedAt() {
     return syncFinishedAt;
-  }
-
-  public void setSyncFinishedAt(String syncFinishedAt) {
-    this.syncFinishedAt = syncFinishedAt;
-  }
-
-  public AlpinePackageUpload syncProgress(Integer syncProgress) {
-    this.syncProgress = syncProgress;
-    return this;
   }
 
    /**
@@ -1391,39 +869,31 @@ public class AlpinePackageUpload implements Serializable {
    * @return syncProgress
   **/
   @ApiModelProperty(value = "Synchronisation progress (from 0-100)")
-  public Integer getSyncProgress() {
+  public java.math.BigInteger getSyncProgress() {
     return syncProgress;
   }
 
-  public void setSyncProgress(Integer syncProgress) {
-    this.syncProgress = syncProgress;
-  }
-
-  public AlpinePackageUpload tagsImmutable(Object tagsImmutable) {
+  public AlpinePackageUpload tagsImmutable(Tags tagsImmutable) {
     this.tagsImmutable = tagsImmutable;
     return this;
   }
 
    /**
-   * All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.
+   * Get tagsImmutable
    * @return tagsImmutable
   **/
-  @ApiModelProperty(value = "All immutable tags on the package, grouped by tag type. Immutable tags cannot be (easily) deleted.")
-  public Object getTagsImmutable() {
+  @Valid
+  @ApiModelProperty(value = "")
+  public Tags getTagsImmutable() {
     return tagsImmutable;
   }
 
-  public void setTagsImmutable(Object tagsImmutable) {
+  public void setTagsImmutable(Tags tagsImmutable) {
     this.tagsImmutable = tagsImmutable;
   }
 
-  public AlpinePackageUpload typeDisplay(String typeDisplay) {
-    this.typeDisplay = typeDisplay;
-    return this;
-  }
-
    /**
-   * 
+   * Get typeDisplay
    * @return typeDisplay
   **/
   @ApiModelProperty(value = "")
@@ -1431,53 +901,27 @@ public class AlpinePackageUpload implements Serializable {
     return typeDisplay;
   }
 
-  public void setTypeDisplay(String typeDisplay) {
-    this.typeDisplay = typeDisplay;
-  }
-
-  public AlpinePackageUpload uploadedAt(String uploadedAt) {
-    this.uploadedAt = uploadedAt;
-    return this;
-  }
-
    /**
    * The date this package was uploaded.
    * @return uploadedAt
   **/
+  @Valid
   @ApiModelProperty(value = "The date this package was uploaded.")
-  public String getUploadedAt() {
+  public OffsetDateTime getUploadedAt() {
     return uploadedAt;
   }
 
-  public void setUploadedAt(String uploadedAt) {
-    this.uploadedAt = uploadedAt;
-  }
-
-  public AlpinePackageUpload uploader(String uploader) {
-    this.uploader = uploader;
-    return this;
-  }
-
    /**
-   * 
+   * Get uploader
    * @return uploader
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "")
   public String getUploader() {
     return uploader;
   }
 
-  public void setUploader(String uploader) {
-    this.uploader = uploader;
-  }
-
-  public AlpinePackageUpload uploaderUrl(String uploaderUrl) {
-    this.uploaderUrl = uploaderUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get uploaderUrl
    * @return uploaderUrl
   **/
   @ApiModelProperty(value = "")
@@ -1485,35 +929,17 @@ public class AlpinePackageUpload implements Serializable {
     return uploaderUrl;
   }
 
-  public void setUploaderUrl(String uploaderUrl) {
-    this.uploaderUrl = uploaderUrl;
-  }
-
-  public AlpinePackageUpload version(String version) {
-    this.version = version;
-    return this;
-  }
-
    /**
    * The raw version for this package.
    * @return version
   **/
-  @ApiModelProperty(value = "The raw version for this package.")
+ @Size(min=1)  @ApiModelProperty(value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public AlpinePackageUpload versionOrig(String versionOrig) {
-    this.versionOrig = versionOrig;
-    return this;
-  }
-
    /**
-   * 
+   * Get versionOrig
    * @return versionOrig
   **/
   @ApiModelProperty(value = "")
@@ -1521,26 +947,13 @@ public class AlpinePackageUpload implements Serializable {
     return versionOrig;
   }
 
-  public void setVersionOrig(String versionOrig) {
-    this.versionOrig = versionOrig;
-  }
-
-  public AlpinePackageUpload vulnerabilityScanResultsUrl(String vulnerabilityScanResultsUrl) {
-    this.vulnerabilityScanResultsUrl = vulnerabilityScanResultsUrl;
-    return this;
-  }
-
    /**
-   * 
+   * Get vulnerabilityScanResultsUrl
    * @return vulnerabilityScanResultsUrl
   **/
   @ApiModelProperty(value = "")
   public String getVulnerabilityScanResultsUrl() {
     return vulnerabilityScanResultsUrl;
-  }
-
-  public void setVulnerabilityScanResultsUrl(String vulnerabilityScanResultsUrl) {
-    this.vulnerabilityScanResultsUrl = vulnerabilityScanResultsUrl;
   }
 
 
