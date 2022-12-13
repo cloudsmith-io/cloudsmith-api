@@ -1,6 +1,6 @@
 # UsersApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="usersProfileRead"></a>
 # **usersProfileRead**
-> UserProfileResponse usersProfileRead(slug)
+> UserProfile usersProfileRead(slug)
 
 Provide a brief for the specified user (if any).
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 UsersApi apiInstance = new UsersApi();
 String slug = "slug_example"; // String | 
 try {
-    UserProfileResponse result = apiInstance.usersProfileRead(slug);
+    UserProfile result = apiInstance.usersProfileRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#usersProfileRead");
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserProfileResponse**](UserProfileResponse.md)
+[**UserProfile**](UserProfile.md)
 
 ### Authorization
 

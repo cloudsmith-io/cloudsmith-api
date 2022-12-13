@@ -1,6 +1,6 @@
 # AuditLogApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="auditLogNamespaceList"></a>
 # **auditLogNamespaceList**
-> List&lt;NamespaceAuditLogResponse&gt; auditLogNamespaceList(owner, page, pageSize, query)
+> List&lt;NamespaceAuditLog&gt; auditLogNamespaceList(owner, page, pageSize, query)
 
 Lists audit log entries for a specific namespace.
 
@@ -39,7 +39,7 @@ java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger 
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String query = "query_example"; // String | A search term for querying events, actors, or timestamps of log records.
 try {
-    List<NamespaceAuditLogResponse> result = apiInstance.auditLogNamespaceList(owner, page, pageSize, query);
+    List<NamespaceAuditLog> result = apiInstance.auditLogNamespaceList(owner, page, pageSize, query);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuditLogApi#auditLogNamespaceList");
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;NamespaceAuditLogResponse&gt;**](NamespaceAuditLogResponse.md)
+[**List&lt;NamespaceAuditLog&gt;**](NamespaceAuditLog.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="auditLogRepoList"></a>
 # **auditLogRepoList**
-> List&lt;RepositoryAuditLogResponse&gt; auditLogRepoList(owner, repo, page, pageSize, query)
+> List&lt;RepositoryAuditLog&gt; auditLogRepoList(owner, repo, page, pageSize, query)
 
 Lists audit log entries for a specific repository.
 
@@ -101,7 +101,7 @@ java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger 
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String query = "query_example"; // String | A search term for querying events, actors, or timestamps of log records.
 try {
-    List<RepositoryAuditLogResponse> result = apiInstance.auditLogRepoList(owner, repo, page, pageSize, query);
+    List<RepositoryAuditLog> result = apiInstance.auditLogRepoList(owner, repo, page, pageSize, query);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuditLogApi#auditLogRepoList");
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;RepositoryAuditLogResponse&gt;**](RepositoryAuditLogResponse.md)
+[**List&lt;RepositoryAuditLog&gt;**](RepositoryAuditLog.md)
 
 ### Authorization
 

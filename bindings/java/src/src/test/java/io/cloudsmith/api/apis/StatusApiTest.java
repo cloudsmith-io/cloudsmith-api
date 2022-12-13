@@ -14,7 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.StatusBasicResponse;
+import io.cloudsmith.api.models.StatusBasic;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class StatusApiTest {
      */
     @Test
     public void statusCheckBasicTest() throws Exception {
-        StatusBasicResponse response = api.statusCheckBasic();
+        StatusBasic response = api.statusCheckBasic();
 
         // TODO: test validations
     }

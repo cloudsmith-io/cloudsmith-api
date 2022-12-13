@@ -1,6 +1,6 @@
 # EntitlementsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="entitlementsCreate"></a>
 # **entitlementsCreate**
-> RepositoryTokenResponse entitlementsCreate(owner, repo, data, showTokens)
+> RepositoryToken entitlementsCreate(owner, repo, data, showTokens)
 
 Create a specific entitlement in a repository.
 
@@ -47,7 +47,7 @@ String repo = "repo_example"; // String |
 RepositoryTokenRequest data = new RepositoryTokenRequest(); // RepositoryTokenRequest | 
 Boolean showTokens = false; // Boolean | Show entitlement token strings in results
 try {
-    RepositoryTokenResponse result = apiInstance.entitlementsCreate(owner, repo, data, showTokens);
+    RepositoryToken result = apiInstance.entitlementsCreate(owner, repo, data, showTokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsCreate");
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ null (empty response body)
 
 <a name="entitlementsList"></a>
 # **entitlementsList**
-> List&lt;RepositoryTokenResponse&gt; entitlementsList(owner, repo, page, pageSize, showTokens, query, active)
+> List&lt;RepositoryToken&gt; entitlementsList(owner, repo, page, pageSize, showTokens, query, active)
 
 Get a list of all entitlements in a repository.
 
@@ -285,7 +285,7 @@ Boolean showTokens = false; // Boolean | Show entitlement token strings in resul
 String query = "query_example"; // String | A search term for querying names of entitlements.
 Boolean active = false; // Boolean | If true, only include active tokens
 try {
-    List<RepositoryTokenResponse> result = apiInstance.entitlementsList(owner, repo, page, pageSize, showTokens, query, active);
+    List<RepositoryToken> result = apiInstance.entitlementsList(owner, repo, page, pageSize, showTokens, query, active);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsList");
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;RepositoryTokenResponse&gt;**](RepositoryTokenResponse.md)
+[**List&lt;RepositoryToken&gt;**](RepositoryToken.md)
 
 ### Authorization
 
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsPartialUpdate"></a>
 # **entitlementsPartialUpdate**
-> RepositoryTokenResponse entitlementsPartialUpdate(owner, repo, identifier, data, showTokens)
+> RepositoryToken entitlementsPartialUpdate(owner, repo, identifier, data, showTokens)
 
 Update a specific entitlement in a repository.
 
@@ -350,7 +350,7 @@ String identifier = "identifier_example"; // String |
 RepositoryTokenRequestPatch data = new RepositoryTokenRequestPatch(); // RepositoryTokenRequestPatch | 
 Boolean showTokens = false; // Boolean | Show entitlement token strings in results
 try {
-    RepositoryTokenResponse result = apiInstance.entitlementsPartialUpdate(owner, repo, identifier, data, showTokens);
+    RepositoryToken result = apiInstance.entitlementsPartialUpdate(owner, repo, identifier, data, showTokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsPartialUpdate");
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsRead"></a>
 # **entitlementsRead**
-> RepositoryTokenResponse entitlementsRead(owner, repo, identifier, fuzzy, showTokens)
+> RepositoryToken entitlementsRead(owner, repo, identifier, fuzzy, showTokens)
 
 Get a specific entitlement in a repository.
 
@@ -413,7 +413,7 @@ String identifier = "identifier_example"; // String |
 Boolean fuzzy = false; // Boolean | If true, entitlement identifiers including name will be fuzzy matched.
 Boolean showTokens = false; // Boolean | Show entitlement token strings in results
 try {
-    RepositoryTokenResponse result = apiInstance.entitlementsRead(owner, repo, identifier, fuzzy, showTokens);
+    RepositoryToken result = apiInstance.entitlementsRead(owner, repo, identifier, fuzzy, showTokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsRead");
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenResponse**](RepositoryTokenResponse.md)
+[**RepositoryToken**](RepositoryToken.md)
 
 ### Authorization
 
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 <a name="entitlementsRefresh"></a>
 # **entitlementsRefresh**
-> RepositoryTokenRefreshResponse entitlementsRefresh(owner, repo, identifier, data, showTokens)
+> RepositoryTokenRefresh entitlementsRefresh(owner, repo, identifier, data, showTokens)
 
 Refresh an entitlement token in a repository.
 
@@ -476,7 +476,7 @@ String identifier = "identifier_example"; // String |
 RepositoryTokenRefreshRequest data = new RepositoryTokenRefreshRequest(); // RepositoryTokenRefreshRequest | 
 Boolean showTokens = false; // Boolean | Show entitlement token strings in results
 try {
-    RepositoryTokenRefreshResponse result = apiInstance.entitlementsRefresh(owner, repo, identifier, data, showTokens);
+    RepositoryTokenRefresh result = apiInstance.entitlementsRefresh(owner, repo, identifier, data, showTokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsRefresh");
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenRefreshResponse**](RepositoryTokenRefreshResponse.md)
+[**RepositoryTokenRefresh**](RepositoryTokenRefresh.md)
 
 ### Authorization
 
@@ -569,7 +569,7 @@ null (empty response body)
 
 <a name="entitlementsSync"></a>
 # **entitlementsSync**
-> RepositoryTokenSyncResponse entitlementsSync(owner, repo, data, showTokens)
+> RepositoryTokenSync entitlementsSync(owner, repo, data, showTokens)
 
 Synchronise tokens from a source repository.
 
@@ -598,7 +598,7 @@ String repo = "repo_example"; // String |
 RepositoryTokenSyncRequest data = new RepositoryTokenSyncRequest(); // RepositoryTokenSyncRequest | 
 Boolean showTokens = false; // Boolean | Show entitlement token strings in results
 try {
-    RepositoryTokenSyncResponse result = apiInstance.entitlementsSync(owner, repo, data, showTokens);
+    RepositoryTokenSync result = apiInstance.entitlementsSync(owner, repo, data, showTokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsSync");
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryTokenSyncResponse**](RepositoryTokenSyncResponse.md)
+[**RepositoryTokenSync**](RepositoryTokenSync.md)
 
 ### Authorization
 

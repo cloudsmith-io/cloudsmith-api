@@ -14,8 +14,8 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.VulnerabilityScanResultsListResponse;
-import io.cloudsmith.api.models.VulnerabilityScanResultsResponse;
+import io.cloudsmith.api.models.VulnerabilityScanResults;
+import io.cloudsmith.api.models.VulnerabilityScanResultsList;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,7 +47,7 @@ public class VulnerabilitiesApiTest {
         String owner = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesNamespaceList(owner, page, pageSize);
+        List<VulnerabilityScanResultsList> response = api.vulnerabilitiesNamespaceList(owner, page, pageSize);
 
         // TODO: test validations
     }
@@ -67,7 +67,7 @@ public class VulnerabilitiesApiTest {
         String _package = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesPackageList(owner, repo, _package, page, pageSize);
+        List<VulnerabilityScanResultsList> response = api.vulnerabilitiesPackageList(owner, repo, _package, page, pageSize);
 
         // TODO: test validations
     }
@@ -86,7 +86,7 @@ public class VulnerabilitiesApiTest {
         String repo = null;
         String _package = null;
         String scanId = null;
-        VulnerabilityScanResultsResponse response = api.vulnerabilitiesRead(owner, repo, _package, scanId);
+        VulnerabilityScanResults response = api.vulnerabilitiesRead(owner, repo, _package, scanId);
 
         // TODO: test validations
     }
@@ -105,7 +105,7 @@ public class VulnerabilitiesApiTest {
         String repo = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<VulnerabilityScanResultsListResponse> response = api.vulnerabilitiesRepoList(owner, repo, page, pageSize);
+        List<VulnerabilityScanResultsList> response = api.vulnerabilitiesRepoList(owner, repo, page, pageSize);
 
         // TODO: test validations
     }

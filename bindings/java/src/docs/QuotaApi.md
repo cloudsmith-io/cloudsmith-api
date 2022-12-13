@@ -1,6 +1,6 @@
 # QuotaApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="quotaHistoryRead"></a>
 # **quotaHistoryRead**
-> QuotaHistoryResponse quotaHistoryRead(owner)
+> QuotaHistory quotaHistoryRead(owner)
 
 Quota history for a given namespace.
 
@@ -38,7 +38,7 @@ apikey.setApiKey("YOUR API KEY");
 QuotaApi apiInstance = new QuotaApi();
 String owner = "owner_example"; // String | 
 try {
-    QuotaHistoryResponse result = apiInstance.quotaHistoryRead(owner);
+    QuotaHistory result = apiInstance.quotaHistoryRead(owner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotaApi#quotaHistoryRead");
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaHistoryResponse**](QuotaHistoryResponse.md)
+[**QuotaHistory**](QuotaHistory.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 <a name="quotaOssHistoryRead"></a>
 # **quotaOssHistoryRead**
-> QuotaHistoryResponse quotaOssHistoryRead(owner)
+> QuotaHistory quotaOssHistoryRead(owner)
 
 Open-source Quota history for a given namespace.
 
@@ -93,7 +93,7 @@ apikey.setApiKey("YOUR API KEY");
 QuotaApi apiInstance = new QuotaApi();
 String owner = "owner_example"; // String | 
 try {
-    QuotaHistoryResponse result = apiInstance.quotaOssHistoryRead(owner);
+    QuotaHistory result = apiInstance.quotaOssHistoryRead(owner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotaApi#quotaOssHistoryRead");
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaHistoryResponse**](QuotaHistoryResponse.md)
+[**QuotaHistory**](QuotaHistory.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 <a name="quotaOssRead"></a>
 # **quotaOssRead**
-> QuotaResponse quotaOssRead(owner)
+> Quota quotaOssRead(owner)
 
 Open-source Quota usage for a given namespace.
 
@@ -148,7 +148,7 @@ apikey.setApiKey("YOUR API KEY");
 QuotaApi apiInstance = new QuotaApi();
 String owner = "owner_example"; // String | 
 try {
-    QuotaResponse result = apiInstance.quotaOssRead(owner);
+    Quota result = apiInstance.quotaOssRead(owner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotaApi#quotaOssRead");
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaResponse**](QuotaResponse.md)
+[**Quota**](Quota.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 <a name="quotaRead"></a>
 # **quotaRead**
-> QuotaResponse quotaRead(owner)
+> Quota quotaRead(owner)
 
 Quota usage for a given namespace.
 
@@ -203,7 +203,7 @@ apikey.setApiKey("YOUR API KEY");
 QuotaApi apiInstance = new QuotaApi();
 String owner = "owner_example"; // String | 
 try {
-    QuotaResponse result = apiInstance.quotaRead(owner);
+    Quota result = apiInstance.quotaRead(owner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling QuotaApi#quotaRead");
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuotaResponse**](QuotaResponse.md)
+[**Quota**](Quota.md)
 
 ### Authorization
 

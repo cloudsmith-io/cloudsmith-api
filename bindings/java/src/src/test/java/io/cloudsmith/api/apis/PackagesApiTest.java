@@ -13,64 +13,64 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.AlpinePackageUpload;
 import io.cloudsmith.api.models.AlpinePackageUploadRequest;
-import io.cloudsmith.api.models.AlpinePackageUploadResponse;
+import io.cloudsmith.api.models.CargoPackageUpload;
 import io.cloudsmith.api.models.CargoPackageUploadRequest;
-import io.cloudsmith.api.models.CargoPackageUploadResponse;
+import io.cloudsmith.api.models.CocoapodsPackageUpload;
 import io.cloudsmith.api.models.CocoapodsPackageUploadRequest;
-import io.cloudsmith.api.models.CocoapodsPackageUploadResponse;
+import io.cloudsmith.api.models.ComposerPackageUpload;
 import io.cloudsmith.api.models.ComposerPackageUploadRequest;
-import io.cloudsmith.api.models.ComposerPackageUploadResponse;
+import io.cloudsmith.api.models.ConanPackageUpload;
 import io.cloudsmith.api.models.ConanPackageUploadRequest;
-import io.cloudsmith.api.models.ConanPackageUploadResponse;
+import io.cloudsmith.api.models.CondaPackageUpload;
 import io.cloudsmith.api.models.CondaPackageUploadRequest;
-import io.cloudsmith.api.models.CondaPackageUploadResponse;
+import io.cloudsmith.api.models.CranPackageUpload;
 import io.cloudsmith.api.models.CranPackageUploadRequest;
-import io.cloudsmith.api.models.CranPackageUploadResponse;
+import io.cloudsmith.api.models.DartPackageUpload;
 import io.cloudsmith.api.models.DartPackageUploadRequest;
-import io.cloudsmith.api.models.DartPackageUploadResponse;
+import io.cloudsmith.api.models.DebPackageUpload;
 import io.cloudsmith.api.models.DebPackageUploadRequest;
-import io.cloudsmith.api.models.DebPackageUploadResponse;
+import io.cloudsmith.api.models.DockerPackageUpload;
 import io.cloudsmith.api.models.DockerPackageUploadRequest;
-import io.cloudsmith.api.models.DockerPackageUploadResponse;
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.GoPackageUpload;
 import io.cloudsmith.api.models.GoPackageUploadRequest;
-import io.cloudsmith.api.models.GoPackageUploadResponse;
+import io.cloudsmith.api.models.HelmPackageUpload;
 import io.cloudsmith.api.models.HelmPackageUploadRequest;
-import io.cloudsmith.api.models.HelmPackageUploadResponse;
+import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
-import io.cloudsmith.api.models.LuarocksPackageUploadResponse;
+import io.cloudsmith.api.models.MavenPackageUpload;
 import io.cloudsmith.api.models.MavenPackageUploadRequest;
-import io.cloudsmith.api.models.MavenPackageUploadResponse;
+import io.cloudsmith.api.models.ModelPackage;
+import io.cloudsmith.api.models.NpmPackageUpload;
 import io.cloudsmith.api.models.NpmPackageUploadRequest;
-import io.cloudsmith.api.models.NpmPackageUploadResponse;
+import io.cloudsmith.api.models.NugetPackageUpload;
 import io.cloudsmith.api.models.NugetPackageUploadRequest;
-import io.cloudsmith.api.models.NugetPackageUploadResponse;
+import io.cloudsmith.api.models.P2PackageUpload;
 import io.cloudsmith.api.models.P2PackageUploadRequest;
-import io.cloudsmith.api.models.P2PackageUploadResponse;
+import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
-import io.cloudsmith.api.models.PackageCopyResponse;
-import io.cloudsmith.api.models.PackageDependenciesResponse;
+import io.cloudsmith.api.models.PackageDependencies;
+import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
-import io.cloudsmith.api.models.PackageMoveResponse;
+import io.cloudsmith.api.models.PackageQuarantine;
 import io.cloudsmith.api.models.PackageQuarantineRequest;
-import io.cloudsmith.api.models.PackageQuarantineResponse;
-import io.cloudsmith.api.models.PackageResponse;
-import io.cloudsmith.api.models.PackageResyncResponse;
-import io.cloudsmith.api.models.PackageStatusResponse;
+import io.cloudsmith.api.models.PackageResync;
+import io.cloudsmith.api.models.PackageStatus;
 import io.cloudsmith.api.models.PackageTagRequest;
+import io.cloudsmith.api.models.PythonPackageUpload;
 import io.cloudsmith.api.models.PythonPackageUploadRequest;
-import io.cloudsmith.api.models.PythonPackageUploadResponse;
+import io.cloudsmith.api.models.RawPackageUpload;
 import io.cloudsmith.api.models.RawPackageUploadRequest;
-import io.cloudsmith.api.models.RawPackageUploadResponse;
+import io.cloudsmith.api.models.RpmPackageUpload;
 import io.cloudsmith.api.models.RpmPackageUploadRequest;
-import io.cloudsmith.api.models.RpmPackageUploadResponse;
+import io.cloudsmith.api.models.RubyPackageUpload;
 import io.cloudsmith.api.models.RubyPackageUploadRequest;
-import io.cloudsmith.api.models.RubyPackageUploadResponse;
+import io.cloudsmith.api.models.TerraformPackageUpload;
 import io.cloudsmith.api.models.TerraformPackageUploadRequest;
-import io.cloudsmith.api.models.TerraformPackageUploadResponse;
+import io.cloudsmith.api.models.VagrantPackageUpload;
 import io.cloudsmith.api.models.VagrantPackageUploadRequest;
-import io.cloudsmith.api.models.VagrantPackageUploadResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -103,7 +103,7 @@ public class PackagesApiTest {
         String repo = null;
         String identifier = null;
         PackageCopyRequest data = null;
-        PackageCopyResponse response = api.packagesCopy(owner, repo, identifier, data);
+        PackageCopy response = api.packagesCopy(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -139,7 +139,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageDependenciesResponse response = api.packagesDependencies(owner, repo, identifier);
+        PackageDependencies response = api.packagesDependencies(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -160,7 +160,7 @@ public class PackagesApiTest {
         java.math.BigInteger pageSize = null;
         String query = null;
         String sort = null;
-        List<PackageResponse> response = api.packagesList(owner, repo, page, pageSize, query, sort);
+        List<ModelPackage> response = api.packagesList(owner, repo, page, pageSize, query, sort);
 
         // TODO: test validations
     }
@@ -179,7 +179,7 @@ public class PackagesApiTest {
         String repo = null;
         String identifier = null;
         PackageMoveRequest data = null;
-        PackageMoveResponse response = api.packagesMove(owner, repo, identifier, data);
+        PackageMove response = api.packagesMove(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -198,7 +198,7 @@ public class PackagesApiTest {
         String repo = null;
         String identifier = null;
         PackageQuarantineRequest data = null;
-        PackageQuarantineResponse response = api.packagesQuarantine(owner, repo, identifier, data);
+        PackageQuarantine response = api.packagesQuarantine(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -216,7 +216,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageResponse response = api.packagesRead(owner, repo, identifier);
+        ModelPackage response = api.packagesRead(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -234,7 +234,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageResyncResponse response = api.packagesResync(owner, repo, identifier);
+        PackageResync response = api.packagesResync(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -252,7 +252,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageResponse response = api.packagesScan(owner, repo, identifier);
+        ModelPackage response = api.packagesScan(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -270,7 +270,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageStatusResponse response = api.packagesStatus(owner, repo, identifier);
+        PackageStatus response = api.packagesStatus(owner, repo, identifier);
 
         // TODO: test validations
     }
@@ -289,7 +289,7 @@ public class PackagesApiTest {
         String repo = null;
         String identifier = null;
         PackageTagRequest data = null;
-        PackageResponse response = api.packagesTag(owner, repo, identifier, data);
+        ModelPackage response = api.packagesTag(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -307,7 +307,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         AlpinePackageUploadRequest data = null;
-        AlpinePackageUploadResponse response = api.packagesUploadAlpine(owner, repo, data);
+        AlpinePackageUpload response = api.packagesUploadAlpine(owner, repo, data);
 
         // TODO: test validations
     }
@@ -325,7 +325,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         CargoPackageUploadRequest data = null;
-        CargoPackageUploadResponse response = api.packagesUploadCargo(owner, repo, data);
+        CargoPackageUpload response = api.packagesUploadCargo(owner, repo, data);
 
         // TODO: test validations
     }
@@ -343,7 +343,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         CocoapodsPackageUploadRequest data = null;
-        CocoapodsPackageUploadResponse response = api.packagesUploadCocoapods(owner, repo, data);
+        CocoapodsPackageUpload response = api.packagesUploadCocoapods(owner, repo, data);
 
         // TODO: test validations
     }
@@ -361,7 +361,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         ComposerPackageUploadRequest data = null;
-        ComposerPackageUploadResponse response = api.packagesUploadComposer(owner, repo, data);
+        ComposerPackageUpload response = api.packagesUploadComposer(owner, repo, data);
 
         // TODO: test validations
     }
@@ -379,7 +379,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         ConanPackageUploadRequest data = null;
-        ConanPackageUploadResponse response = api.packagesUploadConan(owner, repo, data);
+        ConanPackageUpload response = api.packagesUploadConan(owner, repo, data);
 
         // TODO: test validations
     }
@@ -397,7 +397,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         CondaPackageUploadRequest data = null;
-        CondaPackageUploadResponse response = api.packagesUploadConda(owner, repo, data);
+        CondaPackageUpload response = api.packagesUploadConda(owner, repo, data);
 
         // TODO: test validations
     }
@@ -415,7 +415,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         CranPackageUploadRequest data = null;
-        CranPackageUploadResponse response = api.packagesUploadCran(owner, repo, data);
+        CranPackageUpload response = api.packagesUploadCran(owner, repo, data);
 
         // TODO: test validations
     }
@@ -433,7 +433,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         DartPackageUploadRequest data = null;
-        DartPackageUploadResponse response = api.packagesUploadDart(owner, repo, data);
+        DartPackageUpload response = api.packagesUploadDart(owner, repo, data);
 
         // TODO: test validations
     }
@@ -451,7 +451,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         DebPackageUploadRequest data = null;
-        DebPackageUploadResponse response = api.packagesUploadDeb(owner, repo, data);
+        DebPackageUpload response = api.packagesUploadDeb(owner, repo, data);
 
         // TODO: test validations
     }
@@ -469,7 +469,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         DockerPackageUploadRequest data = null;
-        DockerPackageUploadResponse response = api.packagesUploadDocker(owner, repo, data);
+        DockerPackageUpload response = api.packagesUploadDocker(owner, repo, data);
 
         // TODO: test validations
     }
@@ -487,7 +487,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         GoPackageUploadRequest data = null;
-        GoPackageUploadResponse response = api.packagesUploadGo(owner, repo, data);
+        GoPackageUpload response = api.packagesUploadGo(owner, repo, data);
 
         // TODO: test validations
     }
@@ -505,7 +505,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         HelmPackageUploadRequest data = null;
-        HelmPackageUploadResponse response = api.packagesUploadHelm(owner, repo, data);
+        HelmPackageUpload response = api.packagesUploadHelm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -523,7 +523,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         LuarocksPackageUploadRequest data = null;
-        LuarocksPackageUploadResponse response = api.packagesUploadLuarocks(owner, repo, data);
+        LuarocksPackageUpload response = api.packagesUploadLuarocks(owner, repo, data);
 
         // TODO: test validations
     }
@@ -541,7 +541,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         MavenPackageUploadRequest data = null;
-        MavenPackageUploadResponse response = api.packagesUploadMaven(owner, repo, data);
+        MavenPackageUpload response = api.packagesUploadMaven(owner, repo, data);
 
         // TODO: test validations
     }
@@ -559,7 +559,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         NpmPackageUploadRequest data = null;
-        NpmPackageUploadResponse response = api.packagesUploadNpm(owner, repo, data);
+        NpmPackageUpload response = api.packagesUploadNpm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -577,7 +577,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         NugetPackageUploadRequest data = null;
-        NugetPackageUploadResponse response = api.packagesUploadNuget(owner, repo, data);
+        NugetPackageUpload response = api.packagesUploadNuget(owner, repo, data);
 
         // TODO: test validations
     }
@@ -595,7 +595,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         P2PackageUploadRequest data = null;
-        P2PackageUploadResponse response = api.packagesUploadP2(owner, repo, data);
+        P2PackageUpload response = api.packagesUploadP2(owner, repo, data);
 
         // TODO: test validations
     }
@@ -613,7 +613,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         PythonPackageUploadRequest data = null;
-        PythonPackageUploadResponse response = api.packagesUploadPython(owner, repo, data);
+        PythonPackageUpload response = api.packagesUploadPython(owner, repo, data);
 
         // TODO: test validations
     }
@@ -631,7 +631,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         RawPackageUploadRequest data = null;
-        RawPackageUploadResponse response = api.packagesUploadRaw(owner, repo, data);
+        RawPackageUpload response = api.packagesUploadRaw(owner, repo, data);
 
         // TODO: test validations
     }
@@ -649,7 +649,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         RpmPackageUploadRequest data = null;
-        RpmPackageUploadResponse response = api.packagesUploadRpm(owner, repo, data);
+        RpmPackageUpload response = api.packagesUploadRpm(owner, repo, data);
 
         // TODO: test validations
     }
@@ -667,7 +667,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         RubyPackageUploadRequest data = null;
-        RubyPackageUploadResponse response = api.packagesUploadRuby(owner, repo, data);
+        RubyPackageUpload response = api.packagesUploadRuby(owner, repo, data);
 
         // TODO: test validations
     }
@@ -685,7 +685,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         TerraformPackageUploadRequest data = null;
-        TerraformPackageUploadResponse response = api.packagesUploadTerraform(owner, repo, data);
+        TerraformPackageUpload response = api.packagesUploadTerraform(owner, repo, data);
 
         // TODO: test validations
     }
@@ -703,7 +703,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         VagrantPackageUploadRequest data = null;
-        VagrantPackageUploadResponse response = api.packagesUploadVagrant(owner, repo, data);
+        VagrantPackageUpload response = api.packagesUploadVagrant(owner, repo, data);
 
         // TODO: test validations
     }

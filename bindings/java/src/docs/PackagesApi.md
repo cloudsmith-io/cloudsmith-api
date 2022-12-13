@@ -1,6 +1,6 @@
 # PackagesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -65,7 +65,7 @@ Method | HTTP request | Description
 
 <a name="packagesCopy"></a>
 # **packagesCopy**
-> PackageCopyResponse packagesCopy(owner, repo, identifier, data)
+> PackageCopy packagesCopy(owner, repo, identifier, data)
 
 Copy a package to another repository.
 
@@ -94,7 +94,7 @@ String repo = "repo_example"; // String |
 String identifier = "identifier_example"; // String | 
 PackageCopyRequest data = new PackageCopyRequest(); // PackageCopyRequest | 
 try {
-    PackageCopyResponse result = apiInstance.packagesCopy(owner, repo, identifier, data);
+    PackageCopy result = apiInstance.packagesCopy(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesCopy");
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageCopyResponse**](PackageCopyResponse.md)
+[**PackageCopy**](PackageCopy.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ null (empty response body)
 
 <a name="packagesDependencies"></a>
 # **packagesDependencies**
-> PackageDependenciesResponse packagesDependencies(owner, repo, identifier)
+> PackageDependencies packagesDependencies(owner, repo, identifier)
 
 Get the direct (non-transitive) dependencies list for a package.
 
@@ -212,7 +212,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    PackageDependenciesResponse result = apiInstance.packagesDependencies(owner, repo, identifier);
+    PackageDependencies result = apiInstance.packagesDependencies(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesDependencies");
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDependenciesResponse**](PackageDependenciesResponse.md)
+[**PackageDependencies**](PackageDependencies.md)
 
 ### Authorization
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesList"></a>
 # **packagesList**
-> List&lt;PackageResponse&gt; packagesList(owner, repo, page, pageSize, query, sort)
+> List&lt;ModelPackage&gt; packagesList(owner, repo, page, pageSize, query, sort)
 
 Get a list of all packages associated with repository.
 
@@ -274,7 +274,7 @@ java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInte
 String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
 String sort = "-date"; // String | A field for sorting objects in ascending or descending order.
 try {
-    List<PackageResponse> result = apiInstance.packagesList(owner, repo, page, pageSize, query, sort);
+    List<ModelPackage> result = apiInstance.packagesList(owner, repo, page, pageSize, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesList");
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PackageResponse&gt;**](PackageResponse.md)
+[**List&lt;ModelPackage&gt;**](ModelPackage.md)
 
 ### Authorization
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesMove"></a>
 # **packagesMove**
-> PackageMoveResponse packagesMove(owner, repo, identifier, data)
+> PackageMove packagesMove(owner, repo, identifier, data)
 
 Move a package to another repository.
 
@@ -337,7 +337,7 @@ String repo = "repo_example"; // String |
 String identifier = "identifier_example"; // String | 
 PackageMoveRequest data = new PackageMoveRequest(); // PackageMoveRequest | 
 try {
-    PackageMoveResponse result = apiInstance.packagesMove(owner, repo, identifier, data);
+    PackageMove result = apiInstance.packagesMove(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesMove");
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageMoveResponse**](PackageMoveResponse.md)
+[**PackageMove**](PackageMove.md)
 
 ### Authorization
 
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesQuarantine"></a>
 # **packagesQuarantine**
-> PackageQuarantineResponse packagesQuarantine(owner, repo, identifier, data)
+> PackageQuarantine packagesQuarantine(owner, repo, identifier, data)
 
 Quarantine or restore a package.
 
@@ -398,7 +398,7 @@ String repo = "repo_example"; // String |
 String identifier = "identifier_example"; // String | 
 PackageQuarantineRequest data = new PackageQuarantineRequest(); // PackageQuarantineRequest | 
 try {
-    PackageQuarantineResponse result = apiInstance.packagesQuarantine(owner, repo, identifier, data);
+    PackageQuarantine result = apiInstance.packagesQuarantine(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesQuarantine");
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageQuarantineResponse**](PackageQuarantineResponse.md)
+[**PackageQuarantine**](PackageQuarantine.md)
 
 ### Authorization
 
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesRead"></a>
 # **packagesRead**
-> PackageResponse packagesRead(owner, repo, identifier)
+> ModelPackage packagesRead(owner, repo, identifier)
 
 Get a specific package in a repository.
 
@@ -458,7 +458,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    PackageResponse result = apiInstance.packagesRead(owner, repo, identifier);
+    ModelPackage result = apiInstance.packagesRead(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesRead");
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesResync"></a>
 # **packagesResync**
-> PackageResyncResponse packagesResync(owner, repo, identifier)
+> PackageResync packagesResync(owner, repo, identifier)
 
 Schedule a package for resynchronisation.
 
@@ -517,7 +517,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    PackageResyncResponse result = apiInstance.packagesResync(owner, repo, identifier);
+    PackageResync result = apiInstance.packagesResync(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesResync");
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResyncResponse**](PackageResyncResponse.md)
+[**PackageResync**](PackageResync.md)
 
 ### Authorization
 
@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesScan"></a>
 # **packagesScan**
-> PackageResponse packagesScan(owner, repo, identifier)
+> ModelPackage packagesScan(owner, repo, identifier)
 
 Schedule a package for scanning.
 
@@ -576,7 +576,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    PackageResponse result = apiInstance.packagesScan(owner, repo, identifier);
+    ModelPackage result = apiInstance.packagesScan(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesScan");
@@ -594,7 +594,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -607,7 +607,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesStatus"></a>
 # **packagesStatus**
-> PackageStatusResponse packagesStatus(owner, repo, identifier)
+> PackageStatus packagesStatus(owner, repo, identifier)
 
 Get the synchronisation status for a package.
 
@@ -635,7 +635,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    PackageStatusResponse result = apiInstance.packagesStatus(owner, repo, identifier);
+    PackageStatus result = apiInstance.packagesStatus(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesStatus");
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageStatusResponse**](PackageStatusResponse.md)
+[**PackageStatus**](PackageStatus.md)
 
 ### Authorization
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesTag"></a>
 # **packagesTag**
-> PackageResponse packagesTag(owner, repo, identifier, data)
+> ModelPackage packagesTag(owner, repo, identifier, data)
 
 Add/Replace/Remove tags for a package.
 
@@ -695,7 +695,7 @@ String repo = "repo_example"; // String |
 String identifier = "identifier_example"; // String | 
 PackageTagRequest data = new PackageTagRequest(); // PackageTagRequest | 
 try {
-    PackageResponse result = apiInstance.packagesTag(owner, repo, identifier, data);
+    ModelPackage result = apiInstance.packagesTag(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesTag");
@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageResponse**](PackageResponse.md)
+[**ModelPackage**](ModelPackage.md)
 
 ### Authorization
 
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadAlpine"></a>
 # **packagesUploadAlpine**
-> AlpinePackageUploadResponse packagesUploadAlpine(owner, repo, data)
+> AlpinePackageUpload packagesUploadAlpine(owner, repo, data)
 
 Create a new Alpine package
 
@@ -755,7 +755,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 AlpinePackageUploadRequest data = new AlpinePackageUploadRequest(); // AlpinePackageUploadRequest | 
 try {
-    AlpinePackageUploadResponse result = apiInstance.packagesUploadAlpine(owner, repo, data);
+    AlpinePackageUpload result = apiInstance.packagesUploadAlpine(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadAlpine");
@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AlpinePackageUploadResponse**](AlpinePackageUploadResponse.md)
+[**AlpinePackageUpload**](AlpinePackageUpload.md)
 
 ### Authorization
 
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadCargo"></a>
 # **packagesUploadCargo**
-> CargoPackageUploadResponse packagesUploadCargo(owner, repo, data)
+> CargoPackageUpload packagesUploadCargo(owner, repo, data)
 
 Create a new Cargo package
 
@@ -814,7 +814,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 CargoPackageUploadRequest data = new CargoPackageUploadRequest(); // CargoPackageUploadRequest | 
 try {
-    CargoPackageUploadResponse result = apiInstance.packagesUploadCargo(owner, repo, data);
+    CargoPackageUpload result = apiInstance.packagesUploadCargo(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadCargo");
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CargoPackageUploadResponse**](CargoPackageUploadResponse.md)
+[**CargoPackageUpload**](CargoPackageUpload.md)
 
 ### Authorization
 
@@ -845,7 +845,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadCocoapods"></a>
 # **packagesUploadCocoapods**
-> CocoapodsPackageUploadResponse packagesUploadCocoapods(owner, repo, data)
+> CocoapodsPackageUpload packagesUploadCocoapods(owner, repo, data)
 
 Create a new CocoaPods package
 
@@ -873,7 +873,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 CocoapodsPackageUploadRequest data = new CocoapodsPackageUploadRequest(); // CocoapodsPackageUploadRequest | 
 try {
-    CocoapodsPackageUploadResponse result = apiInstance.packagesUploadCocoapods(owner, repo, data);
+    CocoapodsPackageUpload result = apiInstance.packagesUploadCocoapods(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadCocoapods");
@@ -891,7 +891,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CocoapodsPackageUploadResponse**](CocoapodsPackageUploadResponse.md)
+[**CocoapodsPackageUpload**](CocoapodsPackageUpload.md)
 
 ### Authorization
 
@@ -904,7 +904,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadComposer"></a>
 # **packagesUploadComposer**
-> ComposerPackageUploadResponse packagesUploadComposer(owner, repo, data)
+> ComposerPackageUpload packagesUploadComposer(owner, repo, data)
 
 Create a new Composer package
 
@@ -932,7 +932,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 ComposerPackageUploadRequest data = new ComposerPackageUploadRequest(); // ComposerPackageUploadRequest | 
 try {
-    ComposerPackageUploadResponse result = apiInstance.packagesUploadComposer(owner, repo, data);
+    ComposerPackageUpload result = apiInstance.packagesUploadComposer(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadComposer");
@@ -950,7 +950,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComposerPackageUploadResponse**](ComposerPackageUploadResponse.md)
+[**ComposerPackageUpload**](ComposerPackageUpload.md)
 
 ### Authorization
 
@@ -963,7 +963,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadConan"></a>
 # **packagesUploadConan**
-> ConanPackageUploadResponse packagesUploadConan(owner, repo, data)
+> ConanPackageUpload packagesUploadConan(owner, repo, data)
 
 Create a new Conan package
 
@@ -991,7 +991,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 ConanPackageUploadRequest data = new ConanPackageUploadRequest(); // ConanPackageUploadRequest | 
 try {
-    ConanPackageUploadResponse result = apiInstance.packagesUploadConan(owner, repo, data);
+    ConanPackageUpload result = apiInstance.packagesUploadConan(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadConan");
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConanPackageUploadResponse**](ConanPackageUploadResponse.md)
+[**ConanPackageUpload**](ConanPackageUpload.md)
 
 ### Authorization
 
@@ -1022,7 +1022,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadConda"></a>
 # **packagesUploadConda**
-> CondaPackageUploadResponse packagesUploadConda(owner, repo, data)
+> CondaPackageUpload packagesUploadConda(owner, repo, data)
 
 Create a new Conda package
 
@@ -1050,7 +1050,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 CondaPackageUploadRequest data = new CondaPackageUploadRequest(); // CondaPackageUploadRequest | 
 try {
-    CondaPackageUploadResponse result = apiInstance.packagesUploadConda(owner, repo, data);
+    CondaPackageUpload result = apiInstance.packagesUploadConda(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadConda");
@@ -1068,7 +1068,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CondaPackageUploadResponse**](CondaPackageUploadResponse.md)
+[**CondaPackageUpload**](CondaPackageUpload.md)
 
 ### Authorization
 
@@ -1081,7 +1081,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadCran"></a>
 # **packagesUploadCran**
-> CranPackageUploadResponse packagesUploadCran(owner, repo, data)
+> CranPackageUpload packagesUploadCran(owner, repo, data)
 
 Create a new CRAN package
 
@@ -1109,7 +1109,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 CranPackageUploadRequest data = new CranPackageUploadRequest(); // CranPackageUploadRequest | 
 try {
-    CranPackageUploadResponse result = apiInstance.packagesUploadCran(owner, repo, data);
+    CranPackageUpload result = apiInstance.packagesUploadCran(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadCran");
@@ -1127,7 +1127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CranPackageUploadResponse**](CranPackageUploadResponse.md)
+[**CranPackageUpload**](CranPackageUpload.md)
 
 ### Authorization
 
@@ -1140,7 +1140,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadDart"></a>
 # **packagesUploadDart**
-> DartPackageUploadResponse packagesUploadDart(owner, repo, data)
+> DartPackageUpload packagesUploadDart(owner, repo, data)
 
 Create a new Dart package
 
@@ -1168,7 +1168,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 DartPackageUploadRequest data = new DartPackageUploadRequest(); // DartPackageUploadRequest | 
 try {
-    DartPackageUploadResponse result = apiInstance.packagesUploadDart(owner, repo, data);
+    DartPackageUpload result = apiInstance.packagesUploadDart(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadDart");
@@ -1186,7 +1186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DartPackageUploadResponse**](DartPackageUploadResponse.md)
+[**DartPackageUpload**](DartPackageUpload.md)
 
 ### Authorization
 
@@ -1199,7 +1199,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadDeb"></a>
 # **packagesUploadDeb**
-> DebPackageUploadResponse packagesUploadDeb(owner, repo, data)
+> DebPackageUpload packagesUploadDeb(owner, repo, data)
 
 Create a new Debian package
 
@@ -1227,7 +1227,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 DebPackageUploadRequest data = new DebPackageUploadRequest(); // DebPackageUploadRequest | 
 try {
-    DebPackageUploadResponse result = apiInstance.packagesUploadDeb(owner, repo, data);
+    DebPackageUpload result = apiInstance.packagesUploadDeb(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadDeb");
@@ -1245,7 +1245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DebPackageUploadResponse**](DebPackageUploadResponse.md)
+[**DebPackageUpload**](DebPackageUpload.md)
 
 ### Authorization
 
@@ -1258,7 +1258,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadDocker"></a>
 # **packagesUploadDocker**
-> DockerPackageUploadResponse packagesUploadDocker(owner, repo, data)
+> DockerPackageUpload packagesUploadDocker(owner, repo, data)
 
 Create a new Docker package
 
@@ -1286,7 +1286,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 DockerPackageUploadRequest data = new DockerPackageUploadRequest(); // DockerPackageUploadRequest | 
 try {
-    DockerPackageUploadResponse result = apiInstance.packagesUploadDocker(owner, repo, data);
+    DockerPackageUpload result = apiInstance.packagesUploadDocker(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadDocker");
@@ -1304,7 +1304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DockerPackageUploadResponse**](DockerPackageUploadResponse.md)
+[**DockerPackageUpload**](DockerPackageUpload.md)
 
 ### Authorization
 
@@ -1317,7 +1317,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadGo"></a>
 # **packagesUploadGo**
-> GoPackageUploadResponse packagesUploadGo(owner, repo, data)
+> GoPackageUpload packagesUploadGo(owner, repo, data)
 
 Create a new Go package
 
@@ -1345,7 +1345,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 GoPackageUploadRequest data = new GoPackageUploadRequest(); // GoPackageUploadRequest | 
 try {
-    GoPackageUploadResponse result = apiInstance.packagesUploadGo(owner, repo, data);
+    GoPackageUpload result = apiInstance.packagesUploadGo(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadGo");
@@ -1363,7 +1363,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GoPackageUploadResponse**](GoPackageUploadResponse.md)
+[**GoPackageUpload**](GoPackageUpload.md)
 
 ### Authorization
 
@@ -1376,7 +1376,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadHelm"></a>
 # **packagesUploadHelm**
-> HelmPackageUploadResponse packagesUploadHelm(owner, repo, data)
+> HelmPackageUpload packagesUploadHelm(owner, repo, data)
 
 Create a new Helm package
 
@@ -1404,7 +1404,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 HelmPackageUploadRequest data = new HelmPackageUploadRequest(); // HelmPackageUploadRequest | 
 try {
-    HelmPackageUploadResponse result = apiInstance.packagesUploadHelm(owner, repo, data);
+    HelmPackageUpload result = apiInstance.packagesUploadHelm(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadHelm");
@@ -1422,7 +1422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HelmPackageUploadResponse**](HelmPackageUploadResponse.md)
+[**HelmPackageUpload**](HelmPackageUpload.md)
 
 ### Authorization
 
@@ -1435,7 +1435,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadLuarocks"></a>
 # **packagesUploadLuarocks**
-> LuarocksPackageUploadResponse packagesUploadLuarocks(owner, repo, data)
+> LuarocksPackageUpload packagesUploadLuarocks(owner, repo, data)
 
 Create a new LuaRocks package
 
@@ -1463,7 +1463,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 LuarocksPackageUploadRequest data = new LuarocksPackageUploadRequest(); // LuarocksPackageUploadRequest | 
 try {
-    LuarocksPackageUploadResponse result = apiInstance.packagesUploadLuarocks(owner, repo, data);
+    LuarocksPackageUpload result = apiInstance.packagesUploadLuarocks(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadLuarocks");
@@ -1481,7 +1481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LuarocksPackageUploadResponse**](LuarocksPackageUploadResponse.md)
+[**LuarocksPackageUpload**](LuarocksPackageUpload.md)
 
 ### Authorization
 
@@ -1494,7 +1494,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadMaven"></a>
 # **packagesUploadMaven**
-> MavenPackageUploadResponse packagesUploadMaven(owner, repo, data)
+> MavenPackageUpload packagesUploadMaven(owner, repo, data)
 
 Create a new Maven package
 
@@ -1522,7 +1522,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 MavenPackageUploadRequest data = new MavenPackageUploadRequest(); // MavenPackageUploadRequest | 
 try {
-    MavenPackageUploadResponse result = apiInstance.packagesUploadMaven(owner, repo, data);
+    MavenPackageUpload result = apiInstance.packagesUploadMaven(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadMaven");
@@ -1540,7 +1540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MavenPackageUploadResponse**](MavenPackageUploadResponse.md)
+[**MavenPackageUpload**](MavenPackageUpload.md)
 
 ### Authorization
 
@@ -1553,7 +1553,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadNpm"></a>
 # **packagesUploadNpm**
-> NpmPackageUploadResponse packagesUploadNpm(owner, repo, data)
+> NpmPackageUpload packagesUploadNpm(owner, repo, data)
 
 Create a new npm package
 
@@ -1581,7 +1581,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 NpmPackageUploadRequest data = new NpmPackageUploadRequest(); // NpmPackageUploadRequest | 
 try {
-    NpmPackageUploadResponse result = apiInstance.packagesUploadNpm(owner, repo, data);
+    NpmPackageUpload result = apiInstance.packagesUploadNpm(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadNpm");
@@ -1599,7 +1599,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NpmPackageUploadResponse**](NpmPackageUploadResponse.md)
+[**NpmPackageUpload**](NpmPackageUpload.md)
 
 ### Authorization
 
@@ -1612,7 +1612,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadNuget"></a>
 # **packagesUploadNuget**
-> NugetPackageUploadResponse packagesUploadNuget(owner, repo, data)
+> NugetPackageUpload packagesUploadNuget(owner, repo, data)
 
 Create a new NuGet package
 
@@ -1640,7 +1640,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 NugetPackageUploadRequest data = new NugetPackageUploadRequest(); // NugetPackageUploadRequest | 
 try {
-    NugetPackageUploadResponse result = apiInstance.packagesUploadNuget(owner, repo, data);
+    NugetPackageUpload result = apiInstance.packagesUploadNuget(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadNuget");
@@ -1658,7 +1658,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NugetPackageUploadResponse**](NugetPackageUploadResponse.md)
+[**NugetPackageUpload**](NugetPackageUpload.md)
 
 ### Authorization
 
@@ -1671,7 +1671,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadP2"></a>
 # **packagesUploadP2**
-> P2PackageUploadResponse packagesUploadP2(owner, repo, data)
+> P2PackageUpload packagesUploadP2(owner, repo, data)
 
 Create a new P2 package
 
@@ -1699,7 +1699,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 P2PackageUploadRequest data = new P2PackageUploadRequest(); // P2PackageUploadRequest | 
 try {
-    P2PackageUploadResponse result = apiInstance.packagesUploadP2(owner, repo, data);
+    P2PackageUpload result = apiInstance.packagesUploadP2(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadP2");
@@ -1717,7 +1717,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**P2PackageUploadResponse**](P2PackageUploadResponse.md)
+[**P2PackageUpload**](P2PackageUpload.md)
 
 ### Authorization
 
@@ -1730,7 +1730,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadPython"></a>
 # **packagesUploadPython**
-> PythonPackageUploadResponse packagesUploadPython(owner, repo, data)
+> PythonPackageUpload packagesUploadPython(owner, repo, data)
 
 Create a new Python package
 
@@ -1758,7 +1758,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 PythonPackageUploadRequest data = new PythonPackageUploadRequest(); // PythonPackageUploadRequest | 
 try {
-    PythonPackageUploadResponse result = apiInstance.packagesUploadPython(owner, repo, data);
+    PythonPackageUpload result = apiInstance.packagesUploadPython(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadPython");
@@ -1776,7 +1776,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PythonPackageUploadResponse**](PythonPackageUploadResponse.md)
+[**PythonPackageUpload**](PythonPackageUpload.md)
 
 ### Authorization
 
@@ -1789,7 +1789,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadRaw"></a>
 # **packagesUploadRaw**
-> RawPackageUploadResponse packagesUploadRaw(owner, repo, data)
+> RawPackageUpload packagesUploadRaw(owner, repo, data)
 
 Create a new Raw package
 
@@ -1817,7 +1817,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 RawPackageUploadRequest data = new RawPackageUploadRequest(); // RawPackageUploadRequest | 
 try {
-    RawPackageUploadResponse result = apiInstance.packagesUploadRaw(owner, repo, data);
+    RawPackageUpload result = apiInstance.packagesUploadRaw(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadRaw");
@@ -1835,7 +1835,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RawPackageUploadResponse**](RawPackageUploadResponse.md)
+[**RawPackageUpload**](RawPackageUpload.md)
 
 ### Authorization
 
@@ -1848,7 +1848,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadRpm"></a>
 # **packagesUploadRpm**
-> RpmPackageUploadResponse packagesUploadRpm(owner, repo, data)
+> RpmPackageUpload packagesUploadRpm(owner, repo, data)
 
 Create a new RedHat package
 
@@ -1876,7 +1876,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 RpmPackageUploadRequest data = new RpmPackageUploadRequest(); // RpmPackageUploadRequest | 
 try {
-    RpmPackageUploadResponse result = apiInstance.packagesUploadRpm(owner, repo, data);
+    RpmPackageUpload result = apiInstance.packagesUploadRpm(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadRpm");
@@ -1894,7 +1894,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RpmPackageUploadResponse**](RpmPackageUploadResponse.md)
+[**RpmPackageUpload**](RpmPackageUpload.md)
 
 ### Authorization
 
@@ -1907,7 +1907,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadRuby"></a>
 # **packagesUploadRuby**
-> RubyPackageUploadResponse packagesUploadRuby(owner, repo, data)
+> RubyPackageUpload packagesUploadRuby(owner, repo, data)
 
 Create a new Ruby package
 
@@ -1935,7 +1935,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 RubyPackageUploadRequest data = new RubyPackageUploadRequest(); // RubyPackageUploadRequest | 
 try {
-    RubyPackageUploadResponse result = apiInstance.packagesUploadRuby(owner, repo, data);
+    RubyPackageUpload result = apiInstance.packagesUploadRuby(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadRuby");
@@ -1953,7 +1953,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RubyPackageUploadResponse**](RubyPackageUploadResponse.md)
+[**RubyPackageUpload**](RubyPackageUpload.md)
 
 ### Authorization
 
@@ -1966,7 +1966,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadTerraform"></a>
 # **packagesUploadTerraform**
-> TerraformPackageUploadResponse packagesUploadTerraform(owner, repo, data)
+> TerraformPackageUpload packagesUploadTerraform(owner, repo, data)
 
 Create a new Terraform package
 
@@ -1994,7 +1994,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 TerraformPackageUploadRequest data = new TerraformPackageUploadRequest(); // TerraformPackageUploadRequest | 
 try {
-    TerraformPackageUploadResponse result = apiInstance.packagesUploadTerraform(owner, repo, data);
+    TerraformPackageUpload result = apiInstance.packagesUploadTerraform(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadTerraform");
@@ -2012,7 +2012,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TerraformPackageUploadResponse**](TerraformPackageUploadResponse.md)
+[**TerraformPackageUpload**](TerraformPackageUpload.md)
 
 ### Authorization
 
@@ -2025,7 +2025,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesUploadVagrant"></a>
 # **packagesUploadVagrant**
-> VagrantPackageUploadResponse packagesUploadVagrant(owner, repo, data)
+> VagrantPackageUpload packagesUploadVagrant(owner, repo, data)
 
 Create a new Vagrant package
 
@@ -2053,7 +2053,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 VagrantPackageUploadRequest data = new VagrantPackageUploadRequest(); // VagrantPackageUploadRequest | 
 try {
-    VagrantPackageUploadResponse result = apiInstance.packagesUploadVagrant(owner, repo, data);
+    VagrantPackageUpload result = apiInstance.packagesUploadVagrant(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesUploadVagrant");
@@ -2071,7 +2071,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VagrantPackageUploadResponse**](VagrantPackageUploadResponse.md)
+[**VagrantPackageUpload**](VagrantPackageUpload.md)
 
 ### Authorization
 

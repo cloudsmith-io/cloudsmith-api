@@ -37,9 +37,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.PackageFilePartsUploadResponse;
+import io.cloudsmith.api.models.PackageFilePartsUpload;
+import io.cloudsmith.api.models.PackageFileUpload;
 import io.cloudsmith.api.models.PackageFileUploadRequest;
-import io.cloudsmith.api.models.PackageFileUploadResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -303,11 +303,11 @@ public class FilesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return PackageFileUploadResponse
+     * @return PackageFileUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageFileUploadResponse filesComplete(String owner, String repo, String identifier, PackageFileUploadRequest data) throws ApiException {
-        ApiResponse<PackageFileUploadResponse> resp = filesCompleteWithHttpInfo(owner, repo, identifier, data);
+    public PackageFileUpload filesComplete(String owner, String repo, String identifier, PackageFileUploadRequest data) throws ApiException {
+        ApiResponse<PackageFileUpload> resp = filesCompleteWithHttpInfo(owner, repo, identifier, data);
         return resp.getData();
     }
 
@@ -318,12 +318,12 @@ public class FilesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;PackageFileUploadResponse&gt;
+     * @return ApiResponse&lt;PackageFileUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageFileUploadResponse> filesCompleteWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackageFileUploadRequest data) throws ApiException {
+    public ApiResponse<PackageFileUpload> filesCompleteWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  PackageFileUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = filesCompleteValidateBeforeCall(owner, repo, identifier, data, null, null);
-        Type localVarReturnType = new TypeToken<PackageFileUploadResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageFileUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -338,7 +338,7 @@ public class FilesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call filesCompleteAsync(String owner, String repo, String identifier, PackageFileUploadRequest data, final ApiCallback<PackageFileUploadResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call filesCompleteAsync(String owner, String repo, String identifier, PackageFileUploadRequest data, final ApiCallback<PackageFileUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -360,7 +360,7 @@ public class FilesApi {
         }
 
         com.squareup.okhttp.Call call = filesCompleteValidateBeforeCall(owner, repo, identifier, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PackageFileUploadResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageFileUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -451,11 +451,11 @@ public class FilesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return PackageFileUploadResponse
+     * @return PackageFileUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageFileUploadResponse filesCreate(String owner, String repo, PackageFileUploadRequest data) throws ApiException {
-        ApiResponse<PackageFileUploadResponse> resp = filesCreateWithHttpInfo(owner, repo, data);
+    public PackageFileUpload filesCreate(String owner, String repo, PackageFileUploadRequest data) throws ApiException {
+        ApiResponse<PackageFileUpload> resp = filesCreateWithHttpInfo(owner, repo, data);
         return resp.getData();
     }
 
@@ -465,12 +465,12 @@ public class FilesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;PackageFileUploadResponse&gt;
+     * @return ApiResponse&lt;PackageFileUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageFileUploadResponse> filesCreateWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackageFileUploadRequest data) throws ApiException {
+    public ApiResponse<PackageFileUpload> filesCreateWithHttpInfo( @NotNull String owner,  @NotNull String repo,  PackageFileUploadRequest data) throws ApiException {
         com.squareup.okhttp.Call call = filesCreateValidateBeforeCall(owner, repo, data, null, null);
-        Type localVarReturnType = new TypeToken<PackageFileUploadResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageFileUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -484,7 +484,7 @@ public class FilesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call filesCreateAsync(String owner, String repo, PackageFileUploadRequest data, final ApiCallback<PackageFileUploadResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call filesCreateAsync(String owner, String repo, PackageFileUploadRequest data, final ApiCallback<PackageFileUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -506,7 +506,7 @@ public class FilesApi {
         }
 
         com.squareup.okhttp.Call call = filesCreateValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PackageFileUploadResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageFileUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -606,11 +606,11 @@ public class FilesApi {
      * @param identifier  (required)
      * @param filename The filename of the file being uploaded (required)
      * @param partNumber The part number to be uploaded next (optional)
-     * @return PackageFilePartsUploadResponse
+     * @return PackageFilePartsUpload
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageFilePartsUploadResponse filesInfo(String owner, String repo, String identifier, String filename, java.math.BigInteger partNumber) throws ApiException {
-        ApiResponse<PackageFilePartsUploadResponse> resp = filesInfoWithHttpInfo(owner, repo, identifier, filename, partNumber);
+    public PackageFilePartsUpload filesInfo(String owner, String repo, String identifier, String filename, java.math.BigInteger partNumber) throws ApiException {
+        ApiResponse<PackageFilePartsUpload> resp = filesInfoWithHttpInfo(owner, repo, identifier, filename, partNumber);
         return resp.getData();
     }
 
@@ -622,12 +622,12 @@ public class FilesApi {
      * @param identifier  (required)
      * @param filename The filename of the file being uploaded (required)
      * @param partNumber The part number to be uploaded next (optional)
-     * @return ApiResponse&lt;PackageFilePartsUploadResponse&gt;
+     * @return ApiResponse&lt;PackageFilePartsUpload&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageFilePartsUploadResponse> filesInfoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  @NotNull String filename,  java.math.BigInteger partNumber) throws ApiException {
+    public ApiResponse<PackageFilePartsUpload> filesInfoWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  @NotNull String filename,  java.math.BigInteger partNumber) throws ApiException {
         com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, filename, partNumber, null, null);
-        Type localVarReturnType = new TypeToken<PackageFilePartsUploadResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageFilePartsUpload>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -643,7 +643,7 @@ public class FilesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call filesInfoAsync(String owner, String repo, String identifier, String filename, java.math.BigInteger partNumber, final ApiCallback<PackageFilePartsUploadResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call filesInfoAsync(String owner, String repo, String identifier, String filename, java.math.BigInteger partNumber, final ApiCallback<PackageFilePartsUpload> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -665,7 +665,7 @@ public class FilesApi {
         }
 
         com.squareup.okhttp.Call call = filesInfoValidateBeforeCall(owner, repo, identifier, filename, partNumber, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PackageFilePartsUploadResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageFilePartsUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

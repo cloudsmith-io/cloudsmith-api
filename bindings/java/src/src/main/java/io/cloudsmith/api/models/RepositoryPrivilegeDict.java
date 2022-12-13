@@ -34,8 +34,57 @@ import javax.validation.Valid;
 public class RepositoryPrivilegeDict implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The level of privilege that the user or team should be granted to the specified repository.
+   */
+  @JsonAdapter(PrivilegeEnum.Adapter.class)
+  public enum PrivilegeEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
+
+    private String value;
+
+    PrivilegeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PrivilegeEnum fromValue(String text) {
+      for (PrivilegeEnum b : PrivilegeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PrivilegeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PrivilegeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PrivilegeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PrivilegeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("privilege")
-  private String privilege = null;
+  private PrivilegeEnum privilege = null;
 
   @SerializedName("service")
   private String service = null;
@@ -46,7 +95,7 @@ public class RepositoryPrivilegeDict implements Serializable {
   @SerializedName("user")
   private String user = null;
 
-  public RepositoryPrivilegeDict privilege(String privilege) {
+  public RepositoryPrivilegeDict privilege(PrivilegeEnum privilege) {
     this.privilege = privilege;
     return this;
   }
@@ -57,11 +106,11 @@ public class RepositoryPrivilegeDict implements Serializable {
   **/
   @NotNull
   @ApiModelProperty(required = true, value = "The level of privilege that the user or team should be granted to the specified repository.")
-  public String getPrivilege() {
+  public PrivilegeEnum getPrivilege() {
     return privilege;
   }
 
-  public void setPrivilege(String privilege) {
+  public void setPrivilege(PrivilegeEnum privilege) {
     this.privilege = privilege;
   }
 

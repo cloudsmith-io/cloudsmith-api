@@ -37,7 +37,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.PackageVersionBadgeResponse;
+import io.cloudsmith.api.models.PackageVersionBadge;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -205,11 +205,11 @@ public class BadgesApi {
      * @param shields If true, a shields response will be generated (optional, default to false)
      * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional, default to false)
      * @param style Override the shields.io badge style value. (optional, default to flat-square)
-     * @return PackageVersionBadgeResponse
+     * @return PackageVersionBadge
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageVersionBadgeResponse badgesVersionList(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style) throws ApiException {
-        ApiResponse<PackageVersionBadgeResponse> resp = badgesVersionListWithHttpInfo(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+    public PackageVersionBadge badgesVersionList(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style) throws ApiException {
+        ApiResponse<PackageVersionBadge> resp = badgesVersionListWithHttpInfo(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
         return resp.getData();
     }
 
@@ -233,12 +233,12 @@ public class BadgesApi {
      * @param shields If true, a shields response will be generated (optional, default to false)
      * @param showLatest If true, for latest version badges a &#39;(latest)&#39; suffix is added (optional, default to false)
      * @param style Override the shields.io badge style value. (optional, default to flat-square)
-     * @return ApiResponse&lt;PackageVersionBadgeResponse&gt;
+     * @return ApiResponse&lt;PackageVersionBadge&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageVersionBadgeResponse> badgesVersionListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String packageFormat,  @NotNull String packageName,  @NotNull String packageVersion,  @NotNull String packageIdentifiers,  String badgeToken,  String cacheSeconds,  String color,  String label,  String labelColor,  String logoColor,  String logoWidth,  Boolean render,  Boolean shields,  Boolean showLatest,  String style) throws ApiException {
+    public ApiResponse<PackageVersionBadge> badgesVersionListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String packageFormat,  @NotNull String packageName,  @NotNull String packageVersion,  @NotNull String packageIdentifiers,  String badgeToken,  String cacheSeconds,  String color,  String label,  String labelColor,  String logoColor,  String logoWidth,  Boolean render,  Boolean shields,  Boolean showLatest,  String style) throws ApiException {
         com.squareup.okhttp.Call call = badgesVersionListValidateBeforeCall(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style, null, null);
-        Type localVarReturnType = new TypeToken<PackageVersionBadgeResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageVersionBadge>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -266,7 +266,7 @@ public class BadgesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call badgesVersionListAsync(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style, final ApiCallback<PackageVersionBadgeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call badgesVersionListAsync(String owner, String repo, String packageFormat, String packageName, String packageVersion, String packageIdentifiers, String badgeToken, String cacheSeconds, String color, String label, String labelColor, String logoColor, String logoWidth, Boolean render, Boolean shields, Boolean showLatest, String style, final ApiCallback<PackageVersionBadge> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -288,7 +288,7 @@ public class BadgesApi {
         }
 
         com.squareup.okhttp.Call call = badgesVersionListValidateBeforeCall(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PackageVersionBadgeResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageVersionBadge>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -37,7 +37,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.ResourcesRateCheckResponse;
+import io.cloudsmith.api.models.ResourcesRateCheck;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -143,23 +143,23 @@ public class RatesApi {
     /**
      * Endpoint to check rate limits for current user.
      * Endpoint to check rate limits for current user.
-     * @return ResourcesRateCheckResponse
+     * @return ResourcesRateCheck
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ResourcesRateCheckResponse ratesLimitsList() throws ApiException {
-        ApiResponse<ResourcesRateCheckResponse> resp = ratesLimitsListWithHttpInfo();
+    public ResourcesRateCheck ratesLimitsList() throws ApiException {
+        ApiResponse<ResourcesRateCheck> resp = ratesLimitsListWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Endpoint to check rate limits for current user.
      * Endpoint to check rate limits for current user.
-     * @return ApiResponse&lt;ResourcesRateCheckResponse&gt;
+     * @return ApiResponse&lt;ResourcesRateCheck&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ResourcesRateCheckResponse> ratesLimitsListWithHttpInfo() throws ApiException {
+    public ApiResponse<ResourcesRateCheck> ratesLimitsListWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = ratesLimitsListValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ResourcesRateCheckResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ResourcesRateCheck>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -170,7 +170,7 @@ public class RatesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ratesLimitsListAsync(final ApiCallback<ResourcesRateCheckResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ratesLimitsListAsync(final ApiCallback<ResourcesRateCheck> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,7 +192,7 @@ public class RatesApi {
         }
 
         com.squareup.okhttp.Call call = ratesLimitsListValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ResourcesRateCheckResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ResourcesRateCheck>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

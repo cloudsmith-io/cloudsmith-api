@@ -1,6 +1,6 @@
 # NamespacesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="namespacesList"></a>
 # **namespacesList**
-> List&lt;NamespaceResponse&gt; namespacesList(page, pageSize)
+> List&lt;Namespace&gt; namespacesList(page, pageSize)
 
 Get a list of all namespaces the user belongs to.
 
@@ -37,7 +37,7 @@ NamespacesApi apiInstance = new NamespacesApi();
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<NamespaceResponse> result = apiInstance.namespacesList(page, pageSize);
+    List<Namespace> result = apiInstance.namespacesList(page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling NamespacesApi#namespacesList");
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;NamespaceResponse&gt;**](NamespaceResponse.md)
+[**List&lt;Namespace&gt;**](Namespace.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 <a name="namespacesRead"></a>
 # **namespacesRead**
-> NamespaceResponse namespacesRead(slug)
+> Namespace namespacesRead(slug)
 
 Views for working with namespaces.
 
@@ -93,7 +93,7 @@ apikey.setApiKey("YOUR API KEY");
 NamespacesApi apiInstance = new NamespacesApi();
 String slug = "slug_example"; // String | 
 try {
-    NamespaceResponse result = apiInstance.namespacesRead(slug);
+    Namespace result = apiInstance.namespacesRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling NamespacesApi#namespacesRead");
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NamespaceResponse**](NamespaceResponse.md)
+[**Namespace**](Namespace.md)
 
 ### Authorization
 

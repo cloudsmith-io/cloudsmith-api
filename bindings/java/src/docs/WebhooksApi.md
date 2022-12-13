@@ -1,6 +1,6 @@
 # WebhooksApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="webhooksCreate"></a>
 # **webhooksCreate**
-> RepositoryWebhookResponse webhooksCreate(owner, repo, data)
+> RepositoryWebhook webhooksCreate(owner, repo, data)
 
 Create a specific webhook in a repository.
 
@@ -41,7 +41,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 RepositoryWebhookRequest data = new RepositoryWebhookRequest(); // RepositoryWebhookRequest | 
 try {
-    RepositoryWebhookResponse result = apiInstance.webhooksCreate(owner, repo, data);
+    RepositoryWebhook result = apiInstance.webhooksCreate(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksCreate");
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ null (empty response body)
 
 <a name="webhooksList"></a>
 # **webhooksList**
-> List&lt;RepositoryWebhookResponse&gt; webhooksList(owner, repo, page, pageSize)
+> List&lt;RepositoryWebhook&gt; webhooksList(owner, repo, page, pageSize)
 
 Get a list of all webhooks in a repository.
 
@@ -159,7 +159,7 @@ String repo = "repo_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<RepositoryWebhookResponse> result = apiInstance.webhooksList(owner, repo, page, pageSize);
+    List<RepositoryWebhook> result = apiInstance.webhooksList(owner, repo, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksList");
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;RepositoryWebhookResponse&gt;**](RepositoryWebhookResponse.md)
+[**List&lt;RepositoryWebhook&gt;**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 <a name="webhooksPartialUpdate"></a>
 # **webhooksPartialUpdate**
-> RepositoryWebhookResponse webhooksPartialUpdate(owner, repo, identifier, data)
+> RepositoryWebhook webhooksPartialUpdate(owner, repo, identifier, data)
 
 Update a specific webhook in a repository.
 
@@ -220,7 +220,7 @@ String repo = "repo_example"; // String |
 String identifier = "identifier_example"; // String | 
 RepositoryWebhookRequestPatch data = new RepositoryWebhookRequestPatch(); // RepositoryWebhookRequestPatch | 
 try {
-    RepositoryWebhookResponse result = apiInstance.webhooksPartialUpdate(owner, repo, identifier, data);
+    RepositoryWebhook result = apiInstance.webhooksPartialUpdate(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksPartialUpdate");
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 <a name="webhooksRead"></a>
 # **webhooksRead**
-> RepositoryWebhookResponse webhooksRead(owner, repo, identifier)
+> RepositoryWebhook webhooksRead(owner, repo, identifier)
 
 Views for working with repository webhooks.
 
@@ -280,7 +280,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryWebhookResponse result = apiInstance.webhooksRead(owner, repo, identifier);
+    RepositoryWebhook result = apiInstance.webhooksRead(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#webhooksRead");
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryWebhookResponse**](RepositoryWebhookResponse.md)
+[**RepositoryWebhook**](RepositoryWebhook.md)
 
 ### Authorization
 

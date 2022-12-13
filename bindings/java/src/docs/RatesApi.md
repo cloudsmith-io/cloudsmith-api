@@ -1,6 +1,6 @@
 # RatesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="ratesLimitsList"></a>
 # **ratesLimitsList**
-> ResourcesRateCheckResponse ratesLimitsList()
+> ResourcesRateCheck ratesLimitsList()
 
 Endpoint to check rate limits for current user.
 
@@ -34,7 +34,7 @@ apikey.setApiKey("YOUR API KEY");
 
 RatesApi apiInstance = new RatesApi();
 try {
-    ResourcesRateCheckResponse result = apiInstance.ratesLimitsList();
+    ResourcesRateCheck result = apiInstance.ratesLimitsList();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RatesApi#ratesLimitsList");
@@ -47,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResourcesRateCheckResponse**](ResourcesRateCheckResponse.md)
+[**ResourcesRateCheck**](ResourcesRateCheck.md)
 
 ### Authorization
 

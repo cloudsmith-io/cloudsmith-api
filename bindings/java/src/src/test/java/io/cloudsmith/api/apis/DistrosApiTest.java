@@ -13,7 +13,7 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.DistributionResponse;
+import io.cloudsmith.api.models.DistributionFull;
 import io.cloudsmith.api.models.ErrorDetail;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -43,7 +43,7 @@ public class DistrosApiTest {
      */
     @Test
     public void distrosListTest() throws Exception {
-        List<DistributionResponse> response = api.distrosList();
+        List<DistributionFull> response = api.distrosList();
 
         // TODO: test validations
     }
@@ -59,7 +59,7 @@ public class DistrosApiTest {
     @Test
     public void distrosReadTest() throws Exception {
         String slug = null;
-        DistributionResponse response = api.distrosRead(slug);
+        DistributionFull response = api.distrosRead(slug);
 
         // TODO: test validations
     }

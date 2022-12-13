@@ -36,8 +36,57 @@ import javax.validation.Valid;
 public class RepositoryCreateRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
+   */
+  @JsonAdapter(ContentKindEnum.Adapter.class)
+  public enum ContentKindEnum {
+    STANDARD("Standard"),
+    
+    DISTRIBUTION("Distribution"),
+    
+    UPSTREAM("Upstream");
+
+    private String value;
+
+    ContentKindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ContentKindEnum fromValue(String text) {
+      for (ContentKindEnum b : ContentKindEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ContentKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ContentKindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ContentKindEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ContentKindEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("content_kind")
-  private String contentKind = "Standard";
+  private ContentKindEnum contentKind = ContentKindEnum.STANDARD;
 
   @SerializedName("contextual_auth_realm")
   private Boolean contextualAuthRealm = null;
@@ -45,17 +94,164 @@ public class RepositoryCreateRequest implements Serializable {
   @SerializedName("copy_own")
   private Boolean copyOwn = null;
 
+  /**
+   * This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
+   */
+  @JsonAdapter(CopyPackagesEnum.Adapter.class)
+  public enum CopyPackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
+
+    private String value;
+
+    CopyPackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CopyPackagesEnum fromValue(String text) {
+      for (CopyPackagesEnum b : CopyPackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<CopyPackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CopyPackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CopyPackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return CopyPackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("copy_packages")
-  private String copyPackages = "Read";
+  private CopyPackagesEnum copyPackages = CopyPackagesEnum.READ;
+
+  /**
+   * This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
+   */
+  @JsonAdapter(DefaultPrivilegeEnum.Adapter.class)
+  public enum DefaultPrivilegeEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read"),
+    
+    NONE("None");
+
+    private String value;
+
+    DefaultPrivilegeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DefaultPrivilegeEnum fromValue(String text) {
+      for (DefaultPrivilegeEnum b : DefaultPrivilegeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DefaultPrivilegeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DefaultPrivilegeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DefaultPrivilegeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DefaultPrivilegeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("default_privilege")
-  private String defaultPrivilege = "None";
+  private DefaultPrivilegeEnum defaultPrivilege = DefaultPrivilegeEnum.NONE;
 
   @SerializedName("delete_own")
   private Boolean deleteOwn = null;
 
+  /**
+   * This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
+   */
+  @JsonAdapter(DeletePackagesEnum.Adapter.class)
+  public enum DeletePackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write");
+
+    private String value;
+
+    DeletePackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DeletePackagesEnum fromValue(String text) {
+      for (DeletePackagesEnum b : DeletePackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DeletePackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeletePackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DeletePackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DeletePackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("delete_packages")
-  private String deletePackages = "Admin";
+  private DeletePackagesEnum deletePackages = DeletePackagesEnum.ADMIN;
 
   @SerializedName("description")
   private String description = null;
@@ -72,8 +268,57 @@ public class RepositoryCreateRequest implements Serializable {
   @SerializedName("move_own")
   private Boolean moveOwn = null;
 
+  /**
+   * This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.
+   */
+  @JsonAdapter(MovePackagesEnum.Adapter.class)
+  public enum MovePackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
+
+    private String value;
+
+    MovePackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MovePackagesEnum fromValue(String text) {
+      for (MovePackagesEnum b : MovePackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MovePackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MovePackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MovePackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MovePackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("move_packages")
-  private String movePackages = "Admin";
+  private MovePackagesEnum movePackages = MovePackagesEnum.ADMIN;
 
   @SerializedName("name")
   private String name = null;
@@ -90,26 +335,216 @@ public class RepositoryCreateRequest implements Serializable {
   @SerializedName("raw_package_index_signatures_enabled")
   private Boolean rawPackageIndexSignaturesEnabled = null;
 
+  /**
+   * This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.
+   */
+  @JsonAdapter(ReplacePackagesEnum.Adapter.class)
+  public enum ReplacePackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write");
+
+    private String value;
+
+    ReplacePackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ReplacePackagesEnum fromValue(String text) {
+      for (ReplacePackagesEnum b : ReplacePackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ReplacePackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReplacePackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ReplacePackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ReplacePackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("replace_packages")
-  private String replacePackages = "Write";
+  private ReplacePackagesEnum replacePackages = ReplacePackagesEnum.WRITE;
 
   @SerializedName("replace_packages_by_default")
   private Boolean replacePackagesByDefault = null;
 
+  /**
+   * The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.
+   */
+  @JsonAdapter(RepositoryTypeStrEnum.Adapter.class)
+  public enum RepositoryTypeStrEnum {
+    PUBLIC("Public"),
+    
+    PRIVATE("Private");
+
+    private String value;
+
+    RepositoryTypeStrEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RepositoryTypeStrEnum fromValue(String text) {
+      for (RepositoryTypeStrEnum b : RepositoryTypeStrEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RepositoryTypeStrEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RepositoryTypeStrEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RepositoryTypeStrEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RepositoryTypeStrEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("repository_type_str")
-  private String repositoryTypeStr = "Public";
+  private RepositoryTypeStrEnum repositoryTypeStr = RepositoryTypeStrEnum.PUBLIC;
 
   @SerializedName("resync_own")
   private Boolean resyncOwn = null;
 
+  /**
+   * This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.
+   */
+  @JsonAdapter(ResyncPackagesEnum.Adapter.class)
+  public enum ResyncPackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write");
+
+    private String value;
+
+    ResyncPackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ResyncPackagesEnum fromValue(String text) {
+      for (ResyncPackagesEnum b : ResyncPackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ResyncPackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResyncPackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ResyncPackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ResyncPackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("resync_packages")
-  private String resyncPackages = "Admin";
+  private ResyncPackagesEnum resyncPackages = ResyncPackagesEnum.ADMIN;
 
   @SerializedName("scan_own")
   private Boolean scanOwn = null;
 
+  /**
+   * This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.
+   */
+  @JsonAdapter(ScanPackagesEnum.Adapter.class)
+  public enum ScanPackagesEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
+
+    private String value;
+
+    ScanPackagesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ScanPackagesEnum fromValue(String text) {
+      for (ScanPackagesEnum b : ScanPackagesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ScanPackagesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ScanPackagesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ScanPackagesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ScanPackagesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("scan_packages")
-  private String scanPackages = "Read";
+  private ScanPackagesEnum scanPackages = ScanPackagesEnum.READ;
 
   @SerializedName("show_setup_all")
   private Boolean showSetupAll = null;
@@ -141,10 +576,59 @@ public class RepositoryCreateRequest implements Serializable {
   @SerializedName("user_entitlements_enabled")
   private Boolean userEntitlementsEnabled = null;
 
-  @SerializedName("view_statistics")
-  private String viewStatistics = "Read";
+  /**
+   * This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI.
+   */
+  @JsonAdapter(ViewStatisticsEnum.Adapter.class)
+  public enum ViewStatisticsEnum {
+    ADMIN("Admin"),
+    
+    WRITE("Write"),
+    
+    READ("Read");
 
-  public RepositoryCreateRequest contentKind(String contentKind) {
+    private String value;
+
+    ViewStatisticsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ViewStatisticsEnum fromValue(String text) {
+      for (ViewStatisticsEnum b : ViewStatisticsEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ViewStatisticsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ViewStatisticsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ViewStatisticsEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ViewStatisticsEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("view_statistics")
+  private ViewStatisticsEnum viewStatistics = ViewStatisticsEnum.READ;
+
+  public RepositoryCreateRequest contentKind(ContentKindEnum contentKind) {
     this.contentKind = contentKind;
     return this;
   }
@@ -154,11 +638,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return contentKind
   **/
   @ApiModelProperty(value = "The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.")
-  public String getContentKind() {
+  public ContentKindEnum getContentKind() {
     return contentKind;
   }
 
-  public void setContentKind(String contentKind) {
+  public void setContentKind(ContentKindEnum contentKind) {
     this.contentKind = contentKind;
   }
 
@@ -198,7 +682,7 @@ public class RepositoryCreateRequest implements Serializable {
     this.copyOwn = copyOwn;
   }
 
-  public RepositoryCreateRequest copyPackages(String copyPackages) {
+  public RepositoryCreateRequest copyPackages(CopyPackagesEnum copyPackages) {
     this.copyPackages = copyPackages;
     return this;
   }
@@ -208,15 +692,15 @@ public class RepositoryCreateRequest implements Serializable {
    * @return copyPackages
   **/
   @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.")
-  public String getCopyPackages() {
+  public CopyPackagesEnum getCopyPackages() {
     return copyPackages;
   }
 
-  public void setCopyPackages(String copyPackages) {
+  public void setCopyPackages(CopyPackagesEnum copyPackages) {
     this.copyPackages = copyPackages;
   }
 
-  public RepositoryCreateRequest defaultPrivilege(String defaultPrivilege) {
+  public RepositoryCreateRequest defaultPrivilege(DefaultPrivilegeEnum defaultPrivilege) {
     this.defaultPrivilege = defaultPrivilege;
     return this;
   }
@@ -226,11 +710,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return defaultPrivilege
   **/
   @ApiModelProperty(value = "This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.")
-  public String getDefaultPrivilege() {
+  public DefaultPrivilegeEnum getDefaultPrivilege() {
     return defaultPrivilege;
   }
 
-  public void setDefaultPrivilege(String defaultPrivilege) {
+  public void setDefaultPrivilege(DefaultPrivilegeEnum defaultPrivilege) {
     this.defaultPrivilege = defaultPrivilege;
   }
 
@@ -252,7 +736,7 @@ public class RepositoryCreateRequest implements Serializable {
     this.deleteOwn = deleteOwn;
   }
 
-  public RepositoryCreateRequest deletePackages(String deletePackages) {
+  public RepositoryCreateRequest deletePackages(DeletePackagesEnum deletePackages) {
     this.deletePackages = deletePackages;
     return this;
   }
@@ -262,11 +746,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return deletePackages
   **/
   @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.")
-  public String getDeletePackages() {
+  public DeletePackagesEnum getDeletePackages() {
     return deletePackages;
   }
 
-  public void setDeletePackages(String deletePackages) {
+  public void setDeletePackages(DeletePackagesEnum deletePackages) {
     this.deletePackages = deletePackages;
   }
 
@@ -368,7 +852,7 @@ public class RepositoryCreateRequest implements Serializable {
     this.moveOwn = moveOwn;
   }
 
-  public RepositoryCreateRequest movePackages(String movePackages) {
+  public RepositoryCreateRequest movePackages(MovePackagesEnum movePackages) {
     this.movePackages = movePackages;
     return this;
   }
@@ -378,11 +862,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return movePackages
   **/
   @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.")
-  public String getMovePackages() {
+  public MovePackagesEnum getMovePackages() {
     return movePackages;
   }
 
-  public void setMovePackages(String movePackages) {
+  public void setMovePackages(MovePackagesEnum movePackages) {
     this.movePackages = movePackages;
   }
 
@@ -477,7 +961,7 @@ public class RepositoryCreateRequest implements Serializable {
     this.rawPackageIndexSignaturesEnabled = rawPackageIndexSignaturesEnabled;
   }
 
-  public RepositoryCreateRequest replacePackages(String replacePackages) {
+  public RepositoryCreateRequest replacePackages(ReplacePackagesEnum replacePackages) {
     this.replacePackages = replacePackages;
     return this;
   }
@@ -487,11 +971,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return replacePackages
   **/
   @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.")
-  public String getReplacePackages() {
+  public ReplacePackagesEnum getReplacePackages() {
     return replacePackages;
   }
 
-  public void setReplacePackages(String replacePackages) {
+  public void setReplacePackages(ReplacePackagesEnum replacePackages) {
     this.replacePackages = replacePackages;
   }
 
@@ -513,7 +997,7 @@ public class RepositoryCreateRequest implements Serializable {
     this.replacePackagesByDefault = replacePackagesByDefault;
   }
 
-  public RepositoryCreateRequest repositoryTypeStr(String repositoryTypeStr) {
+  public RepositoryCreateRequest repositoryTypeStr(RepositoryTypeStrEnum repositoryTypeStr) {
     this.repositoryTypeStr = repositoryTypeStr;
     return this;
   }
@@ -523,11 +1007,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return repositoryTypeStr
   **/
   @ApiModelProperty(value = "The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.")
-  public String getRepositoryTypeStr() {
+  public RepositoryTypeStrEnum getRepositoryTypeStr() {
     return repositoryTypeStr;
   }
 
-  public void setRepositoryTypeStr(String repositoryTypeStr) {
+  public void setRepositoryTypeStr(RepositoryTypeStrEnum repositoryTypeStr) {
     this.repositoryTypeStr = repositoryTypeStr;
   }
 
@@ -549,7 +1033,7 @@ public class RepositoryCreateRequest implements Serializable {
     this.resyncOwn = resyncOwn;
   }
 
-  public RepositoryCreateRequest resyncPackages(String resyncPackages) {
+  public RepositoryCreateRequest resyncPackages(ResyncPackagesEnum resyncPackages) {
     this.resyncPackages = resyncPackages;
     return this;
   }
@@ -559,11 +1043,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return resyncPackages
   **/
   @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.")
-  public String getResyncPackages() {
+  public ResyncPackagesEnum getResyncPackages() {
     return resyncPackages;
   }
 
-  public void setResyncPackages(String resyncPackages) {
+  public void setResyncPackages(ResyncPackagesEnum resyncPackages) {
     this.resyncPackages = resyncPackages;
   }
 
@@ -585,7 +1069,7 @@ public class RepositoryCreateRequest implements Serializable {
     this.scanOwn = scanOwn;
   }
 
-  public RepositoryCreateRequest scanPackages(String scanPackages) {
+  public RepositoryCreateRequest scanPackages(ScanPackagesEnum scanPackages) {
     this.scanPackages = scanPackages;
     return this;
   }
@@ -595,11 +1079,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return scanPackages
   **/
   @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.")
-  public String getScanPackages() {
+  public ScanPackagesEnum getScanPackages() {
     return scanPackages;
   }
 
-  public void setScanPackages(String scanPackages) {
+  public void setScanPackages(ScanPackagesEnum scanPackages) {
     this.scanPackages = scanPackages;
   }
 
@@ -783,7 +1267,7 @@ public class RepositoryCreateRequest implements Serializable {
     this.userEntitlementsEnabled = userEntitlementsEnabled;
   }
 
-  public RepositoryCreateRequest viewStatistics(String viewStatistics) {
+  public RepositoryCreateRequest viewStatistics(ViewStatisticsEnum viewStatistics) {
     this.viewStatistics = viewStatistics;
     return this;
   }
@@ -793,11 +1277,11 @@ public class RepositoryCreateRequest implements Serializable {
    * @return viewStatistics
   **/
   @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
-  public String getViewStatistics() {
+  public ViewStatisticsEnum getViewStatistics() {
     return viewStatistics;
   }
 
-  public void setViewStatistics(String viewStatistics) {
+  public void setViewStatistics(ViewStatisticsEnum viewStatistics) {
     this.viewStatistics = viewStatistics;
   }
 

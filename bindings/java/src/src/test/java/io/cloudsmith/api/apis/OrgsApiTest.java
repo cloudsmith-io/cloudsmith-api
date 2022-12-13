@@ -14,22 +14,21 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.Organization;
+import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
-import io.cloudsmith.api.models.OrganizationGroupSyncResponse;
-import io.cloudsmith.api.models.OrganizationInviteExtendResponse;
+import io.cloudsmith.api.models.OrganizationInvite;
+import io.cloudsmith.api.models.OrganizationInviteExtend;
 import io.cloudsmith.api.models.OrganizationInviteRequest;
-import io.cloudsmith.api.models.OrganizationInviteResponse;
 import io.cloudsmith.api.models.OrganizationInviteUpdateRequestPatch;
-import io.cloudsmith.api.models.OrganizationMembershipResponse;
-import io.cloudsmith.api.models.OrganizationResponse;
+import io.cloudsmith.api.models.OrganizationMembership;
+import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
-import io.cloudsmith.api.models.OrganizationTeamMembersResponse;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
-import io.cloudsmith.api.models.OrganizationTeamResponse;
+import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
 import io.cloudsmith.api.models.ServiceRequestPatch;
-import io.cloudsmith.api.models.ServiceResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -60,7 +59,7 @@ public class OrgsApiTest {
     public void orgsInvitesCreateTest() throws Exception {
         String org = null;
         OrganizationInviteRequest data = null;
-        OrganizationInviteResponse response = api.orgsInvitesCreate(org, data);
+        OrganizationInvite response = api.orgsInvitesCreate(org, data);
 
         // TODO: test validations
     }
@@ -94,7 +93,7 @@ public class OrgsApiTest {
     public void orgsInvitesExtendTest() throws Exception {
         String org = null;
         String slugPerm = null;
-        OrganizationInviteExtendResponse response = api.orgsInvitesExtend(org, slugPerm);
+        OrganizationInviteExtend response = api.orgsInvitesExtend(org, slugPerm);
 
         // TODO: test validations
     }
@@ -112,7 +111,7 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<OrganizationInviteResponse> response = api.orgsInvitesList(org, page, pageSize);
+        List<OrganizationInvite> response = api.orgsInvitesList(org, page, pageSize);
 
         // TODO: test validations
     }
@@ -130,7 +129,7 @@ public class OrgsApiTest {
         String org = null;
         String slugPerm = null;
         OrganizationInviteUpdateRequestPatch data = null;
-        OrganizationInviteResponse response = api.orgsInvitesPartialUpdate(org, slugPerm, data);
+        OrganizationInvite response = api.orgsInvitesPartialUpdate(org, slugPerm, data);
 
         // TODO: test validations
     }
@@ -147,7 +146,7 @@ public class OrgsApiTest {
     public void orgsInvitesResendTest() throws Exception {
         String org = null;
         String slugPerm = null;
-        OrganizationInviteExtendResponse response = api.orgsInvitesResend(org, slugPerm);
+        OrganizationInviteExtend response = api.orgsInvitesResend(org, slugPerm);
 
         // TODO: test validations
     }
@@ -164,7 +163,7 @@ public class OrgsApiTest {
     public void orgsListTest() throws Exception {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<OrganizationResponse> response = api.orgsList(page, pageSize);
+        List<Organization> response = api.orgsList(page, pageSize);
 
         // TODO: test validations
     }
@@ -199,7 +198,7 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<OrganizationMembershipResponse> response = api.orgsMembersList(org, page, pageSize);
+        List<OrganizationMembership> response = api.orgsMembersList(org, page, pageSize);
 
         // TODO: test validations
     }
@@ -216,7 +215,7 @@ public class OrgsApiTest {
     public void orgsMembersReadTest() throws Exception {
         String org = null;
         String member = null;
-        OrganizationMembershipResponse response = api.orgsMembersRead(org, member);
+        OrganizationMembership response = api.orgsMembersRead(org, member);
 
         // TODO: test validations
     }
@@ -249,7 +248,7 @@ public class OrgsApiTest {
     @Test
     public void orgsReadTest() throws Exception {
         String org = null;
-        OrganizationResponse response = api.orgsRead(org);
+        Organization response = api.orgsRead(org);
 
         // TODO: test validations
     }
@@ -266,7 +265,7 @@ public class OrgsApiTest {
     public void orgsSamlGroupSyncCreateTest() throws Exception {
         String org = null;
         OrganizationGroupSyncRequest data = null;
-        OrganizationGroupSyncResponse response = api.orgsSamlGroupSyncCreate(org, data);
+        OrganizationGroupSync response = api.orgsSamlGroupSyncCreate(org, data);
 
         // TODO: test validations
     }
@@ -301,7 +300,7 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<OrganizationGroupSyncResponse> response = api.orgsSamlGroupSyncList(org, page, pageSize);
+        List<OrganizationGroupSync> response = api.orgsSamlGroupSyncList(org, page, pageSize);
 
         // TODO: test validations
     }
@@ -318,7 +317,7 @@ public class OrgsApiTest {
     public void orgsServicesCreateTest() throws Exception {
         String org = null;
         ServiceRequest data = null;
-        ServiceResponse response = api.orgsServicesCreate(org, data);
+        Service response = api.orgsServicesCreate(org, data);
 
         // TODO: test validations
     }
@@ -353,7 +352,7 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<ServiceResponse> response = api.orgsServicesList(org, page, pageSize);
+        List<Service> response = api.orgsServicesList(org, page, pageSize);
 
         // TODO: test validations
     }
@@ -371,7 +370,7 @@ public class OrgsApiTest {
         String org = null;
         String service = null;
         ServiceRequestPatch data = null;
-        ServiceResponse response = api.orgsServicesPartialUpdate(org, service, data);
+        Service response = api.orgsServicesPartialUpdate(org, service, data);
 
         // TODO: test validations
     }
@@ -388,7 +387,7 @@ public class OrgsApiTest {
     public void orgsServicesReadTest() throws Exception {
         String org = null;
         String service = null;
-        ServiceResponse response = api.orgsServicesRead(org, service);
+        Service response = api.orgsServicesRead(org, service);
 
         // TODO: test validations
     }
@@ -405,7 +404,7 @@ public class OrgsApiTest {
     public void orgsServicesRefreshTest() throws Exception {
         String org = null;
         String service = null;
-        ServiceResponse response = api.orgsServicesRefresh(org, service);
+        Service response = api.orgsServicesRefresh(org, service);
 
         // TODO: test validations
     }
@@ -422,7 +421,7 @@ public class OrgsApiTest {
     public void orgsTeamsCreateTest() throws Exception {
         String org = null;
         OrganizationTeamRequest data = null;
-        OrganizationTeamResponse response = api.orgsTeamsCreate(org, data);
+        OrganizationTeam response = api.orgsTeamsCreate(org, data);
 
         // TODO: test validations
     }
@@ -457,7 +456,7 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<OrganizationTeamResponse> response = api.orgsTeamsList(org, page, pageSize);
+        List<OrganizationTeam> response = api.orgsTeamsList(org, page, pageSize);
 
         // TODO: test validations
     }
@@ -475,7 +474,7 @@ public class OrgsApiTest {
         String org = null;
         String team = null;
         OrganizationTeamMembers data = null;
-        OrganizationTeamMembersResponse response = api.orgsTeamsMembersCreate(org, team, data);
+        OrganizationTeamMembers response = api.orgsTeamsMembersCreate(org, team, data);
 
         // TODO: test validations
     }
@@ -492,7 +491,7 @@ public class OrgsApiTest {
     public void orgsTeamsMembersListTest() throws Exception {
         String org = null;
         String team = null;
-        OrganizationTeamMembersResponse response = api.orgsTeamsMembersList(org, team);
+        OrganizationTeamMembers response = api.orgsTeamsMembersList(org, team);
 
         // TODO: test validations
     }
@@ -509,7 +508,7 @@ public class OrgsApiTest {
     public void orgsTeamsMembersUpdateTest() throws Exception {
         String org = null;
         String team = null;
-        OrganizationTeamMembersResponse response = api.orgsTeamsMembersUpdate(org, team);
+        OrganizationTeamMembers response = api.orgsTeamsMembersUpdate(org, team);
 
         // TODO: test validations
     }
@@ -527,7 +526,7 @@ public class OrgsApiTest {
         String org = null;
         String team = null;
         OrganizationTeamRequestPatch data = null;
-        OrganizationTeamResponse response = api.orgsTeamsPartialUpdate(org, team, data);
+        OrganizationTeam response = api.orgsTeamsPartialUpdate(org, team, data);
 
         // TODO: test validations
     }
@@ -544,7 +543,7 @@ public class OrgsApiTest {
     public void orgsTeamsReadTest() throws Exception {
         String org = null;
         String team = null;
-        OrganizationTeamResponse response = api.orgsTeamsRead(org, team);
+        OrganizationTeam response = api.orgsTeamsRead(org, team);
 
         // TODO: test validations
     }

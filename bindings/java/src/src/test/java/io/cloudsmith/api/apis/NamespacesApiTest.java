@@ -14,7 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.NamespaceResponse;
+import io.cloudsmith.api.models.Namespace;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +45,7 @@ public class NamespacesApiTest {
     public void namespacesListTest() throws Exception {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<NamespaceResponse> response = api.namespacesList(page, pageSize);
+        List<Namespace> response = api.namespacesList(page, pageSize);
 
         // TODO: test validations
     }
@@ -61,7 +61,7 @@ public class NamespacesApiTest {
     @Test
     public void namespacesReadTest() throws Exception {
         String slug = null;
-        NamespaceResponse response = api.namespacesRead(slug);
+        Namespace response = api.namespacesRead(slug);
 
         // TODO: test validations
     }

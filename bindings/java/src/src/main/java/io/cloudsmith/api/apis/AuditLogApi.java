@@ -37,8 +37,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.NamespaceAuditLogResponse;
-import io.cloudsmith.api.models.RepositoryAuditLogResponse;
+import io.cloudsmith.api.models.NamespaceAuditLog;
+import io.cloudsmith.api.models.RepositoryAuditLog;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -159,11 +159,11 @@ public class AuditLogApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param query A search term for querying events, actors, or timestamps of log records. (optional)
-     * @return List&lt;NamespaceAuditLogResponse&gt;
+     * @return List&lt;NamespaceAuditLog&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<NamespaceAuditLogResponse> auditLogNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query) throws ApiException {
-        ApiResponse<List<NamespaceAuditLogResponse>> resp = auditLogNamespaceListWithHttpInfo(owner, page, pageSize, query);
+    public List<NamespaceAuditLog> auditLogNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query) throws ApiException {
+        ApiResponse<List<NamespaceAuditLog>> resp = auditLogNamespaceListWithHttpInfo(owner, page, pageSize, query);
         return resp.getData();
     }
 
@@ -174,12 +174,12 @@ public class AuditLogApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param query A search term for querying events, actors, or timestamps of log records. (optional)
-     * @return ApiResponse&lt;List&lt;NamespaceAuditLogResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;NamespaceAuditLog&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<NamespaceAuditLogResponse>> auditLogNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query) throws ApiException {
+    public ApiResponse<List<NamespaceAuditLog>> auditLogNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query) throws ApiException {
         com.squareup.okhttp.Call call = auditLogNamespaceListValidateBeforeCall(owner, page, pageSize, query, null, null);
-        Type localVarReturnType = new TypeToken<List<NamespaceAuditLogResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<NamespaceAuditLog>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -194,7 +194,7 @@ public class AuditLogApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call auditLogNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ApiCallback<List<NamespaceAuditLogResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call auditLogNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ApiCallback<List<NamespaceAuditLog>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -216,7 +216,7 @@ public class AuditLogApi {
         }
 
         com.squareup.okhttp.Call call = auditLogNamespaceListValidateBeforeCall(owner, page, pageSize, query, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<NamespaceAuditLogResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<NamespaceAuditLog>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -317,11 +317,11 @@ public class AuditLogApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param query A search term for querying events, actors, or timestamps of log records. (optional)
-     * @return List&lt;RepositoryAuditLogResponse&gt;
+     * @return List&lt;RepositoryAuditLog&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryAuditLogResponse> auditLogRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query) throws ApiException {
-        ApiResponse<List<RepositoryAuditLogResponse>> resp = auditLogRepoListWithHttpInfo(owner, repo, page, pageSize, query);
+    public List<RepositoryAuditLog> auditLogRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query) throws ApiException {
+        ApiResponse<List<RepositoryAuditLog>> resp = auditLogRepoListWithHttpInfo(owner, repo, page, pageSize, query);
         return resp.getData();
     }
 
@@ -333,12 +333,12 @@ public class AuditLogApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param query A search term for querying events, actors, or timestamps of log records. (optional)
-     * @return ApiResponse&lt;List&lt;RepositoryAuditLogResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;RepositoryAuditLog&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryAuditLogResponse>> auditLogRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query) throws ApiException {
+    public ApiResponse<List<RepositoryAuditLog>> auditLogRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query) throws ApiException {
         com.squareup.okhttp.Call call = auditLogRepoListValidateBeforeCall(owner, repo, page, pageSize, query, null, null);
-        Type localVarReturnType = new TypeToken<List<RepositoryAuditLogResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<RepositoryAuditLog>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -354,7 +354,7 @@ public class AuditLogApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call auditLogRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ApiCallback<List<RepositoryAuditLogResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call auditLogRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, final ApiCallback<List<RepositoryAuditLog>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -376,7 +376,7 @@ public class AuditLogApi {
         }
 
         com.squareup.okhttp.Call call = auditLogRepoListValidateBeforeCall(owner, repo, page, pageSize, query, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<RepositoryAuditLogResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<RepositoryAuditLog>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

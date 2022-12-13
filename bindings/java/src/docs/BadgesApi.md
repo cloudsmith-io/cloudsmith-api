@@ -1,6 +1,6 @@
 # BadgesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="badgesVersionList"></a>
 # **badgesVersionList**
-> PackageVersionBadgeResponse badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style)
+> PackageVersionBadge badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style)
 
 Get latest package version for a package or package group.
 
@@ -51,7 +51,7 @@ Boolean shields = false; // Boolean | If true, a shields response will be genera
 Boolean showLatest = false; // Boolean | If true, for latest version badges a '(latest)' suffix is added
 String style = "flat-square"; // String | Override the shields.io badge style value.
 try {
-    PackageVersionBadgeResponse result = apiInstance.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+    PackageVersionBadge result = apiInstance.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BadgesApi#badgesVersionList");
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageVersionBadgeResponse**](PackageVersionBadgeResponse.md)
+[**PackageVersionBadge**](PackageVersionBadge.md)
 
 ### Authorization
 

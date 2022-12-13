@@ -44,8 +44,69 @@ public class RepositoryTokenRequestPatch implements Serializable {
   @SerializedName("limit_bandwidth")
   private java.math.BigInteger limitBandwidth = null;
 
+  /**
+   * Gets or Sets limitBandwidthUnit
+   */
+  @JsonAdapter(LimitBandwidthUnitEnum.Adapter.class)
+  public enum LimitBandwidthUnitEnum {
+    BYTE("Byte"),
+    
+    KILOBYTE("Kilobyte"),
+    
+    MEGABYTE("Megabyte"),
+    
+    GIGABYTE("Gigabyte"),
+    
+    TERABYTE("Terabyte"),
+    
+    PETABYTE("Petabyte"),
+    
+    EXABYTE("Exabyte"),
+    
+    ZETTABYTE("Zettabyte"),
+    
+    YOTTABYTE("Yottabyte");
+
+    private String value;
+
+    LimitBandwidthUnitEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static LimitBandwidthUnitEnum fromValue(String text) {
+      for (LimitBandwidthUnitEnum b : LimitBandwidthUnitEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<LimitBandwidthUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LimitBandwidthUnitEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LimitBandwidthUnitEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LimitBandwidthUnitEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("limit_bandwidth_unit")
-  private String limitBandwidthUnit = "Byte";
+  private LimitBandwidthUnitEnum limitBandwidthUnit = LimitBandwidthUnitEnum.BYTE;
 
   @SerializedName("limit_date_range_from")
   private OffsetDateTime limitDateRangeFrom = null;
@@ -74,8 +135,69 @@ public class RepositoryTokenRequestPatch implements Serializable {
   @SerializedName("scheduled_reset_at")
   private OffsetDateTime scheduledResetAt = null;
 
+  /**
+   * Gets or Sets scheduledResetPeriod
+   */
+  @JsonAdapter(ScheduledResetPeriodEnum.Adapter.class)
+  public enum ScheduledResetPeriodEnum {
+    NEVER_RESET("Never Reset"),
+    
+    DAILY("Daily"),
+    
+    WEEKLY("Weekly"),
+    
+    FORTNIGHTLY("Fortnightly"),
+    
+    MONTHLY("Monthly"),
+    
+    BI_MONTHLY("Bi-Monthly"),
+    
+    QUARTERLY("Quarterly"),
+    
+    EVERY_6_MONTHS("Every 6 months"),
+    
+    ANNUAL("Annual");
+
+    private String value;
+
+    ScheduledResetPeriodEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ScheduledResetPeriodEnum fromValue(String text) {
+      for (ScheduledResetPeriodEnum b : ScheduledResetPeriodEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ScheduledResetPeriodEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ScheduledResetPeriodEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ScheduledResetPeriodEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ScheduledResetPeriodEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("scheduled_reset_period")
-  private String scheduledResetPeriod = "Never Reset";
+  private ScheduledResetPeriodEnum scheduledResetPeriod = ScheduledResetPeriodEnum.NEVER_RESET;
 
   @SerializedName("token")
   private String token = null;
@@ -136,7 +258,7 @@ public class RepositoryTokenRequestPatch implements Serializable {
     this.limitBandwidth = limitBandwidth;
   }
 
-  public RepositoryTokenRequestPatch limitBandwidthUnit(String limitBandwidthUnit) {
+  public RepositoryTokenRequestPatch limitBandwidthUnit(LimitBandwidthUnitEnum limitBandwidthUnit) {
     this.limitBandwidthUnit = limitBandwidthUnit;
     return this;
   }
@@ -146,11 +268,11 @@ public class RepositoryTokenRequestPatch implements Serializable {
    * @return limitBandwidthUnit
   **/
   @ApiModelProperty(value = "")
-  public String getLimitBandwidthUnit() {
+  public LimitBandwidthUnitEnum getLimitBandwidthUnit() {
     return limitBandwidthUnit;
   }
 
-  public void setLimitBandwidthUnit(String limitBandwidthUnit) {
+  public void setLimitBandwidthUnit(LimitBandwidthUnitEnum limitBandwidthUnit) {
     this.limitBandwidthUnit = limitBandwidthUnit;
   }
 
@@ -323,7 +445,7 @@ public class RepositoryTokenRequestPatch implements Serializable {
     this.scheduledResetAt = scheduledResetAt;
   }
 
-  public RepositoryTokenRequestPatch scheduledResetPeriod(String scheduledResetPeriod) {
+  public RepositoryTokenRequestPatch scheduledResetPeriod(ScheduledResetPeriodEnum scheduledResetPeriod) {
     this.scheduledResetPeriod = scheduledResetPeriod;
     return this;
   }
@@ -333,11 +455,11 @@ public class RepositoryTokenRequestPatch implements Serializable {
    * @return scheduledResetPeriod
   **/
   @ApiModelProperty(value = "")
-  public String getScheduledResetPeriod() {
+  public ScheduledResetPeriodEnum getScheduledResetPeriod() {
     return scheduledResetPeriod;
   }
 
-  public void setScheduledResetPeriod(String scheduledResetPeriod) {
+  public void setScheduledResetPeriod(ScheduledResetPeriodEnum scheduledResetPeriod) {
     this.scheduledResetPeriod = scheduledResetPeriod;
   }
 

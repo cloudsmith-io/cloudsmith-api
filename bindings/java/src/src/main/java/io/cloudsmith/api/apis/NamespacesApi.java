@@ -37,7 +37,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.NamespaceResponse;
+import io.cloudsmith.api.models.Namespace;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -151,11 +151,11 @@ public class NamespacesApi {
      * Get a list of all namespaces the user belongs to.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;NamespaceResponse&gt;
+     * @return List&lt;Namespace&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<NamespaceResponse> namespacesList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<NamespaceResponse>> resp = namespacesListWithHttpInfo(page, pageSize);
+    public List<Namespace> namespacesList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<Namespace>> resp = namespacesListWithHttpInfo(page, pageSize);
         return resp.getData();
     }
 
@@ -164,12 +164,12 @@ public class NamespacesApi {
      * Get a list of all namespaces the user belongs to.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;NamespaceResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;Namespace&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<NamespaceResponse>> namespacesListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<List<Namespace>> namespacesListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = namespacesListValidateBeforeCall(page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<NamespaceResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Namespace>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -182,7 +182,7 @@ public class NamespacesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call namespacesListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<NamespaceResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call namespacesListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<Namespace>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -204,7 +204,7 @@ public class NamespacesApi {
         }
 
         com.squareup.okhttp.Call call = namespacesListValidateBeforeCall(page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<NamespaceResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Namespace>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -290,11 +290,11 @@ public class NamespacesApi {
      * Views for working with namespaces.
      * Views for working with namespaces.
      * @param slug  (required)
-     * @return NamespaceResponse
+     * @return Namespace
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public NamespaceResponse namespacesRead(String slug) throws ApiException {
-        ApiResponse<NamespaceResponse> resp = namespacesReadWithHttpInfo(slug);
+    public Namespace namespacesRead(String slug) throws ApiException {
+        ApiResponse<Namespace> resp = namespacesReadWithHttpInfo(slug);
         return resp.getData();
     }
 
@@ -302,12 +302,12 @@ public class NamespacesApi {
      * Views for working with namespaces.
      * Views for working with namespaces.
      * @param slug  (required)
-     * @return ApiResponse&lt;NamespaceResponse&gt;
+     * @return ApiResponse&lt;Namespace&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<NamespaceResponse> namespacesReadWithHttpInfo( @NotNull String slug) throws ApiException {
+    public ApiResponse<Namespace> namespacesReadWithHttpInfo( @NotNull String slug) throws ApiException {
         com.squareup.okhttp.Call call = namespacesReadValidateBeforeCall(slug, null, null);
-        Type localVarReturnType = new TypeToken<NamespaceResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Namespace>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -319,7 +319,7 @@ public class NamespacesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call namespacesReadAsync(String slug, final ApiCallback<NamespaceResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call namespacesReadAsync(String slug, final ApiCallback<Namespace> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -341,7 +341,7 @@ public class NamespacesApi {
         }
 
         com.squareup.okhttp.Call call = namespacesReadValidateBeforeCall(slug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<NamespaceResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Namespace>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

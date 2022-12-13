@@ -37,17 +37,17 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.Repository;
+import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
-import io.cloudsmith.api.models.RepositoryCreateResponse;
+import io.cloudsmith.api.models.RepositoryGpgKey;
 import io.cloudsmith.api.models.RepositoryGpgKeyCreate;
-import io.cloudsmith.api.models.RepositoryGpgKeyResponse;
+import io.cloudsmith.api.models.RepositoryPrivilegeInput;
 import io.cloudsmith.api.models.RepositoryPrivilegeInputRequest;
 import io.cloudsmith.api.models.RepositoryPrivilegeInputRequestPatch;
-import io.cloudsmith.api.models.RepositoryPrivilegeInputResponse;
 import io.cloudsmith.api.models.RepositoryRequestPatch;
-import io.cloudsmith.api.models.RepositoryResponse;
+import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.RepositoryRsaKeyCreate;
-import io.cloudsmith.api.models.RepositoryRsaKeyResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -158,11 +158,11 @@ public class ReposApi {
      * Create a new repository in a given namespace.
      * @param owner  (required)
      * @param data  (optional)
-     * @return RepositoryCreateResponse
+     * @return RepositoryCreate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryCreateResponse reposCreate(String owner, RepositoryCreateRequest data) throws ApiException {
-        ApiResponse<RepositoryCreateResponse> resp = reposCreateWithHttpInfo(owner, data);
+    public RepositoryCreate reposCreate(String owner, RepositoryCreateRequest data) throws ApiException {
+        ApiResponse<RepositoryCreate> resp = reposCreateWithHttpInfo(owner, data);
         return resp.getData();
     }
 
@@ -171,12 +171,12 @@ public class ReposApi {
      * Create a new repository in a given namespace.
      * @param owner  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;RepositoryCreateResponse&gt;
+     * @return ApiResponse&lt;RepositoryCreate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryCreateResponse> reposCreateWithHttpInfo( @NotNull String owner,  RepositoryCreateRequest data) throws ApiException {
+    public ApiResponse<RepositoryCreate> reposCreateWithHttpInfo( @NotNull String owner,  RepositoryCreateRequest data) throws ApiException {
         com.squareup.okhttp.Call call = reposCreateValidateBeforeCall(owner, data, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryCreateResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryCreate>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -189,7 +189,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposCreateAsync(String owner, RepositoryCreateRequest data, final ApiCallback<RepositoryCreateResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposCreateAsync(String owner, RepositoryCreateRequest data, final ApiCallback<RepositoryCreate> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -211,7 +211,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposCreateValidateBeforeCall(owner, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryCreateResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryCreate>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -440,11 +440,11 @@ public class ReposApi {
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return RepositoryGpgKeyResponse
+     * @return RepositoryGpgKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryGpgKeyResponse reposGpgCreate(String owner, String identifier, RepositoryGpgKeyCreate data) throws ApiException {
-        ApiResponse<RepositoryGpgKeyResponse> resp = reposGpgCreateWithHttpInfo(owner, identifier, data);
+    public RepositoryGpgKey reposGpgCreate(String owner, String identifier, RepositoryGpgKeyCreate data) throws ApiException {
+        ApiResponse<RepositoryGpgKey> resp = reposGpgCreateWithHttpInfo(owner, identifier, data);
         return resp.getData();
     }
 
@@ -454,12 +454,12 @@ public class ReposApi {
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;RepositoryGpgKeyResponse&gt;
+     * @return ApiResponse&lt;RepositoryGpgKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryGpgKeyResponse> reposGpgCreateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryGpgKeyCreate data) throws ApiException {
+    public ApiResponse<RepositoryGpgKey> reposGpgCreateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryGpgKeyCreate data) throws ApiException {
         com.squareup.okhttp.Call call = reposGpgCreateValidateBeforeCall(owner, identifier, data, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryGpgKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryGpgKey>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -473,7 +473,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposGpgCreateAsync(String owner, String identifier, RepositoryGpgKeyCreate data, final ApiCallback<RepositoryGpgKeyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposGpgCreateAsync(String owner, String identifier, RepositoryGpgKeyCreate data, final ApiCallback<RepositoryGpgKey> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -495,7 +495,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposGpgCreateValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryGpgKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryGpgKey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -584,11 +584,11 @@ public class ReposApi {
      * Retrieve the active GPG key for the Repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return RepositoryGpgKeyResponse
+     * @return RepositoryGpgKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryGpgKeyResponse reposGpgList(String owner, String identifier) throws ApiException {
-        ApiResponse<RepositoryGpgKeyResponse> resp = reposGpgListWithHttpInfo(owner, identifier);
+    public RepositoryGpgKey reposGpgList(String owner, String identifier) throws ApiException {
+        ApiResponse<RepositoryGpgKey> resp = reposGpgListWithHttpInfo(owner, identifier);
         return resp.getData();
     }
 
@@ -597,12 +597,12 @@ public class ReposApi {
      * Retrieve the active GPG key for the Repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return ApiResponse&lt;RepositoryGpgKeyResponse&gt;
+     * @return ApiResponse&lt;RepositoryGpgKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryGpgKeyResponse> reposGpgListWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
+    public ApiResponse<RepositoryGpgKey> reposGpgListWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = reposGpgListValidateBeforeCall(owner, identifier, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryGpgKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryGpgKey>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -615,7 +615,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposGpgListAsync(String owner, String identifier, final ApiCallback<RepositoryGpgKeyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposGpgListAsync(String owner, String identifier, final ApiCallback<RepositoryGpgKey> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -637,7 +637,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposGpgListValidateBeforeCall(owner, identifier, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryGpgKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryGpgKey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -726,11 +726,11 @@ public class ReposApi {
      * Regenerate GPG Key for the Repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return RepositoryGpgKeyResponse
+     * @return RepositoryGpgKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryGpgKeyResponse reposGpgRegenerate(String owner, String identifier) throws ApiException {
-        ApiResponse<RepositoryGpgKeyResponse> resp = reposGpgRegenerateWithHttpInfo(owner, identifier);
+    public RepositoryGpgKey reposGpgRegenerate(String owner, String identifier) throws ApiException {
+        ApiResponse<RepositoryGpgKey> resp = reposGpgRegenerateWithHttpInfo(owner, identifier);
         return resp.getData();
     }
 
@@ -739,12 +739,12 @@ public class ReposApi {
      * Regenerate GPG Key for the Repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return ApiResponse&lt;RepositoryGpgKeyResponse&gt;
+     * @return ApiResponse&lt;RepositoryGpgKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryGpgKeyResponse> reposGpgRegenerateWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
+    public ApiResponse<RepositoryGpgKey> reposGpgRegenerateWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = reposGpgRegenerateValidateBeforeCall(owner, identifier, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryGpgKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryGpgKey>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -757,7 +757,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposGpgRegenerateAsync(String owner, String identifier, final ApiCallback<RepositoryGpgKeyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposGpgRegenerateAsync(String owner, String identifier, final ApiCallback<RepositoryGpgKey> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -779,7 +779,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposGpgRegenerateValidateBeforeCall(owner, identifier, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryGpgKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryGpgKey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -873,11 +873,11 @@ public class ReposApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;RepositoryResponse&gt;
+     * @return List&lt;Repository&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryResponse> reposNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<RepositoryResponse>> resp = reposNamespaceListWithHttpInfo(owner, page, pageSize);
+    public List<Repository> reposNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<Repository>> resp = reposNamespaceListWithHttpInfo(owner, page, pageSize);
         return resp.getData();
     }
 
@@ -887,12 +887,12 @@ public class ReposApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;RepositoryResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;Repository&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryResponse>> reposNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<List<Repository>> reposNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = reposNamespaceListValidateBeforeCall(owner, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<RepositoryResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Repository>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -906,7 +906,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<RepositoryResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<Repository>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -928,7 +928,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposNamespaceListValidateBeforeCall(owner, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<RepositoryResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Repository>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1019,11 +1019,11 @@ public class ReposApi {
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return RepositoryResponse
+     * @return Repository
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryResponse reposPartialUpdate(String owner, String identifier, RepositoryRequestPatch data) throws ApiException {
-        ApiResponse<RepositoryResponse> resp = reposPartialUpdateWithHttpInfo(owner, identifier, data);
+    public Repository reposPartialUpdate(String owner, String identifier, RepositoryRequestPatch data) throws ApiException {
+        ApiResponse<Repository> resp = reposPartialUpdateWithHttpInfo(owner, identifier, data);
         return resp.getData();
     }
 
@@ -1033,12 +1033,12 @@ public class ReposApi {
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;RepositoryResponse&gt;
+     * @return ApiResponse&lt;Repository&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryResponse> reposPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryRequestPatch data) throws ApiException {
+    public ApiResponse<Repository> reposPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryRequestPatch data) throws ApiException {
         com.squareup.okhttp.Call call = reposPartialUpdateValidateBeforeCall(owner, identifier, data, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Repository>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1052,7 +1052,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposPartialUpdateAsync(String owner, String identifier, RepositoryRequestPatch data, final ApiCallback<RepositoryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposPartialUpdateAsync(String owner, String identifier, RepositoryRequestPatch data, final ApiCallback<Repository> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1074,7 +1074,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposPartialUpdateValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Repository>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1171,11 +1171,11 @@ public class ReposApi {
      * @param identifier  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return RepositoryPrivilegeInputResponse
+     * @return RepositoryPrivilegeInput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryPrivilegeInputResponse reposPrivilegesList(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<RepositoryPrivilegeInputResponse> resp = reposPrivilegesListWithHttpInfo(owner, identifier, page, pageSize);
+    public RepositoryPrivilegeInput reposPrivilegesList(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<RepositoryPrivilegeInput> resp = reposPrivilegesListWithHttpInfo(owner, identifier, page, pageSize);
         return resp.getData();
     }
 
@@ -1186,12 +1186,12 @@ public class ReposApi {
      * @param identifier  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;RepositoryPrivilegeInputResponse&gt;
+     * @return ApiResponse&lt;RepositoryPrivilegeInput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryPrivilegeInputResponse> reposPrivilegesListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<RepositoryPrivilegeInput> reposPrivilegesListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = reposPrivilegesListValidateBeforeCall(owner, identifier, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryPrivilegeInputResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryPrivilegeInput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1206,7 +1206,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposPrivilegesListAsync(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<RepositoryPrivilegeInputResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposPrivilegesListAsync(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<RepositoryPrivilegeInput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1228,7 +1228,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposPrivilegesListValidateBeforeCall(owner, identifier, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryPrivilegeInputResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryPrivilegeInput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1601,11 +1601,11 @@ public class ReposApi {
      * Get a specific repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return RepositoryResponse
+     * @return Repository
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryResponse reposRead(String owner, String identifier) throws ApiException {
-        ApiResponse<RepositoryResponse> resp = reposReadWithHttpInfo(owner, identifier);
+    public Repository reposRead(String owner, String identifier) throws ApiException {
+        ApiResponse<Repository> resp = reposReadWithHttpInfo(owner, identifier);
         return resp.getData();
     }
 
@@ -1614,12 +1614,12 @@ public class ReposApi {
      * Get a specific repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return ApiResponse&lt;RepositoryResponse&gt;
+     * @return ApiResponse&lt;Repository&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryResponse> reposReadWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
+    public ApiResponse<Repository> reposReadWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = reposReadValidateBeforeCall(owner, identifier, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Repository>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1632,7 +1632,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposReadAsync(String owner, String identifier, final ApiCallback<RepositoryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposReadAsync(String owner, String identifier, final ApiCallback<Repository> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1654,7 +1654,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposReadValidateBeforeCall(owner, identifier, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Repository>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1745,11 +1745,11 @@ public class ReposApi {
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return RepositoryRsaKeyResponse
+     * @return RepositoryRsaKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryRsaKeyResponse reposRsaCreate(String owner, String identifier, RepositoryRsaKeyCreate data) throws ApiException {
-        ApiResponse<RepositoryRsaKeyResponse> resp = reposRsaCreateWithHttpInfo(owner, identifier, data);
+    public RepositoryRsaKey reposRsaCreate(String owner, String identifier, RepositoryRsaKeyCreate data) throws ApiException {
+        ApiResponse<RepositoryRsaKey> resp = reposRsaCreateWithHttpInfo(owner, identifier, data);
         return resp.getData();
     }
 
@@ -1759,12 +1759,12 @@ public class ReposApi {
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;RepositoryRsaKeyResponse&gt;
+     * @return ApiResponse&lt;RepositoryRsaKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryRsaKeyResponse> reposRsaCreateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryRsaKeyCreate data) throws ApiException {
+    public ApiResponse<RepositoryRsaKey> reposRsaCreateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryRsaKeyCreate data) throws ApiException {
         com.squareup.okhttp.Call call = reposRsaCreateValidateBeforeCall(owner, identifier, data, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryRsaKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryRsaKey>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1778,7 +1778,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposRsaCreateAsync(String owner, String identifier, RepositoryRsaKeyCreate data, final ApiCallback<RepositoryRsaKeyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposRsaCreateAsync(String owner, String identifier, RepositoryRsaKeyCreate data, final ApiCallback<RepositoryRsaKey> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1800,7 +1800,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposRsaCreateValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryRsaKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryRsaKey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1889,11 +1889,11 @@ public class ReposApi {
      * Retrieve the active RSA key for the Repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return RepositoryRsaKeyResponse
+     * @return RepositoryRsaKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryRsaKeyResponse reposRsaList(String owner, String identifier) throws ApiException {
-        ApiResponse<RepositoryRsaKeyResponse> resp = reposRsaListWithHttpInfo(owner, identifier);
+    public RepositoryRsaKey reposRsaList(String owner, String identifier) throws ApiException {
+        ApiResponse<RepositoryRsaKey> resp = reposRsaListWithHttpInfo(owner, identifier);
         return resp.getData();
     }
 
@@ -1902,12 +1902,12 @@ public class ReposApi {
      * Retrieve the active RSA key for the Repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return ApiResponse&lt;RepositoryRsaKeyResponse&gt;
+     * @return ApiResponse&lt;RepositoryRsaKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryRsaKeyResponse> reposRsaListWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
+    public ApiResponse<RepositoryRsaKey> reposRsaListWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = reposRsaListValidateBeforeCall(owner, identifier, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryRsaKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryRsaKey>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1920,7 +1920,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposRsaListAsync(String owner, String identifier, final ApiCallback<RepositoryRsaKeyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposRsaListAsync(String owner, String identifier, final ApiCallback<RepositoryRsaKey> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1942,7 +1942,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposRsaListValidateBeforeCall(owner, identifier, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryRsaKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryRsaKey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2031,11 +2031,11 @@ public class ReposApi {
      * Regenerate RSA Key for the Repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return RepositoryRsaKeyResponse
+     * @return RepositoryRsaKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RepositoryRsaKeyResponse reposRsaRegenerate(String owner, String identifier) throws ApiException {
-        ApiResponse<RepositoryRsaKeyResponse> resp = reposRsaRegenerateWithHttpInfo(owner, identifier);
+    public RepositoryRsaKey reposRsaRegenerate(String owner, String identifier) throws ApiException {
+        ApiResponse<RepositoryRsaKey> resp = reposRsaRegenerateWithHttpInfo(owner, identifier);
         return resp.getData();
     }
 
@@ -2044,12 +2044,12 @@ public class ReposApi {
      * Regenerate RSA Key for the Repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return ApiResponse&lt;RepositoryRsaKeyResponse&gt;
+     * @return ApiResponse&lt;RepositoryRsaKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RepositoryRsaKeyResponse> reposRsaRegenerateWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
+    public ApiResponse<RepositoryRsaKey> reposRsaRegenerateWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = reposRsaRegenerateValidateBeforeCall(owner, identifier, null, null);
-        Type localVarReturnType = new TypeToken<RepositoryRsaKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryRsaKey>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2062,7 +2062,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposRsaRegenerateAsync(String owner, String identifier, final ApiCallback<RepositoryRsaKeyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposRsaRegenerateAsync(String owner, String identifier, final ApiCallback<RepositoryRsaKey> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2084,7 +2084,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposRsaRegenerateValidateBeforeCall(owner, identifier, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RepositoryRsaKeyResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryRsaKey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2175,11 +2175,11 @@ public class ReposApi {
      * Get a list of all repositories associated with current user.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;RepositoryResponse&gt;
+     * @return List&lt;Repository&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryResponse> reposUserList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<RepositoryResponse>> resp = reposUserListWithHttpInfo(page, pageSize);
+    public List<Repository> reposUserList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<Repository>> resp = reposUserListWithHttpInfo(page, pageSize);
         return resp.getData();
     }
 
@@ -2188,12 +2188,12 @@ public class ReposApi {
      * Get a list of all repositories associated with current user.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;RepositoryResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;Repository&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryResponse>> reposUserListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<List<Repository>> reposUserListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = reposUserListValidateBeforeCall(page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<RepositoryResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Repository>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2206,7 +2206,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposUserListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<RepositoryResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposUserListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<Repository>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2228,7 +2228,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposUserListValidateBeforeCall(page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<RepositoryResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Repository>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

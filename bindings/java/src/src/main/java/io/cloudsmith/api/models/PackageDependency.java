@@ -34,14 +34,170 @@ import javax.validation.Valid;
 public class PackageDependency implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * Gets or Sets depType
+   */
+  @JsonAdapter(DepTypeEnum.Adapter.class)
+  public enum DepTypeEnum {
+    DEPENDS("Depends"),
+    
+    PRE_DEPENDS("Pre-Depends"),
+    
+    RECOMMENDS("Recommends"),
+    
+    SUGGESTS("Suggests"),
+    
+    ENHANCES("Enhances"),
+    
+    REPLACES("Replaces"),
+    
+    BREAKS("Breaks"),
+    
+    BUILT_USING("Built-Using"),
+    
+    BUILD_DEPENDS("Build-Depends"),
+    
+    BUILD_DEPENDS_INDEP("Build-Depends-Indep"),
+    
+    BUILD_CONFLICTS("Build-Conflicts"),
+    
+    BUILD_CONFLICTS_INDEP("Build-Conflicts-Indep"),
+    
+    CONFLICTS("Conflicts"),
+    
+    PROVIDES("Provides"),
+    
+    OBSOLETES("Obsoletes"),
+    
+    REQUIRES("Requires"),
+    
+    RUNTIME("Runtime"),
+    
+    DEVELOPMENT("Development"),
+    
+    COMPILE("Compile"),
+    
+    PROVIDED("Provided"),
+    
+    TEST("Test"),
+    
+    SYSTEM("System"),
+    
+    IMPORT("Import"),
+    
+    EXCLUDED("Excluded");
+
+    private String value;
+
+    DepTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DepTypeEnum fromValue(String text) {
+      for (DepTypeEnum b : DepTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DepTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DepTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DepTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DepTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("dep_type")
-  private String depType = "Depends";
+  private DepTypeEnum depType = DepTypeEnum.DEPENDS;
 
   @SerializedName("name")
   private String name = null;
 
+  /**
+   * Gets or Sets operator
+   */
+  @JsonAdapter(OperatorEnum.Adapter.class)
+  public enum OperatorEnum {
+    EQUAL("="),
+    
+    NOT_EQUAL("!="),
+    
+    LESS_THAN("<"),
+    
+    _("<<"),
+    
+    LESS_THAN_OR_EQUAL_TO("<="),
+    
+    GREATER_THAN(">"),
+    
+    __2(">>"),
+    
+    GREATER_THAN_OR_EQUAL_TO(">="),
+    
+    __3("~="),
+    
+    __4("~>"),
+    
+    MATCHES("matches");
+
+    private String value;
+
+    OperatorEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OperatorEnum fromValue(String text) {
+      for (OperatorEnum b : OperatorEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<OperatorEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OperatorEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OperatorEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OperatorEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("operator")
-  private String operator = "=";
+  private OperatorEnum operator = OperatorEnum.EQUAL;
 
   @SerializedName("version")
   private String version = null;
@@ -51,7 +207,7 @@ public class PackageDependency implements Serializable {
    * @return depType
   **/
   @ApiModelProperty(value = "")
-  public String getDepType() {
+  public DepTypeEnum getDepType() {
     return depType;
   }
 
@@ -79,7 +235,7 @@ public class PackageDependency implements Serializable {
    * @return operator
   **/
   @ApiModelProperty(value = "")
-  public String getOperator() {
+  public OperatorEnum getOperator() {
     return operator;
   }
 

@@ -36,9 +36,9 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
-import io.cloudsmith.api.models.EntitlementUsageMetricsResponse;
+import io.cloudsmith.api.models.EntitlementUsageMetrics;
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.PackageUsageMetricsResponse;
+import io.cloudsmith.api.models.PackageUsageMetrics;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -167,11 +167,11 @@ public class MetricsApi {
      * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
-     * @return EntitlementUsageMetricsResponse
+     * @return EntitlementUsageMetrics
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EntitlementUsageMetricsResponse metricsEntitlementsAccountList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens) throws ApiException {
-        ApiResponse<EntitlementUsageMetricsResponse> resp = metricsEntitlementsAccountListWithHttpInfo(owner, page, pageSize, finish, start, tokens);
+    public EntitlementUsageMetrics metricsEntitlementsAccountList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens) throws ApiException {
+        ApiResponse<EntitlementUsageMetrics> resp = metricsEntitlementsAccountListWithHttpInfo(owner, page, pageSize, finish, start, tokens);
         return resp.getData();
     }
 
@@ -184,12 +184,12 @@ public class MetricsApi {
      * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
-     * @return ApiResponse&lt;EntitlementUsageMetricsResponse&gt;
+     * @return ApiResponse&lt;EntitlementUsageMetrics&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EntitlementUsageMetricsResponse> metricsEntitlementsAccountListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String start,  String tokens) throws ApiException {
+    public ApiResponse<EntitlementUsageMetrics> metricsEntitlementsAccountListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String start,  String tokens) throws ApiException {
         com.squareup.okhttp.Call call = metricsEntitlementsAccountListValidateBeforeCall(owner, page, pageSize, finish, start, tokens, null, null);
-        Type localVarReturnType = new TypeToken<EntitlementUsageMetricsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<EntitlementUsageMetrics>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -206,7 +206,7 @@ public class MetricsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsAccountListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ApiCallback<EntitlementUsageMetricsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsAccountListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ApiCallback<EntitlementUsageMetrics> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -228,7 +228,7 @@ public class MetricsApi {
         }
 
         com.squareup.okhttp.Call call = metricsEntitlementsAccountListValidateBeforeCall(owner, page, pageSize, finish, start, tokens, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<EntitlementUsageMetricsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<EntitlementUsageMetrics>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -337,11 +337,11 @@ public class MetricsApi {
      * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
-     * @return EntitlementUsageMetricsResponse
+     * @return EntitlementUsageMetrics
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EntitlementUsageMetricsResponse metricsEntitlementsRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens) throws ApiException {
-        ApiResponse<EntitlementUsageMetricsResponse> resp = metricsEntitlementsRepoListWithHttpInfo(owner, repo, page, pageSize, finish, start, tokens);
+    public EntitlementUsageMetrics metricsEntitlementsRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens) throws ApiException {
+        ApiResponse<EntitlementUsageMetrics> resp = metricsEntitlementsRepoListWithHttpInfo(owner, repo, page, pageSize, finish, start, tokens);
         return resp.getData();
     }
 
@@ -355,12 +355,12 @@ public class MetricsApi {
      * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param tokens A comma seperated list of tokens (slug perm) to include in the results. (optional)
-     * @return ApiResponse&lt;EntitlementUsageMetricsResponse&gt;
+     * @return ApiResponse&lt;EntitlementUsageMetrics&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EntitlementUsageMetricsResponse> metricsEntitlementsRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String start,  String tokens) throws ApiException {
+    public ApiResponse<EntitlementUsageMetrics> metricsEntitlementsRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String start,  String tokens) throws ApiException {
         com.squareup.okhttp.Call call = metricsEntitlementsRepoListValidateBeforeCall(owner, repo, page, pageSize, finish, start, tokens, null, null);
-        Type localVarReturnType = new TypeToken<EntitlementUsageMetricsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<EntitlementUsageMetrics>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -378,7 +378,7 @@ public class MetricsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsEntitlementsRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ApiCallback<EntitlementUsageMetricsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsEntitlementsRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String start, String tokens, final ApiCallback<EntitlementUsageMetrics> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -400,7 +400,7 @@ public class MetricsApi {
         }
 
         com.squareup.okhttp.Call call = metricsEntitlementsRepoListValidateBeforeCall(owner, repo, page, pageSize, finish, start, tokens, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<EntitlementUsageMetricsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<EntitlementUsageMetrics>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -509,11 +509,11 @@ public class MetricsApi {
      * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param packages A comma seperated list of packages (slug perm) to include in the results. (optional)
      * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
-     * @return PackageUsageMetricsResponse
+     * @return PackageUsageMetrics
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageUsageMetricsResponse metricsPackagesList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String packages, String start) throws ApiException {
-        ApiResponse<PackageUsageMetricsResponse> resp = metricsPackagesListWithHttpInfo(owner, repo, page, pageSize, finish, packages, start);
+    public PackageUsageMetrics metricsPackagesList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String packages, String start) throws ApiException {
+        ApiResponse<PackageUsageMetrics> resp = metricsPackagesListWithHttpInfo(owner, repo, page, pageSize, finish, packages, start);
         return resp.getData();
     }
 
@@ -527,12 +527,12 @@ public class MetricsApi {
      * @param finish Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
      * @param packages A comma seperated list of packages (slug perm) to include in the results. (optional)
      * @param start Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. (optional)
-     * @return ApiResponse&lt;PackageUsageMetricsResponse&gt;
+     * @return ApiResponse&lt;PackageUsageMetrics&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageUsageMetricsResponse> metricsPackagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String packages,  String start) throws ApiException {
+    public ApiResponse<PackageUsageMetrics> metricsPackagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String finish,  String packages,  String start) throws ApiException {
         com.squareup.okhttp.Call call = metricsPackagesListValidateBeforeCall(owner, repo, page, pageSize, finish, packages, start, null, null);
-        Type localVarReturnType = new TypeToken<PackageUsageMetricsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageUsageMetrics>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -550,7 +550,7 @@ public class MetricsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call metricsPackagesListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String packages, String start, final ApiCallback<PackageUsageMetricsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call metricsPackagesListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String finish, String packages, String start, final ApiCallback<PackageUsageMetrics> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -572,7 +572,7 @@ public class MetricsApi {
         }
 
         com.squareup.okhttp.Call call = metricsPackagesListValidateBeforeCall(owner, repo, page, pageSize, finish, packages, start, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PackageUsageMetricsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageUsageMetrics>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -14,7 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.UserProfileResponse;
+import io.cloudsmith.api.models.UserProfile;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +44,7 @@ public class UsersApiTest {
     @Test
     public void usersProfileReadTest() throws Exception {
         String slug = null;
-        UserProfileResponse response = api.usersProfileRead(slug);
+        UserProfile response = api.usersProfileRead(slug);
 
         // TODO: test validations
     }

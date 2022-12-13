@@ -14,7 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.StorageRegionResponse;
+import io.cloudsmith.api.models.StorageRegion;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class StorageRegionsApiTest {
      */
     @Test
     public void storageRegionsListTest() throws Exception {
-        List<StorageRegionResponse> response = api.storageRegionsList();
+        List<StorageRegion> response = api.storageRegionsList();
 
         // TODO: test validations
     }
@@ -59,7 +59,7 @@ public class StorageRegionsApiTest {
     @Test
     public void storageRegionsReadTest() throws Exception {
         String slug = null;
-        StorageRegionResponse response = api.storageRegionsRead(slug);
+        StorageRegion response = api.storageRegionsRead(slug);
 
         // TODO: test validations
     }

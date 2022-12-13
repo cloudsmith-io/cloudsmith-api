@@ -1,6 +1,6 @@
 # VulnerabilitiesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="vulnerabilitiesNamespaceList"></a>
 # **vulnerabilitiesNamespaceList**
-> List&lt;VulnerabilityScanResultsListResponse&gt; vulnerabilitiesNamespaceList(owner, page, pageSize)
+> List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesNamespaceList(owner, page, pageSize)
 
 Lists scan results for a specific namespace.
 
@@ -40,7 +40,7 @@ String owner = "owner_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<VulnerabilityScanResultsListResponse> result = apiInstance.vulnerabilitiesNamespaceList(owner, page, pageSize);
+    List<VulnerabilityScanResultsList> result = apiInstance.vulnerabilitiesNamespaceList(owner, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling VulnerabilitiesApi#vulnerabilitiesNamespaceList");
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;VulnerabilityScanResultsListResponse&gt;**](VulnerabilityScanResultsListResponse.md)
+[**List&lt;VulnerabilityScanResultsList&gt;**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="vulnerabilitiesPackageList"></a>
 # **vulnerabilitiesPackageList**
-> List&lt;VulnerabilityScanResultsListResponse&gt; vulnerabilitiesPackageList(owner, repo, _package, page, pageSize)
+> List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesPackageList(owner, repo, _package, page, pageSize)
 
 Lists scan results for a specific package.
 
@@ -101,7 +101,7 @@ String _package = "_package_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<VulnerabilityScanResultsListResponse> result = apiInstance.vulnerabilitiesPackageList(owner, repo, _package, page, pageSize);
+    List<VulnerabilityScanResultsList> result = apiInstance.vulnerabilitiesPackageList(owner, repo, _package, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling VulnerabilitiesApi#vulnerabilitiesPackageList");
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;VulnerabilityScanResultsListResponse&gt;**](VulnerabilityScanResultsListResponse.md)
+[**List&lt;VulnerabilityScanResultsList&gt;**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 <a name="vulnerabilitiesRead"></a>
 # **vulnerabilitiesRead**
-> VulnerabilityScanResultsResponse vulnerabilitiesRead(owner, repo, _package, scanId)
+> VulnerabilityScanResults vulnerabilitiesRead(owner, repo, _package, scanId)
 
 Returns a Scan Result.
 
@@ -163,7 +163,7 @@ String repo = "repo_example"; // String |
 String _package = "_package_example"; // String | 
 String scanId = "scanId_example"; // String | 
 try {
-    VulnerabilityScanResultsResponse result = apiInstance.vulnerabilitiesRead(owner, repo, _package, scanId);
+    VulnerabilityScanResults result = apiInstance.vulnerabilitiesRead(owner, repo, _package, scanId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling VulnerabilitiesApi#vulnerabilitiesRead");
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VulnerabilityScanResultsResponse**](VulnerabilityScanResultsResponse.md)
+[**VulnerabilityScanResults**](VulnerabilityScanResults.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 <a name="vulnerabilitiesRepoList"></a>
 # **vulnerabilitiesRepoList**
-> List&lt;VulnerabilityScanResultsListResponse&gt; vulnerabilitiesRepoList(owner, repo, page, pageSize)
+> List&lt;VulnerabilityScanResultsList&gt; vulnerabilitiesRepoList(owner, repo, page, pageSize)
 
 Lists scan results for a specific repository.
 
@@ -224,7 +224,7 @@ String repo = "repo_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<VulnerabilityScanResultsListResponse> result = apiInstance.vulnerabilitiesRepoList(owner, repo, page, pageSize);
+    List<VulnerabilityScanResultsList> result = apiInstance.vulnerabilitiesRepoList(owner, repo, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling VulnerabilitiesApi#vulnerabilitiesRepoList");
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;VulnerabilityScanResultsListResponse&gt;**](VulnerabilityScanResultsListResponse.md)
+[**List&lt;VulnerabilityScanResultsList&gt;**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 

@@ -37,7 +37,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.FormatResponse;
+import io.cloudsmith.api.models.Format;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -143,23 +143,23 @@ public class FormatsApi {
     /**
      * Get a list of all supported package formats.
      * Get a list of all supported package formats.
-     * @return List&lt;FormatResponse&gt;
+     * @return List&lt;Format&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<FormatResponse> formatsList() throws ApiException {
-        ApiResponse<List<FormatResponse>> resp = formatsListWithHttpInfo();
+    public List<Format> formatsList() throws ApiException {
+        ApiResponse<List<Format>> resp = formatsListWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get a list of all supported package formats.
      * Get a list of all supported package formats.
-     * @return ApiResponse&lt;List&lt;FormatResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;Format&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<FormatResponse>> formatsListWithHttpInfo() throws ApiException {
+    public ApiResponse<List<Format>> formatsListWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = formatsListValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<FormatResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Format>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -170,7 +170,7 @@ public class FormatsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call formatsListAsync(final ApiCallback<List<FormatResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call formatsListAsync(final ApiCallback<List<Format>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,7 +192,7 @@ public class FormatsApi {
         }
 
         com.squareup.okhttp.Call call = formatsListValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<FormatResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Format>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -278,11 +278,11 @@ public class FormatsApi {
      * Get a specific supported package format.
      * Get a specific supported package format.
      * @param slug  (required)
-     * @return FormatResponse
+     * @return Format
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormatResponse formatsRead(String slug) throws ApiException {
-        ApiResponse<FormatResponse> resp = formatsReadWithHttpInfo(slug);
+    public Format formatsRead(String slug) throws ApiException {
+        ApiResponse<Format> resp = formatsReadWithHttpInfo(slug);
         return resp.getData();
     }
 
@@ -290,12 +290,12 @@ public class FormatsApi {
      * Get a specific supported package format.
      * Get a specific supported package format.
      * @param slug  (required)
-     * @return ApiResponse&lt;FormatResponse&gt;
+     * @return ApiResponse&lt;Format&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FormatResponse> formatsReadWithHttpInfo( @NotNull String slug) throws ApiException {
+    public ApiResponse<Format> formatsReadWithHttpInfo( @NotNull String slug) throws ApiException {
         com.squareup.okhttp.Call call = formatsReadValidateBeforeCall(slug, null, null);
-        Type localVarReturnType = new TypeToken<FormatResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Format>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -307,7 +307,7 @@ public class FormatsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call formatsReadAsync(String slug, final ApiCallback<FormatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call formatsReadAsync(String slug, final ApiCallback<Format> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -329,7 +329,7 @@ public class FormatsApi {
         }
 
         com.squareup.okhttp.Call call = formatsReadValidateBeforeCall(slug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FormatResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Format>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -1,6 +1,6 @@
 # StatusApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="statusCheckBasic"></a>
 # **statusCheckBasic**
-> StatusBasicResponse statusCheckBasic()
+> StatusBasic statusCheckBasic()
 
 Endpoint to check basic API connectivity.
 
@@ -24,7 +24,7 @@ Endpoint to check basic API connectivity.
 
 StatusApi apiInstance = new StatusApi();
 try {
-    StatusBasicResponse result = apiInstance.statusCheckBasic();
+    StatusBasic result = apiInstance.statusCheckBasic();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StatusApi#statusCheckBasic");
@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**StatusBasicResponse**](StatusBasicResponse.md)
+[**StatusBasic**](StatusBasic.md)
 
 ### Authorization
 

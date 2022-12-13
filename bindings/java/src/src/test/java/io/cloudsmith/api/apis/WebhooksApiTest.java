@@ -14,9 +14,9 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.RepositoryWebhook;
 import io.cloudsmith.api.models.RepositoryWebhookRequest;
 import io.cloudsmith.api.models.RepositoryWebhookRequestPatch;
-import io.cloudsmith.api.models.RepositoryWebhookResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -48,7 +48,7 @@ public class WebhooksApiTest {
         String owner = null;
         String repo = null;
         RepositoryWebhookRequest data = null;
-        RepositoryWebhookResponse response = api.webhooksCreate(owner, repo, data);
+        RepositoryWebhook response = api.webhooksCreate(owner, repo, data);
 
         // TODO: test validations
     }
@@ -85,7 +85,7 @@ public class WebhooksApiTest {
         String repo = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<RepositoryWebhookResponse> response = api.webhooksList(owner, repo, page, pageSize);
+        List<RepositoryWebhook> response = api.webhooksList(owner, repo, page, pageSize);
 
         // TODO: test validations
     }
@@ -104,7 +104,7 @@ public class WebhooksApiTest {
         String repo = null;
         String identifier = null;
         RepositoryWebhookRequestPatch data = null;
-        RepositoryWebhookResponse response = api.webhooksPartialUpdate(owner, repo, identifier, data);
+        RepositoryWebhook response = api.webhooksPartialUpdate(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -122,7 +122,7 @@ public class WebhooksApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        RepositoryWebhookResponse response = api.webhooksRead(owner, repo, identifier);
+        RepositoryWebhook response = api.webhooksRead(owner, repo, identifier);
 
         // TODO: test validations
     }

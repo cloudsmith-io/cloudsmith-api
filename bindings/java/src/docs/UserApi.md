@@ -1,6 +1,6 @@
 # UserApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="userSelf"></a>
 # **userSelf**
-> UserBriefResponse userSelf()
+> UserBrief userSelf()
 
 Provide a brief for the current user (if any).
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 
 UserApi apiInstance = new UserApi();
 try {
-    UserBriefResponse result = apiInstance.userSelf();
+    UserBrief result = apiInstance.userSelf();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#userSelf");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserBriefResponse**](UserBriefResponse.md)
+[**UserBrief**](UserBrief.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 <a name="userTokenCreate"></a>
 # **userTokenCreate**
-> UserAuthTokenResponse userTokenCreate(data)
+> UserAuthToken userTokenCreate(data)
 
 Retrieve the API key/token for the authenticated user.
 
@@ -87,7 +87,7 @@ apikey.setApiKey("YOUR API KEY");
 UserApi apiInstance = new UserApi();
 UserAuthTokenRequest data = new UserAuthTokenRequest(); // UserAuthTokenRequest | 
 try {
-    UserAuthTokenResponse result = apiInstance.userTokenCreate(data);
+    UserAuthToken result = apiInstance.userTokenCreate(data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#userTokenCreate");
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserAuthTokenResponse**](UserAuthTokenResponse.md)
+[**UserAuthToken**](UserAuthToken.md)
 
 ### Authorization
 

@@ -37,8 +37,59 @@ public class OrganizationInviteRequest implements Serializable {
   @SerializedName("email")
   private String email = null;
 
+  /**
+   * The role to be assigned to the invited user.
+   */
+  @JsonAdapter(RoleEnum.Adapter.class)
+  public enum RoleEnum {
+    OWNER("Owner"),
+    
+    MANAGER("Manager"),
+    
+    MEMBER("Member"),
+    
+    COLLABORATOR("Collaborator");
+
+    private String value;
+
+    RoleEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RoleEnum fromValue(String text) {
+      for (RoleEnum b : RoleEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RoleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RoleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RoleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RoleEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("role")
-  private String role = "Member";
+  private RoleEnum role = RoleEnum.MEMBER;
 
   @SerializedName("user")
   private String user = null;
@@ -61,7 +112,7 @@ public class OrganizationInviteRequest implements Serializable {
     this.email = email;
   }
 
-  public OrganizationInviteRequest role(String role) {
+  public OrganizationInviteRequest role(RoleEnum role) {
     this.role = role;
     return this;
   }
@@ -71,11 +122,11 @@ public class OrganizationInviteRequest implements Serializable {
    * @return role
   **/
   @ApiModelProperty(value = "The role to be assigned to the invited user.")
-  public String getRole() {
+  public RoleEnum getRole() {
     return role;
   }
 
-  public void setRole(String role) {
+  public void setRole(RoleEnum role) {
     this.role = role;
   }
 

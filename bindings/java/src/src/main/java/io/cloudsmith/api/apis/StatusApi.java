@@ -37,7 +37,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.StatusBasicResponse;
+import io.cloudsmith.api.models.StatusBasic;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -143,23 +143,23 @@ public class StatusApi {
     /**
      * Endpoint to check basic API connectivity.
      * Endpoint to check basic API connectivity.
-     * @return StatusBasicResponse
+     * @return StatusBasic
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StatusBasicResponse statusCheckBasic() throws ApiException {
-        ApiResponse<StatusBasicResponse> resp = statusCheckBasicWithHttpInfo();
+    public StatusBasic statusCheckBasic() throws ApiException {
+        ApiResponse<StatusBasic> resp = statusCheckBasicWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Endpoint to check basic API connectivity.
      * Endpoint to check basic API connectivity.
-     * @return ApiResponse&lt;StatusBasicResponse&gt;
+     * @return ApiResponse&lt;StatusBasic&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StatusBasicResponse> statusCheckBasicWithHttpInfo() throws ApiException {
+    public ApiResponse<StatusBasic> statusCheckBasicWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = statusCheckBasicValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<StatusBasicResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusBasic>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -170,7 +170,7 @@ public class StatusApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call statusCheckBasicAsync(final ApiCallback<StatusBasicResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call statusCheckBasicAsync(final ApiCallback<StatusBasic> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,7 +192,7 @@ public class StatusApi {
         }
 
         com.squareup.okhttp.Call call = statusCheckBasicValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StatusBasicResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusBasic>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

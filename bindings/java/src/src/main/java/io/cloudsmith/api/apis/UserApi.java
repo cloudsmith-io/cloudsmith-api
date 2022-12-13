@@ -37,9 +37,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.UserAuthToken;
 import io.cloudsmith.api.models.UserAuthTokenRequest;
-import io.cloudsmith.api.models.UserAuthTokenResponse;
-import io.cloudsmith.api.models.UserBriefResponse;
+import io.cloudsmith.api.models.UserBrief;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -145,23 +145,23 @@ public class UserApi {
     /**
      * Provide a brief for the current user (if any).
      * Provide a brief for the current user (if any).
-     * @return UserBriefResponse
+     * @return UserBrief
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public UserBriefResponse userSelf() throws ApiException {
-        ApiResponse<UserBriefResponse> resp = userSelfWithHttpInfo();
+    public UserBrief userSelf() throws ApiException {
+        ApiResponse<UserBrief> resp = userSelfWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Provide a brief for the current user (if any).
      * Provide a brief for the current user (if any).
-     * @return ApiResponse&lt;UserBriefResponse&gt;
+     * @return ApiResponse&lt;UserBrief&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<UserBriefResponse> userSelfWithHttpInfo() throws ApiException {
+    public ApiResponse<UserBrief> userSelfWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = userSelfValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<UserBriefResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserBrief>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -172,7 +172,7 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call userSelfAsync(final ApiCallback<UserBriefResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call userSelfAsync(final ApiCallback<UserBrief> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -194,7 +194,7 @@ public class UserApi {
         }
 
         com.squareup.okhttp.Call call = userSelfValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<UserBriefResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserBrief>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -279,11 +279,11 @@ public class UserApi {
      * Retrieve the API key/token for the authenticated user.
      * Retrieve the API key/token for the authenticated user.
      * @param data  (optional)
-     * @return UserAuthTokenResponse
+     * @return UserAuthToken
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public UserAuthTokenResponse userTokenCreate(UserAuthTokenRequest data) throws ApiException {
-        ApiResponse<UserAuthTokenResponse> resp = userTokenCreateWithHttpInfo(data);
+    public UserAuthToken userTokenCreate(UserAuthTokenRequest data) throws ApiException {
+        ApiResponse<UserAuthToken> resp = userTokenCreateWithHttpInfo(data);
         return resp.getData();
     }
 
@@ -291,12 +291,12 @@ public class UserApi {
      * Retrieve the API key/token for the authenticated user.
      * Retrieve the API key/token for the authenticated user.
      * @param data  (optional)
-     * @return ApiResponse&lt;UserAuthTokenResponse&gt;
+     * @return ApiResponse&lt;UserAuthToken&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<UserAuthTokenResponse> userTokenCreateWithHttpInfo( UserAuthTokenRequest data) throws ApiException {
+    public ApiResponse<UserAuthToken> userTokenCreateWithHttpInfo( UserAuthTokenRequest data) throws ApiException {
         com.squareup.okhttp.Call call = userTokenCreateValidateBeforeCall(data, null, null);
-        Type localVarReturnType = new TypeToken<UserAuthTokenResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserAuthToken>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -308,7 +308,7 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call userTokenCreateAsync(UserAuthTokenRequest data, final ApiCallback<UserAuthTokenResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call userTokenCreateAsync(UserAuthTokenRequest data, final ApiCallback<UserAuthToken> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -330,7 +330,7 @@ public class UserApi {
         }
 
         com.squareup.okhttp.Call call = userTokenCreateValidateBeforeCall(data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<UserAuthTokenResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserAuthToken>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

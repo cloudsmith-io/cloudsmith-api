@@ -14,8 +14,8 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.NamespaceAuditLogResponse;
-import io.cloudsmith.api.models.RepositoryAuditLogResponse;
+import io.cloudsmith.api.models.NamespaceAuditLog;
+import io.cloudsmith.api.models.RepositoryAuditLog;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -48,7 +48,7 @@ public class AuditLogApiTest {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
         String query = null;
-        List<NamespaceAuditLogResponse> response = api.auditLogNamespaceList(owner, page, pageSize, query);
+        List<NamespaceAuditLog> response = api.auditLogNamespaceList(owner, page, pageSize, query);
 
         // TODO: test validations
     }
@@ -68,7 +68,7 @@ public class AuditLogApiTest {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
         String query = null;
-        List<RepositoryAuditLogResponse> response = api.auditLogRepoList(owner, repo, page, pageSize, query);
+        List<RepositoryAuditLog> response = api.auditLogRepoList(owner, repo, page, pageSize, query);
 
         // TODO: test validations
     }

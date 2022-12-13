@@ -14,7 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.ResourcesRateCheckResponse;
+import io.cloudsmith.api.models.ResourcesRateCheck;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class RatesApiTest {
      */
     @Test
     public void ratesLimitsListTest() throws Exception {
-        ResourcesRateCheckResponse response = api.ratesLimitsList();
+        ResourcesRateCheck response = api.ratesLimitsList();
 
         // TODO: test validations
     }

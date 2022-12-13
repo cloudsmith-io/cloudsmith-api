@@ -1,6 +1,6 @@
 # FormatsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="formatsList"></a>
 # **formatsList**
-> List&lt;FormatResponse&gt; formatsList()
+> List&lt;Format&gt; formatsList()
 
 Get a list of all supported package formats.
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 
 FormatsApi apiInstance = new FormatsApi();
 try {
-    List<FormatResponse> result = apiInstance.formatsList();
+    List<Format> result = apiInstance.formatsList();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FormatsApi#formatsList");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;FormatResponse&gt;**](FormatResponse.md)
+[**List&lt;Format&gt;**](Format.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 <a name="formatsRead"></a>
 # **formatsRead**
-> FormatResponse formatsRead(slug)
+> Format formatsRead(slug)
 
 Get a specific supported package format.
 
@@ -87,7 +87,7 @@ apikey.setApiKey("YOUR API KEY");
 FormatsApi apiInstance = new FormatsApi();
 String slug = "slug_example"; // String | 
 try {
-    FormatResponse result = apiInstance.formatsRead(slug);
+    Format result = apiInstance.formatsRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FormatsApi#formatsRead");
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FormatResponse**](FormatResponse.md)
+[**Format**](Format.md)
 
 ### Authorization
 

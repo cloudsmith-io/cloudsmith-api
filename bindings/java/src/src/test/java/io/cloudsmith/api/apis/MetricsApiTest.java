@@ -13,9 +13,9 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.EntitlementUsageMetricsResponse;
+import io.cloudsmith.api.models.EntitlementUsageMetrics;
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.PackageUsageMetricsResponse;
+import io.cloudsmith.api.models.PackageUsageMetrics;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -50,7 +50,7 @@ public class MetricsApiTest {
         String finish = null;
         String start = null;
         String tokens = null;
-        EntitlementUsageMetricsResponse response = api.metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens);
+        EntitlementUsageMetrics response = api.metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens);
 
         // TODO: test validations
     }
@@ -72,7 +72,7 @@ public class MetricsApiTest {
         String finish = null;
         String start = null;
         String tokens = null;
-        EntitlementUsageMetricsResponse response = api.metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens);
+        EntitlementUsageMetrics response = api.metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens);
 
         // TODO: test validations
     }
@@ -94,7 +94,7 @@ public class MetricsApiTest {
         String finish = null;
         String packages = null;
         String start = null;
-        PackageUsageMetricsResponse response = api.metricsPackagesList(owner, repo, page, pageSize, finish, packages, start);
+        PackageUsageMetrics response = api.metricsPackagesList(owner, repo, page, pageSize, finish, packages, start);
 
         // TODO: test validations
     }

@@ -14,8 +14,8 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.QuotaHistoryResponse;
-import io.cloudsmith.api.models.QuotaResponse;
+import io.cloudsmith.api.models.Quota;
+import io.cloudsmith.api.models.QuotaHistory;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +45,7 @@ public class QuotaApiTest {
     @Test
     public void quotaHistoryReadTest() throws Exception {
         String owner = null;
-        QuotaHistoryResponse response = api.quotaHistoryRead(owner);
+        QuotaHistory response = api.quotaHistoryRead(owner);
 
         // TODO: test validations
     }
@@ -61,7 +61,7 @@ public class QuotaApiTest {
     @Test
     public void quotaOssHistoryReadTest() throws Exception {
         String owner = null;
-        QuotaHistoryResponse response = api.quotaOssHistoryRead(owner);
+        QuotaHistory response = api.quotaOssHistoryRead(owner);
 
         // TODO: test validations
     }
@@ -77,7 +77,7 @@ public class QuotaApiTest {
     @Test
     public void quotaOssReadTest() throws Exception {
         String owner = null;
-        QuotaResponse response = api.quotaOssRead(owner);
+        Quota response = api.quotaOssRead(owner);
 
         // TODO: test validations
     }
@@ -93,7 +93,7 @@ public class QuotaApiTest {
     @Test
     public void quotaReadTest() throws Exception {
         String owner = null;
-        QuotaResponse response = api.quotaRead(owner);
+        Quota response = api.quotaRead(owner);
 
         // TODO: test validations
     }

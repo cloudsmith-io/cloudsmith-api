@@ -43,8 +43,55 @@ public class OrganizationTeamRequest implements Serializable {
   @SerializedName("slug")
   private String slug = null;
 
+  /**
+   * Gets or Sets visibility
+   */
+  @JsonAdapter(VisibilityEnum.Adapter.class)
+  public enum VisibilityEnum {
+    VISIBLE("Visible"),
+    
+    HIDDEN("Hidden");
+
+    private String value;
+
+    VisibilityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VisibilityEnum fromValue(String text) {
+      for (VisibilityEnum b : VisibilityEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<VisibilityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VisibilityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VisibilityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VisibilityEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("visibility")
-  private String visibility = "Visible";
+  private VisibilityEnum visibility = VisibilityEnum.VISIBLE;
 
   public OrganizationTeamRequest description(String description) {
     this.description = description;
@@ -101,7 +148,7 @@ public class OrganizationTeamRequest implements Serializable {
     this.slug = slug;
   }
 
-  public OrganizationTeamRequest visibility(String visibility) {
+  public OrganizationTeamRequest visibility(VisibilityEnum visibility) {
     this.visibility = visibility;
     return this;
   }
@@ -111,11 +158,11 @@ public class OrganizationTeamRequest implements Serializable {
    * @return visibility
   **/
   @ApiModelProperty(value = "")
-  public String getVisibility() {
+  public VisibilityEnum getVisibility() {
     return visibility;
   }
 
-  public void setVisibility(String visibility) {
+  public void setVisibility(VisibilityEnum visibility) {
     this.visibility = visibility;
   }
 

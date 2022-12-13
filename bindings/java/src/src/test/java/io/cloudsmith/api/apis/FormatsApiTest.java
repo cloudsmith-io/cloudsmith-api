@@ -14,7 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.FormatResponse;
+import io.cloudsmith.api.models.Format;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -43,7 +43,7 @@ public class FormatsApiTest {
      */
     @Test
     public void formatsListTest() throws Exception {
-        List<FormatResponse> response = api.formatsList();
+        List<Format> response = api.formatsList();
 
         // TODO: test validations
     }
@@ -59,7 +59,7 @@ public class FormatsApiTest {
     @Test
     public void formatsReadTest() throws Exception {
         String slug = null;
-        FormatResponse response = api.formatsRead(slug);
+        Format response = api.formatsRead(slug);
 
         // TODO: test validations
     }

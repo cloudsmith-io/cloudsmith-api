@@ -14,9 +14,9 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.PackageFilePartsUploadResponse;
+import io.cloudsmith.api.models.PackageFilePartsUpload;
+import io.cloudsmith.api.models.PackageFileUpload;
 import io.cloudsmith.api.models.PackageFileUploadRequest;
-import io.cloudsmith.api.models.PackageFileUploadResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -68,7 +68,7 @@ public class FilesApiTest {
         String repo = null;
         String identifier = null;
         PackageFileUploadRequest data = null;
-        PackageFileUploadResponse response = api.filesComplete(owner, repo, identifier, data);
+        PackageFileUpload response = api.filesComplete(owner, repo, identifier, data);
 
         // TODO: test validations
     }
@@ -86,7 +86,7 @@ public class FilesApiTest {
         String owner = null;
         String repo = null;
         PackageFileUploadRequest data = null;
-        PackageFileUploadResponse response = api.filesCreate(owner, repo, data);
+        PackageFileUpload response = api.filesCreate(owner, repo, data);
 
         // TODO: test validations
     }
@@ -106,7 +106,7 @@ public class FilesApiTest {
         String identifier = null;
         String filename = null;
         java.math.BigInteger partNumber = null;
-        PackageFilePartsUploadResponse response = api.filesInfo(owner, repo, identifier, filename, partNumber);
+        PackageFilePartsUpload response = api.filesInfo(owner, repo, identifier, filename, partNumber);
 
         // TODO: test validations
     }

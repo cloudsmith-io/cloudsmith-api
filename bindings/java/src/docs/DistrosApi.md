@@ -1,6 +1,6 @@
 # DistrosApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="distrosList"></a>
 # **distrosList**
-> List&lt;DistributionResponse&gt; distrosList()
+> List&lt;DistributionFull&gt; distrosList()
 
 Get a list of all supported distributions.
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 
 DistrosApi apiInstance = new DistrosApi();
 try {
-    List<DistributionResponse> result = apiInstance.distrosList();
+    List<DistributionFull> result = apiInstance.distrosList();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistrosApi#distrosList");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;DistributionResponse&gt;**](DistributionResponse.md)
+[**List&lt;DistributionFull&gt;**](DistributionFull.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 <a name="distrosRead"></a>
 # **distrosRead**
-> DistributionResponse distrosRead(slug)
+> DistributionFull distrosRead(slug)
 
 View for viewing/listing distributions.
 
@@ -87,7 +87,7 @@ apikey.setApiKey("YOUR API KEY");
 DistrosApi apiInstance = new DistrosApi();
 String slug = "slug_example"; // String | 
 try {
-    DistributionResponse result = apiInstance.distrosRead(slug);
+    DistributionFull result = apiInstance.distrosRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistrosApi#distrosRead");
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DistributionResponse**](DistributionResponse.md)
+[**DistributionFull**](DistributionFull.md)
 
 ### Authorization
 

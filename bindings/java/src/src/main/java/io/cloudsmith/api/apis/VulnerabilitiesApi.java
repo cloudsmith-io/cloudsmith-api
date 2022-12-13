@@ -37,8 +37,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.VulnerabilityScanResultsListResponse;
-import io.cloudsmith.api.models.VulnerabilityScanResultsResponse;
+import io.cloudsmith.api.models.VulnerabilityScanResults;
+import io.cloudsmith.api.models.VulnerabilityScanResultsList;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -155,11 +155,11 @@ public class VulnerabilitiesApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;VulnerabilityScanResultsListResponse&gt;
+     * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<VulnerabilityScanResultsListResponse> vulnerabilitiesNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<VulnerabilityScanResultsListResponse>> resp = vulnerabilitiesNamespaceListWithHttpInfo(owner, page, pageSize);
+    public List<VulnerabilityScanResultsList> vulnerabilitiesNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesNamespaceListWithHttpInfo(owner, page, pageSize);
         return resp.getData();
     }
 
@@ -169,12 +169,12 @@ public class VulnerabilitiesApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsListResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<VulnerabilityScanResultsListResponse>> vulnerabilitiesNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = vulnerabilitiesNamespaceListValidateBeforeCall(owner, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsListResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -188,7 +188,7 @@ public class VulnerabilitiesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call vulnerabilitiesNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsListResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -210,7 +210,7 @@ public class VulnerabilitiesApi {
         }
 
         com.squareup.okhttp.Call call = vulnerabilitiesNamespaceListValidateBeforeCall(owner, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsListResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -310,11 +310,11 @@ public class VulnerabilitiesApi {
      * @param _package  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;VulnerabilityScanResultsListResponse&gt;
+     * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<VulnerabilityScanResultsListResponse> vulnerabilitiesPackageList(String owner, String repo, String _package, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<VulnerabilityScanResultsListResponse>> resp = vulnerabilitiesPackageListWithHttpInfo(owner, repo, _package, page, pageSize);
+    public List<VulnerabilityScanResultsList> vulnerabilitiesPackageList(String owner, String repo, String _package, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesPackageListWithHttpInfo(owner, repo, _package, page, pageSize);
         return resp.getData();
     }
 
@@ -326,12 +326,12 @@ public class VulnerabilitiesApi {
      * @param _package  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsListResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<VulnerabilityScanResultsListResponse>> vulnerabilitiesPackageListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesPackageListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = vulnerabilitiesPackageListValidateBeforeCall(owner, repo, _package, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsListResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -347,7 +347,7 @@ public class VulnerabilitiesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call vulnerabilitiesPackageListAsync(String owner, String repo, String _package, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsListResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesPackageListAsync(String owner, String repo, String _package, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -369,7 +369,7 @@ public class VulnerabilitiesApi {
         }
 
         com.squareup.okhttp.Call call = vulnerabilitiesPackageListValidateBeforeCall(owner, repo, _package, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsListResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -464,11 +464,11 @@ public class VulnerabilitiesApi {
      * @param repo  (required)
      * @param _package  (required)
      * @param scanId  (required)
-     * @return VulnerabilityScanResultsResponse
+     * @return VulnerabilityScanResults
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VulnerabilityScanResultsResponse vulnerabilitiesRead(String owner, String repo, String _package, String scanId) throws ApiException {
-        ApiResponse<VulnerabilityScanResultsResponse> resp = vulnerabilitiesReadWithHttpInfo(owner, repo, _package, scanId);
+    public VulnerabilityScanResults vulnerabilitiesRead(String owner, String repo, String _package, String scanId) throws ApiException {
+        ApiResponse<VulnerabilityScanResults> resp = vulnerabilitiesReadWithHttpInfo(owner, repo, _package, scanId);
         return resp.getData();
     }
 
@@ -479,12 +479,12 @@ public class VulnerabilitiesApi {
      * @param repo  (required)
      * @param _package  (required)
      * @param scanId  (required)
-     * @return ApiResponse&lt;VulnerabilityScanResultsResponse&gt;
+     * @return ApiResponse&lt;VulnerabilityScanResults&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VulnerabilityScanResultsResponse> vulnerabilitiesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  @NotNull String scanId) throws ApiException {
+    public ApiResponse<VulnerabilityScanResults> vulnerabilitiesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  @NotNull String scanId) throws ApiException {
         com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, scanId, null, null);
-        Type localVarReturnType = new TypeToken<VulnerabilityScanResultsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<VulnerabilityScanResults>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -499,7 +499,7 @@ public class VulnerabilitiesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call vulnerabilitiesReadAsync(String owner, String repo, String _package, String scanId, final ApiCallback<VulnerabilityScanResultsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesReadAsync(String owner, String repo, String _package, String scanId, final ApiCallback<VulnerabilityScanResults> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -521,7 +521,7 @@ public class VulnerabilitiesApi {
         }
 
         com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, scanId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VulnerabilityScanResultsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<VulnerabilityScanResults>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -618,11 +618,11 @@ public class VulnerabilitiesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return List&lt;VulnerabilityScanResultsListResponse&gt;
+     * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<VulnerabilityScanResultsListResponse> vulnerabilitiesRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<VulnerabilityScanResultsListResponse>> resp = vulnerabilitiesRepoListWithHttpInfo(owner, repo, page, pageSize);
+    public List<VulnerabilityScanResultsList> vulnerabilitiesRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesRepoListWithHttpInfo(owner, repo, page, pageSize);
         return resp.getData();
     }
 
@@ -633,12 +633,12 @@ public class VulnerabilitiesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsListResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<VulnerabilityScanResultsListResponse>> vulnerabilitiesRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = vulnerabilitiesRepoListValidateBeforeCall(owner, repo, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsListResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -653,7 +653,7 @@ public class VulnerabilitiesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call vulnerabilitiesRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsListResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -675,7 +675,7 @@ public class VulnerabilitiesApi {
         }
 
         com.squareup.okhttp.Call call = vulnerabilitiesRepoListValidateBeforeCall(owner, repo, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsListResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -14,13 +14,13 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.RepositoryToken;
+import io.cloudsmith.api.models.RepositoryTokenRefresh;
 import io.cloudsmith.api.models.RepositoryTokenRefreshRequest;
-import io.cloudsmith.api.models.RepositoryTokenRefreshResponse;
 import io.cloudsmith.api.models.RepositoryTokenRequest;
 import io.cloudsmith.api.models.RepositoryTokenRequestPatch;
-import io.cloudsmith.api.models.RepositoryTokenResponse;
+import io.cloudsmith.api.models.RepositoryTokenSync;
 import io.cloudsmith.api.models.RepositoryTokenSyncRequest;
-import io.cloudsmith.api.models.RepositoryTokenSyncResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -53,7 +53,7 @@ public class EntitlementsApiTest {
         String repo = null;
         RepositoryTokenRequest data = null;
         Boolean showTokens = null;
-        RepositoryTokenResponse response = api.entitlementsCreate(owner, repo, data, showTokens);
+        RepositoryToken response = api.entitlementsCreate(owner, repo, data, showTokens);
 
         // TODO: test validations
     }
@@ -129,7 +129,7 @@ public class EntitlementsApiTest {
         Boolean showTokens = null;
         String query = null;
         Boolean active = null;
-        List<RepositoryTokenResponse> response = api.entitlementsList(owner, repo, page, pageSize, showTokens, query, active);
+        List<RepositoryToken> response = api.entitlementsList(owner, repo, page, pageSize, showTokens, query, active);
 
         // TODO: test validations
     }
@@ -149,7 +149,7 @@ public class EntitlementsApiTest {
         String identifier = null;
         RepositoryTokenRequestPatch data = null;
         Boolean showTokens = null;
-        RepositoryTokenResponse response = api.entitlementsPartialUpdate(owner, repo, identifier, data, showTokens);
+        RepositoryToken response = api.entitlementsPartialUpdate(owner, repo, identifier, data, showTokens);
 
         // TODO: test validations
     }
@@ -169,7 +169,7 @@ public class EntitlementsApiTest {
         String identifier = null;
         Boolean fuzzy = null;
         Boolean showTokens = null;
-        RepositoryTokenResponse response = api.entitlementsRead(owner, repo, identifier, fuzzy, showTokens);
+        RepositoryToken response = api.entitlementsRead(owner, repo, identifier, fuzzy, showTokens);
 
         // TODO: test validations
     }
@@ -189,7 +189,7 @@ public class EntitlementsApiTest {
         String identifier = null;
         RepositoryTokenRefreshRequest data = null;
         Boolean showTokens = null;
-        RepositoryTokenRefreshResponse response = api.entitlementsRefresh(owner, repo, identifier, data, showTokens);
+        RepositoryTokenRefresh response = api.entitlementsRefresh(owner, repo, identifier, data, showTokens);
 
         // TODO: test validations
     }
@@ -227,7 +227,7 @@ public class EntitlementsApiTest {
         String repo = null;
         RepositoryTokenSyncRequest data = null;
         Boolean showTokens = null;
-        RepositoryTokenSyncResponse response = api.entitlementsSync(owner, repo, data, showTokens);
+        RepositoryTokenSync response = api.entitlementsSync(owner, repo, data, showTokens);
 
         // TODO: test validations
     }

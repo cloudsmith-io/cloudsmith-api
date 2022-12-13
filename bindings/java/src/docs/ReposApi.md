@@ -1,6 +1,6 @@
 # ReposApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 <a name="reposCreate"></a>
 # **reposCreate**
-> RepositoryCreateResponse reposCreate(owner, data)
+> RepositoryCreate reposCreate(owner, data)
 
 Create a new repository in a given namespace.
 
@@ -50,7 +50,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 RepositoryCreateRequest data = new RepositoryCreateRequest(); // RepositoryCreateRequest | 
 try {
-    RepositoryCreateResponse result = apiInstance.reposCreate(owner, data);
+    RepositoryCreate result = apiInstance.reposCreate(owner, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposCreate");
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryCreateResponse**](RepositoryCreateResponse.md)
+[**RepositoryCreate**](RepositoryCreate.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ null (empty response body)
 
 <a name="reposGpgCreate"></a>
 # **reposGpgCreate**
-> RepositoryGpgKeyResponse reposGpgCreate(owner, identifier, data)
+> RepositoryGpgKey reposGpgCreate(owner, identifier, data)
 
 Set the active GPG key for the Repository.
 
@@ -164,7 +164,7 @@ String owner = "owner_example"; // String |
 String identifier = "identifier_example"; // String | 
 RepositoryGpgKeyCreate data = new RepositoryGpgKeyCreate(); // RepositoryGpgKeyCreate | 
 try {
-    RepositoryGpgKeyResponse result = apiInstance.reposGpgCreate(owner, identifier, data);
+    RepositoryGpgKey result = apiInstance.reposGpgCreate(owner, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGpgCreate");
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 <a name="reposGpgList"></a>
 # **reposGpgList**
-> RepositoryGpgKeyResponse reposGpgList(owner, identifier)
+> RepositoryGpgKey reposGpgList(owner, identifier)
 
 Retrieve the active GPG key for the Repository.
 
@@ -222,7 +222,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryGpgKeyResponse result = apiInstance.reposGpgList(owner, identifier);
+    RepositoryGpgKey result = apiInstance.reposGpgList(owner, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGpgList");
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 <a name="reposGpgRegenerate"></a>
 # **reposGpgRegenerate**
-> RepositoryGpgKeyResponse reposGpgRegenerate(owner, identifier)
+> RepositoryGpgKey reposGpgRegenerate(owner, identifier)
 
 Regenerate GPG Key for the Repository.
 
@@ -279,7 +279,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryGpgKeyResponse result = apiInstance.reposGpgRegenerate(owner, identifier);
+    RepositoryGpgKey result = apiInstance.reposGpgRegenerate(owner, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGpgRegenerate");
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGpgKeyResponse**](RepositoryGpgKeyResponse.md)
+[**RepositoryGpgKey**](RepositoryGpgKey.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 <a name="reposNamespaceList"></a>
 # **reposNamespaceList**
-> List&lt;RepositoryResponse&gt; reposNamespaceList(owner, page, pageSize)
+> List&lt;Repository&gt; reposNamespaceList(owner, page, pageSize)
 
 Get a list of all repositories within a namespace.
 
@@ -337,7 +337,7 @@ String owner = "owner_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<RepositoryResponse> result = apiInstance.reposNamespaceList(owner, page, pageSize);
+    List<Repository> result = apiInstance.reposNamespaceList(owner, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposNamespaceList");
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;RepositoryResponse&gt;**](RepositoryResponse.md)
+[**List&lt;Repository&gt;**](Repository.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 <a name="reposPartialUpdate"></a>
 # **reposPartialUpdate**
-> RepositoryResponse reposPartialUpdate(owner, identifier, data)
+> Repository reposPartialUpdate(owner, identifier, data)
 
 Update details about a repository in a given namespace.
 
@@ -396,7 +396,7 @@ String owner = "owner_example"; // String |
 String identifier = "identifier_example"; // String | 
 RepositoryRequestPatch data = new RepositoryRequestPatch(); // RepositoryRequestPatch | 
 try {
-    RepositoryResponse result = apiInstance.reposPartialUpdate(owner, identifier, data);
+    Repository result = apiInstance.reposPartialUpdate(owner, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposPartialUpdate");
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryResponse**](RepositoryResponse.md)
+[**Repository**](Repository.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 <a name="reposPrivilegesList"></a>
 # **reposPrivilegesList**
-> RepositoryPrivilegeInputResponse reposPrivilegesList(owner, identifier, page, pageSize)
+> RepositoryPrivilegeInput reposPrivilegesList(owner, identifier, page, pageSize)
 
 List all explicity created privileges for the repository.
 
@@ -456,7 +456,7 @@ String identifier = "identifier_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    RepositoryPrivilegeInputResponse result = apiInstance.reposPrivilegesList(owner, identifier, page, pageSize);
+    RepositoryPrivilegeInput result = apiInstance.reposPrivilegesList(owner, identifier, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposPrivilegesList");
@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryPrivilegeInputResponse**](RepositoryPrivilegeInputResponse.md)
+[**RepositoryPrivilegeInput**](RepositoryPrivilegeInput.md)
 
 ### Authorization
 
@@ -604,7 +604,7 @@ null (empty response body)
 
 <a name="reposRead"></a>
 # **reposRead**
-> RepositoryResponse reposRead(owner, identifier)
+> Repository reposRead(owner, identifier)
 
 Get a specific repository.
 
@@ -631,7 +631,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryResponse result = apiInstance.reposRead(owner, identifier);
+    Repository result = apiInstance.reposRead(owner, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposRead");
@@ -648,7 +648,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryResponse**](RepositoryResponse.md)
+[**Repository**](Repository.md)
 
 ### Authorization
 
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 <a name="reposRsaCreate"></a>
 # **reposRsaCreate**
-> RepositoryRsaKeyResponse reposRsaCreate(owner, identifier, data)
+> RepositoryRsaKey reposRsaCreate(owner, identifier, data)
 
 Set the active RSA key for the Repository.
 
@@ -689,7 +689,7 @@ String owner = "owner_example"; // String |
 String identifier = "identifier_example"; // String | 
 RepositoryRsaKeyCreate data = new RepositoryRsaKeyCreate(); // RepositoryRsaKeyCreate | 
 try {
-    RepositoryRsaKeyResponse result = apiInstance.reposRsaCreate(owner, identifier, data);
+    RepositoryRsaKey result = apiInstance.reposRsaCreate(owner, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposRsaCreate");
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
 
 ### Authorization
 
@@ -720,7 +720,7 @@ Name | Type | Description  | Notes
 
 <a name="reposRsaList"></a>
 # **reposRsaList**
-> RepositoryRsaKeyResponse reposRsaList(owner, identifier)
+> RepositoryRsaKey reposRsaList(owner, identifier)
 
 Retrieve the active RSA key for the Repository.
 
@@ -747,7 +747,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryRsaKeyResponse result = apiInstance.reposRsaList(owner, identifier);
+    RepositoryRsaKey result = apiInstance.reposRsaList(owner, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposRsaList");
@@ -764,7 +764,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
 
 ### Authorization
 
@@ -777,7 +777,7 @@ Name | Type | Description  | Notes
 
 <a name="reposRsaRegenerate"></a>
 # **reposRsaRegenerate**
-> RepositoryRsaKeyResponse reposRsaRegenerate(owner, identifier)
+> RepositoryRsaKey reposRsaRegenerate(owner, identifier)
 
 Regenerate RSA Key for the Repository.
 
@@ -804,7 +804,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryRsaKeyResponse result = apiInstance.reposRsaRegenerate(owner, identifier);
+    RepositoryRsaKey result = apiInstance.reposRsaRegenerate(owner, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposRsaRegenerate");
@@ -821,7 +821,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryRsaKeyResponse**](RepositoryRsaKeyResponse.md)
+[**RepositoryRsaKey**](RepositoryRsaKey.md)
 
 ### Authorization
 
@@ -834,7 +834,7 @@ Name | Type | Description  | Notes
 
 <a name="reposUserList"></a>
 # **reposUserList**
-> List&lt;RepositoryResponse&gt; reposUserList(page, pageSize)
+> List&lt;Repository&gt; reposUserList(page, pageSize)
 
 Get a list of all repositories associated with current user.
 
@@ -861,7 +861,7 @@ ReposApi apiInstance = new ReposApi();
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<RepositoryResponse> result = apiInstance.reposUserList(page, pageSize);
+    List<Repository> result = apiInstance.reposUserList(page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposUserList");
@@ -878,7 +878,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;RepositoryResponse&gt;**](RepositoryResponse.md)
+[**List&lt;Repository&gt;**](Repository.md)
 
 ### Authorization
 

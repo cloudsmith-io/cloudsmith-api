@@ -1,6 +1,6 @@
 # StorageRegionsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="storageRegionsList"></a>
 # **storageRegionsList**
-> List&lt;StorageRegionResponse&gt; storageRegionsList()
+> List&lt;StorageRegion&gt; storageRegionsList()
 
 Get a list of all available storage regions.
 
@@ -35,7 +35,7 @@ apikey.setApiKey("YOUR API KEY");
 
 StorageRegionsApi apiInstance = new StorageRegionsApi();
 try {
-    List<StorageRegionResponse> result = apiInstance.storageRegionsList();
+    List<StorageRegion> result = apiInstance.storageRegionsList();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageRegionsApi#storageRegionsList");
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;StorageRegionResponse&gt;**](StorageRegionResponse.md)
+[**List&lt;StorageRegion&gt;**](StorageRegion.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 <a name="storageRegionsRead"></a>
 # **storageRegionsRead**
-> StorageRegionResponse storageRegionsRead(slug)
+> StorageRegion storageRegionsRead(slug)
 
 Get a specific storage region.
 
@@ -87,7 +87,7 @@ apikey.setApiKey("YOUR API KEY");
 StorageRegionsApi apiInstance = new StorageRegionsApi();
 String slug = "slug_example"; // String | 
 try {
-    StorageRegionResponse result = apiInstance.storageRegionsRead(slug);
+    StorageRegion result = apiInstance.storageRegionsRead(slug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageRegionsApi#storageRegionsRead");
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StorageRegionResponse**](StorageRegionResponse.md)
+[**StorageRegion**](StorageRegion.md)
 
 ### Authorization
 

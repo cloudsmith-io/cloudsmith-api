@@ -37,8 +37,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.QuotaHistoryResponse;
-import io.cloudsmith.api.models.QuotaResponse;
+import io.cloudsmith.api.models.Quota;
+import io.cloudsmith.api.models.QuotaHistory;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -147,11 +147,11 @@ public class QuotaApi {
      * Quota history for a given namespace.
      * Quota history for a given namespace.
      * @param owner  (required)
-     * @return QuotaHistoryResponse
+     * @return QuotaHistory
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public QuotaHistoryResponse quotaHistoryRead(String owner) throws ApiException {
-        ApiResponse<QuotaHistoryResponse> resp = quotaHistoryReadWithHttpInfo(owner);
+    public QuotaHistory quotaHistoryRead(String owner) throws ApiException {
+        ApiResponse<QuotaHistory> resp = quotaHistoryReadWithHttpInfo(owner);
         return resp.getData();
     }
 
@@ -159,12 +159,12 @@ public class QuotaApi {
      * Quota history for a given namespace.
      * Quota history for a given namespace.
      * @param owner  (required)
-     * @return ApiResponse&lt;QuotaHistoryResponse&gt;
+     * @return ApiResponse&lt;QuotaHistory&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<QuotaHistoryResponse> quotaHistoryReadWithHttpInfo( @NotNull String owner) throws ApiException {
+    public ApiResponse<QuotaHistory> quotaHistoryReadWithHttpInfo( @NotNull String owner) throws ApiException {
         com.squareup.okhttp.Call call = quotaHistoryReadValidateBeforeCall(owner, null, null);
-        Type localVarReturnType = new TypeToken<QuotaHistoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -176,7 +176,7 @@ public class QuotaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaHistoryReadAsync(String owner, final ApiCallback<QuotaHistoryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call quotaHistoryReadAsync(String owner, final ApiCallback<QuotaHistory> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -198,7 +198,7 @@ public class QuotaApi {
         }
 
         com.squareup.okhttp.Call call = quotaHistoryReadValidateBeforeCall(owner, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QuotaHistoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -284,11 +284,11 @@ public class QuotaApi {
      * Open-source Quota history for a given namespace.
      * Open-source Quota history for a given namespace.
      * @param owner  (required)
-     * @return QuotaHistoryResponse
+     * @return QuotaHistory
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public QuotaHistoryResponse quotaOssHistoryRead(String owner) throws ApiException {
-        ApiResponse<QuotaHistoryResponse> resp = quotaOssHistoryReadWithHttpInfo(owner);
+    public QuotaHistory quotaOssHistoryRead(String owner) throws ApiException {
+        ApiResponse<QuotaHistory> resp = quotaOssHistoryReadWithHttpInfo(owner);
         return resp.getData();
     }
 
@@ -296,12 +296,12 @@ public class QuotaApi {
      * Open-source Quota history for a given namespace.
      * Open-source Quota history for a given namespace.
      * @param owner  (required)
-     * @return ApiResponse&lt;QuotaHistoryResponse&gt;
+     * @return ApiResponse&lt;QuotaHistory&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<QuotaHistoryResponse> quotaOssHistoryReadWithHttpInfo( @NotNull String owner) throws ApiException {
+    public ApiResponse<QuotaHistory> quotaOssHistoryReadWithHttpInfo( @NotNull String owner) throws ApiException {
         com.squareup.okhttp.Call call = quotaOssHistoryReadValidateBeforeCall(owner, null, null);
-        Type localVarReturnType = new TypeToken<QuotaHistoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -313,7 +313,7 @@ public class QuotaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaOssHistoryReadAsync(String owner, final ApiCallback<QuotaHistoryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call quotaOssHistoryReadAsync(String owner, final ApiCallback<QuotaHistory> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -335,7 +335,7 @@ public class QuotaApi {
         }
 
         com.squareup.okhttp.Call call = quotaOssHistoryReadValidateBeforeCall(owner, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QuotaHistoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<QuotaHistory>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -421,11 +421,11 @@ public class QuotaApi {
      * Open-source Quota usage for a given namespace.
      * Open-source Quota usage for a given namespace.
      * @param owner  (required)
-     * @return QuotaResponse
+     * @return Quota
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public QuotaResponse quotaOssRead(String owner) throws ApiException {
-        ApiResponse<QuotaResponse> resp = quotaOssReadWithHttpInfo(owner);
+    public Quota quotaOssRead(String owner) throws ApiException {
+        ApiResponse<Quota> resp = quotaOssReadWithHttpInfo(owner);
         return resp.getData();
     }
 
@@ -433,12 +433,12 @@ public class QuotaApi {
      * Open-source Quota usage for a given namespace.
      * Open-source Quota usage for a given namespace.
      * @param owner  (required)
-     * @return ApiResponse&lt;QuotaResponse&gt;
+     * @return ApiResponse&lt;Quota&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<QuotaResponse> quotaOssReadWithHttpInfo( @NotNull String owner) throws ApiException {
+    public ApiResponse<Quota> quotaOssReadWithHttpInfo( @NotNull String owner) throws ApiException {
         com.squareup.okhttp.Call call = quotaOssReadValidateBeforeCall(owner, null, null);
-        Type localVarReturnType = new TypeToken<QuotaResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -450,7 +450,7 @@ public class QuotaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaOssReadAsync(String owner, final ApiCallback<QuotaResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call quotaOssReadAsync(String owner, final ApiCallback<Quota> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -472,7 +472,7 @@ public class QuotaApi {
         }
 
         com.squareup.okhttp.Call call = quotaOssReadValidateBeforeCall(owner, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QuotaResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -558,11 +558,11 @@ public class QuotaApi {
      * Quota usage for a given namespace.
      * Quota usage for a given namespace.
      * @param owner  (required)
-     * @return QuotaResponse
+     * @return Quota
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public QuotaResponse quotaRead(String owner) throws ApiException {
-        ApiResponse<QuotaResponse> resp = quotaReadWithHttpInfo(owner);
+    public Quota quotaRead(String owner) throws ApiException {
+        ApiResponse<Quota> resp = quotaReadWithHttpInfo(owner);
         return resp.getData();
     }
 
@@ -570,12 +570,12 @@ public class QuotaApi {
      * Quota usage for a given namespace.
      * Quota usage for a given namespace.
      * @param owner  (required)
-     * @return ApiResponse&lt;QuotaResponse&gt;
+     * @return ApiResponse&lt;Quota&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<QuotaResponse> quotaReadWithHttpInfo( @NotNull String owner) throws ApiException {
+    public ApiResponse<Quota> quotaReadWithHttpInfo( @NotNull String owner) throws ApiException {
         com.squareup.okhttp.Call call = quotaReadValidateBeforeCall(owner, null, null);
-        Type localVarReturnType = new TypeToken<QuotaResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -587,7 +587,7 @@ public class QuotaApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call quotaReadAsync(String owner, final ApiCallback<QuotaResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call quotaReadAsync(String owner, final ApiCallback<Quota> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -609,7 +609,7 @@ public class QuotaApi {
         }
 
         com.squareup.okhttp.Call call = quotaReadValidateBeforeCall(owner, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QuotaResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Quota>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

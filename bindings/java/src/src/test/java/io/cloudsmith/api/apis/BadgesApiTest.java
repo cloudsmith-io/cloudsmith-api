@@ -14,7 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.PackageVersionBadgeResponse;
+import io.cloudsmith.api.models.PackageVersionBadge;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -60,7 +60,7 @@ public class BadgesApiTest {
         Boolean shields = null;
         Boolean showLatest = null;
         String style = null;
-        PackageVersionBadgeResponse response = api.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
+        PackageVersionBadge response = api.badgesVersionList(owner, repo, packageFormat, packageName, packageVersion, packageIdentifiers, badgeToken, cacheSeconds, color, label, labelColor, logoColor, logoWidth, render, shields, showLatest, style);
 
         // TODO: test validations
     }

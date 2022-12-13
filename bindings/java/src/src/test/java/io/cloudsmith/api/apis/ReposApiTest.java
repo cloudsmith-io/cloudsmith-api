@@ -14,17 +14,17 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.Repository;
+import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
-import io.cloudsmith.api.models.RepositoryCreateResponse;
+import io.cloudsmith.api.models.RepositoryGpgKey;
 import io.cloudsmith.api.models.RepositoryGpgKeyCreate;
-import io.cloudsmith.api.models.RepositoryGpgKeyResponse;
+import io.cloudsmith.api.models.RepositoryPrivilegeInput;
 import io.cloudsmith.api.models.RepositoryPrivilegeInputRequest;
 import io.cloudsmith.api.models.RepositoryPrivilegeInputRequestPatch;
-import io.cloudsmith.api.models.RepositoryPrivilegeInputResponse;
 import io.cloudsmith.api.models.RepositoryRequestPatch;
-import io.cloudsmith.api.models.RepositoryResponse;
+import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.RepositoryRsaKeyCreate;
-import io.cloudsmith.api.models.RepositoryRsaKeyResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -55,7 +55,7 @@ public class ReposApiTest {
     public void reposCreateTest() throws Exception {
         String owner = null;
         RepositoryCreateRequest data = null;
-        RepositoryCreateResponse response = api.reposCreate(owner, data);
+        RepositoryCreate response = api.reposCreate(owner, data);
 
         // TODO: test validations
     }
@@ -90,7 +90,7 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         RepositoryGpgKeyCreate data = null;
-        RepositoryGpgKeyResponse response = api.reposGpgCreate(owner, identifier, data);
+        RepositoryGpgKey response = api.reposGpgCreate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -107,7 +107,7 @@ public class ReposApiTest {
     public void reposGpgListTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGpgKeyResponse response = api.reposGpgList(owner, identifier);
+        RepositoryGpgKey response = api.reposGpgList(owner, identifier);
 
         // TODO: test validations
     }
@@ -124,7 +124,7 @@ public class ReposApiTest {
     public void reposGpgRegenerateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGpgKeyResponse response = api.reposGpgRegenerate(owner, identifier);
+        RepositoryGpgKey response = api.reposGpgRegenerate(owner, identifier);
 
         // TODO: test validations
     }
@@ -142,7 +142,7 @@ public class ReposApiTest {
         String owner = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<RepositoryResponse> response = api.reposNamespaceList(owner, page, pageSize);
+        List<Repository> response = api.reposNamespaceList(owner, page, pageSize);
 
         // TODO: test validations
     }
@@ -160,7 +160,7 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         RepositoryRequestPatch data = null;
-        RepositoryResponse response = api.reposPartialUpdate(owner, identifier, data);
+        Repository response = api.reposPartialUpdate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -179,7 +179,7 @@ public class ReposApiTest {
         String identifier = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        RepositoryPrivilegeInputResponse response = api.reposPrivilegesList(owner, identifier, page, pageSize);
+        RepositoryPrivilegeInput response = api.reposPrivilegesList(owner, identifier, page, pageSize);
 
         // TODO: test validations
     }
@@ -232,7 +232,7 @@ public class ReposApiTest {
     public void reposReadTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryResponse response = api.reposRead(owner, identifier);
+        Repository response = api.reposRead(owner, identifier);
 
         // TODO: test validations
     }
@@ -250,7 +250,7 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         RepositoryRsaKeyCreate data = null;
-        RepositoryRsaKeyResponse response = api.reposRsaCreate(owner, identifier, data);
+        RepositoryRsaKey response = api.reposRsaCreate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -267,7 +267,7 @@ public class ReposApiTest {
     public void reposRsaListTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryRsaKeyResponse response = api.reposRsaList(owner, identifier);
+        RepositoryRsaKey response = api.reposRsaList(owner, identifier);
 
         // TODO: test validations
     }
@@ -284,7 +284,7 @@ public class ReposApiTest {
     public void reposRsaRegenerateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryRsaKeyResponse response = api.reposRsaRegenerate(owner, identifier);
+        RepositoryRsaKey response = api.reposRsaRegenerate(owner, identifier);
 
         // TODO: test validations
     }
@@ -301,7 +301,7 @@ public class ReposApiTest {
     public void reposUserListTest() throws Exception {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<RepositoryResponse> response = api.reposUserList(page, pageSize);
+        List<Repository> response = api.reposUserList(page, pageSize);
 
         // TODO: test validations
     }

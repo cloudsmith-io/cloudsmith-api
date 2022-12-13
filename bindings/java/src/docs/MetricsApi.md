@@ -1,6 +1,6 @@
 # MetricsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="metricsEntitlementsAccountList"></a>
 # **metricsEntitlementsAccountList**
-> EntitlementUsageMetricsResponse metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens)
+> EntitlementUsageMetrics metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens)
 
 View for listing entitlement token metrics, across an account.
 
@@ -42,7 +42,7 @@ String finish = "finish_example"; // String | Include metrics upto and including
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    EntitlementUsageMetricsResponse result = apiInstance.metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens);
+    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsAccountList(owner, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetricsApi#metricsEntitlementsAccountList");
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 <a name="metricsEntitlementsRepoList"></a>
 # **metricsEntitlementsRepoList**
-> EntitlementUsageMetricsResponse metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens)
+> EntitlementUsageMetrics metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens)
 
 View for listing entitlement token metrics, for a repository.
 
@@ -108,7 +108,7 @@ String finish = "finish_example"; // String | Include metrics upto and including
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 String tokens = "tokens_example"; // String | A comma seperated list of tokens (slug perm) to include in the results.
 try {
-    EntitlementUsageMetricsResponse result = apiInstance.metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens);
+    EntitlementUsageMetrics result = apiInstance.metricsEntitlementsRepoList(owner, repo, page, pageSize, finish, start, tokens);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetricsApi#metricsEntitlementsRepoList");
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EntitlementUsageMetricsResponse**](EntitlementUsageMetricsResponse.md)
+[**EntitlementUsageMetrics**](EntitlementUsageMetrics.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 <a name="metricsPackagesList"></a>
 # **metricsPackagesList**
-> PackageUsageMetricsResponse metricsPackagesList(owner, repo, page, pageSize, finish, packages, start)
+> PackageUsageMetrics metricsPackagesList(owner, repo, page, pageSize, finish, packages, start)
 
 View for listing package usage metrics, for a repository.
 
@@ -175,7 +175,7 @@ String finish = "finish_example"; // String | Include metrics upto and including
 String packages = "packages_example"; // String | A comma seperated list of packages (slug perm) to include in the results.
 String start = "start_example"; // String | Include metrics from and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
 try {
-    PackageUsageMetricsResponse result = apiInstance.metricsPackagesList(owner, repo, page, pageSize, finish, packages, start);
+    PackageUsageMetrics result = apiInstance.metricsPackagesList(owner, repo, page, pageSize, finish, packages, start);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetricsApi#metricsPackagesList");
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageUsageMetricsResponse**](PackageUsageMetricsResponse.md)
+[**PackageUsageMetrics**](PackageUsageMetrics.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 # FilesApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -73,7 +73,7 @@ null (empty response body)
 
 <a name="filesComplete"></a>
 # **filesComplete**
-> PackageFileUploadResponse filesComplete(owner, repo, identifier, data)
+> PackageFileUpload filesComplete(owner, repo, identifier, data)
 
 Complete a multipart file upload.
 
@@ -102,7 +102,7 @@ String repo = "repo_example"; // String |
 String identifier = "identifier_example"; // String | 
 PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
-    PackageFileUploadResponse result = apiInstance.filesComplete(owner, repo, identifier, data);
+    PackageFileUpload result = apiInstance.filesComplete(owner, repo, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FilesApi#filesComplete");
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
+[**PackageFileUpload**](PackageFileUpload.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 <a name="filesCreate"></a>
 # **filesCreate**
-> PackageFileUploadResponse filesCreate(owner, repo, data)
+> PackageFileUpload filesCreate(owner, repo, data)
 
 Request URL(s) to upload new package file upload(s) to.
 
@@ -162,7 +162,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 PackageFileUploadRequest data = new PackageFileUploadRequest(); // PackageFileUploadRequest | 
 try {
-    PackageFileUploadResponse result = apiInstance.filesCreate(owner, repo, data);
+    PackageFileUpload result = apiInstance.filesCreate(owner, repo, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FilesApi#filesCreate");
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFileUploadResponse**](PackageFileUploadResponse.md)
+[**PackageFileUpload**](PackageFileUpload.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 <a name="filesInfo"></a>
 # **filesInfo**
-> PackageFilePartsUploadResponse filesInfo(owner, repo, identifier, filename, partNumber)
+> PackageFilePartsUpload filesInfo(owner, repo, identifier, filename, partNumber)
 
 Get upload information to perform a multipart file upload.
 
@@ -223,7 +223,7 @@ String identifier = "identifier_example"; // String |
 String filename = "filename_example"; // String | The filename of the file being uploaded
 java.math.BigInteger partNumber = new java.math.BigInteger(); // java.math.BigInteger | The part number to be uploaded next
 try {
-    PackageFilePartsUploadResponse result = apiInstance.filesInfo(owner, repo, identifier, filename, partNumber);
+    PackageFilePartsUpload result = apiInstance.filesInfo(owner, repo, identifier, filename, partNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FilesApi#filesInfo");
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageFilePartsUploadResponse**](PackageFilePartsUploadResponse.md)
+[**PackageFilePartsUpload**](PackageFilePartsUpload.md)
 
 ### Authorization
 

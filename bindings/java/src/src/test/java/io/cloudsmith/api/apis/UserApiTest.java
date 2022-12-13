@@ -14,9 +14,9 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.UserAuthToken;
 import io.cloudsmith.api.models.UserAuthTokenRequest;
-import io.cloudsmith.api.models.UserAuthTokenResponse;
-import io.cloudsmith.api.models.UserBriefResponse;
+import io.cloudsmith.api.models.UserBrief;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +45,7 @@ public class UserApiTest {
      */
     @Test
     public void userSelfTest() throws Exception {
-        UserBriefResponse response = api.userSelf();
+        UserBrief response = api.userSelf();
 
         // TODO: test validations
     }
@@ -61,7 +61,7 @@ public class UserApiTest {
     @Test
     public void userTokenCreateTest() throws Exception {
         UserAuthTokenRequest data = null;
-        UserAuthTokenResponse response = api.userTokenCreate(data);
+        UserAuthToken response = api.userTokenCreate(data);
 
         // TODO: test validations
     }

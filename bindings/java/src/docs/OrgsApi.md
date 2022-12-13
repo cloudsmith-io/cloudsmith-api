@@ -1,6 +1,6 @@
 # OrgsApi
 
-All URIs are relative to *https://api.cloudsmith.io/api/v1*
+All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -37,7 +37,7 @@ Method | HTTP request | Description
 
 <a name="orgsInvitesCreate"></a>
 # **orgsInvitesCreate**
-> OrganizationInviteResponse orgsInvitesCreate(org, data)
+> OrganizationInvite orgsInvitesCreate(org, data)
 
 Create an organization invite for a specific user
 
@@ -64,7 +64,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 OrganizationInviteRequest data = new OrganizationInviteRequest(); // OrganizationInviteRequest | 
 try {
-    OrganizationInviteResponse result = apiInstance.orgsInvitesCreate(org, data);
+    OrganizationInvite result = apiInstance.orgsInvitesCreate(org, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsInvitesCreate");
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
+[**OrganizationInvite**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ null (empty response body)
 
 <a name="orgsInvitesExtend"></a>
 # **orgsInvitesExtend**
-> OrganizationInviteExtendResponse orgsInvitesExtend(org, slugPerm)
+> OrganizationInviteExtend orgsInvitesExtend(org, slugPerm)
 
 Extend an organization invite.
 
@@ -177,7 +177,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
 try {
-    OrganizationInviteExtendResponse result = apiInstance.orgsInvitesExtend(org, slugPerm);
+    OrganizationInviteExtend result = apiInstance.orgsInvitesExtend(org, slugPerm);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsInvitesExtend");
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
+[**OrganizationInviteExtend**](OrganizationInviteExtend.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsInvitesList"></a>
 # **orgsInvitesList**
-> List&lt;OrganizationInviteResponse&gt; orgsInvitesList(org, page, pageSize)
+> List&lt;OrganizationInvite&gt; orgsInvitesList(org, page, pageSize)
 
 Get a list of all invites for an organization.
 
@@ -235,7 +235,7 @@ String org = "org_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<OrganizationInviteResponse> result = apiInstance.orgsInvitesList(org, page, pageSize);
+    List<OrganizationInvite> result = apiInstance.orgsInvitesList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsInvitesList");
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationInviteResponse&gt;**](OrganizationInviteResponse.md)
+[**List&lt;OrganizationInvite&gt;**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsInvitesPartialUpdate"></a>
 # **orgsInvitesPartialUpdate**
-> OrganizationInviteResponse orgsInvitesPartialUpdate(org, slugPerm, data)
+> OrganizationInvite orgsInvitesPartialUpdate(org, slugPerm, data)
 
 Update a specific organization invite.
 
@@ -294,7 +294,7 @@ String org = "org_example"; // String |
 String slugPerm = "slugPerm_example"; // String | 
 OrganizationInviteUpdateRequestPatch data = new OrganizationInviteUpdateRequestPatch(); // OrganizationInviteUpdateRequestPatch | 
 try {
-    OrganizationInviteResponse result = apiInstance.orgsInvitesPartialUpdate(org, slugPerm, data);
+    OrganizationInvite result = apiInstance.orgsInvitesPartialUpdate(org, slugPerm, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsInvitesPartialUpdate");
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteResponse**](OrganizationInviteResponse.md)
+[**OrganizationInvite**](OrganizationInvite.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsInvitesResend"></a>
 # **orgsInvitesResend**
-> OrganizationInviteExtendResponse orgsInvitesResend(org, slugPerm)
+> OrganizationInviteExtend orgsInvitesResend(org, slugPerm)
 
 Resend an organization invite.
 
@@ -352,7 +352,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
 try {
-    OrganizationInviteExtendResponse result = apiInstance.orgsInvitesResend(org, slugPerm);
+    OrganizationInviteExtend result = apiInstance.orgsInvitesResend(org, slugPerm);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsInvitesResend");
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationInviteExtendResponse**](OrganizationInviteExtendResponse.md)
+[**OrganizationInviteExtend**](OrganizationInviteExtend.md)
 
 ### Authorization
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsList"></a>
 # **orgsList**
-> List&lt;OrganizationResponse&gt; orgsList(page, pageSize)
+> List&lt;Organization&gt; orgsList(page, pageSize)
 
 Get a list of all the organizations you are associated with.
 
@@ -409,7 +409,7 @@ OrgsApi apiInstance = new OrgsApi();
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<OrganizationResponse> result = apiInstance.orgsList(page, pageSize);
+    List<Organization> result = apiInstance.orgsList(page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsList");
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationResponse&gt;**](OrganizationResponse.md)
+[**List&lt;Organization&gt;**](Organization.md)
 
 ### Authorization
 
@@ -495,7 +495,7 @@ null (empty response body)
 
 <a name="orgsMembersList"></a>
 # **orgsMembersList**
-> List&lt;OrganizationMembershipResponse&gt; orgsMembersList(org, page, pageSize)
+> List&lt;OrganizationMembership&gt; orgsMembersList(org, page, pageSize)
 
 Get the details for all organization members.
 
@@ -523,7 +523,7 @@ String org = "org_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<OrganizationMembershipResponse> result = apiInstance.orgsMembersList(org, page, pageSize);
+    List<OrganizationMembership> result = apiInstance.orgsMembersList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsMembersList");
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationMembershipResponse&gt;**](OrganizationMembershipResponse.md)
+[**List&lt;OrganizationMembership&gt;**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsMembersRead"></a>
 # **orgsMembersRead**
-> OrganizationMembershipResponse orgsMembersRead(org, member)
+> OrganizationMembership orgsMembersRead(org, member)
 
 Get the details for a specific organization member.
 
@@ -581,7 +581,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String member = "member_example"; // String | 
 try {
-    OrganizationMembershipResponse result = apiInstance.orgsMembersRead(org, member);
+    OrganizationMembership result = apiInstance.orgsMembersRead(org, member);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsMembersRead");
@@ -598,7 +598,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationMembershipResponse**](OrganizationMembershipResponse.md)
+[**OrganizationMembership**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -667,7 +667,7 @@ null (empty response body)
 
 <a name="orgsRead"></a>
 # **orgsRead**
-> OrganizationResponse orgsRead(org)
+> Organization orgsRead(org)
 
 Get the details for the specific organization.
 
@@ -693,7 +693,7 @@ apikey.setApiKey("YOUR API KEY");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 try {
-    OrganizationResponse result = apiInstance.orgsRead(org);
+    Organization result = apiInstance.orgsRead(org);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsRead");
@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationResponse**](OrganizationResponse.md)
+[**Organization**](Organization.md)
 
 ### Authorization
 
@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsSamlGroupSyncCreate"></a>
 # **orgsSamlGroupSyncCreate**
-> OrganizationGroupSyncResponse orgsSamlGroupSyncCreate(org, data)
+> OrganizationGroupSync orgsSamlGroupSyncCreate(org, data)
 
 Create a new SAML Group Sync mapping within an organization.
 
@@ -749,7 +749,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 OrganizationGroupSyncRequest data = new OrganizationGroupSyncRequest(); // OrganizationGroupSyncRequest | 
 try {
-    OrganizationGroupSyncResponse result = apiInstance.orgsSamlGroupSyncCreate(org, data);
+    OrganizationGroupSync result = apiInstance.orgsSamlGroupSyncCreate(org, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncCreate");
@@ -766,7 +766,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationGroupSyncResponse**](OrganizationGroupSyncResponse.md)
+[**OrganizationGroupSync**](OrganizationGroupSync.md)
 
 ### Authorization
 
@@ -835,7 +835,7 @@ null (empty response body)
 
 <a name="orgsSamlGroupSyncList"></a>
 # **orgsSamlGroupSyncList**
-> List&lt;OrganizationGroupSyncResponse&gt; orgsSamlGroupSyncList(org, page, pageSize)
+> List&lt;OrganizationGroupSync&gt; orgsSamlGroupSyncList(org, page, pageSize)
 
 Get the details of all SAML Group Sync mapping within an organization.
 
@@ -863,7 +863,7 @@ String org = "org_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<OrganizationGroupSyncResponse> result = apiInstance.orgsSamlGroupSyncList(org, page, pageSize);
+    List<OrganizationGroupSync> result = apiInstance.orgsSamlGroupSyncList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncList");
@@ -881,7 +881,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationGroupSyncResponse&gt;**](OrganizationGroupSyncResponse.md)
+[**List&lt;OrganizationGroupSync&gt;**](OrganizationGroupSync.md)
 
 ### Authorization
 
@@ -894,7 +894,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsServicesCreate"></a>
 # **orgsServicesCreate**
-> ServiceResponse orgsServicesCreate(org, data)
+> Service orgsServicesCreate(org, data)
 
 Create a service within an organization.
 
@@ -921,7 +921,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 ServiceRequest data = new ServiceRequest(); // ServiceRequest | 
 try {
-    ServiceResponse result = apiInstance.orgsServicesCreate(org, data);
+    Service result = apiInstance.orgsServicesCreate(org, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsServicesCreate");
@@ -938,7 +938,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1007,7 +1007,7 @@ null (empty response body)
 
 <a name="orgsServicesList"></a>
 # **orgsServicesList**
-> List&lt;ServiceResponse&gt; orgsServicesList(org, page, pageSize)
+> List&lt;Service&gt; orgsServicesList(org, page, pageSize)
 
 Get a list of all services within an organization.
 
@@ -1035,7 +1035,7 @@ String org = "org_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<ServiceResponse> result = apiInstance.orgsServicesList(org, page, pageSize);
+    List<Service> result = apiInstance.orgsServicesList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsServicesList");
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ServiceResponse&gt;**](ServiceResponse.md)
+[**List&lt;Service&gt;**](Service.md)
 
 ### Authorization
 
@@ -1066,7 +1066,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsServicesPartialUpdate"></a>
 # **orgsServicesPartialUpdate**
-> ServiceResponse orgsServicesPartialUpdate(org, service, data)
+> Service orgsServicesPartialUpdate(org, service, data)
 
 Update a service within an organization.
 
@@ -1094,7 +1094,7 @@ String org = "org_example"; // String |
 String service = "service_example"; // String | 
 ServiceRequestPatch data = new ServiceRequestPatch(); // ServiceRequestPatch | 
 try {
-    ServiceResponse result = apiInstance.orgsServicesPartialUpdate(org, service, data);
+    Service result = apiInstance.orgsServicesPartialUpdate(org, service, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsServicesPartialUpdate");
@@ -1112,7 +1112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1125,7 +1125,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsServicesRead"></a>
 # **orgsServicesRead**
-> ServiceResponse orgsServicesRead(org, service)
+> Service orgsServicesRead(org, service)
 
 Retrieve details of a single service within an organization.
 
@@ -1152,7 +1152,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String service = "service_example"; // String | 
 try {
-    ServiceResponse result = apiInstance.orgsServicesRead(org, service);
+    Service result = apiInstance.orgsServicesRead(org, service);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsServicesRead");
@@ -1169,7 +1169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1182,7 +1182,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsServicesRefresh"></a>
 # **orgsServicesRefresh**
-> ServiceResponse orgsServicesRefresh(org, service)
+> Service orgsServicesRefresh(org, service)
 
 Refresh service API token.
 
@@ -1209,7 +1209,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String service = "service_example"; // String | 
 try {
-    ServiceResponse result = apiInstance.orgsServicesRefresh(org, service);
+    Service result = apiInstance.orgsServicesRefresh(org, service);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsServicesRefresh");
@@ -1226,7 +1226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceResponse**](ServiceResponse.md)
+[**Service**](Service.md)
 
 ### Authorization
 
@@ -1239,7 +1239,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsCreate"></a>
 # **orgsTeamsCreate**
-> OrganizationTeamResponse orgsTeamsCreate(org, data)
+> OrganizationTeam orgsTeamsCreate(org, data)
 
 Create a team for this organization.
 
@@ -1266,7 +1266,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 OrganizationTeamRequest data = new OrganizationTeamRequest(); // OrganizationTeamRequest | 
 try {
-    OrganizationTeamResponse result = apiInstance.orgsTeamsCreate(org, data);
+    OrganizationTeam result = apiInstance.orgsTeamsCreate(org, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsCreate");
@@ -1283,7 +1283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1352,7 +1352,7 @@ null (empty response body)
 
 <a name="orgsTeamsList"></a>
 # **orgsTeamsList**
-> List&lt;OrganizationTeamResponse&gt; orgsTeamsList(org, page, pageSize)
+> List&lt;OrganizationTeam&gt; orgsTeamsList(org, page, pageSize)
 
 Get the details of all teams within an organization.
 
@@ -1380,7 +1380,7 @@ String org = "org_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    List<OrganizationTeamResponse> result = apiInstance.orgsTeamsList(org, page, pageSize);
+    List<OrganizationTeam> result = apiInstance.orgsTeamsList(org, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsList");
@@ -1398,7 +1398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;OrganizationTeamResponse&gt;**](OrganizationTeamResponse.md)
+[**List&lt;OrganizationTeam&gt;**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1411,7 +1411,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsMembersCreate"></a>
 # **orgsTeamsMembersCreate**
-> OrganizationTeamMembersResponse orgsTeamsMembersCreate(org, team, data)
+> OrganizationTeamMembers orgsTeamsMembersCreate(org, team, data)
 
 Add users to a team.
 
@@ -1439,7 +1439,7 @@ String org = "org_example"; // String |
 String team = "team_example"; // String | 
 OrganizationTeamMembers data = new OrganizationTeamMembers(); // OrganizationTeamMembers | 
 try {
-    OrganizationTeamMembersResponse result = apiInstance.orgsTeamsMembersCreate(org, team, data);
+    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersCreate(org, team, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsMembersCreate");
@@ -1457,7 +1457,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1470,7 +1470,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsMembersList"></a>
 # **orgsTeamsMembersList**
-> OrganizationTeamMembersResponse orgsTeamsMembersList(org, team)
+> OrganizationTeamMembers orgsTeamsMembersList(org, team)
 
 List all members for the team.
 
@@ -1497,7 +1497,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
 try {
-    OrganizationTeamMembersResponse result = apiInstance.orgsTeamsMembersList(org, team);
+    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersList(org, team);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsMembersList");
@@ -1514,7 +1514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1527,7 +1527,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsMembersUpdate"></a>
 # **orgsTeamsMembersUpdate**
-> OrganizationTeamMembersResponse orgsTeamsMembersUpdate(org, team)
+> OrganizationTeamMembers orgsTeamsMembersUpdate(org, team)
 
 Replace all team members.
 
@@ -1554,7 +1554,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
 try {
-    OrganizationTeamMembersResponse result = apiInstance.orgsTeamsMembersUpdate(org, team);
+    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersUpdate(org, team);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsMembersUpdate");
@@ -1571,7 +1571,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamMembersResponse**](OrganizationTeamMembersResponse.md)
+[**OrganizationTeamMembers**](OrganizationTeamMembers.md)
 
 ### Authorization
 
@@ -1584,7 +1584,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsPartialUpdate"></a>
 # **orgsTeamsPartialUpdate**
-> OrganizationTeamResponse orgsTeamsPartialUpdate(org, team, data)
+> OrganizationTeam orgsTeamsPartialUpdate(org, team, data)
 
 Update a specific team in a organization.
 
@@ -1612,7 +1612,7 @@ String org = "org_example"; // String |
 String team = "team_example"; // String | 
 OrganizationTeamRequestPatch data = new OrganizationTeamRequestPatch(); // OrganizationTeamRequestPatch | 
 try {
-    OrganizationTeamResponse result = apiInstance.orgsTeamsPartialUpdate(org, team, data);
+    OrganizationTeam result = apiInstance.orgsTeamsPartialUpdate(org, team, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsPartialUpdate");
@@ -1630,7 +1630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 
@@ -1643,7 +1643,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsRead"></a>
 # **orgsTeamsRead**
-> OrganizationTeamResponse orgsTeamsRead(org, team)
+> OrganizationTeam orgsTeamsRead(org, team)
 
 Get the details of a specific team within an organization.
 
@@ -1670,7 +1670,7 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
 try {
-    OrganizationTeamResponse result = apiInstance.orgsTeamsRead(org, team);
+    OrganizationTeam result = apiInstance.orgsTeamsRead(org, team);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsRead");
@@ -1687,7 +1687,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationTeamResponse**](OrganizationTeamResponse.md)
+[**OrganizationTeam**](OrganizationTeam.md)
 
 ### Authorization
 

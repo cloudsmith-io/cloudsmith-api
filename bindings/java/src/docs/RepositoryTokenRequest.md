@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **eulaRequired** | **Boolean** | If checked, a EULA acceptance is required for this token. |  [optional]
 **isActive** | **Boolean** | If enabled, the token will allow downloads based on configured restrictions (if any). |  [optional]
 **limitBandwidth** | **java.math.BigInteger** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  |  [optional]
-**limitBandwidthUnit** | **String** |  |  [optional]
+**limitBandwidthUnit** | [**LimitBandwidthUnitEnum**](#LimitBandwidthUnitEnum) |  |  [optional]
 **limitDateRangeFrom** | [**OffsetDateTime**](OffsetDateTime.md) | The starting date/time the token is allowed to be used from. |  [optional]
 **limitDateRangeTo** | [**OffsetDateTime**](OffsetDateTime.md) | The ending date/time the token is allowed to be used until. |  [optional]
 **limitNumClients** | **java.math.BigInteger** | The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. |  [optional]
@@ -17,8 +17,38 @@ Name | Type | Description | Notes
 **metadata** | **Object** |  |  [optional]
 **name** | **String** |  | 
 **scheduledResetAt** | [**OffsetDateTime**](OffsetDateTime.md) | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. |  [optional]
-**scheduledResetPeriod** | **String** |  |  [optional]
+**scheduledResetPeriod** | [**ScheduledResetPeriodEnum**](#ScheduledResetPeriodEnum) |  |  [optional]
 **token** | **String** |  |  [optional]
+
+
+<a name="LimitBandwidthUnitEnum"></a>
+## Enum: LimitBandwidthUnitEnum
+Name | Value
+---- | -----
+BYTE | &quot;Byte&quot;
+KILOBYTE | &quot;Kilobyte&quot;
+MEGABYTE | &quot;Megabyte&quot;
+GIGABYTE | &quot;Gigabyte&quot;
+TERABYTE | &quot;Terabyte&quot;
+PETABYTE | &quot;Petabyte&quot;
+EXABYTE | &quot;Exabyte&quot;
+ZETTABYTE | &quot;Zettabyte&quot;
+YOTTABYTE | &quot;Yottabyte&quot;
+
+
+<a name="ScheduledResetPeriodEnum"></a>
+## Enum: ScheduledResetPeriodEnum
+Name | Value
+---- | -----
+NEVER_RESET | &quot;Never Reset&quot;
+DAILY | &quot;Daily&quot;
+WEEKLY | &quot;Weekly&quot;
+FORTNIGHTLY | &quot;Fortnightly&quot;
+MONTHLY | &quot;Monthly&quot;
+BI_MONTHLY | &quot;Bi-Monthly&quot;
+QUARTERLY | &quot;Quarterly&quot;
+EVERY_6_MONTHS | &quot;Every 6 months&quot;
+ANNUAL | &quot;Annual&quot;
 
 
 
