@@ -43,6 +43,27 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_geoip_disable(self):
+        """Test case for repos_geoip_disable
+
+        Disable GeoIP for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_geoip_enable(self):
+        """Test case for repos_geoip_enable
+
+        Enable GeoIP for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_geoip_read(self):
+        """Test case for repos_geoip_read
+
+        List all created GeoIP rules for the repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_gpg_create(self):
         """Test case for repos_gpg_create
 

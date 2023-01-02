@@ -107,9 +107,6 @@ class Namespace(object):
         :type: str
         """
         if (self._configuration.client_side_validation and
-                slug is not None and len(slug) < 1):
-            raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501
-        if (self._configuration.client_side_validation and
                 slug is not None and not re.search('^[-a-zA-Z0-9_]+$', slug)):  # noqa: E501
             raise ValueError(r"Invalid value for `slug`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 

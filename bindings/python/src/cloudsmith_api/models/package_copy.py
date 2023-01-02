@@ -538,9 +538,6 @@ class PackageCopy(object):
         :param dependencies_checksum_md5: The dependencies_checksum_md5 of this PackageCopy.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                dependencies_checksum_md5 is not None and len(dependencies_checksum_md5) < 1):
-            raise ValueError("Invalid value for `dependencies_checksum_md5`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._dependencies_checksum_md5 = dependencies_checksum_md5
 
@@ -585,9 +582,6 @@ class PackageCopy(object):
         :param description: The description of this PackageCopy.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._description = description
 
@@ -1002,9 +996,6 @@ class PackageCopy(object):
         :param license: The license of this PackageCopy.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                license is not None and len(license) < 1):
-            raise ValueError("Invalid value for `license`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._license = license
 
@@ -1028,9 +1019,6 @@ class PackageCopy(object):
         :param name: The name of this PackageCopy.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -1188,9 +1176,6 @@ class PackageCopy(object):
         :param release: The release of this PackageCopy.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                release is not None and len(release) < 1):
-            raise ValueError("Invalid value for `release`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._release = release
 
@@ -1593,9 +1578,6 @@ class PackageCopy(object):
         :param status_reason: The status_reason of this PackageCopy.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                status_reason is not None and len(status_reason) < 1):
-            raise ValueError("Invalid value for `status_reason`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._status_reason = status_reason
 
@@ -1705,9 +1687,6 @@ class PackageCopy(object):
         :param summary: The summary of this PackageCopy.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                summary is not None and len(summary) < 1):
-            raise ValueError("Invalid value for `summary`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._summary = summary
 
@@ -1908,9 +1887,6 @@ class PackageCopy(object):
         :param version: The version of this PackageCopy.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                version is not None and len(version) < 1):
-            raise ValueError("Invalid value for `version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._version = version
 
