@@ -14,6 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.InlineResponse200;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
@@ -25,6 +26,7 @@ import io.cloudsmith.api.models.RepositoryPrivilegeInputRequestPatch;
 import io.cloudsmith.api.models.RepositoryRequestPatch;
 import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.RepositoryRsaKeyCreate;
+import io.cloudsmith.api.models.RespositoryGeoIPEnableDisableRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -73,6 +75,59 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         api.reposDelete(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Disable GeoIP for this repository.
+     *
+     * Disable GeoIP for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGeoipDisableTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RespositoryGeoIPEnableDisableRequest data = null;
+        api.reposGeoipDisable(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Enable GeoIP for this repository.
+     *
+     * Enable GeoIP for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGeoipEnableTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RespositoryGeoIPEnableDisableRequest data = null;
+        api.reposGeoipEnable(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all created GeoIP rules for the repository.
+     *
+     * List all created GeoIP rules for the repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGeoipReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        InlineResponse200 response = api.reposGeoipRead(owner, identifier);
 
         // TODO: test validations
     }

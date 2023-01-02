@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.0"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.1"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.0.jar`
+* `target/cloudsmith-api-2.0.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -234,6 +234,9 @@ Class | Method | HTTP request | Description
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
 *ReposApi* | [**reposCreate**](docs/ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 *ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
+*ReposApi* | [**reposGeoipDisable**](docs/ReposApi.md#reposGeoipDisable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
+*ReposApi* | [**reposGeoipEnable**](docs/ReposApi.md#reposGeoipEnable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
+*ReposApi* | [**reposGeoipRead**](docs/ReposApi.md#reposGeoipRead) | **GET** /repos/{owner}/{identifier}/geoip | List all created GeoIP rules for the repository.
 *ReposApi* | [**reposGpgCreate**](docs/ReposApi.md#reposGpgCreate) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 *ReposApi* | [**reposGpgList**](docs/ReposApi.md#reposGpgList) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 *ReposApi* | [**reposGpgRegenerate**](docs/ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
@@ -308,6 +311,8 @@ Class | Method | HTTP request | Description
  - [HelmPackageUploadRequest](docs/HelmPackageUploadRequest.md)
  - [History](docs/History.md)
  - [HistoryFieldset](docs/HistoryFieldset.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse200CountryCode](docs/InlineResponse200CountryCode.md)
  - [LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
  - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
@@ -365,6 +370,7 @@ Class | Method | HTTP request | Description
  - [RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [RepositoryCreate](docs/RepositoryCreate.md)
  - [RepositoryCreateRequest](docs/RepositoryCreateRequest.md)
+ - [RepositoryGeoIPList](docs/RepositoryGeoIPList.md)
  - [RepositoryGpgKey](docs/RepositoryGpgKey.md)
  - [RepositoryGpgKeyCreate](docs/RepositoryGpgKeyCreate.md)
  - [RepositoryPrivilegeDict](docs/RepositoryPrivilegeDict.md)
@@ -386,6 +392,8 @@ Class | Method | HTTP request | Description
  - [RepositoryWebhookRequest](docs/RepositoryWebhookRequest.md)
  - [RepositoryWebhookRequestPatch](docs/RepositoryWebhookRequestPatch.md)
  - [ResourcesRateCheck](docs/ResourcesRateCheck.md)
+ - [RespositoryGeoIPEnableDisable](docs/RespositoryGeoIPEnableDisable.md)
+ - [RespositoryGeoIPEnableDisableRequest](docs/RespositoryGeoIPEnableDisableRequest.md)
  - [RpmPackageUpload](docs/RpmPackageUpload.md)
  - [RpmPackageUploadRequest](docs/RpmPackageUploadRequest.md)
  - [RubyPackageUpload](docs/RubyPackageUpload.md)

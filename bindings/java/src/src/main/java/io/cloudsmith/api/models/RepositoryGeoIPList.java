@@ -28,34 +28,34 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * StatusBasic
+ * RepositoryGeoIPList
  */
 
-public class StatusBasic implements Serializable {
+public class RepositoryGeoIPList implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("detail")
-  private String detail = "Cloudsmith API is operational.";
+  @SerializedName("cidr")
+  private String cidr = null;
 
-  @SerializedName("version")
-  private String version = "1.190.1";
+  @SerializedName("country_code")
+  private String countryCode = null;
 
    /**
-   * The message describing the state of the API.
-   * @return detail
+   * List all CIDR geographic rules within the repository
+   * @return cidr
   **/
- @Size(min=1)  @ApiModelProperty(value = "The message describing the state of the API.")
-  public String getDetail() {
-    return detail;
+  @ApiModelProperty(value = "List all CIDR geographic rules within the repository")
+  public String getCidr() {
+    return cidr;
   }
 
    /**
-   * The current version for the Cloudsmith service.
-   * @return version
+   * List all GeoIP geographic rules within the repository
+   * @return countryCode
   **/
- @Size(min=1)  @ApiModelProperty(value = "The current version for the Cloudsmith service.")
-  public String getVersion() {
-    return version;
+  @ApiModelProperty(value = "List all GeoIP geographic rules within the repository")
+  public String getCountryCode() {
+    return countryCode;
   }
 
 
@@ -67,24 +67,24 @@ public class StatusBasic implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusBasic statusBasic = (StatusBasic) o;
-    return Objects.equals(this.detail, statusBasic.detail) &&
-        Objects.equals(this.version, statusBasic.version);
+    RepositoryGeoIPList repositoryGeoIPList = (RepositoryGeoIPList) o;
+    return Objects.equals(this.cidr, repositoryGeoIPList.cidr) &&
+        Objects.equals(this.countryCode, repositoryGeoIPList.countryCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, version);
+    return Objects.hash(cidr, countryCode);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusBasic {\n");
+    sb.append("class RepositoryGeoIPList {\n");
     
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    cidr: ").append(toIndentedString(cidr)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

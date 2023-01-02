@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.InlineResponse200CountryCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,34 +29,54 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * StatusBasic
+ * InlineResponse200
  */
 
-public class StatusBasic implements Serializable {
+public class InlineResponse200 implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("detail")
-  private String detail = "Cloudsmith API is operational.";
+  @SerializedName("country_code")
+  private InlineResponse200CountryCode countryCode = null;
 
-  @SerializedName("version")
-  private String version = "1.190.1";
+  @SerializedName("cidr")
+  private InlineResponse200CountryCode cidr = null;
 
-   /**
-   * The message describing the state of the API.
-   * @return detail
-  **/
- @Size(min=1)  @ApiModelProperty(value = "The message describing the state of the API.")
-  public String getDetail() {
-    return detail;
+  public InlineResponse200 countryCode(InlineResponse200CountryCode countryCode) {
+    this.countryCode = countryCode;
+    return this;
   }
 
    /**
-   * The current version for the Cloudsmith service.
-   * @return version
+   * Get countryCode
+   * @return countryCode
   **/
- @Size(min=1)  @ApiModelProperty(value = "The current version for the Cloudsmith service.")
-  public String getVersion() {
-    return version;
+  @Valid
+  @ApiModelProperty(value = "")
+  public InlineResponse200CountryCode getCountryCode() {
+    return countryCode;
+  }
+
+  public void setCountryCode(InlineResponse200CountryCode countryCode) {
+    this.countryCode = countryCode;
+  }
+
+  public InlineResponse200 cidr(InlineResponse200CountryCode cidr) {
+    this.cidr = cidr;
+    return this;
+  }
+
+   /**
+   * Get cidr
+   * @return cidr
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public InlineResponse200CountryCode getCidr() {
+    return cidr;
+  }
+
+  public void setCidr(InlineResponse200CountryCode cidr) {
+    this.cidr = cidr;
   }
 
 
@@ -67,24 +88,24 @@ public class StatusBasic implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusBasic statusBasic = (StatusBasic) o;
-    return Objects.equals(this.detail, statusBasic.detail) &&
-        Objects.equals(this.version, statusBasic.version);
+    InlineResponse200 inlineResponse200 = (InlineResponse200) o;
+    return Objects.equals(this.countryCode, inlineResponse200.countryCode) &&
+        Objects.equals(this.cidr, inlineResponse200.cidr);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, version);
+    return Objects.hash(countryCode, cidr);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusBasic {\n");
+    sb.append("class InlineResponse200 {\n");
     
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    cidr: ").append(toIndentedString(cidr)).append("\n");
     sb.append("}");
     return sb.toString();
   }

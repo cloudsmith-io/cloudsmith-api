@@ -79,7 +79,7 @@ public class Organization implements Serializable {
    * The city/town/area your organization is based in.
    * @return location
   **/
- @Size(min=1)  @ApiModelProperty(value = "The city/town/area your organization is based in.")
+  @ApiModelProperty(value = "The city/town/area your organization is based in.")
   public String getLocation() {
     return location;
   }
@@ -115,7 +115,7 @@ public class Organization implements Serializable {
    * A short public descriptive for your organization.
    * @return tagline
   **/
- @Size(min=1)  @ApiModelProperty(value = "A short public descriptive for your organization.")
+  @ApiModelProperty(value = "A short public descriptive for your organization.")
   public String getTagline() {
     return tagline;
   }
