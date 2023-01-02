@@ -13,26 +13,24 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class StatusBasic
-  # The message describing the state of the API.
-  attr_accessor :detail
+class InlineResponse200
+  attr_accessor :country_code
 
-  # The current version for the Cloudsmith service.
-  attr_accessor :version
+  attr_accessor :cidr
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'detail' => :'detail',
-      :'version' => :'version'
+      :'country_code' => :'country_code',
+      :'cidr' => :'cidr'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'detail' => :'String',
-      :'version' => :'String'
+      :'country_code' => :'InlineResponse200CountryCode',
+      :'cidr' => :'InlineResponse200CountryCode'
     }
   end
 
@@ -44,16 +42,12 @@ class StatusBasic
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-    if attributes.has_key?(:'detail')
-      self.detail = attributes[:'detail']
-    else
-      self.detail = 'Cloudsmith API is operational.'
+    if attributes.has_key?(:'country_code')
+      self.country_code = attributes[:'country_code']
     end
 
-    if attributes.has_key?(:'version')
-      self.version = attributes[:'version']
-    else
-      self.version = '1.190.1'
+    if attributes.has_key?(:'cidr')
+      self.cidr = attributes[:'cidr']
     end
   end
 
@@ -75,8 +69,8 @@ class StatusBasic
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        detail == o.detail &&
-        version == o.version
+        country_code == o.country_code &&
+        cidr == o.cidr
   end
 
   # @see the `==` method
@@ -88,7 +82,7 @@ class StatusBasic
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [detail, version].hash
+    [country_code, cidr].hash
   end
 
     # Builds the object from hash

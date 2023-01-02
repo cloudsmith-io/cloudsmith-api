@@ -13,26 +13,16 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class StatusBasic
-  # The message describing the state of the API.
-  attr_accessor :detail
-
-  # The current version for the Cloudsmith service.
-  attr_accessor :version
-
+class RespositoryGeoIPEnableDisableRequest
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'detail' => :'detail',
-      :'version' => :'version'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'detail' => :'String',
-      :'version' => :'String'
     }
   end
 
@@ -43,18 +33,6 @@ class StatusBasic
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-    if attributes.has_key?(:'detail')
-      self.detail = attributes[:'detail']
-    else
-      self.detail = 'Cloudsmith API is operational.'
-    end
-
-    if attributes.has_key?(:'version')
-      self.version = attributes[:'version']
-    else
-      self.version = '1.190.1'
-    end
   end
 
   # Show invalid properties with the reasons. Usually used together with valid?
@@ -74,9 +52,7 @@ class StatusBasic
   # @param [Object] Object to be compared
   def ==(o)
     return true if self.equal?(o)
-    self.class == o.class &&
-        detail == o.detail &&
-        version == o.version
+    self.class == o.class
   end
 
   # @see the `==` method
@@ -88,7 +64,7 @@ class StatusBasic
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [detail, version].hash
+    [].hash
   end
 
     # Builds the object from hash
