@@ -150,9 +150,6 @@ class Organization(object):
         :param location: The location of this Organization.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                location is not None and len(location) < 1):
-            raise ValueError("Invalid value for `location`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._location = location
 
@@ -244,9 +241,6 @@ class Organization(object):
         :param tagline: The tagline of this Organization.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                tagline is not None and len(tagline) < 1):
-            raise ValueError("Invalid value for `tagline`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tagline = tagline
 

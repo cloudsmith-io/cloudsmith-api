@@ -58,6 +58,47 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_geoip_disable
+  # Disable GeoIP for this repository.
+  # Disable GeoIP for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+  # @return [nil]
+  describe 'repos_geoip_disable test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_geoip_enable
+  # Enable GeoIP for this repository.
+  # Enable GeoIP for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+  # @return [nil]
+  describe 'repos_geoip_enable test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_geoip_read
+  # List all created GeoIP rules for the repository.
+  # List all created GeoIP rules for the repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [InlineResponse200]
+  describe 'repos_geoip_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_gpg_create
   # Set the active GPG key for the Repository.
   # Set the active GPG key for the Repository.

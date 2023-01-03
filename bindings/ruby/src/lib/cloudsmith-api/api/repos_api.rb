@@ -134,6 +134,188 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Disable GeoIP for this repository.
+    # Disable GeoIP for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @return [nil]
+    def repos_geoip_disable(owner, identifier, opts = {})
+      repos_geoip_disable_with_http_info(owner, identifier, opts)
+      nil
+    end
+
+    # Disable GeoIP for this repository.
+    # Disable GeoIP for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_geoip_disable_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_disable ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_geoip_disable"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_geoip_disable"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/geoip/disable/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_geoip_disable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Enable GeoIP for this repository.
+    # Enable GeoIP for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @return [nil]
+    def repos_geoip_enable(owner, identifier, opts = {})
+      repos_geoip_enable_with_http_info(owner, identifier, opts)
+      nil
+    end
+
+    # Enable GeoIP for this repository.
+    # Enable GeoIP for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_geoip_enable_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_enable ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_geoip_enable"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_geoip_enable"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/geoip/enable/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_geoip_enable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List all created GeoIP rules for the repository.
+    # List all created GeoIP rules for the repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [InlineResponse200]
+    def repos_geoip_read(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_geoip_read_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List all created GeoIP rules for the repository.
+    # List all created GeoIP rules for the repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    def repos_geoip_read_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_geoip_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_geoip_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/geoip'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse200')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_geoip_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Set the active GPG key for the Repository.
     # Set the active GPG key for the Repository.
     # @param owner 

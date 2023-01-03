@@ -6,6 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
+[**repos_geoip_disable**](ReposApi.md#repos_geoip_disable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
+[**repos_geoip_enable**](ReposApi.md#repos_geoip_enable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
+[**repos_geoip_read**](ReposApi.md#repos_geoip_read) | **GET** /repos/{owner}/{identifier}/geoip | List all created GeoIP rules for the repository.
 [**repos_gpg_create**](ReposApi.md#repos_gpg_create) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 [**repos_gpg_list**](ReposApi.md#repos_gpg_list) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 [**repos_gpg_regenerate**](ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
@@ -123,6 +126,183 @@ Name | Type | Description  | Notes
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_geoip_disable**
+> repos_geoip_disable(owner, identifier, opts)
+
+Disable GeoIP for this repository.
+
+Disable GeoIP for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::RespositoryGeoIPEnableDisableRequest.new # RespositoryGeoIPEnableDisableRequest | 
+}
+
+begin
+  #Disable GeoIP for this repository.
+  api_instance.repos_geoip_disable(owner, identifier, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_geoip_disable: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**RespositoryGeoIPEnableDisableRequest**](RespositoryGeoIPEnableDisableRequest.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_geoip_enable**
+> repos_geoip_enable(owner, identifier, opts)
+
+Enable GeoIP for this repository.
+
+Enable GeoIP for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::RespositoryGeoIPEnableDisableRequest.new # RespositoryGeoIPEnableDisableRequest | 
+}
+
+begin
+  #Enable GeoIP for this repository.
+  api_instance.repos_geoip_enable(owner, identifier, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_geoip_enable: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**RespositoryGeoIPEnableDisableRequest**](RespositoryGeoIPEnableDisableRequest.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_geoip_read**
+> InlineResponse200 repos_geoip_read(owner, identifier)
+
+List all created GeoIP rules for the repository.
+
+List all created GeoIP rules for the repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+
+begin
+  #List all created GeoIP rules for the repository.
+  result = api_instance.repos_geoip_read(owner, identifier)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_geoip_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

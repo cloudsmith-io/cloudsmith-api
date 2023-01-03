@@ -89,7 +89,7 @@ public class PackageFile implements Serializable {
    * Get checksumMd5
    * @return checksumMd5
   **/
- @Size(min=1)  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "")
   public String getChecksumMd5() {
     return checksumMd5;
   }
@@ -98,7 +98,7 @@ public class PackageFile implements Serializable {
    * Get checksumSha1
    * @return checksumSha1
   **/
- @Size(min=1)  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "")
   public String getChecksumSha1() {
     return checksumSha1;
   }
@@ -107,7 +107,7 @@ public class PackageFile implements Serializable {
    * Get checksumSha256
    * @return checksumSha256
   **/
- @Size(min=1)  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "")
   public String getChecksumSha256() {
     return checksumSha256;
   }
@@ -116,7 +116,7 @@ public class PackageFile implements Serializable {
    * Get checksumSha512
    * @return checksumSha512
   **/
- @Size(min=1)  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "")
   public String getChecksumSha512() {
     return checksumSha512;
   }
@@ -197,7 +197,7 @@ public class PackageFile implements Serializable {
    * Freeform descriptor that describes what the file is.
    * @return tag
   **/
- @Size(min=1)  @ApiModelProperty(value = "Freeform descriptor that describes what the file is.")
+  @ApiModelProperty(value = "Freeform descriptor that describes what the file is.")
   public String getTag() {
     return tag;
   }

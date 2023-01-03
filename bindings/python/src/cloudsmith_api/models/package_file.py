@@ -156,9 +156,6 @@ class PackageFile(object):
         :param checksum_md5: The checksum_md5 of this PackageFile.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                checksum_md5 is not None and len(checksum_md5) < 1):
-            raise ValueError("Invalid value for `checksum_md5`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._checksum_md5 = checksum_md5
 
@@ -180,9 +177,6 @@ class PackageFile(object):
         :param checksum_sha1: The checksum_sha1 of this PackageFile.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                checksum_sha1 is not None and len(checksum_sha1) < 1):
-            raise ValueError("Invalid value for `checksum_sha1`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._checksum_sha1 = checksum_sha1
 
@@ -204,9 +198,6 @@ class PackageFile(object):
         :param checksum_sha256: The checksum_sha256 of this PackageFile.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                checksum_sha256 is not None and len(checksum_sha256) < 1):
-            raise ValueError("Invalid value for `checksum_sha256`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._checksum_sha256 = checksum_sha256
 
@@ -228,9 +219,6 @@ class PackageFile(object):
         :param checksum_sha512: The checksum_sha512 of this PackageFile.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                checksum_sha512 is not None and len(checksum_sha512) < 1):
-            raise ValueError("Invalid value for `checksum_sha512`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._checksum_sha512 = checksum_sha512
 
@@ -433,9 +421,6 @@ class PackageFile(object):
         :param tag: The tag of this PackageFile.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                tag is not None and len(tag) < 1):
-            raise ValueError("Invalid value for `tag`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tag = tag
 

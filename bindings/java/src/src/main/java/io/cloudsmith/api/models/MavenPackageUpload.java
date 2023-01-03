@@ -391,7 +391,7 @@ public class MavenPackageUpload implements Serializable {
    * A checksum of all of the package&#39;s dependencies.
    * @return dependenciesChecksumMd5
   **/
- @Size(min=1)  @ApiModelProperty(value = "A checksum of all of the package's dependencies.")
+  @ApiModelProperty(value = "A checksum of all of the package's dependencies.")
   public String getDependenciesChecksumMd5() {
     return dependenciesChecksumMd5;
   }
@@ -409,7 +409,7 @@ public class MavenPackageUpload implements Serializable {
    * A textual description of this package.
    * @return description
   **/
- @Size(min=1)  @ApiModelProperty(value = "A textual description of this package.")
+  @ApiModelProperty(value = "A textual description of this package.")
   public String getDescription() {
     return description;
   }
@@ -619,7 +619,7 @@ public class MavenPackageUpload implements Serializable {
    * The license of this package.
    * @return license
   **/
- @Size(min=1)  @ApiModelProperty(value = "The license of this package.")
+  @ApiModelProperty(value = "The license of this package.")
   public String getLicense() {
     return license;
   }
@@ -628,7 +628,7 @@ public class MavenPackageUpload implements Serializable {
    * The name of this package.
    * @return name
   **/
- @Size(min=1)  @ApiModelProperty(value = "The name of this package.")
+  @ApiModelProperty(value = "The name of this package.")
   public String getName() {
     return name;
   }
@@ -709,7 +709,7 @@ public class MavenPackageUpload implements Serializable {
    * The release of the package version (if any).
    * @return release
   **/
- @Size(min=1)  @ApiModelProperty(value = "The release of the package version (if any).")
+  @ApiModelProperty(value = "The release of the package version (if any).")
   public String getRelease() {
     return release;
   }
@@ -866,7 +866,7 @@ public class MavenPackageUpload implements Serializable {
    * A textual description for the synchronous status reason (if any
    * @return statusReason
   **/
- @Size(min=1)  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
   public String getStatusReason() {
     return statusReason;
   }
@@ -912,7 +912,7 @@ public class MavenPackageUpload implements Serializable {
    * A one-liner synopsis of this package.
    * @return summary
   **/
- @Size(min=1)  @ApiModelProperty(value = "A one-liner synopsis of this package.")
+  @ApiModelProperty(value = "A one-liner synopsis of this package.")
   public String getSummary() {
     return summary;
   }

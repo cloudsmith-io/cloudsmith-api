@@ -59,7 +59,7 @@ public class Namespace implements Serializable {
    * Get slug
    * @return slug
   **/
- @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$")  @ApiModelProperty(value = "")
   public String getSlug() {
     return slug;
   }

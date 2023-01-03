@@ -410,9 +410,6 @@ class PackageStatus(object):
         :param status_reason: The status_reason of this PackageStatus.
         :type: str
         """
-        if (self._configuration.client_side_validation and
-                status_reason is not None and len(status_reason) < 1):
-            raise ValueError("Invalid value for `status_reason`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._status_reason = status_reason
 

@@ -199,7 +199,7 @@ public class PackageStatus implements Serializable {
    * A textual description for the synchronous status reason (if any
    * @return statusReason
   **/
- @Size(min=1)  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
+  @ApiModelProperty(value = "A textual description for the synchronous status reason (if any")
   public String getStatusReason() {
     return statusReason;
   }
