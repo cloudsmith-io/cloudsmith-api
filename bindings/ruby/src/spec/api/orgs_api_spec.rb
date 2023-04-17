@@ -112,6 +112,101 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_license_policy_create
+  # Create a package license policy.
+  # Create a package license policy.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationPackageLicensePolicyRequest] :data 
+  # @return [OrganizationPackageLicensePolicy]
+  describe 'orgs_license_policy_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_license_policy_delete
+  # Delete a package license policy.
+  # Delete a package license policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'orgs_license_policy_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_license_policy_list
+  # Get a list of all package license policies.
+  # Get a list of all package license policies.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<OrganizationPackageLicensePolicy>]
+  describe 'orgs_license_policy_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_license_policy_partial_update
+  # Partially update a package license policy.
+  # Partially update a package license policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationPackageLicensePolicyRequestPatch] :data 
+  # @return [OrganizationPackageLicensePolicy]
+  describe 'orgs_license_policy_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_license_policy_read
+  # Get a package license policy.
+  # Get a package license policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [OrganizationPackageLicensePolicy]
+  describe 'orgs_license_policy_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_license_policy_update
+  # Update a package license policy.
+  # Update a package license policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationPackageLicensePolicyRequest] :data 
+  # @return [OrganizationPackageLicensePolicy]
+  describe 'orgs_license_policy_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_license_policy_violation_list
+  # List all current license policy violations for this Organization.
+  # List all current license policy violations for this Organization.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :cursor The pagination cursor value.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [InlineResponse200]
+  describe 'orgs_license_policy_violation_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_list
   # Get a list of all the organizations you are associated with.
   # Get a list of all the organizations you are associated with.
@@ -412,6 +507,101 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @return [OrganizationTeam]
   describe 'orgs_teams_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_vulnerability_policy_create
+  # Create a package vulnerability policy.
+  # Create a package vulnerability policy.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationPackageVulnerabilityPolicyRequest] :data 
+  # @return [OrganizationPackageVulnerabilityPolicy]
+  describe 'orgs_vulnerability_policy_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_vulnerability_policy_delete
+  # Delete a package vulnerability policy.
+  # Delete a package vulnerability policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'orgs_vulnerability_policy_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_vulnerability_policy_list
+  # Get a list of all package vulnerability policies.
+  # Get a list of all package vulnerability policies.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<OrganizationPackageVulnerabilityPolicy>]
+  describe 'orgs_vulnerability_policy_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_vulnerability_policy_partial_update
+  # Partially update a package vulnerability policy.
+  # Partially update a package vulnerability policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationPackageVulnerabilityPolicyRequestPatch] :data 
+  # @return [OrganizationPackageVulnerabilityPolicy]
+  describe 'orgs_vulnerability_policy_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_vulnerability_policy_read
+  # Get a package vulnerability policy.
+  # Get a package vulnerability policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [OrganizationPackageVulnerabilityPolicy]
+  describe 'orgs_vulnerability_policy_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_vulnerability_policy_update
+  # Update a package vulnerability policy.
+  # Update a package vulnerability policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationPackageVulnerabilityPolicyRequest] :data 
+  # @return [OrganizationPackageVulnerabilityPolicy]
+  describe 'orgs_vulnerability_policy_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_vulnerability_policy_violation_list
+  # List all current vulnerability policy violations for this Organization.
+  # List all current vulnerability policy violations for this Organization.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :cursor The pagination cursor value.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [InlineResponse2001]
+  describe 'orgs_vulnerability_policy_violation_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

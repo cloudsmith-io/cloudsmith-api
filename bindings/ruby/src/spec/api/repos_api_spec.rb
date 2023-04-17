@@ -86,14 +86,56 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_geoip_partial_update
+  # Partially update existing repository geoip rules with those specified
+  # Partially update existing repository geoip rules with those specified
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryGeoIpRules2] :data 
+  # @return [RepositoryGeoIpRules]
+  describe 'repos_geoip_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_geoip_read
   # List all created GeoIP rules for the repository.
   # List all created GeoIP rules for the repository.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse200]
+  # @return [RepositoryGeoIpRules]
   describe 'repos_geoip_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_geoip_test
+  # Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+  # Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryGeoIPTestAddress] :data 
+  # @return [RepositoryGeoIPTestAddressResponse]
+  describe 'repos_geoip_test test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_geoip_update
+  # Replace all existing repository geoip rules with those specified
+  # Replace all existing repository geoip rules with those specified
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryGeoIpRules1] :data 
+  # @return [nil]
+  describe 'repos_geoip_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

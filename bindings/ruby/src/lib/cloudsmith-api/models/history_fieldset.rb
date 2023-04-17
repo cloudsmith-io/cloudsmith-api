@@ -33,7 +33,7 @@ class HistoryFieldset
   def self.swagger_types
     {
       :'downloaded' => :'Usage',
-      :'storage_used' => :'Usage',
+      :'storage_used' => :'StorageUsage',
       :'uploaded' => :'Usage'
     }
   end

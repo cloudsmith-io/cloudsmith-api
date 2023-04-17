@@ -1,4 +1,4 @@
-# CloudsmithApi::InlineResponse200CountryCode
+# CloudsmithApi::RepositoryGeoIpCountryCodeRules
 
 ## Properties
 Name | Type | Description | Notes

@@ -152,25 +152,25 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Get the direct (non-transitive) dependencies list for a package.
-    # Get the direct (non-transitive) dependencies list for a package.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
     # @param owner 
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [PackageDependencies]
+    # @return [PackageDependenciesSchema]
     def packages_dependencies(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_dependencies_with_http_info(owner, repo, identifier, opts)
       data
     end
 
-    # Get the direct (non-transitive) dependencies list for a package.
-    # Get the direct (non-transitive) dependencies list for a package.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
     # @param owner 
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PackageDependencies, Fixnum, Hash)>] PackageDependencies data, response status code and response headers
+    # @return [Array<(PackageDependenciesSchema, Fixnum, Hash)>] PackageDependenciesSchema data, response status code and response headers
     def packages_dependencies_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_dependencies ...'
@@ -212,7 +212,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PackageDependencies')
+        :return_type => 'PackageDependenciesSchema')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_dependencies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

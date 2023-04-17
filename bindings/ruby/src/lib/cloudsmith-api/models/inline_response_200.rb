@@ -14,23 +14,27 @@ require 'date'
 
 module CloudsmithApi
 class InlineResponse200
-  attr_accessor :country_code
+  attr_accessor :_next
 
-  attr_accessor :cidr
+  attr_accessor :previous
+
+  attr_accessor :results
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'country_code' => :'country_code',
-      :'cidr' => :'cidr'
+      :'_next' => :'next',
+      :'previous' => :'previous',
+      :'results' => :'results'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'country_code' => :'InlineResponse200CountryCode',
-      :'cidr' => :'InlineResponse200CountryCode'
+      :'_next' => :'String',
+      :'previous' => :'String',
+      :'results' => :'Array<PackageLicensePolicyViolationLog>'
     }
   end
 
@@ -42,12 +46,18 @@ class InlineResponse200
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-    if attributes.has_key?(:'country_code')
-      self.country_code = attributes[:'country_code']
+    if attributes.has_key?(:'next')
+      self._next = attributes[:'next']
     end
 
-    if attributes.has_key?(:'cidr')
-      self.cidr = attributes[:'cidr']
+    if attributes.has_key?(:'previous')
+      self.previous = attributes[:'previous']
+    end
+
+    if attributes.has_key?(:'results')
+      if (value = attributes[:'results']).is_a?(Array)
+        self.results = value
+      end
     end
   end
 
@@ -55,12 +65,17 @@ class InlineResponse200
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
+    if @results.nil?
+      invalid_properties.push('invalid value for "results", results cannot be nil.')
+    end
+
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    return false if @results.nil?
     true
   end
 
@@ -69,8 +84,9 @@ class InlineResponse200
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        country_code == o.country_code &&
-        cidr == o.cidr
+        _next == o._next &&
+        previous == o.previous &&
+        results == o.results
   end
 
   # @see the `==` method
@@ -82,7 +98,7 @@ class InlineResponse200
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [country_code, cidr].hash
+    [_next, previous, results].hash
   end
 
     # Builds the object from hash

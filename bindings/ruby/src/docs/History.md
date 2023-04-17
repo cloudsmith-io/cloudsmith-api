@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **display** | [**HistoryFieldset**](HistoryFieldset.md) |  | 
 **_end** | **DateTime** |  | 
 **plan** | **String** |  | 
-**raw** | [**HistoryFieldset**](HistoryFieldset.md) |  | 
+**raw** | [**HistoryFieldsetRaw**](HistoryFieldsetRaw.md) |  | 
 **start** | **DateTime** |  | 
 
 

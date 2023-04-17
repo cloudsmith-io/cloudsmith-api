@@ -30,7 +30,7 @@ class UsageFieldset
   def self.swagger_types
     {
       :'display' => :'UsageLimits',
-      :'raw' => :'UsageLimits'
+      :'raw' => :'UsageLimitsRaw'
     }
   end
 

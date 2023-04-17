@@ -62,13 +62,13 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_dependencies
-  # Get the direct (non-transitive) dependencies list for a package.
-  # Get the direct (non-transitive) dependencies list for a package.
+  # Get the list of dependencies for a package. Transitive dependencies are included where supported.
+  # Get the list of dependencies for a package. Transitive dependencies are included where supported.
   # @param owner 
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [PackageDependencies]
+  # @return [PackageDependenciesSchema]
   describe 'packages_dependencies test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

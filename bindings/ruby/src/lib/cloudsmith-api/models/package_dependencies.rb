@@ -26,7 +26,7 @@ class PackageDependencies
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'dependencies' => :'Array<PackageDependency>'
+      :'dependencies' => :'String'
     }
   end
 
@@ -39,9 +39,7 @@ class PackageDependencies
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
     if attributes.has_key?(:'dependencies')
-      if (value = attributes[:'dependencies']).is_a?(Array)
-        self.dependencies = value
-      end
+      self.dependencies = attributes[:'dependencies']
     end
   end
 
@@ -49,17 +47,12 @@ class PackageDependencies
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if @dependencies.nil?
-      invalid_properties.push('invalid value for "dependencies", dependencies cannot be nil.')
-    end
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if @dependencies.nil?
     true
   end
 
