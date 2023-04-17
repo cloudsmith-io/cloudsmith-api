@@ -9,5 +9,5 @@ root_dir=$(readlink -f "$self_dir/../..")
 src_dir="$self_dir/src"
 
 cd $src_dir
-pip3 install tox
+pip install tox
 tox
