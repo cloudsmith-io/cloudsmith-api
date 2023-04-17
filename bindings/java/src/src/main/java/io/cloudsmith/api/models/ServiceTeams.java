@@ -114,7 +114,8 @@ public class ServiceTeams implements Serializable {
    * The teams associated with the service
    * @return slug
   **/
- @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "The teams associated with the service")
+  @NotNull
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(required = true, value = "The teams associated with the service")
   public String getSlug() {
     return slug;
   }

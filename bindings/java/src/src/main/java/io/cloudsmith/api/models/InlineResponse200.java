@@ -20,10 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.InlineResponse200CountryCode;
+import io.cloudsmith.api.models.PackageLicensePolicyViolationLog;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -35,48 +37,74 @@ import javax.validation.Valid;
 public class InlineResponse200 implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("country_code")
-  private InlineResponse200CountryCode countryCode = null;
+  @SerializedName("next")
+  private String next = null;
 
-  @SerializedName("cidr")
-  private InlineResponse200CountryCode cidr = null;
+  @SerializedName("previous")
+  private String previous = null;
 
-  public InlineResponse200 countryCode(InlineResponse200CountryCode countryCode) {
-    this.countryCode = countryCode;
+  @SerializedName("results")
+  private List<PackageLicensePolicyViolationLog> results = new ArrayList<>();
+
+  public InlineResponse200 next(String next) {
+    this.next = next;
     return this;
   }
 
    /**
-   * Get countryCode
-   * @return countryCode
+   * Get next
+   * @return next
   **/
-  @Valid
   @ApiModelProperty(value = "")
-  public InlineResponse200CountryCode getCountryCode() {
-    return countryCode;
+  public String getNext() {
+    return next;
   }
 
-  public void setCountryCode(InlineResponse200CountryCode countryCode) {
-    this.countryCode = countryCode;
+  public void setNext(String next) {
+    this.next = next;
   }
 
-  public InlineResponse200 cidr(InlineResponse200CountryCode cidr) {
-    this.cidr = cidr;
+  public InlineResponse200 previous(String previous) {
+    this.previous = previous;
     return this;
   }
 
    /**
-   * Get cidr
-   * @return cidr
+   * Get previous
+   * @return previous
   **/
-  @Valid
   @ApiModelProperty(value = "")
-  public InlineResponse200CountryCode getCidr() {
-    return cidr;
+  public String getPrevious() {
+    return previous;
   }
 
-  public void setCidr(InlineResponse200CountryCode cidr) {
-    this.cidr = cidr;
+  public void setPrevious(String previous) {
+    this.previous = previous;
+  }
+
+  public InlineResponse200 results(List<PackageLicensePolicyViolationLog> results) {
+    this.results = results;
+    return this;
+  }
+
+  public InlineResponse200 addResultsItem(PackageLicensePolicyViolationLog resultsItem) {
+    this.results.add(resultsItem);
+    return this;
+  }
+
+   /**
+   * Get results
+   * @return results
+  **/
+  @NotNull
+  @Valid
+  @ApiModelProperty(required = true, value = "")
+  public List<PackageLicensePolicyViolationLog> getResults() {
+    return results;
+  }
+
+  public void setResults(List<PackageLicensePolicyViolationLog> results) {
+    this.results = results;
   }
 
 
@@ -89,13 +117,14 @@ public class InlineResponse200 implements Serializable {
       return false;
     }
     InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.countryCode, inlineResponse200.countryCode) &&
-        Objects.equals(this.cidr, inlineResponse200.cidr);
+    return Objects.equals(this.next, inlineResponse200.next) &&
+        Objects.equals(this.previous, inlineResponse200.previous) &&
+        Objects.equals(this.results, inlineResponse200.results);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode, cidr);
+    return Objects.hash(next, previous, results);
   }
 
 
@@ -104,8 +133,9 @@ public class InlineResponse200 implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200 {\n");
     
-    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-    sb.append("    cidr: ").append(toIndentedString(cidr)).append("\n");
+    sb.append("    next: ").append(toIndentedString(next)).append("\n");
+    sb.append("    previous: ").append(toIndentedString(previous)).append("\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }

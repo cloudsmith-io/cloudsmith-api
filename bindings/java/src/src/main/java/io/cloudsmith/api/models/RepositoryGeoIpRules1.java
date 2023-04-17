@@ -20,78 +20,63 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.RepositoryGeoIpCountryCodeRules;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * InlineResponse200CountryCode
+ * RepositoryGeoIpRules1
  */
 
-public class InlineResponse200CountryCode implements Serializable {
+public class RepositoryGeoIpRules1 implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("allow")
-  private List<String> allow = null;
+  @SerializedName("country_code")
+  private RepositoryGeoIpCountryCodeRules countryCode = null;
 
-  @SerializedName("deny")
-  private List<String> deny = null;
+  @SerializedName("cidr")
+  private RepositoryGeoIpCountryCodeRules cidr = null;
 
-  public InlineResponse200CountryCode allow(List<String> allow) {
-    this.allow = allow;
-    return this;
-  }
-
-  public InlineResponse200CountryCode addAllowItem(String allowItem) {
-    if (this.allow == null) {
-      this.allow = new ArrayList<>();
-    }
-    this.allow.add(allowItem);
+  public RepositoryGeoIpRules1 countryCode(RepositoryGeoIpCountryCodeRules countryCode) {
+    this.countryCode = countryCode;
     return this;
   }
 
    /**
-   * Get allow
-   * @return allow
+   * Get countryCode
+   * @return countryCode
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public List<String> getAllow() {
-    return allow;
+  public RepositoryGeoIpCountryCodeRules getCountryCode() {
+    return countryCode;
   }
 
-  public void setAllow(List<String> allow) {
-    this.allow = allow;
+  public void setCountryCode(RepositoryGeoIpCountryCodeRules countryCode) {
+    this.countryCode = countryCode;
   }
 
-  public InlineResponse200CountryCode deny(List<String> deny) {
-    this.deny = deny;
-    return this;
-  }
-
-  public InlineResponse200CountryCode addDenyItem(String denyItem) {
-    if (this.deny == null) {
-      this.deny = new ArrayList<>();
-    }
-    this.deny.add(denyItem);
+  public RepositoryGeoIpRules1 cidr(RepositoryGeoIpCountryCodeRules cidr) {
+    this.cidr = cidr;
     return this;
   }
 
    /**
-   * Get deny
-   * @return deny
+   * Get cidr
+   * @return cidr
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public List<String> getDeny() {
-    return deny;
+  public RepositoryGeoIpCountryCodeRules getCidr() {
+    return cidr;
   }
 
-  public void setDeny(List<String> deny) {
-    this.deny = deny;
+  public void setCidr(RepositoryGeoIpCountryCodeRules cidr) {
+    this.cidr = cidr;
   }
 
 
@@ -103,24 +88,24 @@ public class InlineResponse200CountryCode implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200CountryCode inlineResponse200CountryCode = (InlineResponse200CountryCode) o;
-    return Objects.equals(this.allow, inlineResponse200CountryCode.allow) &&
-        Objects.equals(this.deny, inlineResponse200CountryCode.deny);
+    RepositoryGeoIpRules1 repositoryGeoIpRules1 = (RepositoryGeoIpRules1) o;
+    return Objects.equals(this.countryCode, repositoryGeoIpRules1.countryCode) &&
+        Objects.equals(this.cidr, repositoryGeoIpRules1.cidr);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allow, deny);
+    return Objects.hash(countryCode, cidr);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200CountryCode {\n");
+    sb.append("class RepositoryGeoIpRules1 {\n");
     
-    sb.append("    allow: ").append(toIndentedString(allow)).append("\n");
-    sb.append("    deny: ").append(toIndentedString(deny)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    cidr: ").append(toIndentedString(cidr)).append("\n");
     sb.append("}");
     return sb.toString();
   }

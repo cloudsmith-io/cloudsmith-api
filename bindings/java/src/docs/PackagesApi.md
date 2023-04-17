@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**packagesCopy**](PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 [**packagesDelete**](PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
-[**packagesDependencies**](PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
+[**packagesDependencies**](PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the list of dependencies for a package. Transitive dependencies are included where supported.
 [**packagesList**](PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**packagesMove**](PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packagesQuarantine**](PackagesApi.md#packagesQuarantine) | **POST** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or restore a package.
@@ -184,11 +184,11 @@ null (empty response body)
 
 <a name="packagesDependencies"></a>
 # **packagesDependencies**
-> PackageDependencies packagesDependencies(owner, repo, identifier)
+> PackageDependenciesSchema packagesDependencies(owner, repo, identifier)
 
-Get the direct (non-transitive) dependencies list for a package.
+Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
-Get the direct (non-transitive) dependencies list for a package.
+Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
 ### Example
 ```java
@@ -212,7 +212,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    PackageDependencies result = apiInstance.packagesDependencies(owner, repo, identifier);
+    PackageDependenciesSchema result = apiInstance.packagesDependencies(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesDependencies");
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDependencies**](PackageDependencies.md)
+[**PackageDependenciesSchema**](PackageDependenciesSchema.md)
 
 ### Authorization
 

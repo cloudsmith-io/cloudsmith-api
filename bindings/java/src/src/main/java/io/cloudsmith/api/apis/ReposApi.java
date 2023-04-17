@@ -37,10 +37,14 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.InlineResponse200;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
+import io.cloudsmith.api.models.RepositoryGeoIPTestAddress;
+import io.cloudsmith.api.models.RepositoryGeoIPTestAddressResponse;
+import io.cloudsmith.api.models.RepositoryGeoIpRules;
+import io.cloudsmith.api.models.RepositoryGeoIpRules1;
+import io.cloudsmith.api.models.RepositoryGeoIpRules2;
 import io.cloudsmith.api.models.RepositoryGpgKey;
 import io.cloudsmith.api.models.RepositoryGpgKeyCreate;
 import io.cloudsmith.api.models.RepositoryPrivilegeInput;
@@ -640,6 +644,152 @@ public class ReposApi {
         return call;
     }
     /**
+     * Build call for reposGeoipPartialUpdate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposGeoipPartialUpdateCall(String owner, String identifier, RepositoryGeoIpRules2 data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/geoip"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposGeoipPartialUpdateValidateBeforeCall(String owner, String identifier, RepositoryGeoIpRules2 data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, data };
+            Method method = this.getClass().getMethod("reposGeoipPartialUpdateWithHttpInfo", String.class, String.class, RepositoryGeoIpRules2.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposGeoipPartialUpdateCall(owner, identifier, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Partially update existing repository geoip rules with those specified
+     * Partially update existing repository geoip rules with those specified
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return RepositoryGeoIpRules
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RepositoryGeoIpRules reposGeoipPartialUpdate(String owner, String identifier, RepositoryGeoIpRules2 data) throws ApiException {
+        ApiResponse<RepositoryGeoIpRules> resp = reposGeoipPartialUpdateWithHttpInfo(owner, identifier, data);
+        return resp.getData();
+    }
+
+    /**
+     * Partially update existing repository geoip rules with those specified
+     * Partially update existing repository geoip rules with those specified
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;RepositoryGeoIpRules&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RepositoryGeoIpRules> reposGeoipPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryGeoIpRules2 data) throws ApiException {
+        com.squareup.okhttp.Call call = reposGeoipPartialUpdateValidateBeforeCall(owner, identifier, data, null, null);
+        Type localVarReturnType = new TypeToken<RepositoryGeoIpRules>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Partially update existing repository geoip rules with those specified (asynchronously)
+     * Partially update existing repository geoip rules with those specified
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposGeoipPartialUpdateAsync(String owner, String identifier, RepositoryGeoIpRules2 data, final ApiCallback<RepositoryGeoIpRules> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposGeoipPartialUpdateValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RepositoryGeoIpRules>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for reposGeoipRead
      * @param owner  (required)
      * @param identifier  (required)
@@ -724,11 +874,11 @@ public class ReposApi {
      * List all created GeoIP rules for the repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return InlineResponse200
+     * @return RepositoryGeoIpRules
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 reposGeoipRead(String owner, String identifier) throws ApiException {
-        ApiResponse<InlineResponse200> resp = reposGeoipReadWithHttpInfo(owner, identifier);
+    public RepositoryGeoIpRules reposGeoipRead(String owner, String identifier) throws ApiException {
+        ApiResponse<RepositoryGeoIpRules> resp = reposGeoipReadWithHttpInfo(owner, identifier);
         return resp.getData();
     }
 
@@ -737,12 +887,12 @@ public class ReposApi {
      * List all created GeoIP rules for the repository.
      * @param owner  (required)
      * @param identifier  (required)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;RepositoryGeoIpRules&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> reposGeoipReadWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
+    public ApiResponse<RepositoryGeoIpRules> reposGeoipReadWithHttpInfo( @NotNull String owner,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = reposGeoipReadValidateBeforeCall(owner, identifier, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryGeoIpRules>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -755,7 +905,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposGeoipReadAsync(String owner, String identifier, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposGeoipReadAsync(String owner, String identifier, final ApiCallback<RepositoryGeoIpRules> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -777,8 +927,296 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposGeoipReadValidateBeforeCall(owner, identifier, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<RepositoryGeoIpRules>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposGeoipTest
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposGeoipTestCall(String owner, String identifier, RepositoryGeoIPTestAddress data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/geoip/test/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposGeoipTestValidateBeforeCall(String owner, String identifier, RepositoryGeoIPTestAddress data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, data };
+            Method method = this.getClass().getMethod("reposGeoipTestWithHttpInfo", String.class, String.class, RepositoryGeoIPTestAddress.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposGeoipTestCall(owner, identifier, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+     * Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return RepositoryGeoIPTestAddressResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RepositoryGeoIPTestAddressResponse reposGeoipTest(String owner, String identifier, RepositoryGeoIPTestAddress data) throws ApiException {
+        ApiResponse<RepositoryGeoIPTestAddressResponse> resp = reposGeoipTestWithHttpInfo(owner, identifier, data);
+        return resp.getData();
+    }
+
+    /**
+     * Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+     * Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;RepositoryGeoIPTestAddressResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RepositoryGeoIPTestAddressResponse> reposGeoipTestWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryGeoIPTestAddress data) throws ApiException {
+        com.squareup.okhttp.Call call = reposGeoipTestValidateBeforeCall(owner, identifier, data, null, null);
+        Type localVarReturnType = new TypeToken<RepositoryGeoIPTestAddressResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Test a list of IP addresses against the repository&#39;s current GeoIP rules. (asynchronously)
+     * Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposGeoipTestAsync(String owner, String identifier, RepositoryGeoIPTestAddress data, final ApiCallback<RepositoryGeoIPTestAddressResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposGeoipTestValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RepositoryGeoIPTestAddressResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposGeoipUpdate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposGeoipUpdateCall(String owner, String identifier, RepositoryGeoIpRules1 data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/geoip"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposGeoipUpdateValidateBeforeCall(String owner, String identifier, RepositoryGeoIpRules1 data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, data };
+            Method method = this.getClass().getMethod("reposGeoipUpdateWithHttpInfo", String.class, String.class, RepositoryGeoIpRules1.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposGeoipUpdateCall(owner, identifier, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Replace all existing repository geoip rules with those specified
+     * Replace all existing repository geoip rules with those specified
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void reposGeoipUpdate(String owner, String identifier, RepositoryGeoIpRules1 data) throws ApiException {
+        reposGeoipUpdateWithHttpInfo(owner, identifier, data);
+    }
+
+    /**
+     * Replace all existing repository geoip rules with those specified
+     * Replace all existing repository geoip rules with those specified
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> reposGeoipUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  RepositoryGeoIpRules1 data) throws ApiException {
+        com.squareup.okhttp.Call call = reposGeoipUpdateValidateBeforeCall(owner, identifier, data, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Replace all existing repository geoip rules with those specified (asynchronously)
+     * Replace all existing repository geoip rules with those specified
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposGeoipUpdateAsync(String owner, String identifier, RepositoryGeoIpRules1 data, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposGeoipUpdateValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**

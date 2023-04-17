@@ -14,10 +14,14 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.InlineResponse200;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
+import io.cloudsmith.api.models.RepositoryGeoIPTestAddress;
+import io.cloudsmith.api.models.RepositoryGeoIPTestAddressResponse;
+import io.cloudsmith.api.models.RepositoryGeoIpRules;
+import io.cloudsmith.api.models.RepositoryGeoIpRules1;
+import io.cloudsmith.api.models.RepositoryGeoIpRules2;
 import io.cloudsmith.api.models.RepositoryGpgKey;
 import io.cloudsmith.api.models.RepositoryGpgKeyCreate;
 import io.cloudsmith.api.models.RepositoryPrivilegeInput;
@@ -116,6 +120,24 @@ public class ReposApiTest {
     }
     
     /**
+     * Partially update existing repository geoip rules with those specified
+     *
+     * Partially update existing repository geoip rules with those specified
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGeoipPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryGeoIpRules2 data = null;
+        RepositoryGeoIpRules response = api.reposGeoipPartialUpdate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List all created GeoIP rules for the repository.
      *
      * List all created GeoIP rules for the repository.
@@ -127,7 +149,43 @@ public class ReposApiTest {
     public void reposGeoipReadTest() throws Exception {
         String owner = null;
         String identifier = null;
-        InlineResponse200 response = api.reposGeoipRead(owner, identifier);
+        RepositoryGeoIpRules response = api.reposGeoipRead(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+     *
+     * Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGeoipTestTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryGeoIPTestAddress data = null;
+        RepositoryGeoIPTestAddressResponse response = api.reposGeoipTest(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Replace all existing repository geoip rules with those specified
+     *
+     * Replace all existing repository geoip rules with those specified
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposGeoipUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryGeoIpRules1 data = null;
+        api.reposGeoipUpdate(owner, identifier, data);
 
         // TODO: test validations
     }

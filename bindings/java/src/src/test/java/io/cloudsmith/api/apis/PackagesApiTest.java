@@ -51,7 +51,7 @@ import io.cloudsmith.api.models.P2PackageUpload;
 import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
-import io.cloudsmith.api.models.PackageDependencies;
+import io.cloudsmith.api.models.PackageDependenciesSchema;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
 import io.cloudsmith.api.models.PackageQuarantine;
@@ -127,9 +127,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Get the direct (non-transitive) dependencies list for a package.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
      *
-     * Get the direct (non-transitive) dependencies list for a package.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
      *
      * @throws Exception
      *          if the Api call fails
@@ -139,7 +139,7 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageDependencies response = api.packagesDependencies(owner, repo, identifier);
+        PackageDependenciesSchema response = api.packagesDependencies(owner, repo, identifier);
 
         // TODO: test validations
     }

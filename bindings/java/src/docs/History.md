@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **display** | [**HistoryFieldset**](HistoryFieldset.md) |  | 
 **end** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 **plan** | **String** |  | 
-**raw** | [**HistoryFieldset**](HistoryFieldset.md) |  | 
+**raw** | [**HistoryFieldsetRaw**](HistoryFieldsetRaw.md) |  | 
 **start** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 
 

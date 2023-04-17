@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.cloudsmith.api.models.AllocatedLimit;
+import io.cloudsmith.api.models.StorageAllocatedLimit;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class UsageLimits implements Serializable {
   private AllocatedLimit bandwidth = null;
 
   @SerializedName("storage")
-  private AllocatedLimit storage = null;
+  private StorageAllocatedLimit storage = null;
 
   public UsageLimits bandwidth(AllocatedLimit bandwidth) {
     this.bandwidth = bandwidth;
@@ -61,7 +62,7 @@ public class UsageLimits implements Serializable {
     this.bandwidth = bandwidth;
   }
 
-  public UsageLimits storage(AllocatedLimit storage) {
+  public UsageLimits storage(StorageAllocatedLimit storage) {
     this.storage = storage;
     return this;
   }
@@ -73,11 +74,11 @@ public class UsageLimits implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "")
-  public AllocatedLimit getStorage() {
+  public StorageAllocatedLimit getStorage() {
     return storage;
   }
 
-  public void setStorage(AllocatedLimit storage) {
+  public void setStorage(StorageAllocatedLimit storage) {
     this.storage = storage;
   }
 

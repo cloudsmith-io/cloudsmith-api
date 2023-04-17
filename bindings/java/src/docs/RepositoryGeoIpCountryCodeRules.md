@@ -1,5 +1,5 @@
 
-# InlineResponse200CountryCode
+# RepositoryGeoIpCountryCodeRules
 
 ## Properties
 Name | Type | Description | Notes

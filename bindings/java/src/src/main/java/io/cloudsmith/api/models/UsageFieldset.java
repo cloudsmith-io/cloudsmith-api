@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.cloudsmith.api.models.UsageLimits;
+import io.cloudsmith.api.models.UsageLimitsRaw;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class UsageFieldset implements Serializable {
   private UsageLimits display = null;
 
   @SerializedName("raw")
-  private UsageLimits raw = null;
+  private UsageLimitsRaw raw = null;
 
   public UsageFieldset display(UsageLimits display) {
     this.display = display;
@@ -61,7 +62,7 @@ public class UsageFieldset implements Serializable {
     this.display = display;
   }
 
-  public UsageFieldset raw(UsageLimits raw) {
+  public UsageFieldset raw(UsageLimitsRaw raw) {
     this.raw = raw;
     return this;
   }
@@ -73,11 +74,11 @@ public class UsageFieldset implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "")
-  public UsageLimits getRaw() {
+  public UsageLimitsRaw getRaw() {
     return raw;
   }
 
-  public void setRaw(UsageLimits raw) {
+  public void setRaw(UsageLimitsRaw raw) {
     this.raw = raw;
   }
 
