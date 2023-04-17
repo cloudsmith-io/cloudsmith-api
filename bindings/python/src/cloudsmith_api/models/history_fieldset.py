@@ -34,7 +34,7 @@ class HistoryFieldset(object):
     """
     swagger_types = {
         'downloaded': 'Usage',
-        'storage_used': 'Usage',
+        'storage_used': 'StorageUsage',
         'uploaded': 'Usage'
     }
 
@@ -88,7 +88,7 @@ class HistoryFieldset(object):
 
 
         :return: The storage_used of this HistoryFieldset.
-        :rtype: Usage
+        :rtype: StorageUsage
         """
         return self._storage_used
 
@@ -98,7 +98,7 @@ class HistoryFieldset(object):
 
 
         :param storage_used: The storage_used of this HistoryFieldset.
-        :type: Usage
+        :type: StorageUsage
         """
         if self._configuration.client_side_validation and storage_used is None:
             raise ValueError("Invalid value for `storage_used`, must not be `None`")  # noqa: E501

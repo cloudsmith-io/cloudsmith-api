@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**packages_copy**](PackagesApi.md#packages_copy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 [**packages_delete**](PackagesApi.md#packages_delete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
-[**packages_dependencies**](PackagesApi.md#packages_dependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
+[**packages_dependencies**](PackagesApi.md#packages_dependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the list of dependencies for a package. Transitive dependencies are included where supported.
 [**packages_list**](PackagesApi.md#packages_list) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**packages_move**](PackagesApi.md#packages_move) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packages_quarantine**](PackagesApi.md#packages_quarantine) | **POST** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or restore a package.
@@ -181,11 +181,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_dependencies**
-> PackageDependencies packages_dependencies(owner, repo, identifier)
+> PackageDependenciesSchema packages_dependencies(owner, repo, identifier)
 
-Get the direct (non-transitive) dependencies list for a package.
+Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
-Get the direct (non-transitive) dependencies list for a package.
+Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
 ### Example
 ```python
@@ -208,7 +208,7 @@ repo = 'repo_example' # str |
 identifier = 'identifier_example' # str | 
 
 try:
-    # Get the direct (non-transitive) dependencies list for a package.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
     api_response = api_instance.packages_dependencies(owner, repo, identifier)
     pprint(api_response)
 except ApiException as e:
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDependencies**](PackageDependencies.md)
+[**PackageDependenciesSchema**](PackageDependenciesSchema.md)
 
 ### Authorization
 

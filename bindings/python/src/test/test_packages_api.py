@@ -46,7 +46,7 @@ class TestPackagesApi(unittest.TestCase):
     def test_packages_dependencies(self):
         """Test case for packages_dependencies
 
-        Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
         """
         pass
 

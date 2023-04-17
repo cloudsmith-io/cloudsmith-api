@@ -1,10 +1,11 @@
-# InlineResponse200CountryCode
+# InlineResponse2001
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allow** | **list[str]** |  | [optional] 
-**deny** | **list[str]** |  | [optional] 
+**next** | **str** |  | [optional] 
+**previous** | **str** |  | [optional] 
+**results** | [**list[PackageVulnerabilityPolicyViolationLog]**](PackageVulnerabilityPolicyViolationLog.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

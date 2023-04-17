@@ -37,7 +37,7 @@ class History(object):
         'display': 'HistoryFieldset',
         'end': 'datetime',
         'plan': 'str',
-        'raw': 'HistoryFieldset',
+        'raw': 'HistoryFieldsetRaw',
         'start': 'datetime'
     }
 
@@ -174,7 +174,7 @@ class History(object):
 
 
         :return: The raw of this History.
-        :rtype: HistoryFieldset
+        :rtype: HistoryFieldsetRaw
         """
         return self._raw
 
@@ -184,7 +184,7 @@ class History(object):
 
 
         :param raw: The raw of this History.
-        :type: HistoryFieldset
+        :type: HistoryFieldsetRaw
         """
         if self._configuration.client_side_validation and raw is None:
             raise ValueError("Invalid value for `raw`, must not be `None`")  # noqa: E501

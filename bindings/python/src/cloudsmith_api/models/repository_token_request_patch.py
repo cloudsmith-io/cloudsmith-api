@@ -359,7 +359,7 @@ class RepositoryTokenRequestPatch(object):
     def limit_path_query(self):
         """Gets the limit_path_query of this RepositoryTokenRequestPatch.
 
-        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
+        THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
 
         :return: The limit_path_query of this RepositoryTokenRequestPatch.
         :rtype: str
@@ -370,7 +370,7 @@ class RepositoryTokenRequestPatch(object):
     def limit_path_query(self, limit_path_query):
         """Sets the limit_path_query of this RepositoryTokenRequestPatch.
 
-        The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
+        THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.
 
         :param limit_path_query: The limit_path_query of this RepositoryTokenRequestPatch.
         :type: str

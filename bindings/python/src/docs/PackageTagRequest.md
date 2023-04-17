@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **int** |  | [optional] 
+**action** | **str** |  | [optional] [default to 'Add']
 **is_immutable** | **bool** | If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package. | [optional] [default to False]
 **tags** | **list[str]** | A list of tags to apply the action to. Not required for clears. | [optional] 
 

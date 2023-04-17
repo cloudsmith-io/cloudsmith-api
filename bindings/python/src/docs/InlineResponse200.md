@@ -3,8 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**country_code** | [**InlineResponse200CountryCode**](InlineResponse200CountryCode.md) |  | [optional] 
-**cidr** | [**InlineResponse200CountryCode**](InlineResponse200CountryCode.md) |  | [optional] 
+**next** | **str** |  | [optional] 
+**previous** | **str** |  | [optional] 
+**results** | [**list[PackageLicensePolicyViolationLog]**](PackageLicensePolicyViolationLog.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

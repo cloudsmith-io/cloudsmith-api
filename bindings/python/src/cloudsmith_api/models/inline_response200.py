@@ -33,71 +33,98 @@ class InlineResponse200(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'country_code': 'InlineResponse200CountryCode',
-        'cidr': 'InlineResponse200CountryCode'
+        'next': 'str',
+        'previous': 'str',
+        'results': 'list[PackageLicensePolicyViolationLog]'
     }
 
     attribute_map = {
-        'country_code': 'country_code',
-        'cidr': 'cidr'
+        'next': 'next',
+        'previous': 'previous',
+        'results': 'results'
     }
 
-    def __init__(self, country_code=None, cidr=None, _configuration=None):  # noqa: E501
+    def __init__(self, next=None, previous=None, results=None, _configuration=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._country_code = None
-        self._cidr = None
+        self._next = None
+        self._previous = None
+        self._results = None
         self.discriminator = None
 
-        if country_code is not None:
-            self.country_code = country_code
-        if cidr is not None:
-            self.cidr = cidr
+        if next is not None:
+            self.next = next
+        if previous is not None:
+            self.previous = previous
+        self.results = results
 
     @property
-    def country_code(self):
-        """Gets the country_code of this InlineResponse200.
+    def next(self):
+        """Gets the next of this InlineResponse200.
 
 
-        :return: The country_code of this InlineResponse200.
-        :rtype: InlineResponse200CountryCode
+        :return: The next of this InlineResponse200.
+        :rtype: str
         """
-        return self._country_code
+        return self._next
 
-    @country_code.setter
-    def country_code(self, country_code):
-        """Sets the country_code of this InlineResponse200.
+    @next.setter
+    def next(self, next):
+        """Sets the next of this InlineResponse200.
 
 
-        :param country_code: The country_code of this InlineResponse200.
-        :type: InlineResponse200CountryCode
+        :param next: The next of this InlineResponse200.
+        :type: str
         """
 
-        self._country_code = country_code
+        self._next = next
 
     @property
-    def cidr(self):
-        """Gets the cidr of this InlineResponse200.
+    def previous(self):
+        """Gets the previous of this InlineResponse200.
 
 
-        :return: The cidr of this InlineResponse200.
-        :rtype: InlineResponse200CountryCode
+        :return: The previous of this InlineResponse200.
+        :rtype: str
         """
-        return self._cidr
+        return self._previous
 
-    @cidr.setter
-    def cidr(self, cidr):
-        """Sets the cidr of this InlineResponse200.
+    @previous.setter
+    def previous(self, previous):
+        """Sets the previous of this InlineResponse200.
 
 
-        :param cidr: The cidr of this InlineResponse200.
-        :type: InlineResponse200CountryCode
+        :param previous: The previous of this InlineResponse200.
+        :type: str
         """
 
-        self._cidr = cidr
+        self._previous = previous
+
+    @property
+    def results(self):
+        """Gets the results of this InlineResponse200.
+
+
+        :return: The results of this InlineResponse200.
+        :rtype: list[PackageLicensePolicyViolationLog]
+        """
+        return self._results
+
+    @results.setter
+    def results(self, results):
+        """Sets the results of this InlineResponse200.
+
+
+        :param results: The results of this InlineResponse200.
+        :type: list[PackageLicensePolicyViolationLog]
+        """
+        if self._configuration.client_side_validation and results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
+
+        self._results = results
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -268,9 +268,9 @@ class PackagesApi(object):
             collection_formats=collection_formats)
 
     def packages_dependencies(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        """Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
 
-        Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_dependencies(owner, repo, identifier, async_req=True)
@@ -280,7 +280,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageDependencies
+        :return: PackageDependenciesSchema
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -292,9 +292,9 @@ class PackagesApi(object):
             return data
 
     def packages_dependencies_with_http_info(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        """Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
 
-        Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_dependencies_with_http_info(owner, repo, identifier, async_req=True)
@@ -304,7 +304,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
-        :return: PackageDependencies
+        :return: PackageDependenciesSchema
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -374,7 +374,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='PackageDependencies',  # noqa: E501
+            response_type='PackageDependenciesSchema',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

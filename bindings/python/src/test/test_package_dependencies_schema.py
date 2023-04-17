@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import cloudsmith_api
-from cloudsmith_api.models.inline_response200_country_code import InlineResponse200CountryCode  # noqa: E501
+from cloudsmith_api.models.package_dependencies_schema import PackageDependenciesSchema  # noqa: E501
 from cloudsmith_api.rest import ApiException
 
 
-class TestInlineResponse200CountryCode(unittest.TestCase):
-    """InlineResponse200CountryCode unit test stubs"""
+class TestPackageDependenciesSchema(unittest.TestCase):
+    """PackageDependenciesSchema unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestInlineResponse200CountryCode(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineResponse200CountryCode(self):
-        """Test InlineResponse200CountryCode"""
+    def testPackageDependenciesSchema(self):
+        """Test PackageDependenciesSchema"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = cloudsmith_api.models.inline_response200_country_code.InlineResponse200CountryCode()  # noqa: E501
+        # model = cloudsmith_api.models.package_dependencies_schema.PackageDependenciesSchema()  # noqa: E501
         pass
 
 

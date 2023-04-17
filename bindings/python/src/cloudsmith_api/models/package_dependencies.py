@@ -33,7 +33,7 @@ class PackageDependencies(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dependencies': 'list[PackageDependency]'
+        'dependencies': 'str'
     }
 
     attribute_map = {
@@ -49,7 +49,8 @@ class PackageDependencies(object):
         self._dependencies = None
         self.discriminator = None
 
-        self.dependencies = dependencies
+        if dependencies is not None:
+            self.dependencies = dependencies
 
     @property
     def dependencies(self):
@@ -57,7 +58,7 @@ class PackageDependencies(object):
 
 
         :return: The dependencies of this PackageDependencies.
-        :rtype: list[PackageDependency]
+        :rtype: str
         """
         return self._dependencies
 
@@ -67,10 +68,8 @@ class PackageDependencies(object):
 
 
         :param dependencies: The dependencies of this PackageDependencies.
-        :type: list[PackageDependency]
+        :type: str
         """
-        if self._configuration.client_side_validation and dependencies is None:
-            raise ValueError("Invalid value for `dependencies`, must not be `None`")  # noqa: E501
 
         self._dependencies = dependencies
 
