@@ -33,7 +33,7 @@ class PackageDependencies(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'dependencies': 'str'
+        'dependencies': 'list[PackageDependency]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class PackageDependencies(object):
 
 
         :return: The dependencies of this PackageDependencies.
-        :rtype: str
+        :rtype: list[PackageDependency]
         """
         return self._dependencies
 
@@ -68,7 +68,7 @@ class PackageDependencies(object):
 
 
         :param dependencies: The dependencies of this PackageDependencies.
-        :type: str
+        :type: list[PackageDependency]
         """
 
         self._dependencies = dependencies

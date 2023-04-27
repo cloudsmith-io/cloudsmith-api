@@ -87,13 +87,13 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_geoip_partial_update
-  # Partially update existing repository geoip rules with those specified
-  # Partially update existing repository geoip rules with those specified
+  # Partially update repository geoip rules.
+  # Partially update repository geoip rules.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [RepositoryGeoIpRules2] :data 
-  # @return [RepositoryGeoIpRules]
+  # @option opts [RepositoryGeoIPRulesRequestPatch] :data 
+  # @return [RepositoryGeoIPRules]
   describe 'repos_geoip_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -101,12 +101,12 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_geoip_read
-  # List all created GeoIP rules for the repository.
-  # List all created GeoIP rules for the repository.
+  # List all repository geoip rules.
+  # List all repository geoip rules.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [RepositoryGeoIpRules]
+  # @return [RepositoryGeoIPRules]
   describe 'repos_geoip_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -128,13 +128,13 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_geoip_update
-  # Replace all existing repository geoip rules with those specified
-  # Replace all existing repository geoip rules with those specified
+  # Replace repository geoip rules.
+  # Replace repository geoip rules.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [RepositoryGeoIpRules1] :data 
-  # @return [nil]
+  # @option opts [RepositoryGeoIPRulesRequest] :data 
+  # @return [RepositoryGeoIPRules]
   describe 'repos_geoip_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

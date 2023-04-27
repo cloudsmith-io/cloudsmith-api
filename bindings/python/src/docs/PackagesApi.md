@@ -181,7 +181,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_dependencies**
-> PackageDependenciesSchema packages_dependencies(owner, repo, identifier)
+> PackageDependencies packages_dependencies(owner, repo, identifier)
 
 Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDependenciesSchema**](PackageDependenciesSchema.md)
+[**PackageDependencies**](PackageDependencies.md)
 
 ### Authorization
 

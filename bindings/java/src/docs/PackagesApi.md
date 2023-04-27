@@ -184,7 +184,7 @@ null (empty response body)
 
 <a name="packagesDependencies"></a>
 # **packagesDependencies**
-> PackageDependenciesSchema packagesDependencies(owner, repo, identifier)
+> PackageDependencies packagesDependencies(owner, repo, identifier)
 
 Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
@@ -212,7 +212,7 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    PackageDependenciesSchema result = apiInstance.packagesDependencies(owner, repo, identifier);
+    PackageDependencies result = apiInstance.packagesDependencies(owner, repo, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesDependencies");
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDependenciesSchema**](PackageDependenciesSchema.md)
+[**PackageDependencies**](PackageDependencies.md)
 
 ### Authorization
 

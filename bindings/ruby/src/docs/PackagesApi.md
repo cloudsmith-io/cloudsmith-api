@@ -187,7 +187,7 @@ nil (empty response body)
 
 
 # **packages_dependencies**
-> PackageDependenciesSchema packages_dependencies(owner, repo, identifier)
+> PackageDependencies packages_dependencies(owner, repo, identifier)
 
 Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDependenciesSchema**](PackageDependenciesSchema.md)
+[**PackageDependencies**](PackageDependencies.md)
 
 ### Authorization
 

@@ -250,10 +250,10 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 *ReposApi* | [**reposGeoipDisable**](docs/ReposApi.md#reposGeoipDisable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 *ReposApi* | [**reposGeoipEnable**](docs/ReposApi.md#reposGeoipEnable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
-*ReposApi* | [**reposGeoipPartialUpdate**](docs/ReposApi.md#reposGeoipPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update existing repository geoip rules with those specified
-*ReposApi* | [**reposGeoipRead**](docs/ReposApi.md#reposGeoipRead) | **GET** /repos/{owner}/{identifier}/geoip | List all created GeoIP rules for the repository.
+*ReposApi* | [**reposGeoipPartialUpdate**](docs/ReposApi.md#reposGeoipPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
+*ReposApi* | [**reposGeoipRead**](docs/ReposApi.md#reposGeoipRead) | **GET** /repos/{owner}/{identifier}/geoip | List all repository geoip rules.
 *ReposApi* | [**reposGeoipTest**](docs/ReposApi.md#reposGeoipTest) | **POST** /repos/{owner}/{identifier}/geoip/test/ | Test a list of IP addresses against the repository&#39;s current GeoIP rules.
-*ReposApi* | [**reposGeoipUpdate**](docs/ReposApi.md#reposGeoipUpdate) | **PUT** /repos/{owner}/{identifier}/geoip | Replace all existing repository geoip rules with those specified
+*ReposApi* | [**reposGeoipUpdate**](docs/ReposApi.md#reposGeoipUpdate) | **PUT** /repos/{owner}/{identifier}/geoip | Replace repository geoip rules.
 *ReposApi* | [**reposGpgCreate**](docs/ReposApi.md#reposGpgCreate) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 *ReposApi* | [**reposGpgList**](docs/ReposApi.md#reposGpgList) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 *ReposApi* | [**reposGpgRegenerate**](docs/ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
@@ -330,8 +330,6 @@ Class | Method | HTTP request | Description
  - [History](docs/History.md)
  - [HistoryFieldset](docs/HistoryFieldset.md)
  - [HistoryFieldsetRaw](docs/HistoryFieldsetRaw.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
  - [LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
  - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
@@ -371,13 +369,13 @@ Class | Method | HTTP request | Description
  - [PackageCopy](docs/PackageCopy.md)
  - [PackageCopyRequest](docs/PackageCopyRequest.md)
  - [PackageDependencies](docs/PackageDependencies.md)
- - [PackageDependenciesSchema](docs/PackageDependenciesSchema.md)
  - [PackageDependency](docs/PackageDependency.md)
  - [PackageFile](docs/PackageFile.md)
  - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
  - [PackageFileUploadRequest](docs/PackageFileUploadRequest.md)
  - [PackageLicensePolicyViolationLog](docs/PackageLicensePolicyViolationLog.md)
+ - [PackageLicensePolicyViolationLogCursorPage](docs/PackageLicensePolicyViolationLogCursorPage.md)
  - [PackageMove](docs/PackageMove.md)
  - [PackageMoveRequest](docs/PackageMoveRequest.md)
  - [PackageQuarantine](docs/PackageQuarantine.md)
@@ -390,6 +388,7 @@ Class | Method | HTTP request | Description
  - [PackageVersionBadge](docs/PackageVersionBadge.md)
  - [PackageVulnerability](docs/PackageVulnerability.md)
  - [PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
+ - [PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
  - [PythonPackageUpload](docs/PythonPackageUpload.md)
  - [PythonPackageUploadRequest](docs/PythonPackageUploadRequest.md)
  - [Quota](docs/Quota.md)
@@ -401,14 +400,14 @@ Class | Method | HTTP request | Description
  - [RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [RepositoryCreate](docs/RepositoryCreate.md)
  - [RepositoryCreateRequest](docs/RepositoryCreateRequest.md)
- - [RepositoryGeoIPList](docs/RepositoryGeoIPList.md)
+ - [RepositoryGeoIPCidr](docs/RepositoryGeoIPCidr.md)
+ - [RepositoryGeoIPCountryCode](docs/RepositoryGeoIPCountryCode.md)
+ - [RepositoryGeoIPRules](docs/RepositoryGeoIPRules.md)
+ - [RepositoryGeoIPRulesRequest](docs/RepositoryGeoIPRulesRequest.md)
+ - [RepositoryGeoIPRulesRequestPatch](docs/RepositoryGeoIPRulesRequestPatch.md)
  - [RepositoryGeoIPTestAddress](docs/RepositoryGeoIPTestAddress.md)
  - [RepositoryGeoIPTestAddressResponse](docs/RepositoryGeoIPTestAddressResponse.md)
  - [RepositoryGeoIPTestAddressResponseDict](docs/RepositoryGeoIPTestAddressResponseDict.md)
- - [RepositoryGeoIpCountryCodeRules](docs/RepositoryGeoIpCountryCodeRules.md)
- - [RepositoryGeoIpRules](docs/RepositoryGeoIpRules.md)
- - [RepositoryGeoIpRules1](docs/RepositoryGeoIpRules1.md)
- - [RepositoryGeoIpRules2](docs/RepositoryGeoIpRules2.md)
  - [RepositoryGpgKey](docs/RepositoryGpgKey.md)
  - [RepositoryGpgKeyCreate](docs/RepositoryGpgKeyCreate.md)
  - [RepositoryPrivilegeDict](docs/RepositoryPrivilegeDict.md)

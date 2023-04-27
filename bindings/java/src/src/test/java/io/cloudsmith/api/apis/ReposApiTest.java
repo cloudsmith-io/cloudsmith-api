@@ -17,11 +17,11 @@ import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
+import io.cloudsmith.api.models.RepositoryGeoIPRules;
+import io.cloudsmith.api.models.RepositoryGeoIPRulesRequest;
+import io.cloudsmith.api.models.RepositoryGeoIPRulesRequestPatch;
 import io.cloudsmith.api.models.RepositoryGeoIPTestAddress;
 import io.cloudsmith.api.models.RepositoryGeoIPTestAddressResponse;
-import io.cloudsmith.api.models.RepositoryGeoIpRules;
-import io.cloudsmith.api.models.RepositoryGeoIpRules1;
-import io.cloudsmith.api.models.RepositoryGeoIpRules2;
 import io.cloudsmith.api.models.RepositoryGpgKey;
 import io.cloudsmith.api.models.RepositoryGpgKeyCreate;
 import io.cloudsmith.api.models.RepositoryPrivilegeInput;
@@ -120,9 +120,9 @@ public class ReposApiTest {
     }
     
     /**
-     * Partially update existing repository geoip rules with those specified
+     * Partially update repository geoip rules.
      *
-     * Partially update existing repository geoip rules with those specified
+     * Partially update repository geoip rules.
      *
      * @throws Exception
      *          if the Api call fails
@@ -131,16 +131,16 @@ public class ReposApiTest {
     public void reposGeoipPartialUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGeoIpRules2 data = null;
-        RepositoryGeoIpRules response = api.reposGeoipPartialUpdate(owner, identifier, data);
+        RepositoryGeoIPRulesRequestPatch data = null;
+        RepositoryGeoIPRules response = api.reposGeoipPartialUpdate(owner, identifier, data);
 
         // TODO: test validations
     }
     
     /**
-     * List all created GeoIP rules for the repository.
+     * List all repository geoip rules.
      *
-     * List all created GeoIP rules for the repository.
+     * List all repository geoip rules.
      *
      * @throws Exception
      *          if the Api call fails
@@ -149,7 +149,7 @@ public class ReposApiTest {
     public void reposGeoipReadTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGeoIpRules response = api.reposGeoipRead(owner, identifier);
+        RepositoryGeoIPRules response = api.reposGeoipRead(owner, identifier);
 
         // TODO: test validations
     }
@@ -173,9 +173,9 @@ public class ReposApiTest {
     }
     
     /**
-     * Replace all existing repository geoip rules with those specified
+     * Replace repository geoip rules.
      *
-     * Replace all existing repository geoip rules with those specified
+     * Replace repository geoip rules.
      *
      * @throws Exception
      *          if the Api call fails
@@ -184,8 +184,8 @@ public class ReposApiTest {
     public void reposGeoipUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGeoIpRules1 data = null;
-        api.reposGeoipUpdate(owner, identifier, data);
+        RepositoryGeoIPRulesRequest data = null;
+        RepositoryGeoIPRules response = api.reposGeoipUpdate(owner, identifier, data);
 
         // TODO: test validations
     }

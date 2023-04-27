@@ -752,7 +752,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_license_policy_violation_list**
-> InlineResponse200 orgs_license_policy_violation_list(org, opts)
+> PackageLicensePolicyViolationLogCursorPage orgs_license_policy_violation_list(org, opts)
 
 List all current license policy violations for this Organization.
 
@@ -798,7 +798,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**PackageLicensePolicyViolationLogCursorPage**](PackageLicensePolicyViolationLogCursorPage.md)
 
 ### Authorization
 
@@ -2495,7 +2495,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_vulnerability_policy_violation_list**
-> InlineResponse2001 orgs_vulnerability_policy_violation_list(org, opts)
+> PackageVulnerabilityPolicyViolationLogCursorPage orgs_vulnerability_policy_violation_list(org, opts)
 
 List all current vulnerability policy violations for this Organization.
 
@@ -2541,7 +2541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**PackageVulnerabilityPolicyViolationLogCursorPage**](PackageVulnerabilityPolicyViolationLogCursorPage.md)
 
 ### Authorization
 

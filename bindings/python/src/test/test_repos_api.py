@@ -60,14 +60,14 @@ class TestReposApi(unittest.TestCase):
     def test_repos_geoip_partial_update(self):
         """Test case for repos_geoip_partial_update
 
-        Partially update existing repository geoip rules with those specified  # noqa: E501
+        Partially update repository geoip rules.  # noqa: E501
         """
         pass
 
     def test_repos_geoip_read(self):
         """Test case for repos_geoip_read
 
-        List all created GeoIP rules for the repository.  # noqa: E501
+        List all repository geoip rules.  # noqa: E501
         """
         pass
 
@@ -81,7 +81,7 @@ class TestReposApi(unittest.TestCase):
     def test_repos_geoip_update(self):
         """Test case for repos_geoip_update
 
-        Replace all existing repository geoip rules with those specified  # noqa: E501
+        Replace repository geoip rules.  # noqa: E501
         """
         pass
 

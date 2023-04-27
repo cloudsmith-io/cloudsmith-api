@@ -743,7 +743,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsLicensePolicyViolationList"></a>
 # **orgsLicensePolicyViolationList**
-> InlineResponse200 orgsLicensePolicyViolationList(org, cursor, pageSize)
+> PackageLicensePolicyViolationLogCursorPage orgsLicensePolicyViolationList(org, cursor, pageSize)
 
 List all current license policy violations for this Organization.
 
@@ -771,7 +771,7 @@ String org = "org_example"; // String |
 String cursor = "cursor_example"; // String | The pagination cursor value.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    InlineResponse200 result = apiInstance.orgsLicensePolicyViolationList(org, cursor, pageSize);
+    PackageLicensePolicyViolationLogCursorPage result = apiInstance.orgsLicensePolicyViolationList(org, cursor, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsLicensePolicyViolationList");
@@ -789,7 +789,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**PackageLicensePolicyViolationLogCursorPage**](PackageLicensePolicyViolationLogCursorPage.md)
 
 ### Authorization
 
@@ -2467,7 +2467,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsVulnerabilityPolicyViolationList"></a>
 # **orgsVulnerabilityPolicyViolationList**
-> InlineResponse2001 orgsVulnerabilityPolicyViolationList(org, cursor, pageSize)
+> PackageVulnerabilityPolicyViolationLogCursorPage orgsVulnerabilityPolicyViolationList(org, cursor, pageSize)
 
 List all current vulnerability policy violations for this Organization.
 
@@ -2495,7 +2495,7 @@ String org = "org_example"; // String |
 String cursor = "cursor_example"; // String | The pagination cursor value.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    InlineResponse2001 result = apiInstance.orgsVulnerabilityPolicyViolationList(org, cursor, pageSize);
+    PackageVulnerabilityPolicyViolationLogCursorPage result = apiInstance.orgsVulnerabilityPolicyViolationList(org, cursor, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyViolationList");
@@ -2513,7 +2513,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**PackageVulnerabilityPolicyViolationLogCursorPage**](PackageVulnerabilityPolicyViolationLogCursorPage.md)
 
 ### Authorization
 

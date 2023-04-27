@@ -74,7 +74,7 @@ import io.cloudsmith.api.models.P2PackageUpload;
 import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
-import io.cloudsmith.api.models.PackageDependenciesSchema;
+import io.cloudsmith.api.models.PackageDependencies;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
 import io.cloudsmith.api.models.PackageQuarantine;
@@ -502,11 +502,11 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
-     * @return PackageDependenciesSchema
+     * @return PackageDependencies
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageDependenciesSchema packagesDependencies(String owner, String repo, String identifier) throws ApiException {
-        ApiResponse<PackageDependenciesSchema> resp = packagesDependenciesWithHttpInfo(owner, repo, identifier);
+    public PackageDependencies packagesDependencies(String owner, String repo, String identifier) throws ApiException {
+        ApiResponse<PackageDependencies> resp = packagesDependenciesWithHttpInfo(owner, repo, identifier);
         return resp.getData();
     }
 
@@ -516,12 +516,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
-     * @return ApiResponse&lt;PackageDependenciesSchema&gt;
+     * @return ApiResponse&lt;PackageDependencies&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageDependenciesSchema> packagesDependenciesWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
+    public ApiResponse<PackageDependencies> packagesDependenciesWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = packagesDependenciesValidateBeforeCall(owner, repo, identifier, null, null);
-        Type localVarReturnType = new TypeToken<PackageDependenciesSchema>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageDependencies>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -535,7 +535,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesDependenciesAsync(String owner, String repo, String identifier, final ApiCallback<PackageDependenciesSchema> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesDependenciesAsync(String owner, String repo, String identifier, final ApiCallback<PackageDependencies> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -557,7 +557,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesDependenciesValidateBeforeCall(owner, repo, identifier, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PackageDependenciesSchema>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageDependencies>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

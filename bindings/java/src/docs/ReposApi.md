@@ -8,10 +8,10 @@ Method | HTTP request | Description
 [**reposDelete**](ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**reposGeoipDisable**](ReposApi.md#reposGeoipDisable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 [**reposGeoipEnable**](ReposApi.md#reposGeoipEnable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
-[**reposGeoipPartialUpdate**](ReposApi.md#reposGeoipPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update existing repository geoip rules with those specified
-[**reposGeoipRead**](ReposApi.md#reposGeoipRead) | **GET** /repos/{owner}/{identifier}/geoip | List all created GeoIP rules for the repository.
+[**reposGeoipPartialUpdate**](ReposApi.md#reposGeoipPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
+[**reposGeoipRead**](ReposApi.md#reposGeoipRead) | **GET** /repos/{owner}/{identifier}/geoip | List all repository geoip rules.
 [**reposGeoipTest**](ReposApi.md#reposGeoipTest) | **POST** /repos/{owner}/{identifier}/geoip/test/ | Test a list of IP addresses against the repository&#39;s current GeoIP rules.
-[**reposGeoipUpdate**](ReposApi.md#reposGeoipUpdate) | **PUT** /repos/{owner}/{identifier}/geoip | Replace all existing repository geoip rules with those specified
+[**reposGeoipUpdate**](ReposApi.md#reposGeoipUpdate) | **PUT** /repos/{owner}/{identifier}/geoip | Replace repository geoip rules.
 [**reposGpgCreate**](ReposApi.md#reposGpgCreate) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 [**reposGpgList**](ReposApi.md#reposGpgList) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 [**reposGpgRegenerate**](ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
@@ -258,11 +258,11 @@ null (empty response body)
 
 <a name="reposGeoipPartialUpdate"></a>
 # **reposGeoipPartialUpdate**
-> RepositoryGeoIpRules reposGeoipPartialUpdate(owner, identifier, data)
+> RepositoryGeoIPRules reposGeoipPartialUpdate(owner, identifier, data)
 
-Partially update existing repository geoip rules with those specified
+Partially update repository geoip rules.
 
-Partially update existing repository geoip rules with those specified
+Partially update repository geoip rules.
 
 ### Example
 ```java
@@ -284,9 +284,9 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-RepositoryGeoIpRules2 data = new RepositoryGeoIpRules2(); // RepositoryGeoIpRules2 | 
+RepositoryGeoIPRulesRequestPatch data = new RepositoryGeoIPRulesRequestPatch(); // RepositoryGeoIPRulesRequestPatch | 
 try {
-    RepositoryGeoIpRules result = apiInstance.reposGeoipPartialUpdate(owner, identifier, data);
+    RepositoryGeoIPRules result = apiInstance.reposGeoipPartialUpdate(owner, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGeoipPartialUpdate");
@@ -300,11 +300,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**RepositoryGeoIpRules2**](RepositoryGeoIpRules2.md)|  | [optional]
+ **data** | [**RepositoryGeoIPRulesRequestPatch**](RepositoryGeoIPRulesRequestPatch.md)|  | [optional]
 
 ### Return type
 
-[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
+[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
 
 ### Authorization
 
@@ -317,11 +317,11 @@ Name | Type | Description  | Notes
 
 <a name="reposGeoipRead"></a>
 # **reposGeoipRead**
-> RepositoryGeoIpRules reposGeoipRead(owner, identifier)
+> RepositoryGeoIPRules reposGeoipRead(owner, identifier)
 
-List all created GeoIP rules for the repository.
+List all repository geoip rules.
 
-List all created GeoIP rules for the repository.
+List all repository geoip rules.
 
 ### Example
 ```java
@@ -344,7 +344,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryGeoIpRules result = apiInstance.reposGeoipRead(owner, identifier);
+    RepositoryGeoIPRules result = apiInstance.reposGeoipRead(owner, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGeoipRead");
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
+[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
 
 ### Authorization
 
@@ -433,11 +433,11 @@ Name | Type | Description  | Notes
 
 <a name="reposGeoipUpdate"></a>
 # **reposGeoipUpdate**
-> reposGeoipUpdate(owner, identifier, data)
+> RepositoryGeoIPRules reposGeoipUpdate(owner, identifier, data)
 
-Replace all existing repository geoip rules with those specified
+Replace repository geoip rules.
 
-Replace all existing repository geoip rules with those specified
+Replace repository geoip rules.
 
 ### Example
 ```java
@@ -459,9 +459,10 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-RepositoryGeoIpRules1 data = new RepositoryGeoIpRules1(); // RepositoryGeoIpRules1 | 
+RepositoryGeoIPRulesRequest data = new RepositoryGeoIPRulesRequest(); // RepositoryGeoIPRulesRequest | 
 try {
-    apiInstance.reposGeoipUpdate(owner, identifier, data);
+    RepositoryGeoIPRules result = apiInstance.reposGeoipUpdate(owner, identifier, data);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGeoipUpdate");
     e.printStackTrace();
@@ -474,11 +475,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**RepositoryGeoIpRules1**](RepositoryGeoIpRules1.md)|  | [optional]
+ **data** | [**RepositoryGeoIPRulesRequest**](RepositoryGeoIPRulesRequest.md)|  | [optional]
 
 ### Return type
 
-null (empty response body)
+[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
 
 ### Authorization
 

@@ -876,7 +876,7 @@ public class RepositoryRequestPatch implements Serializable {
    * A descriptive name for the repository.
    * @return name
   **/
- @Pattern(regexp="^\\w[\\w \\-'\\./]+$") @Size(min=1,max=50)  @ApiModelProperty(value = "A descriptive name for the repository.")
+ @Pattern(regexp="^\\w[\\w \\-'\\./()]+$") @Size(min=1,max=50)  @ApiModelProperty(value = "A descriptive name for the repository.")
   public String getName() {
     return name;
   }

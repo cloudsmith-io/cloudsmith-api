@@ -68,7 +68,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [PackageDependenciesSchema]
+  # @return [PackageDependencies]
   describe 'packages_dependencies test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

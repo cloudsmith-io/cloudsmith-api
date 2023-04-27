@@ -741,7 +741,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [InlineResponse200]
+    # @return [PackageLicensePolicyViolationLogCursorPage]
     def orgs_license_policy_violation_list(org, opts = {})
       data, _status_code, _headers = orgs_license_policy_violation_list_with_http_info(org, opts)
       data
@@ -753,7 +753,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    # @return [Array<(PackageLicensePolicyViolationLogCursorPage, Fixnum, Hash)>] PackageLicensePolicyViolationLogCursorPage data, response status code and response headers
     def orgs_license_policy_violation_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_license_policy_violation_list ...'
@@ -789,7 +789,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse200')
+        :return_type => 'PackageLicensePolicyViolationLogCursorPage')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_license_policy_violation_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2517,7 +2517,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [InlineResponse2001]
+    # @return [PackageVulnerabilityPolicyViolationLogCursorPage]
     def orgs_vulnerability_policy_violation_list(org, opts = {})
       data, _status_code, _headers = orgs_vulnerability_policy_violation_list_with_http_info(org, opts)
       data
@@ -2529,7 +2529,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [String] :cursor The pagination cursor value.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(InlineResponse2001, Fixnum, Hash)>] InlineResponse2001 data, response status code and response headers
+    # @return [Array<(PackageVulnerabilityPolicyViolationLogCursorPage, Fixnum, Hash)>] PackageVulnerabilityPolicyViolationLogCursorPage data, response status code and response headers
     def orgs_vulnerability_policy_violation_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_vulnerability_policy_violation_list ...'
@@ -2565,7 +2565,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse2001')
+        :return_type => 'PackageVulnerabilityPolicyViolationLogCursorPage')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_vulnerability_policy_violation_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

@@ -200,7 +200,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :cursor The pagination cursor value.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [InlineResponse200]
+  # @return [PackageLicensePolicyViolationLogCursorPage]
   describe 'orgs_license_policy_violation_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -600,7 +600,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :cursor The pagination cursor value.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [InlineResponse2001]
+  # @return [PackageVulnerabilityPolicyViolationLogCursorPage]
   describe 'orgs_vulnerability_policy_violation_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

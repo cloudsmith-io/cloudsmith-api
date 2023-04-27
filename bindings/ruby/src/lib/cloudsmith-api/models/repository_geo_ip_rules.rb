@@ -13,24 +13,24 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class RepositoryGeoIpRules
-  attr_accessor :country_code
-
+class RepositoryGeoIPRules
   attr_accessor :cidr
+
+  attr_accessor :country_code
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'country_code' => :'country_code',
-      :'cidr' => :'cidr'
+      :'cidr' => :'cidr',
+      :'country_code' => :'country_code'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'country_code' => :'RepositoryGeoIpCountryCodeRules',
-      :'cidr' => :'RepositoryGeoIpCountryCodeRules'
+      :'cidr' => :'RepositoryGeoIPCidr',
+      :'country_code' => :'RepositoryGeoIPCountryCode'
     }
   end
 
@@ -42,12 +42,12 @@ class RepositoryGeoIpRules
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-    if attributes.has_key?(:'country_code')
-      self.country_code = attributes[:'country_code']
-    end
-
     if attributes.has_key?(:'cidr')
       self.cidr = attributes[:'cidr']
+    end
+
+    if attributes.has_key?(:'country_code')
+      self.country_code = attributes[:'country_code']
     end
   end
 
@@ -55,12 +55,22 @@ class RepositoryGeoIpRules
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
+    if @cidr.nil?
+      invalid_properties.push('invalid value for "cidr", cidr cannot be nil.')
+    end
+
+    if @country_code.nil?
+      invalid_properties.push('invalid value for "country_code", country_code cannot be nil.')
+    end
+
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    return false if @cidr.nil?
+    return false if @country_code.nil?
     true
   end
 
@@ -69,8 +79,8 @@ class RepositoryGeoIpRules
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        country_code == o.country_code &&
-        cidr == o.cidr
+        cidr == o.cidr &&
+        country_code == o.country_code
   end
 
   # @see the `==` method
@@ -82,7 +92,7 @@ class RepositoryGeoIpRules
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [country_code, cidr].hash
+    [cidr, country_code].hash
   end
 
     # Builds the object from hash

@@ -8,10 +8,10 @@ Method | HTTP request | Description
 [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 [**repos_geoip_disable**](ReposApi.md#repos_geoip_disable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 [**repos_geoip_enable**](ReposApi.md#repos_geoip_enable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
-[**repos_geoip_partial_update**](ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update existing repository geoip rules with those specified
-[**repos_geoip_read**](ReposApi.md#repos_geoip_read) | **GET** /repos/{owner}/{identifier}/geoip | List all created GeoIP rules for the repository.
+[**repos_geoip_partial_update**](ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
+[**repos_geoip_read**](ReposApi.md#repos_geoip_read) | **GET** /repos/{owner}/{identifier}/geoip | List all repository geoip rules.
 [**repos_geoip_test**](ReposApi.md#repos_geoip_test) | **POST** /repos/{owner}/{identifier}/geoip/test/ | Test a list of IP addresses against the repository&#39;s current GeoIP rules.
-[**repos_geoip_update**](ReposApi.md#repos_geoip_update) | **PUT** /repos/{owner}/{identifier}/geoip | Replace all existing repository geoip rules with those specified
+[**repos_geoip_update**](ReposApi.md#repos_geoip_update) | **PUT** /repos/{owner}/{identifier}/geoip | Replace repository geoip rules.
 [**repos_gpg_create**](ReposApi.md#repos_gpg_create) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 [**repos_gpg_list**](ReposApi.md#repos_gpg_list) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 [**repos_gpg_regenerate**](ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
@@ -253,11 +253,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_partial_update**
-> RepositoryGeoIpRules repos_geoip_partial_update(owner, identifier, data=data)
+> RepositoryGeoIPRules repos_geoip_partial_update(owner, identifier, data=data)
 
-Partially update existing repository geoip rules with those specified
+Partially update repository geoip rules.
 
-Partially update existing repository geoip rules with those specified
+Partially update repository geoip rules.
 
 ### Example
 ```python
@@ -277,10 +277,10 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGeoIpRules2() # RepositoryGeoIpRules2 |  (optional)
+data = cloudsmith_api.RepositoryGeoIPRulesRequestPatch() # RepositoryGeoIPRulesRequestPatch |  (optional)
 
 try:
-    # Partially update existing repository geoip rules with those specified
+    # Partially update repository geoip rules.
     api_response = api_instance.repos_geoip_partial_update(owner, identifier, data=data)
     pprint(api_response)
 except ApiException as e:
@@ -293,11 +293,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RepositoryGeoIpRules2**](RepositoryGeoIpRules2.md)|  | [optional] 
+ **data** | [**RepositoryGeoIPRulesRequestPatch**](RepositoryGeoIPRulesRequestPatch.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
+[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
 
 ### Authorization
 
@@ -311,11 +311,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_read**
-> RepositoryGeoIpRules repos_geoip_read(owner, identifier)
+> RepositoryGeoIPRules repos_geoip_read(owner, identifier)
 
-List all created GeoIP rules for the repository.
+List all repository geoip rules.
 
-List all created GeoIP rules for the repository.
+List all repository geoip rules.
 
 ### Example
 ```python
@@ -337,7 +337,7 @@ owner = 'owner_example' # str |
 identifier = 'identifier_example' # str | 
 
 try:
-    # List all created GeoIP rules for the repository.
+    # List all repository geoip rules.
     api_response = api_instance.repos_geoip_read(owner, identifier)
     pprint(api_response)
 except ApiException as e:
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
+[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
 
 ### Authorization
 
@@ -425,11 +425,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_update**
-> repos_geoip_update(owner, identifier, data=data)
+> RepositoryGeoIPRules repos_geoip_update(owner, identifier, data=data)
 
-Replace all existing repository geoip rules with those specified
+Replace repository geoip rules.
 
-Replace all existing repository geoip rules with those specified
+Replace repository geoip rules.
 
 ### Example
 ```python
@@ -449,11 +449,12 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGeoIpRules1() # RepositoryGeoIpRules1 |  (optional)
+data = cloudsmith_api.RepositoryGeoIPRulesRequest() # RepositoryGeoIPRulesRequest |  (optional)
 
 try:
-    # Replace all existing repository geoip rules with those specified
-    api_instance.repos_geoip_update(owner, identifier, data=data)
+    # Replace repository geoip rules.
+    api_response = api_instance.repos_geoip_update(owner, identifier, data=data)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling ReposApi->repos_geoip_update: %s\n" % e)
 ```
@@ -464,11 +465,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RepositoryGeoIpRules1**](RepositoryGeoIpRules1.md)|  | [optional] 
+ **data** | [**RepositoryGeoIPRulesRequest**](RepositoryGeoIPRulesRequest.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
 
 ### Authorization
 

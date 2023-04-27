@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.PackageDependency;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -35,14 +38,15 @@ public class PackageDependencies implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("dependencies")
-  private String dependencies = null;
+  private List<PackageDependency> dependencies = null;
 
    /**
    * Get dependencies
    * @return dependencies
   **/
+  @Valid
   @ApiModelProperty(value = "")
-  public String getDependencies() {
+  public List<PackageDependency> getDependencies() {
     return dependencies;
   }
 

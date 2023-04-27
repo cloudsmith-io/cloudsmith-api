@@ -225,10 +225,10 @@ Class | Method | HTTP request | Description
 *CloudsmithApi::ReposApi* | [**repos_delete**](docs/ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 *CloudsmithApi::ReposApi* | [**repos_geoip_disable**](docs/ReposApi.md#repos_geoip_disable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 *CloudsmithApi::ReposApi* | [**repos_geoip_enable**](docs/ReposApi.md#repos_geoip_enable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
-*CloudsmithApi::ReposApi* | [**repos_geoip_partial_update**](docs/ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update existing repository geoip rules with those specified
-*CloudsmithApi::ReposApi* | [**repos_geoip_read**](docs/ReposApi.md#repos_geoip_read) | **GET** /repos/{owner}/{identifier}/geoip | List all created GeoIP rules for the repository.
+*CloudsmithApi::ReposApi* | [**repos_geoip_partial_update**](docs/ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
+*CloudsmithApi::ReposApi* | [**repos_geoip_read**](docs/ReposApi.md#repos_geoip_read) | **GET** /repos/{owner}/{identifier}/geoip | List all repository geoip rules.
 *CloudsmithApi::ReposApi* | [**repos_geoip_test**](docs/ReposApi.md#repos_geoip_test) | **POST** /repos/{owner}/{identifier}/geoip/test/ | Test a list of IP addresses against the repository's current GeoIP rules.
-*CloudsmithApi::ReposApi* | [**repos_geoip_update**](docs/ReposApi.md#repos_geoip_update) | **PUT** /repos/{owner}/{identifier}/geoip | Replace all existing repository geoip rules with those specified
+*CloudsmithApi::ReposApi* | [**repos_geoip_update**](docs/ReposApi.md#repos_geoip_update) | **PUT** /repos/{owner}/{identifier}/geoip | Replace repository geoip rules.
 *CloudsmithApi::ReposApi* | [**repos_gpg_create**](docs/ReposApi.md#repos_gpg_create) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 *CloudsmithApi::ReposApi* | [**repos_gpg_list**](docs/ReposApi.md#repos_gpg_list) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 *CloudsmithApi::ReposApi* | [**repos_gpg_regenerate**](docs/ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
@@ -305,8 +305,6 @@ Class | Method | HTTP request | Description
  - [CloudsmithApi::History](docs/History.md)
  - [CloudsmithApi::HistoryFieldset](docs/HistoryFieldset.md)
  - [CloudsmithApi::HistoryFieldsetRaw](docs/HistoryFieldsetRaw.md)
- - [CloudsmithApi::InlineResponse200](docs/InlineResponse200.md)
- - [CloudsmithApi::InlineResponse2001](docs/InlineResponse2001.md)
  - [CloudsmithApi::LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
  - [CloudsmithApi::LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [CloudsmithApi::MavenPackageUpload](docs/MavenPackageUpload.md)
@@ -346,13 +344,13 @@ Class | Method | HTTP request | Description
  - [CloudsmithApi::PackageCopy](docs/PackageCopy.md)
  - [CloudsmithApi::PackageCopyRequest](docs/PackageCopyRequest.md)
  - [CloudsmithApi::PackageDependencies](docs/PackageDependencies.md)
- - [CloudsmithApi::PackageDependenciesSchema](docs/PackageDependenciesSchema.md)
  - [CloudsmithApi::PackageDependency](docs/PackageDependency.md)
  - [CloudsmithApi::PackageFile](docs/PackageFile.md)
  - [CloudsmithApi::PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [CloudsmithApi::PackageFileUpload](docs/PackageFileUpload.md)
  - [CloudsmithApi::PackageFileUploadRequest](docs/PackageFileUploadRequest.md)
  - [CloudsmithApi::PackageLicensePolicyViolationLog](docs/PackageLicensePolicyViolationLog.md)
+ - [CloudsmithApi::PackageLicensePolicyViolationLogCursorPage](docs/PackageLicensePolicyViolationLogCursorPage.md)
  - [CloudsmithApi::PackageMove](docs/PackageMove.md)
  - [CloudsmithApi::PackageMoveRequest](docs/PackageMoveRequest.md)
  - [CloudsmithApi::PackageQuarantine](docs/PackageQuarantine.md)
@@ -365,6 +363,7 @@ Class | Method | HTTP request | Description
  - [CloudsmithApi::PackageVersionBadge](docs/PackageVersionBadge.md)
  - [CloudsmithApi::PackageVulnerability](docs/PackageVulnerability.md)
  - [CloudsmithApi::PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
+ - [CloudsmithApi::PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
  - [CloudsmithApi::PythonPackageUpload](docs/PythonPackageUpload.md)
  - [CloudsmithApi::PythonPackageUploadRequest](docs/PythonPackageUploadRequest.md)
  - [CloudsmithApi::Quota](docs/Quota.md)
@@ -376,14 +375,14 @@ Class | Method | HTTP request | Description
  - [CloudsmithApi::RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [CloudsmithApi::RepositoryCreate](docs/RepositoryCreate.md)
  - [CloudsmithApi::RepositoryCreateRequest](docs/RepositoryCreateRequest.md)
- - [CloudsmithApi::RepositoryGeoIPList](docs/RepositoryGeoIPList.md)
+ - [CloudsmithApi::RepositoryGeoIPCidr](docs/RepositoryGeoIPCidr.md)
+ - [CloudsmithApi::RepositoryGeoIPCountryCode](docs/RepositoryGeoIPCountryCode.md)
+ - [CloudsmithApi::RepositoryGeoIPRules](docs/RepositoryGeoIPRules.md)
+ - [CloudsmithApi::RepositoryGeoIPRulesRequest](docs/RepositoryGeoIPRulesRequest.md)
+ - [CloudsmithApi::RepositoryGeoIPRulesRequestPatch](docs/RepositoryGeoIPRulesRequestPatch.md)
  - [CloudsmithApi::RepositoryGeoIPTestAddress](docs/RepositoryGeoIPTestAddress.md)
  - [CloudsmithApi::RepositoryGeoIPTestAddressResponse](docs/RepositoryGeoIPTestAddressResponse.md)
  - [CloudsmithApi::RepositoryGeoIPTestAddressResponseDict](docs/RepositoryGeoIPTestAddressResponseDict.md)
- - [CloudsmithApi::RepositoryGeoIpCountryCodeRules](docs/RepositoryGeoIpCountryCodeRules.md)
- - [CloudsmithApi::RepositoryGeoIpRules](docs/RepositoryGeoIpRules.md)
- - [CloudsmithApi::RepositoryGeoIpRules1](docs/RepositoryGeoIpRules1.md)
- - [CloudsmithApi::RepositoryGeoIpRules2](docs/RepositoryGeoIpRules2.md)
  - [CloudsmithApi::RepositoryGpgKey](docs/RepositoryGpgKey.md)
  - [CloudsmithApi::RepositoryGpgKeyCreate](docs/RepositoryGpgKeyCreate.md)
  - [CloudsmithApi::RepositoryPrivilegeDict](docs/RepositoryPrivilegeDict.md)

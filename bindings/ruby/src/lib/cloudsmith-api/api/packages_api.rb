@@ -158,7 +158,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [PackageDependenciesSchema]
+    # @return [PackageDependencies]
     def packages_dependencies(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_dependencies_with_http_info(owner, repo, identifier, opts)
       data
@@ -170,7 +170,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PackageDependenciesSchema, Fixnum, Hash)>] PackageDependenciesSchema data, response status code and response headers
+    # @return [Array<(PackageDependencies, Fixnum, Hash)>] PackageDependencies data, response status code and response headers
     def packages_dependencies_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_dependencies ...'
@@ -212,7 +212,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PackageDependenciesSchema')
+        :return_type => 'PackageDependencies')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_dependencies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

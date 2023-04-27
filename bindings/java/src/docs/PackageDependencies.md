@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dependencies** | **String** |  |  [optional]
+**dependencies** | [**List&lt;PackageDependency&gt;**](PackageDependency.md) |  |  [optional]
 
 
 

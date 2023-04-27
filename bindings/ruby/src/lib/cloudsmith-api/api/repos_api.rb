@@ -256,25 +256,25 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Partially update existing repository geoip rules with those specified
-    # Partially update existing repository geoip rules with those specified
+    # Partially update repository geoip rules.
+    # Partially update repository geoip rules.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIpRules2] :data 
-    # @return [RepositoryGeoIpRules]
+    # @option opts [RepositoryGeoIPRulesRequestPatch] :data 
+    # @return [RepositoryGeoIPRules]
     def repos_geoip_partial_update(owner, identifier, opts = {})
       data, _status_code, _headers = repos_geoip_partial_update_with_http_info(owner, identifier, opts)
       data
     end
 
-    # Partially update existing repository geoip rules with those specified
-    # Partially update existing repository geoip rules with those specified
+    # Partially update repository geoip rules.
+    # Partially update repository geoip rules.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIpRules2] :data 
-    # @return [Array<(RepositoryGeoIpRules, Fixnum, Hash)>] RepositoryGeoIpRules data, response status code and response headers
+    # @option opts [RepositoryGeoIPRulesRequestPatch] :data 
+    # @return [Array<(RepositoryGeoIPRules, Fixnum, Hash)>] RepositoryGeoIPRules data, response status code and response headers
     def repos_geoip_partial_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_partial_update ...'
@@ -312,29 +312,29 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGeoIpRules')
+        :return_type => 'RepositoryGeoIPRules')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_geoip_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
-    # List all created GeoIP rules for the repository.
-    # List all created GeoIP rules for the repository.
+    # List all repository geoip rules.
+    # List all repository geoip rules.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryGeoIpRules]
+    # @return [RepositoryGeoIPRules]
     def repos_geoip_read(owner, identifier, opts = {})
       data, _status_code, _headers = repos_geoip_read_with_http_info(owner, identifier, opts)
       data
     end
 
-    # List all created GeoIP rules for the repository.
-    # List all created GeoIP rules for the repository.
+    # List all repository geoip rules.
+    # List all repository geoip rules.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryGeoIpRules, Fixnum, Hash)>] RepositoryGeoIpRules data, response status code and response headers
+    # @return [Array<(RepositoryGeoIPRules, Fixnum, Hash)>] RepositoryGeoIPRules data, response status code and response headers
     def repos_geoip_read_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_read ...'
@@ -372,7 +372,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGeoIpRules')
+        :return_type => 'RepositoryGeoIPRules')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_geoip_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -440,25 +440,25 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Replace all existing repository geoip rules with those specified
-    # Replace all existing repository geoip rules with those specified
+    # Replace repository geoip rules.
+    # Replace repository geoip rules.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIpRules1] :data 
-    # @return [nil]
+    # @option opts [RepositoryGeoIPRulesRequest] :data 
+    # @return [RepositoryGeoIPRules]
     def repos_geoip_update(owner, identifier, opts = {})
-      repos_geoip_update_with_http_info(owner, identifier, opts)
-      nil
+      data, _status_code, _headers = repos_geoip_update_with_http_info(owner, identifier, opts)
+      data
     end
 
-    # Replace all existing repository geoip rules with those specified
-    # Replace all existing repository geoip rules with those specified
+    # Replace repository geoip rules.
+    # Replace repository geoip rules.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIpRules1] :data 
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @option opts [RepositoryGeoIPRulesRequest] :data 
+    # @return [Array<(RepositoryGeoIPRules, Fixnum, Hash)>] RepositoryGeoIPRules data, response status code and response headers
     def repos_geoip_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_update ...'
@@ -495,7 +495,8 @@ module CloudsmithApi
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => 'RepositoryGeoIPRules')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_geoip_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

@@ -1334,7 +1334,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str cursor: The pagination cursor value.
         :param int page_size: Number of results to return per page.
-        :return: InlineResponse200
+        :return: PackageLicensePolicyViolationLogCursorPage
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1358,7 +1358,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str cursor: The pagination cursor value.
         :param int page_size: Number of results to return per page.
-        :return: InlineResponse200
+        :return: PackageLicensePolicyViolationLogCursorPage
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1420,7 +1420,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='PackageLicensePolicyViolationLogCursorPage',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4532,7 +4532,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str cursor: The pagination cursor value.
         :param int page_size: Number of results to return per page.
-        :return: InlineResponse2001
+        :return: PackageVulnerabilityPolicyViolationLogCursorPage
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4556,7 +4556,7 @@ class OrgsApi(object):
         :param str org: (required)
         :param str cursor: The pagination cursor value.
         :param int page_size: Number of results to return per page.
-        :return: InlineResponse2001
+        :return: PackageVulnerabilityPolicyViolationLogCursorPage
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4618,7 +4618,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='PackageVulnerabilityPolicyViolationLogCursorPage',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

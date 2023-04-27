@@ -37,8 +37,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.InlineResponse200;
-import io.cloudsmith.api.models.InlineResponse2001;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
@@ -57,6 +55,8 @@ import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
+import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
 import io.cloudsmith.api.models.ServiceRequestPatch;
@@ -1896,11 +1896,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param cursor The pagination cursor value. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return InlineResponse200
+     * @return PackageLicensePolicyViolationLogCursorPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 orgsLicensePolicyViolationList(String org, String cursor, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<InlineResponse200> resp = orgsLicensePolicyViolationListWithHttpInfo(org, cursor, pageSize);
+    public PackageLicensePolicyViolationLogCursorPage orgsLicensePolicyViolationList(String org, String cursor, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<PackageLicensePolicyViolationLogCursorPage> resp = orgsLicensePolicyViolationListWithHttpInfo(org, cursor, pageSize);
         return resp.getData();
     }
 
@@ -1910,12 +1910,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param cursor The pagination cursor value. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;PackageLicensePolicyViolationLogCursorPage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> orgsLicensePolicyViolationListWithHttpInfo( @NotNull String org,  String cursor,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<PackageLicensePolicyViolationLogCursorPage> orgsLicensePolicyViolationListWithHttpInfo( @NotNull String org,  String cursor,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsLicensePolicyViolationListValidateBeforeCall(org, cursor, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageLicensePolicyViolationLogCursorPage>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1929,7 +1929,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsLicensePolicyViolationListAsync(String org, String cursor, java.math.BigInteger pageSize, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsLicensePolicyViolationListAsync(String org, String cursor, java.math.BigInteger pageSize, final ApiCallback<PackageLicensePolicyViolationLogCursorPage> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1951,7 +1951,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsLicensePolicyViolationListValidateBeforeCall(org, cursor, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageLicensePolicyViolationLogCursorPage>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6187,11 +6187,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param cursor The pagination cursor value. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return InlineResponse2001
+     * @return PackageVulnerabilityPolicyViolationLogCursorPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 orgsVulnerabilityPolicyViolationList(String org, String cursor, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = orgsVulnerabilityPolicyViolationListWithHttpInfo(org, cursor, pageSize);
+    public PackageVulnerabilityPolicyViolationLogCursorPage orgsVulnerabilityPolicyViolationList(String org, String cursor, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<PackageVulnerabilityPolicyViolationLogCursorPage> resp = orgsVulnerabilityPolicyViolationListWithHttpInfo(org, cursor, pageSize);
         return resp.getData();
     }
 
@@ -6201,12 +6201,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param cursor The pagination cursor value. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;PackageVulnerabilityPolicyViolationLogCursorPage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> orgsVulnerabilityPolicyViolationListWithHttpInfo( @NotNull String org,  String cursor,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<PackageVulnerabilityPolicyViolationLogCursorPage> orgsVulnerabilityPolicyViolationListWithHttpInfo( @NotNull String org,  String cursor,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = orgsVulnerabilityPolicyViolationListValidateBeforeCall(org, cursor, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageVulnerabilityPolicyViolationLogCursorPage>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -6220,7 +6220,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsVulnerabilityPolicyViolationListAsync(String org, String cursor, java.math.BigInteger pageSize, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsVulnerabilityPolicyViolationListAsync(String org, String cursor, java.math.BigInteger pageSize, final ApiCallback<PackageVulnerabilityPolicyViolationLogCursorPage> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6242,7 +6242,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsVulnerabilityPolicyViolationListValidateBeforeCall(org, cursor, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageVulnerabilityPolicyViolationLogCursorPage>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

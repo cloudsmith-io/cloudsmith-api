@@ -730,7 +730,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_license_policy_violation_list**
-> InlineResponse200 orgs_license_policy_violation_list(org, cursor=cursor, page_size=page_size)
+> PackageLicensePolicyViolationLogCursorPage orgs_license_policy_violation_list(org, cursor=cursor, page_size=page_size)
 
 List all current license policy violations for this Organization.
 
@@ -774,7 +774,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**PackageLicensePolicyViolationLogCursorPage**](PackageLicensePolicyViolationLogCursorPage.md)
 
 ### Authorization
 
@@ -2424,7 +2424,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_vulnerability_policy_violation_list**
-> InlineResponse2001 orgs_vulnerability_policy_violation_list(org, cursor=cursor, page_size=page_size)
+> PackageVulnerabilityPolicyViolationLogCursorPage orgs_vulnerability_policy_violation_list(org, cursor=cursor, page_size=page_size)
 
 List all current vulnerability policy violations for this Organization.
 
@@ -2468,7 +2468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**PackageVulnerabilityPolicyViolationLogCursorPage**](PackageVulnerabilityPolicyViolationLogCursorPage.md)
 
 ### Authorization
 

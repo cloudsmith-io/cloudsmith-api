@@ -1,9 +1,9 @@
-# CloudsmithApi::RepositoryGeoIpRules
+# CloudsmithApi::RepositoryGeoIPRules
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**country_code** | [**RepositoryGeoIpCountryCodeRules**](RepositoryGeoIpCountryCodeRules.md) |  | [optional] 
-**cidr** | [**RepositoryGeoIpCountryCodeRules**](RepositoryGeoIpCountryCodeRules.md) |  | [optional] 
+**cidr** | [**RepositoryGeoIPCidr**](RepositoryGeoIPCidr.md) |  | 
+**country_code** | [**RepositoryGeoIPCountryCode**](RepositoryGeoIPCountryCode.md) |  | 
 
 

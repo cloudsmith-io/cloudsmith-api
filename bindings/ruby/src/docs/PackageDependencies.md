@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dependencies** | **String** |  | [optional] 
+**dependencies** | [**Array&lt;PackageDependency&gt;**](PackageDependency.md) |  | [optional] 
 
 

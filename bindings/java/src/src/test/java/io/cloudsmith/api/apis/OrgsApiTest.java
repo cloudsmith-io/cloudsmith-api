@@ -14,8 +14,6 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.InlineResponse200;
-import io.cloudsmith.api.models.InlineResponse2001;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
@@ -34,6 +32,8 @@ import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
+import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
 import io.cloudsmith.api.models.ServiceRequestPatch;
@@ -277,7 +277,7 @@ public class OrgsApiTest {
         String org = null;
         String cursor = null;
         java.math.BigInteger pageSize = null;
-        InlineResponse200 response = api.orgsLicensePolicyViolationList(org, cursor, pageSize);
+        PackageLicensePolicyViolationLogCursorPage response = api.orgsLicensePolicyViolationList(org, cursor, pageSize);
 
         // TODO: test validations
     }
@@ -797,7 +797,7 @@ public class OrgsApiTest {
         String org = null;
         String cursor = null;
         java.math.BigInteger pageSize = null;
-        InlineResponse2001 response = api.orgsVulnerabilityPolicyViolationList(org, cursor, pageSize);
+        PackageVulnerabilityPolicyViolationLogCursorPage response = api.orgsVulnerabilityPolicyViolationList(org, cursor, pageSize);
 
         // TODO: test validations
     }

@@ -26,7 +26,7 @@ class PackageDependencies
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'dependencies' => :'String'
+      :'dependencies' => :'Array<PackageDependency>'
     }
   end
 
@@ -39,7 +39,9 @@ class PackageDependencies
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
     if attributes.has_key?(:'dependencies')
-      self.dependencies = attributes[:'dependencies']
+      if (value = attributes[:'dependencies']).is_a?(Array)
+        self.dependencies = value
+      end
     end
   end
 
