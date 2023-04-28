@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class RepositoryGeoIPTestAddressResponseDict
+class RepositoryGeoIpTestAddressResponseDict
   # The result of the IP test
   attr_accessor :allowed
 

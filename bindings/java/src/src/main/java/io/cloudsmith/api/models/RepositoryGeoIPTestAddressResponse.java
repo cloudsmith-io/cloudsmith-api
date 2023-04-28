@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.RepositoryGeoIPTestAddressResponseDict;
+import io.cloudsmith.api.models.RepositoryGeoIpTestAddressResponseDict;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -31,21 +31,21 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RepositoryGeoIPTestAddressResponse
+ * RepositoryGeoIpTestAddressResponse
  */
 
-public class RepositoryGeoIPTestAddressResponse implements Serializable {
+public class RepositoryGeoIpTestAddressResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("addresses")
-  private List<RepositoryGeoIPTestAddressResponseDict> addresses = new ArrayList<>();
+  private List<RepositoryGeoIpTestAddressResponseDict> addresses = new ArrayList<>();
 
-  public RepositoryGeoIPTestAddressResponse addresses(List<RepositoryGeoIPTestAddressResponseDict> addresses) {
+  public RepositoryGeoIpTestAddressResponse addresses(List<RepositoryGeoIpTestAddressResponseDict> addresses) {
     this.addresses = addresses;
     return this;
   }
 
-  public RepositoryGeoIPTestAddressResponse addAddressesItem(RepositoryGeoIPTestAddressResponseDict addressesItem) {
+  public RepositoryGeoIpTestAddressResponse addAddressesItem(RepositoryGeoIpTestAddressResponseDict addressesItem) {
     this.addresses.add(addressesItem);
     return this;
   }
@@ -57,11 +57,11 @@ public class RepositoryGeoIPTestAddressResponse implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "The IP address test results ordered by allowed")
-  public List<RepositoryGeoIPTestAddressResponseDict> getAddresses() {
+  public List<RepositoryGeoIpTestAddressResponseDict> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(List<RepositoryGeoIPTestAddressResponseDict> addresses) {
+  public void setAddresses(List<RepositoryGeoIpTestAddressResponseDict> addresses) {
     this.addresses = addresses;
   }
 
@@ -74,8 +74,8 @@ public class RepositoryGeoIPTestAddressResponse implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RepositoryGeoIPTestAddressResponse repositoryGeoIPTestAddressResponse = (RepositoryGeoIPTestAddressResponse) o;
-    return Objects.equals(this.addresses, repositoryGeoIPTestAddressResponse.addresses);
+    RepositoryGeoIpTestAddressResponse repositoryGeoIpTestAddressResponse = (RepositoryGeoIpTestAddressResponse) o;
+    return Objects.equals(this.addresses, repositoryGeoIpTestAddressResponse.addresses);
   }
 
   @Override
@@ -87,7 +87,7 @@ public class RepositoryGeoIPTestAddressResponse implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RepositoryGeoIPTestAddressResponse {\n");
+    sb.append("class RepositoryGeoIpTestAddressResponse {\n");
     
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("}");

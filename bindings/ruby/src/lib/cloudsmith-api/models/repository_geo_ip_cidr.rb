@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class RepositoryGeoIPCidr
+class RepositoryGeoIpCidr
   # The allowed CIDRs for this repository
   attr_accessor :allow
 

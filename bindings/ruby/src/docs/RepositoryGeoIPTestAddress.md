@@ -1,4 +1,4 @@
-# CloudsmithApi::RepositoryGeoIPTestAddress
+# CloudsmithApi::RepositoryGeoIpTestAddress
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# CloudsmithApi::RepositoryGeoIPCountryCode
+# CloudsmithApi::RepositoryGeoIpCountryCode
 
 ## Properties
 Name | Type | Description | Notes

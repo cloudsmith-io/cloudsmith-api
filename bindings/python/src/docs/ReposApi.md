@@ -163,7 +163,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RespositoryGeoIPEnableDisableRequest() # RespositoryGeoIPEnableDisableRequest |  (optional)
+data = cloudsmith_api.RespositoryGeoIpEnableDisableRequest() # RespositoryGeoIpEnableDisableRequest |  (optional)
 
 try:
     # Disable GeoIP for this repository.
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RespositoryGeoIPEnableDisableRequest**](RespositoryGeoIPEnableDisableRequest.md)|  | [optional] 
+ **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -220,7 +220,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RespositoryGeoIPEnableDisableRequest() # RespositoryGeoIPEnableDisableRequest |  (optional)
+data = cloudsmith_api.RespositoryGeoIpEnableDisableRequest() # RespositoryGeoIpEnableDisableRequest |  (optional)
 
 try:
     # Enable GeoIP for this repository.
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RespositoryGeoIPEnableDisableRequest**](RespositoryGeoIPEnableDisableRequest.md)|  | [optional] 
+ **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -253,7 +253,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_partial_update**
-> RepositoryGeoIPRules repos_geoip_partial_update(owner, identifier, data=data)
+> RepositoryGeoIpRules repos_geoip_partial_update(owner, identifier, data=data)
 
 Partially update repository geoip rules.
 
@@ -277,7 +277,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGeoIPRulesRequestPatch() # RepositoryGeoIPRulesRequestPatch |  (optional)
+data = cloudsmith_api.RepositoryGeoIpRulesRequestPatch() # RepositoryGeoIpRulesRequestPatch |  (optional)
 
 try:
     # Partially update repository geoip rules.
@@ -293,11 +293,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RepositoryGeoIPRulesRequestPatch**](RepositoryGeoIPRulesRequestPatch.md)|  | [optional] 
+ **data** | [**RepositoryGeoIpRulesRequestPatch**](RepositoryGeoIpRulesRequestPatch.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_read**
-> RepositoryGeoIPRules repos_geoip_read(owner, identifier)
+> RepositoryGeoIpRules repos_geoip_read(owner, identifier)
 
 List all repository geoip rules.
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_test**
-> RepositoryGeoIPTestAddressResponse repos_geoip_test(owner, identifier, data=data)
+> RepositoryGeoIpTestAddressResponse repos_geoip_test(owner, identifier, data=data)
 
 Test a list of IP addresses against the repository's current GeoIP rules.
 
@@ -391,7 +391,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGeoIPTestAddress() # RepositoryGeoIPTestAddress |  (optional)
+data = cloudsmith_api.RepositoryGeoIpTestAddress() # RepositoryGeoIpTestAddress |  (optional)
 
 try:
     # Test a list of IP addresses against the repository's current GeoIP rules.
@@ -407,11 +407,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RepositoryGeoIPTestAddress**](RepositoryGeoIPTestAddress.md)|  | [optional] 
+ **data** | [**RepositoryGeoIpTestAddress**](RepositoryGeoIpTestAddress.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryGeoIPTestAddressResponse**](RepositoryGeoIPTestAddressResponse.md)
+[**RepositoryGeoIpTestAddressResponse**](RepositoryGeoIpTestAddressResponse.md)
 
 ### Authorization
 
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_update**
-> RepositoryGeoIPRules repos_geoip_update(owner, identifier, data=data)
+> RepositoryGeoIpRules repos_geoip_update(owner, identifier, data=data)
 
 Replace repository geoip rules.
 
@@ -449,7 +449,7 @@ configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
 owner = 'owner_example' # str | 
 identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGeoIPRulesRequest() # RepositoryGeoIPRulesRequest |  (optional)
+data = cloudsmith_api.RepositoryGeoIpRulesRequest() # RepositoryGeoIpRulesRequest |  (optional)
 
 try:
     # Replace repository geoip rules.
@@ -465,11 +465,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RepositoryGeoIPRulesRequest**](RepositoryGeoIPRulesRequest.md)|  | [optional] 
+ **data** | [**RepositoryGeoIpRulesRequest**](RepositoryGeoIpRulesRequest.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 

@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class RepositoryGeoIPCountryCode
+class RepositoryGeoIpCountryCode
   # The allowed country codes for this repository
   attr_accessor :allow
 

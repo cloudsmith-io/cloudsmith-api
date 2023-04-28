@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import cloudsmith_api
-from cloudsmith_api.models.repository_geo_ip_country_code import RepositoryGeoIPCountryCode  # noqa: E501
+from cloudsmith_api.models.repository_geo_ip_country_code import RepositoryGeoIpCountryCode  # noqa: E501
 from cloudsmith_api.rest import ApiException
 
 
-class TestRepositoryGeoIPCountryCode(unittest.TestCase):
-    """RepositoryGeoIPCountryCode unit test stubs"""
+class TestRepositoryGeoIpCountryCode(unittest.TestCase):
+    """RepositoryGeoIpCountryCode unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestRepositoryGeoIPCountryCode(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRepositoryGeoIPCountryCode(self):
-        """Test RepositoryGeoIPCountryCode"""
+    def testRepositoryGeoIpCountryCode(self):
+        """Test RepositoryGeoIpCountryCode"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = cloudsmith_api.models.repository_geo_ip_country_code.RepositoryGeoIPCountryCode()  # noqa: E501
+        # model = cloudsmith_api.models.repository_geo_ip_country_code.RepositoryGeoIpCountryCode()  # noqa: E501
         pass
 
 

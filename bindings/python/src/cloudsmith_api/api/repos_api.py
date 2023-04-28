@@ -255,7 +255,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RespositoryGeoIPEnableDisableRequest data:
+        :param RespositoryGeoIpEnableDisableRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -279,7 +279,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RespositoryGeoIPEnableDisableRequest data:
+        :param RespositoryGeoIpEnableDisableRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -366,7 +366,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RespositoryGeoIPEnableDisableRequest data:
+        :param RespositoryGeoIpEnableDisableRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -390,7 +390,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RespositoryGeoIPEnableDisableRequest data:
+        :param RespositoryGeoIpEnableDisableRequest data:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -477,8 +477,8 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RepositoryGeoIPRulesRequestPatch data:
-        :return: RepositoryGeoIPRules
+        :param RepositoryGeoIpRulesRequestPatch data:
+        :return: RepositoryGeoIpRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -501,8 +501,8 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RepositoryGeoIPRulesRequestPatch data:
-        :return: RepositoryGeoIPRules
+        :param RepositoryGeoIpRulesRequestPatch data:
+        :return: RepositoryGeoIpRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -568,7 +568,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryGeoIPRules',  # noqa: E501
+            response_type='RepositoryGeoIpRules',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -588,7 +588,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryGeoIPRules
+        :return: RepositoryGeoIpRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -611,7 +611,7 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :return: RepositoryGeoIPRules
+        :return: RepositoryGeoIpRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -675,7 +675,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryGeoIPRules',  # noqa: E501
+            response_type='RepositoryGeoIpRules',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -695,8 +695,8 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RepositoryGeoIPTestAddress data:
-        :return: RepositoryGeoIPTestAddressResponse
+        :param RepositoryGeoIpTestAddress data:
+        :return: RepositoryGeoIpTestAddressResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -719,8 +719,8 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RepositoryGeoIPTestAddress data:
-        :return: RepositoryGeoIPTestAddressResponse
+        :param RepositoryGeoIpTestAddress data:
+        :return: RepositoryGeoIpTestAddressResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -786,7 +786,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryGeoIPTestAddressResponse',  # noqa: E501
+            response_type='RepositoryGeoIpTestAddressResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -806,8 +806,8 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RepositoryGeoIPRulesRequest data:
-        :return: RepositoryGeoIPRules
+        :param RepositoryGeoIpRulesRequest data:
+        :return: RepositoryGeoIpRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -830,8 +830,8 @@ class ReposApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str identifier: (required)
-        :param RepositoryGeoIPRulesRequest data:
-        :return: RepositoryGeoIPRules
+        :param RepositoryGeoIpRulesRequest data:
+        :return: RepositoryGeoIpRules
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -897,7 +897,7 @@ class ReposApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='RepositoryGeoIPRules',  # noqa: E501
+            response_type='RepositoryGeoIpRules',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

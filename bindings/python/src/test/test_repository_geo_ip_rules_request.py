@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import cloudsmith_api
-from cloudsmith_api.models.repository_geo_ip_rules_request import RepositoryGeoIPRulesRequest  # noqa: E501
+from cloudsmith_api.models.repository_geo_ip_rules_request import RepositoryGeoIpRulesRequest  # noqa: E501
 from cloudsmith_api.rest import ApiException
 
 
-class TestRepositoryGeoIPRulesRequest(unittest.TestCase):
-    """RepositoryGeoIPRulesRequest unit test stubs"""
+class TestRepositoryGeoIpRulesRequest(unittest.TestCase):
+    """RepositoryGeoIpRulesRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestRepositoryGeoIPRulesRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRepositoryGeoIPRulesRequest(self):
-        """Test RepositoryGeoIPRulesRequest"""
+    def testRepositoryGeoIpRulesRequest(self):
+        """Test RepositoryGeoIpRulesRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = cloudsmith_api.models.repository_geo_ip_rules_request.RepositoryGeoIPRulesRequest()  # noqa: E501
+        # model = cloudsmith_api.models.repository_geo_ip_rules_request.RepositoryGeoIpRulesRequest()  # noqa: E501
         pass
 
 

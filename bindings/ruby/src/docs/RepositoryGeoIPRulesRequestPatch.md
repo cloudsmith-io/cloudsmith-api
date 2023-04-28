@@ -1,9 +1,9 @@
-# CloudsmithApi::RepositoryGeoIPRulesRequestPatch
+# CloudsmithApi::RepositoryGeoIpRulesRequestPatch
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cidr** | [**RepositoryGeoIPCidr**](RepositoryGeoIPCidr.md) |  | [optional] 
-**country_code** | [**RepositoryGeoIPCountryCode**](RepositoryGeoIPCountryCode.md) |  | [optional] 
+**cidr** | [**RepositoryGeoIpCidr**](RepositoryGeoIpCidr.md) |  | [optional] 
+**country_code** | [**RepositoryGeoIpCountryCode**](RepositoryGeoIpCountryCode.md) |  | [optional] 
 
 

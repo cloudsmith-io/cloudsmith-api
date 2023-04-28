@@ -1,4 +1,4 @@
-# RepositoryGeoIPCountryCode
+# RepositoryGeoIpCountryCode
 
 ## Properties
 Name | Type | Description | Notes

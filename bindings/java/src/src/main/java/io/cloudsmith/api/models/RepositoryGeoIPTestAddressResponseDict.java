@@ -28,10 +28,10 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RepositoryGeoIPTestAddressResponseDict
+ * RepositoryGeoIpTestAddressResponseDict
  */
 
-public class RepositoryGeoIPTestAddressResponseDict implements Serializable {
+public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("allowed")
@@ -46,7 +46,7 @@ public class RepositoryGeoIPTestAddressResponseDict implements Serializable {
   @SerializedName("reason")
   private String reason = null;
 
-  public RepositoryGeoIPTestAddressResponseDict allowed(Boolean allowed) {
+  public RepositoryGeoIpTestAddressResponseDict allowed(Boolean allowed) {
     this.allowed = allowed;
     return this;
   }
@@ -65,7 +65,7 @@ public class RepositoryGeoIPTestAddressResponseDict implements Serializable {
     this.allowed = allowed;
   }
 
-  public RepositoryGeoIPTestAddressResponseDict countryCode(String countryCode) {
+  public RepositoryGeoIpTestAddressResponseDict countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -84,7 +84,7 @@ public class RepositoryGeoIPTestAddressResponseDict implements Serializable {
     this.countryCode = countryCode;
   }
 
-  public RepositoryGeoIPTestAddressResponseDict ipAddress(String ipAddress) {
+  public RepositoryGeoIpTestAddressResponseDict ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
@@ -103,7 +103,7 @@ public class RepositoryGeoIPTestAddressResponseDict implements Serializable {
     this.ipAddress = ipAddress;
   }
 
-  public RepositoryGeoIPTestAddressResponseDict reason(String reason) {
+  public RepositoryGeoIpTestAddressResponseDict reason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -131,11 +131,11 @@ public class RepositoryGeoIPTestAddressResponseDict implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RepositoryGeoIPTestAddressResponseDict repositoryGeoIPTestAddressResponseDict = (RepositoryGeoIPTestAddressResponseDict) o;
-    return Objects.equals(this.allowed, repositoryGeoIPTestAddressResponseDict.allowed) &&
-        Objects.equals(this.countryCode, repositoryGeoIPTestAddressResponseDict.countryCode) &&
-        Objects.equals(this.ipAddress, repositoryGeoIPTestAddressResponseDict.ipAddress) &&
-        Objects.equals(this.reason, repositoryGeoIPTestAddressResponseDict.reason);
+    RepositoryGeoIpTestAddressResponseDict repositoryGeoIpTestAddressResponseDict = (RepositoryGeoIpTestAddressResponseDict) o;
+    return Objects.equals(this.allowed, repositoryGeoIpTestAddressResponseDict.allowed) &&
+        Objects.equals(this.countryCode, repositoryGeoIpTestAddressResponseDict.countryCode) &&
+        Objects.equals(this.ipAddress, repositoryGeoIpTestAddressResponseDict.ipAddress) &&
+        Objects.equals(this.reason, repositoryGeoIpTestAddressResponseDict.reason);
   }
 
   @Override
@@ -147,7 +147,7 @@ public class RepositoryGeoIPTestAddressResponseDict implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RepositoryGeoIPTestAddressResponseDict {\n");
+    sb.append("class RepositoryGeoIpTestAddressResponseDict {\n");
     
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");

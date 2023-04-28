@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class RepositoryGeoIPTestAddress
+class RepositoryGeoIpTestAddress
   # The IP addresses to test against this repository
   attr_accessor :addresses
 

@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class RepositoryGeoIPTestAddressResponse
+class RepositoryGeoIpTestAddressResponse
   # The IP address test results ordered by allowed
   attr_accessor :addresses
 
@@ -27,7 +27,7 @@ class RepositoryGeoIPTestAddressResponse
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'addresses' => :'Array<RepositoryGeoIPTestAddressResponseDict>'
+      :'addresses' => :'Array<RepositoryGeoIpTestAddressResponseDict>'
     }
   end
 

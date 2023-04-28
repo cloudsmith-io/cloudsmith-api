@@ -30,10 +30,10 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RepositoryGeoIPCidr
+ * RepositoryGeoIpCidr
  */
 
-public class RepositoryGeoIPCidr implements Serializable {
+public class RepositoryGeoIpCidr implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("allow")
@@ -42,12 +42,12 @@ public class RepositoryGeoIPCidr implements Serializable {
   @SerializedName("deny")
   private List<String> deny = new ArrayList<>();
 
-  public RepositoryGeoIPCidr allow(List<String> allow) {
+  public RepositoryGeoIpCidr allow(List<String> allow) {
     this.allow = allow;
     return this;
   }
 
-  public RepositoryGeoIPCidr addAllowItem(String allowItem) {
+  public RepositoryGeoIpCidr addAllowItem(String allowItem) {
     this.allow.add(allowItem);
     return this;
   }
@@ -66,12 +66,12 @@ public class RepositoryGeoIPCidr implements Serializable {
     this.allow = allow;
   }
 
-  public RepositoryGeoIPCidr deny(List<String> deny) {
+  public RepositoryGeoIpCidr deny(List<String> deny) {
     this.deny = deny;
     return this;
   }
 
-  public RepositoryGeoIPCidr addDenyItem(String denyItem) {
+  public RepositoryGeoIpCidr addDenyItem(String denyItem) {
     this.deny.add(denyItem);
     return this;
   }
@@ -99,9 +99,9 @@ public class RepositoryGeoIPCidr implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RepositoryGeoIPCidr repositoryGeoIPCidr = (RepositoryGeoIPCidr) o;
-    return Objects.equals(this.allow, repositoryGeoIPCidr.allow) &&
-        Objects.equals(this.deny, repositoryGeoIPCidr.deny);
+    RepositoryGeoIpCidr repositoryGeoIpCidr = (RepositoryGeoIpCidr) o;
+    return Objects.equals(this.allow, repositoryGeoIpCidr.allow) &&
+        Objects.equals(this.deny, repositoryGeoIpCidr.deny);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class RepositoryGeoIPCidr implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RepositoryGeoIPCidr {\n");
+    sb.append("class RepositoryGeoIpCidr {\n");
     
     sb.append("    allow: ").append(toIndentedString(allow)).append("\n");
     sb.append("    deny: ").append(toIndentedString(deny)).append("\n");

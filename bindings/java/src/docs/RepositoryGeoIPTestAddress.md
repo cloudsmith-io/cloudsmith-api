@@ -1,5 +1,5 @@
 
-# RepositoryGeoIPTestAddress
+# RepositoryGeoIpTestAddress
 
 ## Properties
 Name | Type | Description | Notes

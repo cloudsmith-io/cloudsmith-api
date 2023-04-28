@@ -30,10 +30,10 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RepositoryGeoIPCountryCode
+ * RepositoryGeoIpCountryCode
  */
 
-public class RepositoryGeoIPCountryCode implements Serializable {
+public class RepositoryGeoIpCountryCode implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("allow")
@@ -42,12 +42,12 @@ public class RepositoryGeoIPCountryCode implements Serializable {
   @SerializedName("deny")
   private List<String> deny = new ArrayList<>();
 
-  public RepositoryGeoIPCountryCode allow(List<String> allow) {
+  public RepositoryGeoIpCountryCode allow(List<String> allow) {
     this.allow = allow;
     return this;
   }
 
-  public RepositoryGeoIPCountryCode addAllowItem(String allowItem) {
+  public RepositoryGeoIpCountryCode addAllowItem(String allowItem) {
     this.allow.add(allowItem);
     return this;
   }
@@ -66,12 +66,12 @@ public class RepositoryGeoIPCountryCode implements Serializable {
     this.allow = allow;
   }
 
-  public RepositoryGeoIPCountryCode deny(List<String> deny) {
+  public RepositoryGeoIpCountryCode deny(List<String> deny) {
     this.deny = deny;
     return this;
   }
 
-  public RepositoryGeoIPCountryCode addDenyItem(String denyItem) {
+  public RepositoryGeoIpCountryCode addDenyItem(String denyItem) {
     this.deny.add(denyItem);
     return this;
   }
@@ -99,9 +99,9 @@ public class RepositoryGeoIPCountryCode implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RepositoryGeoIPCountryCode repositoryGeoIPCountryCode = (RepositoryGeoIPCountryCode) o;
-    return Objects.equals(this.allow, repositoryGeoIPCountryCode.allow) &&
-        Objects.equals(this.deny, repositoryGeoIPCountryCode.deny);
+    RepositoryGeoIpCountryCode repositoryGeoIpCountryCode = (RepositoryGeoIpCountryCode) o;
+    return Objects.equals(this.allow, repositoryGeoIpCountryCode.allow) &&
+        Objects.equals(this.deny, repositoryGeoIpCountryCode.deny);
   }
 
   @Override
@@ -113,7 +113,7 @@ public class RepositoryGeoIPCountryCode implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RepositoryGeoIPCountryCode {\n");
+    sb.append("class RepositoryGeoIpCountryCode {\n");
     
     sb.append("    allow: ").append(toIndentedString(allow)).append("\n");
     sb.append("    deny: ").append(toIndentedString(deny)).append("\n");

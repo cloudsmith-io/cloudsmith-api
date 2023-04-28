@@ -30,21 +30,21 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RepositoryGeoIPTestAddress
+ * RepositoryGeoIpTestAddress
  */
 
-public class RepositoryGeoIPTestAddress implements Serializable {
+public class RepositoryGeoIpTestAddress implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("addresses")
   private List<String> addresses = new ArrayList<>();
 
-  public RepositoryGeoIPTestAddress addresses(List<String> addresses) {
+  public RepositoryGeoIpTestAddress addresses(List<String> addresses) {
     this.addresses = addresses;
     return this;
   }
 
-  public RepositoryGeoIPTestAddress addAddressesItem(String addressesItem) {
+  public RepositoryGeoIpTestAddress addAddressesItem(String addressesItem) {
     this.addresses.add(addressesItem);
     return this;
   }
@@ -72,8 +72,8 @@ public class RepositoryGeoIPTestAddress implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RepositoryGeoIPTestAddress repositoryGeoIPTestAddress = (RepositoryGeoIPTestAddress) o;
-    return Objects.equals(this.addresses, repositoryGeoIPTestAddress.addresses);
+    RepositoryGeoIpTestAddress repositoryGeoIpTestAddress = (RepositoryGeoIpTestAddress) o;
+    return Objects.equals(this.addresses, repositoryGeoIpTestAddress.addresses);
   }
 
   @Override
@@ -85,7 +85,7 @@ public class RepositoryGeoIPTestAddress implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RepositoryGeoIPTestAddress {\n");
+    sb.append("class RepositoryGeoIpTestAddress {\n");
     
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("}");

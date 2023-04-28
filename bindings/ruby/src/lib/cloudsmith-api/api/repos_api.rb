@@ -139,7 +139,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
     # @return [nil]
     def repos_geoip_disable(owner, identifier, opts = {})
       repos_geoip_disable_with_http_info(owner, identifier, opts)
@@ -151,7 +151,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def repos_geoip_disable_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -200,7 +200,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
     # @return [nil]
     def repos_geoip_enable(owner, identifier, opts = {})
       repos_geoip_enable_with_http_info(owner, identifier, opts)
@@ -212,7 +212,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def repos_geoip_enable_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -261,8 +261,8 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIPRulesRequestPatch] :data 
-    # @return [RepositoryGeoIPRules]
+    # @option opts [RepositoryGeoIpRulesRequestPatch] :data 
+    # @return [RepositoryGeoIpRules]
     def repos_geoip_partial_update(owner, identifier, opts = {})
       data, _status_code, _headers = repos_geoip_partial_update_with_http_info(owner, identifier, opts)
       data
@@ -273,8 +273,8 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIPRulesRequestPatch] :data 
-    # @return [Array<(RepositoryGeoIPRules, Fixnum, Hash)>] RepositoryGeoIPRules data, response status code and response headers
+    # @option opts [RepositoryGeoIpRulesRequestPatch] :data 
+    # @return [Array<(RepositoryGeoIpRules, Fixnum, Hash)>] RepositoryGeoIpRules data, response status code and response headers
     def repos_geoip_partial_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_partial_update ...'
@@ -312,7 +312,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGeoIPRules')
+        :return_type => 'RepositoryGeoIpRules')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_geoip_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -323,7 +323,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [RepositoryGeoIPRules]
+    # @return [RepositoryGeoIpRules]
     def repos_geoip_read(owner, identifier, opts = {})
       data, _status_code, _headers = repos_geoip_read_with_http_info(owner, identifier, opts)
       data
@@ -334,7 +334,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryGeoIPRules, Fixnum, Hash)>] RepositoryGeoIPRules data, response status code and response headers
+    # @return [Array<(RepositoryGeoIpRules, Fixnum, Hash)>] RepositoryGeoIpRules data, response status code and response headers
     def repos_geoip_read_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_read ...'
@@ -372,7 +372,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGeoIPRules')
+        :return_type => 'RepositoryGeoIpRules')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_geoip_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -383,8 +383,8 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIPTestAddress] :data 
-    # @return [RepositoryGeoIPTestAddressResponse]
+    # @option opts [RepositoryGeoIpTestAddress] :data 
+    # @return [RepositoryGeoIpTestAddressResponse]
     def repos_geoip_test(owner, identifier, opts = {})
       data, _status_code, _headers = repos_geoip_test_with_http_info(owner, identifier, opts)
       data
@@ -395,8 +395,8 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIPTestAddress] :data 
-    # @return [Array<(RepositoryGeoIPTestAddressResponse, Fixnum, Hash)>] RepositoryGeoIPTestAddressResponse data, response status code and response headers
+    # @option opts [RepositoryGeoIpTestAddress] :data 
+    # @return [Array<(RepositoryGeoIpTestAddressResponse, Fixnum, Hash)>] RepositoryGeoIpTestAddressResponse data, response status code and response headers
     def repos_geoip_test_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_test ...'
@@ -434,7 +434,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGeoIPTestAddressResponse')
+        :return_type => 'RepositoryGeoIpTestAddressResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_geoip_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -445,8 +445,8 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIPRulesRequest] :data 
-    # @return [RepositoryGeoIPRules]
+    # @option opts [RepositoryGeoIpRulesRequest] :data 
+    # @return [RepositoryGeoIpRules]
     def repos_geoip_update(owner, identifier, opts = {})
       data, _status_code, _headers = repos_geoip_update_with_http_info(owner, identifier, opts)
       data
@@ -457,8 +457,8 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryGeoIPRulesRequest] :data 
-    # @return [Array<(RepositoryGeoIPRules, Fixnum, Hash)>] RepositoryGeoIPRules data, response status code and response headers
+    # @option opts [RepositoryGeoIpRulesRequest] :data 
+    # @return [Array<(RepositoryGeoIpRules, Fixnum, Hash)>] RepositoryGeoIpRules data, response status code and response headers
     def repos_geoip_update_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_update ...'
@@ -496,7 +496,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'RepositoryGeoIPRules')
+        :return_type => 'RepositoryGeoIpRules')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_geoip_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

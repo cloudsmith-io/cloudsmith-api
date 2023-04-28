@@ -20,10 +20,10 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RespositoryGeoIPEnableDisableRequest
+ * RespositoryGeoIpEnableDisableRequest
  */
 
-public class RespositoryGeoIPEnableDisableRequest implements Serializable {
+public class RespositoryGeoIpEnableDisableRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
 
@@ -47,7 +47,7 @@ public class RespositoryGeoIPEnableDisableRequest implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RespositoryGeoIPEnableDisableRequest {\n");
+    sb.append("class RespositoryGeoIpEnableDisableRequest {\n");
     
     sb.append("}");
     return sb.toString();

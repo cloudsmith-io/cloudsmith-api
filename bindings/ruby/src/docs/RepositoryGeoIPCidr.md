@@ -1,4 +1,4 @@
-# CloudsmithApi::RepositoryGeoIPCidr
+# CloudsmithApi::RepositoryGeoIpCidr
 
 ## Properties
 Name | Type | Description | Notes

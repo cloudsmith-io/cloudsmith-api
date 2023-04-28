@@ -1,11 +1,11 @@
 
-# RepositoryGeoIPRulesRequest
+# RepositoryGeoIpRulesRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cidr** | [**RepositoryGeoIPCidr**](RepositoryGeoIPCidr.md) |  | 
-**countryCode** | [**RepositoryGeoIPCountryCode**](RepositoryGeoIPCountryCode.md) |  | 
+**cidr** | [**RepositoryGeoIpCidr**](RepositoryGeoIpCidr.md) |  | 
+**countryCode** | [**RepositoryGeoIpCountryCode**](RepositoryGeoIpCountryCode.md) |  | 
 
 
 

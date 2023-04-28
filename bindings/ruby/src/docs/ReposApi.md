@@ -167,7 +167,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::RespositoryGeoIPEnableDisableRequest.new # RespositoryGeoIPEnableDisableRequest | 
+  data: CloudsmithApi::RespositoryGeoIpEnableDisableRequest.new # RespositoryGeoIpEnableDisableRequest | 
 }
 
 begin
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**RespositoryGeoIPEnableDisableRequest**](RespositoryGeoIPEnableDisableRequest.md)|  | [optional] 
+ **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -227,7 +227,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::RespositoryGeoIPEnableDisableRequest.new # RespositoryGeoIPEnableDisableRequest | 
+  data: CloudsmithApi::RespositoryGeoIpEnableDisableRequest.new # RespositoryGeoIpEnableDisableRequest | 
 }
 
 begin
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**RespositoryGeoIPEnableDisableRequest**](RespositoryGeoIPEnableDisableRequest.md)|  | [optional] 
+ **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -262,7 +262,7 @@ nil (empty response body)
 
 
 # **repos_geoip_partial_update**
-> RepositoryGeoIPRules repos_geoip_partial_update(owner, identifier, opts)
+> RepositoryGeoIpRules repos_geoip_partial_update(owner, identifier, opts)
 
 Partially update repository geoip rules.
 
@@ -287,7 +287,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::RepositoryGeoIPRulesRequestPatch.new # RepositoryGeoIPRulesRequestPatch | 
+  data: CloudsmithApi::RepositoryGeoIpRulesRequestPatch.new # RepositoryGeoIpRulesRequestPatch | 
 }
 
 begin
@@ -305,11 +305,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**RepositoryGeoIPRulesRequestPatch**](RepositoryGeoIPRulesRequestPatch.md)|  | [optional] 
+ **data** | [**RepositoryGeoIpRulesRequestPatch**](RepositoryGeoIpRulesRequestPatch.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 
 # **repos_geoip_read**
-> RepositoryGeoIPRules repos_geoip_read(owner, identifier)
+> RepositoryGeoIpRules repos_geoip_read(owner, identifier)
 
 List all repository geoip rules.
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 
 # **repos_geoip_test**
-> RepositoryGeoIPTestAddressResponse repos_geoip_test(owner, identifier, opts)
+> RepositoryGeoIpTestAddressResponse repos_geoip_test(owner, identifier, opts)
 
 Test a list of IP addresses against the repository's current GeoIP rules.
 
@@ -405,7 +405,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::RepositoryGeoIPTestAddress.new # RepositoryGeoIPTestAddress | 
+  data: CloudsmithApi::RepositoryGeoIpTestAddress.new # RepositoryGeoIpTestAddress | 
 }
 
 begin
@@ -423,11 +423,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**RepositoryGeoIPTestAddress**](RepositoryGeoIPTestAddress.md)|  | [optional] 
+ **data** | [**RepositoryGeoIpTestAddress**](RepositoryGeoIpTestAddress.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryGeoIPTestAddressResponse**](RepositoryGeoIPTestAddressResponse.md)
+[**RepositoryGeoIpTestAddressResponse**](RepositoryGeoIpTestAddressResponse.md)
 
 ### Authorization
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 
 # **repos_geoip_update**
-> RepositoryGeoIPRules repos_geoip_update(owner, identifier, opts)
+> RepositoryGeoIpRules repos_geoip_update(owner, identifier, opts)
 
 Replace repository geoip rules.
 
@@ -466,7 +466,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::RepositoryGeoIPRulesRequest.new # RepositoryGeoIPRulesRequest | 
+  data: CloudsmithApi::RepositoryGeoIpRulesRequest.new # RepositoryGeoIpRulesRequest | 
 }
 
 begin
@@ -484,11 +484,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  | 
  **identifier** | **String**|  | 
- **data** | [**RepositoryGeoIPRulesRequest**](RepositoryGeoIPRulesRequest.md)|  | [optional] 
+ **data** | [**RepositoryGeoIpRulesRequest**](RepositoryGeoIpRulesRequest.md)|  | [optional] 
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 

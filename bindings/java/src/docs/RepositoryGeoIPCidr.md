@@ -1,5 +1,5 @@
 
-# RepositoryGeoIPCidr
+# RepositoryGeoIpCidr
 
 ## Properties
 Name | Type | Description | Notes

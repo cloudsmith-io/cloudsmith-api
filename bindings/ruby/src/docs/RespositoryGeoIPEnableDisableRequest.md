@@ -1,4 +1,4 @@
-# CloudsmithApi::RespositoryGeoIPEnableDisableRequest
+# CloudsmithApi::RespositoryGeoIpEnableDisableRequest
 
 ## Properties
 Name | Type | Description | Notes

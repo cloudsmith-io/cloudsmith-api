@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class RepositoryGeoIPRulesRequestPatch
+class RepositoryGeoIpRulesRequestPatch
   attr_accessor :cidr
 
   attr_accessor :country_code
@@ -29,8 +29,8 @@ class RepositoryGeoIPRulesRequestPatch
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'cidr' => :'RepositoryGeoIPCidr',
-      :'country_code' => :'RepositoryGeoIPCountryCode'
+      :'cidr' => :'RepositoryGeoIpCidr',
+      :'country_code' => :'RepositoryGeoIpCountryCode'
     }
   end
 

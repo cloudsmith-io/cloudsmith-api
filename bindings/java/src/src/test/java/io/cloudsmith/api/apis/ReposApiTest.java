@@ -17,11 +17,11 @@ import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
-import io.cloudsmith.api.models.RepositoryGeoIPRules;
-import io.cloudsmith.api.models.RepositoryGeoIPRulesRequest;
-import io.cloudsmith.api.models.RepositoryGeoIPRulesRequestPatch;
-import io.cloudsmith.api.models.RepositoryGeoIPTestAddress;
-import io.cloudsmith.api.models.RepositoryGeoIPTestAddressResponse;
+import io.cloudsmith.api.models.RepositoryGeoIpRules;
+import io.cloudsmith.api.models.RepositoryGeoIpRulesRequest;
+import io.cloudsmith.api.models.RepositoryGeoIpRulesRequestPatch;
+import io.cloudsmith.api.models.RepositoryGeoIpTestAddress;
+import io.cloudsmith.api.models.RepositoryGeoIpTestAddressResponse;
 import io.cloudsmith.api.models.RepositoryGpgKey;
 import io.cloudsmith.api.models.RepositoryGpgKeyCreate;
 import io.cloudsmith.api.models.RepositoryPrivilegeInput;
@@ -30,7 +30,7 @@ import io.cloudsmith.api.models.RepositoryPrivilegeInputRequestPatch;
 import io.cloudsmith.api.models.RepositoryRequestPatch;
 import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.RepositoryRsaKeyCreate;
-import io.cloudsmith.api.models.RespositoryGeoIPEnableDisableRequest;
+import io.cloudsmith.api.models.RespositoryGeoIpEnableDisableRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -95,7 +95,7 @@ public class ReposApiTest {
     public void reposGeoipDisableTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RespositoryGeoIPEnableDisableRequest data = null;
+        RespositoryGeoIpEnableDisableRequest data = null;
         api.reposGeoipDisable(owner, identifier, data);
 
         // TODO: test validations
@@ -113,7 +113,7 @@ public class ReposApiTest {
     public void reposGeoipEnableTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RespositoryGeoIPEnableDisableRequest data = null;
+        RespositoryGeoIpEnableDisableRequest data = null;
         api.reposGeoipEnable(owner, identifier, data);
 
         // TODO: test validations
@@ -131,8 +131,8 @@ public class ReposApiTest {
     public void reposGeoipPartialUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGeoIPRulesRequestPatch data = null;
-        RepositoryGeoIPRules response = api.reposGeoipPartialUpdate(owner, identifier, data);
+        RepositoryGeoIpRulesRequestPatch data = null;
+        RepositoryGeoIpRules response = api.reposGeoipPartialUpdate(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -149,7 +149,7 @@ public class ReposApiTest {
     public void reposGeoipReadTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGeoIPRules response = api.reposGeoipRead(owner, identifier);
+        RepositoryGeoIpRules response = api.reposGeoipRead(owner, identifier);
 
         // TODO: test validations
     }
@@ -166,8 +166,8 @@ public class ReposApiTest {
     public void reposGeoipTestTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGeoIPTestAddress data = null;
-        RepositoryGeoIPTestAddressResponse response = api.reposGeoipTest(owner, identifier, data);
+        RepositoryGeoIpTestAddress data = null;
+        RepositoryGeoIpTestAddressResponse response = api.reposGeoipTest(owner, identifier, data);
 
         // TODO: test validations
     }
@@ -184,8 +184,8 @@ public class ReposApiTest {
     public void reposGeoipUpdateTest() throws Exception {
         String owner = null;
         String identifier = null;
-        RepositoryGeoIPRulesRequest data = null;
-        RepositoryGeoIPRules response = api.reposGeoipUpdate(owner, identifier, data);
+        RepositoryGeoIpRulesRequest data = null;
+        RepositoryGeoIpRules response = api.reposGeoipUpdate(owner, identifier, data);
 
         // TODO: test validations
     }

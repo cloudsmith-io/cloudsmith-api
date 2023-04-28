@@ -168,7 +168,7 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-RespositoryGeoIPEnableDisableRequest data = new RespositoryGeoIPEnableDisableRequest(); // RespositoryGeoIPEnableDisableRequest | 
+RespositoryGeoIpEnableDisableRequest data = new RespositoryGeoIpEnableDisableRequest(); // RespositoryGeoIpEnableDisableRequest | 
 try {
     apiInstance.reposGeoipDisable(owner, identifier, data);
 } catch (ApiException e) {
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**RespositoryGeoIPEnableDisableRequest**](RespositoryGeoIPEnableDisableRequest.md)|  | [optional]
+ **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional]
 
 ### Return type
 
@@ -226,7 +226,7 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-RespositoryGeoIPEnableDisableRequest data = new RespositoryGeoIPEnableDisableRequest(); // RespositoryGeoIPEnableDisableRequest | 
+RespositoryGeoIpEnableDisableRequest data = new RespositoryGeoIpEnableDisableRequest(); // RespositoryGeoIpEnableDisableRequest | 
 try {
     apiInstance.reposGeoipEnable(owner, identifier, data);
 } catch (ApiException e) {
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**RespositoryGeoIPEnableDisableRequest**](RespositoryGeoIPEnableDisableRequest.md)|  | [optional]
+ **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional]
 
 ### Return type
 
@@ -258,7 +258,7 @@ null (empty response body)
 
 <a name="reposGeoipPartialUpdate"></a>
 # **reposGeoipPartialUpdate**
-> RepositoryGeoIPRules reposGeoipPartialUpdate(owner, identifier, data)
+> RepositoryGeoIpRules reposGeoipPartialUpdate(owner, identifier, data)
 
 Partially update repository geoip rules.
 
@@ -284,9 +284,9 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-RepositoryGeoIPRulesRequestPatch data = new RepositoryGeoIPRulesRequestPatch(); // RepositoryGeoIPRulesRequestPatch | 
+RepositoryGeoIpRulesRequestPatch data = new RepositoryGeoIpRulesRequestPatch(); // RepositoryGeoIpRulesRequestPatch | 
 try {
-    RepositoryGeoIPRules result = apiInstance.reposGeoipPartialUpdate(owner, identifier, data);
+    RepositoryGeoIpRules result = apiInstance.reposGeoipPartialUpdate(owner, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGeoipPartialUpdate");
@@ -300,11 +300,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**RepositoryGeoIPRulesRequestPatch**](RepositoryGeoIPRulesRequestPatch.md)|  | [optional]
+ **data** | [**RepositoryGeoIpRulesRequestPatch**](RepositoryGeoIpRulesRequestPatch.md)|  | [optional]
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 <a name="reposGeoipRead"></a>
 # **reposGeoipRead**
-> RepositoryGeoIPRules reposGeoipRead(owner, identifier)
+> RepositoryGeoIpRules reposGeoipRead(owner, identifier)
 
 List all repository geoip rules.
 
@@ -344,7 +344,7 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
 try {
-    RepositoryGeoIPRules result = apiInstance.reposGeoipRead(owner, identifier);
+    RepositoryGeoIpRules result = apiInstance.reposGeoipRead(owner, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGeoipRead");
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 <a name="reposGeoipTest"></a>
 # **reposGeoipTest**
-> RepositoryGeoIPTestAddressResponse reposGeoipTest(owner, identifier, data)
+> RepositoryGeoIpTestAddressResponse reposGeoipTest(owner, identifier, data)
 
 Test a list of IP addresses against the repository&#39;s current GeoIP rules.
 
@@ -400,9 +400,9 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-RepositoryGeoIPTestAddress data = new RepositoryGeoIPTestAddress(); // RepositoryGeoIPTestAddress | 
+RepositoryGeoIpTestAddress data = new RepositoryGeoIpTestAddress(); // RepositoryGeoIpTestAddress | 
 try {
-    RepositoryGeoIPTestAddressResponse result = apiInstance.reposGeoipTest(owner, identifier, data);
+    RepositoryGeoIpTestAddressResponse result = apiInstance.reposGeoipTest(owner, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGeoipTest");
@@ -416,11 +416,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**RepositoryGeoIPTestAddress**](RepositoryGeoIPTestAddress.md)|  | [optional]
+ **data** | [**RepositoryGeoIpTestAddress**](RepositoryGeoIpTestAddress.md)|  | [optional]
 
 ### Return type
 
-[**RepositoryGeoIPTestAddressResponse**](RepositoryGeoIPTestAddressResponse.md)
+[**RepositoryGeoIpTestAddressResponse**](RepositoryGeoIpTestAddressResponse.md)
 
 ### Authorization
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 <a name="reposGeoipUpdate"></a>
 # **reposGeoipUpdate**
-> RepositoryGeoIPRules reposGeoipUpdate(owner, identifier, data)
+> RepositoryGeoIpRules reposGeoipUpdate(owner, identifier, data)
 
 Replace repository geoip rules.
 
@@ -459,9 +459,9 @@ apikey.setApiKey("YOUR API KEY");
 ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 String identifier = "identifier_example"; // String | 
-RepositoryGeoIPRulesRequest data = new RepositoryGeoIPRulesRequest(); // RepositoryGeoIPRulesRequest | 
+RepositoryGeoIpRulesRequest data = new RepositoryGeoIpRulesRequest(); // RepositoryGeoIpRulesRequest | 
 try {
-    RepositoryGeoIPRules result = apiInstance.reposGeoipUpdate(owner, identifier, data);
+    RepositoryGeoIpRules result = apiInstance.reposGeoipUpdate(owner, identifier, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposGeoipUpdate");
@@ -475,11 +475,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**|  |
  **identifier** | **String**|  |
- **data** | [**RepositoryGeoIPRulesRequest**](RepositoryGeoIPRulesRequest.md)|  | [optional]
+ **data** | [**RepositoryGeoIpRulesRequest**](RepositoryGeoIpRulesRequest.md)|  | [optional]
 
 ### Return type
 
-[**RepositoryGeoIPRules**](RepositoryGeoIPRules.md)
+[**RepositoryGeoIpRules**](RepositoryGeoIpRules.md)
 
 ### Authorization
 

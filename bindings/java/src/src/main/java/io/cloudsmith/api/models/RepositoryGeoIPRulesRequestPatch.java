@@ -20,8 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.RepositoryGeoIPCidr;
-import io.cloudsmith.api.models.RepositoryGeoIPCountryCode;
+import io.cloudsmith.api.models.RepositoryGeoIpCidr;
+import io.cloudsmith.api.models.RepositoryGeoIpCountryCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,19 +30,19 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * RepositoryGeoIPRulesRequestPatch
+ * RepositoryGeoIpRulesRequestPatch
  */
 
-public class RepositoryGeoIPRulesRequestPatch implements Serializable {
+public class RepositoryGeoIpRulesRequestPatch implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("cidr")
-  private RepositoryGeoIPCidr cidr = null;
+  private RepositoryGeoIpCidr cidr = null;
 
   @SerializedName("country_code")
-  private RepositoryGeoIPCountryCode countryCode = null;
+  private RepositoryGeoIpCountryCode countryCode = null;
 
-  public RepositoryGeoIPRulesRequestPatch cidr(RepositoryGeoIPCidr cidr) {
+  public RepositoryGeoIpRulesRequestPatch cidr(RepositoryGeoIpCidr cidr) {
     this.cidr = cidr;
     return this;
   }
@@ -53,15 +53,15 @@ public class RepositoryGeoIPRulesRequestPatch implements Serializable {
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public RepositoryGeoIPCidr getCidr() {
+  public RepositoryGeoIpCidr getCidr() {
     return cidr;
   }
 
-  public void setCidr(RepositoryGeoIPCidr cidr) {
+  public void setCidr(RepositoryGeoIpCidr cidr) {
     this.cidr = cidr;
   }
 
-  public RepositoryGeoIPRulesRequestPatch countryCode(RepositoryGeoIPCountryCode countryCode) {
+  public RepositoryGeoIpRulesRequestPatch countryCode(RepositoryGeoIpCountryCode countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -72,11 +72,11 @@ public class RepositoryGeoIPRulesRequestPatch implements Serializable {
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public RepositoryGeoIPCountryCode getCountryCode() {
+  public RepositoryGeoIpCountryCode getCountryCode() {
     return countryCode;
   }
 
-  public void setCountryCode(RepositoryGeoIPCountryCode countryCode) {
+  public void setCountryCode(RepositoryGeoIpCountryCode countryCode) {
     this.countryCode = countryCode;
   }
 
@@ -89,9 +89,9 @@ public class RepositoryGeoIPRulesRequestPatch implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RepositoryGeoIPRulesRequestPatch repositoryGeoIPRulesRequestPatch = (RepositoryGeoIPRulesRequestPatch) o;
-    return Objects.equals(this.cidr, repositoryGeoIPRulesRequestPatch.cidr) &&
-        Objects.equals(this.countryCode, repositoryGeoIPRulesRequestPatch.countryCode);
+    RepositoryGeoIpRulesRequestPatch repositoryGeoIpRulesRequestPatch = (RepositoryGeoIpRulesRequestPatch) o;
+    return Objects.equals(this.cidr, repositoryGeoIpRulesRequestPatch.cidr) &&
+        Objects.equals(this.countryCode, repositoryGeoIpRulesRequestPatch.countryCode);
   }
 
   @Override
@@ -103,7 +103,7 @@ public class RepositoryGeoIPRulesRequestPatch implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RepositoryGeoIPRulesRequestPatch {\n");
+    sb.append("class RepositoryGeoIpRulesRequestPatch {\n");
     
     sb.append("    cidr: ").append(toIndentedString(cidr)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
