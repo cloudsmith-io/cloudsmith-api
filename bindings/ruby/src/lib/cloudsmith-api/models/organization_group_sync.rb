@@ -18,12 +18,33 @@ class OrganizationGroupSync
 
   attr_accessor :idp_value
 
-  #  User role within the team.   A `manager` is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A 'member' is a normal user that inherits the settings and privileges  assigned to the team. 
   attr_accessor :role
 
   attr_accessor :slug_perm
 
   attr_accessor :team
+
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
@@ -102,8 +123,20 @@ class OrganizationGroupSync
   def valid?
     return false if @idp_key.nil?
     return false if @idp_value.nil?
+    role_validator = EnumAttributeValidator.new('String', ['Manager', 'Member'])
+    return false unless role_validator.valid?(@role)
     return false if @team.nil?
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] role Object to be assigned
+  def role=(role)
+    validator = EnumAttributeValidator.new('String', ['Manager', 'Member'])
+    unless validator.valid?(role)
+      fail ArgumentError, 'invalid value for "role", must be one of #{validator.allowable_values}.'
+    end
+    @role = role
   end
 
   # Checks equality by comparing each attribute.

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display** | [**UsageLimits**](UsageLimits.md) |  | 
-**raw** | [**UsageLimits**](UsageLimits.md) |  | 
+**raw** | [**UsageLimitsRaw**](UsageLimitsRaw.md) |  | 
 
 
 

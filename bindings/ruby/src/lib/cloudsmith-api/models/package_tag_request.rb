@@ -22,6 +22,28 @@ class PackageTagRequest
   # A list of tags to apply the action to. Not required for clears.
   attr_accessor :tags
 
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -34,7 +56,7 @@ class PackageTagRequest
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'action' => :'Integer',
+      :'action' => :'String',
       :'is_immutable' => :'BOOLEAN',
       :'tags' => :'Array<String>'
     }
@@ -50,6 +72,8 @@ class PackageTagRequest
 
     if attributes.has_key?(:'action')
       self.action = attributes[:'action']
+    else
+      self.action = 'Add'
     end
 
     if attributes.has_key?(:'is_immutable')
@@ -75,7 +99,19 @@ class PackageTagRequest
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    action_validator = EnumAttributeValidator.new('String', ['Add', 'Clear', 'Replace', 'Remove'])
+    return false unless action_validator.valid?(@action)
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] action Object to be assigned
+  def action=(action)
+    validator = EnumAttributeValidator.new('String', ['Add', 'Clear', 'Replace', 'Remove'])
+    unless validator.valid?(action)
+      fail ArgumentError, 'invalid value for "action", must be one of #{validator.allowable_values}.'
+    end
+    @action = action
   end
 
   # Checks equality by comparing each attribute.

@@ -153,7 +153,6 @@ class OrganizationGroupSyncRequest(object):
     def role(self):
         """Gets the role of this OrganizationGroupSyncRequest.
 
-         User role within the team.   A `manager` is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A 'member' is a normal user that inherits the settings and privileges  assigned to the team. 
 
         :return: The role of this OrganizationGroupSyncRequest.
         :rtype: str
@@ -164,11 +163,17 @@ class OrganizationGroupSyncRequest(object):
     def role(self, role):
         """Sets the role of this OrganizationGroupSyncRequest.
 
-         User role within the team.   A `manager` is capable of adding/removing others to/from the team, and  can set the role of other users and other settings pertaining to the  team.   A 'member' is a normal user that inherits the settings and privileges  assigned to the team. 
 
         :param role: The role of this OrganizationGroupSyncRequest.
         :type: str
         """
+        allowed_values = ["Manager", "Member"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                role not in allowed_values):
+            raise ValueError(
+                "Invalid value for `role` ({0}), must be one of {1}"  # noqa: E501
+                .format(role, allowed_values)
+            )
 
         self._role = role
 

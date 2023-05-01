@@ -376,6 +376,425 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Create a package license policy.
+    # Create a package license policy.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageLicensePolicyRequest] :data 
+    # @return [OrganizationPackageLicensePolicy]
+    def orgs_license_policy_create(org, opts = {})
+      data, _status_code, _headers = orgs_license_policy_create_with_http_info(org, opts)
+      data
+    end
+
+    # Create a package license policy.
+    # Create a package license policy.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageLicensePolicyRequest] :data 
+    # @return [Array<(OrganizationPackageLicensePolicy, Fixnum, Hash)>] OrganizationPackageLicensePolicy data, response status code and response headers
+    def orgs_license_policy_create_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_license_policy_create ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_license_policy_create"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/license-policy/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationPackageLicensePolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_license_policy_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a package license policy.
+    # Delete a package license policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_license_policy_delete(org, slug_perm, opts = {})
+      orgs_license_policy_delete_with_http_info(org, slug_perm, opts)
+      nil
+    end
+
+    # Delete a package license policy.
+    # Delete a package license policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_license_policy_delete_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_license_policy_delete ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_license_policy_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_license_policy_delete"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/license-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_license_policy_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a list of all package license policies.
+    # Get a list of all package license policies.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<OrganizationPackageLicensePolicy>]
+    def orgs_license_policy_list(org, opts = {})
+      data, _status_code, _headers = orgs_license_policy_list_with_http_info(org, opts)
+      data
+    end
+
+    # Get a list of all package license policies.
+    # Get a list of all package license policies.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<OrganizationPackageLicensePolicy>, Fixnum, Hash)>] Array<OrganizationPackageLicensePolicy> data, response status code and response headers
+    def orgs_license_policy_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_license_policy_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_license_policy_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/license-policy/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<OrganizationPackageLicensePolicy>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_license_policy_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a package license policy.
+    # Partially update a package license policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageLicensePolicyRequestPatch] :data 
+    # @return [OrganizationPackageLicensePolicy]
+    def orgs_license_policy_partial_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_license_policy_partial_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Partially update a package license policy.
+    # Partially update a package license policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageLicensePolicyRequestPatch] :data 
+    # @return [Array<(OrganizationPackageLicensePolicy, Fixnum, Hash)>] OrganizationPackageLicensePolicy data, response status code and response headers
+    def orgs_license_policy_partial_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_license_policy_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_license_policy_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_license_policy_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/license-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationPackageLicensePolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_license_policy_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a package license policy.
+    # Get a package license policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationPackageLicensePolicy]
+    def orgs_license_policy_read(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_license_policy_read_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Get a package license policy.
+    # Get a package license policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationPackageLicensePolicy, Fixnum, Hash)>] OrganizationPackageLicensePolicy data, response status code and response headers
+    def orgs_license_policy_read_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_license_policy_read ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_license_policy_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_license_policy_read"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/license-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationPackageLicensePolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_license_policy_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a package license policy.
+    # Update a package license policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageLicensePolicyRequest] :data 
+    # @return [OrganizationPackageLicensePolicy]
+    def orgs_license_policy_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_license_policy_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Update a package license policy.
+    # Update a package license policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageLicensePolicyRequest] :data 
+    # @return [Array<(OrganizationPackageLicensePolicy, Fixnum, Hash)>] OrganizationPackageLicensePolicy data, response status code and response headers
+    def orgs_license_policy_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_license_policy_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_license_policy_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_license_policy_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/license-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationPackageLicensePolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_license_policy_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List all current license policy violations for this Organization.
+    # List all current license policy violations for this Organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :cursor The pagination cursor value.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [PackageLicensePolicyViolationLogCursorPage]
+    def orgs_license_policy_violation_list(org, opts = {})
+      data, _status_code, _headers = orgs_license_policy_violation_list_with_http_info(org, opts)
+      data
+    end
+
+    # List all current license policy violations for this Organization.
+    # List all current license policy violations for this Organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :cursor The pagination cursor value.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(PackageLicensePolicyViolationLogCursorPage, Fixnum, Hash)>] PackageLicensePolicyViolationLogCursorPage data, response status code and response headers
+    def orgs_license_policy_violation_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_license_policy_violation_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_license_policy_violation_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/license-policy-violation/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageLicensePolicyViolationLogCursorPage')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_license_policy_violation_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get a list of all the organizations you are associated with.
     # Get a list of all the organizations you are associated with.
     # @param [Hash] opts the optional parameters
@@ -1730,6 +2149,425 @@ module CloudsmithApi
         :return_type => 'OrganizationTeam')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a package vulnerability policy.
+    # Create a package vulnerability policy.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageVulnerabilityPolicyRequest] :data 
+    # @return [OrganizationPackageVulnerabilityPolicy]
+    def orgs_vulnerability_policy_create(org, opts = {})
+      data, _status_code, _headers = orgs_vulnerability_policy_create_with_http_info(org, opts)
+      data
+    end
+
+    # Create a package vulnerability policy.
+    # Create a package vulnerability policy.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageVulnerabilityPolicyRequest] :data 
+    # @return [Array<(OrganizationPackageVulnerabilityPolicy, Fixnum, Hash)>] OrganizationPackageVulnerabilityPolicy data, response status code and response headers
+    def orgs_vulnerability_policy_create_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_vulnerability_policy_create ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_vulnerability_policy_create"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/vulnerability-policy/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationPackageVulnerabilityPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_vulnerability_policy_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a package vulnerability policy.
+    # Delete a package vulnerability policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_vulnerability_policy_delete(org, slug_perm, opts = {})
+      orgs_vulnerability_policy_delete_with_http_info(org, slug_perm, opts)
+      nil
+    end
+
+    # Delete a package vulnerability policy.
+    # Delete a package vulnerability policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_vulnerability_policy_delete_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_vulnerability_policy_delete ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_vulnerability_policy_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_vulnerability_policy_delete"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/vulnerability-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_vulnerability_policy_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a list of all package vulnerability policies.
+    # Get a list of all package vulnerability policies.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<OrganizationPackageVulnerabilityPolicy>]
+    def orgs_vulnerability_policy_list(org, opts = {})
+      data, _status_code, _headers = orgs_vulnerability_policy_list_with_http_info(org, opts)
+      data
+    end
+
+    # Get a list of all package vulnerability policies.
+    # Get a list of all package vulnerability policies.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<OrganizationPackageVulnerabilityPolicy>, Fixnum, Hash)>] Array<OrganizationPackageVulnerabilityPolicy> data, response status code and response headers
+    def orgs_vulnerability_policy_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_vulnerability_policy_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_vulnerability_policy_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/vulnerability-policy/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<OrganizationPackageVulnerabilityPolicy>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_vulnerability_policy_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a package vulnerability policy.
+    # Partially update a package vulnerability policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageVulnerabilityPolicyRequestPatch] :data 
+    # @return [OrganizationPackageVulnerabilityPolicy]
+    def orgs_vulnerability_policy_partial_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_vulnerability_policy_partial_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Partially update a package vulnerability policy.
+    # Partially update a package vulnerability policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageVulnerabilityPolicyRequestPatch] :data 
+    # @return [Array<(OrganizationPackageVulnerabilityPolicy, Fixnum, Hash)>] OrganizationPackageVulnerabilityPolicy data, response status code and response headers
+    def orgs_vulnerability_policy_partial_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_vulnerability_policy_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_vulnerability_policy_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_vulnerability_policy_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/vulnerability-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationPackageVulnerabilityPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_vulnerability_policy_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a package vulnerability policy.
+    # Get a package vulnerability policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationPackageVulnerabilityPolicy]
+    def orgs_vulnerability_policy_read(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_vulnerability_policy_read_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Get a package vulnerability policy.
+    # Get a package vulnerability policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationPackageVulnerabilityPolicy, Fixnum, Hash)>] OrganizationPackageVulnerabilityPolicy data, response status code and response headers
+    def orgs_vulnerability_policy_read_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_vulnerability_policy_read ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_vulnerability_policy_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_vulnerability_policy_read"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/vulnerability-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationPackageVulnerabilityPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_vulnerability_policy_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a package vulnerability policy.
+    # Update a package vulnerability policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageVulnerabilityPolicyRequest] :data 
+    # @return [OrganizationPackageVulnerabilityPolicy]
+    def orgs_vulnerability_policy_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_vulnerability_policy_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Update a package vulnerability policy.
+    # Update a package vulnerability policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationPackageVulnerabilityPolicyRequest] :data 
+    # @return [Array<(OrganizationPackageVulnerabilityPolicy, Fixnum, Hash)>] OrganizationPackageVulnerabilityPolicy data, response status code and response headers
+    def orgs_vulnerability_policy_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_vulnerability_policy_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_vulnerability_policy_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_vulnerability_policy_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/vulnerability-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationPackageVulnerabilityPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_vulnerability_policy_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List all current vulnerability policy violations for this Organization.
+    # List all current vulnerability policy violations for this Organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :cursor The pagination cursor value.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [PackageVulnerabilityPolicyViolationLogCursorPage]
+    def orgs_vulnerability_policy_violation_list(org, opts = {})
+      data, _status_code, _headers = orgs_vulnerability_policy_violation_list_with_http_info(org, opts)
+      data
+    end
+
+    # List all current vulnerability policy violations for this Organization.
+    # List all current vulnerability policy violations for this Organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :cursor The pagination cursor value.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(PackageVulnerabilityPolicyViolationLogCursorPage, Fixnum, Hash)>] PackageVulnerabilityPolicyViolationLogCursorPage data, response status code and response headers
+    def orgs_vulnerability_policy_violation_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_vulnerability_policy_violation_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_vulnerability_policy_violation_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/vulnerability-policy-violation/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageVulnerabilityPolicyViolationLogCursorPage')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_vulnerability_policy_violation_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

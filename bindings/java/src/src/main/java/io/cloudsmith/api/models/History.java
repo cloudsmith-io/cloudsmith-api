@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.cloudsmith.api.models.HistoryFieldset;
+import io.cloudsmith.api.models.HistoryFieldsetRaw;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,7 +50,7 @@ public class History implements Serializable {
   private String plan = null;
 
   @SerializedName("raw")
-  private HistoryFieldset raw = null;
+  private HistoryFieldsetRaw raw = null;
 
   @SerializedName("start")
   private OffsetDateTime start = null;
@@ -131,7 +132,7 @@ public class History implements Serializable {
     this.plan = plan;
   }
 
-  public History raw(HistoryFieldset raw) {
+  public History raw(HistoryFieldsetRaw raw) {
     this.raw = raw;
     return this;
   }
@@ -143,11 +144,11 @@ public class History implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "")
-  public HistoryFieldset getRaw() {
+  public HistoryFieldsetRaw getRaw() {
     return raw;
   }
 
-  public void setRaw(HistoryFieldset raw) {
+  public void setRaw(HistoryFieldsetRaw raw) {
     this.raw = raw;
   }
 

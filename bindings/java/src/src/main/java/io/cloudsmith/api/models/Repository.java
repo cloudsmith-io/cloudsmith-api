@@ -1002,7 +1002,7 @@ public class Repository implements Serializable {
    * @return name
   **/
   @NotNull
- @Pattern(regexp="^\\w[\\w \\-'\\./]+$") @Size(min=1,max=50)  @ApiModelProperty(required = true, value = "A descriptive name for the repository.")
+ @Pattern(regexp="^\\w[\\w \\-'\\./()]+$") @Size(min=1,max=50)  @ApiModelProperty(required = true, value = "A descriptive name for the repository.")
   public String getName() {
     return name;
   }

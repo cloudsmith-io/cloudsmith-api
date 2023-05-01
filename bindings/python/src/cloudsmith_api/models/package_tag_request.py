@@ -33,7 +33,7 @@ class PackageTagRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'action': 'int',
+        'action': 'str',
         'is_immutable': 'bool',
         'tags': 'list[str]'
     }
@@ -44,7 +44,7 @@ class PackageTagRequest(object):
         'tags': 'tags'
     }
 
-    def __init__(self, action=None, is_immutable=False, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, action='Add', is_immutable=False, tags=None, _configuration=None):  # noqa: E501
         """PackageTagRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,7 +68,7 @@ class PackageTagRequest(object):
 
 
         :return: The action of this PackageTagRequest.
-        :rtype: int
+        :rtype: str
         """
         return self._action
 
@@ -78,8 +78,15 @@ class PackageTagRequest(object):
 
 
         :param action: The action of this PackageTagRequest.
-        :type: int
+        :type: str
         """
+        allowed_values = ["Add", "Clear", "Replace", "Remove"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                action not in allowed_values):
+            raise ValueError(
+                "Invalid value for `action` ({0}), must be one of {1}"  # noqa: E501
+                .format(action, allowed_values)
+            )
 
         self._action = action
 

@@ -54,8 +54,7 @@ class ServiceTeams(object):
 
         if role is not None:
             self.role = role
-        if slug is not None:
-            self.slug = slug
+        self.slug = slug
 
     @property
     def role(self):
@@ -107,6 +106,8 @@ class ServiceTeams(object):
         :param slug: The slug of this ServiceTeams.
         :type: str
         """
+        if self._configuration.client_side_validation and slug is None:
+            raise ValueError("Invalid value for `slug`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 slug is not None and len(slug) < 1):
             raise ValueError("Invalid value for `slug`, length must be greater than or equal to `1`")  # noqa: E501

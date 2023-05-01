@@ -34,7 +34,7 @@ class UsageLimits(object):
     """
     swagger_types = {
         'bandwidth': 'AllocatedLimit',
-        'storage': 'AllocatedLimit'
+        'storage': 'StorageAllocatedLimit'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class UsageLimits(object):
 
 
         :return: The storage of this UsageLimits.
-        :rtype: AllocatedLimit
+        :rtype: StorageAllocatedLimit
         """
         return self._storage
 
@@ -94,7 +94,7 @@ class UsageLimits(object):
 
 
         :param storage: The storage of this UsageLimits.
-        :type: AllocatedLimit
+        :type: StorageAllocatedLimit
         """
         if self._configuration.client_side_validation and storage is None:
             raise ValueError("Invalid value for `storage`, must not be `None`")  # noqa: E501

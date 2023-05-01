@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bandwidth** | [**AllocatedLimit**](AllocatedLimit.md) |  | 
-**storage** | [**AllocatedLimit**](AllocatedLimit.md) |  | 
+**storage** | [**StorageAllocatedLimit**](StorageAllocatedLimit.md) |  | 
 
 
 

@@ -62,8 +62,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_dependencies
-  # Get the direct (non-transitive) dependencies list for a package.
-  # Get the direct (non-transitive) dependencies list for a package.
+  # Get the list of dependencies for a package. Transitive dependencies are included where supported.
+  # Get the list of dependencies for a package. Transitive dependencies are included where supported.
   # @param owner 
   # @param repo 
   # @param identifier 

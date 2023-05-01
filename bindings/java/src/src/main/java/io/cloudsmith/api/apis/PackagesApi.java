@@ -497,8 +497,8 @@ public class PackagesApi {
     }
 
     /**
-     * Get the direct (non-transitive) dependencies list for a package.
-     * Get the direct (non-transitive) dependencies list for a package.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
@@ -511,8 +511,8 @@ public class PackagesApi {
     }
 
     /**
-     * Get the direct (non-transitive) dependencies list for a package.
-     * Get the direct (non-transitive) dependencies list for a package.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
@@ -526,8 +526,8 @@ public class PackagesApi {
     }
 
     /**
-     * Get the direct (non-transitive) dependencies list for a package. (asynchronously)
-     * Get the direct (non-transitive) dependencies list for a package.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported. (asynchronously)
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)

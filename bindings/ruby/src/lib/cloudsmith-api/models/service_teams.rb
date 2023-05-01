@@ -81,6 +81,10 @@ class ServiceTeams
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
+    if @slug.nil?
+      invalid_properties.push('invalid value for "slug", slug cannot be nil.')
+    end
+
     invalid_properties
   end
 
@@ -89,6 +93,7 @@ class ServiceTeams
   def valid?
     role_validator = EnumAttributeValidator.new('String', ['Manager', 'Member'])
     return false unless role_validator.valid?(@role)
+    return false if @slug.nil?
     true
   end
 

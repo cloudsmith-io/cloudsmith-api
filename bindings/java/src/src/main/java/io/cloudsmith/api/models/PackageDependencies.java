@@ -38,31 +38,16 @@ public class PackageDependencies implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("dependencies")
-  private List<PackageDependency> dependencies = new ArrayList<>();
-
-  public PackageDependencies dependencies(List<PackageDependency> dependencies) {
-    this.dependencies = dependencies;
-    return this;
-  }
-
-  public PackageDependencies addDependenciesItem(PackageDependency dependenciesItem) {
-    this.dependencies.add(dependenciesItem);
-    return this;
-  }
+  private List<PackageDependency> dependencies = null;
 
    /**
    * Get dependencies
    * @return dependencies
   **/
-  @NotNull
   @Valid
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public List<PackageDependency> getDependencies() {
     return dependencies;
-  }
-
-  public void setDependencies(List<PackageDependency> dependencies) {
-    this.dependencies = dependencies;
   }
 
 

@@ -71,6 +71,55 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_license_policy_create(self):
+        """Test case for orgs_license_policy_create
+
+        Create a package license policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_license_policy_delete(self):
+        """Test case for orgs_license_policy_delete
+
+        Delete a package license policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_license_policy_list(self):
+        """Test case for orgs_license_policy_list
+
+        Get a list of all package license policies.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_license_policy_partial_update(self):
+        """Test case for orgs_license_policy_partial_update
+
+        Partially update a package license policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_license_policy_read(self):
+        """Test case for orgs_license_policy_read
+
+        Get a package license policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_license_policy_update(self):
+        """Test case for orgs_license_policy_update
+
+        Update a package license policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_license_policy_violation_list(self):
+        """Test case for orgs_license_policy_violation_list
+
+        List all current license policy violations for this Organization.  # noqa: E501
+        """
+        pass
+
     def test_orgs_list(self):
         """Test case for orgs_list
 
@@ -229,6 +278,55 @@ class TestOrgsApi(unittest.TestCase):
         """Test case for orgs_teams_read
 
         Get the details of a specific team within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_create(self):
+        """Test case for orgs_vulnerability_policy_create
+
+        Create a package vulnerability policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_delete(self):
+        """Test case for orgs_vulnerability_policy_delete
+
+        Delete a package vulnerability policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_list(self):
+        """Test case for orgs_vulnerability_policy_list
+
+        Get a list of all package vulnerability policies.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_partial_update(self):
+        """Test case for orgs_vulnerability_policy_partial_update
+
+        Partially update a package vulnerability policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_read(self):
+        """Test case for orgs_vulnerability_policy_read
+
+        Get a package vulnerability policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_update(self):
+        """Test case for orgs_vulnerability_policy_update
+
+        Update a package vulnerability policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_violation_list(self):
+        """Test case for orgs_vulnerability_policy_violation_list
+
+        List all current vulnerability policy violations for this Organization.  # noqa: E501
         """
         pass
 

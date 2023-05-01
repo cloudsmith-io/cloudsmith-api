@@ -45,7 +45,7 @@ class History
       :'display' => :'HistoryFieldset',
       :'_end' => :'DateTime',
       :'plan' => :'String',
-      :'raw' => :'HistoryFieldset',
+      :'raw' => :'HistoryFieldsetRaw',
       :'start' => :'DateTime'
     }
   end

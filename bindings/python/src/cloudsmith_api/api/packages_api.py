@@ -268,9 +268,9 @@ class PackagesApi(object):
             collection_formats=collection_formats)
 
     def packages_dependencies(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        """Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
 
-        Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_dependencies(owner, repo, identifier, async_req=True)
@@ -292,9 +292,9 @@ class PackagesApi(object):
             return data
 
     def packages_dependencies_with_http_info(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        """Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
 
-        Get the direct (non-transitive) dependencies list for a package.  # noqa: E501
+        Get the list of dependencies for a package. Transitive dependencies are included where supported.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_dependencies_with_http_info(owner, repo, identifier, async_req=True)

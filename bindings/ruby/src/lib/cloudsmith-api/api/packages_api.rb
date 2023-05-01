@@ -152,8 +152,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Get the direct (non-transitive) dependencies list for a package.
-    # Get the direct (non-transitive) dependencies list for a package.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
     # @param owner 
     # @param repo 
     # @param identifier 
@@ -164,8 +164,8 @@ module CloudsmithApi
       data
     end
 
-    # Get the direct (non-transitive) dependencies list for a package.
-    # Get the direct (non-transitive) dependencies list for a package.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
+    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
     # @param owner 
     # @param repo 
     # @param identifier 

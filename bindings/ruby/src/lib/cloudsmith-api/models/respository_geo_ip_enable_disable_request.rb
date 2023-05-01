@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class RespositoryGeoIPEnableDisableRequest
+class RespositoryGeoIpEnableDisableRequest
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {

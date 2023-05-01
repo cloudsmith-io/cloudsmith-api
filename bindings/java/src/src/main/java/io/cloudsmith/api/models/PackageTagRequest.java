@@ -36,8 +36,59 @@ import javax.validation.Valid;
 public class PackageTagRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * Gets or Sets action
+   */
+  @JsonAdapter(ActionEnum.Adapter.class)
+  public enum ActionEnum {
+    ADD("Add"),
+    
+    CLEAR("Clear"),
+    
+    REPLACE("Replace"),
+    
+    REMOVE("Remove");
+
+    private String value;
+
+    ActionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ActionEnum fromValue(String text) {
+      for (ActionEnum b : ActionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ActionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ActionEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("action")
-  private java.math.BigInteger action = null;
+  private ActionEnum action = ActionEnum.ADD;
 
   @SerializedName("is_immutable")
   private Boolean isImmutable = false;
@@ -45,7 +96,7 @@ public class PackageTagRequest implements Serializable {
   @SerializedName("tags")
   private List<String> tags = null;
 
-  public PackageTagRequest action(java.math.BigInteger action) {
+  public PackageTagRequest action(ActionEnum action) {
     this.action = action;
     return this;
   }
@@ -55,11 +106,11 @@ public class PackageTagRequest implements Serializable {
    * @return action
   **/
   @ApiModelProperty(value = "")
-  public java.math.BigInteger getAction() {
+  public ActionEnum getAction() {
     return action;
   }
 
-  public void setAction(java.math.BigInteger action) {
+  public void setAction(ActionEnum action) {
     this.action = action;
   }
 

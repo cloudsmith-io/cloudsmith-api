@@ -64,7 +64,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+  # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
   # @return [nil]
   describe 'repos_geoip_disable test' do
     it 'should work' do
@@ -78,7 +78,7 @@ describe 'ReposApi' do
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+  # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
   # @return [nil]
   describe 'repos_geoip_enable test' do
     it 'should work' do
@@ -86,14 +86,56 @@ describe 'ReposApi' do
     end
   end
 
-  # unit tests for repos_geoip_read
-  # List all created GeoIP rules for the repository.
-  # List all created GeoIP rules for the repository.
+  # unit tests for repos_geoip_partial_update
+  # Partially update repository geoip rules.
+  # Partially update repository geoip rules.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse200]
+  # @option opts [RepositoryGeoIpRulesRequestPatch] :data 
+  # @return [RepositoryGeoIpRules]
+  describe 'repos_geoip_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_geoip_read
+  # List all repository geoip rules.
+  # List all repository geoip rules.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryGeoIpRules]
   describe 'repos_geoip_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_geoip_test
+  # Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+  # Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryGeoIpTestAddress] :data 
+  # @return [RepositoryGeoIpTestAddressResponse]
+  describe 'repos_geoip_test test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_geoip_update
+  # Replace repository geoip rules.
+  # Replace repository geoip rules.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryGeoIpRulesRequest] :data 
+  # @return [RepositoryGeoIpRules]
+  describe 'repos_geoip_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

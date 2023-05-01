@@ -34,7 +34,7 @@ class UsageFieldset(object):
     """
     swagger_types = {
         'display': 'UsageLimits',
-        'raw': 'UsageLimits'
+        'raw': 'UsageLimitsRaw'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class UsageFieldset(object):
 
 
         :return: The raw of this UsageFieldset.
-        :rtype: UsageLimits
+        :rtype: UsageLimitsRaw
         """
         return self._raw
 
@@ -94,7 +94,7 @@ class UsageFieldset(object):
 
 
         :param raw: The raw of this UsageFieldset.
-        :type: UsageLimits
+        :type: UsageLimitsRaw
         """
         if self._configuration.client_side_validation and raw is None:
             raise ValueError("Invalid value for `raw`, must not be `None`")  # noqa: E501

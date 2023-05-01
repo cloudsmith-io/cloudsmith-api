@@ -127,9 +127,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Get the direct (non-transitive) dependencies list for a package.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
      *
-     * Get the direct (non-transitive) dependencies list for a package.
+     * Get the list of dependencies for a package. Transitive dependencies are included where supported.
      *
      * @throws Exception
      *          if the Api call fails

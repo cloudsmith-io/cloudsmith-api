@@ -22,10 +22,18 @@ import io.cloudsmith.api.models.OrganizationInviteExtend;
 import io.cloudsmith.api.models.OrganizationInviteRequest;
 import io.cloudsmith.api.models.OrganizationInviteUpdateRequestPatch;
 import io.cloudsmith.api.models.OrganizationMembership;
+import io.cloudsmith.api.models.OrganizationPackageLicensePolicy;
+import io.cloudsmith.api.models.OrganizationPackageLicensePolicyRequest;
+import io.cloudsmith.api.models.OrganizationPackageLicensePolicyRequestPatch;
+import io.cloudsmith.api.models.OrganizationPackageVulnerabilityPolicy;
+import io.cloudsmith.api.models.OrganizationPackageVulnerabilityPolicyRequest;
+import io.cloudsmith.api.models.OrganizationPackageVulnerabilityPolicyRequestPatch;
 import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
+import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
 import io.cloudsmith.api.models.ServiceRequestPatch;
@@ -147,6 +155,129 @@ public class OrgsApiTest {
         String org = null;
         String slugPerm = null;
         OrganizationInviteExtend response = api.orgsInvitesResend(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a package license policy.
+     *
+     * Create a package license policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyCreateTest() throws Exception {
+        String org = null;
+        OrganizationPackageLicensePolicyRequest data = null;
+        OrganizationPackageLicensePolicy response = api.orgsLicensePolicyCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a package license policy.
+     *
+     * Delete a package license policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsLicensePolicyDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a list of all package license policies.
+     *
+     * Get a list of all package license policies.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyListTest() throws Exception {
+        String org = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<OrganizationPackageLicensePolicy> response = api.orgsLicensePolicyList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a package license policy.
+     *
+     * Partially update a package license policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationPackageLicensePolicyRequestPatch data = null;
+        OrganizationPackageLicensePolicy response = api.orgsLicensePolicyPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a package license policy.
+     *
+     * Get a package license policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyReadTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationPackageLicensePolicy response = api.orgsLicensePolicyRead(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a package license policy.
+     *
+     * Update a package license policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationPackageLicensePolicyRequest data = null;
+        OrganizationPackageLicensePolicy response = api.orgsLicensePolicyUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all current license policy violations for this Organization.
+     *
+     * List all current license policy violations for this Organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyViolationListTest() throws Exception {
+        String org = null;
+        String cursor = null;
+        java.math.BigInteger pageSize = null;
+        PackageLicensePolicyViolationLogCursorPage response = api.orgsLicensePolicyViolationList(org, cursor, pageSize);
 
         // TODO: test validations
     }
@@ -544,6 +675,129 @@ public class OrgsApiTest {
         String org = null;
         String team = null;
         OrganizationTeam response = api.orgsTeamsRead(org, team);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a package vulnerability policy.
+     *
+     * Create a package vulnerability policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyCreateTest() throws Exception {
+        String org = null;
+        OrganizationPackageVulnerabilityPolicyRequest data = null;
+        OrganizationPackageVulnerabilityPolicy response = api.orgsVulnerabilityPolicyCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a package vulnerability policy.
+     *
+     * Delete a package vulnerability policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsVulnerabilityPolicyDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a list of all package vulnerability policies.
+     *
+     * Get a list of all package vulnerability policies.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyListTest() throws Exception {
+        String org = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<OrganizationPackageVulnerabilityPolicy> response = api.orgsVulnerabilityPolicyList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a package vulnerability policy.
+     *
+     * Partially update a package vulnerability policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationPackageVulnerabilityPolicyRequestPatch data = null;
+        OrganizationPackageVulnerabilityPolicy response = api.orgsVulnerabilityPolicyPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a package vulnerability policy.
+     *
+     * Get a package vulnerability policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyReadTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationPackageVulnerabilityPolicy response = api.orgsVulnerabilityPolicyRead(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a package vulnerability policy.
+     *
+     * Update a package vulnerability policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationPackageVulnerabilityPolicyRequest data = null;
+        OrganizationPackageVulnerabilityPolicy response = api.orgsVulnerabilityPolicyUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all current vulnerability policy violations for this Organization.
+     *
+     * List all current vulnerability policy violations for this Organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyViolationListTest() throws Exception {
+        String org = null;
+        String cursor = null;
+        java.math.BigInteger pageSize = null;
+        PackageVulnerabilityPolicyViolationLogCursorPage response = api.orgsVulnerabilityPolicyViolationList(org, cursor, pageSize);
 
         // TODO: test validations
     }

@@ -139,7 +139,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
     # @return [nil]
     def repos_geoip_disable(owner, identifier, opts = {})
       repos_geoip_disable_with_http_info(owner, identifier, opts)
@@ -151,7 +151,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def repos_geoip_disable_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -200,7 +200,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
     # @return [nil]
     def repos_geoip_enable(owner, identifier, opts = {})
       repos_geoip_enable_with_http_info(owner, identifier, opts)
@@ -212,7 +212,7 @@ module CloudsmithApi
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @option opts [RespositoryGeoIPEnableDisableRequest] :data 
+    # @option opts [RespositoryGeoIpEnableDisableRequest] :data 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def repos_geoip_enable_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
@@ -256,23 +256,85 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # List all created GeoIP rules for the repository.
-    # List all created GeoIP rules for the repository.
+    # Partially update repository geoip rules.
+    # Partially update repository geoip rules.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponse200]
+    # @option opts [RepositoryGeoIpRulesRequestPatch] :data 
+    # @return [RepositoryGeoIpRules]
+    def repos_geoip_partial_update(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_geoip_partial_update_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Partially update repository geoip rules.
+    # Partially update repository geoip rules.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryGeoIpRulesRequestPatch] :data 
+    # @return [Array<(RepositoryGeoIpRules, Fixnum, Hash)>] RepositoryGeoIpRules data, response status code and response headers
+    def repos_geoip_partial_update_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_geoip_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_geoip_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/geoip'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryGeoIpRules')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_geoip_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List all repository geoip rules.
+    # List all repository geoip rules.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryGeoIpRules]
     def repos_geoip_read(owner, identifier, opts = {})
       data, _status_code, _headers = repos_geoip_read_with_http_info(owner, identifier, opts)
       data
     end
 
-    # List all created GeoIP rules for the repository.
-    # List all created GeoIP rules for the repository.
+    # List all repository geoip rules.
+    # List all repository geoip rules.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    # @return [Array<(RepositoryGeoIpRules, Fixnum, Hash)>] RepositoryGeoIpRules data, response status code and response headers
     def repos_geoip_read_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_read ...'
@@ -310,9 +372,133 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse200')
+        :return_type => 'RepositoryGeoIpRules')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_geoip_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Test a list of IP addresses against the repository's current GeoIP rules.
+    # Test a list of IP addresses against the repository's current GeoIP rules.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryGeoIpTestAddress] :data 
+    # @return [RepositoryGeoIpTestAddressResponse]
+    def repos_geoip_test(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_geoip_test_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+    # Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryGeoIpTestAddress] :data 
+    # @return [Array<(RepositoryGeoIpTestAddressResponse, Fixnum, Hash)>] RepositoryGeoIpTestAddressResponse data, response status code and response headers
+    def repos_geoip_test_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_test ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_geoip_test"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_geoip_test"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/geoip/test/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryGeoIpTestAddressResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_geoip_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Replace repository geoip rules.
+    # Replace repository geoip rules.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryGeoIpRulesRequest] :data 
+    # @return [RepositoryGeoIpRules]
+    def repos_geoip_update(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_geoip_update_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Replace repository geoip rules.
+    # Replace repository geoip rules.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryGeoIpRulesRequest] :data 
+    # @return [Array<(RepositoryGeoIpRules, Fixnum, Hash)>] RepositoryGeoIpRules data, response status code and response headers
+    def repos_geoip_update_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_geoip_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_geoip_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_geoip_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/geoip'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryGeoIpRules')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_geoip_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

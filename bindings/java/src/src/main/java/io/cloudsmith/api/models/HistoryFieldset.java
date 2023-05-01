@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.StorageUsage;
 import io.cloudsmith.api.models.Usage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -39,7 +40,7 @@ public class HistoryFieldset implements Serializable {
   private Usage downloaded = null;
 
   @SerializedName("storage_used")
-  private Usage storageUsed = null;
+  private StorageUsage storageUsed = null;
 
   @SerializedName("uploaded")
   private Usage uploaded = null;
@@ -64,7 +65,7 @@ public class HistoryFieldset implements Serializable {
     this.downloaded = downloaded;
   }
 
-  public HistoryFieldset storageUsed(Usage storageUsed) {
+  public HistoryFieldset storageUsed(StorageUsage storageUsed) {
     this.storageUsed = storageUsed;
     return this;
   }
@@ -76,11 +77,11 @@ public class HistoryFieldset implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "")
-  public Usage getStorageUsed() {
+  public StorageUsage getStorageUsed() {
     return storageUsed;
   }
 
-  public void setStorageUsed(Usage storageUsed) {
+  public void setStorageUsed(StorageUsage storageUsed) {
     this.storageUsed = storageUsed;
   }
 

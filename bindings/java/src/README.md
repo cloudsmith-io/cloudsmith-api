@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.1"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.2"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.1.jar`
+* `target/cloudsmith-api-2.0.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -147,6 +147,13 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsInvitesList**](docs/OrgsApi.md#orgsInvitesList) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
 *OrgsApi* | [**orgsInvitesPartialUpdate**](docs/OrgsApi.md#orgsInvitesPartialUpdate) | **PATCH** /orgs/{org}/invites/{slug_perm}/ | Update a specific organization invite.
 *OrgsApi* | [**orgsInvitesResend**](docs/OrgsApi.md#orgsInvitesResend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite.
+*OrgsApi* | [**orgsLicensePolicyCreate**](docs/OrgsApi.md#orgsLicensePolicyCreate) | **POST** /orgs/{org}/license-policy/ | Create a package license policy.
+*OrgsApi* | [**orgsLicensePolicyDelete**](docs/OrgsApi.md#orgsLicensePolicyDelete) | **DELETE** /orgs/{org}/license-policy/{slug_perm}/ | Delete a package license policy.
+*OrgsApi* | [**orgsLicensePolicyList**](docs/OrgsApi.md#orgsLicensePolicyList) | **GET** /orgs/{org}/license-policy/ | Get a list of all package license policies.
+*OrgsApi* | [**orgsLicensePolicyPartialUpdate**](docs/OrgsApi.md#orgsLicensePolicyPartialUpdate) | **PATCH** /orgs/{org}/license-policy/{slug_perm}/ | Partially update a package license policy.
+*OrgsApi* | [**orgsLicensePolicyRead**](docs/OrgsApi.md#orgsLicensePolicyRead) | **GET** /orgs/{org}/license-policy/{slug_perm}/ | Get a package license policy.
+*OrgsApi* | [**orgsLicensePolicyUpdate**](docs/OrgsApi.md#orgsLicensePolicyUpdate) | **PUT** /orgs/{org}/license-policy/{slug_perm}/ | Update a package license policy.
+*OrgsApi* | [**orgsLicensePolicyViolationList**](docs/OrgsApi.md#orgsLicensePolicyViolationList) | **GET** /orgs/{org}/license-policy-violation/ | List all current license policy violations for this Organization.
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 *OrgsApi* | [**orgsMembersDelete**](docs/OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 *OrgsApi* | [**orgsMembersList**](docs/OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
@@ -170,9 +177,16 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsTeamsMembersUpdate**](docs/OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
 *OrgsApi* | [**orgsTeamsPartialUpdate**](docs/OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
 *OrgsApi* | [**orgsTeamsRead**](docs/OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
+*OrgsApi* | [**orgsVulnerabilityPolicyCreate**](docs/OrgsApi.md#orgsVulnerabilityPolicyCreate) | **POST** /orgs/{org}/vulnerability-policy/ | Create a package vulnerability policy.
+*OrgsApi* | [**orgsVulnerabilityPolicyDelete**](docs/OrgsApi.md#orgsVulnerabilityPolicyDelete) | **DELETE** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Delete a package vulnerability policy.
+*OrgsApi* | [**orgsVulnerabilityPolicyList**](docs/OrgsApi.md#orgsVulnerabilityPolicyList) | **GET** /orgs/{org}/vulnerability-policy/ | Get a list of all package vulnerability policies.
+*OrgsApi* | [**orgsVulnerabilityPolicyPartialUpdate**](docs/OrgsApi.md#orgsVulnerabilityPolicyPartialUpdate) | **PATCH** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Partially update a package vulnerability policy.
+*OrgsApi* | [**orgsVulnerabilityPolicyRead**](docs/OrgsApi.md#orgsVulnerabilityPolicyRead) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy.
+*OrgsApi* | [**orgsVulnerabilityPolicyUpdate**](docs/OrgsApi.md#orgsVulnerabilityPolicyUpdate) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
+*OrgsApi* | [**orgsVulnerabilityPolicyViolationList**](docs/OrgsApi.md#orgsVulnerabilityPolicyViolationList) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
 *PackagesApi* | [**packagesCopy**](docs/PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 *PackagesApi* | [**packagesDelete**](docs/PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
-*PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the direct (non-transitive) dependencies list for a package.
+*PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the list of dependencies for a package. Transitive dependencies are included where supported.
 *PackagesApi* | [**packagesList**](docs/PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 *PackagesApi* | [**packagesMove**](docs/PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 *PackagesApi* | [**packagesQuarantine**](docs/PackagesApi.md#packagesQuarantine) | **POST** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or restore a package.
@@ -236,7 +250,10 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
 *ReposApi* | [**reposGeoipDisable**](docs/ReposApi.md#reposGeoipDisable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 *ReposApi* | [**reposGeoipEnable**](docs/ReposApi.md#reposGeoipEnable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
-*ReposApi* | [**reposGeoipRead**](docs/ReposApi.md#reposGeoipRead) | **GET** /repos/{owner}/{identifier}/geoip | List all created GeoIP rules for the repository.
+*ReposApi* | [**reposGeoipPartialUpdate**](docs/ReposApi.md#reposGeoipPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
+*ReposApi* | [**reposGeoipRead**](docs/ReposApi.md#reposGeoipRead) | **GET** /repos/{owner}/{identifier}/geoip | List all repository geoip rules.
+*ReposApi* | [**reposGeoipTest**](docs/ReposApi.md#reposGeoipTest) | **POST** /repos/{owner}/{identifier}/geoip/test/ | Test a list of IP addresses against the repository&#39;s current GeoIP rules.
+*ReposApi* | [**reposGeoipUpdate**](docs/ReposApi.md#reposGeoipUpdate) | **PUT** /repos/{owner}/{identifier}/geoip | Replace repository geoip rules.
 *ReposApi* | [**reposGpgCreate**](docs/ReposApi.md#reposGpgCreate) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
 *ReposApi* | [**reposGpgList**](docs/ReposApi.md#reposGpgList) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
 *ReposApi* | [**reposGpgRegenerate**](docs/ReposApi.md#reposGpgRegenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
@@ -270,6 +287,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AllocatedLimit](docs/AllocatedLimit.md)
+ - [AllocatedLimitRaw](docs/AllocatedLimitRaw.md)
  - [AlpinePackageUpload](docs/AlpinePackageUpload.md)
  - [AlpinePackageUploadRequest](docs/AlpinePackageUploadRequest.md)
  - [Architecture](docs/Architecture.md)
@@ -311,8 +329,7 @@ Class | Method | HTTP request | Description
  - [HelmPackageUploadRequest](docs/HelmPackageUploadRequest.md)
  - [History](docs/History.md)
  - [HistoryFieldset](docs/HistoryFieldset.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse200CountryCode](docs/InlineResponse200CountryCode.md)
+ - [HistoryFieldsetRaw](docs/HistoryFieldsetRaw.md)
  - [LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
  - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
@@ -320,6 +337,9 @@ Class | Method | HTTP request | Description
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [NamespaceAuditLog](docs/NamespaceAuditLog.md)
+ - [NestedLicensePolicy](docs/NestedLicensePolicy.md)
+ - [NestedVulnerabilityPolicy](docs/NestedVulnerabilityPolicy.md)
+ - [NestedVulnerabilityScanResults](docs/NestedVulnerabilityScanResults.md)
  - [NpmPackageUpload](docs/NpmPackageUpload.md)
  - [NpmPackageUploadRequest](docs/NpmPackageUploadRequest.md)
  - [NugetPackageUpload](docs/NugetPackageUpload.md)
@@ -333,6 +353,12 @@ Class | Method | HTTP request | Description
  - [OrganizationInviteUpdate](docs/OrganizationInviteUpdate.md)
  - [OrganizationInviteUpdateRequestPatch](docs/OrganizationInviteUpdateRequestPatch.md)
  - [OrganizationMembership](docs/OrganizationMembership.md)
+ - [OrganizationPackageLicensePolicy](docs/OrganizationPackageLicensePolicy.md)
+ - [OrganizationPackageLicensePolicyRequest](docs/OrganizationPackageLicensePolicyRequest.md)
+ - [OrganizationPackageLicensePolicyRequestPatch](docs/OrganizationPackageLicensePolicyRequestPatch.md)
+ - [OrganizationPackageVulnerabilityPolicy](docs/OrganizationPackageVulnerabilityPolicy.md)
+ - [OrganizationPackageVulnerabilityPolicyRequest](docs/OrganizationPackageVulnerabilityPolicyRequest.md)
+ - [OrganizationPackageVulnerabilityPolicyRequestPatch](docs/OrganizationPackageVulnerabilityPolicyRequestPatch.md)
  - [OrganizationTeam](docs/OrganizationTeam.md)
  - [OrganizationTeamMembers](docs/OrganizationTeamMembers.md)
  - [OrganizationTeamMembership](docs/OrganizationTeamMembership.md)
@@ -348,6 +374,8 @@ Class | Method | HTTP request | Description
  - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
  - [PackageFileUploadRequest](docs/PackageFileUploadRequest.md)
+ - [PackageLicensePolicyViolationLog](docs/PackageLicensePolicyViolationLog.md)
+ - [PackageLicensePolicyViolationLogCursorPage](docs/PackageLicensePolicyViolationLogCursorPage.md)
  - [PackageMove](docs/PackageMove.md)
  - [PackageMoveRequest](docs/PackageMoveRequest.md)
  - [PackageQuarantine](docs/PackageQuarantine.md)
@@ -359,6 +387,8 @@ Class | Method | HTTP request | Description
  - [PackageUsageMetrics](docs/PackageUsageMetrics.md)
  - [PackageVersionBadge](docs/PackageVersionBadge.md)
  - [PackageVulnerability](docs/PackageVulnerability.md)
+ - [PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
+ - [PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
  - [PythonPackageUpload](docs/PythonPackageUpload.md)
  - [PythonPackageUploadRequest](docs/PythonPackageUploadRequest.md)
  - [Quota](docs/Quota.md)
@@ -370,7 +400,14 @@ Class | Method | HTTP request | Description
  - [RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [RepositoryCreate](docs/RepositoryCreate.md)
  - [RepositoryCreateRequest](docs/RepositoryCreateRequest.md)
- - [RepositoryGeoIPList](docs/RepositoryGeoIPList.md)
+ - [RepositoryGeoIpCidr](docs/RepositoryGeoIpCidr.md)
+ - [RepositoryGeoIpCountryCode](docs/RepositoryGeoIpCountryCode.md)
+ - [RepositoryGeoIpRules](docs/RepositoryGeoIpRules.md)
+ - [RepositoryGeoIpRulesRequest](docs/RepositoryGeoIpRulesRequest.md)
+ - [RepositoryGeoIpRulesRequestPatch](docs/RepositoryGeoIpRulesRequestPatch.md)
+ - [RepositoryGeoIpTestAddress](docs/RepositoryGeoIpTestAddress.md)
+ - [RepositoryGeoIpTestAddressResponse](docs/RepositoryGeoIpTestAddressResponse.md)
+ - [RepositoryGeoIpTestAddressResponseDict](docs/RepositoryGeoIpTestAddressResponseDict.md)
  - [RepositoryGpgKey](docs/RepositoryGpgKey.md)
  - [RepositoryGpgKeyCreate](docs/RepositoryGpgKeyCreate.md)
  - [RepositoryPrivilegeDict](docs/RepositoryPrivilegeDict.md)
@@ -392,8 +429,8 @@ Class | Method | HTTP request | Description
  - [RepositoryWebhookRequest](docs/RepositoryWebhookRequest.md)
  - [RepositoryWebhookRequestPatch](docs/RepositoryWebhookRequestPatch.md)
  - [ResourcesRateCheck](docs/ResourcesRateCheck.md)
- - [RespositoryGeoIPEnableDisable](docs/RespositoryGeoIPEnableDisable.md)
- - [RespositoryGeoIPEnableDisableRequest](docs/RespositoryGeoIPEnableDisableRequest.md)
+ - [RespositoryGeoIpEnableDisable](docs/RespositoryGeoIpEnableDisable.md)
+ - [RespositoryGeoIpEnableDisableRequest](docs/RespositoryGeoIpEnableDisableRequest.md)
  - [RpmPackageUpload](docs/RpmPackageUpload.md)
  - [RpmPackageUploadRequest](docs/RpmPackageUploadRequest.md)
  - [RubyPackageUpload](docs/RubyPackageUpload.md)
@@ -403,13 +440,19 @@ Class | Method | HTTP request | Description
  - [ServiceRequestPatch](docs/ServiceRequestPatch.md)
  - [ServiceTeams](docs/ServiceTeams.md)
  - [StatusBasic](docs/StatusBasic.md)
+ - [StorageAllocatedLimit](docs/StorageAllocatedLimit.md)
+ - [StorageAllocatedLimitRaw](docs/StorageAllocatedLimitRaw.md)
  - [StorageRegion](docs/StorageRegion.md)
+ - [StorageUsage](docs/StorageUsage.md)
+ - [StorageUsageRaw](docs/StorageUsageRaw.md)
  - [Tags](docs/Tags.md)
  - [TerraformPackageUpload](docs/TerraformPackageUpload.md)
  - [TerraformPackageUploadRequest](docs/TerraformPackageUploadRequest.md)
  - [Usage](docs/Usage.md)
  - [UsageFieldset](docs/UsageFieldset.md)
  - [UsageLimits](docs/UsageLimits.md)
+ - [UsageLimitsRaw](docs/UsageLimitsRaw.md)
+ - [UsageRaw](docs/UsageRaw.md)
  - [UserAuthToken](docs/UserAuthToken.md)
  - [UserAuthTokenRequest](docs/UserAuthTokenRequest.md)
  - [UserBrief](docs/UserBrief.md)

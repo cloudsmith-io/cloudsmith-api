@@ -30,7 +30,7 @@ class UsageLimits
   def self.swagger_types
     {
       :'bandwidth' => :'AllocatedLimit',
-      :'storage' => :'AllocatedLimit'
+      :'storage' => :'StorageAllocatedLimit'
     }
   end
 
