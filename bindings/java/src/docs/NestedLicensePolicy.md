@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **description** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
 **onViolationQuarantine** | **Boolean** |  |  [optional]
+**packageQueryString** | **String** |  |  [optional]
 **slugPerm** | **String** |  |  [optional]
 **spdxIdentifiers** | **List&lt;String&gt;** |  | 
 **updatedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]

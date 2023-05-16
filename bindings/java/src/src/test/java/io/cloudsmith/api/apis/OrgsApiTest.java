@@ -34,6 +34,9 @@ import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
 import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
+import io.cloudsmith.api.models.ProviderSettings;
+import io.cloudsmith.api.models.ProviderSettingsRequest;
+import io.cloudsmith.api.models.ProviderSettingsRequestPatch;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
 import io.cloudsmith.api.models.ServiceRequestPatch;
@@ -364,6 +367,111 @@ public class OrgsApiTest {
         String org = null;
         String member = null;
         api.orgsMembersRemove(org, member);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectCreateTest() throws Exception {
+        String org = null;
+        ProviderSettingsRequest data = null;
+        api.orgsOpenidConnectCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsOpenidConnectDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectListTest() throws Exception {
+        String org = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<ProviderSettings> response = api.orgsOpenidConnectList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        ProviderSettingsRequestPatch data = null;
+        ProviderSettings response = api.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectReadTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        ProviderSettings response = api.orgsOpenidConnectRead(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        ProviderSettingsRequest data = null;
+        ProviderSettings response = api.orgsOpenidConnectUpdate(org, slugPerm, data);
 
         // TODO: test validations
     }

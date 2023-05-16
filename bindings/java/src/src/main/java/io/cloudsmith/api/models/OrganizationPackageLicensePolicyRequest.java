@@ -48,6 +48,9 @@ public class OrganizationPackageLicensePolicyRequest implements Serializable {
   @SerializedName("on_violation_quarantine")
   private Boolean onViolationQuarantine = null;
 
+  @SerializedName("package_query_string")
+  private String packageQueryString = null;
+
   @SerializedName("spdx_identifiers")
   private List<String> spdxIdentifiers = new ArrayList<>();
 
@@ -124,6 +127,24 @@ public class OrganizationPackageLicensePolicyRequest implements Serializable {
     this.onViolationQuarantine = onViolationQuarantine;
   }
 
+  public OrganizationPackageLicensePolicyRequest packageQueryString(String packageQueryString) {
+    this.packageQueryString = packageQueryString;
+    return this;
+  }
+
+   /**
+   * Get packageQueryString
+   * @return packageQueryString
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "")
+  public String getPackageQueryString() {
+    return packageQueryString;
+  }
+
+  public void setPackageQueryString(String packageQueryString) {
+    this.packageQueryString = packageQueryString;
+  }
+
   public OrganizationPackageLicensePolicyRequest spdxIdentifiers(List<String> spdxIdentifiers) {
     this.spdxIdentifiers = spdxIdentifiers;
     return this;
@@ -162,12 +183,13 @@ public class OrganizationPackageLicensePolicyRequest implements Serializable {
         Objects.equals(this.description, organizationPackageLicensePolicyRequest.description) &&
         Objects.equals(this.name, organizationPackageLicensePolicyRequest.name) &&
         Objects.equals(this.onViolationQuarantine, organizationPackageLicensePolicyRequest.onViolationQuarantine) &&
+        Objects.equals(this.packageQueryString, organizationPackageLicensePolicyRequest.packageQueryString) &&
         Objects.equals(this.spdxIdentifiers, organizationPackageLicensePolicyRequest.spdxIdentifiers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUnknownLicenses, description, name, onViolationQuarantine, spdxIdentifiers);
+    return Objects.hash(allowUnknownLicenses, description, name, onViolationQuarantine, packageQueryString, spdxIdentifiers);
   }
 
 
@@ -180,6 +202,7 @@ public class OrganizationPackageLicensePolicyRequest implements Serializable {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    onViolationQuarantine: ").append(toIndentedString(onViolationQuarantine)).append("\n");
+    sb.append("    packageQueryString: ").append(toIndentedString(packageQueryString)).append("\n");
     sb.append("    spdxIdentifiers: ").append(toIndentedString(spdxIdentifiers)).append("\n");
     sb.append("}");
     return sb.toString();

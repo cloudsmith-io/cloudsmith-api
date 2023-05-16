@@ -52,6 +52,9 @@ public class OrganizationPackageLicensePolicy implements Serializable {
   @SerializedName("on_violation_quarantine")
   private Boolean onViolationQuarantine = null;
 
+  @SerializedName("package_query_string")
+  private String packageQueryString = null;
+
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
@@ -144,6 +147,24 @@ public class OrganizationPackageLicensePolicy implements Serializable {
     this.onViolationQuarantine = onViolationQuarantine;
   }
 
+  public OrganizationPackageLicensePolicy packageQueryString(String packageQueryString) {
+    this.packageQueryString = packageQueryString;
+    return this;
+  }
+
+   /**
+   * Get packageQueryString
+   * @return packageQueryString
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "")
+  public String getPackageQueryString() {
+    return packageQueryString;
+  }
+
+  public void setPackageQueryString(String packageQueryString) {
+    this.packageQueryString = packageQueryString;
+  }
+
    /**
    * Get slugPerm
    * @return slugPerm
@@ -202,6 +223,7 @@ public class OrganizationPackageLicensePolicy implements Serializable {
         Objects.equals(this.description, organizationPackageLicensePolicy.description) &&
         Objects.equals(this.name, organizationPackageLicensePolicy.name) &&
         Objects.equals(this.onViolationQuarantine, organizationPackageLicensePolicy.onViolationQuarantine) &&
+        Objects.equals(this.packageQueryString, organizationPackageLicensePolicy.packageQueryString) &&
         Objects.equals(this.slugPerm, organizationPackageLicensePolicy.slugPerm) &&
         Objects.equals(this.spdxIdentifiers, organizationPackageLicensePolicy.spdxIdentifiers) &&
         Objects.equals(this.updatedAt, organizationPackageLicensePolicy.updatedAt);
@@ -209,7 +231,7 @@ public class OrganizationPackageLicensePolicy implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUnknownLicenses, createdAt, description, name, onViolationQuarantine, slugPerm, spdxIdentifiers, updatedAt);
+    return Objects.hash(allowUnknownLicenses, createdAt, description, name, onViolationQuarantine, packageQueryString, slugPerm, spdxIdentifiers, updatedAt);
   }
 
 
@@ -223,6 +245,7 @@ public class OrganizationPackageLicensePolicy implements Serializable {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    onViolationQuarantine: ").append(toIndentedString(onViolationQuarantine)).append("\n");
+    sb.append("    packageQueryString: ").append(toIndentedString(packageQueryString)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    spdxIdentifiers: ").append(toIndentedString(spdxIdentifiers)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.2</version>
+  <version>2.0.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.2"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.3"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.2.jar`
+* `target/cloudsmith-api-2.0.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -159,6 +159,12 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsMembersList**](docs/OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
 *OrgsApi* | [**orgsMembersRead**](docs/OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 *OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+*OrgsApi* | [**orgsOpenidConnectCreate**](docs/OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+*OrgsApi* | [**orgsOpenidConnectDelete**](docs/OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+*OrgsApi* | [**orgsOpenidConnectList**](docs/OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+*OrgsApi* | [**orgsOpenidConnectPartialUpdate**](docs/OrgsApi.md#orgsOpenidConnectPartialUpdate) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+*OrgsApi* | [**orgsOpenidConnectRead**](docs/OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
+*OrgsApi* | [**orgsOpenidConnectUpdate**](docs/OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 *OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 *OrgsApi* | [**orgsSamlGroupSyncDelete**](docs/OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
@@ -389,6 +395,9 @@ Class | Method | HTTP request | Description
  - [PackageVulnerability](docs/PackageVulnerability.md)
  - [PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
  - [PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
+ - [ProviderSettings](docs/ProviderSettings.md)
+ - [ProviderSettingsRequest](docs/ProviderSettingsRequest.md)
+ - [ProviderSettingsRequestPatch](docs/ProviderSettingsRequestPatch.md)
  - [PythonPackageUpload](docs/PythonPackageUpload.md)
  - [PythonPackageUploadRequest](docs/PythonPackageUploadRequest.md)
  - [Quota](docs/Quota.md)

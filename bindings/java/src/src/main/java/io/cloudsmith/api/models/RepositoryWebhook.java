@@ -251,10 +251,10 @@ public class RepositoryWebhook implements Serializable {
   }
 
    /**
-   * Get identifier
+   * Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified a webhook request within a repository.
    * @return identifier
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.")
   public java.math.BigInteger getIdentifier() {
     return identifier;
   }

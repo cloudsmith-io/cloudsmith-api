@@ -69,8 +69,7 @@ public class Eula implements Serializable {
    * maximum: 2147483647
    * @return number
   **/
-  @NotNull
- @Min(0L) @Max(2147483647L)  @ApiModelProperty(required = true, value = "A sequential identifier that increments by one for each new commit in a repository.")
+ @Min(0L) @Max(2147483647L)  @ApiModelProperty(value = "A sequential identifier that increments by one for each new commit in a repository.")
   public java.math.BigInteger getNumber() {
     return number;
   }
