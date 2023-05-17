@@ -62,6 +62,12 @@ describe 'OrganizationPackageLicensePolicy' do
     end
   end
 
+  describe 'test attribute "package_query_string"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "slug_perm"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

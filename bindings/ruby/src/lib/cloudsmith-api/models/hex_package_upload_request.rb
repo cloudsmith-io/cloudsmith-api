@@ -13,69 +13,31 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class NestedVulnerabilityScanResults
-  # The time this scan result was stored.
-  attr_accessor :created_at
+class HexPackageUploadRequest
+  # The primary file for the package.
+  attr_accessor :package_file
 
-  # Do the results contain any known vulnerabilities?
-  attr_accessor :has_vulnerabilities
+  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+  attr_accessor :republish
 
-  attr_accessor :identifier
-
-  attr_accessor :max_severity
-
-  attr_accessor :num_vulnerabilities
-
-  # Deprecated (23-05-15): Please use 'identifier' instead. Previously: A monotonically increasing number that identified a scan within a repository.
-  attr_accessor :scan_id
-
-  attr_accessor :url
-
-  class EnumAttributeValidator
-    attr_reader :datatype
-    attr_reader :allowable_values
-
-    def initialize(datatype, allowable_values)
-      @allowable_values = allowable_values.map do |value|
-        case datatype.to_s
-        when /Integer/i
-          value.to_i
-        when /Float/i
-          value.to_f
-        else
-          value
-        end
-      end
-    end
-
-    def valid?(value)
-      !value || allowable_values.include?(value)
-    end
-  end
+  # A comma-separated values list of tags to add to the package.
+  attr_accessor :tags
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'created_at' => :'created_at',
-      :'has_vulnerabilities' => :'has_vulnerabilities',
-      :'identifier' => :'identifier',
-      :'max_severity' => :'max_severity',
-      :'num_vulnerabilities' => :'num_vulnerabilities',
-      :'scan_id' => :'scan_id',
-      :'url' => :'url'
+      :'package_file' => :'package_file',
+      :'republish' => :'republish',
+      :'tags' => :'tags'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'created_at' => :'DateTime',
-      :'has_vulnerabilities' => :'BOOLEAN',
-      :'identifier' => :'String',
-      :'max_severity' => :'String',
-      :'num_vulnerabilities' => :'Integer',
-      :'scan_id' => :'Integer',
-      :'url' => :'String'
+      :'package_file' => :'String',
+      :'republish' => :'BOOLEAN',
+      :'tags' => :'String'
     }
   end
 
@@ -87,34 +49,16 @@ class NestedVulnerabilityScanResults
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-    if attributes.has_key?(:'created_at')
-      self.created_at = attributes[:'created_at']
+    if attributes.has_key?(:'package_file')
+      self.package_file = attributes[:'package_file']
     end
 
-    if attributes.has_key?(:'has_vulnerabilities')
-      self.has_vulnerabilities = attributes[:'has_vulnerabilities']
+    if attributes.has_key?(:'republish')
+      self.republish = attributes[:'republish']
     end
 
-    if attributes.has_key?(:'identifier')
-      self.identifier = attributes[:'identifier']
-    end
-
-    if attributes.has_key?(:'max_severity')
-      self.max_severity = attributes[:'max_severity']
-    else
-      self.max_severity = 'Unknown'
-    end
-
-    if attributes.has_key?(:'num_vulnerabilities')
-      self.num_vulnerabilities = attributes[:'num_vulnerabilities']
-    end
-
-    if attributes.has_key?(:'scan_id')
-      self.scan_id = attributes[:'scan_id']
-    end
-
-    if attributes.has_key?(:'url')
-      self.url = attributes[:'url']
+    if attributes.has_key?(:'tags')
+      self.tags = attributes[:'tags']
     end
   end
 
@@ -122,12 +66,8 @@ class NestedVulnerabilityScanResults
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if @identifier.nil?
-      invalid_properties.push('invalid value for "identifier", identifier cannot be nil.')
-    end
-
-    if @scan_id.nil?
-      invalid_properties.push('invalid value for "scan_id", scan_id cannot be nil.')
+    if @package_file.nil?
+      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
     invalid_properties
@@ -136,21 +76,8 @@ class NestedVulnerabilityScanResults
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if @identifier.nil?
-    max_severity_validator = EnumAttributeValidator.new('String', ['Unknown', 'Low', 'Medium', 'High', 'Critical'])
-    return false unless max_severity_validator.valid?(@max_severity)
-    return false if @scan_id.nil?
+    return false if @package_file.nil?
     true
-  end
-
-  # Custom attribute writer method checking allowed values (enum).
-  # @param [Object] max_severity Object to be assigned
-  def max_severity=(max_severity)
-    validator = EnumAttributeValidator.new('String', ['Unknown', 'Low', 'Medium', 'High', 'Critical'])
-    unless validator.valid?(max_severity)
-      fail ArgumentError, 'invalid value for "max_severity", must be one of #{validator.allowable_values}.'
-    end
-    @max_severity = max_severity
   end
 
   # Checks equality by comparing each attribute.
@@ -158,13 +85,9 @@ class NestedVulnerabilityScanResults
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        created_at == o.created_at &&
-        has_vulnerabilities == o.has_vulnerabilities &&
-        identifier == o.identifier &&
-        max_severity == o.max_severity &&
-        num_vulnerabilities == o.num_vulnerabilities &&
-        scan_id == o.scan_id &&
-        url == o.url
+        package_file == o.package_file &&
+        republish == o.republish &&
+        tags == o.tags
   end
 
   # @see the `==` method
@@ -176,7 +99,7 @@ class NestedVulnerabilityScanResults
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [created_at, has_vulnerabilities, identifier, max_severity, num_vulnerabilities, scan_id, url].hash
+    [package_file, republish, tags].hash
   end
 
     # Builds the object from hash

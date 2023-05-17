@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**vulnerabilities_namespace_list**](VulnerabilitiesApi.md#vulnerabilities_namespace_list) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
 [**vulnerabilities_package_list**](VulnerabilitiesApi.md#vulnerabilities_package_list) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
-[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
+[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{identifier}/ | Get a scan result.
 [**vulnerabilities_repo_list**](VulnerabilitiesApi.md#vulnerabilities_repo_list) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
 
 
@@ -137,11 +137,11 @@ Name | Type | Description  | Notes
 
 
 # **vulnerabilities_read**
-> VulnerabilityScanResults vulnerabilities_read(owner, repo, package, scan_id)
+> VulnerabilityScanResults vulnerabilities_read(owner, repo, package, identifier)
 
-Returns a Scan Result.
+Get a scan result.
 
-Returns a Scan Result.
+Get a scan result.
 
 ### Example
 ```ruby
@@ -163,12 +163,12 @@ repo = 'repo_example' # String |
 
 package = 'package_example' # String | 
 
-scan_id = 'scan_id_example' # String | 
+identifier = 'identifier_example' # String | 
 
 
 begin
-  #Returns a Scan Result.
-  result = api_instance.vulnerabilities_read(owner, repo, package, scan_id)
+  #Get a scan result.
+  result = api_instance.vulnerabilities_read(owner, repo, package, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling VulnerabilitiesApi->vulnerabilities_read: #{e}"
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **package** | **String**|  | 
- **scan_id** | **String**|  | 
+ **identifier** | **String**|  | 
 
 ### Return type
 

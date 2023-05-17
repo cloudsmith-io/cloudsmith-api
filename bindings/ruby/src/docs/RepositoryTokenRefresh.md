@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **eula_accepted_from** | **String** |  | [optional] 
 **eula_required** | **BOOLEAN** | If checked, a EULA acceptance is required for this token. | [optional] 
 **has_limits** | **BOOLEAN** |  | [optional] 
-**identifier** | **Integer** |  | [optional] 
+**identifier** | **Integer** | Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified an entitlement within a repository. | [optional] 
 **is_active** | **BOOLEAN** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] 
 **is_limited** | **BOOLEAN** |  | [optional] 
 **limit_bandwidth** | **Integer** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  | [optional] 

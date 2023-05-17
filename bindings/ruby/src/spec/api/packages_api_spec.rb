@@ -361,6 +361,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_hex
+  # Create a new Hex package
+  # Create a new Hex package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [HexPackageUploadRequest] :data 
+  # @return [HexPackageUpload]
+  describe 'packages_upload_hex test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_luarocks
   # Create a new LuaRocks package
   # Create a new LuaRocks package
@@ -678,6 +692,20 @@ describe 'PackagesApi' do
   # @option opts [HelmPackageUploadRequest] :data 
   # @return [nil]
   describe 'packages_validate_upload_helm test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_hex
+  # Validate parameters for create Hex package
+  # Validate parameters for create Hex package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [HexPackageUploadRequest] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_hex test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
