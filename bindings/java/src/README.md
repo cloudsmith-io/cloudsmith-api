@@ -159,12 +159,6 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsMembersList**](docs/OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
 *OrgsApi* | [**orgsMembersRead**](docs/OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 *OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
-*OrgsApi* | [**orgsOpenidConnectCreate**](docs/OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
-*OrgsApi* | [**orgsOpenidConnectDelete**](docs/OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
-*OrgsApi* | [**orgsOpenidConnectList**](docs/OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
-*OrgsApi* | [**orgsOpenidConnectPartialUpdate**](docs/OrgsApi.md#orgsOpenidConnectPartialUpdate) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
-*OrgsApi* | [**orgsOpenidConnectRead**](docs/OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
-*OrgsApi* | [**orgsOpenidConnectUpdate**](docs/OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Viewset for operating on an Organization&#39;s OIDC Provider Settings.
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 *OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 *OrgsApi* | [**orgsSamlGroupSyncDelete**](docs/OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
@@ -213,6 +207,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadDocker**](docs/PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
 *PackagesApi* | [**packagesUploadGo**](docs/PackagesApi.md#packagesUploadGo) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 *PackagesApi* | [**packagesUploadHelm**](docs/PackagesApi.md#packagesUploadHelm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
+*PackagesApi* | [**packagesUploadHex**](docs/PackagesApi.md#packagesUploadHex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
 *PackagesApi* | [**packagesUploadLuarocks**](docs/PackagesApi.md#packagesUploadLuarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 *PackagesApi* | [**packagesUploadMaven**](docs/PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 *PackagesApi* | [**packagesUploadNpm**](docs/PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
@@ -236,6 +231,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadDocker**](docs/PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
 *PackagesApi* | [**packagesValidateUploadGo**](docs/PackagesApi.md#packagesValidateUploadGo) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 *PackagesApi* | [**packagesValidateUploadHelm**](docs/PackagesApi.md#packagesValidateUploadHelm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
+*PackagesApi* | [**packagesValidateUploadHex**](docs/PackagesApi.md#packagesValidateUploadHex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
 *PackagesApi* | [**packagesValidateUploadLuarocks**](docs/PackagesApi.md#packagesValidateUploadLuarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 *PackagesApi* | [**packagesValidateUploadMaven**](docs/PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 *PackagesApi* | [**packagesValidateUploadNpm**](docs/PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
@@ -281,7 +277,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
 *VulnerabilitiesApi* | [**vulnerabilitiesNamespaceList**](docs/VulnerabilitiesApi.md#vulnerabilitiesNamespaceList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
 *VulnerabilitiesApi* | [**vulnerabilitiesPackageList**](docs/VulnerabilitiesApi.md#vulnerabilitiesPackageList) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
-*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
+*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{identifier}/ | Get a scan result.
 *VulnerabilitiesApi* | [**vulnerabilitiesRepoList**](docs/VulnerabilitiesApi.md#vulnerabilitiesRepoList) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
 *WebhooksApi* | [**webhooksCreate**](docs/WebhooksApi.md#webhooksCreate) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
 *WebhooksApi* | [**webhooksDelete**](docs/WebhooksApi.md#webhooksDelete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
@@ -333,6 +329,8 @@ Class | Method | HTTP request | Description
  - [GoPackageUploadRequest](docs/GoPackageUploadRequest.md)
  - [HelmPackageUpload](docs/HelmPackageUpload.md)
  - [HelmPackageUploadRequest](docs/HelmPackageUploadRequest.md)
+ - [HexPackageUpload](docs/HexPackageUpload.md)
+ - [HexPackageUploadRequest](docs/HexPackageUploadRequest.md)
  - [History](docs/History.md)
  - [HistoryFieldset](docs/HistoryFieldset.md)
  - [HistoryFieldsetRaw](docs/HistoryFieldsetRaw.md)
@@ -395,9 +393,6 @@ Class | Method | HTTP request | Description
  - [PackageVulnerability](docs/PackageVulnerability.md)
  - [PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
  - [PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
- - [ProviderSettings](docs/ProviderSettings.md)
- - [ProviderSettingsRequest](docs/ProviderSettingsRequest.md)
- - [ProviderSettingsRequestPatch](docs/ProviderSettingsRequestPatch.md)
  - [PythonPackageUpload](docs/PythonPackageUpload.md)
  - [PythonPackageUploadRequest](docs/PythonPackageUploadRequest.md)
  - [Quota](docs/Quota.md)

@@ -378,21 +378,21 @@ public class VulnerabilitiesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
-     * @param scanId  (required)
+     * @param identifier  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call vulnerabilitiesReadCall(String owner, String repo, String _package, String scanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesReadCall(String owner, String repo, String _package, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/vulnerabilities/{owner}/{repo}/{package}/{scan_id}/"
+        String localVarPath = "/vulnerabilities/{owner}/{repo}/{package}/{identifier}/"
             .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
             .replaceAll("\\{" + "package" + "\\}", apiClient.escapeString(_package.toString()))
-            .replaceAll("\\{" + "scan_id" + "\\}", apiClient.escapeString(scanId.toString()));
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -430,18 +430,18 @@ public class VulnerabilitiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call vulnerabilitiesReadValidateBeforeCall(String owner, String repo, String _package, String scanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call vulnerabilitiesReadValidateBeforeCall(String owner, String repo, String _package, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, _package, scanId };
+            Object[] parameterValues = { owner, repo, _package, identifier };
             Method method = this.getClass().getMethod("vulnerabilitiesReadWithHttpInfo", String.class, String.class, String.class, String.class);
             Set<ConstraintViolation<VulnerabilitiesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = vulnerabilitiesReadCall(owner, repo, _package, scanId, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = vulnerabilitiesReadCall(owner, repo, _package, identifier, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -458,48 +458,48 @@ public class VulnerabilitiesApi {
     }
 
     /**
-     * Returns a Scan Result.
-     * Returns a Scan Result.
+     * Get a scan result.
+     * Get a scan result.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
-     * @param scanId  (required)
+     * @param identifier  (required)
      * @return VulnerabilityScanResults
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VulnerabilityScanResults vulnerabilitiesRead(String owner, String repo, String _package, String scanId) throws ApiException {
-        ApiResponse<VulnerabilityScanResults> resp = vulnerabilitiesReadWithHttpInfo(owner, repo, _package, scanId);
+    public VulnerabilityScanResults vulnerabilitiesRead(String owner, String repo, String _package, String identifier) throws ApiException {
+        ApiResponse<VulnerabilityScanResults> resp = vulnerabilitiesReadWithHttpInfo(owner, repo, _package, identifier);
         return resp.getData();
     }
 
     /**
-     * Returns a Scan Result.
-     * Returns a Scan Result.
+     * Get a scan result.
+     * Get a scan result.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
-     * @param scanId  (required)
+     * @param identifier  (required)
      * @return ApiResponse&lt;VulnerabilityScanResults&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VulnerabilityScanResults> vulnerabilitiesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  @NotNull String scanId) throws ApiException {
-        com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, scanId, null, null);
+    public ApiResponse<VulnerabilityScanResults> vulnerabilitiesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  @NotNull String identifier) throws ApiException {
+        com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, identifier, null, null);
         Type localVarReturnType = new TypeToken<VulnerabilityScanResults>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Returns a Scan Result. (asynchronously)
-     * Returns a Scan Result.
+     * Get a scan result. (asynchronously)
+     * Get a scan result.
      * @param owner  (required)
      * @param repo  (required)
      * @param _package  (required)
-     * @param scanId  (required)
+     * @param identifier  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call vulnerabilitiesReadAsync(String owner, String repo, String _package, String scanId, final ApiCallback<VulnerabilityScanResults> callback) throws ApiException {
+    public com.squareup.okhttp.Call vulnerabilitiesReadAsync(String owner, String repo, String _package, String identifier, final ApiCallback<VulnerabilityScanResults> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -520,7 +520,7 @@ public class VulnerabilitiesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, scanId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, identifier, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VulnerabilityScanResults>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
