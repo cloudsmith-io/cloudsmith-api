@@ -54,7 +54,8 @@ class Eula(object):
 
         if identifier is not None:
             self.identifier = identifier
-        self.number = number
+        if number is not None:
+            self.number = number
 
     @property
     def identifier(self):
@@ -105,8 +106,6 @@ class Eula(object):
         :param number: The number of this Eula.
         :type: int
         """
-        if self._configuration.client_side_validation and number is None:
-            raise ValueError("Invalid value for `number`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 number is not None and number > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `number`, must be a value less than or equal to `2147483647`")  # noqa: E501

@@ -325,6 +325,7 @@ class RepositoryWebhook(object):
     def identifier(self):
         """Gets the identifier of this RepositoryWebhook.
 
+        Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.
 
         :return: The identifier of this RepositoryWebhook.
         :rtype: int
@@ -335,6 +336,7 @@ class RepositoryWebhook(object):
     def identifier(self, identifier):
         """Sets the identifier of this RepositoryWebhook.
 
+        Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.
 
         :param identifier: The identifier of this RepositoryWebhook.
         :type: int

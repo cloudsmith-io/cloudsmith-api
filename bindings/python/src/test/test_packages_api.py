@@ -190,6 +190,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_hex(self):
+        """Test case for packages_upload_hex
+
+        Create a new Hex package  # noqa: E501
+        """
+        pass
+
     def test_packages_upload_luarocks(self):
         """Test case for packages_upload_luarocks
 
@@ -348,6 +355,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_helm
 
         Validate parameters for create Helm package  # noqa: E501
+        """
+        pass
+
+    def test_packages_validate_upload_hex(self):
+        """Test case for packages_validate_upload_hex
+
+        Validate parameters for create Hex package  # noqa: E501
         """
         pass
 

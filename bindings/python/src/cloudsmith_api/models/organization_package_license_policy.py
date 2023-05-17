@@ -38,6 +38,7 @@ class OrganizationPackageLicensePolicy(object):
         'description': 'str',
         'name': 'str',
         'on_violation_quarantine': 'bool',
+        'package_query_string': 'str',
         'slug_perm': 'str',
         'spdx_identifiers': 'list[str]',
         'updated_at': 'datetime'
@@ -49,12 +50,13 @@ class OrganizationPackageLicensePolicy(object):
         'description': 'description',
         'name': 'name',
         'on_violation_quarantine': 'on_violation_quarantine',
+        'package_query_string': 'package_query_string',
         'slug_perm': 'slug_perm',
         'spdx_identifiers': 'spdx_identifiers',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, allow_unknown_licenses=None, created_at=None, description=None, name=None, on_violation_quarantine=None, slug_perm=None, spdx_identifiers=None, updated_at=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_unknown_licenses=None, created_at=None, description=None, name=None, on_violation_quarantine=None, package_query_string=None, slug_perm=None, spdx_identifiers=None, updated_at=None, _configuration=None):  # noqa: E501
         """OrganizationPackageLicensePolicy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -65,6 +67,7 @@ class OrganizationPackageLicensePolicy(object):
         self._description = None
         self._name = None
         self._on_violation_quarantine = None
+        self._package_query_string = None
         self._slug_perm = None
         self._spdx_identifiers = None
         self._updated_at = None
@@ -79,6 +82,8 @@ class OrganizationPackageLicensePolicy(object):
         self.name = name
         if on_violation_quarantine is not None:
             self.on_violation_quarantine = on_violation_quarantine
+        if package_query_string is not None:
+            self.package_query_string = package_query_string
         if slug_perm is not None:
             self.slug_perm = slug_perm
         self.spdx_identifiers = spdx_identifiers
@@ -203,6 +208,30 @@ class OrganizationPackageLicensePolicy(object):
         """
 
         self._on_violation_quarantine = on_violation_quarantine
+
+    @property
+    def package_query_string(self):
+        """Gets the package_query_string of this OrganizationPackageLicensePolicy.
+
+
+        :return: The package_query_string of this OrganizationPackageLicensePolicy.
+        :rtype: str
+        """
+        return self._package_query_string
+
+    @package_query_string.setter
+    def package_query_string(self, package_query_string):
+        """Sets the package_query_string of this OrganizationPackageLicensePolicy.
+
+
+        :param package_query_string: The package_query_string of this OrganizationPackageLicensePolicy.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                package_query_string is not None and len(package_query_string) < 1):
+            raise ValueError("Invalid value for `package_query_string`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._package_query_string = package_query_string
 
     @property
     def slug_perm(self):

@@ -81,6 +81,8 @@ from cloudsmith_api.models.go_package_upload import GoPackageUpload
 from cloudsmith_api.models.go_package_upload_request import GoPackageUploadRequest
 from cloudsmith_api.models.helm_package_upload import HelmPackageUpload
 from cloudsmith_api.models.helm_package_upload_request import HelmPackageUploadRequest
+from cloudsmith_api.models.hex_package_upload import HexPackageUpload
+from cloudsmith_api.models.hex_package_upload_request import HexPackageUploadRequest
 from cloudsmith_api.models.history import History
 from cloudsmith_api.models.history_fieldset import HistoryFieldset
 from cloudsmith_api.models.history_fieldset_raw import HistoryFieldsetRaw

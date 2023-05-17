@@ -263,51 +263,51 @@ class VulnerabilitiesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def vulnerabilities_read(self, owner, repo, package, scan_id, **kwargs):  # noqa: E501
-        """Returns a Scan Result.  # noqa: E501
+    def vulnerabilities_read(self, owner, repo, package, identifier, **kwargs):  # noqa: E501
+        """Get a scan result.  # noqa: E501
 
-        Returns a Scan Result.  # noqa: E501
+        Get a scan result.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.vulnerabilities_read(owner, repo, package, scan_id, async_req=True)
+        >>> thread = api.vulnerabilities_read(owner, repo, package, identifier, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str owner: (required)
         :param str repo: (required)
         :param str package: (required)
-        :param str scan_id: (required)
+        :param str identifier: (required)
         :return: VulnerabilityScanResults
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.vulnerabilities_read_with_http_info(owner, repo, package, scan_id, **kwargs)  # noqa: E501
+            return self.vulnerabilities_read_with_http_info(owner, repo, package, identifier, **kwargs)  # noqa: E501
         else:
-            (data) = self.vulnerabilities_read_with_http_info(owner, repo, package, scan_id, **kwargs)  # noqa: E501
+            (data) = self.vulnerabilities_read_with_http_info(owner, repo, package, identifier, **kwargs)  # noqa: E501
             return data
 
-    def vulnerabilities_read_with_http_info(self, owner, repo, package, scan_id, **kwargs):  # noqa: E501
-        """Returns a Scan Result.  # noqa: E501
+    def vulnerabilities_read_with_http_info(self, owner, repo, package, identifier, **kwargs):  # noqa: E501
+        """Get a scan result.  # noqa: E501
 
-        Returns a Scan Result.  # noqa: E501
+        Get a scan result.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.vulnerabilities_read_with_http_info(owner, repo, package, scan_id, async_req=True)
+        >>> thread = api.vulnerabilities_read_with_http_info(owner, repo, package, identifier, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str owner: (required)
         :param str repo: (required)
         :param str package: (required)
-        :param str scan_id: (required)
+        :param str identifier: (required)
         :return: VulnerabilityScanResults
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'package', 'scan_id']  # noqa: E501
+        all_params = ['owner', 'repo', 'package', 'identifier']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -334,10 +334,10 @@ class VulnerabilitiesApi(object):
         if self.api_client.client_side_validation and ('package' not in params or
                                                        params['package'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `package` when calling `vulnerabilities_read`")  # noqa: E501
-        # verify the required parameter 'scan_id' is set
-        if self.api_client.client_side_validation and ('scan_id' not in params or
-                                                       params['scan_id'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `scan_id` when calling `vulnerabilities_read`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `vulnerabilities_read`")  # noqa: E501
 
         collection_formats = {}
 
@@ -348,8 +348,8 @@ class VulnerabilitiesApi(object):
             path_params['repo'] = params['repo']  # noqa: E501
         if 'package' in params:
             path_params['package'] = params['package']  # noqa: E501
-        if 'scan_id' in params:
-            path_params['scan_id'] = params['scan_id']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
 
         query_params = []
 
@@ -371,7 +371,7 @@ class VulnerabilitiesApi(object):
         auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/vulnerabilities/{owner}/{repo}/{package}/{scan_id}/', 'GET',
+            '/vulnerabilities/{owner}/{repo}/{package}/{identifier}/', 'GET',
             path_params,
             query_params,
             header_params,
