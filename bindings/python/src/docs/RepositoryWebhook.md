@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **disable_reason** | **int** |  | [optional] 
 **disable_reason_str** | **str** |  | [optional] 
 **events** | **list[str]** |  | 
-**identifier** | **int** |  | [optional] 
+**identifier** | **int** | Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified a webhook request within a repository. | [optional] 
 **is_active** | **bool** | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. | [optional] 
 **is_last_response_bad** | **bool** |  | [optional] 
 **last_response_status** | **int** |  | [optional] 

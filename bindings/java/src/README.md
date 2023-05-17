@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.2</version>
+  <version>2.0.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.2"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.3"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.2.jar`
+* `target/cloudsmith-api-2.0.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -207,6 +207,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadDocker**](docs/PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
 *PackagesApi* | [**packagesUploadGo**](docs/PackagesApi.md#packagesUploadGo) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 *PackagesApi* | [**packagesUploadHelm**](docs/PackagesApi.md#packagesUploadHelm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
+*PackagesApi* | [**packagesUploadHex**](docs/PackagesApi.md#packagesUploadHex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
 *PackagesApi* | [**packagesUploadLuarocks**](docs/PackagesApi.md#packagesUploadLuarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 *PackagesApi* | [**packagesUploadMaven**](docs/PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 *PackagesApi* | [**packagesUploadNpm**](docs/PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
@@ -230,6 +231,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadDocker**](docs/PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
 *PackagesApi* | [**packagesValidateUploadGo**](docs/PackagesApi.md#packagesValidateUploadGo) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 *PackagesApi* | [**packagesValidateUploadHelm**](docs/PackagesApi.md#packagesValidateUploadHelm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
+*PackagesApi* | [**packagesValidateUploadHex**](docs/PackagesApi.md#packagesValidateUploadHex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
 *PackagesApi* | [**packagesValidateUploadLuarocks**](docs/PackagesApi.md#packagesValidateUploadLuarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 *PackagesApi* | [**packagesValidateUploadMaven**](docs/PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 *PackagesApi* | [**packagesValidateUploadNpm**](docs/PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
@@ -275,7 +277,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
 *VulnerabilitiesApi* | [**vulnerabilitiesNamespaceList**](docs/VulnerabilitiesApi.md#vulnerabilitiesNamespaceList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
 *VulnerabilitiesApi* | [**vulnerabilitiesPackageList**](docs/VulnerabilitiesApi.md#vulnerabilitiesPackageList) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
-*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
+*VulnerabilitiesApi* | [**vulnerabilitiesRead**](docs/VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{identifier}/ | Get a scan result.
 *VulnerabilitiesApi* | [**vulnerabilitiesRepoList**](docs/VulnerabilitiesApi.md#vulnerabilitiesRepoList) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
 *WebhooksApi* | [**webhooksCreate**](docs/WebhooksApi.md#webhooksCreate) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
 *WebhooksApi* | [**webhooksDelete**](docs/WebhooksApi.md#webhooksDelete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
@@ -327,6 +329,8 @@ Class | Method | HTTP request | Description
  - [GoPackageUploadRequest](docs/GoPackageUploadRequest.md)
  - [HelmPackageUpload](docs/HelmPackageUpload.md)
  - [HelmPackageUploadRequest](docs/HelmPackageUploadRequest.md)
+ - [HexPackageUpload](docs/HexPackageUpload.md)
+ - [HexPackageUploadRequest](docs/HexPackageUploadRequest.md)
  - [History](docs/History.md)
  - [HistoryFieldset](docs/HistoryFieldset.md)
  - [HistoryFieldsetRaw](docs/HistoryFieldsetRaw.md)

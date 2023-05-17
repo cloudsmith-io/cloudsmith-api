@@ -533,6 +533,7 @@ class RepositoryTokenRefresh(object):
     def identifier(self):
         """Gets the identifier of this RepositoryTokenRefresh.
 
+        Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified an entitlement within a repository.
 
         :return: The identifier of this RepositoryTokenRefresh.
         :rtype: int
@@ -543,6 +544,7 @@ class RepositoryTokenRefresh(object):
     def identifier(self, identifier):
         """Sets the identifier of this RepositoryTokenRefresh.
 
+        Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified an entitlement within a repository.
 
         :param identifier: The identifier of this RepositoryTokenRefresh.
         :type: int

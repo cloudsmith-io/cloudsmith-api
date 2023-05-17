@@ -73,9 +73,9 @@ public class VulnerabilitiesApiTest {
     }
     
     /**
-     * Returns a Scan Result.
+     * Get a scan result.
      *
-     * Returns a Scan Result.
+     * Get a scan result.
      *
      * @throws Exception
      *          if the Api call fails
@@ -85,8 +85,8 @@ public class VulnerabilitiesApiTest {
         String owner = null;
         String repo = null;
         String _package = null;
-        String scanId = null;
-        VulnerabilityScanResults response = api.vulnerabilitiesRead(owner, repo, _package, scanId);
+        String identifier = null;
+        VulnerabilityScanResults response = api.vulnerabilitiesRead(owner, repo, _package, identifier);
 
         // TODO: test validations
     }

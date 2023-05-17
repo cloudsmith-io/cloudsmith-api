@@ -44,6 +44,7 @@ class RepositoryToken
 
   attr_accessor :has_limits
 
+  # Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified an entitlement within a repository.
   attr_accessor :identifier
 
   # If enabled, the token will allow downloads based on configured restrictions (if any).

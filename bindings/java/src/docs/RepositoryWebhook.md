@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **disableReason** | **java.math.BigInteger** |  |  [optional]
 **disableReasonStr** | **String** |  |  [optional]
 **events** | [**List&lt;EventsEnum&gt;**](#List&lt;EventsEnum&gt;) |  | 
-**identifier** | **java.math.BigInteger** |  |  [optional]
+**identifier** | **java.math.BigInteger** | Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified a webhook request within a repository. |  [optional]
 **isActive** | **Boolean** | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |  [optional]
 **isLastResponseBad** | **Boolean** |  |  [optional]
 **lastResponseStatus** | **java.math.BigInteger** |  |  [optional]

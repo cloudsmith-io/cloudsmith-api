@@ -37,6 +37,7 @@ class OrganizationPackageLicensePolicyRequest(object):
         'description': 'str',
         'name': 'str',
         'on_violation_quarantine': 'bool',
+        'package_query_string': 'str',
         'spdx_identifiers': 'list[str]'
     }
 
@@ -45,10 +46,11 @@ class OrganizationPackageLicensePolicyRequest(object):
         'description': 'description',
         'name': 'name',
         'on_violation_quarantine': 'on_violation_quarantine',
+        'package_query_string': 'package_query_string',
         'spdx_identifiers': 'spdx_identifiers'
     }
 
-    def __init__(self, allow_unknown_licenses=None, description=None, name=None, on_violation_quarantine=None, spdx_identifiers=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_unknown_licenses=None, description=None, name=None, on_violation_quarantine=None, package_query_string=None, spdx_identifiers=None, _configuration=None):  # noqa: E501
         """OrganizationPackageLicensePolicyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class OrganizationPackageLicensePolicyRequest(object):
         self._description = None
         self._name = None
         self._on_violation_quarantine = None
+        self._package_query_string = None
         self._spdx_identifiers = None
         self.discriminator = None
 
@@ -68,6 +71,8 @@ class OrganizationPackageLicensePolicyRequest(object):
         self.name = name
         if on_violation_quarantine is not None:
             self.on_violation_quarantine = on_violation_quarantine
+        if package_query_string is not None:
+            self.package_query_string = package_query_string
         self.spdx_identifiers = spdx_identifiers
 
     @property
@@ -167,6 +172,30 @@ class OrganizationPackageLicensePolicyRequest(object):
         """
 
         self._on_violation_quarantine = on_violation_quarantine
+
+    @property
+    def package_query_string(self):
+        """Gets the package_query_string of this OrganizationPackageLicensePolicyRequest.
+
+
+        :return: The package_query_string of this OrganizationPackageLicensePolicyRequest.
+        :rtype: str
+        """
+        return self._package_query_string
+
+    @package_query_string.setter
+    def package_query_string(self, package_query_string):
+        """Sets the package_query_string of this OrganizationPackageLicensePolicyRequest.
+
+
+        :param package_query_string: The package_query_string of this OrganizationPackageLicensePolicyRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                package_query_string is not None and len(package_query_string) < 1):
+            raise ValueError("Invalid value for `package_query_string`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._package_query_string = package_query_string
 
     @property
     def spdx_identifiers(self):

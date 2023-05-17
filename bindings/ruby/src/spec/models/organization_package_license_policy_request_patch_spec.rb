@@ -56,6 +56,12 @@ describe 'OrganizationPackageLicensePolicyRequestPatch' do
     end
   end
 
+  describe 'test attribute "package_query_string"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "spdx_identifiers"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **eulaAcceptedFrom** | **String** |  |  [optional]
 **eulaRequired** | **Boolean** | If checked, a EULA acceptance is required for this token. |  [optional]
 **hasLimits** | **Boolean** |  |  [optional]
-**identifier** | **java.math.BigInteger** |  |  [optional]
+**identifier** | **java.math.BigInteger** | Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified an entitlement within a repository. |  [optional]
 **isActive** | **Boolean** | If enabled, the token will allow downloads based on configured restrictions (if any). |  [optional]
 **isLimited** | **Boolean** |  |  [optional]
 **limitBandwidth** | **java.math.BigInteger** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  |  [optional]

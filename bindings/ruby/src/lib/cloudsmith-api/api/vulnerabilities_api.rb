@@ -151,28 +151,28 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Returns a Scan Result.
-    # Returns a Scan Result.
+    # Get a scan result.
+    # Get a scan result.
     # @param owner 
     # @param repo 
     # @param package 
-    # @param scan_id 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [VulnerabilityScanResults]
-    def vulnerabilities_read(owner, repo, package, scan_id, opts = {})
-      data, _status_code, _headers = vulnerabilities_read_with_http_info(owner, repo, package, scan_id, opts)
+    def vulnerabilities_read(owner, repo, package, identifier, opts = {})
+      data, _status_code, _headers = vulnerabilities_read_with_http_info(owner, repo, package, identifier, opts)
       data
     end
 
-    # Returns a Scan Result.
-    # Returns a Scan Result.
+    # Get a scan result.
+    # Get a scan result.
     # @param owner 
     # @param repo 
     # @param package 
-    # @param scan_id 
+    # @param identifier 
     # @param [Hash] opts the optional parameters
     # @return [Array<(VulnerabilityScanResults, Fixnum, Hash)>] VulnerabilityScanResults data, response status code and response headers
-    def vulnerabilities_read_with_http_info(owner, repo, package, scan_id, opts = {})
+    def vulnerabilities_read_with_http_info(owner, repo, package, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VulnerabilitiesApi.vulnerabilities_read ...'
       end
@@ -188,12 +188,12 @@ module CloudsmithApi
       if @api_client.config.client_side_validation && package.nil?
         fail ArgumentError, "Missing the required parameter 'package' when calling VulnerabilitiesApi.vulnerabilities_read"
       end
-      # verify the required parameter 'scan_id' is set
-      if @api_client.config.client_side_validation && scan_id.nil?
-        fail ArgumentError, "Missing the required parameter 'scan_id' when calling VulnerabilitiesApi.vulnerabilities_read"
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling VulnerabilitiesApi.vulnerabilities_read"
       end
       # resource path
-      local_var_path = '/vulnerabilities/{owner}/{repo}/{package}/{scan_id}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'package' + '}', package.to_s).sub('{' + 'scan_id' + '}', scan_id.to_s)
+      local_var_path = '/vulnerabilities/{owner}/{repo}/{package}/{identifier}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'package' + '}', package.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
 
       # query parameters
       query_params = {}

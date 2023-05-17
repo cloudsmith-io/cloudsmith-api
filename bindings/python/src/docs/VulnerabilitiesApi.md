@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**vulnerabilities_namespace_list**](VulnerabilitiesApi.md#vulnerabilities_namespace_list) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
 [**vulnerabilities_package_list**](VulnerabilitiesApi.md#vulnerabilities_package_list) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
-[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
+[**vulnerabilities_read**](VulnerabilitiesApi.md#vulnerabilities_read) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{identifier}/ | Get a scan result.
 [**vulnerabilities_repo_list**](VulnerabilitiesApi.md#vulnerabilities_repo_list) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
 
 
@@ -131,11 +131,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vulnerabilities_read**
-> VulnerabilityScanResults vulnerabilities_read(owner, repo, package, scan_id)
+> VulnerabilityScanResults vulnerabilities_read(owner, repo, package, identifier)
 
-Returns a Scan Result.
+Get a scan result.
 
-Returns a Scan Result.
+Get a scan result.
 
 ### Example
 ```python
@@ -156,11 +156,11 @@ api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(config
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 package = 'package_example' # str | 
-scan_id = 'scan_id_example' # str | 
+identifier = 'identifier_example' # str | 
 
 try:
-    # Returns a Scan Result.
-    api_response = api_instance.vulnerabilities_read(owner, repo, package, scan_id)
+    # Get a scan result.
+    api_response = api_instance.vulnerabilities_read(owner, repo, package, identifier)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling VulnerabilitiesApi->vulnerabilities_read: %s\n" % e)
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **package** | **str**|  | 
- **scan_id** | **str**|  | 
+ **identifier** | **str**|  | 
 
 ### Return type
 

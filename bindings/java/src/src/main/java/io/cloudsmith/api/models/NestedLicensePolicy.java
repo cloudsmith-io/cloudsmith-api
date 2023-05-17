@@ -52,6 +52,9 @@ public class NestedLicensePolicy implements Serializable {
   @SerializedName("on_violation_quarantine")
   private Boolean onViolationQuarantine = null;
 
+  @SerializedName("package_query_string")
+  private String packageQueryString = null;
+
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
@@ -108,6 +111,15 @@ public class NestedLicensePolicy implements Serializable {
   @ApiModelProperty(value = "")
   public Boolean isOnViolationQuarantine() {
     return onViolationQuarantine;
+  }
+
+   /**
+   * Get packageQueryString
+   * @return packageQueryString
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "")
+  public String getPackageQueryString() {
+    return packageQueryString;
   }
 
    /**
@@ -177,6 +189,7 @@ public class NestedLicensePolicy implements Serializable {
         Objects.equals(this.description, nestedLicensePolicy.description) &&
         Objects.equals(this.name, nestedLicensePolicy.name) &&
         Objects.equals(this.onViolationQuarantine, nestedLicensePolicy.onViolationQuarantine) &&
+        Objects.equals(this.packageQueryString, nestedLicensePolicy.packageQueryString) &&
         Objects.equals(this.slugPerm, nestedLicensePolicy.slugPerm) &&
         Objects.equals(this.spdxIdentifiers, nestedLicensePolicy.spdxIdentifiers) &&
         Objects.equals(this.updatedAt, nestedLicensePolicy.updatedAt) &&
@@ -185,7 +198,7 @@ public class NestedLicensePolicy implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUnknownLicenses, createdAt, description, name, onViolationQuarantine, slugPerm, spdxIdentifiers, updatedAt, url);
+    return Objects.hash(allowUnknownLicenses, createdAt, description, name, onViolationQuarantine, packageQueryString, slugPerm, spdxIdentifiers, updatedAt, url);
   }
 
 
@@ -199,6 +212,7 @@ public class NestedLicensePolicy implements Serializable {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    onViolationQuarantine: ").append(toIndentedString(onViolationQuarantine)).append("\n");
+    sb.append("    packageQueryString: ").append(toIndentedString(packageQueryString)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    spdxIdentifiers: ").append(toIndentedString(spdxIdentifiers)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

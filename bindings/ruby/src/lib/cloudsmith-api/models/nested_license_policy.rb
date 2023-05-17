@@ -24,6 +24,8 @@ class NestedLicensePolicy
 
   attr_accessor :on_violation_quarantine
 
+  attr_accessor :package_query_string
+
   attr_accessor :slug_perm
 
   attr_accessor :spdx_identifiers
@@ -40,6 +42,7 @@ class NestedLicensePolicy
       :'description' => :'description',
       :'name' => :'name',
       :'on_violation_quarantine' => :'on_violation_quarantine',
+      :'package_query_string' => :'package_query_string',
       :'slug_perm' => :'slug_perm',
       :'spdx_identifiers' => :'spdx_identifiers',
       :'updated_at' => :'updated_at',
@@ -55,6 +58,7 @@ class NestedLicensePolicy
       :'description' => :'String',
       :'name' => :'String',
       :'on_violation_quarantine' => :'BOOLEAN',
+      :'package_query_string' => :'String',
       :'slug_perm' => :'String',
       :'spdx_identifiers' => :'Array<String>',
       :'updated_at' => :'DateTime',
@@ -88,6 +92,10 @@ class NestedLicensePolicy
 
     if attributes.has_key?(:'on_violation_quarantine')
       self.on_violation_quarantine = attributes[:'on_violation_quarantine']
+    end
+
+    if attributes.has_key?(:'package_query_string')
+      self.package_query_string = attributes[:'package_query_string']
     end
 
     if attributes.has_key?(:'slug_perm')
@@ -137,6 +145,7 @@ class NestedLicensePolicy
         description == o.description &&
         name == o.name &&
         on_violation_quarantine == o.on_violation_quarantine &&
+        package_query_string == o.package_query_string &&
         slug_perm == o.slug_perm &&
         spdx_identifiers == o.spdx_identifiers &&
         updated_at == o.updated_at &&
@@ -152,7 +161,7 @@ class NestedLicensePolicy
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [allow_unknown_licenses, created_at, description, name, on_violation_quarantine, slug_perm, spdx_identifiers, updated_at, url].hash
+    [allow_unknown_licenses, created_at, description, name, on_violation_quarantine, package_query_string, slug_perm, spdx_identifiers, updated_at, url].hash
   end
 
     # Builds the object from hash

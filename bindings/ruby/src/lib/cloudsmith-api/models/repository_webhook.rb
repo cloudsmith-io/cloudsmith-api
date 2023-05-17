@@ -26,6 +26,7 @@ class RepositoryWebhook
 
   attr_accessor :events
 
+  # Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.
   attr_accessor :identifier
 
   # If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.

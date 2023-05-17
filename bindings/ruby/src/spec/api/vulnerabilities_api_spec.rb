@@ -63,12 +63,12 @@ describe 'VulnerabilitiesApi' do
   end
 
   # unit tests for vulnerabilities_read
-  # Returns a Scan Result.
-  # Returns a Scan Result.
+  # Get a scan result.
+  # Get a scan result.
   # @param owner 
   # @param repo 
   # @param package 
-  # @param scan_id 
+  # @param identifier 
   # @param [Hash] opts the optional parameters
   # @return [VulnerabilityScanResults]
   describe 'vulnerabilities_read test' do

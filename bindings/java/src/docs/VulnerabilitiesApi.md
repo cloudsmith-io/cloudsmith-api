@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**vulnerabilitiesNamespaceList**](VulnerabilitiesApi.md#vulnerabilitiesNamespaceList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
 [**vulnerabilitiesPackageList**](VulnerabilitiesApi.md#vulnerabilitiesPackageList) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
-[**vulnerabilitiesRead**](VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{scan_id}/ | Returns a Scan Result.
+[**vulnerabilitiesRead**](VulnerabilitiesApi.md#vulnerabilitiesRead) | **GET** /vulnerabilities/{owner}/{repo}/{package}/{identifier}/ | Get a scan result.
 [**vulnerabilitiesRepoList**](VulnerabilitiesApi.md#vulnerabilitiesRepoList) | **GET** /vulnerabilities/{owner}/{repo}/ | Lists scan results for a specific repository.
 
 
@@ -134,11 +134,11 @@ Name | Type | Description  | Notes
 
 <a name="vulnerabilitiesRead"></a>
 # **vulnerabilitiesRead**
-> VulnerabilityScanResults vulnerabilitiesRead(owner, repo, _package, scanId)
+> VulnerabilityScanResults vulnerabilitiesRead(owner, repo, _package, identifier)
 
-Returns a Scan Result.
+Get a scan result.
 
-Returns a Scan Result.
+Get a scan result.
 
 ### Example
 ```java
@@ -161,9 +161,9 @@ VulnerabilitiesApi apiInstance = new VulnerabilitiesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String _package = "_package_example"; // String | 
-String scanId = "scanId_example"; // String | 
+String identifier = "identifier_example"; // String | 
 try {
-    VulnerabilityScanResults result = apiInstance.vulnerabilitiesRead(owner, repo, _package, scanId);
+    VulnerabilityScanResults result = apiInstance.vulnerabilitiesRead(owner, repo, _package, identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling VulnerabilitiesApi#vulnerabilitiesRead");
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **_package** | **String**|  |
- **scanId** | **String**|  |
+ **identifier** | **String**|  |
 
 ### Return type
 

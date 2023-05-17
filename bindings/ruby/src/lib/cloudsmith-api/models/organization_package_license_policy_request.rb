@@ -22,6 +22,8 @@ class OrganizationPackageLicensePolicyRequest
 
   attr_accessor :on_violation_quarantine
 
+  attr_accessor :package_query_string
+
   attr_accessor :spdx_identifiers
 
   # Attribute mapping from ruby-style variable name to JSON key.
@@ -31,6 +33,7 @@ class OrganizationPackageLicensePolicyRequest
       :'description' => :'description',
       :'name' => :'name',
       :'on_violation_quarantine' => :'on_violation_quarantine',
+      :'package_query_string' => :'package_query_string',
       :'spdx_identifiers' => :'spdx_identifiers'
     }
   end
@@ -42,6 +45,7 @@ class OrganizationPackageLicensePolicyRequest
       :'description' => :'String',
       :'name' => :'String',
       :'on_violation_quarantine' => :'BOOLEAN',
+      :'package_query_string' => :'String',
       :'spdx_identifiers' => :'Array<String>'
     }
   end
@@ -68,6 +72,10 @@ class OrganizationPackageLicensePolicyRequest
 
     if attributes.has_key?(:'on_violation_quarantine')
       self.on_violation_quarantine = attributes[:'on_violation_quarantine']
+    end
+
+    if attributes.has_key?(:'package_query_string')
+      self.package_query_string = attributes[:'package_query_string']
     end
 
     if attributes.has_key?(:'spdx_identifiers')
@@ -109,6 +117,7 @@ class OrganizationPackageLicensePolicyRequest
         description == o.description &&
         name == o.name &&
         on_violation_quarantine == o.on_violation_quarantine &&
+        package_query_string == o.package_query_string &&
         spdx_identifiers == o.spdx_identifiers
   end
 
@@ -121,7 +130,7 @@ class OrganizationPackageLicensePolicyRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [allow_unknown_licenses, description, name, on_violation_quarantine, spdx_identifiers].hash
+    [allow_unknown_licenses, description, name, on_violation_quarantine, package_query_string, spdx_identifiers].hash
   end
 
     # Builds the object from hash

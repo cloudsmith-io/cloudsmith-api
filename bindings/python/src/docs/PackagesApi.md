@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**packages_upload_docker**](PackagesApi.md#packages_upload_docker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
 [**packages_upload_go**](PackagesApi.md#packages_upload_go) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 [**packages_upload_helm**](PackagesApi.md#packages_upload_helm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
+[**packages_upload_hex**](PackagesApi.md#packages_upload_hex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
 [**packages_upload_luarocks**](PackagesApi.md#packages_upload_luarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packages_upload_npm**](PackagesApi.md#packages_upload_npm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
@@ -50,6 +51,7 @@ Method | HTTP request | Description
 [**packages_validate_upload_docker**](PackagesApi.md#packages_validate_upload_docker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
 [**packages_validate_upload_go**](PackagesApi.md#packages_validate_upload_go) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 [**packages_validate_upload_helm**](PackagesApi.md#packages_validate_upload_helm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
+[**packages_validate_upload_hex**](PackagesApi.md#packages_validate_upload_hex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
 [**packages_validate_upload_luarocks**](PackagesApi.md#packages_validate_upload_luarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 [**packages_validate_upload_maven**](PackagesApi.md#packages_validate_upload_maven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packages_validate_upload_npm**](PackagesApi.md#packages_validate_upload_npm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
@@ -1410,6 +1412,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **packages_upload_hex**
+> HexPackageUpload packages_upload_hex(owner, repo, data=data)
+
+Create a new Hex package
+
+Create a new Hex package
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.HexPackageUploadRequest() # HexPackageUploadRequest |  (optional)
+
+try:
+    # Create a new Hex package
+    api_response = api_instance.packages_upload_hex(owner, repo, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_upload_hex: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**HexPackageUploadRequest**](HexPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+[**HexPackageUpload**](HexPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **packages_upload_luarocks**
 > LuarocksPackageUpload packages_upload_luarocks(owner, repo, data=data)
 
@@ -2716,6 +2776,63 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **data** | [**HelmPackageUploadRequest**](HelmPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_validate_upload_hex**
+> packages_validate_upload_hex(owner, repo, data=data)
+
+Validate parameters for create Hex package
+
+Validate parameters for create Hex package
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.HexPackageUploadRequest() # HexPackageUploadRequest |  (optional)
+
+try:
+    # Validate parameters for create Hex package
+    api_instance.packages_validate_upload_hex(owner, repo, data=data)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_validate_upload_hex: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**HexPackageUploadRequest**](HexPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 

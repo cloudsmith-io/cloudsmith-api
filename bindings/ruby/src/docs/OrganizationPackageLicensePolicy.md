@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
 **on_violation_quarantine** | **BOOLEAN** |  | [optional] 
+**package_query_string** | **String** |  | [optional] 
 **slug_perm** | **String** |  | [optional] 
 **spdx_identifiers** | **Array&lt;String&gt;** |  | 
 **updated_at** | **DateTime** |  | [optional] 

@@ -38,6 +38,8 @@ import io.cloudsmith.api.models.GoPackageUpload;
 import io.cloudsmith.api.models.GoPackageUploadRequest;
 import io.cloudsmith.api.models.HelmPackageUpload;
 import io.cloudsmith.api.models.HelmPackageUploadRequest;
+import io.cloudsmith.api.models.HexPackageUpload;
+import io.cloudsmith.api.models.HexPackageUploadRequest;
 import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
@@ -511,6 +513,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new Hex package
+     *
+     * Create a new Hex package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadHexTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        HexPackageUploadRequest data = null;
+        HexPackageUpload response = api.packagesUploadHex(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new LuaRocks package
      *
      * Create a new LuaRocks package
@@ -920,6 +940,24 @@ public class PackagesApiTest {
         String repo = null;
         HelmPackageUploadRequest data = null;
         api.packagesValidateUploadHelm(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Hex package
+     *
+     * Validate parameters for create Hex package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadHexTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        HexPackageUploadRequest data = null;
+        api.packagesValidateUploadHex(owner, repo, data);
 
         // TODO: test validations
     }

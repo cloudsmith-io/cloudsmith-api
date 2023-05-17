@@ -46,7 +46,7 @@ class TestVulnerabilitiesApi(unittest.TestCase):
     def test_vulnerabilities_read(self):
         """Test case for vulnerabilities_read
 
-        Returns a Scan Result.  # noqa: E501
+        Get a scan result.  # noqa: E501
         """
         pass
 
