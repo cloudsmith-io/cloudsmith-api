@@ -183,6 +183,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packages_upload_raw**](docs/PackagesApi.md#packages_upload_raw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 *PackagesApi* | [**packages_upload_rpm**](docs/PackagesApi.md#packages_upload_rpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 *PackagesApi* | [**packages_upload_ruby**](docs/PackagesApi.md#packages_upload_ruby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
+*PackagesApi* | [**packages_upload_swift**](docs/PackagesApi.md#packages_upload_swift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 *PackagesApi* | [**packages_upload_terraform**](docs/PackagesApi.md#packages_upload_terraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 *PackagesApi* | [**packages_upload_vagrant**](docs/PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
 *PackagesApi* | [**packages_validate_upload_alpine**](docs/PackagesApi.md#packages_validate_upload_alpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
@@ -207,6 +208,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packages_validate_upload_raw**](docs/PackagesApi.md#packages_validate_upload_raw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 *PackagesApi* | [**packages_validate_upload_rpm**](docs/PackagesApi.md#packages_validate_upload_rpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 *PackagesApi* | [**packages_validate_upload_ruby**](docs/PackagesApi.md#packages_validate_upload_ruby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
+*PackagesApi* | [**packages_validate_upload_swift**](docs/PackagesApi.md#packages_validate_upload_swift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 *PackagesApi* | [**packages_validate_upload_terraform**](docs/PackagesApi.md#packages_validate_upload_terraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 *PackagesApi* | [**packages_validate_upload_vagrant**](docs/PackagesApi.md#packages_validate_upload_vagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
 *QuotaApi* | [**quota_history_read**](docs/QuotaApi.md#quota_history_read) | **GET** /quota/history/{owner}/ | Quota history for a given namespace.
@@ -415,6 +417,8 @@ Class | Method | HTTP request | Description
  - [StorageRegion](docs/StorageRegion.md)
  - [StorageUsage](docs/StorageUsage.md)
  - [StorageUsageRaw](docs/StorageUsageRaw.md)
+ - [SwiftPackageUpload](docs/SwiftPackageUpload.md)
+ - [SwiftPackageUploadRequest](docs/SwiftPackageUploadRequest.md)
  - [Tags](docs/Tags.md)
  - [TerraformPackageUpload](docs/TerraformPackageUpload.md)
  - [TerraformPackageUploadRequest](docs/TerraformPackageUploadRequest.md)

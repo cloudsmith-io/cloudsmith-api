@@ -13,12 +13,9 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
-class HelmPackageUploadRequest
+class SwiftPackageUploadRequest
   # The primary file for the package.
   attr_accessor :package_file
-
-  # The provenance file containing the signature for the chart. If one is not provided, it will be generated automatically.
-  attr_accessor :provenance_file
 
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
@@ -26,13 +23,16 @@ class HelmPackageUploadRequest
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
 
+  # The raw version for this package.
+  attr_accessor :version
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'package_file' => :'package_file',
-      :'provenance_file' => :'provenance_file',
       :'republish' => :'republish',
-      :'tags' => :'tags'
+      :'tags' => :'tags',
+      :'version' => :'version'
     }
   end
 
@@ -40,9 +40,9 @@ class HelmPackageUploadRequest
   def self.swagger_types
     {
       :'package_file' => :'String',
-      :'provenance_file' => :'String',
       :'republish' => :'BOOLEAN',
-      :'tags' => :'String'
+      :'tags' => :'String',
+      :'version' => :'String'
     }
   end
 
@@ -58,16 +58,16 @@ class HelmPackageUploadRequest
       self.package_file = attributes[:'package_file']
     end
 
-    if attributes.has_key?(:'provenance_file')
-      self.provenance_file = attributes[:'provenance_file']
-    end
-
     if attributes.has_key?(:'republish')
       self.republish = attributes[:'republish']
     end
 
     if attributes.has_key?(:'tags')
       self.tags = attributes[:'tags']
+    end
+
+    if attributes.has_key?(:'version')
+      self.version = attributes[:'version']
     end
   end
 
@@ -79,6 +79,10 @@ class HelmPackageUploadRequest
       invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
+    if @version.nil?
+      invalid_properties.push('invalid value for "version", version cannot be nil.')
+    end
+
     invalid_properties
   end
 
@@ -86,6 +90,7 @@ class HelmPackageUploadRequest
   # @return true if the model is valid
   def valid?
     return false if @package_file.nil?
+    return false if @version.nil?
     true
   end
 
@@ -95,9 +100,9 @@ class HelmPackageUploadRequest
     return true if self.equal?(o)
     self.class == o.class &&
         package_file == o.package_file &&
-        provenance_file == o.provenance_file &&
         republish == o.republish &&
-        tags == o.tags
+        tags == o.tags &&
+        version == o.version
   end
 
   # @see the `==` method
@@ -109,7 +114,7 @@ class HelmPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [package_file, provenance_file, republish, tags].hash
+    [package_file, republish, tags, version].hash
   end
 
     # Builds the object from hash
