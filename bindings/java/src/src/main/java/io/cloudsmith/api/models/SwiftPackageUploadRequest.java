@@ -28,17 +28,14 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * HelmPackageUploadRequest
+ * SwiftPackageUploadRequest
  */
 
-public class HelmPackageUploadRequest implements Serializable {
+public class SwiftPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("package_file")
   private String packageFile = null;
-
-  @SerializedName("provenance_file")
-  private String provenanceFile = null;
 
   @SerializedName("republish")
   private Boolean republish = null;
@@ -46,7 +43,10 @@ public class HelmPackageUploadRequest implements Serializable {
   @SerializedName("tags")
   private String tags = null;
 
-  public HelmPackageUploadRequest packageFile(String packageFile) {
+  @SerializedName("version")
+  private String version = null;
+
+  public SwiftPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -65,25 +65,7 @@ public class HelmPackageUploadRequest implements Serializable {
     this.packageFile = packageFile;
   }
 
-  public HelmPackageUploadRequest provenanceFile(String provenanceFile) {
-    this.provenanceFile = provenanceFile;
-    return this;
-  }
-
-   /**
-   * The provenance file containing the signature for the chart. If one is not provided, it will be generated automatically.
-   * @return provenanceFile
-  **/
- @Size(min=1)  @ApiModelProperty(value = "The provenance file containing the signature for the chart. If one is not provided, it will be generated automatically.")
-  public String getProvenanceFile() {
-    return provenanceFile;
-  }
-
-  public void setProvenanceFile(String provenanceFile) {
-    this.provenanceFile = provenanceFile;
-  }
-
-  public HelmPackageUploadRequest republish(Boolean republish) {
+  public SwiftPackageUploadRequest republish(Boolean republish) {
     this.republish = republish;
     return this;
   }
@@ -101,7 +83,7 @@ public class HelmPackageUploadRequest implements Serializable {
     this.republish = republish;
   }
 
-  public HelmPackageUploadRequest tags(String tags) {
+  public SwiftPackageUploadRequest tags(String tags) {
     this.tags = tags;
     return this;
   }
@@ -119,6 +101,25 @@ public class HelmPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public SwiftPackageUploadRequest version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The raw version for this package.
+   * @return version
+  **/
+  @NotNull
+ @Size(max=128)  @ApiModelProperty(required = true, value = "The raw version for this package.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,28 +129,28 @@ public class HelmPackageUploadRequest implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HelmPackageUploadRequest helmPackageUploadRequest = (HelmPackageUploadRequest) o;
-    return Objects.equals(this.packageFile, helmPackageUploadRequest.packageFile) &&
-        Objects.equals(this.provenanceFile, helmPackageUploadRequest.provenanceFile) &&
-        Objects.equals(this.republish, helmPackageUploadRequest.republish) &&
-        Objects.equals(this.tags, helmPackageUploadRequest.tags);
+    SwiftPackageUploadRequest swiftPackageUploadRequest = (SwiftPackageUploadRequest) o;
+    return Objects.equals(this.packageFile, swiftPackageUploadRequest.packageFile) &&
+        Objects.equals(this.republish, swiftPackageUploadRequest.republish) &&
+        Objects.equals(this.tags, swiftPackageUploadRequest.tags) &&
+        Objects.equals(this.version, swiftPackageUploadRequest.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, provenanceFile, republish, tags);
+    return Objects.hash(packageFile, republish, tags, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HelmPackageUploadRequest {\n");
+    sb.append("class SwiftPackageUploadRequest {\n");
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
-    sb.append("    provenanceFile: ").append(toIndentedString(provenanceFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

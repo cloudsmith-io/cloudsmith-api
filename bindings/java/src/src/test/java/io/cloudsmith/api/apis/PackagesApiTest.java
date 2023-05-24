@@ -69,6 +69,8 @@ import io.cloudsmith.api.models.RpmPackageUpload;
 import io.cloudsmith.api.models.RpmPackageUploadRequest;
 import io.cloudsmith.api.models.RubyPackageUpload;
 import io.cloudsmith.api.models.RubyPackageUploadRequest;
+import io.cloudsmith.api.models.SwiftPackageUpload;
+import io.cloudsmith.api.models.SwiftPackageUploadRequest;
 import io.cloudsmith.api.models.TerraformPackageUpload;
 import io.cloudsmith.api.models.TerraformPackageUploadRequest;
 import io.cloudsmith.api.models.VagrantPackageUpload;
@@ -693,6 +695,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new Swift package
+     *
+     * Create a new Swift package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadSwiftTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        SwiftPackageUploadRequest data = null;
+        SwiftPackageUpload response = api.packagesUploadSwift(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Terraform package
      *
      * Create a new Terraform package
@@ -1120,6 +1140,24 @@ public class PackagesApiTest {
         String repo = null;
         RubyPackageUploadRequest data = null;
         api.packagesValidateUploadRuby(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Swift package
+     *
+     * Validate parameters for create Swift package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadSwiftTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        SwiftPackageUploadRequest data = null;
+        api.packagesValidateUploadSwift(owner, repo, data);
 
         // TODO: test validations
     }

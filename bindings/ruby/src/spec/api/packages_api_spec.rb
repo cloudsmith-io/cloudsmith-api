@@ -501,6 +501,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_swift
+  # Create a new Swift package
+  # Create a new Swift package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [SwiftPackageUploadRequest] :data 
+  # @return [SwiftPackageUpload]
+  describe 'packages_upload_swift test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_terraform
   # Create a new Terraform package
   # Create a new Terraform package
@@ -832,6 +846,20 @@ describe 'PackagesApi' do
   # @option opts [RubyPackageUploadRequest] :data 
   # @return [nil]
   describe 'packages_validate_upload_ruby test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_swift
+  # Validate parameters for create Swift package
+  # Validate parameters for create Swift package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [SwiftPackageUploadRequest] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_swift test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

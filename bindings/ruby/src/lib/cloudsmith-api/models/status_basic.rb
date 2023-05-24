@@ -53,7 +53,7 @@ class StatusBasic
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
     else
-      self.version = '1.263.0'
+      self.version = '1.272.0'
     end
   end
 

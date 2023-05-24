@@ -260,6 +260,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_swift(self):
+        """Test case for packages_upload_swift
+
+        Create a new Swift package  # noqa: E501
+        """
+        pass
+
     def test_packages_upload_terraform(self):
         """Test case for packages_upload_terraform
 
@@ -425,6 +432,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_ruby
 
         Validate parameters for create Ruby package  # noqa: E501
+        """
+        pass
+
+    def test_packages_validate_upload_swift(self):
+        """Test case for packages_validate_upload_swift
+
+        Validate parameters for create Swift package  # noqa: E501
         """
         pass
 
