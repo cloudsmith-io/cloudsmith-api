@@ -35,6 +35,7 @@ class MavenPackageUploadRequest(object):
     swagger_types = {
         'artifact_id': 'str',
         'group_id': 'str',
+        'ivy_file': 'str',
         'javadoc_file': 'str',
         'package_file': 'str',
         'packaging': 'str',
@@ -49,6 +50,7 @@ class MavenPackageUploadRequest(object):
     attribute_map = {
         'artifact_id': 'artifact_id',
         'group_id': 'group_id',
+        'ivy_file': 'ivy_file',
         'javadoc_file': 'javadoc_file',
         'package_file': 'package_file',
         'packaging': 'packaging',
@@ -60,7 +62,7 @@ class MavenPackageUploadRequest(object):
         'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, group_id=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, artifact_id=None, group_id=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
         """MavenPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class MavenPackageUploadRequest(object):
 
         self._artifact_id = None
         self._group_id = None
+        self._ivy_file = None
         self._javadoc_file = None
         self._package_file = None
         self._packaging = None
@@ -83,6 +86,8 @@ class MavenPackageUploadRequest(object):
             self.artifact_id = artifact_id
         if group_id is not None:
             self.group_id = group_id
+        if ivy_file is not None:
+            self.ivy_file = ivy_file
         if javadoc_file is not None:
             self.javadoc_file = javadoc_file
         self.package_file = package_file
@@ -152,6 +157,32 @@ class MavenPackageUploadRequest(object):
             raise ValueError("Invalid value for `group_id`, length must be less than or equal to `2083`")  # noqa: E501
 
         self._group_id = group_id
+
+    @property
+    def ivy_file(self):
+        """Gets the ivy_file of this MavenPackageUploadRequest.
+
+        The ivy file is an XML file describing the dependencies of the project.
+
+        :return: The ivy_file of this MavenPackageUploadRequest.
+        :rtype: str
+        """
+        return self._ivy_file
+
+    @ivy_file.setter
+    def ivy_file(self, ivy_file):
+        """Sets the ivy_file of this MavenPackageUploadRequest.
+
+        The ivy file is an XML file describing the dependencies of the project.
+
+        :param ivy_file: The ivy_file of this MavenPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                ivy_file is not None and len(ivy_file) < 1):
+            raise ValueError("Invalid value for `ivy_file`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._ivy_file = ivy_file
 
     @property
     def javadoc_file(self):

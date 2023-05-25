@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **artifactId** | **String** | The ID of the artifact. |  [optional]
 **groupId** | **String** | Artifact&#39;s group ID. |  [optional]
+**ivyFile** | **String** | The ivy file is an XML file describing the dependencies of the project. |  [optional]
 **javadocFile** | **String** | Adds bundled Java documentation to the Maven package |  [optional]
 **packageFile** | **String** | The primary file for the package. | 
 **packaging** | **String** | Artifact&#39;s Maven packaging type. |  [optional]

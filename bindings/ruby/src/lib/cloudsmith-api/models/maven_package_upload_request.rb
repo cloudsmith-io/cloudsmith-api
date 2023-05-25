@@ -20,6 +20,9 @@ class MavenPackageUploadRequest
   # Artifact's group ID.
   attr_accessor :group_id
 
+  # The ivy file is an XML file describing the dependencies of the project.
+  attr_accessor :ivy_file
+
   # Adds bundled Java documentation to the Maven package
   attr_accessor :javadoc_file
 
@@ -52,6 +55,7 @@ class MavenPackageUploadRequest
     {
       :'artifact_id' => :'artifact_id',
       :'group_id' => :'group_id',
+      :'ivy_file' => :'ivy_file',
       :'javadoc_file' => :'javadoc_file',
       :'package_file' => :'package_file',
       :'packaging' => :'packaging',
@@ -69,6 +73,7 @@ class MavenPackageUploadRequest
     {
       :'artifact_id' => :'String',
       :'group_id' => :'String',
+      :'ivy_file' => :'String',
       :'javadoc_file' => :'String',
       :'package_file' => :'String',
       :'packaging' => :'String',
@@ -95,6 +100,10 @@ class MavenPackageUploadRequest
 
     if attributes.has_key?(:'group_id')
       self.group_id = attributes[:'group_id']
+    end
+
+    if attributes.has_key?(:'ivy_file')
+      self.ivy_file = attributes[:'ivy_file']
     end
 
     if attributes.has_key?(:'javadoc_file')
@@ -159,6 +168,7 @@ class MavenPackageUploadRequest
     self.class == o.class &&
         artifact_id == o.artifact_id &&
         group_id == o.group_id &&
+        ivy_file == o.ivy_file &&
         javadoc_file == o.javadoc_file &&
         package_file == o.package_file &&
         packaging == o.packaging &&
@@ -179,7 +189,7 @@ class MavenPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [artifact_id, group_id, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tags, tests_file, version].hash
+    [artifact_id, group_id, ivy_file, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tags, tests_file, version].hash
   end
 
     # Builds the object from hash
