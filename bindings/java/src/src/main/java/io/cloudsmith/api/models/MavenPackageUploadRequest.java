@@ -40,6 +40,9 @@ public class MavenPackageUploadRequest implements Serializable {
   @SerializedName("group_id")
   private String groupId = null;
 
+  @SerializedName("ivy_file")
+  private String ivyFile = null;
+
   @SerializedName("javadoc_file")
   private String javadocFile = null;
 
@@ -101,6 +104,24 @@ public class MavenPackageUploadRequest implements Serializable {
 
   public void setGroupId(String groupId) {
     this.groupId = groupId;
+  }
+
+  public MavenPackageUploadRequest ivyFile(String ivyFile) {
+    this.ivyFile = ivyFile;
+    return this;
+  }
+
+   /**
+   * The ivy file is an XML file describing the dependencies of the project.
+   * @return ivyFile
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The ivy file is an XML file describing the dependencies of the project.")
+  public String getIvyFile() {
+    return ivyFile;
+  }
+
+  public void setIvyFile(String ivyFile) {
+    this.ivyFile = ivyFile;
   }
 
   public MavenPackageUploadRequest javadocFile(String javadocFile) {
@@ -278,6 +299,7 @@ public class MavenPackageUploadRequest implements Serializable {
     MavenPackageUploadRequest mavenPackageUploadRequest = (MavenPackageUploadRequest) o;
     return Objects.equals(this.artifactId, mavenPackageUploadRequest.artifactId) &&
         Objects.equals(this.groupId, mavenPackageUploadRequest.groupId) &&
+        Objects.equals(this.ivyFile, mavenPackageUploadRequest.ivyFile) &&
         Objects.equals(this.javadocFile, mavenPackageUploadRequest.javadocFile) &&
         Objects.equals(this.packageFile, mavenPackageUploadRequest.packageFile) &&
         Objects.equals(this.packaging, mavenPackageUploadRequest.packaging) &&
@@ -291,7 +313,7 @@ public class MavenPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, groupId, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, tags, testsFile, version);
+    return Objects.hash(artifactId, groupId, ivyFile, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, tags, testsFile, version);
   }
 
 
@@ -302,6 +324,7 @@ public class MavenPackageUploadRequest implements Serializable {
     
     sb.append("    artifactId: ").append(toIndentedString(artifactId)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    ivyFile: ").append(toIndentedString(ivyFile)).append("\n");
     sb.append("    javadocFile: ").append(toIndentedString(javadocFile)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
