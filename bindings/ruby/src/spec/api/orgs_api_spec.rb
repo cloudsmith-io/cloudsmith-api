@@ -260,6 +260,19 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_members_refresh
+  # Refresh a member of the organization&#39;s API key.
+  # Refresh a member of the organization&#39;s API key.
+  # @param org 
+  # @param member 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'orgs_members_refresh test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_members_remove
   # Removes a member from the organization (deprecated, use DELETE instead).
   # Removes a member from the organization (deprecated, use DELETE instead).

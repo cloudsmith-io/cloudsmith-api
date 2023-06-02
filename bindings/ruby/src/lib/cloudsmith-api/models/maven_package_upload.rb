@@ -107,6 +107,10 @@ class MavenPackageUpload
 
   attr_accessor :repository_url
 
+  attr_accessor :sbt_version
+
+  attr_accessor :scala_version
+
   # The datetime the security scanning was completed.
   attr_accessor :security_scan_completed_at
 
@@ -248,6 +252,8 @@ class MavenPackageUpload
       :'release' => :'release',
       :'repository' => :'repository',
       :'repository_url' => :'repository_url',
+      :'sbt_version' => :'sbt_version',
+      :'scala_version' => :'scala_version',
       :'security_scan_completed_at' => :'security_scan_completed_at',
       :'security_scan_started_at' => :'security_scan_started_at',
       :'security_scan_status' => :'security_scan_status',
@@ -325,6 +331,8 @@ class MavenPackageUpload
       :'release' => :'String',
       :'repository' => :'String',
       :'repository_url' => :'String',
+      :'sbt_version' => :'String',
+      :'scala_version' => :'String',
       :'security_scan_completed_at' => :'DateTime',
       :'security_scan_started_at' => :'DateTime',
       :'security_scan_status' => :'String',
@@ -534,6 +542,14 @@ class MavenPackageUpload
       self.repository_url = attributes[:'repository_url']
     end
 
+    if attributes.has_key?(:'sbt_version')
+      self.sbt_version = attributes[:'sbt_version']
+    end
+
+    if attributes.has_key?(:'scala_version')
+      self.scala_version = attributes[:'scala_version']
+    end
+
     if attributes.has_key?(:'security_scan_completed_at')
       self.security_scan_completed_at = attributes[:'security_scan_completed_at']
     end
@@ -728,6 +744,8 @@ class MavenPackageUpload
         release == o.release &&
         repository == o.repository &&
         repository_url == o.repository_url &&
+        sbt_version == o.sbt_version &&
+        scala_version == o.scala_version &&
         security_scan_completed_at == o.security_scan_completed_at &&
         security_scan_started_at == o.security_scan_started_at &&
         security_scan_status == o.security_scan_status &&
@@ -769,7 +787,7 @@ class MavenPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, packaging, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, artifact_id, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, group_id, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, packaging, release, repository, repository_url, sbt_version, scala_version, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

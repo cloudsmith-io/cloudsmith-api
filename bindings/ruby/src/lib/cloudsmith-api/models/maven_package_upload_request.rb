@@ -38,6 +38,10 @@ class MavenPackageUploadRequest
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
+  attr_accessor :sbt_version
+
+  attr_accessor :scala_version
+
   # Adds bundled Java source code to the Maven package.
   attr_accessor :sources_file
 
@@ -61,6 +65,8 @@ class MavenPackageUploadRequest
       :'packaging' => :'packaging',
       :'pom_file' => :'pom_file',
       :'republish' => :'republish',
+      :'sbt_version' => :'sbt_version',
+      :'scala_version' => :'scala_version',
       :'sources_file' => :'sources_file',
       :'tags' => :'tags',
       :'tests_file' => :'tests_file',
@@ -79,6 +85,8 @@ class MavenPackageUploadRequest
       :'packaging' => :'String',
       :'pom_file' => :'String',
       :'republish' => :'BOOLEAN',
+      :'sbt_version' => :'String',
+      :'scala_version' => :'String',
       :'sources_file' => :'String',
       :'tags' => :'String',
       :'tests_file' => :'String',
@@ -124,6 +132,14 @@ class MavenPackageUploadRequest
 
     if attributes.has_key?(:'republish')
       self.republish = attributes[:'republish']
+    end
+
+    if attributes.has_key?(:'sbt_version')
+      self.sbt_version = attributes[:'sbt_version']
+    end
+
+    if attributes.has_key?(:'scala_version')
+      self.scala_version = attributes[:'scala_version']
     end
 
     if attributes.has_key?(:'sources_file')
@@ -174,6 +190,8 @@ class MavenPackageUploadRequest
         packaging == o.packaging &&
         pom_file == o.pom_file &&
         republish == o.republish &&
+        sbt_version == o.sbt_version &&
+        scala_version == o.scala_version &&
         sources_file == o.sources_file &&
         tags == o.tags &&
         tests_file == o.tests_file &&
@@ -189,7 +207,7 @@ class MavenPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [artifact_id, group_id, ivy_file, javadoc_file, package_file, packaging, pom_file, republish, sources_file, tags, tests_file, version].hash
+    [artifact_id, group_id, ivy_file, javadoc_file, package_file, packaging, pom_file, republish, sbt_version, scala_version, sources_file, tags, tests_file, version].hash
   end
 
     # Builds the object from hash

@@ -44,6 +44,8 @@ Name | Type | Description | Notes
 **release** | **str** | The release of the package version (if any). | [optional] 
 **repository** | **str** |  | [optional] 
 **repository_url** | **str** |  | [optional] 
+**sbt_version** | **str** |  | [optional] 
+**scala_version** | **str** |  | [optional] 
 **security_scan_completed_at** | **datetime** | The datetime the security scanning was completed. | [optional] 
 **security_scan_started_at** | **datetime** | The datetime the security scanning was started. | [optional] 
 **security_scan_status** | **str** |  | [optional] [default to 'Awaiting Security Scan']

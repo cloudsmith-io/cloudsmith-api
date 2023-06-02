@@ -165,6 +165,12 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("repository_url")
   private String repositoryUrl = null;
 
+  @SerializedName("sbt_version")
+  private String sbtVersion = null;
+
+  @SerializedName("scala_version")
+  private String scalaVersion = null;
+
   @SerializedName("security_scan_completed_at")
   private OffsetDateTime securityScanCompletedAt = null;
 
@@ -732,6 +738,42 @@ public class MavenPackageUpload implements Serializable {
     return repositoryUrl;
   }
 
+  public MavenPackageUpload sbtVersion(String sbtVersion) {
+    this.sbtVersion = sbtVersion;
+    return this;
+  }
+
+   /**
+   * Get sbtVersion
+   * @return sbtVersion
+  **/
+ @Size(max=64)  @ApiModelProperty(value = "")
+  public String getSbtVersion() {
+    return sbtVersion;
+  }
+
+  public void setSbtVersion(String sbtVersion) {
+    this.sbtVersion = sbtVersion;
+  }
+
+  public MavenPackageUpload scalaVersion(String scalaVersion) {
+    this.scalaVersion = scalaVersion;
+    return this;
+  }
+
+   /**
+   * Get scalaVersion
+   * @return scalaVersion
+  **/
+ @Size(max=64)  @ApiModelProperty(value = "")
+  public String getScalaVersion() {
+    return scalaVersion;
+  }
+
+  public void setScalaVersion(String scalaVersion) {
+    this.scalaVersion = scalaVersion;
+  }
+
    /**
    * The datetime the security scanning was completed.
    * @return securityScanCompletedAt
@@ -1079,6 +1121,8 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.release, mavenPackageUpload.release) &&
         Objects.equals(this.repository, mavenPackageUpload.repository) &&
         Objects.equals(this.repositoryUrl, mavenPackageUpload.repositoryUrl) &&
+        Objects.equals(this.sbtVersion, mavenPackageUpload.sbtVersion) &&
+        Objects.equals(this.scalaVersion, mavenPackageUpload.scalaVersion) &&
         Objects.equals(this.securityScanCompletedAt, mavenPackageUpload.securityScanCompletedAt) &&
         Objects.equals(this.securityScanStartedAt, mavenPackageUpload.securityScanStartedAt) &&
         Objects.equals(this.securityScanStatus, mavenPackageUpload.securityScanStatus) &&
@@ -1113,7 +1157,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1163,6 +1207,8 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
+    sb.append("    sbtVersion: ").append(toIndentedString(sbtVersion)).append("\n");
+    sb.append("    scalaVersion: ").append(toIndentedString(scalaVersion)).append("\n");
     sb.append("    securityScanCompletedAt: ").append(toIndentedString(securityScanCompletedAt)).append("\n");
     sb.append("    securityScanStartedAt: ").append(toIndentedString(securityScanStartedAt)).append("\n");
     sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");
