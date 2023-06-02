@@ -41,6 +41,8 @@ class MavenPackageUploadRequest(object):
         'packaging': 'str',
         'pom_file': 'str',
         'republish': 'bool',
+        'sbt_version': 'str',
+        'scala_version': 'str',
         'sources_file': 'str',
         'tags': 'str',
         'tests_file': 'str',
@@ -56,13 +58,15 @@ class MavenPackageUploadRequest(object):
         'packaging': 'packaging',
         'pom_file': 'pom_file',
         'republish': 'republish',
+        'sbt_version': 'sbt_version',
+        'scala_version': 'scala_version',
         'sources_file': 'sources_file',
         'tags': 'tags',
         'tests_file': 'tests_file',
         'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, group_id=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, artifact_id=None, group_id=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sbt_version=None, scala_version=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
         """MavenPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -76,6 +80,8 @@ class MavenPackageUploadRequest(object):
         self._packaging = None
         self._pom_file = None
         self._republish = None
+        self._sbt_version = None
+        self._scala_version = None
         self._sources_file = None
         self._tags = None
         self._tests_file = None
@@ -97,6 +103,10 @@ class MavenPackageUploadRequest(object):
             self.pom_file = pom_file
         if republish is not None:
             self.republish = republish
+        if sbt_version is not None:
+            self.sbt_version = sbt_version
+        if scala_version is not None:
+            self.scala_version = scala_version
         if sources_file is not None:
             self.sources_file = sources_file
         if tags is not None:
@@ -312,6 +322,54 @@ class MavenPackageUploadRequest(object):
         """
 
         self._republish = republish
+
+    @property
+    def sbt_version(self):
+        """Gets the sbt_version of this MavenPackageUploadRequest.
+
+
+        :return: The sbt_version of this MavenPackageUploadRequest.
+        :rtype: str
+        """
+        return self._sbt_version
+
+    @sbt_version.setter
+    def sbt_version(self, sbt_version):
+        """Sets the sbt_version of this MavenPackageUploadRequest.
+
+
+        :param sbt_version: The sbt_version of this MavenPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                sbt_version is not None and len(sbt_version) > 64):
+            raise ValueError("Invalid value for `sbt_version`, length must be less than or equal to `64`")  # noqa: E501
+
+        self._sbt_version = sbt_version
+
+    @property
+    def scala_version(self):
+        """Gets the scala_version of this MavenPackageUploadRequest.
+
+
+        :return: The scala_version of this MavenPackageUploadRequest.
+        :rtype: str
+        """
+        return self._scala_version
+
+    @scala_version.setter
+    def scala_version(self, scala_version):
+        """Sets the scala_version of this MavenPackageUploadRequest.
+
+
+        :param scala_version: The scala_version of this MavenPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                scala_version is not None and len(scala_version) > 64):
+            raise ValueError("Invalid value for `scala_version`, length must be less than or equal to `64`")  # noqa: E501
+
+        self._scala_version = scala_version
 
     @property
     def sources_file(self):

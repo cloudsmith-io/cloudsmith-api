@@ -74,6 +74,8 @@ class MavenPackageUpload(object):
         'release': 'str',
         'repository': 'str',
         'repository_url': 'str',
+        'sbt_version': 'str',
+        'scala_version': 'str',
         'security_scan_completed_at': 'datetime',
         'security_scan_started_at': 'datetime',
         'security_scan_status': 'str',
@@ -148,6 +150,8 @@ class MavenPackageUpload(object):
         'release': 'release',
         'repository': 'repository',
         'repository_url': 'repository_url',
+        'sbt_version': 'sbt_version',
+        'scala_version': 'scala_version',
         'security_scan_completed_at': 'security_scan_completed_at',
         'security_scan_started_at': 'security_scan_started_at',
         'security_scan_status': 'security_scan_status',
@@ -180,7 +184,7 @@ class MavenPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, group_id=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, packaging=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, group_id=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, packaging=None, release=None, repository=None, repository_url=None, sbt_version=None, scala_version=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """MavenPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -227,6 +231,8 @@ class MavenPackageUpload(object):
         self._release = None
         self._repository = None
         self._repository_url = None
+        self._sbt_version = None
+        self._scala_version = None
         self._security_scan_completed_at = None
         self._security_scan_started_at = None
         self._security_scan_status = None
@@ -341,6 +347,10 @@ class MavenPackageUpload(object):
             self.repository = repository
         if repository_url is not None:
             self.repository_url = repository_url
+        if sbt_version is not None:
+            self.sbt_version = sbt_version
+        if scala_version is not None:
+            self.scala_version = scala_version
         if security_scan_completed_at is not None:
             self.security_scan_completed_at = security_scan_completed_at
         if security_scan_started_at is not None:
@@ -1311,6 +1321,54 @@ class MavenPackageUpload(object):
         """
 
         self._repository_url = repository_url
+
+    @property
+    def sbt_version(self):
+        """Gets the sbt_version of this MavenPackageUpload.
+
+
+        :return: The sbt_version of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._sbt_version
+
+    @sbt_version.setter
+    def sbt_version(self, sbt_version):
+        """Sets the sbt_version of this MavenPackageUpload.
+
+
+        :param sbt_version: The sbt_version of this MavenPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                sbt_version is not None and len(sbt_version) > 64):
+            raise ValueError("Invalid value for `sbt_version`, length must be less than or equal to `64`")  # noqa: E501
+
+        self._sbt_version = sbt_version
+
+    @property
+    def scala_version(self):
+        """Gets the scala_version of this MavenPackageUpload.
+
+
+        :return: The scala_version of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._scala_version
+
+    @scala_version.setter
+    def scala_version(self, scala_version):
+        """Sets the scala_version of this MavenPackageUpload.
+
+
+        :param scala_version: The scala_version of this MavenPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                scala_version is not None and len(scala_version) > 64):
+            raise ValueError("Invalid value for `scala_version`, length must be less than or equal to `64`")  # noqa: E501
+
+        self._scala_version = scala_version
 
     @property
     def security_scan_completed_at(self):

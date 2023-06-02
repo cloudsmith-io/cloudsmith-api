@@ -1028,6 +1028,65 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Refresh a member of the organization's API key.
+    # Refresh a member of the organization's API key.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_members_refresh(org, member, opts = {})
+      orgs_members_refresh_with_http_info(org, member, opts)
+      nil
+    end
+
+    # Refresh a member of the organization&#39;s API key.
+    # Refresh a member of the organization&#39;s API key.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_members_refresh_with_http_info(org, member, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_members_refresh ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_members_refresh"
+      end
+      # verify the required parameter 'member' is set
+      if @api_client.config.client_side_validation && member.nil?
+        fail ArgumentError, "Missing the required parameter 'member' when calling OrgsApi.orgs_members_refresh"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/members/{member}/refresh/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'member' + '}', member.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_members_refresh\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Removes a member from the organization (deprecated, use DELETE instead).
     # Removes a member from the organization (deprecated, use DELETE instead).
     # @param org 

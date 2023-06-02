@@ -45,6 +45,8 @@ Name | Type | Description | Notes
 **release** | **String** | The release of the package version (if any). |  [optional]
 **repository** | **String** |  |  [optional]
 **repositoryUrl** | **String** |  |  [optional]
+**sbtVersion** | **String** |  |  [optional]
+**scalaVersion** | **String** |  |  [optional]
 **securityScanCompletedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was completed. |  [optional]
 **securityScanStartedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was started. |  [optional]
 **securityScanStatus** | [**SecurityScanStatusEnum**](#SecurityScanStatusEnum) |  |  [optional]

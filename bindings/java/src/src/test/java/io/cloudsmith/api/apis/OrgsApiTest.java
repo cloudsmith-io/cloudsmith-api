@@ -352,6 +352,23 @@ public class OrgsApiTest {
     }
     
     /**
+     * Refresh a member of the organization&#39;s API key.
+     *
+     * Refresh a member of the organization&#39;s API key.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsMembersRefreshTest() throws Exception {
+        String org = null;
+        String member = null;
+        api.orgsMembersRefresh(org, member);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Removes a member from the organization (deprecated, use DELETE instead).
      *
      * Removes a member from the organization (deprecated, use DELETE instead).

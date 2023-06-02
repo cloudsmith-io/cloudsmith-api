@@ -148,6 +148,13 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_members_refresh(self):
+        """Test case for orgs_members_refresh
+
+        Refresh a member of the organization's API key.  # noqa: E501
+        """
+        pass
+
     def test_orgs_members_remove(self):
         """Test case for orgs_members_remove
 

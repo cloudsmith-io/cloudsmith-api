@@ -58,6 +58,12 @@ public class MavenPackageUploadRequest implements Serializable {
   @SerializedName("republish")
   private Boolean republish = null;
 
+  @SerializedName("sbt_version")
+  private String sbtVersion = null;
+
+  @SerializedName("scala_version")
+  private String scalaVersion = null;
+
   @SerializedName("sources_file")
   private String sourcesFile = null;
 
@@ -215,6 +221,42 @@ public class MavenPackageUploadRequest implements Serializable {
     this.republish = republish;
   }
 
+  public MavenPackageUploadRequest sbtVersion(String sbtVersion) {
+    this.sbtVersion = sbtVersion;
+    return this;
+  }
+
+   /**
+   * Get sbtVersion
+   * @return sbtVersion
+  **/
+ @Size(max=64)  @ApiModelProperty(value = "")
+  public String getSbtVersion() {
+    return sbtVersion;
+  }
+
+  public void setSbtVersion(String sbtVersion) {
+    this.sbtVersion = sbtVersion;
+  }
+
+  public MavenPackageUploadRequest scalaVersion(String scalaVersion) {
+    this.scalaVersion = scalaVersion;
+    return this;
+  }
+
+   /**
+   * Get scalaVersion
+   * @return scalaVersion
+  **/
+ @Size(max=64)  @ApiModelProperty(value = "")
+  public String getScalaVersion() {
+    return scalaVersion;
+  }
+
+  public void setScalaVersion(String scalaVersion) {
+    this.scalaVersion = scalaVersion;
+  }
+
   public MavenPackageUploadRequest sourcesFile(String sourcesFile) {
     this.sourcesFile = sourcesFile;
     return this;
@@ -305,6 +347,8 @@ public class MavenPackageUploadRequest implements Serializable {
         Objects.equals(this.packaging, mavenPackageUploadRequest.packaging) &&
         Objects.equals(this.pomFile, mavenPackageUploadRequest.pomFile) &&
         Objects.equals(this.republish, mavenPackageUploadRequest.republish) &&
+        Objects.equals(this.sbtVersion, mavenPackageUploadRequest.sbtVersion) &&
+        Objects.equals(this.scalaVersion, mavenPackageUploadRequest.scalaVersion) &&
         Objects.equals(this.sourcesFile, mavenPackageUploadRequest.sourcesFile) &&
         Objects.equals(this.tags, mavenPackageUploadRequest.tags) &&
         Objects.equals(this.testsFile, mavenPackageUploadRequest.testsFile) &&
@@ -313,7 +357,7 @@ public class MavenPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, groupId, ivyFile, javadocFile, packageFile, packaging, pomFile, republish, sourcesFile, tags, testsFile, version);
+    return Objects.hash(artifactId, groupId, ivyFile, javadocFile, packageFile, packaging, pomFile, republish, sbtVersion, scalaVersion, sourcesFile, tags, testsFile, version);
   }
 
 
@@ -330,6 +374,8 @@ public class MavenPackageUploadRequest implements Serializable {
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
     sb.append("    pomFile: ").append(toIndentedString(pomFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    sbtVersion: ").append(toIndentedString(sbtVersion)).append("\n");
+    sb.append("    scalaVersion: ").append(toIndentedString(scalaVersion)).append("\n");
     sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    testsFile: ").append(toIndentedString(testsFile)).append("\n");
